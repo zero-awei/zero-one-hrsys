@@ -1,13 +1,23 @@
-# `zero-one-xxx`
+# `zero-one-hrsys`
 
-xxx相关概念参考：
+人力资源相关概念参考：
 
-- 
-- 
+- [人力资源 - MBA智库百科 (mbalib.com)](https://wiki.mbalib.com/wiki/人力资源)
+- [人力资源管理 - MBA智库百科 (mbalib.com)](https://wiki.mbalib.com/wiki/人力资源管理)
+- [人力资源管理系统 - MBA智库百科 (mbalib.com)](https://wiki.mbalib.com/wiki/人力资源管理系统)
 
 ## 项目简介
 
+`zero-one-hrsys`是一款专业的企业级人力资源管理软件，旨在帮助企业高效、科学地管理员工信息，优化人力资源管理流程，提升员工工作满意度和企业整体运营效率。该系统提供了全面的人事管理功能，包括员工信息管理、薪酬管理、考勤管理、绩效管理、培训管理、招聘管理等，满足企业不同层级和业务部门的人力资源管理需求。
 
+项目特点：
+
+- **全面的人事管理功能**：系统提供了丰富的人事管理功能，包括员工信息的录入、查询、修改、删除，薪酬计算和发放，考勤管理和统计，绩效评估和报告，培训计划和记录等，全面满足企业对人力资源管理的需求。
+- **灵活的配置和定制性**：系统支持灵活的配置和定制，可以根据企业的组织结构、人事政策和流程进行设置，满足不同企业的特定需求。管理员可以根据权限管理模块的设置，灵活控制用户的操作权限，保障系统的安全和稳定运行。
+- **友好的用户界面和操作体验**：系统采用现代化的界面设计和用户友好的操作体验，简化了人事管理的操作流程，减少了学习成本，提高了员工使用的便利性，从而提高了工作效率。
+- **全面的数据统计和报表功能**：系统提供了全面的数据统计和报表功能，包括员工信息的统计分析、薪酬和福利的报表生成、考勤和绩效的数据分析和报告等，为企业提供决策支持和管理参考。
+- **高效的招聘管理功能**：系统支持企业的招聘管理流程，包括岗位发布、简历筛选、面试安排、录用管理等，帮助企业高效地吸引和选拔人才，提升招聘效果和人才储备。
+- **系统安全和数据保护**：系统采用严格的权限管理和数据加密技术，确保员工信息和企业数据的安全性和保密性。系统还支持数据备份和恢复功能，保障数据的可靠性和完整性。
 
 ## 系统架构图
 
@@ -16,7 +26,7 @@ xxx相关概念参考：
 ![architecture](./documents/00、preview-pic/architecture.jpg)
 
 ## 项目结构说明
-> `zero-one-xxx`  
+> `zero-one-hrsys`  
 >
 > > `.gitignore` -- 忽略提交配置
 > >
@@ -24,11 +34,11 @@ xxx相关概念参考：
 > >
 > > `documents` -- 环境搭建、编码规范、项目需求等等文档资源
 > >
-> > `xxx-java` -- `Java`项目主体
+> > `hr-java` -- `Java`项目主体
 > >
-> > `xxx-cpp` -- `C++`项目主体
+> > `hr-cpp` -- `C++`项目主体
 > >
-> > `xxx-frontend` -- 前端项目主体
+> > `hr-frontend` -- 前端项目主体
 
 ## 软件架构
 
@@ -59,6 +69,7 @@ https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4
 | `Spring Cloud Security`  | 认证和授权框架         | 2.2.5         | https://spring.io/projects/spring-cloud-security             |
 | `Sentinel`               | 分布式系统的流量防卫兵 | 1.8.4         | https://sentinelguard.io/zh-cn/                              |
 | `Seata`                  | 分布式事务解决方案     | 1.5.1         | https://seata.io/zh-cn/                                      |
+| `MapStruct`              | 实体类映射代码生成器   | `1.5.3.Final` | https://mapstruct.org/                                       |
 
 #### 后端扩展技术栈
 
@@ -92,16 +103,18 @@ https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#requirem
 | `Vue`          | 前端框架         | `v3.x`                                                       | https://v3.vuejs.org/                |
 | `Vue-Router`   | 路由框架         | `v4.x`                                                       | https://next.router.vuejs.org/       |
 | `Pinia`        | 全局状态管理框架 | `v2.x`                                                       | https://pinia.vuejs.org/             |
-| `Axios`        | HTTP中间件       | [v0.27.2](https://github.com/axios/axios/releases/tag/v0.27.2) | https://github.com/axios/axios       |
-| `Element-Plus` | 前端`UI`框架     | latest                                                       | https://element-plus.gitee.io/zh-CN/ |
+| `Axios`        | HTTP中间件       | [`v0.27.2`](https://github.com/axios/axios/releases/tag/v0.27.2) | https://github.com/axios/axios       |
+| `Element-Plus` | 前端`UI`框架     | `latest`                                                     | https://element-plus.gitee.io/zh-CN/ |
 
 #### 扩展技术栈
 
-| 技术         | 说明                    | 版本     | 备注                                         |
-| ------------ | ----------------------- | -------- | -------------------------------------------- |
-| `Avue`       | 基于`ElementUI`二次封装 | `v3.1.4` | https://v3.avuejs.com/                       |
-| `V-Charts`   | 基于`Echarts`的图表框架 | latest   | https://v-charts.js.org/                     |
-| `AJ-Captcha` | 验证码插件              | 1.3.0    | https://ajcaptcha.beliefteam.cn/captcha-doc/ |
+| 技术                 | 说明                    | 版本     | 备注                                                         |
+| -------------------- | ----------------------- | -------- | ------------------------------------------------------------ |
+| `Avue`               | 基于`ElementUI`二次封装 | `v3.1.4` | https://v3.avuejs.com/                                       |
+| `V-Charts`           | 基于`Echarts`的图表框架 | latest   | https://v-charts.js.org/                                     |
+| `AJ-Captcha`         | 验证码插件              | 1.3.0    | https://ajcaptcha.beliefteam.cn/captcha-doc/                 |
+| `SheetJS`            | 电子表格插件            | 0.19.2   | https://docs.sheetjs.com/docs/<br>https://docs.sheetjs.com/docs/demos/frontend/vue |
+| `vue-plugin-hiprint` | 打印插件                | 0.0.48   | https://gitee.com/CcSimple/vue-plugin-hiprint                |
 
 ### `CPP`技术栈
 
@@ -186,7 +199,7 @@ https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#requirem
 
 ## 特别鸣谢
 
-`zero-one-xxx`的诞生离不开开源软件和社区的支持，感谢以下开源项目及项目维护者：
+`zero-one-hrsys` 的诞生离不开开源软件和社区的支持，感谢以下开源项目及项目维护者：
 
 - `spring`：https://github.com/spring-projects
 - `alibaba`：https://github.com/alibaba
@@ -196,12 +209,12 @@ https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#requirem
 - `vue`：https://github.com/vuejs
 - `ui`：https://github.com/ElemeFE
 - `oatpp`：https://github.com/oatpp/oatpp
-- `业务参考项目`：
+- `业务参考项目`：https://gitee.com/ibizlab/iBizEHR
 
 同时也感谢其他没有明确写出来的开源组件提供给与维护者。
 
 ## 支持一下
 
-如果觉得框架和项目还不错，点个⭐Star，这将是对**“01星球”**极大的鼓励与支持。
+如果觉得框架和项目还不错，点个⭐Star，这将是对**01星球**极大的鼓励与支持。
 
 想了解更多关于计算机方向选择、学习建议等相关信息，可以关注[**01星球B站主页~**](https://space.bilibili.com/1653229811?spm_id_from=333.1007.0.0)
