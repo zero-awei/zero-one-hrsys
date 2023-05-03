@@ -15,14 +15,23 @@
 
 业务参考项目源码地址：
 
+- https://gitee.com/ibizlab/iBizEHR
+
 业务参考项目其他参考：
 
-- 参考1：
-- 参考2：
+- 项目详细文档：https://gitee.com/ibizlab/iBizEHR/wikis/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84
 
 业务参考项目在线演示：
 
-- 访问地址：
-- 账号：
-- 密码：
-
+- 基础管理：http://ehr.ibizlab.cn
+- 招聘管理：http://ehrpcm.ibizlab.cn
+- 组织管理：http://ehrorm.ibizlab.cn
+- 假勤管理：http://ehratt.ibizlab.cn
+- 人员异动：http://ehrpcm2.ibizlab.cn
+- 绩效管理：http://ehrpar.ibizlab.cn
+- 薪酬管理：http://ehrsal.ibizlab.cn
+- 培训管理：http://ehrtrm.ibizlab.cn
+- 社保管理：http://ehrsoc.ibizlab.cn
+- 共用账号密码：
+  - 账号：ibzadmin
+  - 密码：123456
