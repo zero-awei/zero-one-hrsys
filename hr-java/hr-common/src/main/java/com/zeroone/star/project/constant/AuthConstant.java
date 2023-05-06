@@ -24,12 +24,12 @@ public interface AuthConstant {
     /**
      * app端客户端类型定义
      */
-    String CLIENT_APP = "project-app";
+    String CLIENT_APP = "hr-app";
 
     /**
      * 管理端客户端类型定义
      */
-    String CLIENT_MANAGER = "project-manager";
+    String CLIENT_MANAGER = "hr-manager";
 
     /**
      * 客户端密码
