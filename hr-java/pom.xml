@@ -38,6 +38,7 @@
         <module>hr-apis</module>
         <module>hr-doc</module>
         <module>hr-sample</module>
+        <module>hr-sample-captcha</module>
     </modules>
     <properties>
         <!-- 打包的时候忽略测试案例调用 -->

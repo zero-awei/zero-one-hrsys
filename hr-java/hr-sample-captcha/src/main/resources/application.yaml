@@ -1,0 +1,6 @@
+# 应用名称
+server:
+  port: ${sp.captcha}
+spring:
+  application:
+    name: ${sn.captcha}
