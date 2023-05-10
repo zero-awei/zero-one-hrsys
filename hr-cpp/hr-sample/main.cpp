@@ -31,6 +31,7 @@
 #include "NacosClient.h"
 #include "YamlHelper.h"
 #endif
+#include "testlib/TestFastDfs.h"
 
 /**
  * 解析启动参数
@@ -135,7 +136,7 @@ int main(int argc, char* argv[]) {
 
 	// 服务器参数初始化
 	bool isSetDb = getStartArg(argc, argv);
-
+	TestFastDfs::testDfs();
 #ifdef USE_NACOS
 	// 创建Nacos客户端对象
 	NacosClient nacosClient(
