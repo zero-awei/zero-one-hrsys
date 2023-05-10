@@ -1,0 +1,9 @@
+[
+  {
+    "resource": "GET:http://localhost:8090/sample",
+    "grade": 0,
+    "count": 1000.0,
+    "timeWindow": 10,
+    "minRequestAmount": 1
+  }
+]
