@@ -40,6 +40,7 @@
         <module>hr-sample</module>
         <module>hr-sample-captcha</module>
         <module>hr-sample-cpp</module>
+        <module>hr-sample-ws</module>
     </modules>
     <properties>
         <!-- 打包的时候忽略测试案例调用 -->
