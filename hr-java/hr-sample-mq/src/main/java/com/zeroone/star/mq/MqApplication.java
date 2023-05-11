@@ -1,10 +1,10 @@
-package com.zeroone.star.ws;
+package com.zeroone.star.mq;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.stream.annotation.EnableBinding;
-import org.springframework.cloud.stream.messaging.Sink;
+import org.springframework.cloud.stream.messaging.Source;
 
 /**
  * <p>
@@ -17,9 +17,9 @@ import org.springframework.cloud.stream.messaging.Sink;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableBinding(Sink.class)
-public class WsApplication {
+@EnableBinding(Source.class)
+public class MqApplication {
     public static void main(String[] args) {
-        SpringApplication.run(WsApplication.class,args);
+        SpringApplication.run(MqApplication.class,args);
     }
 }

@@ -3,3 +3,13 @@ server:
 spring:
   application:
     name: ${sn.ws}
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          name-server: ${rocket-mq.name-server}
+      bindings:
+        input:
+          destination: socket-topic
+          content-type: application/json
+          group: socket

@@ -1,0 +1,28 @@
+server:
+  port: ${sp.publish}
+spring:
+  application:
+    name: ${sn.publish}
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          name-server: ${rocket-mq.name-server}
+        bindings:
+          output:
+            producer:
+              group: socket
+              sync: true
+      bindings:
+        output:
+          destination: socket-topic
+          content-type: application/json
+# 查看mq日志
+logging:
+  level:
+    com:
+      alibaba:
+        cloud:
+          stream:
+            binder:
+              rocketmq: DEBUG

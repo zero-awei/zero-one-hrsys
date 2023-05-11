@@ -1,5 +1,6 @@
 package com.zeroone.star.ws.service;
 
+import cn.hutool.json.JSONUtil;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
 
@@ -84,5 +85,28 @@ public class ChatServer {
             }
         }
         return session.getQueryString() + "：消息发送成功";
+    }
+
+    /**
+     * 发送消息
+     * @param id      用户编号
+     * @param message 消息内容
+     */
+    @SneakyThrows
+    public void sendMessage(String id, Object message) {
+        //群发
+        if ("all".equals(id)) {
+            for (Session sub : SESSION_POOL.values()) {
+                // 发送消息
+                sub.getBasicRemote().sendText(JSONUtil.toJsonStr(message));
+            }
+        }
+        //指定发送
+        else {
+            Session target = SESSION_POOL.get(id);
+            if (target != null) {
+                target.getBasicRemote().sendText(JSONUtil.toJsonStr(message));
+            }
+        }
     }
 }

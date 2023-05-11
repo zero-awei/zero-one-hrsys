@@ -8,7 +8,7 @@
         <version>${revision}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>hr-sample-ws</artifactId>
+    <artifactId>hr-sample-mq</artifactId>
     <dependencies>
         <!-- spring mvc -->
         <dependency>
@@ -21,10 +21,10 @@
             <groupId>com.zeroone.star</groupId>
             <artifactId>hr-common</artifactId>
         </dependency>
-        <!-- zo apis -->
+        <!-- zo domain -->
         <dependency>
             <groupId>com.zeroone.star</groupId>
-            <artifactId>hr-apis</artifactId>
+            <artifactId>hr-domain</artifactId>
         </dependency>
         <!-- nacos discovery -->
         <dependency>
@@ -35,11 +35,6 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
-        <!-- websocket -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
         <!-- rocket mq -->
         <dependency>
@@ -54,7 +49,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <mainClass>
-                        com.zeroone.star.ws.WsApplication
+                        com.zeroone.star.mq.MqApplication
                     </mainClass>
                 </configuration>
             </plugin>
