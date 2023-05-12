@@ -1,0 +1,5 @@
+server:
+  port: ${sp.mongo}
+spring:
+  application:
+    name: ${sn.mongo}
