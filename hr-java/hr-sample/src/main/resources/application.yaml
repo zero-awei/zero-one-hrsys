@@ -15,3 +15,8 @@ seata:
       tx-business: default
     #开启全局事务
     disable-global-transaction: false
+
+# 设置日志级别为debug用于测试ELK记录日志
+logging:
+  level:
+    root: debug
