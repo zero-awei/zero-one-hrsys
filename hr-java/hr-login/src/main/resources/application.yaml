@@ -1,0 +1,25 @@
+server:
+  port: ${sp.login}
+spring:
+  application:
+    name: ${sn.login}
+  cloud:
+    sentinel:
+      transport:
+        # 控制台地址
+        dashboard: ${sentinel.dashboard}
+        port: 8720
+      eager: true
+
+# 开启sentinel声明式服务熔断
+feign:
+  sentinel:
+    enabled: true
+
+# 负载均衡配置
+ribbon:
+  MaxAutoRetries: 0 #（默认1次 不包括第一次）最大重试次数，当注册中心中可以找到服务，但是服务连不上时将会重试，如果注册中心中找不到服务则直接走断路器
+  MaxAutoRetriesNextServer: 1 #（默认0次 不包括第一次）切换实例的重试次数
+  OkToRetryOnAllOperations: false  #对所有操作请求都进行重试，如果是get则可以，如果是post，put等操作没有实现幂等的情况下是很危险的,所以设置为false
+  ConnectTimeout: 5000  #（默认1s，即1000）请求连接的超时时间
+  ReadTimeout: 5000 #（默认1s，即1000）请求处理的超时时间
