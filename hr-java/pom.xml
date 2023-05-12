@@ -36,6 +36,9 @@
         <module>hr-common</module>
         <module>hr-domain</module>
         <module>hr-apis</module>
+        <module>hr-oauth2</module>
+        <module>hr-login</module>
+        <module>hr-gateway</module>
         <module>hr-doc</module>
         <module>hr-sample</module>
         <module>hr-sample-captcha</module>
