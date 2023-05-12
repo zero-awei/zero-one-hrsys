@@ -1,13 +1,12 @@
-package com.zeroone.star.sample;
+package com.zeroone.star.seata;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * <p>
- * 描述：程序入口
+ * 描述：服务器启动入口
  * </p>
  * <p>版权：&copy;01星球</p>
  * <p>地址：01星球总部</p>
@@ -16,9 +15,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients
-public class SampleApplication {
+public class SeataApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(SampleApplication.class,args);
+        SpringApplication.run(SeataApplication.class, args);
     }
+
 }

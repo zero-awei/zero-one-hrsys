@@ -1,11 +1,11 @@
 server:
-  port: ${sp.sample}
+  port: ${sp.seata}
 spring:
   application:
-    name: ${sn.sample}
+    name: ${sn.seata}
 seata:
-  enabled: true
   tx-service-group: tx-business
+  enabled: true
   service:
     #seata服务地址
     grouplist:

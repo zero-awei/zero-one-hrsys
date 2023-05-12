@@ -45,6 +45,7 @@
         <module>hr-sample-cpp</module>
         <module>hr-sample-ws</module>
         <module>hr-sample-mq</module>
+        <module>hr-sample-seata</module>
     </modules>
     <properties>
         <!-- 打包的时候忽略测试案例调用 -->

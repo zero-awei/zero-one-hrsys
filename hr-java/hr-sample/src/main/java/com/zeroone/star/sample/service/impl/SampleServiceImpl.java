@@ -9,6 +9,8 @@ import com.zeroone.star.sample.entity.Sample;
 import com.zeroone.star.sample.mapper.SampleMapper;
 import com.zeroone.star.sample.service.ISampleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.zeroone.star.sample.service.SeataFeignService;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Service;
 
@@ -61,9 +63,32 @@ public class SampleServiceImpl extends ServiceImpl<SampleMapper, Sample> impleme
     @Override
     public SampleDTO getById(int id) {
         Sample sample = baseMapper.selectById(id);
-        if (sample != null){
+        if (sample != null) {
             return msSampleMapper.sampleToSampleDto(sample);
         }
         return null;
+    }
+
+    @Resource
+    SeataFeignService seataFeignService;
+
+    @GlobalTransactional
+    @Override
+    public int testSeata() {
+        // 先保存本地数据
+        Sample sample = new Sample();
+        sample.setAge(11);
+        sample.setName("大明");
+        sample.setSex("女");
+        int row = baseMapper.insert(sample);
+        if (row != 1) {
+            throw new RuntimeException("本地保存失败");
+        }
+        // 再保存远程数据
+        Integer res = seataFeignService.testTrans();
+        if (res == null || res != 1) {
+            throw new RuntimeException("远程保存失败");
+        }
+        return 1;
     }
 }

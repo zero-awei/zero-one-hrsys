@@ -8,9 +8,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
- *
  * @author awei
  * @since 2023-05-06
  */
@@ -28,4 +27,10 @@ public interface ISampleService extends IService<Sample> {
      * @return 查询结果
      */
     SampleDTO getById(int id);
+
+    /**
+     * 测试调用seata服务
+     * @return 执行结果
+     */
+    int testSeata();
 }
