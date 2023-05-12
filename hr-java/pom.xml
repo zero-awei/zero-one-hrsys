@@ -46,6 +46,7 @@
         <module>hr-sample-ws</module>
         <module>hr-sample-mq</module>
         <module>hr-sample-seata</module>
+        <module>hr-sample-ee</module>
     </modules>
     <properties>
         <!-- 打包的时候忽略测试案例调用 -->
