@@ -33,6 +33,7 @@
 #endif
 #include "testlib/TestFastDfs.h"
 #include "testlib/TestExcel.h"
+#include "testlib/TestNoSQL.h"
 
 /**
  * 解析启动参数
@@ -138,7 +139,10 @@ int main(int argc, char* argv[]) {
 	// 服务器参数初始化
 	bool isSetDb = getStartArg(argc, argv);
 	//TestFastDfs::testDfs();
-	TestExcel::test();
+	//TestExcel::test();
+	TestNoSQL nosql;
+	//nosql.testRedis();
+	nosql.testMongo();
 #ifdef USE_NACOS
 	// 创建Nacos客户端对象
 	NacosClient nacosClient(

@@ -54,6 +54,9 @@
     <ClInclude Include="domain\vo\test\TestVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="testlib\TestNoSQL.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -75,6 +78,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="testlib\TestExcel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="testlib\TestNoSQL.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

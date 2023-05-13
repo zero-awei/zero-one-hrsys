@@ -23,7 +23,6 @@
 */
 #ifndef STDAFX_H
 #define STDAFX_H
-#define OATPP_SWAGGER_SERVICE_NAME "hr sample for windows"
 #ifndef LINUX
 // 解决std::byte类型重定义
 #define _HAS_STD_BYTE 0
