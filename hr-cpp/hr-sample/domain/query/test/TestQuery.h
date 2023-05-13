@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
- @Date: 2023/05/08 21:19:56
+ @Date: 2023/05/13 19:46:51
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,18 +17,29 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "TestController.h"
+#ifndef _TESTQUERY_H_
+#define _TESTQUERY_H_
 
-TestPageJsonVO::Wrapper TestController::execQueryTest(const TestQuery::Wrapper& query)
+#include "../../GlobalInclude.h"
+#include "domain/query/PageQuery.h"
+
+#include OATPP_CODEGEN_BEGIN(DTO)
+
+/**
+ * 测试功能查询对象
+ */
+class TestQuery : public PageQuery
 {
-	// 创建响应对象
-	auto vo = TestPageJsonVO::createShared();
-	// 创建分页对象
-	auto pdto = TestPageDTO::createShared();
-	pdto->addData(TestDTO::createShared(1, "zs"));
-	pdto->addData(TestDTO::createShared(2, "ls"));
-	// 响应结果
-	vo->success(pdto);
-	return vo;
-}
+	DTO_INIT(TestQuery, PageQuery);
+
+	// 姓名
+	DTO_FIELD(String, name);
+	DTO_FIELD_INFO(name) {
+		info->description = ZH_WORDS_GETTER("sample.field.name");
+	}
+	
+};
+
+#include OATPP_CODEGEN_END(DTO)
+
+#endif // !_TESTQUERY_H_

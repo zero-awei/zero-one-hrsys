@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
- @Date: 2023/05/08 21:19:56
+ @Date: 2023/05/13 19:55:40
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,18 +17,29 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "TestController.h"
+#ifndef _TESTVO_H_
+#define _TESTVO_H_
 
-TestPageJsonVO::Wrapper TestController::execQueryTest(const TestQuery::Wrapper& query)
+#include "../../GlobalInclude.h"
+#include "../../dto/test/TestDTO.h"
+
+#include OATPP_CODEGEN_BEGIN(DTO)
+/**
+ * 测试功能JsonVO
+ */
+class TestJsonVO : public JsonVO<TestDTO::Wrapper>
 {
-	// 创建响应对象
-	auto vo = TestPageJsonVO::createShared();
-	// 创建分页对象
-	auto pdto = TestPageDTO::createShared();
-	pdto->addData(TestDTO::createShared(1, "zs"));
-	pdto->addData(TestDTO::createShared(2, "ls"));
-	// 响应结果
-	vo->success(pdto);
-	return vo;
-}
+	DTO_INIT(TestJsonVO, JsonVO<TestDTO::Wrapper>);
+};
+
+/**
+ * 测试功能分页JsonVO
+ */
+class TestPageJsonVO : public JsonVO<TestPageDTO::Wrapper>
+{
+	DTO_INIT(TestPageJsonVO, JsonVO<TestPageDTO::Wrapper>);
+};
+
+#include OATPP_CODEGEN_END(DTO)
+
+#endif // !_TESTVO_H_
