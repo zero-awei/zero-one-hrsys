@@ -48,6 +48,7 @@
         <module>hr-sample-seata</module>
         <module>hr-sample-ee</module>
         <module>hr-sample-mongo</module>
+        <module>hr-sample-di</module>
     </modules>
     <properties>
         <!-- 打包的时候忽略测试案例调用 -->
