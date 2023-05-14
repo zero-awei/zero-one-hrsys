@@ -22,12 +22,7 @@
 
 #include "domain/vo/BaseJsonVO.h"
 #include "domain/query/contract/ContractQuery.h"
-#include "domain/dto/contract/ContractDTO.h"
 #include "domain/vo/contract/ContractVO.h"
-#include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
-#include "oatpp/web/mime/multipart/FileProvider.hpp"
-#include "oatpp/web/mime/multipart/Reader.hpp"
-#include "oatpp/web/mime/multipart/PartList.hpp"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
