@@ -1,8 +1,8 @@
-package com.zeroone.star.project.systemmanagement;
+package com.zeroone.star.project.sysmanager;
 
 import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.dto.systemmanagement.RightsDTO;
-import com.zeroone.star.project.query.systmmanagement.RightsQuery;
+import com.zeroone.star.project.dto.sysmanager.RightsDTO;
+import com.zeroone.star.project.query.sysmanager.RightsQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
 /**
