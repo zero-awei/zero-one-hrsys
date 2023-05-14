@@ -1,7 +1,7 @@
 # 示例模块
 
 ## 简介
-架构使用示例项目。
+hr-c5-employeeInfo工作目录。
 
 ## 目录结构说明
 > `arch-demo`
@@ -20,8 +20,6 @@
 > >
 > > `Macros.h` -- 通用宏定义
 > >
-> > `uselib` -- 静态库使用案例
-> >
 > > `*.vcxproj.*` -- Windows平台项目配置文件
 > >
 > > `CMakeLists.txt` -- `Cmake`跨平台编译配置文件
@@ -37,21 +35,6 @@
 > > `public.pem` -- `RSA`公钥
 > >
 > > `zh-dict.yaml` -- 中文词典配置
-
-## 测试数据库表
-
-在数据库中创建一张sample表用于测试。
-
-```sql
-DROP TABLE IF EXISTS `sample`;
-CREATE TABLE `sample` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) DEFAULT NULL,
-  `sex` char(1) DEFAULT NULL,
-  `age` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-```
 
 ## 各层命名规范
 
