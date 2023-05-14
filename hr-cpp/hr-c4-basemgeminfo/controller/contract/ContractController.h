@@ -52,10 +52,10 @@ public: // 定义接口
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(contractQuery, ContractQuery, queryParams);
 		// 响应结果
-		API_HANDLER_RESP_VO(execQueryContract(contractQuery, authObject->getPayload()));
+		API_HANDLER_RESP_VO(execQueryContract(contractQuery));
 	}
 private: // 定义接口执行函数
-	ContractPageJsonVO::Wrapper execQueryContract(const ContractQuery::Wrapper& query, const PayloadDTO& payload);
+	ContractPageJsonVO::Wrapper execQueryContract(const ContractQuery::Wrapper& query);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
