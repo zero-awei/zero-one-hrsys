@@ -1,0 +1,5 @@
+server:
+  port: ${sp.dashboard}
+spring:
+  application:
+    name: ${sn.dashboard}
