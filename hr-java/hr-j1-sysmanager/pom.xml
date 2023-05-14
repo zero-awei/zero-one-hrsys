@@ -8,7 +8,7 @@
         <version>${revision}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>hr-systemmanagement</artifactId>
+    <artifactId>hr-j1-sysmanager</artifactId>
     <dependencies>
         <!--web-->
         <dependency>
