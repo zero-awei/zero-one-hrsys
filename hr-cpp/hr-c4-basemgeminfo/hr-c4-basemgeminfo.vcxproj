@@ -171,17 +171,27 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="controller\certificate-information\CertificateInformationController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="controller\work-history\WorkHistoryController.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\dto\certificate-information\CertificateInformationDTO.h" />
+    <ClInclude Include="domain\dto\work-history\ModWorkHistoryDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\certificate-information\CertificateInformationPageQuery.h" />
+    <ClInclude Include="domain\query\work-history\WorkHistoryQuery.h" />
+    <ClInclude Include="domain\vo\certificate-information\CertificateInformationVO.h" />
+    <ClInclude Include="domain\vo\work-history\ModWorkHistoryVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="controller\certificate-information\CertificateInformationController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="controller\work-history\WorkHistoryController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
