@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
- @Date: 2023/05/14 21:20:20
+ @Date: 2023/05/13 19:46:51
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -24,18 +24,20 @@
 #include "domain/query/PageQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
+
 /**
  * 合同信息分页查询对象
  */
 class ContractQuery : public PageQuery
 {
-	// 定义分页查询初始化
 	DTO_INIT(ContractQuery, PageQuery);
+
 	// 员工姓名
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
 		info->description = ZH_WORDS_GETTER("sample.field.name");
 	}
+	
 };
 
 #include OATPP_CODEGEN_END(DTO)
