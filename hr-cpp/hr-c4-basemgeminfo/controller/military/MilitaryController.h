@@ -35,23 +35,34 @@ public: // 定义接口
 
 	ENDPOINT_INFO(queryMilitary) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("military.summary");
+		info->summary = ZH_WORDS_GETTER("military.get.summary");
 		// 定义响应参数类型
 		API_DEF_ADD_RSP_JSON_WRAPPER(MilitaryJsonVO);
 		// 添加其他查询参数
 		info->queryParams.add<String>("PIMARMYCADRESID").description = ZH_WORDS_GETTER("military.PIMARMYCADRESID");
 		info->queryParams["PIMARMYCADRESID"].addExample("default", String("QWER-ASFD"));
 	}
-
 	ENDPOINT(API_M_GET, "/military", queryMilitary, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, MilitaryQuery, qps);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryMilitary(query));
 	}
+
+	ENDPOINT_INFO(modifyMilitary) {
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("military.put.summary");
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+	}
+	// 3.2 定义修改接口处理
+	ENDPOINT(API_M_PUT, "/military", modifyMilitary, BODY_DTO(MilitaryDTO::Wrapper, dto)) {
+		// 响应结果
+		API_HANDLER_RESP_VO(execModifyMilitary(dto));
+	}
 private: // 定义接口执行函数
 	MilitaryJsonVO::Wrapper execQueryMilitary(const MilitaryQuery::Wrapper& query);
-
+	Uint64JsonVO::Wrapper execModifyMilitary(const MilitaryDTO::Wrapper& dto);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
