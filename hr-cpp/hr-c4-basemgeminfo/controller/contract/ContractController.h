@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
- @Date: 2023/05/14 22:43:38
+ @Date: 2023/05/08 21:23:08
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -21,38 +21,45 @@
 #define _CONTRACTCONTROLLER_H_
 
 #include "domain/vo/BaseJsonVO.h"
+#include "ApiHelper.h"
 #include "domain/query/contract/ContractQuery.h"
 #include "domain/vo/contract/ContractVO.h"
 
-#include OATPP_CODEGEN_BEGIN(ApiController)
+#include OATPP_CODEGEN_BEGIN(ApiController) // 0
 
-class ContractController : public oatpp::web::server::api::ApiController
+/**
+ * 合同查询控制器
+ */
+class ContractController : public oatpp::web::server::api::ApiController // 1
 {
-	// 定义控制器访问入口
+	// 2 定义控制器访问入口
 	API_ACCESS_DECLARE(ContractController);
 public: // 定义接口
+	// 3 定义接口描述
 	ENDPOINT_INFO(queryContract) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("contract.get.summary");
-		// 定义响应参数格式
+		// 定义响应参数类型
 		API_DEF_ADD_RSP_JSON_WRAPPER(ContractPageJsonVO);
-		// 定义分页参数描述
+		// 定义分页查询参数描述
 		API_DEF_ADD_PAGE_PARAMS();
-		// 定义其他表单参数描述
+		// 添加其他查询参数
 		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("sample.field.name");
 		info->queryParams["name"].addExample("default", String("li ming"));
 		info->queryParams["name"].required = false;
 	}
-	ENDPOINT(API_M_GET, "/contract", queryContract, QUERIES(QueryParams, queryParams)) {
-		// 解析查询参数
-		API_HANDLER_QUERY_PARAM(contractQuery, ContractQuery, queryParams);
+	// 4 定义接口端点
+	ENDPOINT(API_M_GET,"/contract", queryContract, QUERIES(QueryParams, qps)) {
+		// 解析查询参数（解析成领域模型对象）
+		API_HANDLER_QUERY_PARAM(query, ContractQuery, qps);
 		// 响应结果
-		API_HANDLER_RESP_VO(execQueryContract(contractQuery));
+		API_HANDLER_RESP_VO(execQueryTest(query));
 	}
 private: // 定义接口执行函数
-	ContractPageJsonVO::Wrapper execQueryContract(const ContractQuery::Wrapper& query);
+	// 5 定义接口的执行函数
+	ContractPageJsonVO::Wrapper execQueryTest(const ContractQuery::Wrapper& query);
 };
 
-#include OATPP_CODEGEN_END(ApiController)
+#include OATPP_CODEGEN_END(ApiController) // 0
 
 #endif // !_CONTRACTCONTROLLER_H_

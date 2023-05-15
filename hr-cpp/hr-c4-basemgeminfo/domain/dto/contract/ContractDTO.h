@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
- @Date: 2023/05/14 21:51:11
+ @Date: 2023/05/13 19:52:05
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -24,12 +24,17 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/*
-* 定义单个合同信息传输对象
-*/
+/**
+ * 合同查询传输数据类型
+ */
 class ContractDTO : public oatpp::DTO
 {
+public:
+	ContractDTO() {};
+	ContractDTO(String id, String name) :id(id), name(name) {};
+
 	DTO_INIT(ContractDTO, DTO);
+
 	// 员工编号
 	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
@@ -103,7 +108,7 @@ class ContractDTO : public oatpp::DTO
 };
 
 /**
- * 定义分页合同信息传输对象
+ * 合同查询分页传输数据类型
  */
 class ContractPageDTO : public PageDTO<ContractDTO::Wrapper>
 {

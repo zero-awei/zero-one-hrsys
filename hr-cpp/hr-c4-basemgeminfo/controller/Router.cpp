@@ -52,6 +52,7 @@ void Router::initRouter()
 
 	//#TIP :系统扩展路由定义，写在这个后面
 	// 绑定ContractController
+	//ROUTER_SIMPLE_BIND(ContractController);
 	ROUTER_SIMPLE_BIND(ContractController);
 }
 

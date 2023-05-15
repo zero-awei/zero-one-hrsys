@@ -36,16 +36,16 @@
     <ClInclude Include="controller\Router.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\contract\ContractQuery.h">
+    <ClInclude Include="controller\contract\ContractController.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\dto\contract\ContractDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\contract\ContractVO.h">
+    <ClInclude Include="domain\query\contract\ContractQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\contract\ContractController.h">
+    <ClInclude Include="domain\vo\contract\ContractVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
