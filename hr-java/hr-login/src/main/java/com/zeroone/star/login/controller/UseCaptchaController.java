@@ -20,8 +20,7 @@ public class UseCaptchaController {
     private CaptchaService captchaService;
 
 
-    @ApiOperation(value = "验证验证码")
-    @PostMapping("/check")
+    @PostMapping("/login")
     public ResponseModel get(@RequestParam("captchaVerification") String captchaVerification) {
         CaptchaVO captchaVO = new CaptchaVO();
         captchaVO.setCaptchaVerification(captchaVerification);
