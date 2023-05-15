@@ -53,7 +53,7 @@ public interface LoginApis {
     JsonVO<List<MenuTreeVO>> getMenus() throws Exception;
 
     /***
-     *
+     * 修改密码
      * @param loginDTO
      * @return 修改成功or失败信息
      */

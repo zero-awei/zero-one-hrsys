@@ -10,7 +10,7 @@ import com.zeroone.star.login.entity.User;
 public interface IUserService extends IService<User> {
 
     /***
-     * 获取当前用户的密码（用于判断和新密码是否一致）
+     /获取当前用户的密码（用于判断和新密码是否一致）
      * @param username
      * @return 当前密码
      */

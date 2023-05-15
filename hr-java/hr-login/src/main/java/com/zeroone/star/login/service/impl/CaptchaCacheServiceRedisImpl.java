@@ -3,6 +3,8 @@ package com.zeroone.star.login.service.impl;
 import com.anji.captcha.service.CaptchaCacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
+
+import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 /**
  * @author 风月
@@ -14,7 +16,7 @@ public class CaptchaCacheServiceRedisImpl implements CaptchaCacheService {
         return "redis";
     }
 
-    @Autowired
+    @Resource
     private StringRedisTemplate stringRedisTemplate;
 
     @Override

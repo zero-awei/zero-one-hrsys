@@ -3,6 +3,8 @@ package com.zeroone.star.login.controller;
 import com.anji.captcha.model.common.ResponseModel;
 import com.anji.captcha.model.vo.CaptchaVO;
 import com.anji.captcha.service.CaptchaService;
+import com.zeroone.star.project.vo.JsonVO;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +19,9 @@ public class UseCaptchaController {
     @Autowired
     private CaptchaService captchaService;
 
-    @PostMapping("/login")
+
+    @ApiOperation(value = "验证验证码")
+    @PostMapping("/check")
     public ResponseModel get(@RequestParam("captchaVerification") String captchaVerification) {
         CaptchaVO captchaVO = new CaptchaVO();
         captchaVO.setCaptchaVerification(captchaVerification);
