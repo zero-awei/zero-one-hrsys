@@ -46,7 +46,10 @@ contract:
  remaining: 合同剩余天数
  trialExpiration: 合同试用到期时间
 military:
- summary: 查看指定员工军转干部(指定军转干部详情)
+ get: 
+  summary: 查看指定员工军转干部(指定军转干部详情)
+ put:
+  summary: 修改指定员工军转干部(单条修改)
  UPDATEDATE: 更新时间
  PIMARMYCADRESNAME: 军转干部名称
  FJ: 附件
