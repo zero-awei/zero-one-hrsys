@@ -26,6 +26,7 @@
 #include "uselib/ws/WSController.h"
 #endif
 #include"contract/ContractController.h"
+#include"military/MilitaryController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -51,9 +52,11 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
+	// 
 	// 绑定ContractController
-	//ROUTER_SIMPLE_BIND(ContractController);
 	ROUTER_SIMPLE_BIND(ContractController);
+	// 绑定MilitaryController
+	ROUTER_SIMPLE_BIND(MilitaryController);
 }
 
 #ifdef HTTP_SERVER_DEMO

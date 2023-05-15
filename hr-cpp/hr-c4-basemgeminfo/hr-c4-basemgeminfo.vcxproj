@@ -171,19 +171,24 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="controller\military\MilitaryController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\contract\ContractController.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\contract\ContractDTO.h" />
+    <ClInclude Include="domain\dto\military\militaryDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\contract\ContractQuery.h" />
+    <ClInclude Include="domain\query\military\MilitaryQuery.h" />
     <ClInclude Include="domain\vo\contract\ContractVO.h" />
+    <ClInclude Include="domain\vo\military\MilitaryVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="controller\military\MilitaryController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\contract\ContractController.cpp" />

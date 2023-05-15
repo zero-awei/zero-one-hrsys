@@ -45,3 +45,22 @@ contract:
  contractStatus: 合同状态
  remaining: 合同剩余天数
  trialExpiration: 合同试用到期时间
+military:
+ summary: 查看指定员工军转干部(指定军转干部详情)
+ UPDATEDATE: 更新时间
+ PIMARMYCADRESNAME: 军转干部名称
+ FJ: 附件
+ CREATEDATE: 建立时间
+ UPDATEMAN: 更新人
+ ENABLE: ENABLE
+ PIMARMYCADRESID: 军转干部标识
+ CREATEMAN: 建立人
+ PIMPERSONID: 人员信息标识
+ FSSJ: 发生时间
+ JLSS: 记录所属
+ JLSPZT: 审批状态
+ JLGLBH: 记录管理编号
+ JLCZZ: 记录操作者
+ TROOPTYPE: 类型
+ LEVELTYPE: 级别
+ REASON: 拒绝原因
