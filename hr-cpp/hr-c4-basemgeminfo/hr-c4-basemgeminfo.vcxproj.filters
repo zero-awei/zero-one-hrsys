@@ -48,6 +48,9 @@
     <ClInclude Include="controller\work-history\WorkHistoryController.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\dto\work-history\AddWorkHistoryDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="uselib\ws\WSController.h">
       <Filter>头文件</Filter>
     </ClInclude>

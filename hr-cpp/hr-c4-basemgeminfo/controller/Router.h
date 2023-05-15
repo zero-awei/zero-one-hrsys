@@ -41,8 +41,6 @@ public:
 	// ∫ÙΩ–≥ı ºªØ
 	void initRouter();
 private:
-
-	void createWorkHistoryRouter();
 };
 
 #endif // !_ROUTER_

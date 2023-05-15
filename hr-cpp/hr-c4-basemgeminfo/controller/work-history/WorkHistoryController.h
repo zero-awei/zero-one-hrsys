@@ -27,6 +27,7 @@
 #include "oatpp/web/mime/multipart/PartList.hpp"
 #include "domain/query/work-history/WorkHistoryPageQuery.h"
 #include "domain/vo/work-history/WorkHistoryFindVO.h"
+#include "domain/dto/work-history/AddWorkHistoryDTO.h"
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
@@ -60,8 +61,23 @@ public: // 定义接口
 		API_HANDLER_RESP_VO(execQueryWorkHistory(query));
 	}
 
+	// 定义新增接口描述
+	ENDPOINT_INFO(addWorkHistory) {
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("WorkHistory.post.summary");
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+	}
+	// 定义新增接口处理
+	ENDPOINT(API_M_POST, "/workhistory", addWorkHistory, BODY_DTO(AddWorkHistoryDTO::Wrapper, dto)) {
+		// 响应结果
+		API_HANDLER_RESP_VO(execAddWorkHistory(dto));
+	}
+
 private: // 定义接口执行函数
 	WorkHistoryFindVO::Wrapper execQueryWorkHistory(const WorkHistoryPageQuery::Wrapper& query);
+
+	Uint64JsonVO::Wrapper execAddWorkHistory(const AddWorkHistoryDTO::Wrapper& dto);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
