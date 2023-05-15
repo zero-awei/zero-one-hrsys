@@ -342,7 +342,7 @@ path=%path%;../lib-dy/lib64/debug
 
 #### 5.2.1 程序入口
 
-`main.cpp`中可以使用下列代码来启动服务器。
+`main.cpp`中可以使用下列代码来启动服务器。 
 
 ```c++
 #include "stdafx.h"
@@ -1044,6 +1044,6 @@ int main(int argc, char* argv[]) {
 - Query：数据查询对象，各层接收上层的查询请求。注意超过2个参数的查询封装，禁止使用Map类来传输。
 - `VO`（View Object）：显示层对象，通常是 Web 向模板渲染引擎层传输的对象。
 
-各层之间的关系如下图所示，里面包含了领域模型的传递过程。
+各层之·	。
 
 ![image-20230410170044445](imgs/layer.png)
