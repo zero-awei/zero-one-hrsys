@@ -2,6 +2,7 @@ package com.zeroone.star.login.controller;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.zeroone.star.login.service.IMenuService;
+import com.zeroone.star.login.service.IUserService;
 import com.zeroone.star.login.service.OauthService;
 import com.zeroone.star.project.components.user.UserDTO;
 import com.zeroone.star.project.components.user.UserHolder;
@@ -42,6 +43,8 @@ public class LoginController implements LoginApis {
     OauthService oAuthService;
     @Resource
     UserHolder userHolder;
+    @Resource
+    IUserService userService;
 
     @ApiOperation(value = "授权登录")
     @PostMapping("auth-login")
@@ -113,5 +116,14 @@ public class LoginController implements LoginApis {
         //2 获取当前用户拥有的菜单
         List<MenuTreeVO> menus = menuService.listMenuByRoleName(currentUser.getRoles());
         return JsonVO.success(menus);
+    }
+
+
+    @ApiOperation(value = "修改密码")
+    @PostMapping("update-password")
+    @Override
+    public JsonVO<String> updatePassword(LoginDTO loginDTO){
+        //TODO 待实现
+        return null;
     }
 }
