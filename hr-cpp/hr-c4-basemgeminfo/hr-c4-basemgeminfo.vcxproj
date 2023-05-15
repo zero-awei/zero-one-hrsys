@@ -172,23 +172,31 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="controller\certificate-information\CertificateInformationController.h" />
+    <ClInclude Include="controller\jobtitle-information\JobTitleInformationController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\work-history\WorkHistoryController.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\certificate-information\CertificateInformationDTO.h" />
+    <ClInclude Include="domain\dto\certificate-information\JobTitleInformationDTO.h" />
     <ClInclude Include="domain\dto\work-history\ModWorkHistoryDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\certificate-information\CertificateInformationPageQuery.h" />
+    <ClInclude Include="domain\query\certificate-information\JobTitleInformationPageQuery.h" />
     <ClInclude Include="domain\query\work-history\WorkHistoryQuery.h" />
     <ClInclude Include="domain\vo\certificate-information\CertificateInformationVO.h" />
+    <ClInclude Include="domain\vo\certificate-information\JobTitleInformationVO.h" />
     <ClInclude Include="domain\vo\work-history\ModWorkHistoryVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\certificate-information\CertificateInformationService.h" />
+    <ClInclude Include="service\certificate-information\JobTitleInformationService.h" />
+    <ClInclude Include="service\work-history\WorkHistoryService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\certificate-information\CertificateInformationController.cpp" />
+    <ClCompile Include="controller\jobtitle-information\JobTitleInformationController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\work-history\WorkHistoryController.cpp" />
