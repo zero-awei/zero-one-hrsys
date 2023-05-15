@@ -60,6 +60,9 @@
     <ClInclude Include="uselib\ws\WSListener.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\dto\work-history\DelWorkHistoryDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
