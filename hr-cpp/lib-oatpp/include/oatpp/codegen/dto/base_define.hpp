@@ -23,13 +23,13 @@
  *
  ***************************************************************************/
 
-// Defaults
+ // Defaults
 
-/**
- * Codegen macoro to be used in classes extending &id:oatpp::data::mapping::type::Object; to generate required fields/methods/constructors for DTO object.
- * @param TYPE_NAME - name of the DTO class.
- * @param TYPE_EXTEND - name of the parent DTO class. If DTO extends &id:oatpp::data::mapping::type::Object; TYPE_EXETENDS should be `Object`.
- */
+ /**
+  * Codegen macoro to be used in classes extending &id:oatpp::data::mapping::type::Object; to generate required fields/methods/constructors for DTO object.
+  * @param TYPE_NAME - name of the DTO class.
+  * @param TYPE_EXTEND - name of the parent DTO class. If DTO extends &id:oatpp::data::mapping::type::Object; TYPE_EXETENDS should be `Object`.
+  */
 #define DTO_INIT(TYPE_NAME, TYPE_EXTEND) \
   template<class __Z__T__PARAM> \
   friend class oatpp::data::mapping::type::__class::Object; \
@@ -59,7 +59,7 @@ public: \
     return Wrapper(std::make_shared<Z__CLASS>(args...), Wrapper::Class::getType()); \
   }
 
-// Fields
+  // Fields
 
 #define OATPP_MACRO_DTO_FIELD_1(TYPE, NAME) \
 \
@@ -132,7 +132,7 @@ TYPE NAME = Z__PROPERTY_INITIALIZER_PROXY_##NAME()
 #define DTO_FIELD(TYPE, ...) \
 OATPP_MACRO_EXPAND(OATPP_MACRO_MACRO_SELECTOR(OATPP_MACRO_DTO_FIELD_, (__VA_ARGS__)) (TYPE, __VA_ARGS__))
 
-// DTO_FIELD_INFO
+ // DTO_FIELD_INFO
 
 #define DTO_FIELD_INFO(NAME) \
 \

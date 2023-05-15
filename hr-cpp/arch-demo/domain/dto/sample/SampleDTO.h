@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -19,32 +19,34 @@
 */
 #ifndef _SAMPLE_DTO_
 #define _SAMPLE_DTO_
+#include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * Ê¾Àý´«Êä¶ÔÏó
+ * ç¤ºä¾‹ä¼ è¾“å¯¹è±¡
  */
 class SampleDTO : public oatpp::DTO
 {
 	DTO_INIT(SampleDTO, DTO);
-	// ±àºÅ
+	// ç¼–å·
 	DTO_FIELD(UInt64, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("sample.field.id");
 	}
-	// ÐÕÃû
+	// å§“å
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
 		info->description = ZH_WORDS_GETTER("sample.field.name");
 	}
-	// ÄêÁä
+	// å¹´é¾„
 	DTO_FIELD(Int32, age);
 	DTO_FIELD_INFO(age) {
 		info->description = ZH_WORDS_GETTER("sample.field.age");
 	}
-	// ÐÔ±ð
+	// æ€§åˆ«
 	DTO_FIELD(String, sex);
 	DTO_FIELD_INFO(sex) {
 		info->description = ZH_WORDS_GETTER("sample.field.sex");
@@ -52,9 +54,9 @@ class SampleDTO : public oatpp::DTO
 };
 
 /**
- * Ê¾Àý·ÖÒ³´«Êä¶ÔÏó
+ * ç¤ºä¾‹åˆ†é¡µä¼ è¾“å¯¹è±¡
  */
-class SamplePageDTO : public PageDTO<SampleDTO::Wrapper> 
+class SamplePageDTO : public PageDTO<SampleDTO::Wrapper>
 {
 	DTO_INIT(SamplePageDTO, PageDTO<SampleDTO::Wrapper>);
 };

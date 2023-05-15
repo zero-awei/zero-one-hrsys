@@ -29,3 +29,19 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+
+
+title:
+ query:
+  summary: "分页查询职称列表"
+  search-box: "分页查询职称列表(用于输入框搜索使用)"
+ delete:
+  summary: "删除职称-根据请求体删除职务信息"
+ add:
+  summary: "新增职务-根据请求体传入新增职务信息"
+ field:
+  id: "职称编号"
+  name: "职称名称"
+  grades: "职称等级"
+  type: "职称类型"
+  category: "专业类别"
