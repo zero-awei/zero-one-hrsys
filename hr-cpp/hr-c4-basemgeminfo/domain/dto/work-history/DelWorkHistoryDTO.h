@@ -29,15 +29,21 @@ DTO_FIELD_INFO(field) { \
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class DelWorkHistoryDTO : public oatpp::DTO
+class DelWorkHistoryIdDTO : public oatpp::DTO
 {
-	DTO_INIT(DelWorkHistoryDTO, DTO);
+	DTO_INIT(DelWorkHistoryIdDTO, DTO);
+
+	//工作履历标识
+	DTO_INIT_(String, pimworkhistoryid, "delworkhistorydto.field.pimworkhistoryid")
+};
+
+class DelWorkHistoryDTO : public PageDTO<DelWorkHistoryIdDTO::Wrapper>
+{
+	DTO_INIT(DelWorkHistoryDTO, PageDTO<DelWorkHistoryIdDTO::Wrapper>);
 
 	//人员信息id
 	DTO_INIT_(String, pimpersonid, "delworkhistorydto.field.pimpersonid")
 
-	//工作履历标识
-	DTO_INIT_(list<String>, pimworkhistoryid, "delworkhistorydto.field.pimworkhistoryid")
 };
 
 
