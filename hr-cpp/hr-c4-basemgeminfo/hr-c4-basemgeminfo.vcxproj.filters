@@ -48,6 +48,18 @@
     <ClInclude Include="domain\vo\contract\ContractVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\query\military\MilitaryQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\military\militaryDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\military\MilitaryVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\military\MilitaryController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -63,6 +75,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\contract\ContractController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\military\MilitaryController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
