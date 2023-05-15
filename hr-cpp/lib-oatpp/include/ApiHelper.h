@@ -65,6 +65,8 @@ static std::shared_ptr<__CLASS__> createShared(OATPP_COMPONENT(std::shared_ptr<O
 // 删除数据请求
 #define API_M_DEL  "DELETE";
 
+//////////////////////////////////////////////////////////////////////////
+
 // API描述添加安全验证
 #define API_DEF_ADD_AUTH() info->addSecurityRequirement("bearer_auth")
 
@@ -105,7 +107,7 @@ info->queryParams["pageSize"].addExample("default", oatpp::UInt64(10));
 ENDPOINT_INFO(__API_FUN_NAME__) { \
 	info->summary = __TITLE__; \
 	API_DEF_ADD_AUTH(); \
-	API_DEF_ADD_RSP(__RESP_TYPE__); \
+	API_DEF_ADD_RSP_JSON(__RESP_TYPE__); \
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -119,12 +121,12 @@ QUERY(UInt64, pageSize)
 #define API_HANDLER_AUTH_PARAME \
 AUTHORIZATION(std::shared_ptr<CustomerAuthorizeObject>, authObject)
 
-/**
- * 接口处理器解析查询参数到查询数据对象
- * @param __VAR__: 转换后的变量名称，如query
- * @param __TYPE__: 查询数据对象类型，如XxxQuery
- * @param __PARAMS__: QueryParams的变量名称，如：QUERIES(QueryParams, queryParams),则传入queryParams
- */
+ /**
+  * 接口处理器解析查询参数到查询数据对象
+  * @param __VAR__: 转换后的变量名称，如query
+  * @param __TYPE__: 查询数据对象类型，如XxxQuery
+  * @param __PARAMS__: QueryParams的变量名称，如：QUERIES(QueryParams, queryParams),则传入queryParams
+  */
 #define API_HANDLER_QUERY_PARAM(__VAR__, __TYPE__, __PARAMS__) \
 auto __VAR__ = __TYPE__::createShared(); \
 for (auto& param : __PARAMS__.getAll()) { \
