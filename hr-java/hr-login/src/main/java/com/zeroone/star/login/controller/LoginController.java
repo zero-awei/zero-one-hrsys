@@ -21,6 +21,8 @@ import com.zeroone.star.project.vo.login.LoginVO;
 import com.zeroone.star.project.vo.login.MenuTreeVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,18 +50,8 @@ import static com.zeroone.star.project.vo.JsonVO.fail;
 @RestController
 @RequestMapping("login")
 @Api(tags = "login")
+@Slf4j
 public class LoginController implements LoginApis {
-    @Value("${captcha.width}")
-    private int captchaWidth;
-
-    @Value("${captcha.height}")
-    private int captchaHeight;
-
-    @Value("${captcha.codeCount}")
-    private int codeCount;
-
-    @Value("${captcha.lineCount}")
-    private int lineCount;
     @Resource
     OauthService oAuthService;
     @Resource
@@ -117,9 +109,9 @@ public class LoginController implements LoginApis {
     public JsonVO<Oauth2TokenDTO> refreshToken(Oauth2TokenDTO oauth2TokenDTO) {
         //1.判断缓存中是否存在对应token
         String tokenKeyInRedis = RedisConstant.USER_TOKEN + ":" + oauth2TokenDTO.getToken();
-        if(!redisUtils.isExist(tokenKeyInRedis)){
+        if (!redisUtils.isExist(tokenKeyInRedis)) {
             //不存在
-            return fail(null,ResultStatus.UNAUTHORIZED);
+            return fail(null, ResultStatus.UNAUTHORIZED);
         }
         //存在
         //2.封装参数
@@ -128,12 +120,23 @@ public class LoginController implements LoginApis {
         params.put("client_id", oauth2TokenDTO.getClientId());
         params.put("client_secret", AuthConstant.CLIENT_PASSWORD);
         params.put("refresh_token", oauth2TokenDTO.getRefreshToken());
-        //TODO 3.再次调用远程接口获取新token
-        //TODO 4.检查新token
-        //TODO 5.更新Redis中的token
-        //TODO 6.删除Redis中原有的token
-        //TODO 7.返回新token
-        return oAuthService.postAccessToken(params);
+        // 3.再次调用远程接口获取新token
+        JsonVO<Oauth2TokenDTO> refreshedTokenDTO = oAuthService.postAccessToken(params);
+        // 4.检查新token
+        log.info("oAuthService.postAccessToken required data: {}", refreshedTokenDTO.getData().getToken());
+        // 5.用新token更新Redis中的旧token
+        String refreshedTokenKey = RedisConstant.USER_TOKEN + ":" + refreshedTokenDTO.getData().getToken();
+        if (redisUtils.add(refreshedTokenKey, 1, 1L, TimeUnit.HOURS) < 0) {
+            //添加key失败
+            return fail(null, ResultStatus.SERVER_BUSY);
+        }
+        // 6.删除Redis中原有的token
+        if (redisUtils.del(tokenKeyInRedis) < 0) {
+            //删除失败
+            return fail(null, ResultStatus.SERVER_BUSY);
+        }
+        // 7.返回新token
+        return refreshedTokenDTO;
     }
 
     @ApiOperation(value = "获取当前用户")
@@ -180,13 +183,25 @@ public class LoginController implements LoginApis {
     }
 
 
+    @SneakyThrows
     @ApiOperation(value = "修改密码")
     @PostMapping("update-password")
     @Override
     public JsonVO<String> updatePassword(LoginDTO loginDTO) {
-        //TODO 待实现
-        return null;
+        //1.获取当前用户密码 currentPassword
+        String username = userHolder.getCurrentUser().getUsername();
+        String currentPassword = userService.getCurrentPassword(username);
+        //2.获取用户输入的新密码 newPassword
+        String newPassword = loginDTO.getPassword();
+        if (currentPassword.equals(newPassword)) {
+            //新密码与旧密码一致，失败
+            return fail("原密码和新密码不能一致");
+        }
+        //3.更新数据库中的密码
+        Boolean isSuccess = userService.updatePassword(username, newPassword);
+        if (isSuccess == true) {
+            return JsonVO.success("修改成功");
+        }
+        return fail("修改失败");
     }
-
-
 }

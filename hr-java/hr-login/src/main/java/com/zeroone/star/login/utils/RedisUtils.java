@@ -65,4 +65,23 @@ public class RedisUtils {
         }
         return false;
     }
+
+    /**
+     * 删除key
+     * @param key
+     * @return
+     */
+    public int del(String key) {
+        try {
+            if (Boolean.FALSE.equals(redisTemplate.delete(key))) {
+                return -1;
+            }
+        } catch (Exception e) {
+            log.error("RedisUtils#del fail! e:{" + e.getStackTrace().toString() + "}");
+            return -1;
+        }
+
+        return 0;
+    }
+
 }
