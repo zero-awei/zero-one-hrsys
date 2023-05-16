@@ -178,6 +178,7 @@
     <ClInclude Include="domain\dto\work-history\AddWorkHistoryDTO.h" />
     <ClInclude Include="domain\dto\work-history\DelWorkHistoryDTO.h" />
     <ClInclude Include="domain\dto\work-history\WorkHistoryFindDTO.h" />
+    <ClInclude Include="domain\dto\work-history\WorkHistoryIntoDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\work-history\WorkHistoryPageQuery.h" />
     <ClInclude Include="domain\vo\work-history\WorkHistoryFindVO.h" />
