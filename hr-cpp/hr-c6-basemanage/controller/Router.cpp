@@ -19,13 +19,21 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
+
 #include "./ContractController/ContractController.h"
 #include "../uselib/ws/WSController.h"
+#include "SelectController/retirement.h"
+
 
 #ifdef HTTP_SERVER_DEMO
 #include "./ContractController/ContractController.h"
 #include "../uselib/ws/WSController.h"
 #endif
+#include "LDConstroller/LaborDispatchConstroller.h"
+
+#include "Muggle/labor_dispatch-Muggle.h"
+#include "Muggle/expense_ledger-Muggle.h"
+
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -51,7 +59,13 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
+
 	ROUTER_SIMPLE_BIND(ContractController);
+	ROUTER_SIMPLE_BIND(LaborDispatchMController);
+	ROUTER_SIMPLE_BIND(ExpenseLedgerMController);
+	ROUTER_SIMPLE_BIND(LaborDispatchConstroller);
+	ROUTER_SIMPLE_BIND(TestController);
+
 }
 
 #ifdef HTTP_SERVER_DEMO

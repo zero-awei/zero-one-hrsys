@@ -5,7 +5,7 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-//包含合同信息DTO
+//DTO:合同信息
 class ContractDTO : public oatpp::DTO
 {
 public:
@@ -46,13 +46,15 @@ public:
 
 };
 
-//包含合同路径DTO
-class PathDTO : public oatpp::DTO
+
+
+//DTO:上传路径
+class UploadPathDTO : public oatpp::DTO
 {
 public:
-	PathDTO() {};
+	UploadPathDTO() {};
 
-	DTO_INIT(PathDTO, DTO);
+	DTO_INIT(UploadPathDTO, DTO);
 
 	// 上传路径
 	DTO_FIELD(String, UploadPath);
@@ -60,14 +62,37 @@ public:
 		info->description = ZH_WORDS_GETTER("contract.uploadpath");
 	}
 
-		// 下载路径
+};
+
+//DTO:导出地址+分页操作
+class DownloadPageDTO : public PageDTO<ContractDTO::Wrapper>
+{
+public:
+	DownloadPageDTO() {};
+
+	DTO_INIT(DownloadPageDTO, PageDTO);
+
+	// 下载路径
 	DTO_FIELD(String, DownloadPath);
 	DTO_FIELD_INFO(DownloadPath) {
 		info->description = ZH_WORDS_GETTER("contract.downloadpath");
 	}
-
 };
 
+//DTO:导出地址
+class DownloadPathDTO : public PageDTO<ContractDTO::Wrapper>
+{
+public:
+	DownloadPathDTO() {};
+
+	DTO_INIT(DownloadPathDTO, PageDTO<ContractDTO::Wrapper>);
+
+	// 下载路径
+	DTO_FIELD(String, DownloadPath);
+	DTO_FIELD_INFO(DownloadPath) {
+		info->description = ZH_WORDS_GETTER("contract.downloadpath");
+	}
+};
 
 
 

@@ -6,7 +6,7 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-
+//合同信息query
 class ContractQuery : public PageQuery
 {
 	DTO_INIT(ContractQuery, PageQuery);
@@ -38,6 +38,21 @@ class ContractQuery : public PageQuery
 	}
 
 };
+
+//导出专用query
+class ContractDownloadQuery : public oatpp::DTO
+{
+	DTO_INIT(ContractDownloadQuery, DTO);
+	DTO_FIELD_INFO(rows) {
+		info->description = ZH_WORDS_GETTER("contract.export.rows");
+	}
+	DTO_FIELD(UInt8, rows);
+	DTO_FIELD_INFO(sequence) {
+		info->description = ZH_WORDS_GETTER("contract.export.sequence");
+	}
+	DTO_FIELD(String, sequence);
+};
+
 
 #include OATPP_CODEGEN_END(DTO)
 

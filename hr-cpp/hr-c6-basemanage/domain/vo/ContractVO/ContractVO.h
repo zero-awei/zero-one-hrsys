@@ -12,10 +12,10 @@ class ContractJsonVO : public JsonVO<ContractDTO::Wrapper>
 	DTO_INIT(ContractJsonVO, JsonVO<ContractDTO::Wrapper>);
 };
 
-//合同下载路径JsonVo
-class PathJsonVO : public JsonVO<PathDTO::Wrapper>
+//路径JsonVo
+class DownloadPathJsonVO : public JsonVO<DownloadPathDTO::Wrapper>
 {
-	DTO_INIT(PathJsonVO, JsonVO<PathDTO::Wrapper>);
+	DTO_INIT(DownloadPathJsonVO, JsonVO<DownloadPathDTO::Wrapper>);
 
 };
 

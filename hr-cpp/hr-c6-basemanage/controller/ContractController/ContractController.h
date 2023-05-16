@@ -80,38 +80,42 @@ public:
 
 	//3.3.1 接口描述:导入合同
 	ENDPOINT_INFO(uploadContract) {
-		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("contract.upload");
-		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-		// 添加其他查询参数
-		info->queryParams.add<String>("UploadPath").description = ZH_WORDS_GETTER("contract.uploadpath"); 
-		info->queryParams["UploadPath"].addExample("default", String("(:3[___]")); 
+		info->addConsumes<oatpp::swagger::Binary>("application/octet-stream");
+		API_DEF_ADD_RSP_JSON(StringJsonVO::Wrapper);
+		info->queryParams["suffix"].description = ZH_WORDS_GETTER("user.file.suffix");
+		info->queryParams["suffix"].addExample("png", String(".png"));
+		info->queryParams["suffix"].addExample("jpg", String(".jpg"));
+		info->queryParams["suffix"].addExample("txt", String(".txt"));
 	}
-
 	// 3.3.2 定义接口端点
-	ENDPOINT(API_M_PUT, "/uploadContract", uploadContract, BODY_DTO(PathDTO::Wrapper, dto)) {
-		// 响应结果
-		API_HANDLER_RESP_VO(execUploadContract(dto));
+	// 定义文件上传端点处理
+	ENDPOINT(API_M_POST, "/uploadContract", uploadContract, BODY_STRING(String, body), QUERY(String, suffix)) {
+		// 执行文件保存逻辑
+		API_HANDLER_RESP_VO(execUploadContract(body, suffix));
 	}
-
 
 	//3.4.1 接口描述:导出合同
 	ENDPOINT_INFO(downloadContract) {
-		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("contract.download");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(PathJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 添加其他查询参数
-		info->queryParams.add<String>("DownloadPath").description = ZH_WORDS_GETTER("contract.downloadpath");
-		info->queryParams["DownloadPath"].addExample("default", String("(:3[___]"));
+		info->queryParams.add<UInt8>("rows").description = ZH_WORDS_GETTER("contract.export.rows");
+		info->queryParams["rows"].addExample("default", UInt8(1));
+		info->queryParams["rows"].required = true;
+		info->queryParams.add<String>("sequence").description = ZH_WORDS_GETTER("contract.export.sequence");
+		info->queryParams["sequence"].addExample("default", String("ASC"));
+		info->queryParams["sequence"].required = true;
+	}
+	// 3.4.2 定义接口端点
+	ENDPOINT(API_M_GET, "/downloadContract", downloadContract, QUERIES(QueryParams, qps)) {
+		API_HANDLER_QUERY_PARAM(query, ContractDownloadQuery, qps);
+		API_HANDLER_RESP_VO(execDownloadContract(query));
 	}
 
-	// 3.4.2 定义接口端点
-	ENDPOINT(API_M_PUT, "/downloadContract", downloadContract, BODY_DTO(PathDTO::Wrapper, dto)) {
-		// 响应结果
-		API_HANDLER_RESP_VO(execDownloadContract(dto));
-	}
+
+
 
 private:
 	//合同查询
@@ -119,10 +123,9 @@ private:
 	//修改合同
 	Uint64JsonVO::Wrapper execUpdateContract(const ContractDTO::Wrapper& dto);
 	//导入合同
-	Uint64JsonVO::Wrapper execUploadContract(const PathDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execUploadContract(const String& fileBody, const String& suffix);
 	//导出合同
-	PathJsonVO::Wrapper execDownloadContract(const PathDTO::Wrapper& dto);
-
+	StringJsonVO::Wrapper execDownloadContract(const ContractDownloadQuery::Wrapper& query);
 };
 // 0 取消API控制器使用宏
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
