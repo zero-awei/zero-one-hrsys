@@ -32,5 +32,9 @@
     "unplugin-vue-components": "^0.22.7",
     "vite": "^3.0.9",
     "vite-plugin-html": "^3.2.0"
-  }
+  },
+  "description": "下面说明能够帮助在基于Vite构建工具环境下开发`Vue3`。",
+  "main": "vite.config.js",
+  "author": "",
+  "license": "ISC"
 }
