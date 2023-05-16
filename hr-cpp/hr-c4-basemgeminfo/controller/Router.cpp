@@ -50,6 +50,10 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
+	//绑定路由（传入类名）
+	ROUTER_SIMPLE_BIND(CertificateInformationController);
+	ROUTER_SIMPLE_BIND(JobTitleInformationController);
+	ROUTER_SIMPLE_BIND(WorkHistoryController);
 
 }
 

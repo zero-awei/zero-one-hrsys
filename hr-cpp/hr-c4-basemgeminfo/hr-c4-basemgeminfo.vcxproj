@@ -180,6 +180,7 @@
     <ClInclude Include="domain\dto\certificate-information\CertificateInformationDTO.h" />
     <ClInclude Include="domain\dto\certificate-information\JobTitleInformationDTO.h" />
     <ClInclude Include="domain\dto\work-history\ModWorkHistoryDTO.h" />
+    <ClInclude Include="domain\dto\work-history\WorkHistoryDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\certificate-information\CertificateInformationPageQuery.h" />
     <ClInclude Include="domain\query\certificate-information\JobTitleInformationPageQuery.h" />
@@ -187,6 +188,7 @@
     <ClInclude Include="domain\vo\certificate-information\CertificateInformationVO.h" />
     <ClInclude Include="domain\vo\certificate-information\JobTitleInformationVO.h" />
     <ClInclude Include="domain\vo\work-history\ModWorkHistoryVO.h" />
+    <ClInclude Include="domain\vo\work-history\WorkHistoryVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\certificate-information\CertificateInformationService.h" />

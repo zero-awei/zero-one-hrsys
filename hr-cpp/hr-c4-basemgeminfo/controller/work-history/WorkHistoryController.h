@@ -35,19 +35,19 @@ public:
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
 		//传递任职开始时间
-		info->queryParams.add<String>("rzkssj").description = ZH_WORDS_GETTER("sample.field.rzkssj");
+		info->queryParams.add<String>("rzkssj").description = ZH_WORDS_GETTER("workhistory.field.rzkssj");
 		//传递任职结束时间
-		info->queryParams.add<String>("rzjssj").description = ZH_WORDS_GETTER("sample.field.rzjssj");
+		info->queryParams.add<String>("rzjssj").description = ZH_WORDS_GETTER("workhistory.field.rzjssj");
 		//传递工作单位
-		info->queryParams.add<String>("ormorgname").description = ZH_WORDS_GETTER("sample.field.ormorgname");
+		info->queryParams.add<String>("ormorgname").description = ZH_WORDS_GETTER("workhistory.field.ormorgname");
 		//传递职务
-		info->queryParams.add<String>("ormdutyname").description = ZH_WORDS_GETTER("sample.field.ormdutyname");
+		info->queryParams.add<String>("ormdutyname").description = ZH_WORDS_GETTER("workhistory.field.ormdutyname");
 		//传递岗位
-		info->queryParams.add<String>("ormpostname").description = ZH_WORDS_GETTER("sample.field.ormpostname");
+		info->queryParams.add<String>("ormpostname").description = ZH_WORDS_GETTER("workhistory.field.ormpostname");
 		//传递兼职借调类型
-		info->queryParams.add<String>("cfplx").description = ZH_WORDS_GETTER("sample.field.cfplx");
+		info->queryParams.add<String>("cfplx").description = ZH_WORDS_GETTER("workhistory.field.cfplx");
 		//传递是否主要经历
-		info->queryParams.add<String>("enable").description = ZH_WORDS_GETTER("sample.field.enable");
+		info->queryParams.add<String>("enable").description = ZH_WORDS_GETTER("workhistory.field.enable");
 		
 	}
 	// 3.2 定义查询接口处理

@@ -29,6 +29,12 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+jobtitleinformation:
+ get:
+  summary: 分页查询职称信息
+ field:
+  state: 员工状态
+  ormorgname: 组织
   professoranalysis_name: 职称名称 
   credentials_num: 证书编号 
   professor_grades: 职称等级 
@@ -38,12 +44,20 @@ sample:
   lssuingagency: 签发机构 
   employtime: 职称聘用时间 datetime
   enable: 是否最高职称
+certificateinformation:
+ get:
+  summary: 分页查询证书信息
+ field:
+  state: 员工状态
+  ormorgname: 组织
   zgzsbh: 证书编号
   pimvocationalname: 证书名称
   zslx: 证书类型
   zghqrq: 签发日期
   zgsydw: 签发机构
   fzyxq: 发证有效期
+workhistory:
+ field:
   rzkssj: 任职开始时间
   rzjssj: 任职结束时间
   ormorgname: 工作单位
