@@ -32,7 +32,8 @@
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
-// 0 定义API控制器使用宏
+// 0 定义API控制器使用宏  (api控制器是处理传入请求，返回响应的)
+
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
 /**
@@ -43,6 +44,7 @@ class SampleController : public oatpp::web::server::api::ApiController // 1 继承
 	// 2 定义控制器访问入口
 	API_ACCESS_DECLARE(SampleController);
 	// 3 定义接口
+// API控制器可以根据传入请求的URL和HTTP方法分类，然后将请求路由到相应的方法和服务中进行处理
 public:
 	// 3.1 定义查询接口描述
 	ENDPOINT_INFO(querySample) {
@@ -160,6 +162,7 @@ public:
 		return createResponse(Status::CODE_200, "OK");
 	}
 private:
+
 	// 3.3 演示分页查询数据
 	SamplePageJsonVO::Wrapper execQuerySample(const SampleQuery::Wrapper& query, const PayloadDTO& payload);
 	// 3.3 演示新增数据
