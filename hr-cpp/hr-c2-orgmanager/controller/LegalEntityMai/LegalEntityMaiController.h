@@ -38,8 +38,10 @@ public: // 定义接口
 	ENDPOINT_INFO(queryLegalEntityMai) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("LegalEntityMai.query.summary");
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON(LegalEntityMaiPageJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(LegalEntityMaiPageJsonVO);
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他查询参数描述
