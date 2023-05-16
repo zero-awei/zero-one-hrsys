@@ -43,9 +43,9 @@ bool getStartArg(int argc, char* argv[]) {
 	std::string serverPort = "8090";
 	// 数据库连接信息
 	std::string dbUsername = "root";
-	std::string dbPassword = "zpf1219290549";
-	std::string dbName = "test";
-	std::string dbHost = "localhost";
+	std::string dbPassword = "123";
+	std::string dbName = "01xinqiu";
+	std::string dbHost = "127.0.0.1";
 	int dbPort = 3306;
 	int dbMax = 25;
 #ifdef USE_NACOS

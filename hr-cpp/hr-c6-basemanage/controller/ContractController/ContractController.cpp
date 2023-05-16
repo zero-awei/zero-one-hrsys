@@ -21,20 +21,19 @@ Uint64JsonVO::Wrapper ContractController::execUpdateContract(const ContractDTO::
 	return jvo;
 }
 
-Uint64JsonVO::Wrapper ContractController::execUploadContract(const PathDTO::Wrapper& dto)
+StringJsonVO::Wrapper ContractController::execUploadContract(const String& fileBody, const String& suffix)
 {
-	// 定义返回数据对象
-	auto jvo = Uint64JsonVO::createShared();
-
-
-	return jvo;
+	auto vo = StringJsonVO::createShared();
+	//vo->success(String(ss.str().c_str()));
+	return vo;
 }
 
-PathJsonVO::Wrapper ContractController::execDownloadContract(const PathDTO::Wrapper& dto)
+StringJsonVO::Wrapper ContractController::execDownloadContract(const ContractDownloadQuery::Wrapper& query)
 {
-	// 定义返回数据对象
-	auto jvo = PathJsonVO::createShared();
+	auto vo = StringJsonVO::createShared();
 
+	// TODO: 调用service获取导出文件下载链接
 
-	return jvo;
+	vo->success("url/download");
+	return vo;
 }
