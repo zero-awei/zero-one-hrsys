@@ -21,4 +21,10 @@ import lombok.EqualsAndHashCode;
 public class RightsQuery extends PageQuery {
     @ApiModelProperty(value = "权限名称",example = "增加权限")
     private String rightsName;
+    @ApiModelProperty(value = "权限url", example = "/login")
+    private String rightsUrl;
+    @ApiModelProperty(value = "父权限名称", example = "根权限")
+    private String parentRightsName;
+    @ApiModelProperty(value = "父权限url", example = "/root")
+    private String parentRightsUrl;
 }
