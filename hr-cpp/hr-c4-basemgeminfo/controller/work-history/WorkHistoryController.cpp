@@ -31,3 +31,32 @@ Uint64JsonVO::Wrapper WorkHistoryController::execAddWorkHistory(const AddWorkHis
 
 	return jvo;
 }
+
+Uint64JsonVO::Wrapper WorkHistoryController::execDelWorkHistory(const DelWorkHistoryDTO::Wrapper& dto)
+{
+	auto jvo = Uint64JsonVO::createShared();
+
+	int length = dto->deleteById->size();
+
+	if (length <= 0 || !dto->pimpersonid)
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	else
+	{
+		for (auto it = dto->deleteById->begin(); it != dto->deleteById->end(); ++it)
+		{
+			if (!(*it))
+			{
+				jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+				return jvo;
+			}
+		}
+	}
+
+	jvo->success(1);
+
+	return jvo;
+
+}

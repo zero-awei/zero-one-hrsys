@@ -29,18 +29,14 @@ DTO_FIELD_INFO(field) { \
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class DelWorkHistoryIdDTO : public oatpp::DTO
+
+class DelWorkHistoryDTO : public oatpp::DTO
 {
-	DTO_INIT(DelWorkHistoryIdDTO, DTO);
-
-	//工作履历标识
-	DTO_INIT_(String, pimworkhistoryid, "delworkhistorydto.field.pimworkhistoryid")
-};
-
-class DelWorkHistoryDTO : public PageDTO<DelWorkHistoryIdDTO::Wrapper>
-{
-	DTO_INIT(DelWorkHistoryDTO, PageDTO<DelWorkHistoryIdDTO::Wrapper>);
-
+	DTO_INIT(DelWorkHistoryDTO, DTO);
+	DTO_FIELD(List<String>, deleteById)= {};
+	DTO_FIELD_INFO(deleteById) {
+		info->description = ZH_WORDS_GETTER("delworkhistorydto.field.list<pimworkhistoryid>");
+	}
 	//人员信息id
 	DTO_INIT_(String, pimpersonid, "delworkhistorydto.field.pimpersonid")
 
