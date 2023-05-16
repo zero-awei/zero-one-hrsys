@@ -51,6 +51,8 @@ class SampleDTO : public oatpp::DTO
 	}
 };
 
+
+
 /**
  * 示例分页传输对象
  */

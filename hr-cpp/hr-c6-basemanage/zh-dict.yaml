@@ -29,3 +29,19 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+contract:
+ get:
+  summary: 分页查询员工信息
+ post:
+  summary: 新增一条合同信息
+ filed:   
+  name: 员工姓名
+  id: 合同编号
+  type: 合同类别
+  variety: 合同类型
+  date: 起始日期
+  condition: 合同状态
+  department_m: 合同管理单位
+  department_c: 合同签订单位
+  date_end: 合同到期时间
+  tip: 备注

@@ -1044,6 +1044,6 @@ int main(int argc, char* argv[]) {
 - Query：数据查询对象，各层接收上层的查询请求。注意超过2个参数的查询封装，禁止使用Map类来传输。
 - `VO`（View Object）：显示层对象，通常是 Web 向模板渲染引擎层传输的对象。
 
-各层之·	。
+各层之·	。				
 
 ![image-20230410170044445](imgs/layer.png)

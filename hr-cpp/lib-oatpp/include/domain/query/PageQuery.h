@@ -50,5 +50,21 @@ class PageQuery : public oatpp::DTO
 	}
 };
 
+class PageQuery_person : public oatpp::DTO
+{
+	// 初始化定义
+	DTO_INIT(PageQuery_person, DTO);
+	// 查询姓名
+	DTO_FIELD(String, PersonName)= API_PERSON_defalut_DESC;
+	DTO_FIELD_INFO(PersonName)
+	{
+#ifndef LINUX
+		info->description = u8"员工姓名";
+#else
+		info->description = "curr person name";
+#endif
+	}
+};
+
 #include OATPP_CODEGEN_END(DTO)
 #endif // !_PAGE_QUERY_
