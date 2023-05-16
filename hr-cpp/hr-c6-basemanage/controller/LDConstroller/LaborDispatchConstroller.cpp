@@ -23,7 +23,6 @@
 
 StringJsonVO::Wrapper LaborDispatchConstroller::executeQueryAll(const PageQuery::Wrapper& query)
 {
-	// 响应结果
 	auto vo = StringJsonVO::createShared();
 	vo->success("export success");
 	return vo;
@@ -32,20 +31,19 @@ StringJsonVO::Wrapper LaborDispatchConstroller::executeQueryAll(const PageQuery:
 Uint64JsonVO::Wrapper LaborDispatchConstroller::execAddLaborDispatch(const LaborDispatchDTO::Wrapper& dto)
 {
 	auto vo =Uint64JsonVO::createShared();
-	vo->init(UInt64(-1), RS_PARAMS_INVALID);
+	vo->init(UInt64(1), RS_SUCCESS);
 	return vo;
 }
 
 Uint64JsonVO::Wrapper LaborDispatchConstroller::execRemoveLaborDispatch(const LaborDispatchDTO::Wrapper& dto)
 {
 	auto vo = Uint64JsonVO::createShared();
-	vo->init(UInt64(-1), RS_PARAMS_INVALID);
+	vo->init(UInt64(1), RS_SUCCESS);
 	return vo;
 }
 
-StringJsonVO::Wrapper LaborDispatchConstroller::execExportLaborDispatch(const PageQuery::Wrapper& query)
+StringJsonVO::Wrapper LaborDispatchConstroller::execExportLaborDispatch(const LaborDispatchDTO::Wrapper& dto)
 {
-	// 响应结果
 	auto vo = StringJsonVO::createShared();
 	vo->success("export success");
 	return vo;

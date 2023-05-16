@@ -77,6 +77,11 @@ public:
 		info->summary = ZH_WORDS_GETTER("ldcompany.delete.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		//根据公司名称进行删除
+		info->queryParams.add<String>("PIMLABOURCAMPANYNAME").description = ZH_WORDS_GETTER("ldcompany.field.PIMLABOURCAMPANYNAME");
+		info->queryParams["PIMLABOURCAMPANYNAME"].addExample("default", UInt64(1));
+		info->queryParams["PIMLABOURCAMPANYNAME"].required = true;
+		
 	}
 	// 3.2 定义删除接口处理
 	ENDPOINT(API_M_DEL, "/remove", removeCor, BODY_DTO(LaborDispatchDTO::Wrapper, dto)) {
@@ -91,13 +96,11 @@ public:
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
-	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_PUT, "/export",exportCor, QUERIES(QueryParams, qcl)) {
-		//解析查询参数
-		API_HANDLER_QUERY_PARAM(query, PageQuery, qcl);
+	// 3.2 定义导出接口处理
+	ENDPOINT(API_M_PUT, "/export",exportCor, BODY_DTO(LaborDispatchDTO::Wrapper, dto)) {
 		//响应结果
-		API_HANDLER_RESP_VO(executeQueryAll(query));
-	}
+		API_HANDLER_RESP_VO(execExportLaborDispatch(dto));
+	} 
 
 
 private: //  定义接口执行函数
@@ -108,8 +111,8 @@ private: //  定义接口执行函数
 	//3.3 删除数据
 	Uint64JsonVO::Wrapper execRemoveLaborDispatch(const LaborDispatchDTO::Wrapper& dto);
 	//3.3 导出数据
-	StringJsonVO::Wrapper execExportLaborDispatch(const PageQuery::Wrapper& query);
-	/*LaborDispatchPageJsonVO::Wrapper executeQueryAll(const PageQuery::Wrapper& query);*/
+	StringJsonVO::Wrapper execExportLaborDispatch(const LaborDispatchDTO::Wrapper& dto);
+
 };
 
 #include OATPP_CODEGEN_END(ApiController)
