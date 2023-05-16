@@ -64,9 +64,6 @@ static std::shared_ptr<__CLASS__> createShared(OATPP_COMPONENT(std::shared_ptr<O
 #define API_M_PUT  "PUT";
 // 删除数据请求
 #define API_M_DEL  "DELETE";
-
-////////////////////////////////////////////////////////////////////////// 
-
 // API描述添加安全验证
 #define API_DEF_ADD_AUTH() info->addSecurityRequirement("bearer_auth")
 
