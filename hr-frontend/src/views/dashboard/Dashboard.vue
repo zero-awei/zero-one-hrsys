@@ -1,11 +1,11 @@
 <template>
   <div class="contain">
-    <div class="code">主面板</div>
+    <div class="code hr-code">主面板</div>
     <div class="info">这是主面板</div>
   </div>
 </template>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .contain {
   text-align: center;
   padding: 20%;

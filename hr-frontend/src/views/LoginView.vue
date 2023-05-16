@@ -8,8 +8,8 @@
       <el-form-item label="密码" prop="password">
         <el-input v-model="formData.password" type="password"></el-input>
       </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="submitForm()">登录</el-button>
+      <el-form-item class="hr-box">
+        <el-button class="hr-box--btn" type="primary" @click="submitForm()">登录</el-button>
       </el-form-item>
     </el-form>
     <!-- TODO[TEST_CODE]: 测试代码后期发布需要删除 -->
@@ -28,7 +28,7 @@
 <script setup>
 import Verify from '@/components/verifition/Verify.vue'
 import Request from '@/apis/request'
-import { ref, reactive } from 'vue'
+// import { ref, reactive } from 'vue'
 import { login } from '@/apis/login'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
@@ -41,6 +41,8 @@ const formData = reactive({
   username: '',
   password: ''
 })
+const instance = getCurrentInstance()
+console.log(`output->`,instance.appContext.config.globalProperties)
 
 /**
  * 执行登录
@@ -125,7 +127,7 @@ function handleSuccess(res) {
 }
 </script>
 
-<style>
+<style scoped>
 .box-card {
   width: 480px;
   margin: 50px auto;
