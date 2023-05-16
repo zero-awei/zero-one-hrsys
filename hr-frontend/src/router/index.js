@@ -37,7 +37,13 @@ const sampleRouter = import.meta.glob('./sample/index.js', { eager: true })
 for (const path in sampleRouter) {
   routes.push(...sampleRouter[path].default)
 }
-
+// 读取Employees模块路由
+const EmployeesRouter = import.meta.glob('./Employees/index.js', {
+  eager: true
+})
+for (const path in EmployeesRouter) {
+  routes.push(...EmployeesRouter[path].default)
+}
 // 定义一个路由对象
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
