@@ -1,0 +1,43 @@
+{
+  "panels": [
+    {
+      "index": 0,
+      "name": 1,
+      "height": 80,
+      "width": 220,
+      "paperHeader": 0,
+      "paperFooter": 226.7716535433071,
+      "printElements": [
+        {
+          "options": {
+            "left": 235.5,
+            "top": 18,
+            "height": 17,
+            "width": 120,
+            "testData": "单据表头",
+            "fontSize": 16.5,
+            "fontWeight": "700",
+            "textAlign": "center",
+            "hideTitle": true,
+            "title": "单据表头",
+            "field": "tname",
+            "coordinateSync": false,
+            "widthHeightSync": false,
+            "qrCodeLevel": 0,
+            "right": 354.75,
+            "bottom": 35,
+            "vCenter": 294.75,
+            "hCenter": 26.5
+          },
+          "printElementType": {
+            "title": "单据表头",
+            "type": "text"
+          }
+        }
+      ],
+      "paperNumberLeft": 565,
+      "paperNumberTop": 204,
+      "watermarkOptions": {}
+    }
+  ]
+}
