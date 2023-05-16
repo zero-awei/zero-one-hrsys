@@ -32,7 +32,7 @@ class MilitaryController : public oatpp::web::server::api::ApiController
 	// 定义控制器访问入口
 	API_ACCESS_DECLARE(MilitaryController);
 public: // 定义接口
-
+	//查看指定员工军转干部(指定军转干部详情)
 	ENDPOINT_INFO(queryMilitary) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("military.get.summary");
@@ -44,25 +44,41 @@ public: // 定义接口
 	}
 	ENDPOINT(API_M_GET, "/military", queryMilitary, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
-		API_HANDLER_QUERY_PARAM(query, MilitaryQuery, qps);
+		API_HANDLER_QUERY_PARAM(query, MilitaryDetailQuery, qps);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryMilitary(query));
 	}
-
+	//修改指定员工军转干部(单条修改)
 	ENDPOINT_INFO(modifyMilitary) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("military.put.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	// 3.2 定义修改接口处理
 	ENDPOINT(API_M_PUT, "/military", modifyMilitary, BODY_DTO(MilitaryDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyMilitary(dto));
 	}
+	//导出指定员工军转干部(导出本页在前端完成)
+	ENDPOINT_INFO(downloadMilitary) {
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("military.download.summary");
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		// 添加其他查询参数
+		info->queryParams.add<String>("PIMPERSONID").description = ZH_WORDS_GETTER("military.PIMPERSONID");
+		info->queryParams["PIMPERSONID"].addExample("default", String("0000-QWDE"));
+	}
+	ENDPOINT(API_M_POST, "/military", downloadMilitary, QUERIES(QueryParams, qps)) {
+		// 解析查询参数（解析成领域模型对象）
+		API_HANDLER_QUERY_PARAM(query, MilitaryDownloadQuery, qps);
+		// 响应结果
+		API_HANDLER_RESP_VO(execDownloadMilitary(query));
+	}
 private: // 定义接口执行函数
-	MilitaryJsonVO::Wrapper execQueryMilitary(const MilitaryQuery::Wrapper& query);
+	MilitaryJsonVO::Wrapper execQueryMilitary(const MilitaryDetailQuery::Wrapper& query);
 	Uint64JsonVO::Wrapper execModifyMilitary(const MilitaryDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execDownloadMilitary(const MilitaryDownloadQuery::Wrapper& query);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

@@ -24,14 +24,25 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class MilitaryQuery : public oatpp::DTO
+class MilitaryDetailQuery : public oatpp::DTO
 {
-	DTO_INIT(MilitaryQuery, DTO);
+	DTO_INIT(MilitaryDetailQuery, DTO);
 	
 	// 军转干部主键标识
 	DTO_FIELD(String, PIMARMYCADRESID);
 	DTO_FIELD_INFO(PIMARMYCADRESID) {
-		info->description = ZH_WORDS_GETTER("military.id");
+		info->description = ZH_WORDS_GETTER("military.PIMARMYCADRESID");
+	}
+};
+
+class MilitaryDownloadQuery : public oatpp::DTO
+{
+	DTO_INIT(MilitaryDownloadQuery, DTO);
+
+	// 军转干部 人员信息标识
+	DTO_FIELD(String, PIMPERSONID);
+	DTO_FIELD_INFO(PIMPERSONID) {
+		info->description = ZH_WORDS_GETTER("military.PIMPERSONID");
 	}
 };
 

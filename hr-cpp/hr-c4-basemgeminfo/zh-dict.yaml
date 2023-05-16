@@ -50,6 +50,8 @@ military:
   summary: 查看指定员工军转干部(指定军转干部详情)
  put:
   summary: 修改指定员工军转干部(单条修改)
+ download:
+  summary: 导出指定员工军转干部(导出本页在前端完成)
  UPDATEDATE: 更新时间
  PIMARMYCADRESNAME: 军转干部名称
  FJ: 附件
