@@ -35,26 +35,26 @@ class WorkHistoryDTO : public oatpp::DTO
 
 
 	////1任职开始时间
-	DTO_INIT_(String, servebegintime, "addworkhistorydto.field.servebegintime")
+	DTO_INIT_(String, servebegintime, "workhistory.field.servebegintime")
 
 
 	//2任职结束时间
-	DTO_INIT_(String, serveendtime, "addworkhistorydto.field.serveendtime")
+	DTO_INIT_(String, serveendtime, "workhistory.field.serveendtime")
 
 	//3工作单位
-	DTO_INIT_(String, workunit, "addworkhistorydto.field.workunit")
+	DTO_INIT_(String, workunit, "workhistory.field.workunit")
 
 	//4部门
-	DTO_INIT_(String, bm, "addworkhistorydto.field.bm")
+	DTO_INIT_(String, bm, "workhistory.field.bm")
 
 	//5职务
-	DTO_INIT_(String, zw, "addworkhistorydto.field.zw")
+	DTO_INIT_(String, zw, "workhistory.field.zw")
 
 	//6岗位
-	DTO_INIT_(String, gw, "addworkhistorydto.field.gw")
+	DTO_INIT_(String, gw, "workhistory.field.gw")
 
 	//7职级
-	DTO_INIT_(String, ormrankid, "addworkhistorydto.field.ormrankid")
+	DTO_INIT_(String, ormrankid, "workhistory.field.ormrankid")
 
 };
 
@@ -66,11 +66,11 @@ class WorkHistoryIntoDTO : public oatpp::DTO
 	//批量增加list
 	DTO_FIELD(List<WorkHistoryDTO>, listworkhistory) = {};
 	DTO_FIELD_INFO(listworkhistory) {
-		info->description = ZH_WORDS_GETTER("addworkhistorydto.field.listworkhistory");
+		info->description = ZH_WORDS_GETTER("workhistory.field.listworkhistory");
 	}
 
 	//8人员信息id
-	DTO_INIT_(String, pimpersonid, "addworkhistorydto.field.pimpersonid")
+	DTO_INIT_(String, pimpersonid, "workhistory.field.pimpersonid")
 	
 };
 

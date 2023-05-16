@@ -50,7 +50,7 @@ public: // 定义接口
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("sample.field.pimpersonid");
+		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("workhistory.field.pimpersonid");
 		info->queryParams["pimpersonid"].addExample("default", String("6611212223"));
 		info->queryParams["pimpersonid"].required = false;
 	}
@@ -65,7 +65,7 @@ public: // 定义接口
 	// 定义新增接口描述
 	ENDPOINT_INFO(addWorkHistory) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("WorkHistory.post.summary");
+		info->summary = ZH_WORDS_GETTER("workhistory.post.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
@@ -78,7 +78,7 @@ public: // 定义接口
 	// 定义批量删除接口描述
 	ENDPOINT_INFO(delWorkHistory) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("WorkHistory.post.summary");
+		info->summary = ZH_WORDS_GETTER("workhistory.delete.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}

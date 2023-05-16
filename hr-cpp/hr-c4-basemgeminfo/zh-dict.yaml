@@ -29,3 +29,21 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+workhistory:
+ field:
+  list<pimworkhistoryid>: 履历的独有信息，用来批量删除的
+  listworkhistory: 履历的独有信息，用来批量增加的
+  pimpersionid: 人员信息id
+  servebegintime: 任职开始时间
+  serveendtime: 任职结束时间
+  workunit: 工作单位
+  bm: 部门
+  zw: 职务
+  gw: 岗位
+  ormrankid: 职级
+ get:
+  summary: 分页查询数据
+ post:
+  summary: 新增一条数据
+ delete:
+  summary: 删除数据(支持批量删除)

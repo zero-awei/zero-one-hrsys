@@ -33,29 +33,29 @@ class AddWorkHistoryDTO : public oatpp::DTO
 	DTO_INIT(AddWorkHistoryDTO, DTO);
 	
 	//8人员信息id
-	DTO_INIT_(String, pimpersonid, "addworkhistorydto.field.pimpersonid")
+	DTO_INIT_(String, pimpersonid, "workhistory.field.pimpersonid")
 
 	////1任职开始时间
-	DTO_INIT_(String, servebegintime, "addworkhistorydto.field.servebegintime")
+	DTO_INIT_(String, servebegintime, "workhistory.field.servebegintime")
 
 
 	//2任职结束时间
-	DTO_INIT_(String, serveendtime, "addworkhistorydto.field.serveendtime")
+	DTO_INIT_(String, serveendtime, "workhistory.field.serveendtime")
 
 	//3工作单位
-	DTO_INIT_(String, workunit, "addworkhistorydto.field.workunit")
+	DTO_INIT_(String, workunit, "workhistory.field.workunit")
 
 	//4部门
-	DTO_INIT_(String, bm, "addworkhistorydto.field.bm")
+	DTO_INIT_(String, bm, "workhistory.field.bm")
 
 	//5职务
-	DTO_INIT_(String, zw, "addworkhistorydto.field.zw")
+	DTO_INIT_(String, zw, "workhistory.field.zw")
 
 	//6岗位
-	DTO_INIT_(String, gw, "addworkhistorydto.field.gw")
+	DTO_INIT_(String, gw, "workhistory.field.gw")
 
 	//7职级
-	DTO_INIT_(String, ormrankid, "addworkhistorydto.field.ormrankid")
+	DTO_INIT_(String, ormrankid, "workhistory.field.ormrankid")
 
 	
 };

@@ -36,50 +36,50 @@ class WorkHistoryPageQuery : public PageQuery
 	//任职开始时间
 	DTO_FIELD(String, servebegintime);
 	DTO_FIELD_INFO(servebegintime) {
-		info->description = ZH_WORDS_GETTER("workhistorypagequery.field.servebegintime");
+		info->description = ZH_WORDS_GETTER("workhistory.field.servebegintime");
 	}
 
 
 	//任职结束时间
 	DTO_FIELD(String, serveendtime);
 	DTO_FIELD_INFO(serveendtime) {
-		info->description = ZH_WORDS_GETTER("workhistorypagequery.field.serveendtime");
+		info->description = ZH_WORDS_GETTER("workhistory.field.serveendtime");
 	}
 
 	//工作单位
 	DTO_FIELD(String, workunit);
 	DTO_FIELD_INFO(workunit) {
-		info->description = ZH_WORDS_GETTER("workhistorypagequery.field.workunit");
+		info->description = ZH_WORDS_GETTER("workhistory.field.workunit");
 	}
 
 	//部门
 	DTO_FIELD(String, bm);
 	DTO_FIELD_INFO(bm) {
-		info->description = ZH_WORDS_GETTER("workhistorypagequery.field.BM");
+		info->description = ZH_WORDS_GETTER("workhistory.field.BM");
 	}
 
 	//职务
 	DTO_FIELD(String, zw);
 	DTO_FIELD_INFO(zw) {
-		info->description = ZH_WORDS_GETTER("workhistorypagequery.field.zw");
+		info->description = ZH_WORDS_GETTER("workhistory.field.zw");
 	}
 
 	//岗位
 	DTO_FIELD(String,gw);
 	DTO_FIELD_INFO(gw) {
-		info->description = ZH_WORDS_GETTER("workhistorypagequery.field.gw");
+		info->description = ZH_WORDS_GETTER("workhistory.field.gw");
 	}
 
 	//职级
 	DTO_FIELD(String,ormrankid);
 	DTO_FIELD_INFO(ormrankid) {
-		info->description = ZH_WORDS_GETTER("workhistorypagequery.field.ormrankid");
+		info->description = ZH_WORDS_GETTER("workhistory.field.ormrankid");
 	}
 
 	//人员信息id
 	DTO_FIELD(String, pimpersonid);
 	DTO_FIELD_INFO(pimpersonid) {
-		info->description = ZH_WORDS_GETTER("workhistorypagequery.field.pimpersionid");
+		info->description = ZH_WORDS_GETTER("workhistory.field.pimpersionid");
 	}
 };
 

@@ -35,10 +35,10 @@ class DelWorkHistoryDTO : public oatpp::DTO
 	DTO_INIT(DelWorkHistoryDTO, DTO);
 	DTO_FIELD(List<String>, deleteById)= {};
 	DTO_FIELD_INFO(deleteById) {
-		info->description = ZH_WORDS_GETTER("delworkhistorydto.field.list<pimworkhistoryid>");
+		info->description = ZH_WORDS_GETTER("workhistory.field.list<pimworkhistoryid>");
 	}
 	//人员信息id
-	DTO_INIT_(String, pimpersonid, "delworkhistorydto.field.pimpersonid")
+	DTO_INIT_(String, pimpersonid, "workhistory.field.pimpersonid")
 
 };
 
