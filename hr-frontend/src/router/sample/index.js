@@ -11,6 +11,14 @@ const routes = [
       {
         path: '/sample/print',
         component: () => import('@/views/sample/print/Print.vue')
+      },
+      {
+        path: '/sample/sass',
+        component: () => import('@/views/sample/SassTest/SassSample.vue')
+      },
+      {
+        path: '/sample/communication',
+        component: () => import('@/views/sample/Communication/index.vue')
       }
     ]
   }

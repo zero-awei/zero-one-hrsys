@@ -55,7 +55,14 @@ export default ({ mode }) =>
     plugins: [
       vue(),
       AutoImport({
-        resolvers: [ElementPlusResolver()]
+        // 自动导入api
+        imports: ['vue', 'vue-router', 'pinia'],
+        resolvers: [ElementPlusResolver()],
+        eslintrc: {
+          enabled: false, // <-- this
+          filepath: './.eslintrc-auto-import.json',
+          globalsPropValue: true
+        }
       }),
       Components({
         resolvers: [ElementPlusResolver()]
@@ -71,6 +78,14 @@ export default ({ mode }) =>
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url))
+      }
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // @import
+          additionalData: `@use "@/assets/_mixins" as *;`
+        }
       }
     }
   })
