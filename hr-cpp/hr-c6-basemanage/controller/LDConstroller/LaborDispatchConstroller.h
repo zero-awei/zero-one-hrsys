@@ -23,6 +23,8 @@
 #include "ApiHelper.h"
 #include "domain/query/PageQuery.h"
 #include "domain/vo/BaseJsonVO.h"
+#include "domain/vo/LaborDispatchVO.h"
+#include "domain/query/LaborDispatchQuery.h"
 
 // 0 定义API控制器使用宏
 #include OATPP_CODEGEN_BEGIN(ApiController)
@@ -34,28 +36,80 @@ class LaborDispatchConstroller : public oatpp::web::server::api::ApiController
 	API_ACCESS_DECLARE(LaborDispatchConstroller);
 public: 
 	// 3.1 定义查询接口描述
-	ENDPOINT_INFO(queryCorlist) {
+	ENDPOINT_INFO(queryLDCorlist) {
 		// 定义接口标题
-		info->summary = "query corporation lists";
-
+		info->summary = ZH_WORDS_GETTER("ldcompany.get.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(LaborDispatchPageJsonVO);
 		//定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
-		info->queryParams.add<String>("PIMLABOURCAMPANYNAME").description = "劳务公司";
-		info->queryParams["PIMLABOURCAMPANYNAME"].addExample("default", String("moumouyouxiangongsi"));
+		info->queryParams.add<String>("PIMLABOURCAMPANYNAME").description = ZH_WORDS_GETTER("ldcompany.field.PIMLABOURCAMPANYNAME");
 		info->queryParams["PIMLABOURCAMPANYNAME"].required = false;
+		info->queryParams.add<String>("PIMLABOURCAMPANYID").description = ZH_WORDS_GETTER("ldcompany.field.PIMLABOURCAMPANYID");
+		info->queryParams["PIMLABOURCAMPANYID"].required = false;
+
 	}
-	// 4 定义接口端点
-	ENDPOINT(API_M_GET, "/query", queryCorlist, QUERIES(QueryParams, qcl)) {
+	// 3.2 定义接口端点
+	ENDPOINT(API_M_GET, "/query", queryLDCorlist, QUERIES(QueryParams, qcl)) {
 		//解析查询参数
 		API_HANDLER_QUERY_PARAM(query, PageQuery, qcl);
 		//响应结果
 		API_HANDLER_RESP_VO(executeQueryAll(query));
 	}
-private: 
-	// 5 定义接口执行函数
+
+	// 3.1 定义新增接口描述
+	ENDPOINT_INFO(addLDCor) {
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("ldcompany.post.summary");
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		
+	}
+	// 3.2 定义新增接口处理
+	ENDPOINT(API_M_POST, "/add", addLDCor, BODY_DTO(LaborDispatchDTO::Wrapper, dto)) {
+		// 响应结果
+		API_HANDLER_RESP_VO(execAddLaborDispatch(dto));
+	}
+
+	// 3.1 定义删除接口描述
+	ENDPOINT_INFO(removeCor) {
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("ldcompany.delete.summary");
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+	}
+	// 3.2 定义删除接口处理
+	ENDPOINT(API_M_DEL, "/remove", removeCor, BODY_DTO(LaborDispatchDTO::Wrapper, dto)) {
+		// 响应结果
+		API_HANDLER_RESP_VO(execRemoveLaborDispatch(dto));
+	}
+
+	// 3.1 定义导出接口描述
+	ENDPOINT_INFO(exportCor) {
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("ldcompany.export.summary");
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+	}
+	// 3.2 定义删除接口处理
+	ENDPOINT(API_M_PUT, "/export",exportCor, QUERIES(QueryParams, qcl)) {
+		//解析查询参数
+		API_HANDLER_QUERY_PARAM(query, PageQuery, qcl);
+		//响应结果
+		API_HANDLER_RESP_VO(executeQueryAll(query));
+	}
+
+
+private: //  定义接口执行函数
+	// 3.3 分页查询数据
 	StringJsonVO::Wrapper executeQueryAll(const PageQuery::Wrapper& query);
+	// 3.3 新增数据
+	Uint64JsonVO::Wrapper execAddLaborDispatch(const LaborDispatchDTO::Wrapper& dto);
+	//3.3 删除数据
+	Uint64JsonVO::Wrapper execRemoveLaborDispatch(const LaborDispatchDTO::Wrapper& dto);
+	//3.3 导出数据
+	StringJsonVO::Wrapper execExportLaborDispatch(const PageQuery::Wrapper& query);
+	/*LaborDispatchPageJsonVO::Wrapper executeQueryAll(const PageQuery::Wrapper& query);*/
 };
 
 #include OATPP_CODEGEN_END(ApiController)

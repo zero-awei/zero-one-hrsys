@@ -1,12 +1,9 @@
 #pragma once
-#include "../dto/LaborDispatchDTO.h"
-#include "../GlobalInclude.h"
-
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: mengHuan
- @Date: 2023/05/15 15:56:56
+ @Date: 2023/05/15 21:50:08
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -20,23 +17,22 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _LABORDISPATCHVO_H_
-#define _LABORDISPATCHVO_H_
+#ifndef _LABORDISPATCHSERVICE_H_
+#define _LABORDISPATCHSERVICE_H_
+#include <list>
 
 
-#include OATPP_CODEGEN_BEGIN(DTO)
-
-class LaborDispatchJsonVO : public JsonVO<LaborDispatchDTO::Wrapper>
+class LaborDispatchService
 {
-	DTO_INIT(LaborDispatchJsonVO, JsonVO< LaborDispatchDTO::Wrapper>);
+public:
+	//分页查询所有数据
+
+	//保存数据
+
+	//修改数据
+
+	//通过ID删除数据
+
 };
 
-// 分页显示JsonVO，用于响应给客户端的Json对象
-class LaborDispatchPageJsonVO : public JsonVO<LaborDispatchPageDTO::Wrapper>
-{
-	DTO_INIT(LaborDispatchPageJsonVO, JsonVO< LaborDispatchPageDTO::Wrapper>);
-};
-
-#include OATPP_CODEGEN_END(DTO)
-
-#endif // !_LABORDISPATCHVO_H_
+#endif // !_LABORDISPATCHSERVICE_H_

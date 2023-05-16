@@ -23,10 +23,31 @@
 
 StringJsonVO::Wrapper LaborDispatchConstroller::executeQueryAll(const PageQuery::Wrapper& query)
 {
-	//创建响应对象
+	// 响应结果
 	auto vo = StringJsonVO::createShared();
-	vo->success("query corporation success");
+	vo->success("export success");
 	return vo;
-	//创建分页对象
-
 }
+
+Uint64JsonVO::Wrapper LaborDispatchConstroller::execAddLaborDispatch(const LaborDispatchDTO::Wrapper& dto)
+{
+	auto vo =Uint64JsonVO::createShared();
+	vo->init(UInt64(-1), RS_PARAMS_INVALID);
+	return vo;
+}
+
+Uint64JsonVO::Wrapper LaborDispatchConstroller::execRemoveLaborDispatch(const LaborDispatchDTO::Wrapper& dto)
+{
+	auto vo = Uint64JsonVO::createShared();
+	vo->init(UInt64(-1), RS_PARAMS_INVALID);
+	return vo;
+}
+
+StringJsonVO::Wrapper LaborDispatchConstroller::execExportLaborDispatch(const PageQuery::Wrapper& query)
+{
+	// 响应结果
+	auto vo = StringJsonVO::createShared();
+	vo->success("export success");
+	return vo;
+}
+
