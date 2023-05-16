@@ -35,9 +35,8 @@
     border-bottom: 1px solid #ddd;
     margin-bottom: 10px;
   }
-
   .process-bar:deep(.el-step__title.is-wait) {
-    color: lightgray;
+    color: rgb(192, 196, 204);
   }
   .process-bar:deep(.el-step__title.is-process) {
     color: rgb(126, 129, 135);
@@ -46,5 +45,7 @@
     color: rgb(126, 129, 135);
     border-color: rgb(126, 129, 135);
   }
+  .process-bar:deep(.el-step__line) {
+    background-color: rgb(192, 196, 204);
+  }
   </style>
-  
