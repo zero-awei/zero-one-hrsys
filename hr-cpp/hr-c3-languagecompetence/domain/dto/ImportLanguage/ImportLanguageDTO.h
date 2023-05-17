@@ -35,7 +35,17 @@ class ImportLanguageDTO : public PageDTO<LanguageDTO::Wrapper>
 	//文件路径
 	DTO_FIELD(String, url);
 	DTO_FIELD_INFO(url) {
-		info->description = "URL"
+		info->description = "URL";
+	}
+	// 编号
+	DTO_FIELD(UInt64, id);
+	DTO_FIELD_INFO(id) {
+		info->description = ZH_WORDS_GETTER("sample.field.id");
+	}
+	// 姓名
+	DTO_FIELD(String, name);
+	DTO_FIELD_INFO(name) {
+		info->description = ZH_WORDS_GETTER("sample.field.name");
 	}
 };
 
