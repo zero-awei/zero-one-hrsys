@@ -29,3 +29,16 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+familysituation:
+ field:
+  relationship: 与本人关系
+  name: 姓名
+  gender: 性别
+  age: 年龄
+  workplace: 工作单位
+  job: 职务
+  politicalstatus: 政治面貌
+  identification: 证件号
+  dob: 出生日期
+  testament: 是否遗嘱
+  ice: 紧急联系人
