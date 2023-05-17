@@ -40,6 +40,7 @@ public:
 	Router(Endpoints* docEndpoints, HttpRouter* router);
 	// 呼叫初始化
 	void initRouter();
+	void createRouter();
 private:
 #ifdef HTTP_SERVER_DEMO
 	// 创建演示路由

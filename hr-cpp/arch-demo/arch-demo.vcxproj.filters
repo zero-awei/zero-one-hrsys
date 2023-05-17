@@ -170,5 +170,11 @@
     <ClInclude Include="domain\dto\user\MenuDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\query\filestatus\FilestatusQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\filestatus\FilestatusVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
