@@ -29,3 +29,15 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+TempStaff:
+ field:
+  id: 编号
+  name: 姓名
+  empStatus: 员工状态
+  tempStatus: 挂职状态
+  tempOrg: 挂职组织
+  tempDepat: 挂职部门
+  tempBeginTime: 挂职开始时间
+  tempEndTime: 挂职结束时间
+ get: 
+  summary: 分页查询挂职员工数据

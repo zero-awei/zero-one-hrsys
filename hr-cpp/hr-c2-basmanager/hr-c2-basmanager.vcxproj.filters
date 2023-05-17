@@ -33,6 +33,18 @@
     <ClInclude Include="domain\do\DoInclude.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\CertificateManage\TemporaryStaffController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\CertificateManage\TemporaryStaffDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\CertificateManage\TemporaryStaffQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\CertificateManage\TemporaryStaffVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -45,6 +57,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\SystemInterceptor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\CertificateManage\TemporaryStaffController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
