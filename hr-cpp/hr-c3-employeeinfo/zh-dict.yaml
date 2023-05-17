@@ -29,3 +29,48 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+rootorg:
+  query:
+    filter: 匹配名称
+    page: 页码
+    size: 页的记录数
+    sort: 排序方式
+validorg:
+  query:
+    filter: 匹配名称
+    porgid: 父组织id
+    page: 页码
+    size: 页的记录数
+    sort: 排序方式
+sector:
+  query:
+    parentkey: 查询parent的id
+    page: 页码
+    size: 页的记录数
+    sort: 排序方式
+member:
+  query:
+    parentdename: 查询parent类型
+    parentkey: 查询parent的id
+    page: 页码
+    size: 页的记录数
+org:
+  field:
+    companyflag: 是否为根组织
+    orgname: 组织名字 
+    orgid: 组织id
+    porgname: 父组织名字
+    porgid: 父组织id
+orgsector:
+  field:
+    orgsectorname: 部门名字
+    orgsectorid: 部门id 
+    orgname: 组织名字
+    orgid: 组织id
+member:
+  field:
+    ygbh: 员工编号
+    pimpersonname: 个人名字
+    ormorgname: 组织名字
+    ormorgsectorname: 部门名字
+    zw: 职务
