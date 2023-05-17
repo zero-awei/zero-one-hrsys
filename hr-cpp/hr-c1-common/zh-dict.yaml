@@ -29,3 +29,12 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+
+# 公共接口
+common:
+ dto:
+  code: 列表项对应键
+  value: 列表项映射值
+  list: 下拉列表
+ controller:
+  contractType: 合同类型   
