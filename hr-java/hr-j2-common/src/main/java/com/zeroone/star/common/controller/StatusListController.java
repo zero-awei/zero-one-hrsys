@@ -20,5 +20,4 @@ public class StatusListController implements StatusApi {
     public JsonVO<PageDTO<StatusListDto>> queryAll(StatusListQuery query) {
         return null;
     }
-
 }
