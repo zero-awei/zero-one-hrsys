@@ -17,7 +17,7 @@
 #ifndef __MESSAGEEXT_H__
 #define __MESSAGEEXT_H__
 
-#ifdef WIN32
+#ifdef _WIN32
 #include <Windows.h>
 #include <Winsock2.h>
 #else
