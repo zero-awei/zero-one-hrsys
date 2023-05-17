@@ -36,10 +36,16 @@
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\EmployeeInfoDTO\EmployeeInfoDTO.h">
+    <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoAddDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\EmployeeInfoQuery\EmployeeInfoQuery.h">
+    <ClInclude Include="domain\query\employeeInfo\EmployeeInfoQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\jobList\JobListQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

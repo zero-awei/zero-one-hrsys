@@ -15,6 +15,31 @@ user:
   menuicon: 图标名称
   menuhref: 路由地址
   menusub: 子菜单
+employee:
+ field:
+  id: 员工编号
+  name: 员工姓名
+  idType: 证件类型
+  idMum: 证件号码
+  bitrhday: 出生日期
+  age: 年龄
+  sex: 性别
+  nation: 民族
+  native: 籍贯
+  marriage: 婚姻状况
+  politic: 政治面貌
+  rank: 职级
+  workTime: 参加工作时间
+  inTime: 到本单位时间
+  email: 电子邮箱
+  techTitle: 技术职称
+  acaCredit: 最高学历
+  firAcaCredit: 第一学历
+  pracCertificate: 执业证书
+  photo: 照片路径
+  phone: 手机号码
+  state: 员工状态
+  jobList: 岗位
 sample:
  get:
   summary: 分页查询示例数据

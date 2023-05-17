@@ -24,9 +24,9 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class EmployeeInfoDTO : public oatpp::DTO
+class EmployeeInfoAddDTO : public oatpp::DTO
 {
-	DTO_INIT(EmployeeInfoDTO, DTO);
+	DTO_INIT(EmployeeInfoAddDTO, DTO);
 	//Ô±¹¤±àºÅ
 	DTO_FIELD(UInt64, empid);
 	DTO_FIELD_INFO(empid) {

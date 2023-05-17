@@ -15,30 +15,6 @@ user:
   menuicon: 图标名称
   menuhref: 路由地址
   menusub: 子菜单
-employee:
- field:
-  id: 员工编号
-  name: 员工姓名
-  idType: 证件类型
-  idMum: 证件号码
-  bornDate:
-  age:
-  sex:
-  nation:
-  native:
-  marriage:
-  politic:
-  rank:
-  workTime:
-  inTime:
-  email:
-  techTitle:
-  acaCredit:
-  firAcaCredit:
-  pracCertificate:
-  photo:
-  phone: 手机号码
-  state: 员工状态
 sample:
  get:
   summary: 分页查询示例数据

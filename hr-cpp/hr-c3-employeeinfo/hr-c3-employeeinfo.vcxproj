@@ -162,9 +162,11 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\dto\EmployeeInfoDTO\EmployeeInfoDTO.h" />
+    <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoAddDTO.h" />
+    <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
-    <ClInclude Include="domain\query\EmployeeInfoQuery\EmployeeInfoQuery.h" />
+    <ClInclude Include="domain\query\employeeInfo\EmployeeInfoQuery.h" />
+    <ClInclude Include="domain\query\jobList\JobListQuery.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
