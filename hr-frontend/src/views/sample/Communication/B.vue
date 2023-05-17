@@ -3,10 +3,9 @@
 </template>
 
 <script setup>
-
-const mitt = getCurrentInstance().appContext.config.globalProperties.$bus;
+const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
 const fn = (val) => {
-  console.log(`output->B`,val)
+  console.log(`output->B`, val)
 }
 
 // 绑定触发函数
@@ -19,7 +18,7 @@ const callA = () => {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 @include block(btn) {
   width: 100px;
   // height: 20px;

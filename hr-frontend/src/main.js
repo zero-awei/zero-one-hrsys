@@ -19,6 +19,6 @@ installHttp(router)
 import installElIcon from './plugins/el-icon'
 installElIcon(app)
 
-// 全局事件总线
-import mitt from 'mitt'
-app.config.globalProperties.$bus = mitt()
+// // 全局事件总线
+// import mitt from 'mitt'
+// app.config.globalProperties.$bus = mitt()

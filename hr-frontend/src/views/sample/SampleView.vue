@@ -69,7 +69,7 @@
 
 <script setup>
 import { reactive } from 'vue'
-// 演示菜单数据，添加新的演示在这里不从数据即可 path代表路由地址 text代表提示文本
+// 演示菜单数据，添加新的演示在这里补充数据即可 path代表路由地址 text代表提示文本
 const menus = reactive([
   {
     path: '/sample',
@@ -90,6 +90,10 @@ const menus = reactive([
   {
     path: '/sample/communication',
     text: '兄弟组件通信'
+  },
+  {
+    path: '/sample/maintable',
+    text: '表格主体测试页面'
   }
 ])
 </script>
