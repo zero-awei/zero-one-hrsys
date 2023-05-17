@@ -87,26 +87,6 @@ StringJsonVO::Wrapper WorkHistoryController::execIntoWorkHistory(const String fi
 	// 保存文件到临时目录
 	fileBody.saveToFile(fileName.c_str());
 
-	
-	/*// 测试上传到FastDFS文件服务器
-#ifdef LINUX
-	//定义客户端对象
-	FastDfsClient client("conf/client.conf", 3);
-#else
-	//定义客户端对象
-	FastDfsClient client("192.168.220.128");
-#endif
-	std::string fieldName = client.uploadFile(fileName);
-	std::cout << "upload fieldname is : " << fieldName << std::endl;
-	ss.str("");
-	ss.clear();
-	ss << "http://192.168.220.128:8888/" << fieldName;
-
-
-	// 创建响应数据
-	auto vo = StringJsonVO::createShared();
-	vo->success(String(ss.str().c_str()));
-	return vo;*/
 
 	// 保存到文件
 	ExcelComponent excel;
@@ -144,6 +124,53 @@ StringJsonVO::Wrapper WorkHistoryController::execIntoWorkHistory(const String fi
 StringJsonVO::Wrapper WorkHistoryController::execExportWorkHistory(const WorkHistoryExportQuery::Wrapper& query)
 {
 	auto vo = StringJsonVO::createShared();
+
+	// 创建测试数据
+	vector<vector<std::string>> data;
+	stringstream ss;
+	for (int i = 1; i <= 10; i++)
+	{
+		vector<std::string> row;
+		for (int j = 1; j <= 5; j++)
+		{
+			ss.clear();
+			// 注意：因为xlnt不能存储非utf8编码的字符，所以中文字需要转换编码
+			ss
+				<< CharsetConvertHepler::ansiToUtf8("单元格坐标：(") << i
+				<< CharsetConvertHepler::ansiToUtf8(",") << j << ")";
+			row.push_back(ss.str());
+			ss.str("");
+		}
+		data.push_back(row);
+	}
+
+	std::string fileName = "./public/excel/1.xlsx";
+	// 注意：因为xlnt不能存储非utf8编码的字符，所以中文字需要转换编码
+	std::string sheetName = CharsetConvertHepler::ansiToUtf8("数据表1");
+
+	// 保存到文件
+	ExcelComponent excel;
+	excel.writeVectorToFile(fileName, sheetName, data);
+
+	// 临时文件名称
+	std::string fileName = ss.str();
+	// 保存文件到临时目录
+	String fileBody;
+	fileBody.saveToFile(fileName.c_str());
+
+	// 测试上传到FastDFS文件服务器
+#ifdef LINUX
+	//定义客户端对象
+	FastDfsClient client("conf/client.conf", 3);
+#else
+	//定义客户端对象
+	FastDfsClient client("192.168.220.128");
+#endif
+	std::string fieldName = client.uploadFile(fileName);
+	std::cout << "upload fieldname is : " << fieldName << std::endl;
+	ss.str("");
+	ss.clear();
+	ss << "http://192.168.220.128:8888/" << fieldName;
 
 	vo->success(u8"导出成功");
 	return vo;
