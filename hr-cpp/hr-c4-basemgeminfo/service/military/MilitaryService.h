@@ -27,6 +27,8 @@ class MilitaryService
 {
 public:
 	MilitaryDTO::Wrapper listDetail(const MilitaryDetailQuery::Wrapper& query);
+	// ÐÞ¸ÄÊý¾Ý
+	bool updateData(const MilitaryDTO::Wrapper& dto);
 };
 
 #endif // !_MILITARYSERVICE_H_

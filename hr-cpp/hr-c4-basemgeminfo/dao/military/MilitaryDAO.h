@@ -26,9 +26,10 @@
 class MilitaryDAO : public BaseDAO
 {
 public:
-	// 分页查询数据
+	// 查询详情数据
 	list<MilitaryDO> selectDetail(const MilitaryDetailQuery::Wrapper& query);
-
+	// 修改数据
+	int update(const MilitaryDO& uObj);
 };
 
 #endif // !_MILITARYDAO_H_

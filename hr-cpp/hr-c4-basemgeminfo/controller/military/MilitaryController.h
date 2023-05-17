@@ -53,7 +53,7 @@ public: // 定义接口
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("military.put.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	ENDPOINT(API_M_PUT, "/military", modifyMilitary, BODY_DTO(MilitaryDTO::Wrapper, dto)) {
 		// 响应结果
@@ -77,7 +77,7 @@ public: // 定义接口
 	}
 private: // 定义接口执行函数
 	MilitaryJsonVO::Wrapper execQueryMilitary(const MilitaryDetailQuery::Wrapper& query);
-	Uint64JsonVO::Wrapper execModifyMilitary(const MilitaryDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execModifyMilitary(const MilitaryDTO::Wrapper& dto);
 	StringJsonVO::Wrapper execDownloadMilitary(const MilitaryDownloadQuery::Wrapper& query);
 };
 

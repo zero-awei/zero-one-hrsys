@@ -13,13 +13,28 @@ MilitaryJsonVO::Wrapper MilitaryController::execQueryMilitary(const MilitaryDeta
 	return jvo;
 }
 
-Uint64JsonVO::Wrapper MilitaryController::execModifyMilitary(const MilitaryDTO::Wrapper& dto)
+StringJsonVO::Wrapper MilitaryController::execModifyMilitary(const MilitaryDTO::Wrapper& dto)
 {
-	// 创建响应对象
-	auto vo = Uint64JsonVO::createShared();
+	// 定义返回数据对象
+	auto jvo = StringJsonVO::createShared();
+	// 参数校验
+	if (dto->PIMARMYCADRESID.getValue("").empty())
+	{
+		jvo->init(String("PIMARMYCADRESID must be not null"), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	// 定义一个Service
+	MilitaryService service;
+	// 执行数据修改
+	if (service.updateData(dto)) {
+		jvo->success(dto->PIMARMYCADRESID);
+	}
+	else
+	{
+		jvo->fail(dto->PIMARMYCADRESID);
+	}
 	// 响应结果
-	vo->success(1);
-	return vo;
+	return jvo;
 }
 
 StringJsonVO::Wrapper MilitaryController::execDownloadMilitary(const MilitaryDownloadQuery::Wrapper& query)
