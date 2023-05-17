@@ -34,4 +34,4 @@ class CertTypeQuery : public oatpp::DTO
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_SAMPLE_QUERY_
+#endif // !_CERTTYPE_QUERY_

@@ -37,7 +37,7 @@ namespace multipart = oatpp::web::mime::multipart;
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
 /**
- * 示例控制器，演示基础接口的使用
+ * 职业资格证书类型下拉列表控制器
  */
 class ProfCertsListController : public oatpp::web::server::api::ApiController // 1 继承控制器
 {
@@ -58,13 +58,9 @@ public:
 		// 定义其他表单参数描述
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/query-Prof-Certs", queryProfCertsList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
-			
+	ENDPOINT(API_M_GET, "/query-Prof-Certs", queryProfCertsList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {			
 		// 解析查询参数
-		/*API_HANDLER_QUERY_PARAM(profCertsQuery, ProfCertsQuery, queryParams);*/
-		auto profCertsQuery = ProfCertsQuery::createShared();
-		profCertsQuery->pageIndex = oatpp::UInt64(stoull(queryParams.get("page").getValue("page")));
-		profCertsQuery->pageSize = oatpp::UInt64(stoull(queryParams.get("size").getValue("size")));	
+		API_HANDLER_QUERY_PARAM(profCertsQuery, ProfCertsQuery, queryParams);*/
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryProfCertsList(profCertsQuery, authObject->getPayload()));
 	}
@@ -74,4 +70,4 @@ private:
 
 // 0 取消API控制器使用宏
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
-#endif // _SAMPLE_CONTROLLER_
+#endif // _PROFCERTSLIST_CONTROLLER_

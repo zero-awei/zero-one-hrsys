@@ -35,4 +35,4 @@ class ProfCertsQuery : public PageQuery
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_SAMPLE_QUERY_
+#endif // !_PROFCERTS_QUERY_

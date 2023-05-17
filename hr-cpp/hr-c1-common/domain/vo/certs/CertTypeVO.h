@@ -41,4 +41,4 @@ class CertTypePageJsonVO : public JsonVO<CertTypePageDTO::Wrapper> {
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif // !_SAMPLE_VO_
+#endif // !_CERTTYPE_VO_

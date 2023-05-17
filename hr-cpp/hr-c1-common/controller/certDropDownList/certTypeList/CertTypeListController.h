@@ -36,7 +36,7 @@ namespace multipart = oatpp::web::mime::multipart;
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
 /**
- * 示例控制器，演示基础接口的使用
+ * 证书类型下拉列表控制器
  */
 class CertTypeListController : public oatpp::web::server::api::ApiController // 1 继承控制器
 {
@@ -55,10 +55,8 @@ public:
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/query-Cert-Type", queryCertTypeList, API_HANDLER_AUTH_PARAME) {
-
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryCertTypeList(authObject->getPayload()));
-		return 0;
 	}
 private:
 	CertTypePageJsonVO::Wrapper execQueryCertTypeList(const PayloadDTO& payload);
@@ -66,4 +64,4 @@ private:
 
 // 0 取消API控制器使用宏
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
-#endif // _SAMPLE_CONTROLLER_
+#endif // _CERTTYPELIST_CONTROLLER_

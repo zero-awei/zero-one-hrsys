@@ -41,4 +41,4 @@ class ProfCertsPageJsonVO : public JsonVO<ProfCertsPageDTO::Wrapper> {
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif // !_SAMPLE_VO_
+#endif // !_PROFCERTS_VO_

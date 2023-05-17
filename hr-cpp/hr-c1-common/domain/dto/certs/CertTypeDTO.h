@@ -31,6 +31,9 @@ class CertTypeDTO : public oatpp::DTO
 	DTO_INIT(CertTypeDTO, DTO);
 	// 证书类型名称
 	DTO_FIELD(String, certType);
+	DTO_FIELD_INFO(certType) {
+		info->description = ZH_WORDS_GETTER("证书类型名称");
+	}
 
 };
 
@@ -43,4 +46,4 @@ class CertTypePageDTO : public PageDTO<CertTypeDTO::Wrapper>
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_SAMPLE_DTO_
+#endif // !_CERTTYPE_DTO_
