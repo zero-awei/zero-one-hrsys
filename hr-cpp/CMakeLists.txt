@@ -4,7 +4,7 @@
 cmake_minimum_required (VERSION 3.8)
 
 # 指定工程名
-project ("zero-one-hrsys")
+project ("hr-c1-orgmanage")
 
 # 设置安装目录前缀
 set (CMAKE_INSTALL_PREFIX "../install/${PROJECT_NAME}" CACHE PATH "install path prefix" FORCE )
@@ -81,5 +81,5 @@ add_subdirectory ("lib-oatpp")
 add_subdirectory ("lib-mysql")
 add_subdirectory ("lib-common")
 # 这是示例模块，后期可以不编译它
-add_subdirectory ("arch-demo")
 # 在后面添加你的模块
+add_subdirectory ("hr-c1-orgmanage")
