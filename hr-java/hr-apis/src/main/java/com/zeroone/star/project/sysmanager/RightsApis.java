@@ -7,21 +7,19 @@ import com.zeroone.star.project.vo.JsonVO;
 
 /**
  * <p>
- * 描述：TODO
+ * 描述：权限管理API接口定义
  * </p>
  * <p>版权：&copy;01星球</p>
  * <p>地址：01星球总部</p>
+ * @author
  * @version 1.0.0
  */
 
 public interface RightsApis {
-
     /**
-     * <p>
-     * 描述：分页查询列表
-     * </p>
+     * 分页查询列表
      * @param query 查询条件
-     * @return JsonVO<PageDTO<RightsDTO>>
+     * @return 查询结果
      */
     JsonVO<PageDTO<RightsDTO>> queryAll(RightsQuery query);
 
