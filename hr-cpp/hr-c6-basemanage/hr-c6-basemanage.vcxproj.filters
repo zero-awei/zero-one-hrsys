@@ -27,7 +27,7 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\Muggle\expense_ledger-Muggle.cpp">
+    <ClCompile Include="controller\Muggle\labor_dispatch-Muggle.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,13 +53,13 @@
     <ClInclude Include="controller\OtherComponent.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\Muggle\expense_ledger-Muggle.h">
+    <ClInclude Include="controller\Muggle\labor_dispatch-Muggle.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\Muggle\M_expenseLedgerQuery.h">
+    <ClInclude Include="domain\query\Muggle\laborDispatchQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\Muggle\M_expenseLedgerDTO.h">
+    <ClInclude Include="domain\dto\Muggle\laborDispatchDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -26,7 +26,7 @@
 #include "uselib/ws/WSController.h"
 #endif
 
-#include "Muggle/expense_ledger-Muggle.h"
+#include "Muggle/labor_dispatch-Muggle.h"
 
 
 // 如果定义了关闭Swagger文档宏
@@ -53,7 +53,7 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-	ROUTER_SIMPLE_BIND(ExpenseLedger_Controller_M);
+	ROUTER_SIMPLE_BIND(LaborDispatchMController);
 }
 
 #ifdef HTTP_SERVER_DEMO

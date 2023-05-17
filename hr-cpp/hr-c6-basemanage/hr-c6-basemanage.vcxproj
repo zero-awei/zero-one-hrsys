@@ -159,7 +159,7 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="controller\Muggle\expense_ledger-Muggle.cpp" />
+    <ClCompile Include="controller\Muggle\labor_dispatch-Muggle.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
@@ -171,13 +171,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="controller\Muggle\expense_ledger-Muggle.h" />
+    <ClInclude Include="controller\Muggle\labor_dispatch-Muggle.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\dto\Muggle\M_expenseLedgerDTO.h" />
-    <ClInclude Include="domain\query\Muggle\M_expenseLedgerQuery.h" />
+    <ClInclude Include="domain\dto\Muggle\laborDispatchDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\Muggle\laborDispatchQuery.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
