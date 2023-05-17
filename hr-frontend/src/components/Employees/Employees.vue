@@ -1,5 +1,5 @@
 <script>
-import Edit from '@element-plus/icons-vue'
+// import Edit from '@element-plus/icons-vue'
 import Education from './Employee/Education.vue'
 import Experience from './Employee/Experience.vue'
 import Employee from './Employee/Employee.vue'
@@ -32,6 +32,7 @@ export default {
     </div>
   </div>
 </template>
+
 <style>
 .title {
   position: fixed;
