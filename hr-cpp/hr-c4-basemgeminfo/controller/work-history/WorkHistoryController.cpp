@@ -160,7 +160,7 @@ StringJsonVO::Wrapper WorkHistoryController::execExportWorkHistory(const WorkHis
 	auto ms = tMilli - tSeconds;
 	ss << std::setfill('0') << std::setw(3) << ms.count();
 	// 拼接后缀名
-	ss << ".xlsx";
+	ss << ".csv";
 
 	std::string fileName = ss.str();
 	// 注意：因为xlnt不能存储非utf8编码的字符，所以中文字需要转换编码
@@ -170,11 +170,24 @@ StringJsonVO::Wrapper WorkHistoryController::execExportWorkHistory(const WorkHis
 	ExcelComponent excel;
 	excel.writeVectorToFile(fileName, sheetName, data);
 
-	// 临时文件名称
+	//测试是否有数据
+	// 从文件中读取
+	auto readData = excel.readIntoVector(fileName, sheetName);
+	for (auto row : readData)
+	{
+		//判断文件中是否有数据
+		for (int j = 0; j < row.size(); ++j)
+		{
+			cout << CharsetConvertHepler::utf8ToAnsi(row[j]) << "   ";
+		}
+		cout << endl;
+	}
+
+	// 文件名称
 	//std::string fileName = ss.str();
-	// 保存文件到临时目录
-	String fileBody;
-	fileBody.saveToFile(fileName.c_str());
+	// 保存文件到目录
+	//String fileBody;
+	//fileBody.saveToFile(fileName.c_str());
 
 	
 	// 测试上传到FastDFS文件服务器
