@@ -72,6 +72,18 @@
     <ClInclude Include="service\contract\ContractService.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\do\military\MilitaryDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\military\MilitaryDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\military\MilitaryMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\military\MilitaryService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -96,6 +108,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="service\contract\ContractService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\military\MilitaryDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\military\MilitaryService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

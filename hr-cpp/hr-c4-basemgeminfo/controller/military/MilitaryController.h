@@ -40,7 +40,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(MilitaryJsonVO);
 		// 添加其他查询参数
 		info->queryParams.add<String>("PIMARMYCADRESID").description = ZH_WORDS_GETTER("military.PIMARMYCADRESID");
-		info->queryParams["PIMARMYCADRESID"].addExample("default", String("QWER-ASFD"));
+		info->queryParams["PIMARMYCADRESID"].addExample("default", String("0453FC72-E19C-43E0-984C-4406706EB79E"));
 	}
 	ENDPOINT(API_M_GET, "/military", queryMilitary, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）

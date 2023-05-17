@@ -1,12 +1,16 @@
 #include "stdafx.h"
 #include "MilitaryController.h"
+#include "../../service/military/MilitaryService.h"
 
 MilitaryJsonVO::Wrapper MilitaryController::execQueryMilitary(const MilitaryDetailQuery::Wrapper& query) {
-	// 创建响应对象
-	auto vo = MilitaryJsonVO::createShared();
+	// 定义一个Service
+	MilitaryService service;
+	// 查询数据
+	auto result = service.listDetail(query);
 	// 响应结果
-	vo->success(MilitaryDTO::Wrapper::createShared());
-	return vo;
+	auto jvo = MilitaryJsonVO::createShared();
+	jvo->success(result);
+	return jvo;
 }
 
 Uint64JsonVO::Wrapper MilitaryController::execModifyMilitary(const MilitaryDTO::Wrapper& dto)

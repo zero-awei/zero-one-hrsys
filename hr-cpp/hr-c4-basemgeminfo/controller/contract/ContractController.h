@@ -45,7 +45,7 @@ public: // 定义接口
 		API_DEF_ADD_PAGE_PARAMS();
 		// 添加其他查询参数
 		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("sample.field.name");
-		info->queryParams["name"].addExample("default", String("li ming"));
+		info->queryParams["name"].addExample("default", String("t**"));
 		info->queryParams["name"].required = false;
 	}
 	// 4 定义接口端点

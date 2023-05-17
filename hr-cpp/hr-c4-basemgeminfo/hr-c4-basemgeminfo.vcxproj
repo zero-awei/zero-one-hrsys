@@ -177,8 +177,10 @@
     <ClInclude Include="controller\contract\ContractController.h" />
     <ClInclude Include="dao\contract\ContractDAO.h" />
     <ClInclude Include="dao\contract\ContractMapper.h" />
+    <ClInclude Include="dao\military\MilitaryMapper.h" />
     <ClInclude Include="domain\do\contract\ContractDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\military\MilitaryDO.h" />
     <ClInclude Include="domain\dto\contract\ContractDTO.h" />
     <ClInclude Include="domain\dto\military\militaryDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
@@ -187,6 +189,8 @@
     <ClInclude Include="domain\vo\contract\ContractVO.h" />
     <ClInclude Include="domain\vo\military\MilitaryVO.h" />
     <ClInclude Include="Macros.h" />
+    <ClInclude Include="dao\military\MilitaryDAO.h" />
+    <ClInclude Include="service\military\MilitaryService.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\contract\ContractService.h" />
     <ClInclude Include="stdafx.h" />
@@ -198,6 +202,8 @@
     <ClCompile Include="controller\contract\ContractController.cpp" />
     <ClCompile Include="dao\contract\ContractDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="dao\military\MilitaryDAO.cpp" />
+    <ClCompile Include="service\military\MilitaryService.cpp" />
     <ClCompile Include="service\contract\ContractService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
