@@ -60,3 +60,12 @@ Uint64JsonVO::Wrapper WorkHistoryController::execDelWorkHistory(const DelWorkHis
 	return jvo;
 
 }
+
+StringJsonVO::Wrapper WorkHistoryController::execExportWorkHistory(const WorkHistoryExportQuery::Wrapper& query)
+{
+	auto vo = StringJsonVO::createShared();
+
+	vo->success(u8"导出成功");
+	return vo;
+}
+

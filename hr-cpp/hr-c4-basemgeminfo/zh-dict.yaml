@@ -30,6 +30,9 @@ sample:
   name: 姓名
   sex: 性别，如：男
 workhistory:
+ file:
+  summary: 文件上传
+  suffix: 文件后缀
  field:
   list<pimworkhistoryid>: 履历的独有信息，用来批量删除的
   listworkhistory: 履历的独有信息，用来批量增加的
@@ -41,6 +44,10 @@ workhistory:
   zw: 职务
   gw: 岗位
   ormrankid: 职级
+ export:
+  summary: 导出数据
+ upload:
+  summary: 导入数据即插入多条数据
  get:
   summary: 分页查询数据
  post:
