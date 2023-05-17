@@ -15,6 +15,9 @@ user:
   menuicon: 图标名称
   menuhref: 路由地址
   menusub: 子菜单
+ language:
+  type: 语种
+  level: 语言等级
 sample:
  get:
   summary: 分页查询示例数据
