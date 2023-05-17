@@ -36,6 +36,27 @@
     <ClInclude Include="controller\Router.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\dto\SciResult\SciResultDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\SciResult\SciResultQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\SciResult\SciResultVo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\SciResult\SciResultController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\SciResult\DelSciResultDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\SciResult\AddSciResultDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\SciResult\IntoSciResultDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -50,5 +71,11 @@
     <ClCompile Include="controller\SystemInterceptor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="controller\SciResult\SciResultController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>
