@@ -42,6 +42,7 @@ public class LoginDTO {
     /**
      * 登录客户端ID
      */
+
     @ApiModelProperty(value = "登录客户端ID：project-app或project-manager", example = "project-manager", required = true)
     private String clientId;
 }
