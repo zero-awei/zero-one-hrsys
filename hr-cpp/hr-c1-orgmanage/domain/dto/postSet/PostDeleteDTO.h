@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: rice
- @Date: 2023/5/17 15:30:03
+ @Date: 2023/5/17 17:33:12
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,28 +17,36 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _SAMPLE_VO_
-#define _SAMPLE_VO_
-
+#ifndef _POSTDELETE_DTO_
+#define _POSTDELETE_DTO_
 #include "../../GlobalInclude.h"
-#include "../../dto/sample/SampleDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 示例显示JsonVO，用于响应给客户端的Json对象
+ * 删除单条岗位信息传输对象
  */
-class SampleJsonVO : public JsonVO<SampleDTO::Wrapper> {
-	DTO_INIT(SampleJsonVO, JsonVO<SampleDTO::Wrapper>);
+class PostDeleteDTO : public oatpp::DTO
+{
+	DTO_INIT(PostDeleteDTO, DTO);
+	// 岗位集标识
+	DTO_FIELD(String, ormPostId);
+	DTO_FIELD_INFO(ormPostId) {
+		info->description = ZH_WORDS_GETTER("岗位集标识");
+	}
 };
 
 /**
- * 示例分页显示JsonVO，用于响应给客户端的Json对象
+ * 删除多条岗位信息传输对象
  */
-class SamplePageJsonVO : public JsonVO<SamplePageDTO::Wrapper> {
-	DTO_INIT(SamplePageJsonVO, JsonVO<SamplePageDTO::Wrapper>);
+class PostDeleteBatchDTO : public oatpp::DTO
+{
+	DTO_INIT(PostDeleteBatchDTO, DTO);
+	// 岗位集标识
+	DTO_FIELD(oatpp::List<String>, ormPostIds);
+	DTO_FIELD_INFO(ormPostIds) {
+		info->description = ZH_WORDS_GETTER("岗位集标识集");
+	}
 };
-
 #include OATPP_CODEGEN_END(DTO)
-
-#endif // !_SAMPLE_VO_
+#endif // !_POSTDELETE_DTO_

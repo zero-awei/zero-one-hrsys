@@ -41,6 +41,8 @@ public:
 	// 呼叫初始化
 	void initRouter();
 private:
+	//测试
+	void createTestRouter();
 #ifdef HTTP_SERVER_DEMO
 	// 创建演示路由
 	void createSampleRouter();
