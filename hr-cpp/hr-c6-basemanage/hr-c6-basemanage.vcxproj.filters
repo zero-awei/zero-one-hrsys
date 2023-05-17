@@ -56,6 +56,9 @@
     <ClInclude Include="controller\SelectController\MyController.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\dto\sample\MyDto.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="conf\data-source.yaml" />

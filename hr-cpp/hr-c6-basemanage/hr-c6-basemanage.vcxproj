@@ -175,6 +175,7 @@
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\SelectController\MyController.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\dto\sample\MyDto.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />

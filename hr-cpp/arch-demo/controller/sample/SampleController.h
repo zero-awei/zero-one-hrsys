@@ -33,7 +33,6 @@ using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
 // 0 定义API控制器使用宏  (api控制器是处理传入请求，返回响应的)
-
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
 /**
