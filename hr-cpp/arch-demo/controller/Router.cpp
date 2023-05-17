@@ -48,9 +48,7 @@ void Router::initRouter()
 #ifdef HTTP_SERVER_DEMO
 	createSampleRouter();
 #endif
-
 	//#TIP :系统扩展路由定义，写在这个后面
-
 }
 
 #ifdef HTTP_SERVER_DEMO
