@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "JobTitleInformationController.h"
-#include "../../service/certificate-information/JobTitleInformationService.h"
-JobTitleInformationPageJsonVO::Wrapper JobTitleInformationController::execQuerySample(const JobTitleInformationQuery::Wrapper& query, const PayloadDTO& payload)
+#include "../../service/certificate-information/jobtitle-information/JobTitleInformationService.h"
+JobTitleInformationPageJsonVO::Wrapper JobTitleInformationController::execQueryJobTitleInformation(const JobTitleInformationPageQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	// 定义一个Service
 	JobTitleInformationService service;

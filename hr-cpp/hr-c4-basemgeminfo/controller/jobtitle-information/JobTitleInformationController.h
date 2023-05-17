@@ -10,6 +10,7 @@
 #include "oatpp/web/mime/multipart/FileProvider.hpp"
 #include "oatpp/web/mime/multipart/Reader.hpp"
 #include "oatpp/web/mime/multipart/PartList.hpp"
+#include "ApiHelper.h"
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
@@ -60,13 +61,13 @@ public:
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/certificate-information", queryJobTitleInformation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
-		API_HANDLER_QUERY_PARAM(userQuery, JobTitleInformationQuery, queryParams);
+		API_HANDLER_QUERY_PARAM(userQuery, JobTitleInformationPageQuery, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryJobTitleInformation(userQuery, authObject->getPayload()));
 	}
 private:
 	// 3.3 演示分页查询数据
-	JobTitleInformationPageJsonVO::Wrapper execQueryJobTitleInformation(const JobTitleInformationQuery::Wrapper& query, const PayloadDTO& payload);
+	JobTitleInformationPageJsonVO::Wrapper execQueryJobTitleInformation(const JobTitleInformationPageQuery::Wrapper& query, const PayloadDTO& payload);
 };
 // 0 取消API控制器使用宏
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen

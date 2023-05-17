@@ -6,6 +6,7 @@
 #include "domain/query/work-history/WorkHistoryQuery.h"
 #include "domain/dto/work-history/ModWorkHistoryDTO.h"
 #include "domain/vo/work-history/ModWorkHistoryVO.h"
+#include "domain/vo/work-history/WorkHistoryVO.h"
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
 #include "oatpp/web/mime/multipart/FileProvider.hpp"
 #include "oatpp/web/mime/multipart/Reader.hpp"
@@ -71,7 +72,8 @@ public:
 	}
 private:	
 	// 3.3 演示修改数据
-	Uint64JsonVO::Wrapper execModifyWorkHistory(const WorkHistoryDTO::Wrapper& dto);	
+	WorkHistoryJsonVO::Wrapper execQueryWorkHistory(const WorkHistoryQuery::Wrapper& query, const PayloadDTO& payload);
+	StringJsonVO::Wrapper execModifyWorkHistory(const WorkHistoryDTO::Wrapper& dto);
 };
 
 // 0 取消API控制器使用宏

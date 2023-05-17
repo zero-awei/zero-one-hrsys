@@ -2,48 +2,48 @@
 #include "WorkHistoryController.h"
 #include "../../service/work-history/WorkHistoryService.h"
 
-WorkHistoryVO::Wrapper WorkHistoryController::execQueryWorkHistory(const WorkHistoryQuery::Wrapper& query, const PayloadDTO& payload)
+WorkHistoryJsonVO::Wrapper WorkHistoryController::execQueryWorkHistory(const WorkHistoryQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	// 定义一个Service
 	WorkHistoryService service;
 	// 查询数据
-	auto result = service.listAll(query);
+	auto result = service.listDetail(query);
 	// 响应结果
-	auto jvo = WorkHistoryVO::createShared();
+	auto jvo = WorkHistoryJsonVO::createShared();
 	jvo->success(result);
 	return jvo;
 }
-Uint64JsonVO::Wrapper WorkHistoryController::execModifyWorkHistory(const WorkHistoryDTO::Wrapper& dto)
+StringJsonVO::Wrapper WorkHistoryController::execModifyWorkHistory(const WorkHistoryDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
-	auto jvo = Uint64JsonVO::createShared();
+	auto jvo = StringJsonVO::createShared();
 	// 参数校验
-	if (!dto->rzkssj || !dto->rzjssj|| !dto->ormorgname || !dto->ormdutyname || !dto->ormpostname || !dto->cfplx||!dto->enable)
+	if (dto->rzkssj.getValue("").empty())
 	{
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		jvo->init(String("Rzkssj must be not null"), RS_PARAMS_INVALID);
 		return jvo;
 	}
 	// 定义一个Service
-	SampleService service;
+	WorkHistoryService service;
 	// 执行数据修改
 	if (service.updateData(dto)) {
 		jvo->success(dto->rzkssj);
-		jvo->success(dto->rzjssj);
+		/*jvo->success(dto->rzjssj);
 		jvo->success(dto->ormorgname);
 		jvo->success(dto->ormdutyname);
 		jvo->success(dto->ormpostname);
 		jvo->success(dto->cfplx);
-		jvo->success(dto->enable);
+		jvo->success(dto->enable);*/
 	}
 	else
 	{
 		jvo->fail(dto->rzkssj);
-		jvo->fail(dto->rzjssj);
+		/*jvo->fail(dto->rzjssj);
 		jvo->fail(dto->ormorgname);
 		jvo->fail(dto->ormdutyname);
 		jvo->fail(dto->ormpostname);
 		jvo->fail(dto->cfplx);
-		jvo->fail(dto->enable);
+		jvo->fail(dto->enable);*/
 	}
 	// 响应结果
 	return jvo;

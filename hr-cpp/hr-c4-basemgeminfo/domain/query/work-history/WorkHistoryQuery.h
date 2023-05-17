@@ -14,37 +14,37 @@ class WorkHistoryQuery : public PageQuery
 	//rzkssj: 任职开始时间
 	DTO_FIELD(String, rzkssj);
 	DTO_FIELD_INFO(rzkssj) {
-		info->description = ZH_WORDS_GETTER("use.field.rzkssj");
+		info->description = ZH_WORDS_GETTER("workhistory.field.rzkssj");
 	}
 	//rzjssj: 任职结束时间
 	DTO_FIELD(String, rzjssj);
 	DTO_FIELD_INFO(rzjssj) {
-		info->description = ZH_WORDS_GETTER("use.field.rzjssj");
+		info->description = ZH_WORDS_GETTER("workhistory.field.rzjssj");
 	}
 	//ormorgname: 工作单位
 	DTO_FIELD(String, ormorgname);
 	DTO_FIELD_INFO(ormorgname) {
-		info->description = ZH_WORDS_GETTER("use.field.ormorgname");
+		info->description = ZH_WORDS_GETTER("workhistory.field.ormorgname");
 	}
 	//ormdutyname: 职务
 	DTO_FIELD(String, ormdutyname);
 	DTO_FIELD_INFO(ormdutyname) {
-		info->description = ZH_WORDS_GETTER("use.field.ormdutyname");
+		info->description = ZH_WORDS_GETTER("workhistory.field.ormdutyname");
 	}
 	//ormpostname: 岗位
 	DTO_FIELD(String, ormpostname);
 	DTO_FIELD_INFO(ormpostname) {
-		info->description = ZH_WORDS_GETTER("use.field.ormpostname");
+		info->description = ZH_WORDS_GETTER("workhistory.field.ormpostname");
 	}
 	//cfplx: 兼职借调类型
 	DTO_FIELD(String, cfplx);
 	DTO_FIELD_INFO(cfplx) {
-		info->description = ZH_WORDS_GETTER("use.field.cfplx");
+		info->description = ZH_WORDS_GETTER("workhistory.field.cfplx");
 	}
 	//enable: 是否主要经历
 	DTO_FIELD(String, enable);
 	DTO_FIELD_INFO(enable) {
-		info->description = ZH_WORDS_GETTER("use.field.enable");
+		info->description = ZH_WORDS_GETTER("workhistory.field.enable");
 	}
 };
 

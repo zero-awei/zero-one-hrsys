@@ -1,7 +1,7 @@
 #pragma once
 #ifndef _CERTIFICATE_INFORMATIONCONTROLLER_H_
 #define _CERTIFICATE_INFORMATIONCONTROLLER_H_
-#include "stdafx.h"
+#include "ApiHelper.h"
 #include "domain/vo/BaseJsonVO.h"
 #include "domain/query/certificate-information/CertificateInformationPageQuery.h"
 #include "domain/dto/certificate-information/CertificateInformationDTO.h"
@@ -56,13 +56,13 @@ public:
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/certificate-information", queryCertificateInformation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
-		API_HANDLER_QUERY_PARAM(userQuery, CertificateInformationQuery, queryParams);
+		API_HANDLER_QUERY_PARAM(userQuery, CertificateInformationPageQuery, queryParams);
 		// 响应结果
-		API_HANDLER_RESP_VO(execQuerySample(userQuery, authObject->getPayload()));
+		API_HANDLER_RESP_VO(execQueryCertificateInformation(userQuery, authObject->getPayload()));
 	}
 private:
 	// 3.3 演示分页查询数据
-	CertificateInformationPageJsonVO::Wrapper execQuerySample(const CertificateInformationQuery::Wrapper& query, const PayloadDTO& payload);
+	CertificateInformationPageJsonVO::Wrapper execQueryCertificateInformation(const CertificateInformationPageQuery::Wrapper& query, const PayloadDTO& payload);
 };
 	// 0 取消API控制器使用宏
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen

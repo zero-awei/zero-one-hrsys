@@ -176,7 +176,16 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\work-history\WorkHistoryController.h" />
+    <ClInclude Include="dao\certificate-information\certificate-information\CertificateInformationDAO.h" />
+    <ClInclude Include="dao\certificate-information\certificate-information\CertificateInformationMapper.h" />
+    <ClInclude Include="dao\certificate-information\jobtitle-information\JobTitleInformationDAO.h" />
+    <ClInclude Include="dao\certificate-information\jobtitle-information\JobTitleInformationMapper.h" />
+    <ClInclude Include="dao\work-history\WorkHistoryDAO.h" />
+    <ClInclude Include="dao\work-history\WorkHistoryMapper.h" />
+    <ClInclude Include="domain\do\certificate-information\CertificateInformationDO.h" />
+    <ClInclude Include="domain\do\certificate-information\JobTitleInformationDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\work-history\WorkHistoryDO.h" />
     <ClInclude Include="domain\dto\certificate-information\CertificateInformationDTO.h" />
     <ClInclude Include="domain\dto\certificate-information\JobTitleInformationDTO.h" />
     <ClInclude Include="domain\dto\work-history\ModWorkHistoryDTO.h" />
@@ -191,8 +200,8 @@
     <ClInclude Include="domain\vo\work-history\WorkHistoryVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
-    <ClInclude Include="service\certificate-information\CertificateInformationService.h" />
-    <ClInclude Include="service\certificate-information\JobTitleInformationService.h" />
+    <ClInclude Include="service\certificate-information\certificate-information\CertificateInformationService.h" />
+    <ClInclude Include="service\certificate-information\jobtitle-information\JobTitleInformationService.h" />
     <ClInclude Include="service\work-history\WorkHistoryService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
@@ -202,7 +211,13 @@
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\work-history\WorkHistoryController.cpp" />
+    <ClCompile Include="dao\certificate-information\certificate-information\CertificateInformationDAO.cpp" />
+    <ClCompile Include="dao\certificate-information\jobtitle-information\JobTitleInformationDAO.cpp" />
+    <ClCompile Include="dao\work-history\WorkHistoryDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\certificate-information\certificate-information\CertificateInformationService.cpp" />
+    <ClCompile Include="service\certificate-information\jobtitle-information\JobTitleInformationService.cpp" />
+    <ClCompile Include="service\work-history\WorkHistoryService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

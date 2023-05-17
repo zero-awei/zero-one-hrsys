@@ -21,10 +21,14 @@
 #include "ApiHelper.h"
 
 #ifdef HTTP_SERVER_DEMO
-#include "user/UserController.h"
-#include "sample/SampleController.h"
+#include "certificate-information/CertificateInformationController.h"
+#include "jobtitle-information/JobTitleInformationController.h"
+#include "work-history/WorkHistoryController.h"
 #include "uselib/ws/WSController.h"
 #endif
+#include "certificate-information/CertificateInformationController.h"
+#include "jobtitle-information/JobTitleInformationController.h"
+#include "work-history/WorkHistoryController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -60,10 +64,12 @@ void Router::initRouter()
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
-	// 绑定示例控制器
-	ROUTER_SIMPLE_BIND(SampleController);
-	// 绑定用户控制器
-	ROUTER_SIMPLE_BIND(UserController);
+	// 绑定控制器
+	ROUTER_SIMPLE_BIND(CertificateInformationController);
+	// 绑定控制器
+	ROUTER_SIMPLE_BIND(JobTitleInformationController);
+	// 绑定控制器
+	ROUTER_SIMPLE_BIND(WorkHistoryController);
 	
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());
