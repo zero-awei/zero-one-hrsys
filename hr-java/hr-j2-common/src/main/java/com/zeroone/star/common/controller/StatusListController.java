@@ -1,4 +1,4 @@
-package com.zeroone.star.employeelist.controller;
+package com.zeroone.star.common.controller;
 
 
 import com.zeroone.star.project.dto.PageDTO;
@@ -14,17 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/employee")
 public class StatusListController implements StatusApi {
-
-
     @ApiOperation(value = "员工状态列表")
     @GetMapping("/status-list")
     @Override
     public JsonVO<PageDTO<StatusListDto>> queryAll(StatusListQuery query) {
         return null;
     }
-
-
-
-
 
 }
