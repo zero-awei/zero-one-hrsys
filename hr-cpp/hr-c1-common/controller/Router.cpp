@@ -26,6 +26,7 @@
 #include "uselib/ws/WSController.h"
 #endif
 #include "Filestatus/FilestatusController.h"
+#include "Filereservation/FilereservationController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -57,6 +58,7 @@ void Router::initRouter()
 void Router::createRouter()
 {
 	ROUTER_SIMPLE_BIND(FilestatusController);
+	ROUTER_SIMPLE_BIND(FilereservationController);
 }
 
 #ifdef HTTP_SERVER_DEMO

@@ -31,3 +31,5 @@ sample:
   sex: 性别，如：男
 filestatus:
  summary: 档案借阅状态
+filereservation:
+ summary: 档案保管地

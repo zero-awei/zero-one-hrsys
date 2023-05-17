@@ -48,6 +48,15 @@
     <ClInclude Include="domain\dto\sample\SampleDTO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="domain\query\filereservation\FilereservationQuery.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\filereservation\FilereservationVO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\Filereservation\FilereservationController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -60,6 +69,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="controller\SystemInterceptor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\Filestatus\FilestatusController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\Filereservation\FilereservationController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

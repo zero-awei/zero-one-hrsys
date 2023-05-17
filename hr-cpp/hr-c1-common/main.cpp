@@ -44,8 +44,8 @@ bool getStartArg(int argc, char* argv[]) {
 	// 数据库连接信息
 	std::string dbUsername = "root";
 	std::string dbPassword = "123456";
-	std::string dbName = "test";
-	std::string dbHost = "192.168.220.128";
+	std::string dbName = "fortest";
+	std::string dbHost = "192.168.144.33";
 	int dbPort = 3306;
 	int dbMax = 25;
 #ifdef USE_NACOS
@@ -109,7 +109,6 @@ bool getStartArg(int argc, char* argv[]) {
 		// 更新索引
 		currIndex++;
 	}
-
 	// 记录服务器配置到内存中方便使用
 	ServerInfo::getInstance().setServerPort(serverPort);
 	ServerInfo::getInstance().setDbUsername(dbUsername);
