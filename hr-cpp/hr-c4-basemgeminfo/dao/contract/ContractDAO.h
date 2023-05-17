@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
- @Date: 2023/05/08 21:19:56
+ @Date: 2023/05/17 14:01:37
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,18 +17,19 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "ContractController.h"
-#include"../../service/contract/ContractService.h"
+#ifndef _CONTRACTDAO_H_
+#define _CONTRACTDAO_H_
+#include "BaseDAO.h"
+#include "../../domain/do/contract/ContractDO.h"
+#include "../../domain/query/contract/ContractQuery.h"
 
-ContractPageJsonVO::Wrapper ContractController::execQueryTest(const ContractQuery::Wrapper& query)
+class ContractDAO : public BaseDAO
 {
-	// 定义一个Service
-	ContractService service;
-	// 查询数据
-	auto result = service.listAll(query);
-	// 响应结果
-	auto jvo = ContractPageJsonVO::createShared();
-	jvo->success(result);
-	return jvo;
-}
+public:
+	// 统计数据条数
+	uint64_t count(const ContractQuery::Wrapper& query);
+	// 分页查询数据
+	list<ContractDO> selectWithPage(const ContractQuery::Wrapper& query);
+};
+
+#endif // !_CONTRACTDAO_H_

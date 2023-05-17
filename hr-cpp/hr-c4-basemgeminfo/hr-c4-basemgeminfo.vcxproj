@@ -175,6 +175,9 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\contract\ContractController.h" />
+    <ClInclude Include="dao\contract\ContractDAO.h" />
+    <ClInclude Include="dao\contract\ContractMapper.h" />
+    <ClInclude Include="domain\do\contract\ContractDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\contract\ContractDTO.h" />
     <ClInclude Include="domain\dto\military\militaryDTO.h" />
@@ -185,6 +188,7 @@
     <ClInclude Include="domain\vo\military\MilitaryVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\contract\ContractService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -192,7 +196,9 @@
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\contract\ContractController.cpp" />
+    <ClCompile Include="dao\contract\ContractDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\contract\ContractService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

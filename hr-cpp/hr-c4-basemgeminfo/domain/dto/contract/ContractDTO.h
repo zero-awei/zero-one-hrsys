@@ -35,72 +35,72 @@ public:
 
 	DTO_INIT(ContractDTO, DTO);
 
-	// 员工编号
+	// 员工编号 t_pimperson-YGBH
 	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("sample.field.id");
 	}
-	// 员工姓名
+	// 员工姓名 t_pimperson-PIMPERSONNAME
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
 		info->description = ZH_WORDS_GETTER("sample.field.name");
 	}
-	// 员工所属单位
+	// 员工所属单位 t_pimcontract-ORMORGNAME
 	DTO_FIELD(String, unit);
 	DTO_FIELD_INFO(unit) {
 		info->description = ZH_WORDS_GETTER("contract.unit");
 	}
-	// 员工状态
+	// 员工状态 t_pimperson-YGZT
 	DTO_FIELD(String, state);
 	DTO_FIELD_INFO(state) {
 		info->description = ZH_WORDS_GETTER("contract.state");
 	}
-	// 员工到本单位时间
+	// 员工到本单位时间 t_pimperson-DBDWSJ
 	DTO_FIELD(String, unitTime);
 	DTO_FIELD_INFO(unitTime) {
 		info->description = ZH_WORDS_GETTER("contract.unitTime");
 	}
-	// 合同编号
+	// 合同编号 t_pimcontract-HTBH
 	DTO_FIELD(String, contractID);
 	DTO_FIELD_INFO(contractID) {
 		info->description = ZH_WORDS_GETTER("contract.contractID");
 	}
-	// 合同签订单位
+	// 合同签订单位 t_pimcontract-LEGALORG
 	DTO_FIELD(String, contractUnit);
 	DTO_FIELD_INFO(contractUnit) {
 		info->description = ZH_WORDS_GETTER("contract.contractUnit");
 	}
-	// 合同类别
+	// 合同类别 t_pimcontract-HTLX
 	DTO_FIELD(String, contractCategory);
 	DTO_FIELD_INFO(contractCategory) {
 		info->description = ZH_WORDS_GETTER("contract.contractCategory");
 	}
-	// 合同类型
+	// 合同类型 t_pimcontract-CONTRACTTYPE
 	DTO_FIELD(String, contractType);
 	DTO_FIELD_INFO(contractType) {
 		info->description = ZH_WORDS_GETTER("contract.contractType");
 	}
-	// 合同起始日期
+	// 合同起始日期 t_pimcontract-QSRQ
 	DTO_FIELD(String, startDate);
 	DTO_FIELD_INFO(startDate) {
 		info->description = ZH_WORDS_GETTER("contract.startDate");
 	}
-	// 合同结束日期
+	// 合同结束日期 t_pimcontract-JSRQ
 	DTO_FIELD(String, endDate);
 	DTO_FIELD_INFO(endDate) {
 		info->description = ZH_WORDS_GETTER("contract.endDate");
 	}
-	// 合同状态
+	// 合同状态 t_pimcontract-HTZT
 	DTO_FIELD(String, contractStatus);
 	DTO_FIELD_INFO(contractStatus) {
 		info->description = ZH_WORDS_GETTER("contract.contractStatus");
 	}
-	// 合同剩余天数
+	// 合同剩余天数 t_pimcontract-(JSRQ-today)
 	DTO_FIELD(String, remaining);
 	DTO_FIELD_INFO(remaining) {
 		info->description = ZH_WORDS_GETTER("contract.remaining");
 	}
-	// 合同试用到期时间
+	// 合同试用到期时间 t_pimcontract-SYDQSJ
 	DTO_FIELD(String, trialExpiration);
 	DTO_FIELD_INFO(trialExpiration) {
 		info->description = ZH_WORDS_GETTER("contract.trialExpiration");
