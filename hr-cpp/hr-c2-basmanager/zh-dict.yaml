@@ -29,3 +29,9 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+employee:
+ get:
+  summary: 分页查询示例数据
+ field:
+  employeeid: 员工编号employee
+  employeename: 员工姓名
