@@ -5,17 +5,16 @@
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       v-model:currentPage="currentPage3"
-      :page-size="100"
-      layout="prev, pager, next, jumper"
+      :page-sizes="[20, 40, 60, 80, 100, 200, 400]"
+      layout="total, sizes, prev, pager, next, jumper"
       :total="1000"
     >
     </el-pagination>
   </div>
 </template>
-
-<script>
+  
+  <script>
 export default {
-  name: 'pagination',
   methods: {
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`)
@@ -28,11 +27,12 @@ export default {
     return {
       currentPage1: 5,
       currentPage2: 5,
-      currentPage3: 5,
+      currentPage3: 1,
       currentPage4: 4
     }
   }
 }
 </script>
-
-<style scoped></style>
+  
+  <style scoped>
+</style>

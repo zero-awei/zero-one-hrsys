@@ -19,6 +19,10 @@ const routes = [
       {
         path: '/sample/communication',
         component: () => import('@/views/sample/Communication/index.vue')
+      },
+      {
+        path: '/sample/pagination',
+        component: () => import('@/views/sample/page/pagination.vue')
       }
     ]
   }
