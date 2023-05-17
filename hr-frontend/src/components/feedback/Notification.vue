@@ -1,42 +1,33 @@
 <template>
-  <el-button plain @click="open1"> Success </el-button>
-  <el-button plain @click="open2"> Warning </el-button>
-  <el-button plain @click="open3"> Info </el-button>
-  <el-button plain @click="open4"> Error </el-button>
+  <el-button plain @click="open1">成功</el-button>
+  <el-button plain @click="open2">警告</el-button>
+  <el-button plain @click="open3">错误</el-button>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { ElNotification } from 'element-plus'
 
 const open1 = () => {
   ElNotification({
-    title: 'Success',
-    message: 'This is a success message',
-    type: 'success',
+    title: '成功',
+    message: 'success message',
+    type: 'success'
   })
 }
 
 const open2 = () => {
   ElNotification({
-    title: 'Warning',
-    message: 'This is a warning message',
-    type: 'warning',
+    title: '警告',
+    message: 'warning message',
+    type: 'warning'
   })
 }
 
 const open3 = () => {
   ElNotification({
-    title: 'Info',
-    message: 'This is an info message',
-    type: 'info',
-  })
-}
-
-const open4 = () => {
-  ElNotification({
-    title: 'Error',
-    message: 'This is an error message',
-    type: 'error',
+    title: '错误',
+    message: 'error message',
+    type: 'error'
   })
 }
 </script>

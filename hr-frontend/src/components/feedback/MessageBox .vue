@@ -1,30 +1,28 @@
 <template>
-  <el-button text @click="open">Click to open the Message Box</el-button>
+  <el-button text @click="open">触发字段名</el-button>
 </template>
 
-<script lang="ts" setup>
+<script  setup>
 import { ElMessage, ElMessageBox } from 'element-plus'
 
 const open = () => {
   ElMessageBox.confirm(
-    'proxy will permanently delete the file. Continue?',
-    'Warning',
+    '确认离职吗?',
+    '警告',
     {
-      confirmButtonText: 'OK',
-      cancelButtonText: 'Cancel',
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
       type: 'warning',
     }
   )
     .then(() => {
       ElMessage({
+        title：'成功'
         type: 'success',
-        message: 'Delete completed',
+        message: '离职成功',
       })
     })
     .catch(() => {
-      ElMessage({
-        type: 'info',
-        message: 'Delete canceled',
       })
     })
 }
