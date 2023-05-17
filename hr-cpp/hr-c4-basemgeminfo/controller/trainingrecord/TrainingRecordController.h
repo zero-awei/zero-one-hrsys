@@ -30,6 +30,7 @@ public: // 定义接口
 		API_HANDLER_QUERY_PARAM(query, PageQuery, qps);
 		//响应结果
 		API_HANDLER_RESP_VO(execQueryTest(query));
+
 	}
 
 
