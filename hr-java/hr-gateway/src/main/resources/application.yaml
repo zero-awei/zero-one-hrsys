@@ -1,0 +1,48 @@
+server:
+  port: ${sp.gateway}
+spring:
+  application:
+    name: ${sn.gateway}
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # 公钥文件配置
+          public-key-location: classpath:public.pem
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 开启从注册中心动态创建路由的功能
+          enabled: true
+      # 注意：这里的路径配置需要移植到nacos配置中心system.yaml中
+      # 提示：predicates 中如果要匹配多个地址前缀，每个前缀用,分割，如：- Path=/auth/**,/oauth/**
+      routes:
+        - id: oauth2-auth-route
+          uri: lb://${sn.auth}
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+        - id: login-route
+          uri: lb://${sn.login}
+          predicates:
+            - Path=/login/**
+        - id: sample-route
+          uri: lb://${sn.sample}
+          predicates:
+            - Path=/sample/**
+        - id: cpp-route
+          uri: lb://${sn.cpp}
+          predicates:
+            - Path=/cpp/**
+secure:
+  # 配置是否开启鉴权
+  openauthorization: true
+  # 配置白名单路径
+  white:
+    urls:
+      - "/actuator/**"
+      - "/auth/oauth/token"
+      - "/login/auth-login"
+      - "/login/refresh-token"
