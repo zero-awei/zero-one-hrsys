@@ -40,6 +40,8 @@
         <module>hr-login</module>
         <module>hr-gateway</module>
         <module>hr-doc</module>
+        <module>hr-j3-common</module>
+        <module>hr-j3-orgmanager</module>
     </modules>
     <properties>
         <!-- 打包的时候忽略测试案例调用 -->

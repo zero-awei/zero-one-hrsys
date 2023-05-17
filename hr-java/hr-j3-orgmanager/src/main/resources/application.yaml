@@ -1,0 +1,5 @@
+server:
+  port: ${sp.orgmanager}
+spring:
+  application:
+    name: ${sn.orgmanager}
