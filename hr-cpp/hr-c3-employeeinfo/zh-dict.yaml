@@ -15,6 +15,40 @@ user:
   menuicon: 图标名称
   menuhref: 路由地址
   menusub: 子菜单
+employee:
+ field:
+  id: 员工编号
+  name: 员工姓名
+  idType: 证件类型
+  idMum: 证件号码
+  bitrhday: 出生日期
+  age: 年龄
+  sex: 性别
+  blood: 血型
+  nation: 民族
+  native: 籍贯
+  residentType: 户口类型
+  residentPlace: 户籍所在地
+  residentLocate: 户籍地址
+  birthPlace: 出生地
+  comPlace: 通讯地址
+  onlyCredit: 独生子女证
+  hobby: 爱好特长
+  health: 健康状况
+  marriage: 婚姻状况
+  politic: 政治面貌
+  rank: 职级
+  workTime: 参加工作时间
+  inTime: 到本单位时间
+  email: 电子邮箱
+  techTitle: 技术职称
+  acaCredit: 最高学历
+  firAcaCredit: 第一学历
+  pracCertificate: 执业证书
+  photo: 照片路径
+  phone: 手机号码
+  state: 员工状态
+  jobList: 岗位
 sample:
  get:
   summary: 分页查询示例数据
@@ -29,3 +63,59 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+rootorg:
+  query:
+    filter: 匹配名称
+    page: 页码
+    size: 页的记录数
+    sort: 排序方式
+validorg:
+  query:
+    filter: 匹配名称
+    porgid: 父组织id
+    page: 页码
+    size: 页的记录数
+    sort: 排序方式
+sector:
+  query:
+    parentkey: 查询parent的id
+    page: 页码
+    size: 页的记录数
+    sort: 排序方式
+member:
+  query:
+    parentdename: 查询parent类型
+    parentkey: 查询parent的id
+    page: 页码
+    size: 页的记录数
+org:
+  field:
+    companyflag: 是否为根组织
+    orgname: 组织名字 
+    orgid: 组织id
+    porgname: 父组织名字
+    porgid: 父组织id
+orgsector:
+  field:
+    orgsectorname: 部门名字
+    orgsectorid: 部门id 
+    orgname: 组织名字
+    orgid: 组织id
+member:
+  field:
+    ygbh: 员工编号
+    pimpersonname: 个人名字
+    ormorgname: 组织名字
+    ormorgsectorname: 部门名字
+    zw: 职务
+  sex: 性别，如：男
+employee:
+ field:
+  assign: 分配
+  type: 类型
+  organize: 组织
+  depart: 部门
+  job: 职务
+  post: 岗位
+  start-time: 任职开始时间
+  end-time: 任职结束时间

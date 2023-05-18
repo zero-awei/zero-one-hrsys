@@ -36,6 +36,36 @@
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoAddDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\employeeInfo\EmployeeInfoQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\jobList\JobListQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\employeeInfo\EmployeeInfoController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\EmployeeAssignInfoQuery\EmployeeAssignInfoQueryDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\ImportEmployeeAssignInfo\ImportEmployeeAssignInfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\AddEmployeeAssignInfo\AddEmployeeAssignInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\DeleteEmployeeAssignInfo\DeleteEmployeeAssignInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\ModifyEmployeeAssignInfo\ModifyEmployeeAssignInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -48,6 +78,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\employeeInfo\EmployeeInfoController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
