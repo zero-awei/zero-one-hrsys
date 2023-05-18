@@ -60,7 +60,7 @@ public:
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/query-Prof-Certs", queryProfCertsList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {			
 		// 解析查询参数
-		API_HANDLER_QUERY_PARAM(profCertsQuery, ProfCertsQuery, queryParams);*/
+		API_HANDLER_QUERY_PARAM(profCertsQuery, ProfCertsQuery, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryProfCertsList(profCertsQuery, authObject->getPayload()));
 	}

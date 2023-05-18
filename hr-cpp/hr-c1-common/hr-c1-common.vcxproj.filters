@@ -57,6 +57,9 @@
     <ClInclude Include="controller\certDropDownList\certTypeList\CertTypeListController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="domain\dto\pullList\PullListDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -166,6 +166,7 @@
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\certs\CertTypeDTO.h" />
     <ClInclude Include="domain\dto\certs\ProfCertsDTO.h" />
+    <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
     <ClInclude Include="domain\query\certs\CertTypeQuery.h" />
     <ClInclude Include="domain\query\certs\ProfCertsQuery.h" />
     <ClInclude Include="domain\vo\certs\ProfCertsVO.h" />

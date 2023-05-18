@@ -20,6 +20,7 @@
 #ifndef _CERTTYPE_DTO_
 #define _CERTTYPE_DTO_
 #include "../../GlobalInclude.h"
+#include "../pullList/PullListDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
@@ -40,9 +41,9 @@ class CertTypeDTO : public oatpp::DTO
 /**
  * 证书类型下拉列表分页查询DTO
  */
-class CertTypePageDTO : public PageDTO<CertTypeDTO::Wrapper>
+class CertTypePageDTO : public ListDTO<CertTypeDTO::Wrapper>
 {
-	DTO_INIT(CertTypePageDTO, PageDTO<CertTypeDTO::Wrapper>);
+	DTO_INIT(CertTypePageDTO, ListDTO<CertTypeDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)
