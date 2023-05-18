@@ -6,7 +6,7 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 新增指定员工分配信息
+ * 导入指定员工分配信息
  */
 class ImportEmployeeAssignInfoDTO : public oatpp::DTO
 {
