@@ -54,8 +54,9 @@ public:
 		API_HANDLER_RESP_VO(execQueryEmpInfo(userQuery, authObject->getPayload()));
 	}
 private:
-	// 3.3 挂职人员分页查询数据
+	// 3.3 人员信息分页查询数据
 	EmployeeInfoPageJsonVO::Wrapper execQueryEmpInfo(const EmployeeInfoQuery::Wrapper& query, const PayloadDTO& payload);
+
 };
 
 // 0 取消API控制器使用宏

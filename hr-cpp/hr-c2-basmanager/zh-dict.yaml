@@ -30,6 +30,8 @@ sample:
   name: 姓名
   sex: 性别，如：男
 TempStaff:
+ export:
+  summary: 导出挂职员工信息功能
  field:
   id: 编号
   name: 姓名
@@ -44,5 +46,8 @@ TempStaff:
 EmpInfo:
  get:
   summary: 证书管理搜索框人员信息查询（仅名字）
+  summary1: 证书类型信息
  field:
   name: 姓名
+  certype: 证书类型
+ 

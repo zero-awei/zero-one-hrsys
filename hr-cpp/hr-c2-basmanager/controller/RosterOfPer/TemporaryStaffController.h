@@ -20,7 +20,6 @@ namespace multipart = oatpp::web::mime::multipart;
 
 // 0 定义API控制器使用宏
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
-
 /**
  * 挂职人员功能控制器
  */
@@ -56,9 +55,35 @@ public:
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryTempstaff(userQuery, authObject->getPayload()));
 	}
+
+	//导出功能
+	ENDPOINT_INFO(queryExportTempStaff) {
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("TempStaff.export.summary");
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		// 定义其他表单参数描述
+		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("TempStaff.field.name");
+		info->queryParams["name"].addExample("default", String("li ming"));
+		info->queryParams["name"].required = false;
+		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("TempStaff.field.id");
+		info->queryParams["id"].addExample("default", String("0"));
+		info->queryParams["id"].required = false;
+	}
+	// 3.2 定义查询接口处理
+	ENDPOINT(API_M_GET, "/export-tempstaff", queryExportTempStaff, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+		// 解析查询参数
+		API_HANDLER_QUERY_PARAM(userQuery, TempStaffQuery, queryParams);
+		// 响应结果
+		API_HANDLER_RESP_VO(execExportTempstaff(userQuery, authObject->getPayload()));
+	}
 private:
 	// 3.3 挂职人员分页查询数据
 	TemporaryStaffPageJsonVO::Wrapper execQueryTempstaff(const TempStaffQuery::Wrapper& query, const PayloadDTO& payload);
+	// 3.3 导出挂职人员数据
+	StringJsonVO::Wrapper execExportTempstaff(const TempStaffQuery::Wrapper& query, const PayloadDTO& payload);
 };
 
 // 0 取消API控制器使用宏
