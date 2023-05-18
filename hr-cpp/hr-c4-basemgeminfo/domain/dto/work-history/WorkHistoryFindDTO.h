@@ -20,6 +20,11 @@
 #ifndef _WORKHISTORYFINDDTO_H_
 #define _WORKHISTORYFINDDTO_H_
 
+#define DTO_INIT_(type, field, name) DTO_FIELD(type, field); \
+DTO_FIELD_INFO(field) { \
+	info->description = ZH_WORDS_GETTER(name); \
+}
+
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
@@ -28,30 +33,30 @@ class WorkHistoryFindDTO : public oatpp::DTO
 {
 public:
 	WorkHistoryFindDTO() = default;
-	WorkHistoryFindDTO(String servebegintime, String serveendtime, String workunit, \
-		String bm, String zw, String gw, String cfplx, UInt64 experience, String pimpersonid) : servebegintime(servebegintime), \
-		serveendtime(serveendtime), workunit(workunit), bm(bm), zw(zw), gw(gw), cfplx(cfplx), experience(experience),\
+	WorkHistoryFindDTO(String rzkssj, String rzjssj, String ormorgname, \
+		String bm, String zw, String gw, String cfplx, UInt64 experience, String pimpersonid) : rzkssj(rzkssj), \
+		rzjssj(rzjssj), ormorgname(ormorgname), bm(bm), zw(zw), gw(gw), cfplx(cfplx), experience(experience),\
 		pimpersonid(pimpersonid) {}
 
 	DTO_INIT(WorkHistoryFindDTO, DTO);
 	
-	//1任职开始时间
-	DTO_FIELD(String, servebegintime);
-	DTO_FIELD_INFO(servebegintime) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.servebegintime");
+	//任职开始时间
+	DTO_FIELD(String, rzkssj);
+	DTO_FIELD_INFO(rzkssj) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.rzkssj");
 	}
 
 
-	//2任职结束时间
-	DTO_FIELD(String, serveendtime);
-	DTO_FIELD_INFO(serveendtime) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.serveendtime");
+	//任职结束时间
+	DTO_FIELD(String, rzjssj);
+	DTO_FIELD_INFO(rzjssj) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.rzjssj");
 	}
 
-	//3工作单位
-	DTO_FIELD(String, workunit);
-	DTO_FIELD_INFO(workunit) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.workunit");
+	//工作单位
+	DTO_FIELD(String, ormorgname);
+	DTO_FIELD_INFO(ormorgname) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.ormorgname");
 	}
 
 	//4部门
@@ -89,6 +94,10 @@ public:
 	DTO_FIELD_INFO(pimpersonid) {
 		info->description = ZH_WORDS_GETTER("workhistory.field.pimpersionid");
 	}
+
+	//10工作履历id
+	//工作履历id
+	DTO_INIT_(String, pimworkhistoryid, "workhistory.field.pimworkhistoryid")
 };
 
 class WorkHistoryFindPageDTO : public PageDTO<WorkHistoryFindDTO::Wrapper>

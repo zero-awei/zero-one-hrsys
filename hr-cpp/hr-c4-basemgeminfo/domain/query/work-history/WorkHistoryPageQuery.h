@@ -34,22 +34,22 @@ class WorkHistoryPageQuery : public PageQuery
 	
 
 	//任职开始时间
-	DTO_FIELD(String, servebegintime);
-	DTO_FIELD_INFO(servebegintime) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.servebegintime");
+	DTO_FIELD(String, rzkssj);
+	DTO_FIELD_INFO(rzkssj) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.rzkssj");
 	}
 
 
 	//任职结束时间
-	DTO_FIELD(String, serveendtime);
-	DTO_FIELD_INFO(serveendtime) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.serveendtime");
+	DTO_FIELD(String, rzjssj);
+	DTO_FIELD_INFO(rzjssj) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.rzjssj");
 	}
 
 	//工作单位
-	DTO_FIELD(String, workunit);
-	DTO_FIELD_INFO(workunit) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.workunit");
+	DTO_FIELD(String, ormorgname);
+	DTO_FIELD_INFO(ormorgname) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.ormorgname");
 	}
 
 	//部门

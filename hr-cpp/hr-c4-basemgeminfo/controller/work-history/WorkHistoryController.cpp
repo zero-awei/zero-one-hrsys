@@ -3,6 +3,7 @@
 #include "ExcelComponent.h"
 #include "CharsetConvertHepler.h"
 #include "FastDfsClient.h"
+#include "service/work-history/WorkHistoryService.h"
 
 
 WorkHistoryFindVO::Wrapper WorkHistoryController::execQueryWorkHistory(const WorkHistoryPageQuery::Wrapper& query)
@@ -11,8 +12,9 @@ WorkHistoryFindVO::Wrapper WorkHistoryController::execQueryWorkHistory(const Wor
 
 	auto pdto = WorkHistoryFindPageDTO::createShared();
 
-	pdto->addData(WorkHistoryFindDTO::createShared("ASDA", "DFSF", "HF", "FS", "WEFE", "TGRE", "HYT", 2, "asdhj"));
-	pdto->addData(WorkHistoryFindDTO::createShared("ASDSDA", "DFDFSF", "HASF", "FAS", "WEFACE", "TGASDRE", "HADY", 2,"sgaj"));
+	WorkHistoryService service;
+
+	pdto = service.listAll(query);
 
 	vo->success(pdto);
 
@@ -24,8 +26,8 @@ Uint64JsonVO::Wrapper WorkHistoryController::execAddWorkHistory(const AddWorkHis
 {
 	auto jvo = Uint64JsonVO::createShared();
 
-	if (!dto->bm || !dto->gw || !dto->experience || !dto->pimpersonid || !dto->servebegintime || \
-		!dto->serveendtime || !dto->workunit || !dto->zw || !dto->cfplx || !dto->pimworkhistoryid)
+	if (!dto->bm || !dto->gw || !dto->experience || !dto->pimpersonid || !dto->rzjssj || \
+		!dto->rzkssj || !dto->ormorgname || !dto->zw || !dto->cfplx || !dto->pimworkhistoryid)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;

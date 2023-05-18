@@ -20,9 +20,14 @@
 #ifndef _WORKHISTORYSERVICE_H_
 #define _WORKHISTORYSERVICE_H_
 
+#include "domain/dto/work-history/WorkHistoryFindDTO.h"
+#include "domain/query/work-history/WorkHistoryPageQuery.h"
+
 class WorkHistoryService
 {
-	
+public:
+	// 分页查询所有数据
+	WorkHistoryFindPageDTO::Wrapper listAll(const WorkHistoryPageQuery::Wrapper& query);
 };
 
 #endif // !_WORKHISTORYSERVICE_H_

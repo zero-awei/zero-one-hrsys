@@ -174,8 +174,10 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\work-history\WorkHistoryController.h" />
+    <ClInclude Include="dao\work-history\WorkHistoryDAO.h" />
+    <ClInclude Include="dao\work-history\WorkHistoryMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\do\work-history\WorkHIstoryFindPageDO.h" />
+    <ClInclude Include="domain\do\work-history\WorkHistoryFindPageDO.h" />
     <ClInclude Include="domain\dto\work-history\AddWorkHistoryDTO.h" />
     <ClInclude Include="domain\dto\work-history\DelWorkHistoryDTO.h" />
     <ClInclude Include="domain\dto\work-history\WorkHistoryExportDTO.h" />
@@ -198,7 +200,9 @@
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\work-history\WorkHistoryController.cpp" />
+    <ClCompile Include="dao\work-history\WorkHistoryDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\work-history\WorkHistoryService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

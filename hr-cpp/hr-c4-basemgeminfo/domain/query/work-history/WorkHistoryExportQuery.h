@@ -33,16 +33,16 @@ class WorkHistoryExportQuery : public PageQuery
 
 
 	//任职开始时间
-	DTO_FIELD(String, servebegintime);
-	DTO_FIELD_INFO(servebegintime) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.servebegintime");
+	DTO_FIELD(String, rzkssj);
+	DTO_FIELD_INFO(rzkssj) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.rzkssj");
 	}
 
 
 	//任职结束时间
-	DTO_FIELD(String, serveendtime);
-	DTO_FIELD_INFO(serveendtime) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.serveendtime");
+	DTO_FIELD(String, rzjssj);
+	DTO_FIELD_INFO(rzjssj) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.rzjssj");
 	}
 
 	//工作单位
@@ -50,6 +50,7 @@ class WorkHistoryExportQuery : public PageQuery
 	DTO_FIELD_INFO(ormorgname) {
 		info->description = ZH_WORDS_GETTER("workhistory.field.ormorgname");
 	}
+
 
 	//部门
 	DTO_FIELD(String, bm);

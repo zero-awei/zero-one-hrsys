@@ -34,15 +34,24 @@ class WorkHistoryDTO : public oatpp::DTO
 	DTO_INIT(WorkHistoryDTO, DTO);
 
 
-	////1任职开始时间
-	DTO_INIT_(String, servebegintime, "workhistory.field.servebegintime")
+	//任职开始时间
+	DTO_FIELD(String, rzkssj);
+	DTO_FIELD_INFO(rzkssj) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.rzkssj");
+	}
 
 
-	//2任职结束时间
-	DTO_INIT_(String, serveendtime, "workhistory.field.serveendtime")
+	//任职结束时间
+	DTO_FIELD(String, rzjssj);
+	DTO_FIELD_INFO(rzjssj) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.rzjssj");
+	}
 
-	//3工作单位
-	DTO_INIT_(String, workunit, "workhistory.field.workunit")
+	//工作单位
+	DTO_FIELD(String, ormorgname);
+	DTO_FIELD_INFO(ormorgname) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.ormorgname");
+	}
 
 	//4部门
 	DTO_INIT_(String, bm, "workhistory.field.bm")

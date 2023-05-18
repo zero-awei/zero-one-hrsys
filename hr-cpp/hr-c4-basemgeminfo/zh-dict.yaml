@@ -38,9 +38,9 @@ workhistory:
   pimworkhistoryid: 履历的独有信息
   listworkhistory: 履历的独有信息，用来批量增加的
   pimpersionid: 人员信息id
-  servebegintime: 任职开始时间
-  serveendtime: 任职结束时间
-  workunit: 工作单位
+  rzkssj: 任职开始时间
+  rzjssj: 任职结束时间
+  ormorgname: 工作单位
   bm: 部门
   zw: 职务
   gw: 岗位

@@ -29,29 +29,29 @@ class WorkHistoryExportDTO : public oatpp::DTO
 public:
 
 	WorkHistoryExportDTO() = default;
-	WorkHistoryExportDTO(String servebegintime, String serveendtime, String ormorgname, \
-		String bm, String zw, String gw, String cfplx, UInt64 experience, String pimpersonid, String pimworkhistoryid) : servebegintime(servebegintime), \
-		serveendtime(serveendtime), ormorgname(ormorgname), bm(bm), zw(zw), gw(gw), cfplx(cfplx), experience(experience),\
+	WorkHistoryExportDTO(String rzkssj, String rzjssj, String ormorgname, \
+		String bm, String zw, String gw, String cfplx, UInt64 experience, String pimpersonid, String pimworkhistoryid) : rzkssj(rzkssj), \
+		rzjssj(rzjssj), ormorgname(ormorgname), bm(bm), zw(zw), gw(gw), cfplx(cfplx), experience(experience),\
 		pimpersonid(pimpersonid) , pimworkhistoryid(pimworkhistoryid){}
 private:
 
 
 	DTO_INIT(WorkHistoryExportDTO, DTO);
 	
-	//1任职开始时间
-	DTO_FIELD(String, servebegintime);
-	DTO_FIELD_INFO(servebegintime) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.servebegintime");
+	//任职开始时间
+	DTO_FIELD(String, rzkssj);
+	DTO_FIELD_INFO(rzkssj) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.rzkssj");
 	}
 
 
-	//2任职结束时间
-	DTO_FIELD(String, serveendtime);
-	DTO_FIELD_INFO(serveendtime) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.serveendtime");
+	//任职结束时间
+	DTO_FIELD(String, rzjssj);
+	DTO_FIELD_INFO(rzjssj) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.rzjssj");
 	}
 
-	//3工作单位
+	//工作单位
 	DTO_FIELD(String, ormorgname);
 	DTO_FIELD_INFO(ormorgname) {
 		info->description = ZH_WORDS_GETTER("workhistory.field.ormorgname");

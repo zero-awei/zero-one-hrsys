@@ -23,7 +23,7 @@
 
 #include "../DoInclude.h"
 
-class WorkHIstoryFindDO
+class WorkHistoryFindDO
 {
 	//1任职开始时间
 	CC_SYNTHESIZE(std::string, RZKSSJ, rZKSSJ);
@@ -47,10 +47,13 @@ class WorkHIstoryFindDO
 	CC_SYNTHESIZE(std::string, CFPLX, cFPLX);
 
 	//8是否主要经历
-	CC_SYNTHESIZE(std::string, EXPERIENCE, eXPERIENCE);
+	CC_SYNTHESIZE(int, EXPERIENCE, eXPERIENCE);
 
-	//9人员信息id
+	//9工作履历独有id
+	CC_SYNTHESIZE(std::string, PIMWORKHISTORYID, pIMWORKHISTORYID);
 
+	//10人员信息id
+	CC_SYNTHESIZE(std::string, PIMPERSONID, pIMPERSONID);
 
 };
 
