@@ -32,31 +32,24 @@ sample:
 rootorg:
   query:
     filter: 匹配名称
-    page: 页码
-    size: 页的记录数
     sort: 排序方式
 validorg:
   query:
     filter: 匹配名称
     porgid: 父组织id
-    page: 页码
-    size: 页的记录数
     sort: 排序方式
 sector:
   query:
+    parentdename: 查询parent类型
     parentkey: 查询parent的id
-    page: 页码
-    size: 页的记录数
     sort: 排序方式
 member:
   query:
     parentdename: 查询parent类型
     parentkey: 查询parent的id
-    page: 页码
-    size: 页的记录数
 org:
   field:
-    companyflag: 是否为根组织
+    companyflag: 根组织id
     orgname: 组织名字 
     orgid: 组织id
     porgname: 父组织名字
@@ -74,3 +67,8 @@ member:
     ormorgname: 组织名字
     ormorgsectorname: 部门名字
     zw: 职务
+    gw: 岗位
+    zjhm: 证件号码
+    srq: 出生日期
+    nj: 年纪
+    lxdh: 联系电话

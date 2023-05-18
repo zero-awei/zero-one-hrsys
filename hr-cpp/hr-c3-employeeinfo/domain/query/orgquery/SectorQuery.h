@@ -8,20 +8,15 @@
 class SectorQuery : public PageQuery {
     DTO_INIT(SectorQuery, PageQuery);
 
+    // 查询Sector的parent是OrmOrg还是OrmOrgsector
+    DTO_FILED(String, parentdename)
+    DTO_FILED_INFO(parentdename) {
+        info->description = ZH_WORDS_GETTER("sectorquery.query.parentdename");
+    }
     // 查询的parent id
     DTO_FILED(String, parentkey)
     DTO_FILED_INFO(parentkey) {
         info->description = ZH_WORDS_GETTER("sectorquery.query.parentkey");
-    }
-    // 页码
-    DTO_FILED(UInt64, page);
-    DTO_FILED_INFO(page) {
-        info->description = ZH_WORDS_GETTER("sectorquery.query.page");
-    }
-    // 一页的记录数
-    DTO_FILED(UInt64, size);
-    DTO_FILED_INFO(size) {
-        info->description = ZH_WORDS_GETTER("sectorquery.query.size");
     }
     // 排序方式
     DTO_FILED(String, sort);

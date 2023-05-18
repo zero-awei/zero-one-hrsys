@@ -18,16 +18,6 @@ class ValidOrgQuery : public PageQuery {
     DTO_FILED_INFO(porgid) {
         info->description = ZH_WORDS_GETTER("validorg.query.porgid");
     }
-    // 页码
-    DTO_FILED(UInt64, page);
-    DTO_FILED_INFO(page) {
-        info->description = ZH_WORDS_GETTER("validorg.query.page");
-    }
-    // 一页的记录数
-    DTO_FILED(UInt64, size);
-    DTO_FILED_INFO(size) {
-        info->description = ZH_WORDS_GETTER("validorg.query.size");
-    }
     // 排序方式
     DTO_FILED(String, sort);
     DTO_FILED_INFO(sort) {

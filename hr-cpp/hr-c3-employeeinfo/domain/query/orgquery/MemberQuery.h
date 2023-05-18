@@ -18,16 +18,6 @@ class MemberQuery : public PageQuery {
     DTO_FILED_INFO(parentkey) {
         info->description = ZH_WORDS_GETTER("member.query.parentkey");
     }
-    // 页码
-    DTO_FILED(UInt64, page);
-    DTO_FILED_INFO(page) {
-        info->description = ZH_WORDS_GETTER("member.query.page");
-    }
-    // 一页的记录数
-    DTO_FILED(UInt64, size);
-    DTO_FILED_INFO(size) {
-        info->description = ZH_WORDS_GETTER("member.query.size");
-    }
 };
 
 #include OATPP_CODEGEN_END(DTO)
