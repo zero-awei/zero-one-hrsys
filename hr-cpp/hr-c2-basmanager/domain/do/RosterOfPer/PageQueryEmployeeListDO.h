@@ -6,7 +6,7 @@
 /**
  * 示例数据库实体类
  */
-class SampleDO {
+class PageQueryEmployeeListDO{
 	// 编号
 	CC_SYNTHESIZE(uint64_t, id, Id);
 	// 姓名
@@ -16,7 +16,7 @@ class SampleDO {
 	// 年龄
 	CC_SYNTHESIZE(int, age, Age);
 public:
-	SampleDO() {
+	PageQueryEmployeeListDO() {
 		id = 0;
 		name = "";
 		sex = "";

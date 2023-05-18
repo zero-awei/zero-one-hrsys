@@ -57,6 +57,9 @@
     <ClInclude Include="domain\dto\RosterOfPer\ExportEmployeeDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\dto\RosterOfPer\PageQueryEmployeeListDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -74,25 +77,7 @@
     <ClCompile Include="controller\RosterOfPer\PageQueryEmployeeListController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="domain\do\RosterOfPer\PageQueryEmployeeListDO.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="domain\query\RosterOfPer\PageQueryEmployeeListQuery.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="domain\vo\RosterOfPer\PageQueryEmployeeListVO.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="controller\RosterOfPer\ExportEmployeeController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="domain\do\RosterOfPer\ExportEmployeeDO.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="domain\vo\RosterOfPer\ExportEmployeeVO.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="domain\dto\RosterOfPer\ExportEmployeeDTO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

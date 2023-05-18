@@ -190,6 +190,7 @@
     <ClInclude Include="domain\do\RosterOfPer\ExportEmployeeDO.h" />
     <ClInclude Include="domain\do\RosterOfPer\PageQueryEmployeeListDO.h" />
     <ClInclude Include="domain\dto\RosterOfPer\ExportEmployeeDTO.h" />
+    <ClInclude Include="domain\dto\RosterOfPer\PageQueryEmployeeListDTO.h" />
     <ClInclude Include="domain\query\RosterOfPer\PageQueryEmployeeListQuery.h" />
     <ClInclude Include="domain\vo\RosterOfPer\ExportEmployeeVO.h" />
     <ClInclude Include="domain\vo\RosterOfPer\PageQueryEmployeeListVO.h" />
@@ -202,12 +203,6 @@
     <ClCompile Include="controller\RosterOfPer\PageQueryEmployeeListController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
-    <ClCompile Include="domain\do\RosterOfPer\ExportEmployeeDO.cpp" />
-    <ClCompile Include="domain\do\RosterOfPer\PageQueryEmployeeListDO.cpp" />
-    <ClCompile Include="domain\dto\RosterOfPer\ExportEmployeeDTO.cpp" />
-    <ClCompile Include="domain\query\RosterOfPer\PageQueryEmployeeListQuery.cpp" />
-    <ClCompile Include="domain\vo\RosterOfPer\ExportEmployeeVO.cpp" />
-    <ClCompile Include="domain\vo\RosterOfPer\PageQueryEmployeeListVO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

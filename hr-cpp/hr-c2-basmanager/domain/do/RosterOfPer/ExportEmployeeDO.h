@@ -6,8 +6,7 @@
 /**
  * 示例数据库实体类
  */
-class ExportEmployeeDO
-{
+class ExportEmployeeDO {
 	// 编号
 	CC_SYNTHESIZE(uint64_t, id, Id);
 	// 姓名
