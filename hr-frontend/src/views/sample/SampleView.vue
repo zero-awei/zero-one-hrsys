@@ -90,6 +90,10 @@ const menus = reactive([
   {
     path: '/sample/communication',
     text: '兄弟组件通信'
+  },
+  {
+    path: '/sample/tablehead',
+    text: '表头演示'
   }
 ])
 </script>

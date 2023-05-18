@@ -1,13 +1,22 @@
 <template>
     <div>
-        <p>{{title}}</p>
+        <p>{{tableTitle}}</p>
+        <ul>
+            <li v-if="tableOperations[0].is">
+                <AddButton :tableTitle="tableTitle" :addDate="addDate"/>
+            </li>
+        </ul>
     </div>
 </template>
 
 <script setup>
-defineProps(['title','arrs'])
+import AddButton from "./add-button.vue"
+
+defineProps(['tableTitle','tableOperations','addDate'])
 </script>
 
-<style>
-
+<style scoped>
+li{
+    list-style-type: none;
+}
 </style>
