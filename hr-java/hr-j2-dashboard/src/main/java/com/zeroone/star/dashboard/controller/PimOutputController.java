@@ -3,7 +3,6 @@ package com.zeroone.star.dashboard.controller;
 
 import com.zeroone.star.project.dashboard.PimOutputApi;
 import com.zeroone.star.project.dto.dashboard.PimOutputDto;
-import com.zeroone.star.project.query.dashboard.PimOutputQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +15,7 @@ public class PimOutputController implements PimOutputApi {
     @ApiOperation(value = "月均产值")
     @GetMapping("/pim-output-yd")
     @Override
-    public JsonVO<PimOutputDto> countByYear(PimOutputQuery query) {
+    public JsonVO<PimOutputDto> countByYear() {
         return null;
     }
 }
