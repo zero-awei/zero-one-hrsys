@@ -101,6 +101,40 @@ public: // 定义接口
 		//响应结果
 		API_HANDLER_RESP_VO(execUpdateLanguage(dto));
 	}
+
+	//定义一个单文件上传接口
+	ENDPOINT(API_M_POST, "/Language/upload", uploadFile, Request(std::shared_ptr<IncomingRequest>, request)) {
+		/* 创建multipart容器 */
+		auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
+		/* 创建multipart读取器 */
+		multipart::Reader multipartReader(multipartContainer.get());
+		/* 配置读取器读取表单字段 */
+		multipartReader.setPartReader("languagetype", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+		multipartReader.setPartReader("languagelevel", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+		/* 配置读取器读取文件到文件 */
+		multipartReader.setPartReader("file", multipart::createFilePartReader("public/static/file/test.png"));
+		/* 读取请求体中的数据 */
+		request->transferBody(&multipartReader);
+		/* 打印part数量 */
+		OATPP_LOGD("Multipart", "parts_count=%d", multipartContainer->count());
+		/* 获取表单数据 */
+		auto type = multipartContainer->getNamedPart("languagetype");
+		auto level = multipartContainer->getNamedPart("languagelevel");
+		/* 断言表单数据是否正确 */
+		OATPP_ASSERT_HTTP(type, Status::CODE_400, "LanguageType is null");
+		OATPP_ASSERT_HTTP(level, Status::CODE_400, "LanguageLevel is null");
+		/* 打印应表单数据 */
+		OATPP_LOGD("Multipart", "LanguageType='%s'", type->getPayload()->getInMemoryData()->c_str());
+		OATPP_LOGD("Multipart", "LanguageLevel='%s'", level->getPayload()->getInMemoryData()->c_str());
+		/* 获取文件部分 */
+		auto filePart = multipartContainer->getNamedPart("file");
+		/* 断言文件是否获取到 */
+		OATPP_ASSERT_HTTP(filePart, Status::CODE_400, "file is null");
+		/* 打印文件名称 */
+		OATPP_LOGD("Multipart", "file='%s'", filePart->getFilename()->c_str());
+		/* 响应OK */
+		return createResponse(Status::CODE_200, "OK");
+	}
 private: // 定义接口执行函数
 	//定义查询接口执行函数
 	StringJsonVO::Wrapper execQueryLanguage(const LanguageQuery::Wrapper& query, const PayloadDTO& payload);
