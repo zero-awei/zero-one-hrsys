@@ -2,7 +2,6 @@
 #ifndef _EXPORTLEGALERSETTING_CONTROLLER_
 #define _EXPORTLEGALERSETTING_CONTROLLER_
 
-// 包含 dto vo jsonvo  query   以及oatpp 接口
 #include "domain/vo/BaseJsonVO.h"
 //#include "domain/query/sample/SampleQuery.h"
 //#include "domain/dto/sample/SampleDTO.h"
@@ -30,7 +29,6 @@ private:
 	// //3.3 演示删除数据
 	//Uint64JsonVO::Wrapper execRemoveSample(const ExportEmployeeDTO::Wrapper& dto);
 };
-
 
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
 #endif // _EXPORTLEGALERSETTING_CONTROLLER_

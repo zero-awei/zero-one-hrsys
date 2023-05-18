@@ -1,3 +1,2 @@
-#include "UpdateLegalerSetingMessageController.h"#include "stdafx.h"
+#include "UpdateLegalerSetingMessageController.h"
 #include "stdafx.h"
-
