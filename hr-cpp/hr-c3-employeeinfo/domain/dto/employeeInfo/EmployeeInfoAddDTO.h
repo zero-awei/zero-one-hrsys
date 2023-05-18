@@ -23,7 +23,7 @@
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
-
+//添加员工信息
 class EmployeeInfoAddDTO : public oatpp::DTO
 {
 	DTO_INIT(EmployeeInfoAddDTO, DTO);

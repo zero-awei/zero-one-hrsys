@@ -21,9 +21,10 @@
 #define _EMPLOYEEINFODTO_H_
 
 #include "../../GlobalInclude.h"
+#include "ApiHelper.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
-
+//修改具体员工信息
 class EmployeeInfoDTO : public oatpp::DTO
 {
 	DTO_INIT(EmployeeInfoDTO, DTO);
@@ -31,21 +32,25 @@ class EmployeeInfoDTO : public oatpp::DTO
 	DTO_FIELD(UInt64, empid);
 	DTO_FIELD_INFO(empid) {
 		info->description = ZH_WORDS_GETTER("employee.field.id");
+		info->required = true;
 	}
 	//员工姓名
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
 		info->description = ZH_WORDS_GETTER("employee.field.name");
+		info->required = true;
 	}
 	//证件类型
 	DTO_FIELD(String, idtype);
 	DTO_FIELD_INFO(idtype) {
 		info->description = ZH_WORDS_GETTER("employee.field.idtype");
+		info->required = true;
 	}
 	//证件号码
 	DTO_FIELD(Int32, idnum);
 	DTO_FIELD_INFO(idnum) {
 		info->description = ZH_WORDS_GETTER("employee.field.idnum");
+		info->required = true;
 	}
 	//出生日期
 	DTO_FIELD(String, bthdate);
@@ -62,16 +67,34 @@ class EmployeeInfoDTO : public oatpp::DTO
 	DTO_FIELD_INFO(sex) {
 		info->description = ZH_WORDS_GETTER("employee.field.sex");
 	}
+	//血型
+	API_DTO_FIELD_DEFAULT(String, blood, ZH_WORDS_GETTER("employee.field.blood"));
 	// 民族
 	DTO_FIELD(String, nation);
 	DTO_FIELD_INFO(nation) {
 		info->description = ZH_WORDS_GETTER("employee.field.nation");
 	}
+	//户口类型
+	API_DTO_FIELD_DEFAULT(String, residentType, ZH_WORDS_GETTER("employee.field.residentType"));
 	// 籍贯
 	DTO_FIELD(String, native);
 	DTO_FIELD_INFO(native) {
 		info->description = ZH_WORDS_GETTER("employee.field.native");
 	}
+	//户籍所在地
+	API_DTO_FIELD_DEFAULT(String, residentPlace, ZH_WORDS_GETTER("employee.field.residentPlace"));
+	// 户籍地址
+	API_DTO_FIELD_DEFAULT(String, residentLocate, ZH_WORDS_GETTER("employee.field.residentLocate"));
+	// 出生地址
+	API_DTO_FIELD_DEFAULT(String, birthPlace, ZH_WORDS_GETTER("employee.field.birthPlace"));
+	// 通讯地址
+	API_DTO_FIELD_DEFAULT(String, comPlace, ZH_WORDS_GETTER("employee.field.comPlace"));
+	// 有独生子女证
+	API_DTO_FIELD_DEFAULT(Boolean, onlyCredit, ZH_WORDS_GETTER("employee.field.onlyCredit"));
+	// 爱好特长
+	API_DTO_FIELD_DEFAULT(String, hobby, ZH_WORDS_GETTER("employee.field.hobby"));
+	// 健康状况
+	API_DTO_FIELD_DEFAULT(String, health, ZH_WORDS_GETTER("employee.field.health"));
 	// 婚姻状况
 	DTO_FIELD(String, marriage);
 	DTO_FIELD_INFO(marriage) {
@@ -131,6 +154,7 @@ class EmployeeInfoDTO : public oatpp::DTO
 	DTO_FIELD(String, phone);
 	DTO_FIELD_INFO(phone) {
 		info->description = ZH_WORDS_GETTER("employee.field.phone");
+		info->required = true;
 	}
 	//员工状态
 	DTO_FIELD(String, state);

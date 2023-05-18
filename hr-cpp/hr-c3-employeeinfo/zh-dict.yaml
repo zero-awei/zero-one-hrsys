@@ -24,8 +24,17 @@ employee:
   bitrhday: 出生日期
   age: 年龄
   sex: 性别
+  blood: 血型
   nation: 民族
   native: 籍贯
+  residentType: 户口类型
+  residentPlace: 户籍所在地
+  residentLocate: 户籍地址
+  birthPlace: 出生地
+  comPlace: 通讯地址
+  onlyCredit: 独生子女证
+  hobby: 爱好特长
+  health: 健康状况
   marriage: 婚姻状况
   politic: 政治面貌
   rank: 职级
