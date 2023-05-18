@@ -179,6 +179,7 @@
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\postSet\PostDeleteDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDetailDTO.h" />
+    <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
     <ClInclude Include="domain\query\postSet\PostDetailQuery.h" />
     <ClInclude Include="domain\vo\postSet\PostDetailVO.h" />
     <ClInclude Include="Macros.h" />

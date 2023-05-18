@@ -70,26 +70,15 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	ENDPOINT(API_M_DEL, "/deleteBatch-one-by-OrmPostId", deleteBatchByOrmPostId, API_HANDLER_AUTH_PARAME, BODY_STRING(String, jsonPayload)) {
-		//// 解析查询参数
-		//auto postDeleteDTO = PostDeleteDTO::createShared();
-		//postDeleteDTO->ormPostId = ormPostId;
-		//// 响应结果
-		//API_HANDLER_RESP_VO(execDeleteByOrmPostId(postDeleteDTO, authObject->getPayload()));
-		//auto array1 = a.get();
-		//for (auto& str : *array1) {
-		//	cout << str << endl;
-		//}
-  // Parse the JSON array payload
 		const std::shared_ptr<ObjectMapper>& objectMapper = oatpp::parser::json::mapping::ObjectMapper::createShared();
-		auto jsonArray = objectMapper->readFromString<oatpp::List<String>>(jsonPayload);
-		// Process the JSON array (e.g., print it)
-		//for (const auto& item : *jsonArray) {
+		// 解析查询参数
+		auto postDeleteBatchDTO = PostDeleteBatchDTO::createShared();
+		postDeleteBatchDTO->ormPostIds = objectMapper->readFromString<oatpp::List<String>>(jsonPayload);
+		//测试
+		//for (const auto& item : *postDeleteBatchDTO->ormPostIds) {
 		//	/*OATPP_LOGD("testEndpoint", "Item: %s", item->c_str());*/
 		//	cout << item->c_str() << endl;
 		//}
-		// 解析查询参数
-		auto postDeleteBatchDTO = PostDeleteBatchDTO::createShared();
-		postDeleteBatchDTO->ormPostIds = jsonArray;
 		// 响应结果
 		API_HANDLER_RESP_VO(exeDeleteBatchByOrmPostId(postDeleteBatchDTO, authObject->getPayload()));
 	}

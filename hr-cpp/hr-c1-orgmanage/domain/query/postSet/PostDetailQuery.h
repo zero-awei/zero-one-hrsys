@@ -34,12 +34,12 @@ class PostDetailQuery : public PageQuery
 	// 查询岗位名称
 	DTO_FIELD(String, query);
 	DTO_FIELD_INFO(query) {
-		info->description = ZH_WORDS_GETTER("查询岗位名称");
+		info->description = ZH_WORDS_GETTER("common.dto.query");
 	}
-	// 排序方式:排序类别,(asc/desc)
+	// 排序类别:排序方式,(asc/desc)
 	DTO_FIELD(String, sort);
 	DTO_FIELD_INFO(sort) {
-		info->description = ZH_WORDS_GETTER("排序方式:排序类别,(asc/desc)");
+		info->description = ZH_WORDS_GETTER("common.dto.sort");
 	}
 };
 

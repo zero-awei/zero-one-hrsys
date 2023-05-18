@@ -20,7 +20,7 @@
 #ifndef _POSTDETAIL_DTO_
 #define _POSTDETAIL_DTO_
 #include "../../GlobalInclude.h"
-
+#include "../pullList/PullListDTO.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
@@ -29,119 +29,116 @@
 class PostDetailDTO : public oatpp::DTO
 {
 	DTO_INIT(PostDetailDTO, DTO);
+
+	// 排序标号*
+	DTO_FIELD(UInt64, xh);
+	DTO_FIELD_INFO(xh) {
+		info->description = ZH_WORDS_GETTER("common.dto.xh");
+	}
+	// 岗位分类*
+	DTO_FIELD(String, gwfl);
+	DTO_FIELD_INFO(gwfl) {
+		info->description = ZH_WORDS_GETTER("common.dto.gwfl");
+	}
+	// 是否保密岗*
+	DTO_FIELD(String, isConfidential);
+	DTO_FIELD_INFO(isConfidential) {
+		info->description = ZH_WORDS_GETTER("common.dto.isConfidential");
+	}
+	// 岗位集名称*
+	DTO_FIELD(String, ormPostName);
+	DTO_FIELD_INFO(ormPostName) {
+		info->description = ZH_WORDS_GETTER("common.dto.ormPostName");
+	}
+	// 建议交流年限*
+	DTO_FIELD(UInt64, nx);
+	DTO_FIELD_INFO(nx) {
+		info->description = ZH_WORDS_GETTER("common.dto.nx");
+	}
+	// 必须交流年限*
+	DTO_FIELD(UInt64, bxjlnx);
+	DTO_FIELD_INFO(bxjlnx) {
+		info->description = ZH_WORDS_GETTER("common.dto.bxjlnx");
+	}
+	// 是否关键岗位*
+	DTO_FIELD(String, isKeyPostion);
+	DTO_FIELD_INFO(isKeyPostion) {
+		info->description = ZH_WORDS_GETTER("common.dto.isKeyPostion");
+	}
+	// 岗位性质*
+	DTO_FIELD(String, postNature);
+	DTO_FIELD_INFO(postNature) {
+		info->description = ZH_WORDS_GETTER("common.dto.postNature");
+	}
+	// 启用标识*
+	DTO_FIELD(String, startStopSign);
+	DTO_FIELD_INFO(startStopSign) {
+		info->description = ZH_WORDS_GETTER("common.dto.startStopSign");
+	}
+
 	// 岗位集标识
 	DTO_FIELD(String, ormPostId);
 	DTO_FIELD_INFO(ormPostId) {
-		info->description = ZH_WORDS_GETTER("岗位集标识");
+		info->description = ZH_WORDS_GETTER("common.dto.ormPostId");
 	}
-	// 岗位集名称
-	DTO_FIELD(String, ormPostName);
-	DTO_FIELD_INFO(ormPostName) {
-		info->description = ZH_WORDS_GETTER("岗位集名称");
-	}
+
+
 	// 建立人
 	DTO_FIELD(String, createMan);
 	DTO_FIELD_INFO(createMan) {
-		info->description = ZH_WORDS_GETTER("建立人");
+		info->description = ZH_WORDS_GETTER("common.dto.createMan");
 	}
 	// 更新时间
 	DTO_FIELD(String, updateDate);
 	DTO_FIELD_INFO(updateDate) {
-		info->description = ZH_WORDS_GETTER("更新时间");
+		info->description = ZH_WORDS_GETTER("common.dto.updateDate");
 	}
 	// 更新人
 	DTO_FIELD(String, updateMan);
 	DTO_FIELD_INFO(updateMan) {
-		info->description = ZH_WORDS_GETTER("更新人");
+		info->description = ZH_WORDS_GETTER("common.dto.updateMan");
 	}
 	// 建立时间
 	DTO_FIELD(String, createDate);
 	DTO_FIELD_INFO(createDate) {
-		info->description = ZH_WORDS_GETTER("建立时间");
+		info->description = ZH_WORDS_GETTER("common.dto.createDate");
 	}
-	// 排序标号
-	DTO_FIELD(UInt64, xh);
-	DTO_FIELD_INFO(xh) {
-		info->description = ZH_WORDS_GETTER("排序标号");
-	}
+
 	// 内部组织机构标识
 	DTO_FIELD(String, orgId);
 	DTO_FIELD_INFO(orgId) {
-		info->description = ZH_WORDS_GETTER("内部组织机构标识");
-	}
-	// 不知道
-	DTO_FIELD(UInt64, lgnx);
-	DTO_FIELD_INFO(lgnx) {
-		info->description = ZH_WORDS_GETTER("lgnx");
-	}
-	// 不知道
-	DTO_FIELD(UInt64, qzlgnx);
-	DTO_FIELD_INFO(qzlgnx) {
-		info->description = ZH_WORDS_GETTER("qzlgnx");
+		info->description = ZH_WORDS_GETTER("common.dto.orgId");
 	}
 	// 岗位类型
 	DTO_FIELD(String, gwType);
 	DTO_FIELD_INFO(gwType) {
-		info->description = ZH_WORDS_GETTER("岗位类型");
+		info->description = ZH_WORDS_GETTER("common.dto.gwType");
 	}
-	// 岗位分类
-	DTO_FIELD(String, gwfl);
-	DTO_FIELD_INFO(gwfl) {
-		info->description = ZH_WORDS_GETTER("岗位分类");
-	}
-	// 是否保密岗
-	DTO_FIELD(String, isConfidential);
-	DTO_FIELD_INFO(isConfidential) {
-		info->description = ZH_WORDS_GETTER("是否保密岗");
-	}
+
 	// 是否临时数据
 	DTO_FIELD(String, isTemp);
 	DTO_FIELD_INFO(isTemp) {
-		info->description = ZH_WORDS_GETTER("是否临时数据");
+		info->description = ZH_WORDS_GETTER("common.dto.isTemp");
 	}
-	// 建议交流年限
-	DTO_FIELD(UInt64, nx);
-	DTO_FIELD_INFO(nx) {
-		info->description = ZH_WORDS_GETTER("建议交流年限");
-	}
-	// 必须交流年限
-	DTO_FIELD(UInt64, bxjlnx);
-	DTO_FIELD_INFO(bxjlnx) {
-		info->description = ZH_WORDS_GETTER("必须交流年限");
-	}
-	// 是否关键岗位
-	DTO_FIELD(String, isKeyPostion);
-	DTO_FIELD_INFO(isKeyPostion) {
-		info->description = ZH_WORDS_GETTER("是否关键岗位");
-	}
-	// 岗位性质
-	DTO_FIELD(String, postNature);
-	DTO_FIELD_INFO(postNature) {
-		info->description = ZH_WORDS_GETTER("岗位性质");
-	}
-	// 启用标识
-	DTO_FIELD(String, startStopSign);
-	DTO_FIELD_INFO(startStopSign) {
-		info->description = ZH_WORDS_GETTER("启用标识");
-	}
+
 	// 外部组织机构标识
 	DTO_FIELD(String, ormOrgId);
 	DTO_FIELD_INFO(ormOrgId) {
-		info->description = ZH_WORDS_GETTER("外部组织机构标识");
+		info->description = ZH_WORDS_GETTER("common.dto.ormOrgId");
 	}
 	// 组织机构名称(数据库中为ORGNAME,发送数据为ormorgname)
 	DTO_FIELD(String, ormOrgName);
 	DTO_FIELD_INFO(ormOrgName) {
-		info->description = ZH_WORDS_GETTER("组织机构名称");
+		info->description = ZH_WORDS_GETTER("common.dto.ormOrgName");
 	}
 };
 
 /**
  * 岗位详情分页传输对象
  */
-class PostDetailPageDTO : public PageDTO<PostDetailDTO::Wrapper>
+class PostDetailPageDTO : public ListDTO<PostDetailDTO::Wrapper>
 {
-	DTO_INIT(PostDetailPageDTO, PageDTO<PostDetailDTO::Wrapper>);
+	DTO_INIT(PostDetailPageDTO, ListDTO<PostDetailDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)
