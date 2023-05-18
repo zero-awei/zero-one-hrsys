@@ -6,6 +6,7 @@ import com.zeroone.star.project.emplist.MaritalStatusApi;
 import com.zeroone.star.project.query.maritalstatuslist.MaritalStatusListQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("employee")
 public class MaritalStatusListController implements MaritalStatusApi {
 
-    @RequestMapping("marital-status")
+    @GetMapping("marital-status")
     @ApiOperation(value = "婚姻状况列表")
     @Override
     public JsonVO<PageDTO<MaritalStatusListDTO>> queryAll(MaritalStatusListQuery query) {
