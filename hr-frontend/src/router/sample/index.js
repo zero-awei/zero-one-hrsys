@@ -10,8 +10,7 @@ const routes = [
       },
       {
         path: '/sample/print',
-        component: () => import('@/views/sample/print/Print.vue')
-      },
+        component: () => import('@/views/sample/print/Print.vue')      },
       {
         path: '/sample/sass',
         component: () => import('@/views/sample/SassTest/SassSample.vue')
@@ -19,6 +18,10 @@ const routes = [
       {
         path: '/sample/communication',
         component: () => import('@/views/sample/Communication/index.vue')
+      },
+	  {
+        path: '/sample/echarts',
+        component: () => import('@/views/sample/echarts_test/Echart.vue')
       }
     ]
   }
