@@ -35,13 +35,13 @@ const showMsg = () => {
       ElMessage({
         title: '成功',
         type: 'success',
-        message: 'testMessage.messageInfo'
+        message: testMessage.messageInfo
       })
     })
     .catch(() => {
       ElMessage({
         type: 'info',
-        message: 'testMessage.messageError'
+        message: testMessage.messageError
       })
     })
 }
