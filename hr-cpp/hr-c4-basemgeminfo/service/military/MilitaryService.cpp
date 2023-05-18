@@ -96,7 +96,10 @@ string MilitaryService::download(const MilitaryDownloadQuery::Wrapper& query)
 	//上传excel结果
 	string filedName = client.uploadFile(fileName);
 	cout << "upload fieldname is : " << filedName << endl;
+	//删除产生的临时文件
+	remove(fileName.c_str());
 	//删除上传的文件
-	cout << "delete file result is : " << client.deleteFile(filedName) << endl;
+	//cout << "delete file result is : " << client.deleteFile(filedName) << endl;
+
 	return filedName;
 }
