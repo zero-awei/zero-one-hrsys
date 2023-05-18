@@ -25,6 +25,7 @@
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
+#include "jobSet/importJobController/ImportJobController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -50,7 +51,7 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-
+	createJobSetRouter();
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -64,4 +65,10 @@ void Router::createSampleRouter()
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());
 }
+
 #endif
+
+void Router::createJobSetRouter()
+{
+	ROUTER_SIMPLE_BIND(ImportJobController);
+}
