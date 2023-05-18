@@ -1,14 +1,11 @@
 <template>
-  <button @click="myEmit">表格某一列</button>
+  <button @click="myEmit">父组件-子组件-方法-修改提示信息</button>
   <br/>
   <el-button text @click="showMsg()">操作</el-button>
 </template>
 
 <script setup>
 let messageInfo = ref('确定删除吗？')
-let message = ref('保存成功')
-let messageError = ref('校验失败')
-
 //接受父组件传过来的值
 const testMessage = defineProps({
   messageInfo: {
@@ -16,6 +13,10 @@ const testMessage = defineProps({
     default: '' //如果没有传递参数,默认值是这个
   },
   messageError: {
+    type: String, 
+    default: '' 
+  },
+  messageWarn:{
     type: String, 
     default: '' 
   }

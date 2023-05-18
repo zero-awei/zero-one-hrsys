@@ -1,12 +1,13 @@
 <template>
   <div>
     <el-row>
-      <el-button>测试表格某一列</el-button>
+      <el-button @click="changeMesage">点击表格某一列--决定弹出的内容</el-button>
     </el-row>
     <Notification
       @onChangeMessage="changeMessage"
       :messageInfo="message"
       :messageError="error"
+      :messageWarn="warn"
     >
     </Notification>
     <MessageBox
@@ -23,11 +24,13 @@
 import MessageBox from '@/components/feedback/MessageBox.vue'
 import Notification from '@/components/feedback/Notification.vue'
 
-const message = ref('确定吗？')
+const message = ref('成功')
 const error = ref('出错')
+const warn=ref('警告')
 const changeMesage = () => {
-  message.value = 'xx保存成功'
-  error.value = '校验失败'
+  message.value = 'XXXX保存成功'
+  error.value = '值规则校验失败了'
+  warn.value="警告"
 }
 </script>
 

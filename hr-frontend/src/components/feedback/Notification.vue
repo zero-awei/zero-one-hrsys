@@ -19,14 +19,17 @@ const testMessage = defineProps({
   messageError: {
     type: String, 
     default: '' 
-  }
+  },
+  messageWarn: {
+    type: String, 
+    default: '' 
+  },
 })
 
 // 子组件调用父组件的方法
 const myEmit=defineEmits(['onchangeMessage'])
 myEmit("onchangeMessage","changeMessage",)
 
-let message = ref('成功')
 const showSuccess = () => {
   ElNotification({
     title: '成功',
@@ -39,7 +42,7 @@ const showSuccess = () => {
 const showWarn = () => {
   ElNotification({
     title: '警告',
-    message: 'warning message',
+    message: testMessage.messageWarn,
     type: 'warning',
     position: 'top-right',
   })
