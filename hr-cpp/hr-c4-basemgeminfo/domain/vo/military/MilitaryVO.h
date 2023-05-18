@@ -30,6 +30,11 @@ class MilitaryJsonVO : public JsonVO<MilitaryDTO::Wrapper>
 	DTO_INIT(MilitaryJsonVO, JsonVO<MilitaryDTO::Wrapper>);
 };
 
+class MilitaryPageJsonVO : public JsonVO<MilitaryPageDTO::Wrapper>
+{
+	DTO_INIT(MilitaryPageJsonVO, JsonVO<MilitaryPageDTO::Wrapper>);
+};
+
 #include OATPP_CODEGEN_END(DTO)
 
 #endif // !_MILITARYVO_H_

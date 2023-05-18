@@ -115,6 +115,11 @@ class MilitaryDTO : public oatpp::DTO
 	}
 };
 
+class MilitaryPageDTO : public PageDTO<MilitaryDTO::Wrapper>
+{
+	DTO_INIT(MilitaryPageDTO, PageDTO<MilitaryDTO::Wrapper>);
+};
+
 #include OATPP_CODEGEN_END(DTO)
 
 #endif // !_MILITARYDTO_H_

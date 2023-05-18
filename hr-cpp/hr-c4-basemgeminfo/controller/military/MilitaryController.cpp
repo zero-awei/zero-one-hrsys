@@ -39,9 +39,15 @@ StringJsonVO::Wrapper MilitaryController::execModifyMilitary(const MilitaryDTO::
 
 StringJsonVO::Wrapper MilitaryController::execDownloadMilitary(const MilitaryDownloadQuery::Wrapper& query)
 {
-	// 创建响应对象
-	auto vo = StringJsonVO::createShared();
+	// 定义返回数据对象
+	auto jvo = StringJsonVO::createShared();
+	string filedName = MilitaryService().download(query);
 	// 响应结果
-	vo->success("Download-Link");
-	return vo;
+	if (filedName.empty()) {
+		jvo->fail("download failed!");
+	}
+	else {
+		jvo->success(filedName);
+	}
+	return jvo;
 }

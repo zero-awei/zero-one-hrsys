@@ -30,6 +30,9 @@ public:
 	list<MilitaryDO> selectDetail(const MilitaryDetailQuery::Wrapper& query);
 	// 修改数据
 	int update(const MilitaryDO& uObj);
+	// 分页查询数据
+	list<MilitaryDO> selectWithPage(const MilitaryDownloadQuery::Wrapper& query);
+
 };
 
 #endif // !_MILITARYDAO_H_

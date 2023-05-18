@@ -26,9 +26,12 @@
 class MilitaryService
 {
 public:
+	//查询详情
 	MilitaryDTO::Wrapper listDetail(const MilitaryDetailQuery::Wrapper& query);
 	// 修改数据
 	bool updateData(const MilitaryDTO::Wrapper& dto);
+	//导出
+	string download(const MilitaryDownloadQuery::Wrapper& query);
 };
 
 #endif // !_MILITARYSERVICE_H_

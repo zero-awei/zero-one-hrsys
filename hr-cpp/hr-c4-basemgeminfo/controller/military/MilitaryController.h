@@ -67,7 +67,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 添加其他查询参数
 		info->queryParams.add<String>("PIMPERSONID").description = ZH_WORDS_GETTER("military.PIMPERSONID");
-		info->queryParams["PIMPERSONID"].addExample("default", String("0000-QWDE"));
+		info->queryParams["PIMPERSONID"].addExample("default", String("66958E87-91A4-4DA8-8124-060E93B47EBE"));
 	}
 	ENDPOINT(API_M_POST, "/military", downloadMilitary, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
