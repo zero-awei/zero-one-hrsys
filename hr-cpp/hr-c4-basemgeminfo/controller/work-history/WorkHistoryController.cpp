@@ -11,8 +11,8 @@ WorkHistoryFindVO::Wrapper WorkHistoryController::execQueryWorkHistory(const Wor
 
 	auto pdto = WorkHistoryFindPageDTO::createShared();
 
-	pdto->addData(WorkHistoryFindDTO::createShared("ASDA", "DFSF", "HF", "FS", "WEFE", "TGRE", "HYT", "FSD"));
-	pdto->addData(WorkHistoryFindDTO::createShared("ASDSDA", "DFDFSF", "HASF", "FAS", "WEFACE", "TGASDRE", "HADYT", "FSD"));
+	pdto->addData(WorkHistoryFindDTO::createShared("ASDA", "DFSF", "HF", "FS", "WEFE", "TGRE", "HYT", 2, "asdhj"));
+	pdto->addData(WorkHistoryFindDTO::createShared("ASDSDA", "DFDFSF", "HASF", "FAS", "WEFACE", "TGASDRE", "HADY", 2,"sgaj"));
 
 	vo->success(pdto);
 
@@ -24,8 +24,8 @@ Uint64JsonVO::Wrapper WorkHistoryController::execAddWorkHistory(const AddWorkHis
 {
 	auto jvo = Uint64JsonVO::createShared();
 
-	if (!dto->bm || !dto->gw || !dto->ormrankid || !dto->pimpersonid || !dto->servebegintime || \
-		!dto->serveendtime || !dto->workunit || !dto->zw)
+	if (!dto->bm || !dto->gw || !dto->experience || !dto->pimpersonid || !dto->servebegintime || \
+		!dto->serveendtime || !dto->workunit || !dto->zw || !dto->cfplx)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;

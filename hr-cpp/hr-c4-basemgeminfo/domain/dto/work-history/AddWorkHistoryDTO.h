@@ -54,8 +54,11 @@ class AddWorkHistoryDTO : public oatpp::DTO
 	//6岗位
 	DTO_INIT_(String, gw, "workhistory.field.gw")
 
-	//7职级
-	DTO_INIT_(String, ormrankid, "workhistory.field.ormrankid")
+	//7兼职借调类型
+	DTO_INIT_(String, cfplx, "workhistory.field.cfplx")
+
+	//8是否主要经历
+	DTO_INIT_(UInt64, experience, "workhistory.field.experience")
 
 	
 };

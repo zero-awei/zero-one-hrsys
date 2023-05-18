@@ -75,6 +75,12 @@
     <ClInclude Include="domain\vo\work-history\WorkHistoryExportVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="service\work-history\WorkHistoryService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\work-history\WorkHIstoryFindPageDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

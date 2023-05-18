@@ -175,6 +175,7 @@
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\work-history\WorkHistoryController.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\work-history\WorkHIstoryFindPageDO.h" />
     <ClInclude Include="domain\dto\work-history\AddWorkHistoryDTO.h" />
     <ClInclude Include="domain\dto\work-history\DelWorkHistoryDTO.h" />
     <ClInclude Include="domain\dto\work-history\WorkHistoryExportDTO.h" />
@@ -187,6 +188,7 @@
     <ClInclude Include="domain\vo\work-history\WorkHistoryFindVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\work-history\WorkHistoryService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="uselib\ws\WSController.h" />
     <ClInclude Include="uselib\ws\WSInstanceListener.h" />

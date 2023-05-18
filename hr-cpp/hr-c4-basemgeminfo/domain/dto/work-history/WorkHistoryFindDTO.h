@@ -29,8 +29,8 @@ class WorkHistoryFindDTO : public oatpp::DTO
 public:
 	WorkHistoryFindDTO() = default;
 	WorkHistoryFindDTO(String servebegintime, String serveendtime, String workunit, \
-		String bm, String zw, String gw, String ormrankid, String pimpersonid) : servebegintime(servebegintime), \
-		serveendtime(serveendtime), workunit(workunit), bm(bm), zw(zw), gw(gw), ormrankid(ormrankid), \
+		String bm, String zw, String gw, String cfplx, UInt64 experience, String pimpersonid) : servebegintime(servebegintime), \
+		serveendtime(serveendtime), workunit(workunit), bm(bm), zw(zw), gw(gw), cfplx(cfplx), experience(experience),\
 		pimpersonid(pimpersonid) {}
 
 	DTO_INIT(WorkHistoryFindDTO, DTO);
@@ -72,13 +72,19 @@ public:
 		info->description = ZH_WORDS_GETTER("workhistory.field.gw");
 	}
 
-	//7职级
-	DTO_FIELD(String, ormrankid);
-	DTO_FIELD_INFO(ormrankid) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.ormrankid");
+	//7兼职借调类型
+	DTO_FIELD(String, cfplx);
+	DTO_FIELD_INFO(cfplx) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.cfplx");
 	}
 
-	//8人员信息id
+	//8是否主要经历
+	DTO_FIELD(UInt64, experience);
+	DTO_FIELD_INFO(experience) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.experience");
+	}
+
+	//9人员信息id
 	DTO_FIELD(String, pimpersonid);
 	DTO_FIELD_INFO(pimpersonid) {
 		info->description = ZH_WORDS_GETTER("workhistory.field.pimpersionid");

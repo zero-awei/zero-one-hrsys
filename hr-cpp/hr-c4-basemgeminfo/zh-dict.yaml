@@ -43,7 +43,8 @@ workhistory:
   bm: 部门
   zw: 职务
   gw: 岗位
-  ormrankid: 职级
+  cfplx: 兼职主要类型
+  experience: 是否主要经历
  export:
   summary: 导出数据
  upload:

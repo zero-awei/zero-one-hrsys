@@ -70,10 +70,16 @@ class WorkHistoryPageQuery : public PageQuery
 		info->description = ZH_WORDS_GETTER("workhistory.field.gw");
 	}
 
-	//职级
-	DTO_FIELD(String,ormrankid);
-	DTO_FIELD_INFO(ormrankid) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.ormrankid");
+	//7兼职借调类型
+	DTO_FIELD(String, cfplx);
+	DTO_FIELD_INFO(cfplx) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.cfplx");
+	}
+
+	//8是否主要经历
+	DTO_FIELD(UInt64, experience);
+	DTO_FIELD_INFO(experience) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.experience");
 	}
 
 	//人员信息id
