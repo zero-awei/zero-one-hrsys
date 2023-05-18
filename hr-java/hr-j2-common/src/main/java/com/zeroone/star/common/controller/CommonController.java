@@ -31,4 +31,11 @@ public class CommonController implements CommonApis {
     public JsonVO<List<DropdownListOptionDTO>> queryStaffingControl() {
         return null;
     }
+
+    @ApiOperation(value = "获取证件类型下拉列表")
+    @GetMapping("query-certificate-type")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryCertificateType() {
+        return null;
+    }
 }

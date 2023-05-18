@@ -23,4 +23,11 @@ public interface CommonApis {
      * @return 查询结果
      */
     JsonVO<List<DropdownListOptionDTO>> queryStaffingControl();
+
+    /**
+     * 获取证件类型下拉列表
+     *
+     * @return 查询结果
+     */
+    JsonVO<List<DropdownListOptionDTO>> queryCertificateType();
 }
