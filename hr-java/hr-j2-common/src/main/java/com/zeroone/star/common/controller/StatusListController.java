@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/common")
 public class StatusListController implements StatusApi {
     @ApiOperation(value = "员工状态列表")
-    @GetMapping("/status-list")
+    @GetMapping("/employee-status-list")
     @Override
-    public JsonVO<PageDTO<StatusListDto>> queryAll(StatusListQuery query) {
+    public JsonVO<PageDTO<StatusListDto>> queryAllStatus(StatusListQuery query) {
         return null;
     }
 }

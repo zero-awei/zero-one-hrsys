@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/controller")
+@RequestMapping("/orgmanager")
 public class DepartmentController implements DepartmentApi {
 
-    @GetMapping("/list")
+    @GetMapping("/org-list")
     @ApiOperation(value = "分页查询部门信息")
     @Override
-    public JsonVO<PageDTO<DepartmentDto>> queryAll(DepartmentQuery query) {
+    public JsonVO<PageDTO<DepartmentDto>> queryAllDepartment(DepartmentQuery query) {
         return null;
     }
 

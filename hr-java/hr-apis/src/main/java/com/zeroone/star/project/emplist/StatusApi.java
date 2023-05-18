@@ -7,5 +7,5 @@ import com.zeroone.star.project.vo.JsonVO;
 
 public interface StatusApi {
 
-    JsonVO<PageDTO<StatusListDto>> queryAll(StatusListQuery query);
+    JsonVO<PageDTO<StatusListDto>> queryAllStatus(StatusListQuery query);
 }

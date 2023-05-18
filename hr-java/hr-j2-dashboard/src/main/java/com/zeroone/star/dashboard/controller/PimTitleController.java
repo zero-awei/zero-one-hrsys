@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/pim-title")
+@RequestMapping("/dashboard")
 public class PimTitleController implements PimTitleApi {
 
-    @GetMapping("/zcdj")
+    @GetMapping("/pim-title-zcdj")
     @ApiOperation(value = "职称等级")
     @Override
-    public JsonVO<PimTitleDto> query() {
+    public JsonVO<PimTitleDto> count() {
         return null;
     }
+
 }

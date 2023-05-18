@@ -9,5 +9,5 @@ public interface PimTitleApi {
      * 职称等级查询
      * @return
      */
-    JsonVO<PimTitleDto> query();
+    JsonVO<PimTitleDto> count();
 }

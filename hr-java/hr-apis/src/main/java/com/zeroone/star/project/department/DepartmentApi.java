@@ -12,6 +12,6 @@ public interface DepartmentApi {
      * @param query
      * @return
      */
-    JsonVO<PageDTO<DepartmentDto>> queryAll(DepartmentQuery query);
+    JsonVO<PageDTO<DepartmentDto>> queryAllDepartment(DepartmentQuery query);
 
 }

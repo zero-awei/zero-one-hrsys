@@ -11,5 +11,5 @@ public interface PimOutputApi {
      * @param query
      * @return
      */
-    JsonVO<PimOutputDto> query(PimOutputQuery query);
+    JsonVO<PimOutputDto> countByYear(PimOutputQuery query);
 }

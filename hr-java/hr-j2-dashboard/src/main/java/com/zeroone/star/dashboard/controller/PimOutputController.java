@@ -11,14 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/pim-output")
+@RequestMapping("/dashboard")
 public class PimOutputController implements PimOutputApi {
-
-
     @ApiOperation(value = "月均产值")
-    @GetMapping("/yd")
+    @GetMapping("/pim-output-yd")
     @Override
-    public JsonVO<PimOutputDto> query(PimOutputQuery query) {
+    public JsonVO<PimOutputDto> countByYear(PimOutputQuery query) {
         return null;
     }
 }
