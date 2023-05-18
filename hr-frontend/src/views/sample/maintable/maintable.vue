@@ -1,31 +1,11 @@
 <template>
-  <div class="hr-maintable">
-    <el-table
-      class-name="hr-maintable__form"
-      ref="multipleTableRef"
-      max-height="calc(95vh - 40px)"
-      :data="tableData"
-      style="width: 100%"
-      :default-sort="{ prop: 'id', order: 'ascending' }"
-      @selection-change="handleSelectionChange"
-    >
-      <el-table-column type="selection" />
-      <el-table-column
-        class-name="hr-maintable__form--cell"
-        v-for="item in xmlData"
-        :key="item.id"
-        :label="item.name"
-        :prop="item.prop"
-        width="150"
-        sortable
-      />
-    </el-table>
-  </div>
+  <!-- 演示案例 -->
+  <!-- 传入 表格设计数据 和 表格主体数据  -->
+  <MainTable :tableData="tableData" :xmlData="xmlData"></MainTable>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { ElTable } from 'element-plus'
+import MainTable from '../../../components/MainTable.vue'
 
 interface User {
   //自定义数据
@@ -41,24 +21,6 @@ interface User {
   state: string
 }
 
-const multipleTableRef = ref<InstanceType<typeof ElTable>>()
-const multipleSelection = ref<User[]>([])
-const toggleSelection = (rows?: User[]) => {
-  if (rows) {
-    rows.forEach((row) => {
-      // TODO: improvement typing when refactor table
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
-      multipleTableRef.value!.toggleRowSelection(row, undefined)
-    })
-  } else {
-    multipleTableRef.value!.clearSelection()
-  }
-}
-const handleClick = () => {}
-const handleSelectionChange = (val: User[]) => {
-  multipleSelection.value = val
-}
 // 定义表单数据
 const xmlData = [
   { id: 1, name: '员工编号', prop: 'id' },
@@ -678,23 +640,4 @@ const tableData: User[] = [
 ]
 </script>
 
-<style lang="scss">
-@include block(maintable) {
-  @include element(form) {
-    text-align: left;
-    background-color: white;
-    @include modifier(cell) {
-      height: 48px;
-      border-bottom: 1px solid #ebeef5;
-    }
-  }
-}
-.el-table__header {
-  height: 60px;
-}
-.el-table__header-wrapper thead {
-  font-weight: bolder;
-  color: #304265 !important;
-  font-size: 16px;
-}
-</style>
+<style lang="scss"></style>

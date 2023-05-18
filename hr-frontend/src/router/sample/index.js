@@ -22,7 +22,7 @@ const routes = [
       },
       {
         path: '/sample/maintable',
-        component: () => import('@/views/sample/maintable/maintable.vue')
+        component: () => import('@/views/sample/maintable/Maintable.vue')
       }
     ]
   }
