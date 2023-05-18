@@ -159,8 +159,9 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
-    <ClInclude Include="controller\ContractTypeList\ContractTypeListController.h" />
+    <ClInclude Include="controller\contractType\ContractTypeListController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
@@ -170,7 +171,8 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="controller\ContractTypeList\ContractTypeListController.cpp" />
+    <ClCompile Include="controller\armyLevelType\ArmyLevelTypeController.cpp" />
+    <ClCompile Include="controller\contractType\ContractTypeListController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />

@@ -45,7 +45,16 @@ private:
 	// 创建演示路由
 	void createSampleRouter();
 #endif
+	/**
+	 * 绑定合同类型下拉列表路由
+	 * 负责人：Andrew
+	 */
 	void createContractTypeRouter();
+	/**
+	 * 绑定军转级别下拉列表路由
+	 * 负责人：Andrew
+	 */
+	void createArmyLevelTypeRouter();
 };
 
 #endif // !_ROUTER_

@@ -25,7 +25,8 @@
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
-#include "ContractTypeList/ContractTypeListController.h"
+#include "contractType/ContractTypeListController.h"
+#include "armyLevelType/ArmyLevelTypeController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -52,6 +53,7 @@ void Router::initRouter()
 
 	//#TIP :系统扩展路由定义，写在这个后面
 	createContractTypeRouter();
+	createArmyLevelTypeRouter();
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -70,4 +72,9 @@ void Router::createSampleRouter()
 void Router::createContractTypeRouter()
 {
 	ROUTER_SIMPLE_BIND(ContractTypeListController);
+}
+
+void Router::createArmyLevelTypeRouter()
+{
+	ROUTER_SIMPLE_BIND(ArmyLevelTypeController);
 }
