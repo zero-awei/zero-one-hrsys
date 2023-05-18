@@ -163,6 +163,7 @@
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\AddEmployeeAssignInfo\AddEmployeeAssignInfo.h" />
+    <ClInclude Include="domain\dto\DeleteEmployeeAssignInfo\DeleteEmployeeAssignInfo.h" />
     <ClInclude Include="domain\dto\ImportEmployeeAssignInfo\ImportEmployeeAssignInfoDTO.h" />
     <ClInclude Include="domain\query\EmployeeAssignInfoQuery\EmployeeAssignInfoQueryDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />

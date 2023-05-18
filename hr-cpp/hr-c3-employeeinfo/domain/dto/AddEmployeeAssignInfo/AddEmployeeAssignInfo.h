@@ -8,9 +8,9 @@
 /**
  * 新增指定员工分配信息
  */
-class ImportEmployeeAssignInfoDTO : public oatpp::DTO
+class AddEmployeeAssignInfoDTO : public oatpp::DTO
 {
-	DTO_INIT(ImportEmployeeAssignInfoDTO, DTO);
+	DTO_INIT(AddEmployeeAssignInfoDTO, DTO);
 	// 分配(主分配或次分配)
 	DTO_FIELD(String, assign);
 	DTO_FIELD_INFO(assign) {
