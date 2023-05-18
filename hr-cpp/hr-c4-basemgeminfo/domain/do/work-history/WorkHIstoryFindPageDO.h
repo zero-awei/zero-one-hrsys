@@ -35,13 +35,13 @@ class WorkHistoryFindDO
 	CC_SYNTHESIZE(std::string, ORMORGNAME, oRMORGNAME);
 
 	//4部门
-	CC_SYNTHESIZE(std::string, BM, bM);
+	CC_SYNTHESIZE(std::string, ORMORGSECTORNAME, oRMORGSECTORNAME);
 
 	//5职位
-	CC_SYNTHESIZE(std::string, ZW, zW);
+	CC_SYNTHESIZE(std::string, ORMDUTYNAME, oRMDUTYNAME);
 
 	//6岗位
-	CC_SYNTHESIZE(std::string, GW, gW);
+	CC_SYNTHESIZE(std::string, ORMPOSTNAME, oRMPOSTNAME);
 
 	//7兼职借调类型
 	CC_SYNTHESIZE(std::string, CFPLX, cFPLX);

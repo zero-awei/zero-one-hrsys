@@ -37,12 +37,13 @@ public:
 		data.setrZKSSJ(resultSet->getString(1));
 		data.setrZJSSJ(resultSet->getString(2));
 		data.setoRMORGNAME(resultSet->getString(3));
-		data.setbM(resultSet->getString(4));
-		data.setzW(resultSet->getString(5));
-		data.setgW(resultSet->getString(6));
+		data.setoRMORGNAME(resultSet->getString(4));
+		data.setoRMDUTYNAME(resultSet->getString(5));
+		data.setoRMPOSTNAME(resultSet->getString(6));
 		data.setcFPLX(resultSet->getString(7));
 		data.seteXPERIENCE(resultSet->getInt(8));
 		data.setpIMWORKHISTORYID(resultSet->getString(9));
+		data.setpIMPERSONID(resultSet->getString(10));
 		return data;
 	}
 };

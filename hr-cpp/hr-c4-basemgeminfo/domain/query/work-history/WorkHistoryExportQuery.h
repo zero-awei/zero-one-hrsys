@@ -20,6 +20,11 @@
 #ifndef _WORKHISTORYEXPORTQUERY_H_
 #define _WORKHISTORYEXPORTQUERY_H_
 
+#define DTO_INIT_(type, field, name) DTO_FIELD(type, field); \
+DTO_FIELD_INFO(field) { \
+	info->description = ZH_WORDS_GETTER(name); \
+}
+
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
 
@@ -52,23 +57,14 @@ class WorkHistoryExportQuery : public PageQuery
 	}
 
 
-	//部门
-	DTO_FIELD(String, bm);
-	DTO_FIELD_INFO(bm) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.BM");
-	}
+	//4部门
+	DTO_INIT_(String, ormorgsectorname, "workhistory.field.ormorgsectorname")
 
-	//职务
-	DTO_FIELD(String, zw);
-	DTO_FIELD_INFO(zw) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.zw");
-	}
+		//5职务
+	DTO_INIT_(String, ormdutyname, "workhistory.field.ormdutyname")
 
-	//岗位
-	DTO_FIELD(String, gw);
-	DTO_FIELD_INFO(gw) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.gw");
-	}
+		//6岗位
+	DTO_INIT_(String, ormpostname, "workhistory.field.ormpostname")
 
 	//7兼职借调类型
 	DTO_FIELD(String, cfplx);

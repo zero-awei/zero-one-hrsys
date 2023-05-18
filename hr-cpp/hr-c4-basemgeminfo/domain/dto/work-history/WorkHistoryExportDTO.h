@@ -19,6 +19,11 @@
 */
 #ifndef _WORKHISTORYEXPORTDTO_H_
 #define _WORKHISTORYEXPORTDTO_H_
+#define DTO_INIT_(type, field, name) DTO_FIELD(type, field); \
+DTO_FIELD_INFO(field) { \
+	info->description = ZH_WORDS_GETTER(name); \
+}
+
 
 #include "../../GlobalInclude.h"
 
@@ -30,8 +35,10 @@ public:
 
 	WorkHistoryExportDTO() = default;
 	WorkHistoryExportDTO(String rzkssj, String rzjssj, String ormorgname, \
-		String bm, String zw, String gw, String cfplx, UInt64 experience, String pimpersonid, String pimworkhistoryid) : rzkssj(rzkssj), \
-		rzjssj(rzjssj), ormorgname(ormorgname), bm(bm), zw(zw), gw(gw), cfplx(cfplx), experience(experience),\
+		String ormorgsectorname, String ormdutyname, String ormpostname, String cfplx, \
+		UInt64 experience, String pimpersonid, String pimworkhistoryid) : rzkssj(rzkssj), \
+		rzjssj(rzjssj), ormorgname(ormorgname), ormorgsectorname(ormorgsectorname),\
+		ormdutyname(ormdutyname), ormpostname(ormpostname), cfplx(cfplx), experience(experience),\
 		pimpersonid(pimpersonid) , pimworkhistoryid(pimworkhistoryid){}
 private:
 
@@ -58,22 +65,13 @@ private:
 	}
 
 	//4部门
-	DTO_FIELD(String, bm);
-	DTO_FIELD_INFO(bm) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.bm");
-	}
+	DTO_INIT_(String, ormorgsectorname, "workhistory.field.ormorgsectorname")
 
-	//5职务
-	DTO_FIELD(String, zw);
-	DTO_FIELD_INFO(zw) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.zw");
-	}
+		//5职务
+	DTO_INIT_(String, ormdutyname, "workhistory.field.ormdutyname")
 
-	//6岗位
-	DTO_FIELD(String, gw);
-	DTO_FIELD_INFO(gw) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.gw");
-	}
+		//6岗位
+	DTO_INIT_(String, ormpostname, "workhistory.field.ormpostname")
 
 	//7兼职借调类型
 	DTO_FIELD(String, cfplx);

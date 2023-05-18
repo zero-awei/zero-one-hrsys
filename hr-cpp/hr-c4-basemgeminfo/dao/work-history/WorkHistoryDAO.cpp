@@ -18,17 +18,17 @@ if (query->ormorgname) { \
 	sql << " AND ORMORGNAME=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->ormorgname.getValue("")); \
 } \
-if (query->bm) { \
-		sql << " AND BM=?"; \
-		SQLPARAMS_PUSH(params, "s", std::string, query->bm.getValue("")); \
+if (query->ormorgsectorname) { \
+		sql << " AND ORMORGSECTORNAME=?"; \
+		SQLPARAMS_PUSH(params, "s", std::string, query->ormorgsectorname.getValue("")); \
 }\
-if (query->zw) { \
-		sql << " AND ZW=?"; \
-		SQLPARAMS_PUSH(params, "s", std::string, query->zw.getValue("")); \
+if (query->ormdutyname) { \
+		sql << " AND ORMDUTYNAME=?"; \
+		SQLPARAMS_PUSH(params, "s", std::string, query->ormdutyname.getValue("")); \
 }\
-if (query->gw) { \
-		sql << " AND GW=?"; \
-		SQLPARAMS_PUSH(params, "s", std::string, query->gw.getValue("")); \
+if (query->ormpostname) { \
+		sql << " AND ORMPOSTNAME=?"; \
+		SQLPARAMS_PUSH(params, "s", std::string, query->ormpostname.getValue("")); \
 }\
 if (query->cfplx) { \
 		sql << " AND CFPLX=?"; \
@@ -60,7 +60,8 @@ if (query->pimworkhistoryid) {
 std::list<WorkHistoryFindDO> WorkHistoryDAO::selectWithPage(const WorkHistoryPageQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "select RZKSSJ, RZJSSJ, ORMORGNAME, BM,ZW, GW, CFPLX, EXPERIENCE, PIMWORKHISTORYID from `t_pimworkhistory`";
+	sql << "select RZKSSJ, RZJSSJ, ORMORGNAME, ORMORGSECTORNAME, \
+		ORMDUTYNAME, ORMPOSTNAME, CFPLX, EXPERIENCE, PIMWORKHISTORYID, PIMPERSONID from `t_pimworkhistory`";
 	SAMPLE_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	WorkHistoryMapper mapper;

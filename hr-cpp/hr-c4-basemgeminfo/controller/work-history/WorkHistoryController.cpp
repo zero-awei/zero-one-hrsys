@@ -26,8 +26,8 @@ Uint64JsonVO::Wrapper WorkHistoryController::execAddWorkHistory(const AddWorkHis
 {
 	auto jvo = Uint64JsonVO::createShared();
 
-	if (!dto->bm || !dto->gw || !dto->experience || !dto->pimpersonid || !dto->rzjssj || \
-		!dto->rzkssj || !dto->ormorgname || !dto->zw || !dto->cfplx || !dto->pimworkhistoryid)
+	if (!dto->ormorgsectorname || !dto->ormdutyname || !dto->experience || !dto->pimpersonid || !dto->rzjssj || \
+		!dto->rzkssj || !dto->ormorgname || !dto->ormpostname || !dto->cfplx || !dto->pimworkhistoryid)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;

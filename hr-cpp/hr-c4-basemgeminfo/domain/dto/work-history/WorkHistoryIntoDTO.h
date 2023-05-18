@@ -54,13 +54,13 @@ class WorkHistoryDTO : public oatpp::DTO
 	}
 
 	//4部门
-	DTO_INIT_(String, bm, "workhistory.field.bm")
+	DTO_INIT_(String, ormorgsectorname, "workhistory.field.ormorgsectorname")
 
 	//5职务
-	DTO_INIT_(String, zw, "workhistory.field.zw")
+	DTO_INIT_(String, ormdutyname, "workhistory.field.ormdutyname")
 
 	//6岗位
-	DTO_INIT_(String, gw, "workhistory.field.gw")
+	DTO_INIT_(String, ormpostname, "workhistory.field.ormpostname")
 
 	//7兼职借调类型
 	DTO_INIT_(String, cfplx, "workhistory.field.cfplx")

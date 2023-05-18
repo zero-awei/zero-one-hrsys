@@ -32,8 +32,9 @@ WorkHistoryFindPageDTO::Wrapper WorkHistoryService::listAll(const WorkHistoryPag
 		// 		dto->sex = sub.getSex();
 		// 		dto->age = sub.getAge();
 		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, rzkssj, rZKSSJ, rzjssj, rZJSSJ, \
-			ormorgname, oRMORGNAME, bm, bM, zw, zW, gw, gW, cfplx, cFPLX, \
-			experience, eXPERIENCE, pimworkhistoryid, pIMWORKHISTORYID);
+			ormorgname, oRMORGNAME, ormorgsectorname, oRMORGSECTORNAME,\
+			ormdutyname, oRMDUTYNAME, ormpostname, oRMPOSTNAME, cfplx, cFPLX, \
+			experience, eXPERIENCE, pimworkhistoryid, pIMWORKHISTORYID, pimpersonid, pIMPERSONID);
 		pages->addData(dto);
 
 	}

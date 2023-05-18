@@ -34,9 +34,11 @@ class WorkHistoryFindDTO : public oatpp::DTO
 public:
 	WorkHistoryFindDTO() = default;
 	WorkHistoryFindDTO(String rzkssj, String rzjssj, String ormorgname, \
-		String bm, String zw, String gw, String cfplx, UInt64 experience, String pimpersonid) : rzkssj(rzkssj), \
-		rzjssj(rzjssj), ormorgname(ormorgname), bm(bm), zw(zw), gw(gw), cfplx(cfplx), experience(experience),\
-		pimpersonid(pimpersonid) {}
+		String ormorgsectorname, String ormdutyname, String ormpostname, String cfplx, \
+		UInt64 experience, String pimpersonid, String pimworkhistoryid) : rzkssj(rzkssj), \
+		rzjssj(rzjssj), ormorgname(ormorgname), ormorgsectorname(ormorgsectorname), \
+		ormdutyname(ormdutyname), ormpostname(ormpostname), cfplx(cfplx), experience(experience), \
+		pimpersonid(pimpersonid), pimworkhistoryid(pimworkhistoryid) {}
 
 	DTO_INIT(WorkHistoryFindDTO, DTO);
 	
@@ -60,22 +62,13 @@ public:
 	}
 
 	//4部门
-	DTO_FIELD(String, bm);
-	DTO_FIELD_INFO(bm) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.bm");
-	}
+	DTO_INIT_(String, ormorgsectorname, "workhistory.field.ormorgsectorname")
 
-	//5职务
-	DTO_FIELD(String, zw);
-	DTO_FIELD_INFO(zw) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.zw");
-	}
+		//5职务
+	DTO_INIT_(String, ormdutyname, "workhistory.field.ormdutyname")
 
-	//6岗位
-	DTO_FIELD(String, gw);
-	DTO_FIELD_INFO(gw) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.gw");
-	}
+		//6岗位
+	DTO_INIT_(String, ormpostname, "workhistory.field.ormpostname")
 
 	//7兼职借调类型
 	DTO_FIELD(String, cfplx);
