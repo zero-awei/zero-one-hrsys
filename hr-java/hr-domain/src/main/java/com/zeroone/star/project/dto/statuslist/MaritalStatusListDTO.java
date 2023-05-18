@@ -15,5 +15,7 @@ public class MaritalStatusListDTO {
     @ApiModelProperty(value = "姓名",example = "张三")
     private String name;
 
+    @ApiModelProperty(value = "婚姻状态",example = "未婚")
+    private String hyzt;
 
 }
