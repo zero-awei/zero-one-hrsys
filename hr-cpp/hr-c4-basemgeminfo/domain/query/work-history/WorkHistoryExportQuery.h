@@ -81,6 +81,11 @@ class WorkHistoryExportQuery : public PageQuery
 		info->description = ZH_WORDS_GETTER("workhistory.field.experience");
 	}
 
+	//工作履历信息id
+	DTO_FIELD(String, pimworkhistoryid);
+	DTO_FIELD_INFO(pimworkhistoryid) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.pimworkhistoryid");
+	}
 	//人员信息id
 	DTO_FIELD(String, pimpersonid);
 	DTO_FIELD_INFO(pimpersonid) {

@@ -60,6 +60,9 @@ class AddWorkHistoryDTO : public oatpp::DTO
 	//8是否主要经历
 	DTO_INIT_(UInt64, experience, "workhistory.field.experience")
 
+	//工作履历id
+	DTO_INIT_(String, pimworkhistoryid, "workhistory.field.pimworkhistoryid")
+
 	
 };
 

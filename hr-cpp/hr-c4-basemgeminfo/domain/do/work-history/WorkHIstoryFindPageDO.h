@@ -25,30 +25,31 @@
 
 class WorkHIstoryFindDO
 {
-	//任职开始时间
+	//1任职开始时间
 	CC_SYNTHESIZE(std::string, RZKSSJ, rZKSSJ);
 
-	//任职结束时间
+	//2任职结束时间
 	CC_SYNTHESIZE(std::string, RZJSSJ, rZJSSJ);
 
-	//工作单位
+	//3工作单位
 	CC_SYNTHESIZE(std::string, ORMORGNAME, oRMORGNAME);
 
-	//部门
+	//4部门
 	CC_SYNTHESIZE(std::string, BM, bM);
 
-	//职位
+	//5职位
 	CC_SYNTHESIZE(std::string, ZW, zW);
 
-	//岗位
+	//6岗位
 	CC_SYNTHESIZE(std::string, GW, gW);
 
-	//兼职借调类型
+	//7兼职借调类型
 	CC_SYNTHESIZE(std::string, CFPLX, cFPLX);
 
-	//是否主要经历
+	//8是否主要经历
 	CC_SYNTHESIZE(std::string, EXPERIENCE, eXPERIENCE);
 
+	//9人员信息id
 
 
 };

@@ -35,6 +35,7 @@ workhistory:
   suffix: 文件后缀
  field:
   list<pimworkhistoryid>: 履历的独有信息，用来批量删除的
+  pimworkhistoryid: 履历的独有信息
   listworkhistory: 履历的独有信息，用来批量增加的
   pimpersionid: 人员信息id
   servebegintime: 任职开始时间

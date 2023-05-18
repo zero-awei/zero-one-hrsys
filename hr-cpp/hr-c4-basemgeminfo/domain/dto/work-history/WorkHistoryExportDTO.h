@@ -30,9 +30,9 @@ public:
 
 	WorkHistoryExportDTO() = default;
 	WorkHistoryExportDTO(String servebegintime, String serveendtime, String ormorgname, \
-		String bm, String zw, String gw, String cfplx, UInt64 experience, String pimpersonid) : servebegintime(servebegintime), \
+		String bm, String zw, String gw, String cfplx, UInt64 experience, String pimpersonid, String pimworkhistoryid) : servebegintime(servebegintime), \
 		serveendtime(serveendtime), ormorgname(ormorgname), bm(bm), zw(zw), gw(gw), cfplx(cfplx), experience(experience),\
-		pimpersonid(pimpersonid) {}
+		pimpersonid(pimpersonid) , pimworkhistoryid(pimworkhistoryid){}
 private:
 
 
@@ -87,7 +87,13 @@ private:
 		info->description = ZH_WORDS_GETTER("workhistory.field.experience");
 	}
 
-	//9人员信息id
+	//9工作履历信息id
+	DTO_FIELD(String, pimworkhistoryid);
+	DTO_FIELD_INFO(pimworkhistoryid) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.pimworkhistoryid");
+	}
+
+	//10人员信息id
 	DTO_FIELD(String, pimpersonid);
 	DTO_FIELD_INFO(pimpersonid) {
 		info->description = ZH_WORDS_GETTER("workhistory.field.pimpersionid");
