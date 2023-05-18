@@ -22,7 +22,7 @@ const routes = [
       },
       {
         path: '/sample/pagination',
-        component: () => import('@/views/sample/page/pagination.vue')
+        component: () => import('@/views/sample/pagination/PaginationDemo.vue')
       }
     ]
   }

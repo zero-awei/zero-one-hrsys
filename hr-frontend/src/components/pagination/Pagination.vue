@@ -4,17 +4,22 @@
     <el-pagination
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
-      v-model:currentPage="currentPage3"
-      :page-sizes="[20, 40, 60, 80, 100, 200, 400]"
+      v-model:currentPage="currentPage"
+      :page-sizes="pageSizes"
       layout="total, sizes, prev, pager, next, jumper"
-      :total="1000"
+      :total="total"
     >
     </el-pagination>
   </div>
 </template>
-  
-  <script>
+
+<script>
 export default {
+  // 需要外部传入的参数
+  props: {
+    pageSizes: Array,
+    total: Number
+  },
   methods: {
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`)
@@ -25,14 +30,10 @@ export default {
   },
   data() {
     return {
-      currentPage1: 5,
-      currentPage2: 5,
-      currentPage3: 1,
-      currentPage4: 4
+      currentPage: 1, // 默认第一页
     }
   }
 }
 </script>
-  
-  <style scoped>
-</style>
+
+<style scoped></style>
