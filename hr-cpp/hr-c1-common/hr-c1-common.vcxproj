@@ -159,9 +159,13 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="controller\awardLevel\AwardLevelContronller.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\dto\awardLevel\AwardLevelDTO.h" />
+    <ClInclude Include="domain\query\awardLevel\AwardLevelQuery.h" />
+    <ClInclude Include="domain\vo\awardLevel\AwardLevelVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
