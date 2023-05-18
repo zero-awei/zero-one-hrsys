@@ -20,6 +20,7 @@
 #ifndef _FAMILYSITUATIONQUERY_H_
 #define _FAMILYSITUATIONQUERY_H_
 
+
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
 
