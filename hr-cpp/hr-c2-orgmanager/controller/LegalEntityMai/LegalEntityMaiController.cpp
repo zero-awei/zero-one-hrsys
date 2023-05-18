@@ -39,3 +39,13 @@ Uint64JsonVO::Wrapper LegalEntityMaiController::execRemoveLEM(const LegalEntityM
 	return jvo;
 }
 
+BooleanJsonVO::Wrapper LegalEntityMaiController::execImportLEM(const LegalEntityMaiDTO::Wrapper& dto)
+{
+	return BooleanJsonVO::createShared();
+}
+
+BooleanJsonVO::Wrapper LegalEntityMaiController::execExportLEM(const LegalEntityMaiQuery::Wrapper& legalEntityMaiQuery)
+{
+	return BooleanJsonVO::createShared();
+}
+

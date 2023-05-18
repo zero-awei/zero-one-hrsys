@@ -206,6 +206,7 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\LegalEntityMai\t_ormsignorgDO.h" />
     <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\LegalEntityMai\LegalEntityMaiQuery.h" />

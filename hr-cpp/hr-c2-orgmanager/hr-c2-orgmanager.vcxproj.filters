@@ -125,5 +125,8 @@
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\do\LegalEntityMai\t_ormsignorgDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
