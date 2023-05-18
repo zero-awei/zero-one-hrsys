@@ -33,7 +33,7 @@ class CertTypeDTO : public oatpp::DTO
 	// 证书类型名称
 	DTO_FIELD(String, certType);
 	DTO_FIELD_INFO(certType) {
-		info->description = ZH_WORDS_GETTER("证书类型名称");
+		info->description = ZH_WORDS_GETTER("common.dto.certType");
 	}
 
 };

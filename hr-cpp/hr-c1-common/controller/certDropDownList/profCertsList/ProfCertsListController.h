@@ -55,7 +55,6 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(ProfCertsPageJsonVO);
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
-		// 定义其他表单参数描述
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/query-Prof-Certs", queryProfCertsList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {			
