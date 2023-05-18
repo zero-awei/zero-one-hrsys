@@ -39,7 +39,7 @@
     <ClInclude Include="domain\query\EmployeeAssignInfoQuery\EmployeeAssignInfoQueryDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\AddEmployeeAssignInfo\AddEmployeeAssignInfoDTO.h">
+    <ClInclude Include="domain\dto\ImportEmployeeAssignInfo\ImportEmployeeAssignInfoDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

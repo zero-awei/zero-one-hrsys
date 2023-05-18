@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _Add_Employee_Assign_Info_DTO_
-#define _Add_Employee_Assign_Info_DTO_
+#ifndef _Import_Employee_Assign_Info_DTO_
+#define _Import_Employee_Assign_Info_DTO_
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
@@ -8,9 +8,9 @@
 /**
  * 新增指定员工分配信息
  */
-class AddEmployeeAssignInfoDTO : public oatpp::DTO
+class ImportEmployeeAssignInfoDTO : public oatpp::DTO
 {
-	DTO_INIT(AddEmployeeAssignInfoDTO, DTO);
+	DTO_INIT(ImportEmployeeAssignInfoDTO, DTO);
 	// 分配(主分配或次分配)
 	DTO_FIELD(String, assign);
 	DTO_FIELD_INFO(assign) {
@@ -55,4 +55,4 @@ class AddEmployeeAssignInfoDTO : public oatpp::DTO
 
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_Add_Employee_Assign_Info_DTO_
+#endif // !_Import_Employee_Assign_Info_DTO_
