@@ -1,10 +1,9 @@
 <script>
-import Edit from '@element-plus/icons-vue'
-import Education from './Employee/Education.vue'
-import Experience from './Employee/Experience.vue'
-import Employee from './Employee/Employee.vue'
-import RewardsAndPunishment from './Employee/RewardsAndPunishment.vue'
-import additional from './Employee/additional.vue'
+import Education from './employee/Education.vue'
+import Experience from './employee/Experience.vue'
+import Employee from './employee/Employee.vue'
+import RewardsAndPunishment from './employee/RewardsAndPunishment.vue'
+import Additional from './employee/Additional.vue'
 
 export default {
   components: {
@@ -12,7 +11,7 @@ export default {
     Experience,
     Education,
     Employee,
-    additional
+    Additional
   }
 }
 </script>
@@ -27,7 +26,7 @@ export default {
       <Employee />
       <Education />
       <Experience />/
-      <additional />
+      <Additional />
       <RewardsAndPunishment />
     </div>
   </div>
