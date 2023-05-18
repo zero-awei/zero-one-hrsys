@@ -12,26 +12,7 @@
 class JobTitleInformationPageQuery : public PageQuery
 {
 	DTO_INIT(JobTitleInformationPageQuery, PageQuery);
-	// 员工编号
-	DTO_FIELD(String, id);
-	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("sample.field.id");
-	}
-	// 员工姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("sample.field.name");
-	}
-	// 组织 ormorgname
-	DTO_FIELD(String, ormorgname);
-	DTO_FIELD_INFO(ormorgname) {
-		info->description = ZH_WORDS_GETTER("jobtitleinformation.field.ormorgname");
-	}
-	// 员工状态
-	DTO_FIELD(String, state);
-	DTO_FIELD_INFO(state) {
-		info->description = ZH_WORDS_GETTER("jobtitleinformation.field.state");
-	}
+	
 	// 职称名称
 	DTO_FIELD(String, professoranalysis_name);
 	DTO_FIELD_INFO(professoranalysis_name) {

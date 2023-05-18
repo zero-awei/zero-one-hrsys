@@ -16,6 +16,8 @@ user:
   menuhref: 路由地址
   menusub: 子菜单
 sample:
+ detail:
+  summary: 指定工作履历详情
  get:
   summary: 分页查询示例数据
  post:
@@ -57,6 +59,10 @@ certificateinformation:
   zgsydw: 签发机构
   fzyxq: 发证有效期
 workhistory:
+ get:
+  summary: 指定工作履历详情
+ put:
+  summary: 单条修改工作履历数据
  field:
   rzkssj: 任职开始时间
   rzjssj: 任职结束时间

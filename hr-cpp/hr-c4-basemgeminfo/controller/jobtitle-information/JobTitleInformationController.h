@@ -38,28 +38,13 @@ public:
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
 		// 添加其他查询参数
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("sample.field.name");
-		info->queryParams["name"].addExample("default", String("li ming"));
-		info->queryParams["name"].required = false;
-		////传入职称名称 professoranalysis_name
-		//info->queryParams.add<String>("professoranalysis_name").description = ZH_WORDS_GETTER("jobtitleinformation.field.professoranalysis_name");
-		////传入证书编号 credentials_num
-		//info->queryParams.add<String>("credentials_num").description = ZH_WORDS_GETTER("jobtitleinformation.field.credentials_num");
-		////传入职称等级 professor_grades
-		//info->queryParams.add<String>("professor_grades").description = ZH_WORDS_GETTER("jobtitleinformation.field.professor_grades");
-		////职称获取日期 zchqrq
-		//info->queryParams.add<String>("zchqrq").description = ZH_WORDS_GETTER("jobtitleinformation.field.zchqrq");
-		////传入评审单位 reviewbody
-		//info->queryParams.add<String>("reviewbody").description = ZH_WORDS_GETTER("jobtitleinformation.field.reviewbody");
-		////传入签发机构 lssuingagency
-		//info->queryParams.add<String>("lssuingagency").description = ZH_WORDS_GETTER("jobtitleinformation.field.lssuingagency");
-		////传入职称聘用时间 employtime
-		//info->queryParams.add<String>("employtime").description = ZH_WORDS_GETTER("jobtitleinformation.field.employtime");
-		////传入是否最高职称 enable
-		//info->queryParams.add<String>("enable").description = ZH_WORDS_GETTER("jobtitleinformation.field.enable");
+		info->queryParams.add<String>("professoranalysis_name").description = ZH_WORDS_GETTER("jobtitleinformation.field.professoranalysis_name");
+		info->queryParams["professoranalysis_name"].addExample("default", String(" "));
+		info->queryParams["professoranalysis_name"].required = true;
+		
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/certificate-information", queryJobTitleInformation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/jobtitle-information", queryJobTitleInformation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, JobTitleInformationPageQuery, queryParams);
 		// 响应结果

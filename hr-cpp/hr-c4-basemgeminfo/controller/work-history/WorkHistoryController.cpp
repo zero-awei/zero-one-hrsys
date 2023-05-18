@@ -2,7 +2,7 @@
 #include "WorkHistoryController.h"
 #include "../../service/work-history/WorkHistoryService.h"
 
-WorkHistoryJsonVO::Wrapper WorkHistoryController::execQueryWorkHistory(const WorkHistoryQuery::Wrapper& query, const PayloadDTO& payload)
+WorkHistoryJsonVO::Wrapper WorkHistoryController::execQueryWorkHistory(const WorkHistoryQuery::Wrapper& query)
 {
 	// 定义一个Service
 	WorkHistoryService service;
@@ -28,22 +28,12 @@ StringJsonVO::Wrapper WorkHistoryController::execModifyWorkHistory(const WorkHis
 	// 执行数据修改
 	if (service.updateData(dto)) {
 		jvo->success(dto->rzkssj);
-		/*jvo->success(dto->rzjssj);
-		jvo->success(dto->ormorgname);
-		jvo->success(dto->ormdutyname);
-		jvo->success(dto->ormpostname);
-		jvo->success(dto->cfplx);
-		jvo->success(dto->enable);*/
+		
 	}
 	else
 	{
 		jvo->fail(dto->rzkssj);
-		/*jvo->fail(dto->rzjssj);
-		jvo->fail(dto->ormorgname);
-		jvo->fail(dto->ormdutyname);
-		jvo->fail(dto->ormpostname);
-		jvo->fail(dto->cfplx);
-		jvo->fail(dto->enable);*/
+		
 	}
 	// 响应结果
 	return jvo;

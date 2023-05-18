@@ -36,22 +36,11 @@ public:
 		// 定义分页查询参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 添加其他查询参数
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("sample.field.name");
-		info->queryParams["name"].addExample("default", String("li ming"));
-		info->queryParams["name"].required = false;
-		//// 定义其他表单参数描述
-		////传入证书编号 
-		//info->queryParams.add<String>("zgzsbh").description = ZH_WORDS_GETTER("certificateinformation.field.zgzsbh");		
-		////传入证书名称
-		//info->queryParams.add<String>("pimvocationalname").description = ZH_WORDS_GETTER("certificateinformation.field.pimvocationalname");
-		////传入证书类型
-		//info->queryParams.add<String>("zslx").description = ZH_WORDS_GETTER("certificateinformation.field.zslx");		
-		////传入签发日期
-		//info->queryParams.add<String>("zghqrq").description = ZH_WORDS_GETTER("certificateinformation.field.zghqrq");
-		////传入签发机构
-		//info->queryParams.add<String>("zgsydw").description = ZH_WORDS_GETTER("certificateinformation.field.zgsydw");
-		////传入发证有效期
-		//info->queryParams.add<String>("fzyxq").description = ZH_WORDS_GETTER("certificateinformation.field.fzyxq");
+		info->queryParams.add<String>("pimvocationalname").description = ZH_WORDS_GETTER("certificateinformation.field.pimvocationalname");
+		info->queryParams["pimvocationalname"].addExample("default", String(" "));
+		info->queryParams["pimvocationalname"].required = true;
+		
+		
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/certificate-information", queryCertificateInformation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {

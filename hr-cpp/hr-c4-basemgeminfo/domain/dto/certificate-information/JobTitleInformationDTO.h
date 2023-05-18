@@ -13,29 +13,10 @@ class JobTitleInformationDTO : public oatpp::DTO
 {
 public:
 	JobTitleInformationDTO() {};
-	JobTitleInformationDTO(String id, String name) :id(id), name(name) {};
+	JobTitleInformationDTO(String credentials_num, String professoranalysis_name) :credentials_num(credentials_num), professoranalysis_name(professoranalysis_name) {};
 
 	DTO_INIT(JobTitleInformationDTO, DTO);
-	// 员工编号
-	DTO_FIELD(String, id);
-	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("sample.field.id");
-	}
-	// 员工姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("sample.field.name");
-	}
-	// 组织 ormorgname
-	DTO_FIELD(String, ormorgname);
-	DTO_FIELD_INFO(ormorgname) {
-		info->description = ZH_WORDS_GETTER("jobtitleinformation.field.ormorgname");
-	}
-	// 员工状态
-	DTO_FIELD(String, state);
-	DTO_FIELD_INFO(state) {
-		info->description = ZH_WORDS_GETTER("jobtitleinformation.field.state");
-	}
+	
 	//professoranalysis_name: 职称名称 
 	DTO_FIELD(String, professoranalysis_name);
 	DTO_FIELD_INFO(professoranalysis_name) {
