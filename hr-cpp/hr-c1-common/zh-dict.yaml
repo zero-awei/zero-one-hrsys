@@ -29,10 +29,7 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
-filestatus:
- summary: 档案借阅状态
-filereservation:
- summary: 档案保管地
+
 # 公共接口
 common:
  dto:
@@ -41,4 +38,5 @@ common:
   list: 下拉列表
  controller:
   contractType: 合同类型   
-
+  fileStatus: 档案借阅状态
+  fileReservation: 档案保管地

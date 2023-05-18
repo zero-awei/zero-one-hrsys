@@ -162,13 +162,14 @@
     <ClInclude Include="controller\Filereservation\FilereservationController.h" />
     <ClInclude Include="controller\Filestatus\FilestatusController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
-    <ClInclude Include="controller\ContractTypeList\ContractTypeListController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\filestatus\FilestatusDTO.h" />
     <ClInclude Include="domain\dto\sample\SampleDTO.h" />
     <ClInclude Include="domain\query\filereservation\FilereservationQuery.h" />
+    <ClInclude Include="domain\query\filereservation\FilereservationQuery.h" />
     <ClInclude Include="domain\query\filestatus\FilestatusQuery.h" />
+    <ClInclude Include="domain\vo\filereservation\FilereservationVO.h" />
     <ClInclude Include="domain\vo\filereservation\FilereservationVO.h" />
     <ClInclude Include="domain\vo\filestatus\FilestatusVO.h" />
     <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
@@ -180,7 +181,6 @@
   <ItemGroup>
     <ClCompile Include="controller\Filereservation\FilereservationController.cpp" />
     <ClCompile Include="controller\Filestatus\FilestatusController.cpp" />
-    <ClCompile Include="controller\ContractTypeList\ContractTypeListController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
