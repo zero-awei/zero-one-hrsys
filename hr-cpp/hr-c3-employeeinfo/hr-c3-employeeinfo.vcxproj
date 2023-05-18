@@ -165,6 +165,7 @@
     <ClInclude Include="domain\dto\AddEmployeeAssignInfo\AddEmployeeAssignInfo.h" />
     <ClInclude Include="domain\dto\DeleteEmployeeAssignInfo\DeleteEmployeeAssignInfo.h" />
     <ClInclude Include="domain\dto\ImportEmployeeAssignInfo\ImportEmployeeAssignInfoDTO.h" />
+    <ClInclude Include="domain\dto\ModifyEmployeeAssignInfo\ModifyEmployeeAssignInfo.h" />
     <ClInclude Include="domain\query\EmployeeAssignInfoQuery\EmployeeAssignInfoQueryDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="Macros.h" />

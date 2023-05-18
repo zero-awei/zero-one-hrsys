@@ -48,6 +48,9 @@
     <ClInclude Include="domain\dto\DeleteEmployeeAssignInfo\DeleteEmployeeAssignInfo.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\dto\ModifyEmployeeAssignInfo\ModifyEmployeeAssignInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
