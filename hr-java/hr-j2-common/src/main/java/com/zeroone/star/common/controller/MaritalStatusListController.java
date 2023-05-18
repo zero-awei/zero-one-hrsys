@@ -1,9 +1,9 @@
 package com.zeroone.star.common.controller;
 
 import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.dto.maritalstatuslist.MaritalStatusListDTO;
+import com.zeroone.star.project.dto.statuslist.MaritalStatusListDTO;
 import com.zeroone.star.project.emplist.MaritalStatusApi;
-import com.zeroone.star.project.query.maritalstatuslist.MaritalStatusListQuery;
+import com.zeroone.star.project.query.statuslist.MaritalStatusListQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;

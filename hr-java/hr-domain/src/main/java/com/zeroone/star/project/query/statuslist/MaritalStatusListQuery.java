@@ -1,4 +1,4 @@
-package com.zeroone.star.project.query.maritalstatuslist;
+package com.zeroone.star.project.query.statuslist;
 
 import com.zeroone.star.project.query.PageQuery;
 import io.swagger.annotations.ApiModel;
