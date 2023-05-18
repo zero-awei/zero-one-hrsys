@@ -29,3 +29,28 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+employee:
+ language:
+  summary: 语言能力
+  foreignLanguageLevel: 外语等级
+  time: 外语等级获取时间
+  peoject: 附件
+ field:
+  age: 年龄
+  nickname: 昵称
+  idCard: 身份证号码
+  menuname: 菜单名称
+  menuicon: 图标名称
+  menuhref: 路由地址
+  menusub: 子菜单
+ education:
+  degree: 学历
+  enrollmentDate: 入学时间
+  graduationDate: 毕业时间
+  graduatedInstitution: 毕业院校
+  primaryDiscipline: 一级学科
+  major: 所学专业
+  studyFormat: 学习形式
+  schoolNature: 学校性质
+  firstDegree: 是否第一学历
+  highestEducationDegree: 最高学历
