@@ -1,5 +1,5 @@
 <template>
-  <button @click="myEmit">调用父组件的方法</button>
+  <button @click="myEmit">调用父组件方法</button>
   <br/>
   <el-button plain @click="showSuccess">成功</el-button>
   <br/>
