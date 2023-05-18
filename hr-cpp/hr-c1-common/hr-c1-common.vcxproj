@@ -159,9 +159,13 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="controller\auditstatusController.h\AuditstatusController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\dto\auditstatusDTO\AuditstatusDTO.h" />
+    <ClInclude Include="domain\query\auditstatusQuery\auditstatusQuery.h" />
+    <ClInclude Include="domain\vo\auditstatusVO\AuditstatusVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />

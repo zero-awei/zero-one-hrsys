@@ -33,6 +33,18 @@
     <ClInclude Include="controller\Router.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="domain\query\auditstatusQuery\auditstatusQuery.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\auditstatusDTO\AuditstatusDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\auditstatusVO\AuditstatusVO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\auditstatusController.h\AuditstatusController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
