@@ -36,6 +36,8 @@ familysituation:
   summary: 新增一条家庭情况
  put:
   summary: 修改一条家庭情况
+ del:
+  summary: 删除一条家庭情况
  field:
   relationship: 与本人关系
    dadson: 父子
