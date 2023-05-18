@@ -29,20 +29,3 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
-formeremployees: 
- get:
-  summary: 分页查询离职员工数据
-  out: 导出离职员工数据
- field:
-  id: 编号
-  age: 年龄
-  name: 姓名
-  sex: 性别，如：男
-  organization: 组织
-  department: 部门
-  rank: 职级
-  family_contact: 家庭联系人
-  family_contact_number: 家庭联系人电话
-  mail_address: 通讯地址
-  outbenye: 导出本页离职员工数据
-  outall: 导出全部离职员工数据
