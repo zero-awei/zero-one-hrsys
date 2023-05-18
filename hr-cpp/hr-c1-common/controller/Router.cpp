@@ -25,6 +25,7 @@
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
+#include "ContractTypeList/ContractTypeListController.h"
 #include "Filestatus/FilestatusController.h"
 #include "Filereservation/FilereservationController.h"
 
@@ -52,13 +53,7 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-	createRouter();
-}
 
-void Router::createRouter()
-{
-	ROUTER_SIMPLE_BIND(FilestatusController);
-	ROUTER_SIMPLE_BIND(FilereservationController);
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -73,3 +68,8 @@ void Router::createSampleRouter()
 	router->addController(WSContorller::createShared());
 }
 #endif
+
+void Router::createContractTypeRouter()
+{
+	ROUTER_SIMPLE_BIND(ContractTypeListController);
+}

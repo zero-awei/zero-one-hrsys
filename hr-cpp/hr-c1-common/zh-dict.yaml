@@ -33,3 +33,12 @@ filestatus:
  summary: 档案借阅状态
 filereservation:
  summary: 档案保管地
+# 公共接口
+common:
+ dto:
+  code: 列表项对应键
+  value: 列表项映射值
+  list: 下拉列表
+ controller:
+  contractType: 合同类型   
+

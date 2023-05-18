@@ -55,6 +55,13 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="controller\Filereservation\FilereservationController.h">
+    <ClInclude Include="domain\vo\pullList\PullListVO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\pullList\PullListDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\ContractTypeList\ContractTypeListController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -75,6 +82,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="controller\Filereservation\FilereservationController.cpp">
+    <ClCompile Include="controller\ContractTypeList\ContractTypeListController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
