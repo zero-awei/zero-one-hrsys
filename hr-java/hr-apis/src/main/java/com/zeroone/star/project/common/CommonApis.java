@@ -1,4 +1,4 @@
-package com.zeroone.star.project.rqscommon;
+package com.zeroone.star.project.common;
 
 import com.zeroone.star.project.dto.PimpersonDTO;
 import com.zeroone.star.project.vo.JsonVO;

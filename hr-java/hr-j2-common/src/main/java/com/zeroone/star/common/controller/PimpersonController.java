@@ -3,7 +3,7 @@ package com.zeroone.star.common.controller;
 
 import com.zeroone.star.common.service.PimpersonService;
 import com.zeroone.star.project.dto.PimpersonDTO;
-import com.zeroone.star.project.rqscommon.CommonApis;
+import com.zeroone.star.project.common.CommonApis;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
