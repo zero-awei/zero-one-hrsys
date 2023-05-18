@@ -39,24 +39,24 @@ string MilitaryService::download(const MilitaryDownloadQuery::Wrapper& query)
 	vector<vector<string>> data;
 	list<MilitaryDO> result = MilitaryDAO().selectWithPage(query);
 	data.push_back({
-		CharsetConvertHepler::ansiToUtf8("更新时间") ,
-		CharsetConvertHepler::ansiToUtf8("军转干部名称") ,
-		CharsetConvertHepler::ansiToUtf8("附件") ,
-		CharsetConvertHepler::ansiToUtf8("建立时间") ,
-		CharsetConvertHepler::ansiToUtf8("更新人") ,
-		CharsetConvertHepler::ansiToUtf8("ENABLE") ,
-		CharsetConvertHepler::ansiToUtf8("军转干部标识") ,
-		CharsetConvertHepler::ansiToUtf8("建立人") ,
-		CharsetConvertHepler::ansiToUtf8("人员信息标识") ,
-		CharsetConvertHepler::ansiToUtf8("发生时间") ,
-		CharsetConvertHepler::ansiToUtf8("记录所属") ,
-		CharsetConvertHepler::ansiToUtf8("审批状态") ,
-		CharsetConvertHepler::ansiToUtf8("记录管理编号") ,
-		CharsetConvertHepler::ansiToUtf8("记录操作者") ,
-		CharsetConvertHepler::ansiToUtf8("类型") ,
-		CharsetConvertHepler::ansiToUtf8("级别") ,
-		CharsetConvertHepler::ansiToUtf8("拒绝原因")
-	});
+		ZH_WORDS_GETTER("military.UPDATEDATE"),
+		ZH_WORDS_GETTER("military.PIMARMYCADRESNAME"),
+		ZH_WORDS_GETTER("military.FJ"),
+		ZH_WORDS_GETTER("military.CREATEDATE"),
+		ZH_WORDS_GETTER("military.UPDATEMAN"),
+		ZH_WORDS_GETTER("military.ENABLE"),
+		ZH_WORDS_GETTER("military.PIMARMYCADRESID"),
+		ZH_WORDS_GETTER("military.CREATEMAN"),
+		ZH_WORDS_GETTER("military.PIMPERSONID"),
+		ZH_WORDS_GETTER("military.FSSJ"),
+		ZH_WORDS_GETTER("military.JLSS"),
+		ZH_WORDS_GETTER("military.JLSPZT"),
+		ZH_WORDS_GETTER("military.JLGLBH"),
+		ZH_WORDS_GETTER("military.JLCZZ"),
+		ZH_WORDS_GETTER("military.TROOPTYPE"),
+		ZH_WORDS_GETTER("military.LEVELTYPE"),
+		ZH_WORDS_GETTER("military.REASON")
+		});
 	for (MilitaryDO sub : result)
 	{
 		vector<string> row;
@@ -83,7 +83,7 @@ string MilitaryService::download(const MilitaryDownloadQuery::Wrapper& query)
 	stringstream ss;
 	ss << "./temp/excel/" << chrono::system_clock::now().time_since_epoch().count() << ".xlsx";
 	string fileName = ss.str();
-	string sheetName = CharsetConvertHepler::ansiToUtf8("数据表1");
+	string sheetName = CharsetConvertHepler::ansiToUtf8("sheet1");
 	ExcelComponent excel;
 	excel.writeVectorToFile(fileName, sheetName, data);
 #ifdef LINUX
@@ -97,6 +97,6 @@ string MilitaryService::download(const MilitaryDownloadQuery::Wrapper& query)
 	string filedName = client.uploadFile(fileName);
 	cout << "upload fieldname is : " << filedName << endl;
 	//删除上传的文件
-	//cout << "delete file result is : " << client.deleteFile(filedName) << endl;
+	cout << "delete file result is : " << client.deleteFile(filedName) << endl;
 	return filedName;
 }
