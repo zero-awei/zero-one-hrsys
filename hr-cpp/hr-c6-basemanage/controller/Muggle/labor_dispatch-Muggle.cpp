@@ -1,9 +1,16 @@
 #include "stdafx.h"
 #include "labor_dispatch-Muggle.h"
 
-StringJsonVO::Wrapper LaborDispatchMController::execQueryLaborDispatch()
+LaborDispatchJsonMVO::Wrapper LaborDispatchMController::execQueryLaborDispatch(const LaborDispatchMQuery::Wrapper& query)
 {
-	return StringJsonVO::Wrapper();
+	auto dto = LaborDispatchMDTO::createShared();
+	dto->corporateAddress = "cosmic";
+	dto->corporateContact = "muggle";
+	dto->corporateName = "zerone";
+	dto->corporateNumber = "8848";
+	auto vo = LaborDispatchJsonMVO::createShared();
+	vo->success(dto);
+	return vo;
 }
 
 StringJsonVO::Wrapper LaborDispatchMController::execModifyLaborDispatch()

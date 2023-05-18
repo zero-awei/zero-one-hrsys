@@ -30,6 +30,9 @@
     <ClCompile Include="controller\Muggle\labor_dispatch-Muggle.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="controller\Muggle\expense_ledger-Muggle.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -60,6 +63,18 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\dto\Muggle\laborDispatchDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\Muggle\laborDispatchJsonVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\Muggle\expenseLedgerDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\Muggle\expense_ledger-Muggle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\Muggle\expenseLedgerQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -36,6 +36,9 @@ labordispatch_mug:
   summary: 修改指定公司信息
  field:
   corporatename: 公司名称
+  corporateaddress: 公司名称
+  corporatecontact: 公司联系人
+  corporatenumber: 公司联系电话
 expenseledger_mug:
  get:
   summary: 分页查询费别列表
