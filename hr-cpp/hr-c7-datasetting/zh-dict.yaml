@@ -29,3 +29,13 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+certificate:
+ field:
+  id: 员工编号
+  name: 员工姓名
+  state: 员工状态
+  organization: 组织
+  certificateNumber: 证书编号
+  certificateNumberB: 一建配套B证编号
+  certificateName:	证书名称
+  certificateType:	证书类型
