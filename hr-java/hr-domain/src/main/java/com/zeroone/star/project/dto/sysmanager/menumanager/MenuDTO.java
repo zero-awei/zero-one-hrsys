@@ -1,16 +1,13 @@
-package com.zeroone.star.project.query.menumanager;
+package com.zeroone.star.project.dto.sysmanager.menumanager;
 
-import com.zeroone.star.project.query.PageQuery;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-
-@EqualsAndHashCode(callSuper = true)
 @Data
-@ApiModel("权限分页查询")
-public class MenuQuery extends PageQuery {
+@ApiModel("主页菜单数据")
+public class MenuDTO {
     @ApiModelProperty(value = "序号", example = "1")
     private Integer id;
     @ApiModelProperty(value = "菜单名称", example = "主页")
@@ -21,4 +18,5 @@ public class MenuQuery extends PageQuery {
     private String href;
     @ApiModelProperty(value = "父级菜单编号", example = "0")
     private Integer pid;
+
 }
