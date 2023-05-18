@@ -41,6 +41,7 @@ const showMsg = () => {
     })
     .catch(() => {
       ElMessage({
+        title:'出错',
         type: 'info',
         message: testMessage.messageError
       })

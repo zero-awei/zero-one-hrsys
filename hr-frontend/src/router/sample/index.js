@@ -22,7 +22,7 @@ const routes = [
       },
       {
         path:'/sample/feedback',
-        component:()=>import('@/views/sample/FeedbackTest/index.vue')
+        component:()=>import('@/views/sample/feedbacktest/Feedback.vue')
       }
     ]
   }

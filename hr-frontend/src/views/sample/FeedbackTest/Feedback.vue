@@ -10,6 +10,7 @@
       :messageWarn="warn"
     >
     </Notification>
+    
     <MessageBox
       @onChangeMessage="changeMessage"
       :messageInfo="message"
