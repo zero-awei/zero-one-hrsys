@@ -17,7 +17,7 @@ import javax.validation.constraints.NotBlank;
  * @version 1.0.0
  */
 @Data
-@ApiModel("查导出指定部门考勤地址询对象")
+@ApiModel("导出指定部门考勤地址查询对象")
 public class ExportAttendanceAddressQuery {
     @NotBlank(message = "部门ID不能为空")
     @ApiModelProperty(value = "部门ID", example = "402AF7C8-B205-455D-95F3-5D7275994199", required = true)
