@@ -19,13 +19,17 @@
 */
 #ifndef _IMPORTFAMILYSITUATIONDTO_H_
 #define _IMPORTFAMILYSITUATIONDTO_H_
+
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class importfamilysituationDTO : public oatpp::DTO
+/**
+ * 员工家庭情况导入传输对象
+ */
+class ImportfamilysituationDTO : public oatpp::DTO
 {
-	DTO_INIT(importfamilysituationDTO, DTO);
+	DTO_INIT(ImportfamilysituationDTO, DTO);
 	// 导入
 	DTO_FIELD(String, url);
 	DTO_FIELD_INFO(url) {
@@ -34,4 +38,5 @@ class importfamilysituationDTO : public oatpp::DTO
 };
 
 #include OATPP_CODEGEN_END(DTO)
+
 #endif // !_IMPORTFAMILYSITUATIONDTO_H_

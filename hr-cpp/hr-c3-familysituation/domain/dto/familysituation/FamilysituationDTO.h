@@ -17,43 +17,30 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _FAMILYSITUATIONDTO_H_
-#define _FAMILYSITUATIONDTO_H_
+#ifndef _FAMILYSITUATION_DTO_H_
+#define _FAMILYSITUATION_DTO_H_
+
 #include "../../GlobalInclude.h"
+
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
  * 员工家庭情况传输对象
- */
+ **/
 class FamilysituationDTO : public oatpp::DTO
 {
 	DTO_INIT(FamilysituationDTO, DTO);
 	//关系
-	DTO_FIELD(String, frelationship);
-	DTO_FIELD_INFO(frelationship) {
-		info->description = ZH_WORDS_GETTER("familysituation.field.relationship");
-	}
+	API_DTO_FIELD_DEFAULT(String, frelationship, ZH_WORDS_GETTER("familysituation.field.relationship"));
 	//姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("familysituation.field.name");
-	}
+	API_DTO_FIELD_DEFAULT(String, name, ZH_WORDS_GETTER("familysituation.field.name"));
 	// 性别
-	DTO_FIELD(String, gender);
-	DTO_FIELD_INFO(gender) {
-		info->description = ZH_WORDS_GETTER("familysituation.field.gender");
-	}
+	API_DTO_FIELD_DEFAULT(String, gender, ZH_WORDS_GETTER("familysituation.field.gender"));
 	// 年龄
-	DTO_FIELD(UInt32, age);
-	DTO_FIELD_INFO(age) {
-		info->description = ZH_WORDS_GETTER("familysituation.field.age");
-	}
+	API_DTO_FIELD_DEFAULT(UInt32, age, ZH_WORDS_GETTER("familysituation.field.age"));
 	// 工作单位
-	DTO_FIELD(String, workplace);
-	DTO_FIELD_INFO(workplace) {
-		info->description = ZH_WORDS_GETTER("familysituation.field.workplace");
-	}
+	API_DTO_FIELD_DEFAULT(UInt32, workplace, ZH_WORDS_GETTER("familysituation.field.workplace"));
 
 	// 职务
 	DTO_FIELD(String, job);
@@ -99,5 +86,8 @@ class FamilysituationPageDTO : public PageDTO<FamilysituationDTO::Wrapper>
 {
 	DTO_INIT(FamilysituationPageDTO, PageDTO<FamilysituationDTO::Wrapper>);
 };
+
+
 #include OATPP_CODEGEN_END(DTO)
+
 #endif // !_FAMILYSITUATIONDTO_H_
