@@ -160,6 +160,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="controller\jobSet\importJobController\ImportJobController.cpp" />
+    <ClCompile Include="controller\projTag\ExportProjTagController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
@@ -174,9 +175,11 @@
     <ClInclude Include="controller\jobSet\importJobController\ImportJobController.h" />
     <ClInclude Include="controller\jobSet\JobController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\projTag\ExportProjTagController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\jobSet\ImportJobDTO.h" />
+    <ClInclude Include="domain\query\projTag\ExportProjTagQuery.h" />
     <ClInclude Include="domain\vo\jobSet\ImportJobVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
