@@ -48,6 +48,9 @@
     <ClInclude Include="domain\query\jobList\JobListQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\employeeInfo\EmployeeInfoController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -60,6 +63,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\employeeInfo\EmployeeInfoController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
