@@ -25,7 +25,12 @@
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
-#include "controller/CertificateManage/TemporaryStaffController.h"
+
+//测试controller引入头文件
+#include "controller/RosterOfPer/TemporaryStaffController.h"
+#include "controller/CertificateManage/EmployeeInfoController.h"
+
+
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -51,6 +56,7 @@ void Router::initRouter()
 
 	//#TIP :系统扩展路由定义，写在这个后面
 	ROUTER_SIMPLE_BIND(TempStaffController);//挂职人员swagger效果测试
+	ROUTER_SIMPLE_BIND(EmployeeInfoController);//人员信息查询swagger效果测试
 }
 
 #ifdef HTTP_SERVER_DEMO

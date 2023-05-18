@@ -41,3 +41,8 @@ TempStaff:
   tempEndTime: 挂职结束时间
  get: 
   summary: 分页查询挂职员工数据
+EmpInfo:
+ get:
+  summary: 证书管理搜索框人员信息查询（仅名字）
+ field:
+  name: 姓名

@@ -8,7 +8,6 @@
 /**
  * 挂职人员传输对象
  */
-
 class TemporaryStaffDTO : public oatpp::DTO {
 public:
 	DTO_INIT(TemporaryStaffDTO, DTO);

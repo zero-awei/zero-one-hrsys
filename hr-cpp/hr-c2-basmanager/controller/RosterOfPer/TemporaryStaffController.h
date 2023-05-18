@@ -7,9 +7,9 @@
 #define _TEMPORARYSTAFFCONTROLLER_H_
 
 #include "domain/vo/BaseJsonVO.h"
-#include "domain/query/CertificateManage/TemporaryStaffQuery.h"
-#include "domain/dto/CertificateManage/TemporaryStaffDTO.h"
-#include "domain/vo/CertificateManage/TemporaryStaffVO.h"
+#include "domain/query/RosterOfPer/TemporaryStaffQuery.h"
+#include "domain/dto/RosterOfPer/TemporaryStaffDTO.h"
+#include "domain/vo/RosterOfPer/TemporaryStaffVO.h"
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
 #include "oatpp/web/mime/multipart/FileProvider.hpp"
 #include "oatpp/web/mime/multipart/Reader.hpp"
@@ -50,7 +50,7 @@ public:
 		info->queryParams["id"].required = false;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/tempstaff/query", queryTempStaff, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/query-tempstaff", queryTempStaff, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, TempStaffQuery, queryParams);
 		// 响应结果

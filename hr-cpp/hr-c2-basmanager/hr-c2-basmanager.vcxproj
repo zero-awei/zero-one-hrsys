@@ -182,19 +182,24 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="controller\CertificateManage\TemporaryStaffController.h" />
+    <ClInclude Include="controller\CertificateManage\EmployeeInfoController.h" />
+    <ClInclude Include="controller\RosterOfPer\TemporaryStaffController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\dto\CertificateManage\TemporaryStaffDTO.h" />
-    <ClInclude Include="domain\query\CertificateManage\TemporaryStaffQuery.h" />
-    <ClInclude Include="domain\vo\CertificateManage\TemporaryStaffVO.h" />
+    <ClInclude Include="domain\dto\CertificateManage\EmployeeInfoDTO.h" />
+    <ClInclude Include="domain\dto\RosterOfPer\TemporaryStaffDTO.h" />
+    <ClInclude Include="domain\query\CertificateManage\EmployeeInfoQuery.h" />
+    <ClInclude Include="domain\query\RosterOfPer\TemporaryStaffQuery.h" />
+    <ClInclude Include="domain\vo\CertificateManage\EmployeeInfoVO.h" />
+    <ClInclude Include="domain\vo\RosterOfPer\TemporaryStaffVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="controller\CertificateManage\TemporaryStaffController.cpp" />
+    <ClCompile Include="controller\CertificateManage\EmployeeInfoController.cpp" />
+    <ClCompile Include="controller\RosterOfPer\TemporaryStaffController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />

@@ -33,16 +33,28 @@
     <ClInclude Include="domain\do\DoInclude.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\CertificateManage\TemporaryStaffController.h">
+    <ClInclude Include="controller\RosterOfPer\TemporaryStaffController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\CertificateManage\TemporaryStaffDTO.h">
+    <ClInclude Include="domain\dto\RosterOfPer\TemporaryStaffDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\CertificateManage\TemporaryStaffQuery.h">
+    <ClInclude Include="domain\query\RosterOfPer\TemporaryStaffQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\CertificateManage\TemporaryStaffVO.h">
+    <ClInclude Include="domain\vo\RosterOfPer\TemporaryStaffVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\CertificateManage\EmployeeInfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\CertificateManage\EmployeeInfoQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\CertificateManage\EmployeeInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\CertificateManage\EmployeeInfoController.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -59,7 +71,10 @@
     <ClCompile Include="controller\SystemInterceptor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\CertificateManage\TemporaryStaffController.cpp">
+    <ClCompile Include="controller\RosterOfPer\TemporaryStaffController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\CertificateManage\EmployeeInfoController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

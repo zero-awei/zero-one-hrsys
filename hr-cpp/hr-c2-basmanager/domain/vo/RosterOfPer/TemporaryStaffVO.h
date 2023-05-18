@@ -4,7 +4,7 @@
 #define _TEMPORARYSTAFF_VO_
 
 #include "../../GlobalInclude.h"
-#include "../../dto/CertificateManage/TemporaryStaffDTO.h"
+#include "../../dto/RosterOfPer/TemporaryStaffDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
