@@ -40,11 +40,15 @@ public:
 	Router(Endpoints* docEndpoints, HttpRouter* router);
 	// 呼叫初始化
 	void initRouter();
+	
 private:
+void createDeclareRouter();
 #ifdef HTTP_SERVER_DEMO
 	// 创建演示路由
 	void createSampleRouter();
+
 #endif
+
 };
 
 #endif // !_ROUTER_

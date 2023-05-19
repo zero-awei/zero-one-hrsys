@@ -25,6 +25,7 @@
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
+#include "declare/DeclareController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -50,7 +51,11 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
+	createDeclareRouter();
+}
 
+void Router::createDeclareRouter() {
+	ROUTER_SIMPLE_BIND(DeclareController);
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -60,8 +65,10 @@ void Router::createSampleRouter()
 	ROUTER_SIMPLE_BIND(SampleController);
 	// 绑定用户控制器
 	ROUTER_SIMPLE_BIND(UserController);
-	
+
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());
 }
+
 #endif
+

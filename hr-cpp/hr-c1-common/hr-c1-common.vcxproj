@@ -159,24 +159,22 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="controller\declare\DeclareListController.h" />
+    <ClInclude Include="controller\declare\DeclareController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\dto\declare\DeclareDTO.h" />
-    <ClInclude Include="domain\query\declare\DeclareQuery.h" />
-    <ClInclude Include="domain\vo\declare\DeclareVO.h" />
+    <ClInclude Include="domain\dto\declareDto\declareDTO.h" />
+    <ClInclude Include="domain\query\declareQuery\DeclareQuery.h" />
+    <ClInclude Include="domain\vo\declareList\DeclareListVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
-    <ClInclude Include="service\declare\DeclareService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="controller\declare\DeclareListController.cpp" />
+    <ClCompile Include="controller\declare\DeclareController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="service\declare\DeclareService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
