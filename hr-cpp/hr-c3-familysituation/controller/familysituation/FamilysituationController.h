@@ -104,7 +104,7 @@ public: // 定义接口
 		API_HANDLER_RESP_VO(execModifyFamilysituation(dto));
 	}
 	// 定义删除接口描述
-	ENDPOINT_INFO(deleteFamilysituation)
+	ENDPOINT_INFO(removeFamilysituation)
 	{
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("familysituation.del.summary");
@@ -112,10 +112,10 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	// 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/delete-by-Familysituation", deleteFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
+	ENDPOINT(API_M_DEL, "/remove-by-Familysituation", removeFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
 	{
 		// 响应结果
-		API_HANDLER_RESP_VO(execDeleteFamilysituation(dto));
+		API_HANDLER_RESP_VO(execRemoveFamilysituation(dto));
 	}
 	// 定义导入接口描述
 	ENDPOINT_INFO(importFamilysituation)
@@ -156,7 +156,7 @@ private: // 定义接口执行函数
 	// 修改数据响应
 	StringJsonVO::Wrapper execModifyFamilysituation(const FamilysituationDTO::Wrapper& dto);
 	// 删除数据响应
-	StringJsonVO::Wrapper execDeleteFamilysituation(const FamilysituationDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execRemoveFamilysituation(const FamilysituationDTO::Wrapper& dto);
 	// 导入数据响应
 	StringJsonVO::Wrapper execImportFamilysituation(const ImportfamilysituationDTO::Wrapper& dto);
 	// 导出数据响应
