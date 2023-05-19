@@ -27,8 +27,17 @@
 class ImportJobVO : public oatpp::DTO
 {
 	DTO_INIT(ImportJobVO, DTO);
-	
+	DTO_FIELD(List<String>, newId);
+	DTO_FIELD_INFO(newId) {
+		info->description = ZH_WORDS_GETTER("jobSet.export.id");
+	}
 };
+
+class ImportJobJsonVO : public JsonVO<ImportJobVO::Wrapper>
+{
+	DTO_INIT(ImportJobJsonVO, JsonVO<ImportJobVO::Wrapper>);
+};
+
 
 #include OATPP_CODEGEN_END(DTO)
 

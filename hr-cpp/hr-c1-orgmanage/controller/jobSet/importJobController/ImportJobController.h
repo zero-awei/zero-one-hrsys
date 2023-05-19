@@ -25,14 +25,16 @@
 #include "SimpleDateTimeFormat.h"
 #include "ServerInfo.h"
 #include "Macros.h"
+#include "domain/dto/jobSet/ImportJobDTO.h"
+#include "CharsetConvertHepler.h"
+#include "domain/vo/jobSet/ImportJobVO.h"
 
 // 文件上传
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
 #include "oatpp/web/mime/multipart/FileProvider.hpp"
 #include "oatpp/web/mime/multipart/Reader.hpp"
 #include "oatpp/web/mime/multipart/PartList.hpp"
-#include "domain/dto/jobSet/ImportJobDTO.h"
-#include "CharsetConvertHepler.h"
+
 
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
@@ -54,7 +56,7 @@ public: // 定义接口
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		//API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(NoDataJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(ImportJobJsonVO);
 		// 定义分页参数描述
 		info->queryParams.add<String>("fileType").description = ZH_WORDS_GETTER("jobSet.import.fileType");
 		info->queryParams["fileType"].addExample("default", String("xlsx"));
@@ -115,7 +117,7 @@ public: // 定义接口
 		API_HANDLER_RESP_VO(execImportJob(dto/*, authObject->getPayload()*/));
 	}
 private: // 定义接口执行函数
-	NoDataJsonVO::Wrapper execImportJob(const ImportJobDTO::Wrapper& dto/*, const PayloadDTO& payload*/);
+	ImportJobJsonVO::Wrapper execImportJob(const ImportJobDTO::Wrapper& dto/*, const PayloadDTO& payload*/);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
