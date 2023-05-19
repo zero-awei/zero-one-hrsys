@@ -74,9 +74,13 @@ class ListDTO : public oatpp::DTO
  * 下拉列表DTO领域模型
  * 负责人：Andrew
  */
-class PullListDTO : public ListDTO<ItemDTO::Wrapper>
+class PullListDTO : public oatpp::DTO
 {
-	DTO_INIT(PullListDTO, ListDTO<ItemDTO::Wrapper>);
+	DTO_INIT(PullListDTO, DTO);
+	DTO_FIELD_INFO(pullList) {
+		info->description = ZH_WORDS_GETTER("common.dto.list");
+	}
+	DTO_FIELD(List<ItemDTO::Wrapper>, pullList) = {};
 };
 
 
