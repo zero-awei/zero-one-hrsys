@@ -50,10 +50,11 @@ public: // 定义接口
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
+		API_DEF_ADD_QUERY_PARAMS(UInt64, "id", ZH_WORDS_GETTER("sample.field.id"), 1, false);
 		API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("sample.field.name"), "li ming", false);
 	}
 	//定义查询接口处理
-	ENDPOINT(API_M_GET, "/language/query-by-id", queryLanguage, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/user/query-langugae", queryLanguage, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		//解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, LanguageQuery, queryParams);
 		// 响应结果
@@ -66,12 +67,13 @@ public: // 定义接口
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		//API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	//定义新增接口处理
-	ENDPOINT(API_M_POST, "/language/add-by-id", addLanguage, API_HANDLER_AUTH_PARAME, BODY_DTO(LanguageDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/user/add-language", addLanguage, API_HANDLER_AUTH_PARAME, BODY_DTO(LanguageDTO::Wrapper, dto)) {
 		// 响应结果
-		API_HANDLER_RESP_VO(execAddLanguage(dto));
+		API_HANDLER_RESP_VO(execAddLanguage(dto, authObject->getPayload()));
 	}
 	//定义删除接口描述
 	ENDPOINT_INFO(deleteLanguage) {
@@ -80,12 +82,13 @@ public: // 定义接口
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		//API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	//定义删除接口处理
-	ENDPOINT(API_M_DEL, "/language/delete-by-id", deleteLanguage, API_HANDLER_AUTH_PARAME, BODY_DTO(LanguageDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/user/delete-language", deleteLanguage, API_HANDLER_AUTH_PARAME, BODY_DTO(LanguageDTO::Wrapper, dto)) {
 		//响应结果
-		API_HANDLER_RESP_VO(execDeleteLanguage(dto));
+		API_HANDLER_RESP_VO(execDeleteLanguage(dto, authObject->getPayload()));
 	}
 	//定义修改接口描述
 	ENDPOINT_INFO(updateLanguage) {
@@ -94,16 +97,17 @@ public: // 定义接口
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		//API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	//定义修改接口处理
-	ENDPOINT(API_M_PUT, "/Language/update-by-id", updateLanguage, API_HANDLER_AUTH_PARAME, BODY_DTO(LanguageDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/user/update-language", updateLanguage, API_HANDLER_AUTH_PARAME, BODY_DTO(LanguageDTO::Wrapper, dto)) {
 		//响应结果
-		API_HANDLER_RESP_VO(execUpdateLanguage(dto));
+		API_HANDLER_RESP_VO(execUpdateLanguage(dto, authObject->getPayload()));
 	}
 
 	//定义一个单文件上传接口
-	ENDPOINT(API_M_POST, "/Language/upload", uploadFile, Request(std::shared_ptr<IncomingRequest>, request)) {
+	ENDPOINT(API_M_POST, "/Language/upload", uploadFile, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
 		/* 创建multipart容器 */
 		auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
 		/* 创建multipart读取器 */
@@ -139,11 +143,14 @@ private: // 定义接口执行函数
 	//定义查询接口执行函数
 	StringJsonVO::Wrapper execQueryLanguage(const LanguageQuery::Wrapper& query, const PayloadDTO& payload);
 	//定义新增接口执行函数
-	Uint64JsonVO::Wrapper execAddLanguage(const LanguageDTO::Wrapper& dto);
+	//Uint64JsonVO::Wrapper execAddLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);
+	StringJsonVO::Wrapper execAddLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);
 	//定义删除接口执行函数
-	Uint64JsonVO::Wrapper execDeleteLanguage(const LanguageDTO::Wrapper& dto);
+	//Uint64JsonVO::Wrapper execDeleteLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);
+	StringJsonVO::Wrapper execDeleteLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);
 	//定义修改接口执行函数
-	Uint64JsonVO::Wrapper execUpdateLanguage(const LanguageDTO::Wrapper& dto);
+	//Uint64JsonVO::Wrapper execUpdateLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);
+	StringJsonVO::Wrapper execUpdateLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
