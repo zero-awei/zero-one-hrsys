@@ -1,4 +1,4 @@
-package com.zeroone.star.project.dto.languageability;
+package com.zeroone.star.project.j3.dto.languageability;
 
 
 import io.swagger.annotations.ApiModel;
