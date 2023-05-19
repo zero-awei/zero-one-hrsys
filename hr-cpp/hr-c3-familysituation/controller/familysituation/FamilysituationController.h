@@ -22,8 +22,8 @@
 
 #include "domain/vo/BaseJsonVO.h"
 #include "ApiHelper.h"
-#include "domain/query/PageQuery.h"
 #include "domain/query/familysituation/FamilysituationQuery.h"
+#include "domain/dto/familysituation/FamilysituationDTO.h"
 #include "domain/vo/familysituation/FamilysituationVO.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
@@ -41,26 +41,24 @@ public: // 定义接口
 	{
 		//定义标题
 		info->summary = ZH_WORDS_GETTER("familysituation.get.summary");
-		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
-		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(FamilysituationPageJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(FamilySituationPageJsonVO);
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("frelationship").description = ZH_WORDS_GETTER("familysituation.field.relationship");
-		info->queryParams["frelationship"].addExample("default", String(ZH_WORDS_GETTER("familysituation.field.relationship.dadson")));
+		info->queryParams["frelationship"].addExample("default", String(ZH_WORDS_GETTER("familysituation.description.dadson")));
 		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("familysituation.field.name");
 		info->queryParams["name"].addExample("default", String("Marvin"));
 		// 待补充
 	}
 	// 定义查询接口处理
-	ENDPOINT(API_M_GET, "/query-by-Familysituation", queryFamilysituation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams))
+	ENDPOINT(API_M_GET, "/query-by-Familysituation", queryFamilysituation, QUERIES(QueryParams, queryParams))
 	{
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(familysituationQuery, FamilysituationQuery, queryParams);
 		// 响应结果
-		API_HANDLER_RESP_VO(execQueryByFamilysituation(familysituationQuery, authObject->getPayload()));
+		API_HANDLER_RESP_VO(execQueryByFamilysituation(familysituationQuery));
 	}
 	// 定义添加家庭情况接口描述
 	ENDPOINT_INFO(addFamilysituation)
@@ -68,10 +66,10 @@ public: // 定义接口
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("familysituation.post.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	// 定义添加接口处理
-	ENDPOINT(API_M_POST, "/query-by-Familysituation", addFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
+	ENDPOINT(API_M_POST, "/add-by-Familysituation", addFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
 	{
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddFamilysituation(dto));
@@ -85,7 +83,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/query-by-Familysituation", modifyFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
+	ENDPOINT(API_M_PUT, "/modify-by-Familysituation", modifyFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
 	{
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyFamilysituation(dto));
@@ -104,17 +102,16 @@ public: // 定义接口
 		// 响应结果
 		API_HANDLER_RESP_VO(execDeleteFamilysituation(dto));
 	}
-	
-private: // 定义接口执行函数
-	// 分页查询响应
-	FamilysituationPageJsonVO::Wrapper execQueryByFamilysituation(const FamilysituationQuery::Wrapper& query, const PayloadDTO& payload);
-	// 添加数据响应
-	Uint64JsonVO::Wrapper execAddFamilysituation(const FamilysituationDTO::Wrapper& dto);
-	// 修改数据响应
-	Uint64JsonVO::Wrapper execModifyFamilysituation(const FamilysituationDTO::Wrapper& dto);
-	// 删除数据响应
-	Uint64JsonVO::Wrapper execDeleteFamilysituation(const FamilysituationDTO::Wrapper& dto);
 
+private: // 定义接口执行函数
+	// 查询数据响应
+	FamilySituationPageJsonVO::Wrapper execQueryByFamilysituation(const FamilysituationQuery::Wrapper& query);
+	// 添加数据响应
+	StringJsonVO::Wrapper execAddFamilysituation(const FamilysituationDTO::Wrapper& dto);
+	// 修改数据响应
+	StringJsonVO::Wrapper execModifyFamilysituation(const FamilysituationDTO::Wrapper& dto);
+	// 删除数据响应
+	StringJsonVO::Wrapper execDeleteFamilysituation(const FamilysituationDTO::Wrapper& dto);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
