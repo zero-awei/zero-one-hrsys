@@ -96,4 +96,15 @@ public class JsonVO<T> implements Serializable {
     public static <T> JsonVO<T> fail(T data) {
         return create(data, ResultStatus.FAIL);
     }
+
+    /***
+     * 静态构建处理失败数据对象
+     * @param data 数据对象
+     * @param status 状态码
+     * @return
+     * @param <T> 返回创建的JSON VO对象
+     */
+    public static <T> JsonVO<T> fail(T data, ResultStatus status) {
+        return create(data, status);
+    }
 }
