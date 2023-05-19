@@ -8,12 +8,12 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 示例分页查询对象
+ * 查询对象
+ * 处理人：fengchu
  */
 class AuditstatusQuery : public PageQuery
 {
 public:
-	
 	DTO_INIT(AuditstatusQuery, PageQuery);
 };
 

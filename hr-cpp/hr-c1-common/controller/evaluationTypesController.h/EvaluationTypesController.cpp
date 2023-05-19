@@ -1,8 +1,8 @@
 #include "stdafx.h"
-#include "AuditStatusController.h"
+#include "EvaluationTypesController.h"
 
 
-PullListVO::Wrapper AuditStatusController::execQueryAuditStatus()
+PullListVO::Wrapper EvaluationTypesController::execQueryEvaluationTypes()
 {
 	auto dto = PullListDTO::createShared();
 	auto a = ItemDTO::createShared(1, "Yes");

@@ -50,7 +50,7 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-	createAuditstatusRouter();
+	createAuditStatusRouter();
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -66,7 +66,7 @@ void Router::createSampleRouter()
 }
 
 #endif
-void Router::createAuditstatusRouter()
+void Router::createAuditStatusRouter()
 {
-	ROUTER_SIMPLE_BIND(AuditstatusController);
+	ROUTER_SIMPLE_BIND(AuditStatusController);
 }

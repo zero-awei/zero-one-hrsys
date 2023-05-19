@@ -36,13 +36,16 @@
     <ClInclude Include="domain\query\auditstatusQuery\AuditstatusQuery.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\auditstatusDTO\AuditstatusDTO.h">
+    <ClInclude Include="domain\dto\pullList\PullListDTO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\auditstatusVO\AuditstatusVO.h">
+    <ClInclude Include="domain\vo\pullList\PullListVO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="controller\auditstatusController.h\AuditstatusController.h">
+    <ClInclude Include="controller\auditstatusController.h\AuditStatusController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\evaluationTypesController.h\EvaluationTypesController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -59,7 +62,10 @@
     <ClCompile Include="controller\SystemInterceptor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="controller\auditstatusController.h\AuditstatusController.cpp">
+    <ClCompile Include="controller\auditstatusController.h\AuditStatusController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\evaluationTypesController.h\EvaluationTypesController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
