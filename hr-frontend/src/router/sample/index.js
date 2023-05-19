@@ -21,6 +21,10 @@ const routes = [
         component: () => import('@/views/sample/Communication/index.vue')
       },
       {
+        path: '/sample/echarts',
+        component: () => import('@/views/sample/echarts_test/Echart.vue')
+      },
+      {
         path: '/sample/maintable',
         component: () => import('@/views/sample/maintable/Maintable.vue')
       }

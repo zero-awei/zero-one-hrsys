@@ -92,6 +92,10 @@ const menus = reactive([
     text: '兄弟组件通信'
   },
   {
+    path: '/sample/echarts',
+    text: 'Echarts演示'
+  },
+  {
     path: '/sample/maintable',
     text: '表格主体测试页面'
   }
