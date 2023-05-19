@@ -50,11 +50,6 @@ expenseledger_mug:
   summary: 删除费别
  field:
   expenseCategory: 费用类别
-  id: 编号
-  age: 年龄
-  name: 姓名
-  sex: 性别，如：男
-
 
 title:
  query:
@@ -70,11 +65,3 @@ title:
   grades: "职称等级"
   type: "职称类型"
   category: "专业类别"
-  PIMLABOURCAMPANYNAME: 公司名称
-  PIMLABOURCAMPANYID: 所属单位
-  LXDZ: 联系地址
-  LXR: 联系人
-  LXFS: 联系方式
-  REGCAPITAL: 注册本金
-  LEGALPERSON: 法人
-  UPDATEDATE: 更新时间
