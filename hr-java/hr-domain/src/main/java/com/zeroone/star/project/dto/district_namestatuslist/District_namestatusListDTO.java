@@ -4,11 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-/**
- * @author xiaoming xxx@163.com
- * @version 2023/5/19 22:01
- * @since JDK8
- */
+
 
 @Data
 @ApiModel("区(县)名称状态对象")

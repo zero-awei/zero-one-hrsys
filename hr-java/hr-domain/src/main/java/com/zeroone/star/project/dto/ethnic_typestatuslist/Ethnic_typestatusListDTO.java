@@ -4,11 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-/**
- * @author xiaoming xxx@163.com
- * @version 2023/5/19 22:03
- * @since JDK8
- */
+
 @Data
 @ApiModel("名族类型状态对象")
 public class Ethnic_typestatusListDTO {
