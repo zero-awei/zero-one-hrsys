@@ -40,3 +40,10 @@ common:
   contractType: 合同类型   
   fileStatus: 档案借阅状态
   fileReservation: 档案保管地
+fileReservation:
+ localbase: 局总部
+ enterbase: 公司本部
+ other: 其他
+fileStatus:
+ borrowing: 借阅中
+ returned: 已归还
