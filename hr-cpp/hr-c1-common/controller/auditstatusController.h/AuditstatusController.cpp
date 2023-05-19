@@ -2,9 +2,9 @@
 #include "AuditstatusController.h"
 
 
-AuditstatusPageJsonVO::Wrapper AuditstatusController::executeQueryAuditstatus(const AuditstatusQuery::Wrapper& auditstatusQuery)
+StringJsonVO::Wrapper AuditstatusController::execQueryAuditstatus(const AuditstatusQuery::Wrapper& auditstatusQuery)
 {
-	auto vo = AuditstatusPageJsonVO::createShared();
+	auto vo =StringJsonVO::createShared();
 
 	vo->success("query user success");
 	return vo;
