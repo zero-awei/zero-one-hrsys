@@ -1,6 +1,5 @@
 package com.zeroone.star.project.dashboard;
 
-import com.zeroone.star.project.dto.PimpersonDTO;
 import com.zeroone.star.project.query.dashboard.EducationQuery;
 import com.zeroone.star.project.vo.JsonVO;
 

@@ -12,6 +12,20 @@ import com.zeroone.star.project.vo.JsonVO;
  * 创建时间：2023/5/19 21:07
  */
 public interface OrgmanagerApis {
+    /**
+     * @Description: 新增部门
+     * @params: [deptInfoDTO]
+     * @return: JsonVO<String>
+     * @Author: Rqs
+     * @Date: 2023/5/19 23:43
+     */
     JsonVO<String> addDept(DeptInfoDTO deptInfoDTO);
+    /**
+     * @Description: 修改指定部门信息
+     * @params: [modifyDeptInfoDTO]
+     * @return: JsonVO<jString>
+     * @Author: Rqs
+     * @Date: 2023/5/19 23:43
+     */
     JsonVO<String> modifyDept(ModifyDeptInfoDTO modifyDeptInfoDTO);
 }

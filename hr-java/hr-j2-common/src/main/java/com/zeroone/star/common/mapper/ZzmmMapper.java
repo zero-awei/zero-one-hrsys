@@ -1,6 +1,6 @@
 package com.zeroone.star.common.mapper;
 
-import com.zeroone.star.common.entity.Pimperson;
+import com.zeroone.star.common.entity.Zzmm;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -13,6 +13,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2023-05-17
  */
 @Mapper
-public interface PimpersonMapper extends BaseMapper<Pimperson> {
+public interface ZzmmMapper extends BaseMapper<Zzmm> {
 
 }

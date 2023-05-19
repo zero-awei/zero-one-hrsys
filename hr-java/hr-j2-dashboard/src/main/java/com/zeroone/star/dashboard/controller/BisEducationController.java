@@ -3,19 +3,16 @@ package com.zeroone.star.dashboard.controller;
 
 import com.zeroone.star.dashboard.service.IBisEducationService;
 import com.zeroone.star.project.dashboard.DashboardApis;
-import com.zeroone.star.project.dto.PimpersonDTO;
 import com.zeroone.star.project.query.dashboard.EducationQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * <p>
@@ -34,7 +31,7 @@ public class BisEducationController implements DashboardApis {
     IBisEducationService bisEducationService;
 
     @ApiOperation(value = "学历分布")
-    @PostMapping("education-distribution")
+    @GetMapping("education-distribution")
     @Override
     public JsonVO<EducationQuery> queryEducationDistribution() {
         return bisEducationService.getEducationDistribution();

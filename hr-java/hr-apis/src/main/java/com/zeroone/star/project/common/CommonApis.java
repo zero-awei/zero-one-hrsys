@@ -1,6 +1,6 @@
 package com.zeroone.star.project.common;
 
-import com.zeroone.star.project.dto.PimpersonDTO;
+import com.zeroone.star.project.query.common.ZzmmQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
 /**
@@ -10,11 +10,11 @@ import com.zeroone.star.project.vo.JsonVO;
  */
 public interface CommonApis {
     /**
-     * @Description: 通过政治面貌下拉列表设置政治面貌信息
-     * @params: [politicalAffiliationDTO]
-     * @return: Long
+     * @Description: 获取政治面貌下拉列表
+     * @params: []
+     * @return: JsonVO<ZzmmQuery>
      * @Author: Rqs
-     * @Date: 2023/5/16 20:42
+     * @Date: 2023/5/19 23:17
      */
-    JsonVO<String> addPimperson(PimpersonDTO pimpersonDTO);
+    JsonVO<ZzmmQuery> queryZzmm();
 }
