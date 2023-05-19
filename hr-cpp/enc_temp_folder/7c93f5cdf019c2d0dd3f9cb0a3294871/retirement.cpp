@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "MyController.h"
+#include "retirement.h"
 
 StringJsonVO::Wrapper TestController::execQueryTest(const PageQuery::Wrapper & query)
 {
@@ -40,7 +40,7 @@ Uint64JsonVO::Wrapper TestController::execAddSample(const SampleDTO::Wrapper& dt
 }
 */
 
-Uint64JsonVO::Wrapper TestController::execAddSample1(const ContractDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper TestController::execAddSample1(const RetirementDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
@@ -48,7 +48,7 @@ Uint64JsonVO::Wrapper TestController::execAddSample1(const ContractDTO::Wrapper&
 	return jvo;
 }
 
-Uint64JsonVO::Wrapper TestController::execModifySample(const ContractDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper TestController::execModifySample(const RetirementDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
@@ -56,7 +56,7 @@ Uint64JsonVO::Wrapper TestController::execModifySample(const ContractDTO::Wrappe
 	return jvo;
 }
 
-Uint64JsonVO::Wrapper TestController::execRemoveSample(const ContractDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper TestController::execRemoveSample(const RetirementDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
