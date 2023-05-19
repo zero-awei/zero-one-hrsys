@@ -84,8 +84,8 @@ public:
 	}
 private:
 	// 查询指定岗位详情
-	Uint64JsonVO::Wrapper execDeleteByOrmPostId(const PostDeleteDTO::Wrapper& postDetailQuery, const PayloadDTO& payload);
-	Uint64JsonVO::Wrapper exeDeleteBatchByOrmPostId(const PostDeleteBatchDTO::Wrapper& postDetailQuery, const PayloadDTO& payload);
+	Uint64JsonVO::Wrapper execDeleteByOrmPostId(const PostDeleteDTO::Wrapper& postDeleteDTO, const PayloadDTO& payload);
+	Uint64JsonVO::Wrapper exeDeleteBatchByOrmPostId(const PostDeleteBatchDTO::Wrapper& postDeleteBatchDTO, const PayloadDTO& payload);
 };
 
 // 0 取消API控制器使用宏

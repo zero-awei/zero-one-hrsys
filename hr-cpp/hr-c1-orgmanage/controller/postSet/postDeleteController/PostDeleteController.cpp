@@ -20,12 +20,29 @@
 #include "PostDeleteController.h"
 //#include "../../service/sample/SampleService.h"
 
-Uint64JsonVO::Wrapper PostDeleteController::execDeleteByOrmPostId(const PostDeleteDTO::Wrapper& postDetailQuery, const PayloadDTO& payload)
+Uint64JsonVO::Wrapper PostDeleteController::execDeleteByOrmPostId(const PostDeleteDTO::Wrapper& postDeleteDTO, const PayloadDTO& payload)
 {
-	return Uint64JsonVO::Wrapper();
+	// 定义返回数据对象
+	auto jvo = Uint64JsonVO::createShared();
+	// 参数校验
+	if (!postDeleteDTO->ormPostId)
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+
+	return jvo;
 }
 
-Uint64JsonVO::Wrapper PostDeleteController::exeDeleteBatchByOrmPostId(const PostDeleteBatchDTO::Wrapper& postDetailQuery, const PayloadDTO& payload)
+Uint64JsonVO::Wrapper PostDeleteController::exeDeleteBatchByOrmPostId(const PostDeleteBatchDTO::Wrapper& postDeleteBatchDTO, const PayloadDTO& payload)
 {
+	// 定义返回数据对象
+	auto jvo = Uint64JsonVO::createShared();
+	// 参数校验
+	if (!postDeleteBatchDTO->ormPostIds)
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
 	return Uint64JsonVO::Wrapper();
 }
