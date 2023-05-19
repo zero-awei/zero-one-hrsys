@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #ifndef  _MYCONTROLLER_H_
 #define  _MYCONTROLLER_H_
 
@@ -6,155 +6,156 @@
 #include "domain/vo/BaseJsonVO.h"
 #include "domain/query/PageQuery.h"
 #include "domain/dto/sample/MyDto.h"
+#include "ApiHelper.h"
 
-// 0 ¶¨ÒåAPI¿ØÖÆÆ÷Ê¹ÓÃºê  (api¿ØÖÆÆ÷ÊÇ´¦Àí´«ÈëÇëÇó£¬·µ»ØÏìÓ¦µÄ)
+// 0 å®šä¹‰APIæ§åˆ¶å™¨ä½¿ç”¨å®  (apiæ§åˆ¶å™¨æ˜¯å¤„ç†ä¼ å…¥è¯·æ±‚ï¼Œè¿”å›å“åº”çš„)
 
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
 /**
- * Ê¾Àı¿ØÖÆÆ÷£¬ÑİÊ¾»ù´¡½Ó¿ÚµÄÊ¹ÓÃ
+ * ç¤ºä¾‹æ§åˆ¶å™¨ï¼Œæ¼”ç¤ºåŸºç¡€æ¥å£çš„ä½¿ç”¨
  */
 
-class TestController : public oatpp::web::server::api::ApiController // 1 ¼Ì³Ğ¿ØÖÆÆ÷
+class TestController : public oatpp::web::server::api::ApiController // 1 ç»§æ‰¿æ§åˆ¶å™¨
 {
 	/*
-	2 ¶¨Òå¿ØÖÆÆ÷·ÃÎÊÈë¿Ú
-	2.1 API¿ØÖÆÆ÷¿ÉÒÔ¸ù¾İ´«ÈëÇëÇóµÄURLºÍHTTP·½·¨·ÖÀà£¬È»ºó½«ÇëÇóÂ·ÓÉµ½ÏàÓ¦µÄ·½·¨ºÍ·şÎñÖĞ½øĞĞ´¦Àí
+	2 å®šä¹‰æ§åˆ¶å™¨è®¿é—®å…¥å£
+	2.1 APIæ§åˆ¶å™¨å¯ä»¥æ ¹æ®ä¼ å…¥è¯·æ±‚çš„URLå’ŒHTTPæ–¹æ³•åˆ†ç±»ï¼Œç„¶åå°†è¯·æ±‚è·¯ç”±åˆ°ç›¸åº”çš„æ–¹æ³•å’ŒæœåŠ¡ä¸­è¿›è¡Œå¤„ç†
 	*/
 	API_ACCESS_DECLARE(TestController);
-	// 3 ¶¨Òå½Ó¿Ú
+	// 3 å®šä¹‰æ¥å£
 public:
 
-	// 3.1 ¶¨Òå²éÑ¯½Ó¿ÚÃèÊö
-	ENDPOINT_INFO(queryTest) 
+	// 3.1 å®šä¹‰æŸ¥è¯¢æ¥å£æè¿°
+	ENDPOINT_INFO(queryTest)
 	{
-		// ¶¨Òå½Ó¿Ú±êÌâ ¹Ì¶¨Ğ´·¨
+		// å®šä¹‰æ¥å£æ ‡é¢˜ å›ºå®šå†™æ³•
 		info->summary = "query test";
-		// ¶¨ÒåÄ¬ÈÏÊÚÈ¨²ÎÊı£¨¿ÉÑ¡¶¨Òå£¬Èç¹û¶¨ÒåÁË£¬ÏÂÃæENDPOINTÀïÃæĞèÒª¼ÓÈëAPI_HANDLER_AUTH_PARAME£©
+		// å®šä¹‰é»˜è®¤æˆæƒå‚æ•°ï¼ˆå¯é€‰å®šä¹‰ï¼Œå¦‚æœå®šä¹‰äº†ï¼Œä¸‹é¢ENDPOINTé‡Œé¢éœ€è¦åŠ å…¥API_HANDLER_AUTH_PARAMEï¼‰
 		API_DEF_ADD_AUTH();
-		// ¶¨ÒåÏìÓ¦²ÎÊıÀàĞÍ
+		// å®šä¹‰å“åº”å‚æ•°ç±»å‹
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-		// ¶¨Òå·ÖÒ³²ÎÊıÃèÊö
+		// å®šä¹‰åˆ†é¡µå‚æ•°æè¿°
 		API_DEF_ADD_PAGE_PARAMS();
 	}
-	// 3.2 ¶¨Òå²éÑ¯½Ó¿Ú´¦Àí
+	// 3.2 å®šä¹‰æŸ¥è¯¢æ¥å£å¤„ç†
 		/*
-		½ÓÊÜ±íµ¥²ÎÊıµÄÊ±ºòĞèÒªÓÃºê   QUERIES(QueryParams, qp1)
-		¶¨ÒåÁËÄ¬ÈÏÊÚÈ¨²ÎÊıĞèÒªÔÚÂ·¾¶(/query)ºóÃæ¼ÓÉÏ API_HANDLER_AUTH_PARAME
-		API_M_GET£ºÊÇÇëÇó·½Ê½£¬±íÊ¾get
-		"/query",£ºurlµÄÂ·¾¶
-		queryTest£º½Ó¿ÚÃû×Ö
-		QUERIES(QueryParams, qp1)£º±íÊ¾ÇëÇóÊÇ±íµ¥Êı¾İ£¬ÇëÇóµÄ²ÎÊı¶¼·Åµ½qp1ÖĞ
+		æ¥å—è¡¨å•å‚æ•°çš„æ—¶å€™éœ€è¦ç”¨å®   QUERIES(QueryParams, qp1)
+		å®šä¹‰äº†é»˜è®¤æˆæƒå‚æ•°éœ€è¦åœ¨è·¯å¾„(/query)åé¢åŠ ä¸Š API_HANDLER_AUTH_PARAME
+		API_M_GETï¼šæ˜¯è¯·æ±‚æ–¹å¼ï¼Œè¡¨ç¤ºget
+		"/query",ï¼šurlçš„è·¯å¾„
+		queryTestï¼šæ¥å£åå­—
+		QUERIES(QueryParams, qp1)ï¼šè¡¨ç¤ºè¯·æ±‚æ˜¯è¡¨å•æ•°æ®ï¼Œè¯·æ±‚çš„å‚æ•°éƒ½æ”¾åˆ°qp1ä¸­
 		*/
 	ENDPOINT(API_M_GET, "/query", queryTest, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qp1))
 	{
-		/* 
-		½âÎö²éÑ¯²ÎÊı(½âÎöÎªÁìÓòÄ£ĞÍ¶ÔÏó) Ò²¾ÍÊÇqueryÓëdto
-		Ê×ÏÈµ÷ÓÃAPI_HANDLER_QUERY_PARAMºê½âÎöÇëÇóÖĞµÄ²éÑ¯²ÎÊı(Ò²¾ÍÊÇpq1)£¬
-		½«Æä½âÎö£¨×ª»»£©ÎªPageQueryÀàµÄ¶ÔÏó£¬²¢ÒÔÃû³Æquery±£´æÔÚÄÚ´æÖĞ¡£
+		/*
+		è§£ææŸ¥è¯¢å‚æ•°(è§£æä¸ºé¢†åŸŸæ¨¡å‹å¯¹è±¡) ä¹Ÿå°±æ˜¯queryä¸dto
+		é¦–å…ˆè°ƒç”¨API_HANDLER_QUERY_PARAMå®è§£æè¯·æ±‚ä¸­çš„æŸ¥è¯¢å‚æ•°(ä¹Ÿå°±æ˜¯pq1)ï¼Œ
+		å°†å…¶è§£æï¼ˆè½¬æ¢ï¼‰ä¸ºPageQueryç±»çš„å¯¹è±¡ï¼Œå¹¶ä»¥åç§°queryä¿å­˜åœ¨å†…å­˜ä¸­ã€‚
 		*/
 		API_HANDLER_QUERY_PARAM(query, PageQuery, qp1);
 		/*
-		ÏìÓ¦½á¹û
-		È»ºóµ÷ÓÃexecQueryTest()·½·¨Ö´ĞĞ²éÑ¯²Ù×÷£¬
-		²¢Ê¹ÓÃAPI_HANDLER_RESP_VOºê½«½á¹û·â×°µ½StringJsonVOÀà¶ÔÏóÖĞ½øĞĞÏìÓ¦¡£
+		å“åº”ç»“æœ
+		ç„¶åè°ƒç”¨execQueryTest()æ–¹æ³•æ‰§è¡ŒæŸ¥è¯¢æ“ä½œï¼Œ
+		å¹¶ä½¿ç”¨API_HANDLER_RESP_VOå®å°†ç»“æœå°è£…åˆ°StringJsonVOç±»å¯¹è±¡ä¸­è¿›è¡Œå“åº”ã€‚
 		*/
 		API_HANDLER_RESP_VO(execQueryTest(query));
 	}
 
 
-	//// 3.1 ¶¨Òå²éÑ¯½Ó¿ÚÃèÊö
+	//// 3.1 å®šä¹‰æŸ¥è¯¢æ¥å£æè¿°
 	//ENDPOINT_INFO(queryTest1)
 	//{
-	//	// ¶¨Òå½Ó¿Ú±êÌâ ¹Ì¶¨Ğ´·¨
+	//	// å®šä¹‰æ¥å£æ ‡é¢˜ å›ºå®šå†™æ³•
 	//	info->summary = "query test1";
-	//	// ¶¨ÒåÄ¬ÈÏÊÚÈ¨²ÎÊı£¨¿ÉÑ¡¶¨Òå£¬Èç¹û¶¨ÒåÁË£¬ÏÂÃæENDPOINTÀïÃæĞèÒª¼ÓÈëAPI_HANDLER_AUTH_PARAME£©
+	//	// å®šä¹‰é»˜è®¤æˆæƒå‚æ•°ï¼ˆå¯é€‰å®šä¹‰ï¼Œå¦‚æœå®šä¹‰äº†ï¼Œä¸‹é¢ENDPOINTé‡Œé¢éœ€è¦åŠ å…¥API_HANDLER_AUTH_PARAMEï¼‰
 	//	API_DEF_ADD_AUTH();
-	//	// ¶¨ÒåÏìÓ¦²ÎÊıÀàĞÍ
+	//	// å®šä¹‰å“åº”å‚æ•°ç±»å‹
 	//	API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-	//	// ¶¨Òå·ÖÒ³²ÎÊıÃèÊö
+	//	// å®šä¹‰åˆ†é¡µå‚æ•°æè¿°
 	//	API_DEF_ADD_PAGE_PARAMS();
 	//}
 
-	//// 3.2 ¶¨Òå²éÑ¯½Ó¿Ú´¦Àí
-	//	//½ÓÊÜ±íµ¥²ÎÊıµÄÊ±ºòĞèÒªÓÃºê   QUERIES(QueryParams, qp1)
-	//	//¶¨ÒåÁËÄ¬ÈÏÊÚÈ¨²ÎÊıĞèÒªÔÚÂ·¾¶(/query)ºóÃæ¼ÓÉÏ API_HANDLER_AUTH_PARAME
+	//// 3.2 å®šä¹‰æŸ¥è¯¢æ¥å£å¤„ç†
+	//	//æ¥å—è¡¨å•å‚æ•°çš„æ—¶å€™éœ€è¦ç”¨å®   QUERIES(QueryParams, qp1)
+	//	//å®šä¹‰äº†é»˜è®¤æˆæƒå‚æ•°éœ€è¦åœ¨è·¯å¾„(/query)åé¢åŠ ä¸Š API_HANDLER_AUTH_PARAME
 	//ENDPOINT(API_M_GET, "/query1", queryTest1, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qp2))
 	//{
-	//	// ½âÎö²éÑ¯²ÎÊı(½âÎöÎªÁìÓòÄ£ĞÍ¶ÔÏó) Ò²¾ÍÊÇqueryÓëdto
+	//	// è§£ææŸ¥è¯¢å‚æ•°(è§£æä¸ºé¢†åŸŸæ¨¡å‹å¯¹è±¡) ä¹Ÿå°±æ˜¯queryä¸dto
 	//	API_HANDLER_QUERY_PARAM(query1, PageQuery, qp2);
-	//	// ÏìÓ¦½á¹û
+	//	// å“åº”ç»“æœ
 	//	API_HANDLER_RESP_VO(execQueryTest(query1));
 	//}
 
 	// 
-		// 3.1 ¶¨ÒåĞÂÔö½Ó¿ÚÃèÊö
+		// 3.1 å®šä¹‰æ–°å¢æ¥å£æè¿°
 	//ENDPOINT_INFO(addSample) {
-	//	// ¶¨Òå½Ó¿Ú±êÌâ
+	//	// å®šä¹‰æ¥å£æ ‡é¢˜
 	//	info->summary = ZH_WORDS_GETTER("sample.post.summary");
-	//	// ¶¨ÒåÏìÓ¦²ÎÊı¸ñÊ½
+	//	// å®šä¹‰å“åº”å‚æ•°æ ¼å¼
 	//	API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	//}
-	//// 3.2 ¶¨ÒåĞÂÔö½Ó¿Ú´¦Àí
+	//// 3.2 å®šä¹‰æ–°å¢æ¥å£å¤„ç†
 	//ENDPOINT(API_M_POST, "/sample", addSample, BODY_DTO(SampleDTO::Wrapper, dto)) {
-	//	// ÏìÓ¦½á¹û
+	//	// å“åº”ç»“æœ
 	//	API_HANDLER_RESP_VO(execAddSample(dto));
 	//}
 
 
-	// 3.1 ¶¨ÒåĞÂÔö½Ó¿ÚÃèÊö
+	// 3.1 å®šä¹‰æ–°å¢æ¥å£æè¿°
 	ENDPOINT_INFO(addTest) {
-		// ¶¨Òå½Ó¿Ú±êÌâ
+		// å®šä¹‰æ¥å£æ ‡é¢˜
 		info->summary = "add test";
-		// ¶¨ÒåÏìÓ¦²ÎÊı¸ñÊ½
+		// å®šä¹‰å“åº”å‚æ•°æ ¼å¼
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	// 3.2 ¶¨ÒåĞÂÔö½Ó¿Ú´¦Àí
+	// 3.2 å®šä¹‰æ–°å¢æ¥å£å¤„ç†
 	ENDPOINT(API_M_POST, "/add", addTest, BODY_DTO(ContractDTO::Wrapper, dto)) {
-		// ÏìÓ¦½á¹û
+		// å“åº”ç»“æœ
 		API_HANDLER_RESP_VO(execAddSample1(dto));
 	}
 
 
-	// 3.1 ¶¨ÒåĞŞ¸Ä½Ó¿ÚÃèÊö
+	// 3.1 å®šä¹‰ä¿®æ”¹æ¥å£æè¿°
 	ENDPOINT_INFO(changeTest) {
-		// ¶¨Òå½Ó¿Ú±êÌâ
+		// å®šä¹‰æ¥å£æ ‡é¢˜
 		info->summary = "change test";
-		// ¶¨ÒåÏìÓ¦²ÎÊı¸ñÊ½
+		// å®šä¹‰å“åº”å‚æ•°æ ¼å¼
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	// 3.2 ¶¨ÒåĞŞ¸Ä½Ó¿Ú´¦Àí
+	// 3.2 å®šä¹‰ä¿®æ”¹æ¥å£å¤„ç†
 	ENDPOINT(API_M_PUT, "/change", changeTest, BODY_DTO(ContractDTO::Wrapper, dto)) {
-		// ÏìÓ¦½á¹û
+		// å“åº”ç»“æœ
 		API_HANDLER_RESP_VO(execModifySample(dto));
 	}
 
-	// 3.1 ¶¨ÒåÉ¾³ı½Ó¿ÚÃèÊö
+	// 3.1 å®šä¹‰åˆ é™¤æ¥å£æè¿°
 	ENDPOINT_INFO(removeTest) {
-		// ¶¨Òå½Ó¿Ú±êÌâ
+		// å®šä¹‰æ¥å£æ ‡é¢˜
 		info->summary = "remove test";
-		// ¶¨ÒåÏìÓ¦²ÎÊı¸ñÊ½
+		// å®šä¹‰å“åº”å‚æ•°æ ¼å¼
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	// 3.2 ¶¨ÒåÉ¾³ı½Ó¿Ú´¦Àí
+	// 3.2 å®šä¹‰åˆ é™¤æ¥å£å¤„ç†
 	ENDPOINT(API_M_DEL, "/remove", removeTest, BODY_DTO(ContractDTO::Wrapper, dto)) {
-		// ÏìÓ¦½á¹û
+		// å“åº”ç»“æœ
 		API_HANDLER_RESP_VO(execRemoveSample(dto));
 	}
 private:
-	//¶¨Òå½Ó¿ÚµÄÖ´ĞĞº¯Êı
+	//å®šä¹‰æ¥å£çš„æ‰§è¡Œå‡½æ•°
 	StringJsonVO::Wrapper execQueryTest(const PageQuery::Wrapper& query);
 
 	Uint64JsonVO::Wrapper execAddSample1(const ContractDTO::Wrapper& dto);
 
 	Uint64JsonVO::Wrapper execModifySample(const ContractDTO::Wrapper& dto);
-	// 3.3 ÑİÊ¾É¾³ıÊı¾İ
+	// 3.3 æ¼”ç¤ºåˆ é™¤æ•°æ®
 	Uint64JsonVO::Wrapper execRemoveSample(const ContractDTO::Wrapper& dto);
 
 
 };
 
-// 0 È¡ÏûAPI¿ØÖÆÆ÷Ê¹ÓÃºê
+// 0 å–æ¶ˆAPIæ§åˆ¶å™¨ä½¿ç”¨å®
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
 
 

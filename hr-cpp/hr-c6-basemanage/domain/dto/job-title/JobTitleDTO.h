@@ -3,7 +3,6 @@
 * DTO是修改时携带参数和返回时携带参数类型
 */
 
-
 #include "stdafx.h"
 #include "oatpp/core/Types.hpp"
 #include "oatpp/core/macro/codegen.hpp"
@@ -22,6 +21,7 @@ class JobTitleDTO : public oatpp::DTO {
 	DTO_INIT(JobTitleDTO, DTO);
 	// 职称id
 	DTO_FIELD(UInt64, id);
+
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("title.field.id");
 	}

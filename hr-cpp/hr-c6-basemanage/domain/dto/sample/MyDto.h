@@ -1,30 +1,31 @@
-#pragma once
+ï»¿#pragma once
 #ifndef _MYDTO_H_
 #define _MYDTO_H_
 
+#include "stdafx.h"
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 class ContractDTO : public oatpp::DTO
 {
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	DTO_INIT(ContractDTO, DTO);
-	// Ô±¹¤ÐÕÃû
+	// å‘˜å·¥å§“å
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
 		info->description = ZH_WORDS_GETTER("My.field.name");
 	}
-	// Ô±¹¤±àºÅ
+	// å‘˜å·¥ç¼–å·
 	DTO_FIELD(UInt64, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("My.field.id");
 	}
-	//ÐÔ±ð
+	//æ€§åˆ«
 	DTO_FIELD(String, sex);
 	DTO_FIELD_INFO(sex) {
 		info->description = ZH_WORDS_GETTER("My.field.sex");
 	}
-	// ÄêÁä
+	// å¹´é¾„
 	DTO_FIELD(UInt64, age);
 	DTO_FIELD_INFO(age) {
 		info->description = ZH_WORDS_GETTER("My.field.age");
@@ -32,7 +33,7 @@ class ContractDTO : public oatpp::DTO
 };
 
 /**
- * Ê¾Àý·ÖÒ³´«Êä¶ÔÏó
+ * ç¤ºä¾‹åˆ†é¡µä¼ è¾“å¯¹è±¡
  */
 class ContractPageDTO : public PageDTO<ContractDTO::Wrapper>
 {
