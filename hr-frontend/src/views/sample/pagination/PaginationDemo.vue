@@ -8,7 +8,12 @@ export default {
   data() {
     return {
       pageSizes: ['10', '20'],
-      total: 1000,
+      total: 1000
+    }
+  },
+  methods: {
+    confirm() {
+      console.log('value', this.value)
     }
   }
 }
