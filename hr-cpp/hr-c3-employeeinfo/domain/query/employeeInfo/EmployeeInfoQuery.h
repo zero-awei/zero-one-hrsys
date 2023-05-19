@@ -44,7 +44,7 @@ class EmployeeInfoQuery : public PageQuery
 		info->description = ZH_WORDS_GETTER("employee.field.idtype");
 	}
 	//Ö¤¼þºÅÂë
-	DTO_FIELD(Int32, idnum);
+	DTO_FIELD(UInt64, idnum);
 	DTO_FIELD_INFO(idnum) {
 		info->description = ZH_WORDS_GETTER("employee.field.idnum");
 	}

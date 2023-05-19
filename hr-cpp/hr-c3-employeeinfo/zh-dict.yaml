@@ -20,7 +20,7 @@ employee:
   id: 员工编号
   name: 员工姓名
   idType: 证件类型
-  idMum: 证件号码
+  idNum: 证件号码
   bitrhday: 出生日期
   age: 年龄
   sex: 性别
@@ -49,6 +49,23 @@ employee:
   phone: 手机号码
   state: 员工状态
   jobList: 岗位
+  assign: 分配
+  type: 类型
+  organize: 组织
+  depart: 部门
+  job: 职务
+  post: 岗位
+  start-time: 任职开始时间
+  end-time: 任职结束时间
+ get:
+  summary: 查询指定员工员工信息
+  summaryList: 分页查询岗位信息
+ post:
+  summary:
+ put:
+  summary: 修改指定员工员工信息
+ delete:
+  summary:
 sample:
  get:
   summary: 分页查询示例数据
@@ -88,6 +105,13 @@ member:
     parentkey: 查询parent的id
     page: 页码
     size: 页的记录数
+    field:
+    ygbh: 员工编号
+    pimpersonname: 个人名字
+    ormorgname: 组织名字
+    ormorgsectorname: 部门名字
+    zw: 职务
+    sex: 性别，如：男
 org:
   field:
     companyflag: 是否为根组织
@@ -101,21 +125,3 @@ orgsector:
     orgsectorid: 部门id 
     orgname: 组织名字
     orgid: 组织id
-member:
-  field:
-    ygbh: 员工编号
-    pimpersonname: 个人名字
-    ormorgname: 组织名字
-    ormorgsectorname: 部门名字
-    zw: 职务
-  sex: 性别，如：男
-employee:
- field:
-  assign: 分配
-  type: 类型
-  organize: 组织
-  depart: 部门
-  job: 职务
-  post: 岗位
-  start-time: 任职开始时间
-  end-time: 任职结束时间

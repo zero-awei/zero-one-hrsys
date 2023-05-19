@@ -20,3 +20,18 @@
 #include "stdafx.h"
 #include "EmployeeInfoController.h"
 
+StringJsonVO::Wrapper EmployeeInfoController::execEmployeeQuery(const EmployeeInfoQuery::Wrapper& query) {
+	auto vo = StringJsonVO::createShared();
+	vo->success("Employee information query success");
+	return vo;
+}
+StringJsonVO::Wrapper EmployeeInfoController::execEmployeeModify(const EmployeeInfoDTO::Wrapper& dto) {
+	auto vo = StringJsonVO::createShared();
+	vo->success("Employee information modify success");
+	return vo;
+}
+StringJsonVO::Wrapper EmployeeInfoController::execJobListQuery(const JobListQuery::Wrapper& query) {
+	auto vo = StringJsonVO::createShared();
+	vo->success("Job list information query success");
+	return vo;
+}

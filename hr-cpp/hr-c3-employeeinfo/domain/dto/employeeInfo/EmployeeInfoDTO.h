@@ -156,11 +156,6 @@ class EmployeeInfoDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("employee.field.phone");
 		info->required = true;
 	}
-	//Ô±¹¤×´Ì¬
-	DTO_FIELD(String, state);
-	DTO_FIELD_INFO(state) {
-		info->description = ZH_WORDS_GETTER("employee.field.state");
-	}
 };
 
 #include OATPP_CODEGEN_END(DTO)
