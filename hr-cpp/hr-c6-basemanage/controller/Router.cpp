@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
+#include "SelectController/MyController.h"
 #include "controller/job-title/JobTitleController.h"
 
 #ifdef HTTP_SERVER_DEMO
@@ -26,14 +27,15 @@
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
+#include "LDConstroller/LaborDispatchConstroller.h"
 
-// 如果定义了关闭Swagger文档宏
+// ��������˹ر�Swagger�ĵ���
 #ifdef CLOSE_SWAGGER_DOC
-// 简化绑定控制器宏定义
+// �򻯰󶨿������궨��
 #define ROUTER_SIMPLE_BIND(__CLASS__) \
 router->addController(__CLASS__::createShared())
 #else
-// 简化绑定控制器宏定义
+// �򻯰󶨿������궨��
 #define ROUTER_SIMPLE_BIND(__CLASS__) \
 BIND_CONTROLLER(docEndpoints, router, __CLASS__)
 #endif
@@ -50,22 +52,24 @@ void Router::initRouter()
 	createSampleRouter();
 #endif
 
-	//#TIP :系统扩展路由定义，写在这个后面
+	//#TIP :ϵͳ��չ·�ɶ��壬д���������
+	ROUTER_SIMPLE_BIND(LaborDispatchConstroller);
+	ROUTER_SIMPLE_BIND(TestController);
 	createRouter();
 }
 
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
-	// 绑定示例控制器
+	// ��ʾ��������
 	ROUTER_SIMPLE_BIND(SampleController);
-	// 绑定用户控制器
+	// ���û�������
 	ROUTER_SIMPLE_BIND(UserController);
 
-	// 绑定职称管理控制器
+	// ��ְ�ƹ��������
 	ROUTER_SIMPLE_BIND(JobTitleController);
 
-	// 绑定WebSocket控制器
+	// ��WebSocket������
 	router->addController(WSContorller::createShared());
 }
 #endif

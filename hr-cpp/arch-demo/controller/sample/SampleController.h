@@ -32,29 +32,30 @@
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
-// 0 定义API控制器使用宏
+// 0 ����API������ʹ�ú�  (api�������Ǵ���������󣬷�����Ӧ��)
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
 /**
- * 示例控制器，演示基础接口的使用
+ * ʾ������������ʾ�����ӿڵ�ʹ��
  */
-class SampleController : public oatpp::web::server::api::ApiController // 1 继承控制器
+class SampleController : public oatpp::web::server::api::ApiController // 1 �̳п�����
 {
-	// 2 定义控制器访问入口
+	// 2 ����������������
 	API_ACCESS_DECLARE(SampleController);
-	// 3 定义接口
+	// 3 ����ӿ�
+// API���������Ը��ݴ��������URL��HTTP�������࣬Ȼ������·�ɵ���Ӧ�ķ����ͷ����н��д���
 public:
-	// 3.1 定义查询接口描述
+	// 3.1 �����ѯ�ӿ�����
 	ENDPOINT_INFO(querySample) {
-		// 定义接口标题
+		// ����ӿڱ���
 		info->summary = ZH_WORDS_GETTER("sample.get.summary");
-		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		// ����Ĭ����Ȩ��������ѡ���壬��������ˣ�����ENDPOINT������Ҫ����API_HANDLER_AUTH_PARAME��
 		API_DEF_ADD_AUTH();
-		// 定义响应参数格式
+		// ������Ӧ������ʽ
 		API_DEF_ADD_RSP_JSON_WRAPPER(SamplePageJsonVO);
-		// 定义分页参数描述
+		// �����ҳ��������
 		API_DEF_ADD_PAGE_PARAMS();
-		// 定义其他表单参数描述
+		// �������������������
 		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("sample.field.name");
 		info->queryParams["name"].addExample("default", String("li ming"));
 		info->queryParams["name"].required = false;
@@ -62,115 +63,116 @@ public:
 		info->queryParams["sex"].addExample("default", String("N"));
 		info->queryParams["sex"].required = false;
 	}
-	// 3.2 定义查询接口处理
+	// 3.2 �����ѯ�ӿڴ���
 	ENDPOINT(API_M_GET, "/sample", querySample, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
-		// 解析查询参数
+		// ������ѯ����
 		API_HANDLER_QUERY_PARAM(userQuery, SampleQuery, queryParams);
-		// 响应结果
+		// ��Ӧ���
 		API_HANDLER_RESP_VO(execQuerySample(userQuery, authObject->getPayload()));
 	}
-	// 3.1 定义新增接口描述
+	// 3.1 ���������ӿ�����
 	ENDPOINT_INFO(addSample) {
-		// 定义接口标题
+		// ����ӿڱ���
 		info->summary = ZH_WORDS_GETTER("sample.post.summary");
-		// 定义响应参数格式
+		// ������Ӧ������ʽ
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	// 3.2 定义新增接口处理
+	// 3.2 ���������ӿڴ���
 	ENDPOINT(API_M_POST, "/sample", addSample, BODY_DTO(SampleDTO::Wrapper, dto)) {
-		// 响应结果
+		// ��Ӧ���
 		API_HANDLER_RESP_VO(execAddSample(dto));
 	}
 
-	// 3.1 定义修改接口描述
+	// 3.1 �����޸Ľӿ�����
 	ENDPOINT_INFO(modifySample) {
-		// 定义接口标题
+		// ����ӿڱ���
 		info->summary = ZH_WORDS_GETTER("sample.put.summary");
-		// 定义响应参数格式
+		// ������Ӧ������ʽ
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	// 3.2 定义修改接口处理
+	// 3.2 �����޸Ľӿڴ���
 	ENDPOINT(API_M_PUT, "/sample", modifySample, BODY_DTO(SampleDTO::Wrapper, dto)) {
-		// 响应结果
+		// ��Ӧ���
 		API_HANDLER_RESP_VO(execModifySample(dto));
 	}
-	// 3.1 定义删除接口描述
+	// 3.1 ����ɾ���ӿ�����
 	ENDPOINT_INFO(removeSample) {
-		// 定义接口标题
+		// ����ӿڱ���
 		info->summary = ZH_WORDS_GETTER("sample.delete.summary");
-		// 定义响应参数格式
+		// ������Ӧ������ʽ
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	// 3.2 定义删除接口处理
+	// 3.2 ����ɾ���ӿڴ���
 	ENDPOINT(API_M_DEL, "/sample", removeSample, BODY_DTO(SampleDTO::Wrapper, dto)) {
-		// 响应结果
+		// ��Ӧ���
 		API_HANDLER_RESP_VO(execRemoveSample(dto));
 	}
 
-	// [其他] 定义一个单文件上传接口
+	// [����] ����һ�����ļ��ϴ��ӿ�
 	ENDPOINT(API_M_POST, "/upload", uploadFile, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
-		/* 创建multipart容器 */
+		/* ����multipart���� */
 		auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
-		/* 创建multipart读取器 */
+		/* ����multipart��ȡ�� */
 		multipart::Reader multipartReader(multipartContainer.get());
-		/* 配置读取器读取表单字段 */
+		/* ���ö�ȡ����ȡ����ֶ� */
 		multipartReader.setPartReader("nickname", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 		multipartReader.setPartReader("age", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-		/* 配置读取器读取文件到文件 */
+		/* ���ö�ȡ����ȡ�ļ����ļ� */
 		multipartReader.setPartReader("file", multipart::createFilePartReader("public/static/file/test.png"));
-		/* 读取请求体中的数据 */
+		/* ��ȡ�������е����� */
 		request->transferBody(&multipartReader);
-		/* 打印part数量 */
+		/* ��ӡpart���� */
 		OATPP_LOGD("Multipart", "parts_count=%d", multipartContainer->count());
-		/* 获取表单数据 */
+		/* ��ȡ������� */
 		auto nickname = multipartContainer->getNamedPart("nickname");
 		auto age = multipartContainer->getNamedPart("age");
-		/* 断言表单数据是否正确 */
+		/* ���Ա�������Ƿ���ȷ */
 		OATPP_ASSERT_HTTP(nickname, Status::CODE_400, "nickname is null");
 		OATPP_ASSERT_HTTP(age, Status::CODE_400, "age is null");
-		/* 打印应表单数据 */
+		/* ��ӡӦ������� */
 		OATPP_LOGD("Multipart", "nickname='%s'", nickname->getPayload()->getInMemoryData()->c_str());
 		OATPP_LOGD("Multipart", "age='%s'", age->getPayload()->getInMemoryData()->c_str());
-		/* 获取文件部分 */
+		/* ��ȡ�ļ����� */
 		auto filePart = multipartContainer->getNamedPart("file");
-		/* 断言文件是否获取到 */
+		/* �����ļ��Ƿ��ȡ�� */
 		OATPP_ASSERT_HTTP(filePart, Status::CODE_400, "file is null");
-		/* 打印文件名称 */
+		/* ��ӡ�ļ����� */
 		OATPP_LOGD("Multipart", "file='%s'", filePart->getFilename()->c_str());
-		/* 响应OK */
+		/* ��ӦOK */
 		return createResponse(Status::CODE_200, "OK");
 	}
-	// [其他] 定义一个多文件上传接口
+	// [����] ����һ�����ļ��ϴ��ӿ�
 	ENDPOINT(API_M_POST, "/upload-more", uploadFileMore, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
-		/* 创建multipart容器 */
+		/* ����multipart���� */
 		auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
-		/* 创建multipart读取器 */
+		/* ����multipart��ȡ�� */
 		multipart::Reader multipartReader(multipartContainer.get());
-		/* 配置读取器读取文件到文件 */
+		/* ���ö�ȡ����ȡ�ļ����ļ� */
 		multipartReader.setPartReader("file0", multipart::createFilePartReader("public/static/file/test1.png"));
 		multipartReader.setPartReader("file1", multipart::createFilePartReader("public/static/file/test2.png"));
-		/* 读取请求体中的数据 */
+		/* ��ȡ�������е����� */
 		request->transferBody(&multipartReader);
-		/* 获取文件部分 */
+		/* ��ȡ�ļ����� */
 		auto file0 = multipartContainer->getNamedPart("file0");
 		auto file1 = multipartContainer->getNamedPart("file1");
-		/* 断言文件是否获取到 */
+		/* �����ļ��Ƿ��ȡ�� */
 		OATPP_ASSERT_HTTP(file0, Status::CODE_400, "file0 is null");
 		OATPP_ASSERT_HTTP(file1, Status::CODE_400, "file1 is null");
-		/* 响应OK */
+		/* ��ӦOK */
 		return createResponse(Status::CODE_200, "OK");
 	}
 private:
-	// 3.3 演示分页查询数据
+
+	// 3.3 ��ʾ��ҳ��ѯ����
 	SamplePageJsonVO::Wrapper execQuerySample(const SampleQuery::Wrapper& query, const PayloadDTO& payload);
-	// 3.3 演示新增数据
+	// 3.3 ��ʾ��������
 	Uint64JsonVO::Wrapper execAddSample(const SampleDTO::Wrapper& dto);
-	// 3.3 演示修改数据
+	// 3.3 ��ʾ�޸�����
 	Uint64JsonVO::Wrapper execModifySample(const SampleDTO::Wrapper& dto);
-	// 3.3 演示删除数据
+	// 3.3 ��ʾɾ������
 	Uint64JsonVO::Wrapper execRemoveSample(const SampleDTO::Wrapper& dto);
 };
 
-// 0 取消API控制器使用宏
+// 0 ȡ��API������ʹ�ú�
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
 #endif // _SAMPLE_CONTROLLER_
