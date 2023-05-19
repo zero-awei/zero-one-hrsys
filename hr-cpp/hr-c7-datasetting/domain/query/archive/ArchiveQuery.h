@@ -1,5 +1,3 @@
-#pragma once
-//此为示例查询，档案管理并没有查询功能
 #ifndef _ARCHIVEQUERY_
 #define _ARCHIVEQUERY_
 
@@ -24,3 +22,4 @@ class ArchiveQuery : public PageQuery
 
 #include OATPP_CODEGEN_END(DTO)
 #endif //
+
