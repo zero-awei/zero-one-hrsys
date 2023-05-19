@@ -37,7 +37,7 @@ jobSet:
   fileType: 文件类型(xlx/xlsx/csv)
   sheetName: 数据表名
   file: 待导入文件
-  id: 导入后的id列表
+  id: 新增id
 
 #项目标签-导出岗位标签
 projTag:

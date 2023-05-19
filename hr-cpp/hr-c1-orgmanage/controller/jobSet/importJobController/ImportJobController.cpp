@@ -34,9 +34,10 @@ ImportJobJsonVO::Wrapper ImportJobController::execImportJob(const ImportJobDTO::
 	String str3 = "789ghi";
 	auto ij = ImportJobVO::createShared();
 	ij->newId->push_back("123abc");
-
+	ij->newId->push_back("456def");
+	ij->newId->push_back("789ghi");
 
 	// TODO: µ÷ÓÃservice
 	vo->init(ij, RS_SUCCESS);
-	RTN(vo, RS_SUCCESS)
+	return vo;
 }
