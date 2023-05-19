@@ -8,8 +8,7 @@
 /**
  *  基础管理 —— 人员花名册 —— 见习员工 —— 分页查询员工列表 PageQueryEmployeeList  (分页 )示例传输对象
  */
-class ExportEmployeeDTO : public oatpp::DTO
-{
+class ExportEmployeeDTO : public oatpp::DTO {
 	DTO_INIT(ExportEmployeeDTO, DTO);
 	// 编号
 	DTO_FIELD(UInt64, id);

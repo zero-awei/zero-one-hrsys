@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _SAMPLE_DO_
-#define _SAMPLE_DO_
+#ifndef _EXPORTLEGALERSETTING_DO_
+#define _EXPORTLEGALERSETTING_DO_
 #include "../DoInclude.h"
 
 /**
@@ -24,4 +24,4 @@ public:
 	}
 };
 
-#endif // !_SAMPLE_DO_
+#endif // !_EXPORTLEGALERSETTING_DO_

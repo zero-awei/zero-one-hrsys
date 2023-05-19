@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _SAMPLE_DO_
-#define _SAMPLE_DO_
+#ifndef _PAGEQUERYEMPLOYEELIST_DO_
+#define _PAGEQUERYEMPLOYEELIST_DO_
 #include "../DoInclude.h"
 
 /**
@@ -23,5 +23,4 @@ public:
 		age = -1;
 	}
 };
-
-#endif // !_SAMPLE_DO_
+#endif // !_PAGEQUERYEMPLOYEELIST_DO_
