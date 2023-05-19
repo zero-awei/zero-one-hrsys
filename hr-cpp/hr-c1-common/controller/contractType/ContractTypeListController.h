@@ -28,6 +28,11 @@
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
+/**
+ * 合同类型下拉列表控制器
+ * 接收前端请求，查询合同类型并组装成列表返回
+ * 负责人：Andrew
+ */
 class ContractTypeListController : public oatpp::web::server::api::ApiController
 {
 	// 定义控制器访问入口

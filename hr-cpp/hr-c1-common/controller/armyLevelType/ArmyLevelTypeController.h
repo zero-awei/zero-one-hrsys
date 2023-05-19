@@ -28,6 +28,11 @@
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
+/**
+ * 军转级别下拉列表控制器
+ * 接收前端请求，查询军转级别并组装成列表返回
+ * 负责人：Andrew
+ */
 class ArmyLevelTypeController : public oatpp::web::server::api::ApiController
 {
 	// 定义控制器访问入口
