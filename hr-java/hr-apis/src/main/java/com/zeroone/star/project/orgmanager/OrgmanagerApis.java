@@ -1,9 +1,12 @@
 package com.zeroone.star.project.orgmanager;
 
 import com.zeroone.star.project.dto.orgmanager.DeptInfoDTO;
+import com.zeroone.star.project.vo.orgmanager.DeptKqdzVO;
 import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
-import com.zeroone.star.project.query.dashboard.EducationQuery;
+import com.zeroone.star.project.query.orgmanager.KqdzQuery;
 import com.zeroone.star.project.vo.JsonVO;
+
+import java.util.List;
 
 /**
  * 描述：部门信息接口
@@ -28,4 +31,13 @@ public interface OrgmanagerApis {
      * @Date: 2023/5/19 23:43
      */
     JsonVO<String> modifyDept(ModifyDeptInfoDTO modifyDeptInfoDTO);
+
+    /**
+     * @Description: 查询指定部门考勤地址列表（分页查询）
+     * @params: [id] 部门编码
+     * @return: JsonVO<SampleDTO>
+     * @Author: Rqs
+     * @Date: 2023/5/19 23:56
+     */
+    JsonVO<List<DeptKqdzVO>> queryBmKqdzById(KqdzQuery kqdzQuery);
 }

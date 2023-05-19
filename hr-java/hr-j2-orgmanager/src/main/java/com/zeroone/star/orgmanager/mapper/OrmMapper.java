@@ -13,6 +13,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2023-05-19
  */
 @Mapper
-public interface OrmorginfoMapper extends BaseMapper<Ormorginfo> {
+public interface OrmMapper extends BaseMapper<Ormorginfo> {
 
 }
