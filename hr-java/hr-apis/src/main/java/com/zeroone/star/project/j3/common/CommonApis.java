@@ -1,7 +1,6 @@
 package com.zeroone.star.project.j3.common;
 
-import com.zeroone.star.project.j3.query.common.DisciplineTypeQuery;
-import com.zeroone.star.project.j3.query.common.EducationTypeQuery;
+import com.zeroone.star.project.j3.query.common.OneConditionQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
 import java.util.List;
@@ -13,21 +12,16 @@ import java.util.List;
  * <p>版权：&copy;01星球</p>
  * <p>地址：01星球总部</p>
  *
- * @author 梧桐
+ * @author 小吴
  * @version 1.0.0
+ * @Date 2023/5/18 23:43
  */
 public interface CommonApis {
-    /**
-     * 学科类型下拉列表
-     * @param disciplineTypeQuery
-     * @return 集合
-     */
-    JsonVO<List<String>> listDisciplineType(DisciplineTypeQuery disciplineTypeQuery);
 
-    /**
-     * 学历类型下拉列表
-     * @param educationTypeQuery
-     * @return 集合
-     */
-    JsonVO<List<String>> listEducationType(EducationTypeQuery educationTypeQuery);
+	/**
+	 * 获取分配信息中的职务信息数据接口
+	 * @param oneConditionQuery 查询的字段名
+	 * @return 查询结果
+	 */
+	JsonVO<List<String>> queryOneColumn(OneConditionQuery oneConditionQuery);
 }
