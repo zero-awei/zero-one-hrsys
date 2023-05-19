@@ -17,13 +17,13 @@ user:
   menusub: 子菜单
 sample:
  get:
-  summary: 分页查询示例数据
+  summary: 分页查询科研成果数据
  post:
-  summary: 新增一条示例数据
+  summary: 新增一条科研成果数据
  put:
-  summary: 修改一条示例数据
+  summary: 修改一条科研成果数据
  delete:
-  summary: 删除一条示例数据
+  summary: 删除多条科研成果数据
  field:
   id: 编号
   age: 年龄
@@ -55,4 +55,26 @@ workhistory:
  post:
   summary: 新增一条数据
  delete:
-  summary: 删除数据(支持批量删除)
+  summary: 删除数据(支持批量删除)  
+  sex: 性别，如：男
+sciresult:
+ field:
+  UPDATEMAN: 更新人
+  PIMRESEARCHFINDINGSNAME: 科研成果名称
+  FJ: 附件
+  ENABLE: ENABLE
+  CREATEDATE: 建立时间
+  UPDATEDATE: 更新时间
+  CREATEMAN: 建立人
+  PIMRESEARCHFINDINGSID: 科研成果标识
+  PIMPERSONID: 人员信息标识
+  HQSJ: 获取时间
+  JLSS: 记录所属
+  JLSPZT: 审批状态
+  JLGLBH: 记录管理编号
+  JLCZZ: 记录操作者
+  REASON: 拒绝原因
+  list<delSciResult>: 用来批量删除的
+  listsciresult: 导入
+Into: 
+ fileinto: 导入科研成果

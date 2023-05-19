@@ -65,6 +65,8 @@ static std::shared_ptr<__CLASS__> createShared(OATPP_COMPONENT(std::shared_ptr<O
 // 删除数据请求
 #define API_M_DEL  "DELETE";
 
+//////////////////////////////////////////////////////////////////////////
+
 // API描述添加安全验证
 #define API_DEF_ADD_AUTH() info->addSecurityRequirement("bearer_auth")
 
@@ -105,7 +107,7 @@ info->queryParams["pageSize"].addExample("default", oatpp::UInt64(10));
 ENDPOINT_INFO(__API_FUN_NAME__) { \
 	info->summary = __TITLE__; \
 	API_DEF_ADD_AUTH(); \
-	API_DEF_ADD_RSP(__RESP_TYPE__); \
+	API_DEF_ADD_RSP_JSON(__RESP_TYPE__); \
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -119,51 +121,33 @@ QUERY(UInt64, pageSize)
 #define API_HANDLER_AUTH_PARAME \
 AUTHORIZATION(std::shared_ptr<CustomerAuthorizeObject>, authObject)
 
-// 处理跨平台数据类型对应数字
-#ifndef LINUX
-#define API_TYPE_NUMBER_ADD 
-#else
-#define API_TYPE_NUMBER_ADD +5
-#endif
-
-/**
- * 接口处理器解析查询参数到查询数据对象
- * @param __VAR__: 转换后的变量名称，如query
- * @param __TYPE__: 查询数据对象类型，如XxxQuery
- * @param __PARAMS__: QueryParams的变量名称，如：QUERIES(QueryParams, queryParams),则传入queryParams
- */
+ /**
+  * 接口处理器解析查询参数到查询数据对象
+  * @param __VAR__: 转换后的变量名称，如query
+  * @param __TYPE__: 查询数据对象类型，如XxxQuery
+  * @param __PARAMS__: QueryParams的变量名称，如：QUERIES(QueryParams, queryParams),则传入queryParams
+  */
 #define API_HANDLER_QUERY_PARAM(__VAR__, __TYPE__, __PARAMS__) \
 auto __VAR__ = __TYPE__::createShared(); \
 for (auto& param : __PARAMS__.getAll()) { \
 	auto data = param.second.getMemoryHandle().get(); \
-	switch (__VAR__[param.first.toString()].getValueType()->classId.id) { \
-	case 1 API_TYPE_NUMBER_ADD: \
+	auto typeval = __VAR__[param.first.toString()].getValueType(); \
+	if (typeval == oatpp::data::mapping::type::__class::String::getType())\
 		__VAR__[param.first.toString()] = oatpp::String(URIUtil::urlDecode(data->c_str())); \
-		break; \
-	case 6 API_TYPE_NUMBER_ADD: \
+	else if (typeval == oatpp::data::mapping::type::__class::Int32::getType())\
 		__VAR__[param.first.toString()] = oatpp::Int32(stoi(*data)); \
-		break; \
-	case 7 API_TYPE_NUMBER_ADD:  \
+	else if (typeval == oatpp::data::mapping::type::__class::UInt32::getType())\
 		__VAR__[param.first.toString()] = oatpp::UInt32(stoi(*data)); \
-		break; \
-	case 8 API_TYPE_NUMBER_ADD: \
+	else if (typeval == oatpp::data::mapping::type::__class::Int64::getType())\
 		__VAR__[param.first.toString()] = oatpp::Int64(stoll(*data)); \
-		break; \
-	case 9 API_TYPE_NUMBER_ADD: \
+	else if (typeval == oatpp::data::mapping::type::__class::UInt64::getType())\
 		__VAR__[param.first.toString()] = oatpp::UInt64(stoull(*data)); \
-		break; \
-	case 10 API_TYPE_NUMBER_ADD: \
+	else if (typeval == oatpp::data::mapping::type::__class::Float32::getType())\
 		__VAR__[param.first.toString()] = oatpp::Float32(stof(*data)); \
-		break; \
-	case 11 API_TYPE_NUMBER_ADD: \
+	else if (typeval == oatpp::data::mapping::type::__class::Float64::getType())\
 		__VAR__[param.first.toString()] = oatpp::Float64(stod(*data)); \
-		break; \
-	case 12 API_TYPE_NUMBER_ADD: \
+	else if (typeval == oatpp::data::mapping::type::__class::Boolean::getType())\
 		__VAR__[param.first.toString()] = oatpp::Boolean(*data == "true" || stoi(*data) == 1); \
-		break; \
-	default: \
-		break; \
-	} \
 }
 
 /**

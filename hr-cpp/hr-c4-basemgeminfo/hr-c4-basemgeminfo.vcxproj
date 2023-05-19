@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -173,19 +173,26 @@
   <ItemGroup>
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="controller\SciResult\SciResultController.h" />
     <ClInclude Include="controller\work-history\WorkHistoryController.h" />
     <ClInclude Include="dao\work-history\WorkHistoryDAO.h" />
     <ClInclude Include="dao\work-history\WorkHistoryMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\work-history\WorkHistoryFindPageDO.h" />
+    <ClInclude Include="domain\dto\SciResult\AddSciResultDTO.h" />
+    <ClInclude Include="domain\dto\SciResult\DelSciResultDTO.h" />
+    <ClInclude Include="domain\dto\SciResult\IntoSciResultDTO.h" />
+    <ClInclude Include="domain\dto\SciResult\SciResultDTO.h" />
     <ClInclude Include="domain\dto\work-history\AddWorkHistoryDTO.h" />
     <ClInclude Include="domain\dto\work-history\DelWorkHistoryDTO.h" />
     <ClInclude Include="domain\dto\work-history\WorkHistoryExportDTO.h" />
     <ClInclude Include="domain\dto\work-history\WorkHistoryFindDTO.h" />
     <ClInclude Include="domain\dto\work-history\WorkHistoryIntoDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\SciResult\SciResultQuery.h" />
     <ClInclude Include="domain\query\work-history\WorkHistoryExportQuery.h" />
     <ClInclude Include="domain\query\work-history\WorkHistoryPageQuery.h" />
+    <ClInclude Include="domain\vo\SciResult\SciResultVo.h" />
     <ClInclude Include="domain\vo\work-history\WorkHistoryExportVO.h" />
     <ClInclude Include="domain\vo\work-history\WorkHistoryFindVO.h" />
     <ClInclude Include="Macros.h" />
@@ -198,6 +205,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp" />
+    <ClCompile Include="controller\SciResult\SciResultController.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\work-history\WorkHistoryController.cpp" />
     <ClCompile Include="dao\work-history\WorkHistoryDAO.cpp" />
