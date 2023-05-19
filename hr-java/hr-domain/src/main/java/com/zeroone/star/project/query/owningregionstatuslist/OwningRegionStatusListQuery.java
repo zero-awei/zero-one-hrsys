@@ -1,4 +1,4 @@
-package com.zeroone.star.project.query.owning_regionstatuslist;
+package com.zeroone.star.project.query.owningregionstatuslist;
 
 /**
  * @author abner

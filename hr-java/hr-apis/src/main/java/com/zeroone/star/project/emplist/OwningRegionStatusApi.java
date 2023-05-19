@@ -7,11 +7,11 @@ package com.zeroone.star.project.emplist;
 import com.zeroone.star.project.dto.PageDTO;
 
 
-import com.zeroone.star.project.dto.owning_regionstatuslist.OwningRegionStatusListDTO;
-import com.zeroone.star.project.query.owning_regionstatuslist.OwningRegionStatusListQuery;
+import com.zeroone.star.project.dto.owningregionstatuslist.OwningRegionStatusListDTO;
+import com.zeroone.star.project.query.owningregionstatuslist.OwningRegionStatusListQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
-public interface Owning_regionStatusApi {
+public interface OwningRegionStatusApi {
     /**
      *
      * @param query

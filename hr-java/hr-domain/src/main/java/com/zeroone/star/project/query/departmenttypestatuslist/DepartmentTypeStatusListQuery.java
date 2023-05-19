@@ -1,4 +1,4 @@
-package com.zeroone.star.project.query.department_typestatuslist;
+package com.zeroone.star.project.query.departmenttypestatuslist;
 
 /**
  * @author abner
