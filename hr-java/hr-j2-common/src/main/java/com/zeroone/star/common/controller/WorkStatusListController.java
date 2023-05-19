@@ -5,6 +5,7 @@ import com.zeroone.star.project.dto.statuslist.WorkStatusListDTO;
 import com.zeroone.star.project.emplist.WorkStatusApi;
 import com.zeroone.star.project.query.statuslist.WorkStatusListQuery;
 import com.zeroone.star.project.vo.JsonVO;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2023/5/18 10:00
  */
 @RestController
-@RequestMapping("employee")
+@RequestMapping("common")
+@Api(tags = "common")
 public class WorkStatusListController implements WorkStatusApi {
 
     @Override
