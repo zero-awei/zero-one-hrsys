@@ -29,3 +29,15 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+projTag:
+ import:
+  summary: 项目标签
+  fileType: 文件类型
+  sheetName: 文件名称
+  file: 文件名称
+jobSet:
+ import:
+  summary: 岗位名称
+  fileType: 文件类型
+  sheetName: 文件名称
+  file: 文件名称

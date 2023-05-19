@@ -26,7 +26,7 @@
 #include "uselib/ws/WSController.h"
 #endif
 #include "jobSet/importJobController/ImportJobController.h"
-
+#include "projTag/importTagController/ImportTagController.h"
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -52,6 +52,7 @@ void Router::initRouter()
 
 	//#TIP :系统扩展路由定义，写在这个后面
 	createJobSetRouter();
+	createProjTagRouter();
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -71,4 +72,9 @@ void Router::createSampleRouter()
 void Router::createJobSetRouter()
 {
 	ROUTER_SIMPLE_BIND(ImportJobController);
+}
+
+void Router::createProjTagRouter()
+{
+	ROUTER_SIMPLE_BIND(ImportTagController);
 }

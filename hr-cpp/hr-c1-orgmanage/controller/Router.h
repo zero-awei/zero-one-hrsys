@@ -46,6 +46,7 @@ private:
 	void createSampleRouter();
 #endif
 	void createJobSetRouter();
+	void createProjTagRouter();
 };
 
 #endif // !_ROUTER_
