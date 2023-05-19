@@ -46,7 +46,6 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(FamilySituationPageJsonVO);
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
-		// 待补充
 	}
 	// 定义查询接口处理
 	ENDPOINT(API_M_GET, "/query-by-Familysituation", queryFamilysituation, QUERIES(QueryParams, queryParams))
@@ -55,6 +54,7 @@ public: // 定义接口
 		API_HANDLER_QUERY_PARAM(familysituationQuery, FamilysituationQuery, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryByFamilysituation(familysituationQuery));
+
 	}
 	// 定义查询指定家庭情况接口描述
 	ENDPOINT_INFO(queryOneFamilysituation)
@@ -63,9 +63,11 @@ public: // 定义接口
 		info->summary = ZH_WORDS_GETTER("familysituation.getone.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(FamilysituationJsonVO);
+		info->queryParams.add<String>("id").description = "ID";
+		info->queryParams["id"].addExample("default", String("1"));
 	}
 	// 定义查询指定家庭情况接口处理
-	ENDPOINT(API_M_GET, "/query-by-Familysituation", queryOneFamilysituation, QUERIES(QueryParams, queryParams))
+	ENDPOINT(API_M_GET, "/query-by-OneFamilysituation", queryOneFamilysituation, QUERIES(QueryParams, queryParams))
 	{
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(oneQuery, FamilysituationQuery, queryParams);
@@ -79,6 +81,7 @@ public: // 定义接口
 		info->summary = ZH_WORDS_GETTER("familysituation.post.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+
 	}
 	// 定义添加接口处理
 	ENDPOINT(API_M_POST, "/add-by-Familysituation", addFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
