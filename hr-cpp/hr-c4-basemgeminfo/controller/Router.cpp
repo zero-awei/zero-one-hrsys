@@ -27,6 +27,13 @@
 #include"military/MilitaryController.h"
 #include "work-history/WorkHistoryController.h"
 
+
+
+
+
+#include "archives/ArchivesController.h"
+#include "scientific/ScientificController.h"
+
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -52,6 +59,9 @@ void Router::initRouter()
 
 	//#TIP :系统扩展路由定义，写在这个后面
 	ROUTER_SIMPLE_BIND(SciResultController);
+	//新增科研成果Controller和档案信息Controller
+	ROUTER_SIMPLE_BIND(ArchivesController);
+	ROUTER_SIMPLE_BIND(ScientificController);
 
 
 	//#TIP :系统扩展路由定义，写在这个后面

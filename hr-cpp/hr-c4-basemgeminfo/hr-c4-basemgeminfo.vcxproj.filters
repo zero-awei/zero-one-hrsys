@@ -222,6 +222,39 @@
     <ClInclude Include="service\certificate-information\jobtitle-information\JobTitleInformationService.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\archives\ArchivesController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\scientific\ScientificController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\archives\ArchivesDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\archives\ArchivesMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\archives\ArchivesDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\archives\ArchivesDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\archives\ArchivesQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\archives\ArchivesVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\Archives\ArchivesService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\scientific\ScientificQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\scientific\ScientificVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -288,6 +321,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="service\certificate-information\jobtitle-information\JobTitleInformationService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\archives\ArchivesController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\scientific\ScientficController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\archives\ArchivesDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\Archives\ArchivesService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
