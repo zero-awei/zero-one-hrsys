@@ -46,6 +46,7 @@ private:
 	void createSampleRouter();
 #endif
 	void createContractTypeRouter();
+	void createJobCategoryRouter();
 };
 
 #endif // !_ROUTER_

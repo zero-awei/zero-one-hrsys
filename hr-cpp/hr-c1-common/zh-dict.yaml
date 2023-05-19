@@ -33,5 +33,9 @@ common:
     dto:
       code: 列表项对应键
       value: 列表项映射值
+      list: 下拉列表
     file:
       level: 获奖等级
+      job: 工作岗位
+    controller:
+        JobCategory: 工作岗位

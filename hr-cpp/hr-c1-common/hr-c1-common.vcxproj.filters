@@ -33,7 +33,7 @@
     <ClInclude Include="controller\Router.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="controller\awardLevel\AwardLevelContronller.h">
+    <ClInclude Include="controller\awardLevel\AwardLevelController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\awardLevel\AwardLevelQuery.h">
@@ -43,6 +43,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="domain\dto\awardLevel\AwardLevelDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\jobCategory\JobCategoryDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\jobCategory\JobCategoryVO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\jobCategory\JobCategoryQuery.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\jobCategory\JobCategoryController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -59,7 +71,10 @@
     <ClCompile Include="controller\SystemInterceptor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="controller\awardLevel\AwardLevelContronller.cpp">
+    <ClCompile Include="controller\awardLevel\AwardLevelController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\jobCategory\JobCategoryController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -159,19 +159,24 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="controller\awardLevel\AwardLevelContronller.h" />
+    <ClInclude Include="controller\awardLevel\AwardLevelController.h" />
+    <ClInclude Include="controller\jobCategory\JobCategoryController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\awardLevel\AwardLevelDTO.h" />
+    <ClInclude Include="domain\dto\jobCategory\JobCategoryDTO.h" />
     <ClInclude Include="domain\query\awardLevel\AwardLevelQuery.h" />
+    <ClInclude Include="domain\query\jobCategory\JobCategoryQuery.h" />
     <ClInclude Include="domain\vo\awardLevel\AwardLevelVO.h" />
+    <ClInclude Include="domain\vo\jobCategory\JobCategoryVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="controller\awardLevel\AwardLevelContronller.cpp" />
+    <ClCompile Include="controller\awardLevel\AwardLevelController.cpp" />
+    <ClCompile Include="controller\jobCategory\JobCategoryController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
