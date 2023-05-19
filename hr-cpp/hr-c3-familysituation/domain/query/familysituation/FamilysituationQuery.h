@@ -32,67 +32,7 @@
 class FamilysituationQuery : public PageQuery
 {
 	DTO_INIT(FamilysituationQuery, PageQuery);
-	//关系
-	DTO_FIELD(String, frelationship);
-	DTO_FIELD_INFO(frelationship) {
-		info->description = ZH_WORDS_GETTER("familysituation.field.relationship");
-	}
-	//姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("familysituation.field.name");
-	}
-	// 性别
-	DTO_FIELD(String, gender);
-	DTO_FIELD_INFO(gender) {
-		info->description = ZH_WORDS_GETTER("familysituation.field.gender");
-	}
-	// 年龄
-	DTO_FIELD(UInt32, age);
-	DTO_FIELD_INFO(age) {
-		info->description = ZH_WORDS_GETTER("familysituation.field.age");
-	}
-	// 工作单位
-	DTO_FIELD(String, workplace);
-	DTO_FIELD_INFO(workplace) {
-		info->description = ZH_WORDS_GETTER("familysituation.field.workplace");
-	}
-
-	// 职务
-	DTO_FIELD(String, job);
-	DTO_FIELD_INFO(job) {
-		info->description = ZH_WORDS_GETTER("familysituation.field.job");
-	}
-
-	// 政治面貌
-	DTO_FIELD(String, politicalstatus);
-	DTO_FIELD_INFO(politicalstatus) {
-		info->description = ZH_WORDS_GETTER("familysituation.field.politicalstatus");
-	}
-
-	// 证件号
-	DTO_FIELD(String, identification);
-	DTO_FIELD_INFO(identification) {
-		info->description = ZH_WORDS_GETTER("familysituation.field.identification");
-	}
-
-	// 出生日期
-	DTO_FIELD(String, dob);
-	DTO_FIELD_INFO(dob) {
-		info->description = ZH_WORDS_GETTER("familysituation.field.dob");
-	}
-
-	// 是否遗嘱
-	DTO_FIELD(Boolean, testament);
-	DTO_FIELD_INFO(testament) {
-		info->description = ZH_WORDS_GETTER("familysituation.field.testament");
-	}
-
-	// 是否紧急联系人
-	DTO_FIELD(Boolean, ice);
-	DTO_FIELD_INFO(ice) {
-		info->description = ZH_WORDS_GETTER("familysituation.field.ice");
-	}
+	API_DTO_FIELD_DEFAULT(UInt64, id, "ID");
 };
 
 #include OATPP_CODEGEN_END(DTO)
