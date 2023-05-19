@@ -41,7 +41,8 @@ SOFTWARE.
 #if defined(CPP_JWT_USE_VENDORED_NLOHMANN_JSON)
 #include "jwt/json/json.hpp"
 #else
-#include "nlohmann/json.hpp"
+#include "jwt/json/json.hpp"
+//#include "nlohmann/json.hpp"
 #endif
 // For convenience
 using json_t = nlohmann::json;

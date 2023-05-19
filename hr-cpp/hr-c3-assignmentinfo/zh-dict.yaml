@@ -29,3 +29,6 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+t_pimperson: 
+ pimpersonname: 员工姓名
+

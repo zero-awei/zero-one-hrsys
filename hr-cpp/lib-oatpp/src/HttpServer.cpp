@@ -53,7 +53,9 @@ public:
 };
 #include OATPP_CODEGEN_END(ApiController)
 
-void HttpServer::initServer(string port, string host, function<void(Endpoints*, HttpRouter*)> bindRouterFun, function<void(std::shared_ptr<AbstractComponentReg>*)> otherComponentRegCall)
+void HttpServer::initServer(string port, string host, 
+	function<void(Endpoints*, HttpRouter*)> bindRouterFun, 
+	function<void(std::shared_ptr<AbstractComponentReg>*)> otherComponentRegCall)
 {
 	// 注册环境组件
 	AppComponent components;
@@ -102,7 +104,10 @@ void HttpServer::initServer(string port, string host, function<void(Endpoints*, 
 	server.run([=] {return isAllowServerRun; });
 }
 
-void HttpServer::startServer(string port, function<void(Endpoints*, HttpRouter*)> bindRouterFun, function<void(std::shared_ptr<AbstractComponentReg>*)> otherComponentRegCall /*= nullptr*/, string host /*= "0.0.0.0"*/)
+void HttpServer::startServer(string port, 
+				function<void(Endpoints*, HttpRouter*)> bindRouterFun, 
+				function<void(std::shared_ptr<AbstractComponentReg>*)> otherComponentRegCall /*= nullptr*/, 
+				string host /*= "0.0.0.0"*/)
 {
 	oatpp::base::Environment::init();
 
