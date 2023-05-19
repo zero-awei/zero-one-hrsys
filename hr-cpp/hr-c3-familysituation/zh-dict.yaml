@@ -39,11 +39,6 @@ familysituation:
  del:
   summary: 删除一条家庭情况
  field:
-  relationship: 与本人关系
-   dadson: 父子
-   momsom: 母子
-   daddau: 父女
-   momdau: 母女
   name: 姓名
   gender: 性别
   age: 年龄
@@ -54,3 +49,6 @@ familysituation:
   dob: 出生日期
   testament: 是否遗嘱
   ice: 紧急联系人
+  relationship: 与本人关系
+ description:
+  dadson: 父子
