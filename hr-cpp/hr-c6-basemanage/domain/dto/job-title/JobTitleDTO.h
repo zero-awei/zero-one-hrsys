@@ -17,6 +17,7 @@
 * 职称管理对象传输(临时字段)
 */
 class JobTitleDTO : public oatpp::DTO {
+
 	// 初始化DTO
 	DTO_INIT(JobTitleDTO, DTO);
 	// 职称id
