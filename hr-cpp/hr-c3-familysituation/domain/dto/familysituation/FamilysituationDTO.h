@@ -31,16 +31,6 @@
 class FamilysituationDTO : public oatpp::DTO
 {
 	DTO_INIT(FamilysituationDTO, DTO);
-	//关系
-	API_DTO_FIELD_DEFAULT(String, frelationship, ZH_WORDS_GETTER("familysituation.field.relationship"));
-	//姓名
-	API_DTO_FIELD_DEFAULT(String, name, ZH_WORDS_GETTER("familysituation.field.name"));
-	// 性别
-	API_DTO_FIELD_DEFAULT(String, gender, ZH_WORDS_GETTER("familysituation.field.gender"));
-	// 年龄
-	API_DTO_FIELD_DEFAULT(UInt32, age, ZH_WORDS_GETTER("familysituation.field.age"));
-	// 工作单位
-	API_DTO_FIELD_DEFAULT(UInt32, workplace, ZH_WORDS_GETTER("familysituation.field.workplace"));
 
 	// 职务
 	DTO_FIELD(String, job);
