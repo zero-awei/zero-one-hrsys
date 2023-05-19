@@ -40,6 +40,33 @@ public interface CommonApis {
  * @Date 20:24 2023/5/19
  */
 	JsonVO<List<DropdownListOptionDTO>> queryTypeofMilitaryTransfer();
-
+/**
+ *  分配形式下拉列表
+ * @return {@link JsonVO< List< DropdownListOptionDTO>>}
+ * @Author H_lzu
+ * @Date 20:45 2023/5/19
+ */
+	JsonVO<List<DropdownListOptionDTO>> queryDistributionForm();
+	/**
+	 *  分配状态下拉列表
+	 * @return {@link JsonVO< List< DropdownListOptionDTO>>}
+	 * @Author H_lzu
+	 * @Date 20:47 2023/5/19
+	 */
+	JsonVO<List<DropdownListOptionDTO>> queryDistributionStatus();
+/**
+ *  组织形式下拉列表
+ * @return {@link JsonVO< List< DropdownListOptionDTO>>}
+ * @Author H_lzu
+ * @Date 20:49 2023/5/19
+ */
+	JsonVO<List<DropdownListOptionDTO>> queryNameofAssociation();
+/**
+ *  部门名称下拉列表
+ * @return {@link JsonVO< List< DropdownListOptionDTO>>}
+ * @Author H_lzu
+ * @Date 20:49 2023/5/19
+ */
+	JsonVO<List<DropdownListOptionDTO>> queryDepartmentName();
 }
 
