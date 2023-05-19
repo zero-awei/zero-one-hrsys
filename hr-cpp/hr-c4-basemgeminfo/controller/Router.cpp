@@ -25,6 +25,8 @@
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
+#include "archives/ArchivesController.h"
+#include "scientific/ScientificController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -50,6 +52,9 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
+	//新增科研成果Controller和档案信息Controller
+	ROUTER_SIMPLE_BIND(ArchivesController);
+	ROUTER_SIMPLE_BIND(ScientificController);
 
 }
 

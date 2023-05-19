@@ -171,18 +171,35 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="controller\archives\ArchivesController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="controller\scientific\ScientificController.h" />
+    <ClInclude Include="dao\archives\ArchivesDAO.h" />
+    <ClInclude Include="dao\archives\ArchivesMapper.h" />
+    <ClInclude Include="domain\do\archives\ArchivesDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\scientific\Scientific.h" />
+    <ClInclude Include="domain\dto\archives\ArchivesDTO.h" />
+    <ClInclude Include="domain\dto\scientific\ScientificDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\archives\ArchivesQuery.h" />
+    <ClInclude Include="domain\query\scientific\ScientificQuery.h" />
+    <ClInclude Include="domain\vo\archives\ArchivesVO.h" />
+    <ClInclude Include="domain\vo\scientific\ScientificVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\archives\ArchivesService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="controller\archives\ArchivesController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
+    <ClCompile Include="controller\scientific\ScientficController.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\archives\ArchivesDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\archives\ArchivesService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

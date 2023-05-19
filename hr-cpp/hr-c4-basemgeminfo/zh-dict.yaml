@@ -29,3 +29,36 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+archives:
+ get:
+  summary: 分页查询员工档案数据
+ name: 员工姓名
+ dabh: 档案编号
+ ormorgid3: 管理单位
+ dabgd: 档案保管地
+ archivescenterid: 档案室
+ education: 档案学历
+ dateofbirth: 档案出生日期
+ joinpartydate: 档案入党时间
+ startworkdatae: 档案参加工作时间
+ dazt: 档案状态
+scientific:
+ get: 
+  summary: 查看指定员工科研成果(指定科研成果详情)
+ put:
+  summary: 修改指定员工科研成果
+ download:
+  summary: 导出指定员工科研成果
+ updateman: 更新人
+ pimresearchfindingsname: 科研成果名称
+ fj: 附件
+ createdate: 建立时间
+ updatedate: 更新时间
+ createman: 建立人
+ pimresearchfindingsid: 科研成果标识
+ pimpersonid: 人员信息标识
+ hqsj: 获取时间 
+ jlss: 记录所属
+ jlglbh: 记录管理编号
+ jlczz: 记录操作者
+ reason: 拒绝原因
