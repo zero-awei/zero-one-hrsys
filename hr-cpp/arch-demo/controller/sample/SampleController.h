@@ -62,7 +62,7 @@ public:
 		info->queryParams["sex"].addExample("default", String("N"));
 		info->queryParams["sex"].required = false;
 	}
-	// 3.2 定义查询接口处理
+	// 3.2 定义查询接口处理	
 	ENDPOINT(API_M_GET, "/sample", querySample, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, SampleQuery, queryParams);

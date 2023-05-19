@@ -30,6 +30,9 @@
     <ClCompile Include="controller\test\TestController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="dao\Sample\ContractDao.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -56,13 +59,25 @@
     <ClInclude Include="controller\test\TestController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\sample\ContractDTO.h">
+    <ClInclude Include="domain\dto\contract\ContractDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\sample\SampleQuery.h">
+    <ClInclude Include="domain\query\contract\ContractQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\sample\SampleVO.h">
+    <ClInclude Include="domain\vo\contract\ContractVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\person\PersonQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\sample\ContractService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\Sample\ContractDao.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\Sample\ContractMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

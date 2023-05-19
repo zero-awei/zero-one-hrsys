@@ -86,11 +86,8 @@ static std::shared_ptr<__CLASS__> createShared(OATPP_COMPONENT(std::shared_ptr<O
 #ifndef LINUX
 #define API_PAGE_INDEX_DESC u8"查询页码"
 #define API_PAGE_SIZE_DESC u8"查询条数"
-#define API_INIT_CONTRACT_DESC u8"合同列表查询"
-#define API_INIT_PERSON_DESC u8"个人信息查询"
 #define API_PERSON_defalut_DESC u8"李四"
-#define API_ADD_CONTRACT_DESC u8"新增合同"
-#define API_DELETE_CONTRACT_DESC u8"删除合同"
+#define API_INIT_PERSON_DESC u8"个人信息"
 
 #else
 #define API_PAGE_INDEX_DESC "page index"

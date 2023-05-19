@@ -1,54 +1,23 @@
 #include "stdafx.h"//cpp文件第一件事导入预编译标头
 #include "TestController.h"
-#include "../arch-demo/service/sample/SampleService.h"
-#include "domain/dto/sample/ContractDTO.h"
-StringJsonVO::Wrapper FindController::execQueryContract(const PageQuery::Wrapper& query)
+//#include "service/sample/ContractService.h"
+
+//演示查询合同信息
+StringJsonVO::Wrapper FindController::execQueryContract(const ContractQuery::Wrapper& query)
 {
+	//响应结果
 	auto vo = StringJsonVO::createShared();
-	vo	->success("contract get success");
+	vo->success("contract infomation get success");
 	return vo; 
 }
-
-StringJsonVO::Wrapper FindController::execQueryPerson(const PageQuery_person::Wrapper& query)
+//演示查询个人信息
+StringJsonVO::Wrapper FindController::execQueryPerson(const PersonQuery::Wrapper& query)
 {
 	auto vo = StringJsonVO::createShared();
 	vo->success("person information get success");
 	return vo;
 }
-
-//Uint64JsonVO::Wrapper FindController::execAddSample(const SampleDTO::Wrapper& dto)
-//{
-//	// 定义返回数据对象
-//	auto jvo = Uint64JsonVO::createShared();
-//	// 参数校验
-//	// 非空校验
-//	if (!dto->age || !dto->name || !dto->sex)
-//	{
-//		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-//		return jvo;
-//	}
-//	// 有效值校验
-//	if (dto->age < 0 || dto->name->empty() || dto->sex->empty())
-//	{
-//		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-//		return jvo;
-//	}
-//
-//	// 定义一个Service
-//	SampleService service;
-//	// 执行数据新增
-//	uint64_t id = service.saveData(dto);
-//	if (id > 0) {
-//		jvo->success(UInt64(id));
-//	}
-//	else
-//	{
-//		jvo->fail(UInt64(id));
-//	}
-//	//响应结果
-//	return jvo;
-//}
-
+//演示新增合同数据
 Uint64JsonVO::Wrapper FindController::execAddContract(const ContractDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
@@ -82,7 +51,7 @@ Uint64JsonVO::Wrapper FindController::execAddContract(const ContractDTO::Wrapper
 	////响应结果
 	//return jvo;
 }
-
+//演示删除合同数据
 Uint64JsonVO::Wrapper FindController::execRemoveContract(const ContractDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
@@ -107,9 +76,4 @@ Uint64JsonVO::Wrapper FindController::execRemoveContract(const ContractDTO::Wrap
 	return jvo;
 }
 
-//StringJsonVO::Wrapper Person_FindController::execQueryPerson(const PageQuery::Wrapper& query)
-//{
-//	auto vo = StringJsonVO::createShared();
-//	vo->success("person information get success");
-//	return vo;
-//}
+
