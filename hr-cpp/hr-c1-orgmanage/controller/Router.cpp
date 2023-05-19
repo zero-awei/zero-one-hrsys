@@ -19,7 +19,9 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-
+//≤‚ ‘
+#include "postSet/postQueryController/PostQueryController.h"
+#include "postSet/postDeleteController/PostDeleteController.h"
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
 #include "sample/SampleController.h"
@@ -47,6 +49,8 @@ Router::Router(Endpoints* docEndpoints, HttpRouter* router)
 
 void Router::initRouter()
 {
+	//≤‚ ‘
+	createTestRouter();
 #ifdef HTTP_SERVER_DEMO
 	createSampleRouter();
 #endif
@@ -55,7 +59,12 @@ void Router::initRouter()
 	createJobSetRouter();
 	createProjTagRouter();
 }
-
+//≤‚ ‘
+void Router::createTestRouter()
+{
+	ROUTER_SIMPLE_BIND(PostQueryController);
+	ROUTER_SIMPLE_BIND(PostDeleteController);
+}
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
