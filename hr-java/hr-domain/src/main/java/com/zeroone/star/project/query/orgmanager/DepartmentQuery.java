@@ -16,6 +16,6 @@ public class DepartmentQuery extends PageQuery {
     @ApiModelProperty(value = "页码", example = "1")
     private Integer page;
     @ApiModelProperty(value = "每页显示条数", example = "10")
-    private Integer pageSize;
+    private long pageSize;
 
 }

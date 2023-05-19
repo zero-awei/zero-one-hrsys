@@ -1,25 +1,18 @@
 package com.zeroone.star.orgmanager.controller;
 
-<<<<<<< HEAD
+import com.zeroone.star.project.dto.PageDTO;
+import com.zeroone.star.project.dto.orgmanager.DepartmentDto;
 import com.zeroone.star.project.dto.orgmanager.ExportDTO;
 import com.zeroone.star.project.orgmanager.DepartmentApis;
+import com.zeroone.star.project.query.orgmanager.DepartmentQuery;
 import com.zeroone.star.project.query.orgmanager.ExportAttendanceAddressQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
-=======
-
-import com.zeroone.star.project.department.DepartmentApi;
-import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.dto.orgmanager.DepartmentDto;
-import com.zeroone.star.project.query.orgmanager.DepartmentQuery;
-import com.zeroone.star.project.vo.JsonVO;
->>>>>>> origin/j2-employee_status_list-WxS1729
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-<<<<<<< HEAD
 /**
  * <p>
  * 描述：部门信息接口
@@ -47,10 +40,6 @@ public class DepartmentController implements DepartmentApis {
     public JsonVO<ExportDTO> execExportAttendanceAddress(ExportAttendanceAddressQuery query) {
         return null;
     }
-=======
-@RestController
-@RequestMapping("org-manager")
-public class DepartmentController implements DepartmentApi {
 
     @GetMapping("org-list")
     @ApiOperation(value = "分页查询部门信息")
@@ -60,5 +49,4 @@ public class DepartmentController implements DepartmentApi {
     }
 
 
->>>>>>> origin/j2-employee_status_list-WxS1729
 }

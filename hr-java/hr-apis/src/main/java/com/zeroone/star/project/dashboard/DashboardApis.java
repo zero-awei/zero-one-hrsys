@@ -1,6 +1,8 @@
 package com.zeroone.star.project.dashboard;
 
 import com.zeroone.star.project.dto.dashboard.AgencyProjectStaffDTO;
+import com.zeroone.star.project.dto.dashboard.PimOutputDto;
+import com.zeroone.star.project.dto.dashboard.PimTitleDto;
 import com.zeroone.star.project.vo.JsonVO;
 
 import java.util.List;
@@ -22,4 +24,18 @@ public interface DashboardApis {
      * @return 查询结果
      */
     JsonVO<List<AgencyProjectStaffDTO>> queryAgencyProjectStaff();
+
+    /**
+     * 职称等级查询
+     *
+     * @return
+     */
+    JsonVO<PimTitleDto> queryProfessionalRank();
+
+    /**
+     * 月均产值
+     *
+     * @return
+     */
+    JsonVO<PimOutputDto> queryByMonth();
 }

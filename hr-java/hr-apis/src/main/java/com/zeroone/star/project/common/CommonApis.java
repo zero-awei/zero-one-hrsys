@@ -1,6 +1,8 @@
 package com.zeroone.star.project.common;
 
+import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
+import com.zeroone.star.project.dto.common.StatusListDto;
 import com.zeroone.star.project.vo.JsonVO;
 
 import java.util.List;
@@ -30,4 +32,11 @@ public interface CommonApis {
      * @return 查询结果
      */
     JsonVO<List<DropdownListOptionDTO>> queryCertificateType();
+
+    /**
+     * 查询员工状态信息
+     *
+     * @return
+     */
+    JsonVO<PageDTO<StatusListDto>> queryEmployeeStatus();
 }
