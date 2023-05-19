@@ -32,12 +32,18 @@ sample:
 familysituation:
  get:
   summary: 分页查询员工家庭情况
+ getone:
+  summary: 查询员工指定家庭情况
  post:
   summary: 新增一条家庭情况
  put:
   summary: 修改一条家庭情况
  del:
   summary: 删除一条家庭情况
+ import:
+  summary: 导入家庭情况文件
+ export:
+  summary: 导出家庭情况文件
  field:
   name: 姓名
   gender: 性别
