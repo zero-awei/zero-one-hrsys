@@ -1,7 +1,7 @@
 package com.zeroone.star.project.dashboard;
 
-import com.zeroone.star.project.dto.dashboard.PimOutputDto;
-import com.zeroone.star.project.dto.dashboard.PimTitleDto;
+import com.zeroone.star.project.dto.dashboard.PimOutputDTO;
+import com.zeroone.star.project.dto.dashboard.PimTitleDTO;
 import com.zeroone.star.project.vo.JsonVO;
 
 public interface DashBoardApi {
@@ -10,11 +10,11 @@ public interface DashBoardApi {
      * 职称等级查询
      * @return
      */
-    JsonVO<PimTitleDto> queryProfessionalRank();
+    JsonVO<PimTitleDTO> queryProfessionalRank();
 
     /**
      * 月均产值
      * @return
      */
-    JsonVO<PimOutputDto> queryByMonth();
+    JsonVO<PimOutputDTO> queryByMonth();
 }

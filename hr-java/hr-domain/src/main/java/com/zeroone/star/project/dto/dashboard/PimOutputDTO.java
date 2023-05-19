@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 @ApiModel("查询产值")
-public class PimOutputDto {
+public class PimOutputDTO {
     @ApiModelProperty(value = "月均产值", example = "100000")
     private Integer yd;
 }

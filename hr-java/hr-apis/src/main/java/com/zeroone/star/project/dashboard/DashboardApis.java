@@ -1,8 +1,8 @@
 package com.zeroone.star.project.dashboard;
 
 import com.zeroone.star.project.dto.dashboard.AgencyProjectStaffDTO;
-import com.zeroone.star.project.dto.dashboard.PimOutputDto;
-import com.zeroone.star.project.dto.dashboard.PimTitleDto;
+import com.zeroone.star.project.dto.dashboard.PimOutputDTO;
+import com.zeroone.star.project.dto.dashboard.PimTitleDTO;
 import com.zeroone.star.project.vo.JsonVO;
 
 import java.util.List;
@@ -30,12 +30,12 @@ public interface DashboardApis {
      *
      * @return
      */
-    JsonVO<PimTitleDto> queryProfessionalRank();
+    JsonVO<PimTitleDTO> queryProfessionalRank();
 
     /**
      * 月均产值
      *
      * @return
      */
-    JsonVO<PimOutputDto> queryByMonth();
+    JsonVO<PimOutputDTO> queryByMonth();
 }

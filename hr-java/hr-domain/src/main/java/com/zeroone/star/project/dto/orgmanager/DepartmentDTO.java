@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 @ApiModel("部门查询")
-public class DepartmentDto {
+public class DepartmentDTO {
     @ApiModelProperty(value = "排序", example = "1")
     private Integer sort;
     @ApiModelProperty(value = "部门名称", example = "市场营销部")

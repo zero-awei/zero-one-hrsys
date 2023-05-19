@@ -1,7 +1,7 @@
 package com.zeroone.star.orgmanager.controller;
 
 import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.dto.orgmanager.DepartmentDto;
+import com.zeroone.star.project.dto.orgmanager.DepartmentDTO;
 import com.zeroone.star.project.dto.orgmanager.ExportDTO;
 import com.zeroone.star.project.orgmanager.DepartmentApis;
 import com.zeroone.star.project.query.orgmanager.DepartmentQuery;
@@ -44,7 +44,7 @@ public class DepartmentController implements DepartmentApis {
     @GetMapping("org-list")
     @ApiOperation(value = "分页查询部门信息")
     @Override
-    public JsonVO<PageDTO<DepartmentDto>> queryAllDepartment(DepartmentQuery query) {
+    public JsonVO<PageDTO<DepartmentDTO>> queryAllDepartment(DepartmentQuery query) {
         return null;
     }
 

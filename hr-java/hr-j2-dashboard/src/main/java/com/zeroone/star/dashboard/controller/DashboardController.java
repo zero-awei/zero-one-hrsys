@@ -3,8 +3,8 @@ package com.zeroone.star.dashboard.controller;
 
 import com.zeroone.star.project.dashboard.DashboardApis;
 import com.zeroone.star.project.dto.dashboard.AgencyProjectStaffDTO;
-import com.zeroone.star.project.dto.dashboard.PimOutputDto;
-import com.zeroone.star.project.dto.dashboard.PimTitleDto;
+import com.zeroone.star.project.dto.dashboard.PimOutputDTO;
+import com.zeroone.star.project.dto.dashboard.PimTitleDTO;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -22,14 +22,14 @@ public class DashboardController implements DashboardApis {
     @GetMapping("pim-title-zcdj")
     @ApiOperation(value = "职称等级分布")
     @Override
-    public JsonVO<PimTitleDto> queryProfessionalRank() {
+    public JsonVO<PimTitleDTO> queryProfessionalRank() {
         return null;
     }
 
     @ApiOperation(value = "月均产值")
     @GetMapping("pim-output-yd")
     @Override
-    public JsonVO<PimOutputDto> queryByMonth() {
+    public JsonVO<PimOutputDTO> queryByMonth() {
         return null;
     }
 

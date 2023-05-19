@@ -10,7 +10,7 @@ import lombok.Data;
  */
 @Data
 @ApiModel("员工状态列表")
-public class StatusListDto {
+public class StatusListDTO {
     @ApiModelProperty(value = "唯一编号", example = "1")
     private Integer id;
     @ApiModelProperty(value = "状态", example = "见习")
