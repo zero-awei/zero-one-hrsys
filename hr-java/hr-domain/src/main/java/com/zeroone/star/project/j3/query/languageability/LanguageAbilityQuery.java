@@ -1,4 +1,4 @@
-package com.zeroone.star.project.query.languageability;
+package com.zeroone.star.project.j3.query.languageability;
 
 import com.zeroone.star.project.query.PageQuery;
 import io.swagger.annotations.ApiModel;
