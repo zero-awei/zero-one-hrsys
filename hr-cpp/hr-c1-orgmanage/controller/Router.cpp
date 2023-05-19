@@ -27,6 +27,7 @@
 #endif
 #include "jobSet/importJobController/ImportJobController.h"
 #include "projTag/importTagController/ImportTagController.h"
+#include "projTag/addTagController/AddTagController.h"
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -77,4 +78,5 @@ void Router::createJobSetRouter()
 void Router::createProjTagRouter()
 {
 	ROUTER_SIMPLE_BIND(ImportTagController);
+	ROUTER_SIMPLE_BIND(AddTagController);
 }

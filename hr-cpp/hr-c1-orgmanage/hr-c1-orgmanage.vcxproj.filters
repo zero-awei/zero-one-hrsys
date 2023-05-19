@@ -33,6 +33,9 @@
     <ClCompile Include="controller\projTag\importTagController\ImportTagController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="controller\projTag\addTagController\AddTagController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
@@ -69,6 +72,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="domain\vo\projTag\ImportTagVO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\projTag\addTagController\AddTagController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\projTag\ProjTagDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\projTag\ProjTagVO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\projTag\importTagController\ImportTagController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

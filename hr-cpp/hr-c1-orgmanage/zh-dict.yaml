@@ -35,6 +35,16 @@ projTag:
   fileType: 文件类型
   sheetName: 文件名称
   file: 文件名称
+ add:
+  summary: 项目标签
+ filed:
+  sortid: 排序号
+  orgname: 组织名称
+  projecttag: 项目标签
+  creater: 建立人
+  creattime: 建立时间
+  updater: 更新人
+  updatetime: 更新时间
 jobSet:
  import:
   summary: 岗位名称
