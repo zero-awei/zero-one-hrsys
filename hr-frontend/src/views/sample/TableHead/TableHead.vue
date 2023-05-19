@@ -1,5 +1,5 @@
 <template>
-  <TableHead :tableTitle="tableTitle" :tableOperations ="tableOperations" :addDate="addDate"/>
+  <TableHead :tableTitle="tableTitle" :tableOperations ="tableOperations" :addData="addData"/>
 </template>
 
 <script setup>
@@ -13,8 +13,10 @@ const tableOperations = reactive([
     name:'新增'
   }
 ])
-const addDate = reactive({
+const addData = reactive([
+  {
     label:'员工姓名',
-    name:''
-})
+    name:'name'
+  },
+])
 </script>

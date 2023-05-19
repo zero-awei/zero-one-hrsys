@@ -3,7 +3,7 @@
         <p>{{tableTitle}}</p>
         <ul>
             <li v-if="tableOperations[0].is">
-                <AddButton :tableTitle="tableTitle" :addDate="addDate"/>
+                <AddButton :tableTitle="tableTitle" :addData="addData"/>
             </li>
         </ul>
     </div>
@@ -12,7 +12,7 @@
 <script setup>
 import AddButton from "./add-button.vue"
 
-defineProps(['tableTitle','tableOperations','addDate'])
+defineProps(['tableTitle','tableOperations','addData'])
 </script>
 
 <style scoped>

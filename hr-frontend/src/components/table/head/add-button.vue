@@ -1,16 +1,16 @@
 <template>
     <el-button plain @click="dialogFormVisible = true">新增</el-button>
     <el-dialog v-model="dialogFormVisible" :title="tableTitle">
-    <el-form :model="form">
-      <el-form-item :label="addDate[0].label" :label-width="formLabelWidth">
-        <el-input v-model="form.name" autocomplete="off" />
+    <el-form :model="formData">
+      <el-form-item  v-for="data in addData" :key="data.name" :label="data.label" :label-width="formLabelWidth">
+        <el-input v-model="formData[data.name]" autocomplete="off" />
       </el-form-item>
-      <el-form-item label="Zones" :label-width="formLabelWidth">
+      <!-- <el-form-item label="Zones" :label-width="formLabelWidth">
         <el-select v-model="form.region" placeholder="Please select a zone">
           <el-option label="Zone No.1" value="shanghai" />
           <el-option label="Zone No.2" value="beijing" />
         </el-select>
-      </el-form-item>
+      </el-form-item> -->
     </el-form>
     <template #footer>
       <span class="dialog-footer">
@@ -29,18 +29,21 @@ const dialogTableVisible = ref(false)
 const dialogFormVisible = ref(false)
 const formLabelWidth = '140px'
 
-const form = reactive({
-  name: '',
-  region: '',
-  date1: '',
-  date2: '',
-  delivery: false,
-  type: [],
-  resource: '',
-  desc: '',
+defineProps({
+    tableTitle : String,
+    addData : Array
+  })
+
+const formData = ref({
+  // name: '',
+  // region: '',
+  // date1: '',
+  // date2: '',
+  // delivery: false,
+  // type: [],
 })
 
-defineProps(['tableTitle','addDate'])
+
 </script>
 
 <style scoped>
