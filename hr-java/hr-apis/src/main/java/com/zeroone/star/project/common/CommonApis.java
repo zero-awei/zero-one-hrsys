@@ -3,7 +3,7 @@ package com.zeroone.star.project.common;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
 import com.zeroone.star.project.dto.common.StatusListDTO;
-import com.zeroone.star.project.dto.departmenttypestatuslist.DepartmentTypeStatusListDTO;
+
 import com.zeroone.star.project.vo.JsonVO;
 
 import java.util.List;
