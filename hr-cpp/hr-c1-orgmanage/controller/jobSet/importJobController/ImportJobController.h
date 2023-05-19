@@ -43,6 +43,8 @@ namespace multipart = oatpp::web::mime::multipart;
 
 /**
  * 岗位设置 - 导入岗位
+ * 接收前端请求解析数据表名、文件格式、表格文件并保存到主机
+ * 使用表格文件中的数据执行批量新增操作，并返回装载新增id的List信息
  * 负责人：Andrew
  */
 class ImportJobController : public oatpp::web::server::api::ApiController

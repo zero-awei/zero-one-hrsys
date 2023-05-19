@@ -24,6 +24,10 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
+/**
+ * 导出项目标签Query领域模型
+ * 负责人：Andrew
+ */
 class ExportProjTagQuery : public oatpp::DTO
 {
 	DTO_INIT(ExportProjTagQuery, DTO);
