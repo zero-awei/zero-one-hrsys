@@ -30,5 +30,4 @@ PullListVO::Wrapper CertTypeListController::execQueryCertTypeList(const PayloadD
 
 	vo->success(dto);
 	return vo;
-	return vo;
 }

@@ -170,6 +170,7 @@
     <ClInclude Include="domain\query\certs\ProfCertsQuery.h" />
     <ClInclude Include="domain\vo\certs\ProfCertsVO.h" />
     <ClInclude Include="domain\vo\certs\CertTypeVO.h" />
+    <ClInclude Include="domain\vo\pullList\PullListVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
