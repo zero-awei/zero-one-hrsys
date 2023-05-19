@@ -1,8 +1,8 @@
 package com.zeroone.star.project.emplist;
 
 import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.dto.subsidy_standardstatuslist.Subsidy_standardStatusListDTO;
-import com.zeroone.star.project.query.subsidy_standardstatuslist.Subsidy_standardStatusListQuery;
+import com.zeroone.star.project.dto.subsidy_standardstatuslist.SubsidyStandardStatusListDTO;
+import com.zeroone.star.project.query.subsidy_standardstatuslist.SubsidyStandardStatusListQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
 /**
@@ -15,5 +15,5 @@ public interface Subsidy_standardStatusApi {
      * @param query
      * @return
      */
-    JsonVO<PageDTO<Subsidy_standardStatusListDTO>> queryAll(Subsidy_standardStatusListQuery query);
+    JsonVO<PageDTO<SubsidyStandardStatusListDTO>> queryAll(SubsidyStandardStatusListQuery query);
 }

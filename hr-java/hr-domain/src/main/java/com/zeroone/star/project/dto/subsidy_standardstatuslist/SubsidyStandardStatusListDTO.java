@@ -10,7 +10,7 @@ import lombok.Data;
 
 @Data
 @ApiModel("补贴标准状态对象")
-public class Subsidy_standardStatusListDTO {
+public class SubsidyStandardStatusListDTO {
     @ApiModelProperty(value = "唯一编号",example = "1")
     private Integer id;
 

@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ApiModel("所属区域状态查询")
-public class Owning_regionStatusListQuery extends PageQuery {
+public class OwningRegionStatusListQuery extends PageQuery {
     @ApiModelProperty(value = "姓名", example = "张三")
     private String name;
 }

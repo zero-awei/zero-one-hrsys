@@ -1,4 +1,4 @@
-package com.zeroone.star.project.query.department_typestatuslist;
+package com.zeroone.star.project.query.subsidy_standardstatuslist;
 
 /**
  * @author abner
@@ -12,8 +12,8 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@ApiModel("部门类型状态查询")
-public class Department_typeStatusListQuery extends PageQuery{
+@ApiModel("补贴标准状态查询")
+public class SubsidyStandardStatusListQuery extends PageQuery {
     @ApiModelProperty(value = "姓名", example = "张三")
     private String name;
 }

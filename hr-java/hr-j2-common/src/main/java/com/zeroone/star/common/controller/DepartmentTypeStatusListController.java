@@ -1,9 +1,9 @@
 package com.zeroone.star.common.controller;
 
 import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.dto.department_typestatuslist.Department_typeStatusListDTO;
+import com.zeroone.star.project.dto.department_typestatuslist.DepartmentTypeStatusListDTO;
 import com.zeroone.star.project.emplist.Department_typeStatusApi;
-import com.zeroone.star.project.query.department_typestatuslist.Department_typeStatusListQuery;
+import com.zeroone.star.project.query.department_typestatuslist.DepartmentTypeStatusListQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -19,12 +19,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("common")
 @Api(tags = "common")
-public class Department_typeStatusListController implements Department_typeStatusApi {
+public class DepartmentTypeStatusListController implements Department_typeStatusApi {
 
-    @GetMapping("Department_type-status")
+    @GetMapping("departmenttype-status")
     @ApiOperation(value ="组织性质下拉列表")
     @Override
-    public JsonVO<PageDTO<Department_typeStatusListDTO>> queryAll(Department_typeStatusListQuery query) {
+    public JsonVO<PageDTO<DepartmentTypeStatusListDTO>> queryAll(DepartmentTypeStatusListQuery query) {
         return null;
     }
 }
+
+
+
+
