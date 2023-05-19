@@ -26,40 +26,33 @@
  */
 class FormerEmployeesDO
 {
-	// 编号
-	CC_SYNTHESIZE(uint64_t, id, Id);
+	// 离职信息ID，主键，供其他表做外键
+	CC_SYNTHESIZE(uint64_t, LEAVINGANALYSIS_ID, LEAVINGANALYSIS_ID);
+	// 员工基本信息表ID,同员工ID
+	CC_SYNTHESIZE(uint64_t, PIMPERSONNAME, PIMPERSONNAME);
 	// 姓名
-	CC_SYNTHESIZE(string, name, Name);
+	CC_SYNTHESIZE(string, EMPLOYEENAME, EMPLOYEENAME);
 	// 性别
-	CC_SYNTHESIZE(string, sex, Sex);
-	// 年龄
-	CC_SYNTHESIZE(int, age, Age);
+	CC_SYNTHESIZE(string, XB, XB);
+	// 手机号码
+	CC_SYNTHESIZE(string, LXDH, LXDH);
+	// 出生日期
+	CC_SYNTHESIZE(int, CSRQ, CSRQ);
 	// 组织
-	CC_SYNTHESIZE(string, organization, Organization);
+	CC_SYNTHESIZE(string, ORGANIZATION_NAME, ORGANIZATION_NAME);
 	// 部门
-	CC_SYNTHESIZE(string, department, Department);
+	CC_SYNTHESIZE(string, BM, BM);
 	// 职级
-	CC_SYNTHESIZE(string, rank, Rank);
+	CC_SYNTHESIZE(string, RANK, RANK);
 	// 通讯地址
-	CC_SYNTHESIZE(string, mail_address, Mail_address);
+	CC_SYNTHESIZE(string, POSTALADDRESS, POSTALADDRESS);
 	// 家庭联系人
-	CC_SYNTHESIZE(string, family_contact, Family_contact);
+	CC_SYNTHESIZE(string, JTLXR, JTLXR);
 	// 家庭联系人电话
-	CC_SYNTHESIZE(string, family_contact_number, Family_contact_nuimber);
+	CC_SYNTHESIZE(string, JTLXRDH, JTLXRDH);
 	
 public:
-	FormerEmployeesDO() {
-		id = 0;
-		name = "";
-		sex = "";
-		age = -1;
-		organization = "";
-		department = "";
-		rank = "";
-		mail_address = "";
-		family_contact = "";
-		family_contact_number = "";
-	}
+	FormerEmployeesDO() {}
 };
 
 #endif // !_FPRMERRMPLOYEES_DO_

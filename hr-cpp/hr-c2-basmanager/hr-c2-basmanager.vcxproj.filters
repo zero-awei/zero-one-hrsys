@@ -51,6 +51,18 @@
     <ClInclude Include="controller\RosterOfPer\FormerEmployeesController.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\CertificateManage\UpdateCertificateController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\CertificateManage\updateCertificateQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\CertificateManage\CertificateInfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\CertificateManage\CertificateInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -66,6 +78,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\RosterOfPer\FormerEmployeesController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\CertificateManage\UpdateCertificateController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

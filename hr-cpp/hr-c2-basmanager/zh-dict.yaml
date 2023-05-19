@@ -46,3 +46,6 @@ formeremployees:
   mail_address: 通讯地址
   outbenye: 导出本页离职员工数据
   outall: 导出全部离职员工数据
+certificate: 
+ update:  更新证书信息
+ get: 查询指定证书详细信息

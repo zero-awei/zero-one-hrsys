@@ -182,20 +182,25 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="controller\CertificateManage\UpdateCertificateController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\RosterOfPer\FormerEmployeesController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\CertificateManage\CertificateDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\RosterOfPer\FormerEmployeesDO.h" />
+    <ClInclude Include="domain\dto\CertificateManage\CertificateInfoDTO.h" />
     <ClInclude Include="domain\dto\RosterOfPer\FormerEmployeesDTO.h" />
+    <ClInclude Include="domain\query\CertificateManage\updateCertificateQuery.h" />
     <ClInclude Include="domain\query\RosterOfPer\FormerEmployeesQuery.h" />
+    <ClInclude Include="domain\vo\CertificateManage\CertificateInfoVO.h" />
     <ClInclude Include="domain\vo\RosterOfPer\FormerEmployeesVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="controller\CertificateManage\UpdateCertificateController.cpp" />
     <ClCompile Include="controller\RosterOfPer\FormerEmployeesController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />

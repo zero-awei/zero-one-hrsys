@@ -95,6 +95,7 @@ public:
 private:
 	// 3.3 演示分页查询数据
 	FormerEmployeesPageJsonVO::Wrapper execQueryFormerEmployees(const FormerEmployeesQuery::Wrapper& query, const PayloadDTO& payload);
+	// 返回离职员工Excel表格
 	FormerEmployeesPageJsonVO::Wrapper execListFormerEmployees(const FormerEmployeesQuery::Wrapper& query, const PayloadDTO& payload);
 };
 
