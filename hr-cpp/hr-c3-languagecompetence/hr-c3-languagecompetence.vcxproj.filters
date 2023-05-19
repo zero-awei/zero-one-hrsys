@@ -48,6 +48,9 @@
     <ClInclude Include="controller\LanguageCompetence\LanguageCompetenceController.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="service\Language\LanguageService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -63,6 +66,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\LanguageCompetence\LanguageCompetenceController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\Language\LanguageService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
