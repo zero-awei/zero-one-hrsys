@@ -19,7 +19,9 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-
+//测试
+#include "certDropDownList/profCertsList/ProfCertsListController.h"
+#include "certDropDownList/certTypeList/CertTypeListController.h"
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
 #include "sample/SampleController.h"
@@ -47,6 +49,8 @@ Router::Router(Endpoints* docEndpoints, HttpRouter* router)
 
 void Router::initRouter()
 {
+	//本地测试
+	creatTestRouter();
 #ifdef HTTP_SERVER_DEMO
 	createSampleRouter();
 #endif
@@ -55,7 +59,14 @@ void Router::initRouter()
 	createContractTypeRouter();
 	createArmyLevelTypeRouter();
 }
+//本地测试
+void Router::creatTestRouter()
+{
+	// 绑定职业资格证书类型下拉列表控制器
+	ROUTER_SIMPLE_BIND(ProfCertsListController);
+	ROUTER_SIMPLE_BIND(CertTypeListController);
 
+}
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {

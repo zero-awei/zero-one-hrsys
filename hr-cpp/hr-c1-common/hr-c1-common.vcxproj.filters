@@ -33,6 +33,33 @@
     <ClInclude Include="controller\Router.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="domain\query\certs\ProfCertsQuery.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\certDropDownList\profCertsList\ProfCertsListController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\certs\ProfCertsDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\certs\ProfCertsVO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\certs\CertTypeDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\certs\CertTypeQuery.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\certs\CertTypeVO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\certDropDownList\certTypeList\CertTypeListController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\pullList\PullListDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="domain\vo\pullList\PullListVO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -57,6 +84,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="controller\SystemInterceptor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\certDropDownList\profCertsList\ProfCertsListController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\certDropDownList\certTypeList\CertTypeListController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="controller\contractType\ContractTypeListController.cpp">
