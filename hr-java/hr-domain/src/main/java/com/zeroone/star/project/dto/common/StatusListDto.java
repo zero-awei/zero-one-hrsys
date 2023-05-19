@@ -1,4 +1,4 @@
-package com.zeroone.star.project.dto.statuslist;
+package com.zeroone.star.project.dto.common;
 
 
 import io.swagger.annotations.ApiModel;
@@ -13,7 +13,7 @@ import lombok.Data;
 public class StatusListDto {
     @ApiModelProperty(value = "唯一编号", example = "1")
     private Integer id;
-    @ApiModelProperty(value = "姓名", example = "张三")
-    private String name;
+    @ApiModelProperty(value = "状态", example = "见习")
+    private String status;
 
 }

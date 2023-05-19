@@ -10,4 +10,6 @@ import lombok.Data;
 public class PimTitleDto {
     @ApiModelProperty(value = "职称等级",example = "10")
     private String zcdj;
+    @ApiModelProperty(value = "人数",example = "3")
+    private int count;
 }
