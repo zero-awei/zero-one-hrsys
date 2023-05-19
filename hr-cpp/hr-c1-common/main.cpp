@@ -38,15 +38,16 @@
  * 参数中数据需要满足一定的格式，如：sp=8090、sn=feign-cpp-sample
  * 前缀与真实值之间使用=分隔
  */
+
 bool getStartArg(int argc, char* argv[]) {
 	// 服务器端口
 	std::string serverPort = "8090";
 	// 数据库连接信息
 	std::string dbUsername = "root";
-	std::string dbPassword = "123456";
+	std::string dbPassword = "114514mysql";
 	std::string dbName = "test";
-	std::string dbHost = "192.168.220.128";
-	int dbPort = 3306;
+	std::string dbHost = "8.130.89.148";
+	int dbPort = 3965;
 	int dbMax = 25;
 #ifdef USE_NACOS
 	// Nacos配置参数

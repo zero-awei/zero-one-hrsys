@@ -33,6 +33,21 @@
     <ClInclude Include="controller\Router.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="controller\declare\DeclareListController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\declare\DeclareVO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\declare\DeclareDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\declare\DeclareQuery.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="service\declare\DeclareService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -45,6 +60,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="controller\SystemInterceptor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\declare\DeclareListController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="service\declare\DeclareService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
