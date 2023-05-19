@@ -19,12 +19,14 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
+#include "SelectController/MyController.h"
 
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
+#include "LDConstroller/LaborDispatchConstroller.h"
 
 #include "Muggle/labor_dispatch-Muggle.h"
 #include "Muggle/expense_ledger-Muggle.h"
@@ -56,6 +58,8 @@ void Router::initRouter()
 	//#TIP :系统扩展路由定义，写在这个后面
 	ROUTER_SIMPLE_BIND(LaborDispatchMController);
 	ROUTER_SIMPLE_BIND(ExpenseLedgerMController);
+	ROUTER_SIMPLE_BIND(LaborDispatchConstroller);
+	ROUTER_SIMPLE_BIND(TestController);
 }
 
 #ifdef HTTP_SERVER_DEMO

@@ -31,6 +31,8 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\Muggle\expense_ledger-Muggle.cpp">
+    <ClCompile Include="controller\LDConstroller\LaborDispatchConstroller.cpp">
+	<ClCompile Include="controller\SelectController\MyController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -81,5 +83,20 @@
   <ItemGroup>
     <None Include="conf\data-source.yaml" />
     <None Include="zh-dict.yaml" />
+ 	<ClInclude Include="controller\SelectController\MyController.h">
+    <ClInclude Include="controller\LDConstroller\LaborDispatchConstroller.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+	<ClInclude Include="domain\dto\sample\MyDto.h">
+   <ClInclude Include="domain\dto\sample\MyDto.h">
+    <ClInclude Include="domain\vo\LaborDispatchVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\LaborDispatchDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\LaborDispatchQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
