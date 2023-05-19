@@ -24,6 +24,10 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
+/**
+ * 装载新增id的ListVO领域模型
+ * 负责人：Andrew
+ */
 class ImportJobVO : public oatpp::DTO
 {
 	DTO_INIT(ImportJobVO, DTO);
@@ -33,6 +37,10 @@ class ImportJobVO : public oatpp::DTO
 	}
 };
 
+/**
+ * 使用JsonVO封装ImportJobVO
+ * 负责人：Andrew
+ */
 class ImportJobJsonVO : public JsonVO<ImportJobVO::Wrapper>
 {
 	DTO_INIT(ImportJobJsonVO, JsonVO<ImportJobVO::Wrapper>);
