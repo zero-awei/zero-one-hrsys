@@ -15,14 +15,53 @@ user:
   menuicon: 图标名称
   menuhref: 路由地址
   menusub: 子菜单
+ldcompany:
 contract:
  get:
+  summary: 分页查询劳务公司列表
   summary: 分页查询合同信息
  post:
+  summary: 新增劳务派切公司信息
   summary: 新增一条合同信息
  put:
+  summary: 修改劳务派遣公司信息
   summary: 修改一条合同数据
  delete:
+  summary: 删除劳务派遣公司信息
+ export:
+  summary: 导出劳务遣派公司信息
+ field:
+  id: 编号
+  age: 年龄
+  name: 姓名
+  sex: 性别，如：男
+labordispatch_mug:
+ get:
+  summary: 查看指定公司信息
+ modify:
+  summary: 修改指定公司信息
+ field:
+  corporatename: 公司名称
+  corporateaddress: 公司名称
+  corporatecontact: 公司联系人
+  corporatenumber: 公司联系电话
+expenseledger_mug:
+ get:
+  summary: 分页查询费别列表
+ post:
+  summary: 新增费别
+ delete:
+  summary: 删除费别
+ field:
+  expenseCategory: 费用类别
+  PIMLABOURCAMPANYNAME: 公司名称
+  PIMLABOURCAMPANYID: 所属单位
+  LXDZ: 联系地址
+  LXR: 联系人
+  LXFS: 联系方式
+  REGCAPITAL: 注册本金
+  LEGALPERSON: 法人
+  UPDATEDATE: 更新时间
   summary: 删除一条合同数据
  filed:   
   name: 员工姓名

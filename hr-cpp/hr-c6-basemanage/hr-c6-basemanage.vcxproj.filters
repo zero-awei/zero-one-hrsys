@@ -27,10 +27,14 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="controller\Muggle\labor_dispatch-Muggle.cpp">
     <ClCompile Include="controller\test\TestController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="controller\Muggle\expense_ledger-Muggle.cpp">
     <ClCompile Include="dao\Sample\ContractDao.cpp">
+    <ClCompile Include="controller\LDConstroller\LaborDispatchConstroller.cpp">
+	<ClCompile Include="controller\SelectController\MyController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,24 +60,31 @@
     <ClInclude Include="controller\OtherComponent.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\Muggle\labor_dispatch-Muggle.h">
     <ClInclude Include="controller\test\TestController.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\query\Muggle\laborDispatchQuery.h">
     <ClInclude Include="domain\dto\contract\ContractDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\dto\Muggle\laborDispatchDTO.h">
     <ClInclude Include="domain\query\contract\ContractQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\vo\Muggle\laborDispatchJsonVO.h">
     <ClInclude Include="domain\vo\contract\ContractVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\dto\Muggle\expenseLedgerDTO.h">
     <ClInclude Include="domain\query\person\PersonQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\Muggle\expense_ledger-Muggle.h">
     <ClInclude Include="service\sample\ContractService.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\query\Muggle\expenseLedgerQuery.h">
     <ClInclude Include="dao\Sample\ContractDao.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -85,5 +96,19 @@
     <None Include="conf\data-source.yaml" />
     <None Include="zh-dict.yaml" />
     <None Include="domain\dto\.keep" />
-  </ItemGroup>
+ 	<ClInclude Include="controller\SelectController\MyController.h">
+    <ClInclude Include="controller\LDConstroller\LaborDispatchConstroller.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+	<ClInclude Include="domain\dto\sample\MyDto.h">
+   <ClInclude Include="domain\dto\sample\MyDto.h">
+    <ClInclude Include="domain\vo\LaborDispatchVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\LaborDispatchDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\LaborDispatchQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>  </ItemGroup>
 </Project>
