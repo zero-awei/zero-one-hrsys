@@ -24,9 +24,13 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
+/**
+ * 语言模块传输对象
+ */
 class LanguageDTO : public oatpp::DTO
 {
 	DTO_INIT(LanguageDTO, DTO);
+	//编号
 	DTO_FIELD(UInt64, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("sample.field.id");
@@ -37,7 +41,7 @@ class LanguageDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("sample.field.name");
 	}
 	// 年龄
-	DTO_FIELD(Int32, age);
+	DTO_FIELD(UInt32, age);
 	DTO_FIELD_INFO(age) {
 		info->description = ZH_WORDS_GETTER("sample.field.age");
 	}
@@ -47,15 +51,22 @@ class LanguageDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("sample.field.sex");
 	}
 	//语种
-	DTO_FIELD(String, language_type);
-	DTO_FIELD_INFO(language_type) {
+	DTO_FIELD(String, languageType);
+	DTO_FIELD_INFO(languageType) {
 		info->description = ZH_WORDS_GETTER("user.language.type");
 	}
 	//语言等级
-	DTO_FIELD(String, language_level);
-	DTO_FIELD_INFO(language_level) {
+	DTO_FIELD(String, languageLevel);
+	DTO_FIELD_INFO(languageLevel) {
 		info->description = ZH_WORDS_GETTER("user.language.level");
 	}
+};
+/**
+ * 语言模块分页传输对象
+ */
+class LanguagePageDTO : public PageDTO<LanguageDTO::Wrapper> 
+{
+	DTO_INIT(LanguagePageDTO, PageDTO<LanguageDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

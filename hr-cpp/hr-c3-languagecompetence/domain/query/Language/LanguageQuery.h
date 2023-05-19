@@ -52,13 +52,13 @@ class LanguageQuery : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("sample.field.age");
 	}
 	//ÓïÖÖ
-	DTO_FIELD(String, language_type);
-	DTO_FIELD_INFO(language_type) {
+	DTO_FIELD(String, languageType);
+	DTO_FIELD_INFO(languageType) {
 		info->description = ZH_WORDS_GETTER("user.language.type");
 	}
 	//ÓïÑÔµÈ¼¶
-	DTO_FIELD(String, language_level);
-	DTO_FIELD_INFO(language_level) {
+	DTO_FIELD(String, languageLevel);
+	DTO_FIELD_INFO(languageLevel) {
 		info->description = ZH_WORDS_GETTER("user.language.level");
 	}
 };
