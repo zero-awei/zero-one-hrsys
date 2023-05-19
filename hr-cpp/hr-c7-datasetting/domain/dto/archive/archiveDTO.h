@@ -7,42 +7,42 @@
 /**
  * 定义一个可修改档案室信息的传输对象
  */
-class archiveDTO : public oatpp::DTO
+class ArchiveDTO : public oatpp::DTO
 {
-	DTO_INIT(archiveDTO, DTO);
+	DTO_INIT(ArchiveDTO, DTO);
 	// 排序号
-	DTO_FIELD(Int32, sortid);
-	DTO_FIELD_INFO(sortid) {
-		info->description = ZH_WORDS_GETTER("archive.field.sortid");
+	DTO_FIELD(Int32, sortID);
+	DTO_FIELD_INFO(sortID) {
+		info->description = ZH_WORDS_GETTER("archive.field.sortID");
 	}
 	// 档案室名称
-	DTO_FIELD(String,archivename);
-	DTO_FIELD_INFO(archivename) {
-		info->description = ZH_WORDS_GETTER("archive.field.archivename");
+	DTO_FIELD(String,archiveName);
+	DTO_FIELD_INFO(archiveName) {
+		info->description = ZH_WORDS_GETTER("archive.field.archiveName");
 	}
 	// 柜号
-	DTO_FIELD(Int32, cabinetnum);
-	DTO_FIELD_INFO(cabinetnum) {
-		info->description = ZH_WORDS_GETTER("archive.field.cabinetnum");
+	DTO_FIELD(Int32, cabinetNum);
+	DTO_FIELD_INFO(cabinetNum) {
+		info->description = ZH_WORDS_GETTER("archive.field.cabinetNum");
 	}
 	//层号
-	DTO_FIELD(Int32, layernum);
-	DTO_FIELD_INFO(layernum) {
-		info->description = ZH_WORDS_GETTER("archive.field.layernum");
+	DTO_FIELD(Int32, layerNum);
+	DTO_FIELD_INFO(layerNum) {
+		info->description = ZH_WORDS_GETTER("archive.field.layerNum");
 	}
 	//编号
-	DTO_FIELD(Int32, numid);
-	DTO_FIELD_INFO(numid) {
-		info->description = ZH_WORDS_GETTER("archive.field.numid");
+	DTO_FIELD(Int32, numID);
+	DTO_FIELD_INFO(numID) {
+		info->description = ZH_WORDS_GETTER("archive.field.numID");
 	}
 };
 
 /**
  * 定义一个档案室信息分页传输对象
  */
-class archivePageDTO : public PageDTO<archiveDTO::Wrapper>
+class ArchivePageDTO : public PageDTO<ArchiveDTO::Wrapper>
 {
-	DTO_INIT(archivePageDTO, PageDTO<archiveDTO::Wrapper>);
+	DTO_INIT(ArchivePageDTO, PageDTO<ArchiveDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

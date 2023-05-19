@@ -33,19 +33,19 @@
     <ClInclude Include="domain\do\DoInclude.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\archive\archiveDO.h">
+    <ClInclude Include="domain\do\archive\ArchiveDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\archive\archiveDTO.h">
+    <ClInclude Include="domain\dto\archive\ArchiveDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\archive\archiveQuery.h">
+    <ClInclude Include="domain\query\archive\ArchiveQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\archive\archiveVO.h">
+    <ClInclude Include="domain\vo\archive\ArchiveVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\archive\archiveController.h">
+    <ClInclude Include="controller\archive\AchiveController.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -62,7 +62,7 @@
     <ClCompile Include="controller\SystemInterceptor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\archive\archiveController.cpp">
+    <ClCompile Include="controller\archive\ArchiveController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

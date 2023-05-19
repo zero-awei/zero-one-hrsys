@@ -10,17 +10,17 @@
 /**
  * 定义一个档案室信息显示JsonVO对象，用于响应给客户端
  */
-class archiveJsonVO : public JsonVO<archiveDTO::Wrapper>
+class archiveJsonVO : public JsonVO<ArchiveDTO::Wrapper>
 {
-	DTO_INIT(archiveJsonVO, JsonVO<archiveDTO::Wrapper>);
+	DTO_INIT(archiveJsonVO, JsonVO<ArchiveDTO::Wrapper>);
 };
 
 /**
  * 定义一个档案室信息分页显示JsonVO对象，用于响应给客户端
  */
-class archivePageJsonVO : public JsonVO<archivePageDTO::Wrapper>
+class archivePageJsonVO : public JsonVO<ArchivePageDTO::Wrapper>
 {
-	DTO_INIT(archivePageJsonVO, JsonVO<archivePageDTO::Wrapper>);
+	DTO_INIT(archivePageJsonVO, JsonVO<ArchivePageDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)
