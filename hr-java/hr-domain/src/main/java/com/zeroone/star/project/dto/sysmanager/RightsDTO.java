@@ -6,11 +6,10 @@ import lombok.Data;
 
 /**
  * <p>
- * 描述：
+ * 描述：TODO
  * </p>
  * <p>版权：&copy;01星球</p>
  * <p>地址：01星球总部</p>
- * @author
  * @version 1.0.0
  */
 
@@ -22,10 +21,18 @@ public class RightsDTO {
      */
     @ApiModelProperty(value = "唯一编号",example = "1")
     private String id;
-    
+
     /**
      * 权限名称
      */
     @ApiModelProperty(value = "权限名称",example = "增加权限")
     private String rightsName;
+    @ApiModelProperty(value = "类型", example = "一级")
+    private String type;
+    @ApiModelProperty(value = "权限url", example = "/login")
+    private String rightsUrl;
+    @ApiModelProperty(value = "父权限名称", example = "根权限")
+    private String parentRightsName;
+    @ApiModelProperty(value = "父权限url", example = "/root")
+    private String parentRightsUrl;
 }

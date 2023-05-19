@@ -11,7 +11,6 @@ import com.zeroone.star.project.vo.JsonVO;
  * </p>
  * <p>版权：&copy;01星球</p>
  * <p>地址：01星球总部</p>
- * @author
  * @version 1.0.0
  */
 
@@ -23,4 +22,27 @@ public interface RightsApis {
      */
     JsonVO<PageDTO<RightsDTO>> queryAll(RightsQuery query);
 
+    /**
+     * 添加权限
+     *
+     * @param dto 权限对象
+     * @return 新增权限唯一编号
+     */
+    JsonVO<String> addRights(RightsDTO dto);
+
+    /**
+     * 修改权限
+     *
+     * @param dto 修改权限
+     * @return 修改后的权限
+     */
+    JsonVO<RightsDTO> modifyRights(RightsDTO dto);
+
+    /**
+     * 删除权限
+     *
+     * @param dto 删除权限
+     * @return 删除权限的编号
+     */
+    JsonVO<String> removeRights(RightsDTO dto);
 }
