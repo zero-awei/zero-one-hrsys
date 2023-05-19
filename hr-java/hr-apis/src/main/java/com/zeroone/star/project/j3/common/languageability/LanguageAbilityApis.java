@@ -5,7 +5,7 @@ import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
 import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
-public interface LanguageAbility {
+public interface LanguageAbilityApis {
 
     /**
      * 分页查询某人的语言能力
