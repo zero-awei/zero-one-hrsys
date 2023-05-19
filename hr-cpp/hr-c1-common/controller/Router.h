@@ -45,6 +45,7 @@ private:
 	// 创建演示路由
 	void createSampleRouter();
 #endif
+	void createAuditstatusRouter();
 };
 
 #endif // !_ROUTER_

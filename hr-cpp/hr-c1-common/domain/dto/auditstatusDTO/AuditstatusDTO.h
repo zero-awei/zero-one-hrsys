@@ -12,6 +12,10 @@
 class AuditstatusDTO : public oatpp::DTO
 {
 	DTO_INIT(AuditstatusDTO, DTO);
+	DTO_FIELD(String, name);
+	DTO_FIELD_INFO(name) {
+		info->description = ZH_WORDS_GETTER("Auditstatus.field.name");
+	}
 };
 
 /**
@@ -20,6 +24,10 @@ class AuditstatusDTO : public oatpp::DTO
 class AuditstatusPageDTO : public PageDTO<AuditstatusDTO::Wrapper>
 {
 	DTO_INIT(AuditstatusPageDTO, PageDTO<AuditstatusDTO::Wrapper>);
+	DTO_FIELD(String, name);
+	DTO_FIELD_INFO(name) {
+		info->description = ZH_WORDS_GETTER("Auditstatus.field.name");
+	}
 };
 
 #include OATPP_CODEGEN_END(DTO)

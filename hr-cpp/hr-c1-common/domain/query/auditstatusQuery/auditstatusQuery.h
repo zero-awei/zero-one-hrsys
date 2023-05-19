@@ -12,8 +12,9 @@
  */
 class AuditstatusQuery : public PageQuery
 {
-	DTO_INIT(AuditstatusQuery, PageQuery);
+public:
 	
+	DTO_INIT(AuditstatusQuery, PageQuery);
 };
 
 #include OATPP_CODEGEN_END(DTO)
