@@ -29,3 +29,19 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+
+#岗位设置-导入岗位
+jobSet:
+ import:
+  summary: 导入岗位
+  fileType: 文件类型(xlx/xlsx/csv)
+  sheetName: 数据表名
+  file: 待导入文件
+  id: 新增id
+
+#项目标签-导出岗位标签
+projTag:
+ export:
+  summary: 导出项目标签
+  rows: 导出数据条数(最大5000条)
+  sequence: 导出数据顺序(ASC/DESC)
