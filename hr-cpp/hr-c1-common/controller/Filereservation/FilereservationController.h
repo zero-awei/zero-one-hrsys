@@ -29,6 +29,8 @@
 
 /**
  * 档案保管地下拉列表Controller
+ * 列表存有：1（局总部） 2（公司本部） 3（其他）
+ * 返回：键值对列表
  * 负责人：远翔
  */
 class FileReservationController : public oatpp::web::server::api::ApiController

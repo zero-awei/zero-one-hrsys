@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: yuanxiang
- @Date: 2023/05/17 15:20:22
+ @Date: 2023/05/19 21:55:09
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,22 +17,22 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _FILESTATUSDTO_H_
-#define _FILESTATUSDTO_H_
+#ifndef _FILERESERVATIONDTO_H_
+#define _FILERESERVATIONDTO_H_
 
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
+
 /**
- * 档案借阅状态DTO
+ * 档案档案保管地DTO
  * 负责人：远翔
  */
-class FilestatusDTO : public oatpp::DTO
+class FilereservationDTO : public oatpp::DTO
 {
-	DTO_INIT(FilestatusDTO, DTO);
-	
+	DTO_INIT(FilereservationDTO, DTO);
 };
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif // !_FILESTATUSDTO_H_
+#endif // !_FILERESERVATIONDTO_H_
