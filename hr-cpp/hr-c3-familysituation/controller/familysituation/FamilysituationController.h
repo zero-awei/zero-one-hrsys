@@ -24,6 +24,7 @@
 #include "ApiHelper.h"
 #include "domain/query/familysituation/FamilysituationQuery.h"
 #include "domain/dto/familysituation/FamilysituationDTO.h"
+#include "domain/dto/familysituation/ImportfamilysituationDTO.h"
 #include "domain/vo/familysituation/FamilysituationVO.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
@@ -45,11 +46,6 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(FamilySituationPageJsonVO);
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
-		// 定义其他表单参数描述
-		info->queryParams.add<String>("frelationship").description = ZH_WORDS_GETTER("familysituation.field.relationship");
-		info->queryParams["frelationship"].addExample("default", String(ZH_WORDS_GETTER("familysituation.description.dadson")));
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("familysituation.field.name");
-		info->queryParams["name"].addExample("default", String("Marvin"));
 		// 待补充
 	}
 	// 定义查询接口处理
@@ -59,6 +55,22 @@ public: // 定义接口
 		API_HANDLER_QUERY_PARAM(familysituationQuery, FamilysituationQuery, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryByFamilysituation(familysituationQuery));
+	}
+	// 定义查询指定家庭情况接口描述
+	ENDPOINT_INFO(queryOneFamilysituation)
+	{
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("familysituation.getone.summary");
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(FamilysituationJsonVO);
+	}
+	// 定义查询指定家庭情况接口处理
+	ENDPOINT(API_M_GET, "/query-by-Familysituation", queryOneFamilysituation, QUERIES(QueryParams, queryParams))
+	{
+		// 解析查询参数
+		API_HANDLER_QUERY_PARAM(oneQuery, FamilysituationQuery, queryParams);
+		// 响应结果
+		API_HANDLER_RESP_VO(execOneQueryFamilysituation(oneQuery));
 	}
 	// 定义添加家庭情况接口描述
 	ENDPOINT_INFO(addFamilysituation)
@@ -80,7 +92,7 @@ public: // 定义接口
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("familysituation.put.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	// 定义修改接口处理
 	ENDPOINT(API_M_PUT, "/modify-by-Familysituation", modifyFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
@@ -94,24 +106,58 @@ public: // 定义接口
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("familysituation.del.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	// 定义删除接口处理
-	ENDPOINT(API_M_PUT, "/delete-by-Familysituation", deleteFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
+	ENDPOINT(API_M_DEL, "/delete-by-Familysituation", deleteFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
 	{
 		// 响应结果
 		API_HANDLER_RESP_VO(execDeleteFamilysituation(dto));
+	}
+	// 定义导入接口描述
+	ENDPOINT_INFO(importFamilysituation)
+	{
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("familysituation.import.summary");
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+	}
+	// 定义导入接口处理
+	ENDPOINT(API_M_POST, "/import-by-Familysituation", importFamilysituation, BODY_DTO(ImportfamilysituationDTO::Wrapper, dto))
+	{
+		// 响应结果
+		API_HANDLER_RESP_VO(execImportFamilysituation(dto));
+	}
+	// 定义导出接口描述
+	ENDPOINT_INFO(exportFamilysituation)
+	{
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("familysituation.export.summary");
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(FamilysituationJsonVO);
+	}
+	// 定义导出接口处理
+	ENDPOINT(API_M_GET, "/export-by-Familysituation", exportFamilysituation, BODY_DTO(ImportfamilysituationDTO::Wrapper, dto))
+	{
+		// 响应结果
+		API_HANDLER_RESP_VO(execExportFamilysituation(dto));
 	}
 
 private: // 定义接口执行函数
 	// 查询数据响应
 	FamilySituationPageJsonVO::Wrapper execQueryByFamilysituation(const FamilysituationQuery::Wrapper& query);
+	// 指定查询数据响应
+	FamilysituationJsonVO::Wrapper execOneQueryFamilysituation(const FamilysituationQuery::Wrapper& query);
 	// 添加数据响应
 	StringJsonVO::Wrapper execAddFamilysituation(const FamilysituationDTO::Wrapper& dto);
 	// 修改数据响应
 	StringJsonVO::Wrapper execModifyFamilysituation(const FamilysituationDTO::Wrapper& dto);
 	// 删除数据响应
 	StringJsonVO::Wrapper execDeleteFamilysituation(const FamilysituationDTO::Wrapper& dto);
+	// 导入数据响应
+	StringJsonVO::Wrapper execImportFamilysituation(const ImportfamilysituationDTO::Wrapper& dto);
+	// 导出数据响应
+	FamilysituationJsonVO::Wrapper execExportFamilysituation(const ImportfamilysituationDTO::Wrapper& dto);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
