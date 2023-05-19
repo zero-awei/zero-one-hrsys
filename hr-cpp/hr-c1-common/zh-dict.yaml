@@ -29,3 +29,9 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+common:
+    dto:
+      code: 列表项对应键
+      value: 列表项映射值
+    file:
+      level: 获奖等级

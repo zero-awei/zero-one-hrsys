@@ -45,6 +45,7 @@ private:
 	// 创建演示路由
 	void createSampleRouter();
 #endif
+	void createContractTypeRouter();
 };
 
 #endif // !_ROUTER_
