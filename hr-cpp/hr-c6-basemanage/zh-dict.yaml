@@ -15,17 +15,23 @@ user:
   menuicon: 图标名称
   menuhref: 路由地址
   menusub: 子菜单
-sample:
+ldcompany:
  get:
-  summary: 分页查询示例数据
+  summary: 分页查询劳务公司列表
  post:
-  summary: 新增一条示例数据
+  summary: 新增劳务派切公司信息
  put:
-  summary: 修改一条示例数据
+  summary: 修改劳务派遣公司信息
  delete:
-  summary: 删除一条示例数据
+  summary: 删除劳务派遣公司信息
+ export:
+  summary: 导出劳务遣派公司信息
  field:
-  id: 编号
-  age: 年龄
-  name: 姓名
-  sex: 性别，如：男
+  PIMLABOURCAMPANYNAME: 公司名称
+  PIMLABOURCAMPANYID: 所属单位
+  LXDZ: 联系地址
+  LXR: 联系人
+  LXFS: 联系方式
+  REGCAPITAL: 注册本金
+  LEGALPERSON: 法人
+  UPDATEDATE: 更新时间
