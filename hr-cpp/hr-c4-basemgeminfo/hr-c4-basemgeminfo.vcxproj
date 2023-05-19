@@ -172,18 +172,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\Pimarmycadres\PimarmycadresController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\dto\PimarmycadresDTO\PimarmycadresDTO.h" />
-    <ClInclude Include="domain\dto\PimarmycadresDTO\标头.h" />
+    <ClInclude Include="domain\dto\Pimarmycadres\DelPimarmycadresDTO.h" />
+    <ClInclude Include="domain\dto\Pimarmycadres\PimarmycadresIntoDTO.h" />
+    <ClInclude Include="domain\dto\Pimarmycadres\PimarmycadresFindDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresPageQuery.h" />
+    <ClInclude Include="domain\vo\Pimarmycadres\PimarmycadresVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="controller\Pimarmycadres\PimarmycadresController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="domain\dto\Pimarmycadres\AddPimarmycadresDTO.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -202,6 +208,9 @@
     <ProjectReference Include="..\lib-oatpp\lib-oatpp.vcxproj">
       <Project>{3fc26f19-d665-40bd-92f1-fc4be22a38ba}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
