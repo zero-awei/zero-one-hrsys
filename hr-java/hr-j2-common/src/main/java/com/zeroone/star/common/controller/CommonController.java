@@ -1,14 +1,23 @@
 package com.zeroone.star.common.controller;
 
+<<<<<<< HEAD
 import com.zeroone.star.project.common.CommonApis;
 import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
+=======
+
+import com.zeroone.star.project.dto.PageDTO;
+import com.zeroone.star.project.dto.common.StatusListDto;
+import com.zeroone.star.project.emplist.CommonApi;
+import com.zeroone.star.project.vo.JsonVO;
+>>>>>>> origin/j2-employee_status_list-WxS1729
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+<<<<<<< HEAD
 import java.util.List;
 
 /**
@@ -36,6 +45,15 @@ public class CommonController implements CommonApis {
     @GetMapping("query-certificate-type")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryCertificateType() {
+=======
+@RestController
+@RequestMapping("common")
+public class CommonController implements CommonApi {
+    @ApiOperation(value = "员工状态下拉列表")
+    @GetMapping("employee-status-list")
+    @Override
+    public JsonVO<PageDTO<StatusListDto>> queryEmployeeStatus() {
+>>>>>>> origin/j2-employee_status_list-WxS1729
         return null;
     }
 }
