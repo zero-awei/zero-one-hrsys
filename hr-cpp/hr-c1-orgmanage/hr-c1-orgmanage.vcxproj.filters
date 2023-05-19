@@ -30,7 +30,7 @@
     <ClCompile Include="controller\jobSet\importJobController\ImportJobController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="controller\projTag\ExportProjTagController.cpp">
+    <ClCompile Include="controller\projTag\exportProjTagController\ExportProjTagController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,7 +65,7 @@
     <ClInclude Include="controller\jobSet\importJobController\ImportJobController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="controller\projTag\ExportProjTagController.h">
+    <ClInclude Include="controller\projTag\exportProjTagController\ExportProjTagController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\projTag\ExportProjTagQuery.h">

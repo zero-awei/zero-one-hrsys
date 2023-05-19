@@ -26,7 +26,7 @@
 #include "uselib/ws/WSController.h"
 #endif
 #include "jobSet/importJobController/ImportJobController.h"
-#include "projTag/ExportProjTagController.h"
+#include "projTag/exportProjTagController/ExportProjTagController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
