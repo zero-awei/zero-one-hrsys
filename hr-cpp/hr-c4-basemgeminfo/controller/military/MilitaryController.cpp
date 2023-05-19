@@ -28,7 +28,7 @@ StringJsonVO::Wrapper MilitaryController::execModifyMilitary(const MilitaryDTO::
 	// 执行数据修改
 	if (service.updateData(dto)) {
 		jvo->success(dto->PIMARMYCADRESID);
-	}
+	}        
 	else
 	{
 		jvo->fail(dto->PIMARMYCADRESID);
