@@ -15,22 +15,12 @@ class CertificateDTO : public oatpp::DTO
 public:
 	CertificateDTO(){};
 	DTO_INIT(CertificateDTO, DTO);
-	//员工编号
-	API_DTO_FIELD_DEFAULT(String, id, ZH_WORDS_GETTER("certificate.field.id"));
-	//员工姓名
-	API_DTO_FIELD_DEFAULT(String, name, ZH_WORDS_GETTER("certificate.field.name"));
-	//员工状态
-	API_DTO_FIELD_DEFAULT(String, state, ZH_WORDS_GETTER("certificate.field.state"));
-	//组织
-	API_DTO_FIELD_DEFAULT(String, organization, ZH_WORDS_GETTER("certificate.field.organization"));
-	//证书编号
-	API_DTO_FIELD_DEFAULT(String, certificateNumber, ZH_WORDS_GETTER("certificate.field.certificateNumber"));
-	//一建配套B证编号
-	API_DTO_FIELD_DEFAULT(String, certificateNubmerB, ZH_WORDS_GETTER("certificate.field.certificateNubmerB"));
-	//证书名称
+	//排序号
+	API_DTO_FIELD_DEFAULT(String, certificateId, ZH_WORDS_GETTER("certificate.field.id"));
+	//岗位证书
 	API_DTO_FIELD_DEFAULT(String, certificateName, ZH_WORDS_GETTER("certificate.field.certificateName"));
-	//证书类型
-	API_DTO_FIELD_DEFAULT(String, certificateType, ZH_WORDS_GETTER("certificate.field.certificateType"));
+	
+	
 };
 /*
   证书查询分页传输数据类型
