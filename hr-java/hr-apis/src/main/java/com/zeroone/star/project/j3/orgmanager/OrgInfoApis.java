@@ -16,7 +16,7 @@ import com.zeroone.star.project.vo.JsonVO;
 public interface OrgInfoApis {
 
     /**
-     * 删除部门地址接口
+     * 删除组织地址接口
      * @param orgAddressDto
      * @return 删除行数
      */
