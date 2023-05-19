@@ -3,7 +3,7 @@
 #ifndef _AuditstatusCONTROLLER_H_
 #define _AuditstatusCONTROLLER_H_
 #include "oatpp-swagger/Types.hpp"
-#include "domain/query/auditstatusQuery/AuditstatusQuery.h"
+
 #include "domain/vo/BaseJsonVO.h"
 #include "domain/vo/pullList/PullListVO.h"
 #include <ApiHelper.h>
