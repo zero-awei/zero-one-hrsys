@@ -10,16 +10,22 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
- * 描述：TODO
+ * 描述：权限管理控制层
  * </p>
  * <p>版权：&copy;01星球</p>
  * <p>地址：01星球总部</p>
+ * @author
  * @version 1.0.0
  */
 
 @RestController
 @RequestMapping("/rights")
 public class RightsController implements RightsApis {
+    /**
+     * 分页查询列表
+     * @param query 查询条件
+     * @return 查询结果
+     */
     @ApiOperation(value = "分页查询列表")
     @GetMapping("/query-list")
     @Override
