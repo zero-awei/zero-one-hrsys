@@ -1,50 +1,46 @@
 <template>
-  <button @click="myEmit">父组件-子组件-方法-修改提示信息</button>
-  <br/>
-  <el-button text @click="showMsg()">操作</el-button>
+  <!-- 消息弹出框组件 -->
 </template>
 
 <script setup>
-let messageInfo = ref('确定删除吗？')
-//接受父组件传过来的值
-const testMessage = defineProps({
-  messageInfo: {
-    type: String, //类型字符串
-    default: '' //如果没有传递参数,默认值是这个
-  },
-  messageError: {
-    type: String, 
-    default: '' 
-  },
-  messageWarn:{
-    type: String, 
-    default: '' 
-  }
-})
+import 'element-plus/dist/index.css'
+const mitt = getCurrentInstance().appContext.config.globalProperties.$bus;
 
-//子组件调用父组件的方法
-const myEmit = defineEmits(['onchangeMessage'])
-myEmit('onchangeMessage', 'changeMessage')
-
-const showMsg = () => {
-  ElMessageBox.confirm(messageInfo.value, '警告', {
+let success=ref('')
+let error= ref('')
+const showMsg = (message) => {
+  success.value =message.messageSuccess
+  error.value=message.messageError
+  ElMessageBox.confirm(message.messageInfo, '警告', {
     confirmButtonText: '确定',
     cancelButtonText: '取消',
-    type: 'warning'
+    type:'warning',
   })
-    .then(() => {
+    .then(()=>{
       ElMessage({
         title: '成功',
         type: 'success',
-        message: testMessage.messageInfo
+        message: success.value,
+        position: 'top-right'
       })
     })
-    .catch(() => {
+    .catch(function(){
       ElMessage({
-        title:'出错',
+        title: '出错',
         type: 'info',
-        message: testMessage.messageError
+        message:error.value ,
+        position: 'top-right'
       })
     })
 }
+
+// 组件初次在页面渲染完毕后,触发后执行的函数
+onMounted(() => {
+  mitt.on('changeInfo', showMsg)
+})
+
+//在组件被销毁之前
+onBeforeUnmount(() => {
+  mitt.off('changeInfo')
+})
 </script>

@@ -1,61 +1,49 @@
 <template>
-  <button @click="myEmit">调用父组件方法</button>
-  <br/>
-  <el-button plain @click="showSuccess">成功</el-button>
-  <br/>
-  <el-button plain @click="showWarn">警告</el-button>
-  <br/>
-  <el-button plain @click="showError">错误</el-button>
-  <br/>
+  <!-- 信息提示组件 -->
 </template>
 
 <script setup>
-//接受父组件传过来的值
-const testMessage = defineProps({
-	 messageInfo:{
-		type:String,//类型字符串
-		default:''//如果没有传递参数,默认值是这个
-	},
-  messageError: {
-    type: String, 
-    default: '' 
-  },
-  messageWarn: {
-    type: String, 
-    default: '' 
-  },
-})
+import 'element-plus/dist/index.css'
+const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
 
-// 子组件调用父组件的方法
-const myEmit=defineEmits(['onchangeMessage'])
-myEmit("onchangeMessage","changeMessage",)
-
-const showSuccess = () => {
+// 组件初次在页面渲染完毕后,触发后执行的函数
+onMounted(() => {
+  mitt.on('showSuccess',(messageInfo) => {
   ElNotification({
     title: '成功',
-    message: testMessage.messageInfo,
+    message: messageInfo,
     type: 'success',
-    position: 'top-right',
+    position: 'top-right'
   })
-}
+})
+})
 
-const showWarn = () => {
-  ElNotification({
+onMounted(() => {
+  mitt.on('showWarn',(messageInfo) => {
+    ElNotification({
     title: '警告',
-    message: testMessage.messageWarn,
+    message:messageInfo,
     type: 'warning',
-    position: 'top-right',
+    position: 'top-right'
   })
-}
+})
+})
 
-const showError = () => {
-  ElNotification({
+onMounted(() => {
+  mitt.on('showError',(messageInfo) => {
+    ElNotification({
     title: '错误',
-    message: testMessage.messageInfo,
+    message:messageInfo,
     type: 'error',
-    position: 'top-right',
+    position: 'top-right'
   })
-}
+})
+})
+
+//在组件被销毁之前
+onBeforeUnmount(() => {
+  mitt.off('showSuccess','showWarn','showError')
+})
 </script>
 <style scoped>
 </style>
