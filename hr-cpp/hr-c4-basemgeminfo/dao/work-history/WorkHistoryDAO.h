@@ -24,6 +24,10 @@
 #include "domain/query/work-history/WorkHistoryPageQuery.h"
 #include "domain/do/work-history/WorkHIstoryFindPageDO.h"
 
+//陈靓仔
+#include "../../domain/do/work-history/WorkHistoryDO.h"
+#include "../../domain/query/work-history/WorkHistoryQuery.h"
+
 class WorkHistoryDAO : public BaseDAO
 {
 public:
@@ -32,6 +36,25 @@ public:
 
 	// 统计数据条数
 	uint64_t count(const WorkHistoryPageQuery::Wrapper& query);
+
+
+
+
+
+
+
+
+	//陈靓仔
+	list<WorkHistoryDO> selectDetail(const WorkHistoryQuery::Wrapper& query);
+
+	int update(const WorkHistoryDO& uObj);
 };
 
+
+
 #endif // !_WORKHISTORYDAO_H_
+
+
+
+
+

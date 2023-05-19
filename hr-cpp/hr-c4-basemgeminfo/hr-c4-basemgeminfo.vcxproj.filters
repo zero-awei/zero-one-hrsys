@@ -156,6 +156,72 @@
     <ClInclude Include="dao\military\MilitaryMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\certificate-information\CertificateInformationController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\jobtitle-information\JobTitleInformationController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\work-history\WorkHistoryDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\work-history\WorkHistoryDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\work-history\ModWorkHistoryDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\certificate-information\CertificateInformationDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\certificate-information\JobTitleInformationDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\certificate-information\certificate-information\CertificateInformationDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\certificate-information\certificate-information\CertificateInformationMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\certificate-information\jobtitle-information\JobTitleInformationDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\certificate-information\jobtitle-information\JobTitleInformationMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\certificate-information\CertificateInformationDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\certificate-information\JobTitleInformationDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\certificate-information\CertificateInformationPageQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\certificate-information\JobTitleInformationPageQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\work-history\WorkHistoryQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\certificate-information\CertificateInformationVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\certificate-information\JobTitleInformationVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\work-history\ModWorkHistoryVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\work-history\WorkHistoryVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\certificate-information\certificate-information\CertificateInformationService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\certificate-information\jobtitle-information\JobTitleInformationService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -204,6 +270,24 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="dao\military\MilitaryDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\certificate-information\CertificateInformationController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\jobtitle-information\JobTitleInformationController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\certificate-information\certificate-information\CertificateInformationDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\certificate-information\jobtitle-information\JobTitleInformationDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\certificate-information\certificate-information\CertificateInformationService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\certificate-information\jobtitle-information\JobTitleInformationService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

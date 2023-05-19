@@ -23,12 +23,12 @@
 
 #include "Mapper.h"
 #include "domain/do/work-history/WorkHIstoryFindPageDO.h"
-
+#include "../../domain/do/work-history/WorkHistoryDO.h"
 
 /**
  * ◊÷∂Œ∆•≈‰”≥…‰
  */
-class WorkHistoryMapper : public Mapper<WorkHistoryFindDO>
+class WorkHistoryPageMapper : public Mapper<WorkHistoryFindDO>
 {
 public:
 	WorkHistoryFindDO mapper(ResultSet* resultSet) const override
@@ -47,5 +47,27 @@ public:
 		return data;
 	}
 };
+
+
+
+class WorkHistoryMapper : public Mapper<WorkHistoryDO>
+{
+public:
+	WorkHistoryDO mapper(ResultSet* resultSet) const override
+	{
+		WorkHistoryDO data;
+		data.setRzkssj(resultSet->getString(1));
+		data.setRzjssj(resultSet->getString(2));
+		data.setOrmorgname(resultSet->getString(3));
+		data.setOrmdutyname(resultSet->getString(4));
+		data.setOrmpostname(resultSet->getString(5));
+		data.setCfplx(resultSet->getString(6));
+		data.setEnable(resultSet->getString(7));
+
+		return data;
+	}
+};
+
+
 
 #endif // !_WORKHISTORYMAPPER_H_

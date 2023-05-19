@@ -42,10 +42,13 @@ workhistory:
   rzjssj: 任职结束时间
   ormorgname: 工作单位
   bm: 部门
-  zw: 职务
-  gw: 岗位
+  ormdutyname: 职务
+  ormpostname: 岗位
   cfplx: 兼职主要类型
   experience: 是否主要经历
+  enable: 是否主要经历
+ put:
+  summary: 单条修改工作履历数据
  export:
   summary: 导出数据
  upload:
@@ -56,7 +59,9 @@ workhistory:
   summary: 新增一条数据
  delete:
   summary: 删除数据(支持批量删除)  
-  sex: 性别，如：男
+ select:
+  summary: 查询数据
+  
 sciresult:
  field:
   UPDATEMAN: 更新人
@@ -118,3 +123,48 @@ military:
  TROOPTYPE: 类型
  LEVELTYPE: 级别
  REASON: 拒绝原因
+ user:
+ query-all: 
+  summary: 查询所有用户
+  nickname: 昵称
+ file:
+  summary: 文件上传
+  suffix: 文件后缀
+ query-menu:
+  summary: 查询所有菜单
+ field:
+  age: 年龄
+  nickname: 昵称
+  idCard: 身份证号码
+  menuname: 菜单名称
+  menuicon: 图标名称
+  menuhref: 路由地址
+  menusub: 子菜单
+jobtitleinformation:
+ get:
+  summary: 分页查询职称信息
+ field:
+  state: 员工状态
+  ormorgname: 组织
+  professoranalysis_name: 职称名称 
+  credentials_num: 证书编号 
+  professor_grades: 职称等级 
+  major: 专业类别 
+  zchqrq: 职称获取日期 datetime
+  reviewbody: 评审单位 
+  lssuingagency: 签发机构 
+  employtime: 职称聘用时间 datetime
+  enable: 是否最高职称
+certificateinformation:
+ get:
+  summary: 分页查询证书信息
+ field:
+  state: 员工状态
+  ormorgname: 组织
+  zgzsbh: 证书编号
+  pimvocationalname: 证书名称
+  zslx: 证书类型
+  zghqrq: 签发日期
+  zgsydw: 签发机构
+  fzyxq: 发证有效期
+  

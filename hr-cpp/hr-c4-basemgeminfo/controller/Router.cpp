@@ -20,15 +20,12 @@
 #include "Router.h"
 #include "ApiHelper.h"
 #include "SciResult/SciResultController.h"
-#ifdef HTTP_SERVER_DEMO
-#include "user/UserController.h"
-#include "sample/SampleController.h"
-#include "uselib/ws/WSController.h"
-#include "uselib/ws/WSController.h"
-#endif
 #include "work-history/WorkHistoryController.h"
+#include "certificate-information/CertificateInformationController.h"
 #include"contract/ContractController.h"
+#include "jobtitle-information/JobTitleInformationController.h"
 #include"military/MilitaryController.h"
+#include "work-history/WorkHistoryController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -56,12 +53,18 @@ void Router::initRouter()
 	//#TIP :系统扩展路由定义，写在这个后面
 	ROUTER_SIMPLE_BIND(SciResultController);
 
+
+	//#TIP :系统扩展路由定义，写在这个后面
+	//绑定路由（传入类名）
+	ROUTER_SIMPLE_BIND(CertificateInformationController);
+	ROUTER_SIMPLE_BIND(JobTitleInformationController);
+	ROUTER_SIMPLE_BIND(WorkHistoryController);
+
 	// 
 	// 绑定ContractController
 	ROUTER_SIMPLE_BIND(ContractController);
 	// 绑定MilitaryController
 	ROUTER_SIMPLE_BIND(MilitaryController);
-	ROUTER_SIMPLE_BIND(WorkHistoryController);
 
 }
 
@@ -70,10 +73,12 @@ void Router::initRouter()
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
-	// 绑定示例控制器
-	ROUTER_SIMPLE_BIND(SampleController);
-	// 绑定用户控制器
-	ROUTER_SIMPLE_BIND(UserController);
+	// 绑定控制器
+	ROUTER_SIMPLE_BIND(CertificateInformationController);
+	// 绑定控制器
+	ROUTER_SIMPLE_BIND(JobTitleInformationController);
+	// 绑定控制器
+	ROUTER_SIMPLE_BIND(WorkHistoryController);
 
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());
