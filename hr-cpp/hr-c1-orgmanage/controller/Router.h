@@ -45,7 +45,7 @@ private:
 	// 创建演示路由
 	void createSampleRouter();
 #endif
-	void createJobSetRouter();
+	// 项目标签相关类的路由绑定
 	void createProjTagRouter();
 };
 

@@ -27,9 +27,6 @@
     <ClCompile Include="controller\SystemInterceptor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="controller\jobSet\importJobController\ImportJobController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="controller\projTag\importTagController\ImportTagController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -57,15 +54,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="controller\jobSet\JobController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\jobSet\ImportJobVO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\jobSet\ImportJobDTO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\jobSet\importJobController\ImportJobController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="domain\dto\projTag\ImportTagDTO.h">
