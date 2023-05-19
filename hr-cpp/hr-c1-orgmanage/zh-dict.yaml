@@ -31,12 +31,12 @@ sample:
   sex: 性别，如：男
 projTag:
  import:
-  summary: 项目标签
+  summary: 导入项目标签
   fileType: 文件类型
   sheetName: 文件名称
   file: 文件名称
  add:
-  summary: 项目标签
+  summary: 新增项目标签
  filed:
   sortid: 排序号
   orgname: 组织名称
