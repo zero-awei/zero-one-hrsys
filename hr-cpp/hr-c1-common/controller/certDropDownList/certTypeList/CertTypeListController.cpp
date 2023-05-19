@@ -20,7 +20,15 @@
 #include "CertTypeListController.h"
 //#include "../../service/sample/SampleService.h"
 
-CertTypePageJsonVO::Wrapper CertTypeListController::execQueryCertTypeList(const PayloadDTO& payload)
+PullListVO::Wrapper CertTypeListController::execQueryCertTypeList(const PayloadDTO& payload)
 {
-	return CertTypePageJsonVO::Wrapper();
+	auto vo = PullListVO::createShared();
+	auto dto = PullListDTO::createShared();
+	dto->pullList->push_back(ItemDTO::createShared(1, u8"执(职)业资格证书"));
+	dto->pullList->push_back(ItemDTO::createShared(2, u8"岗位(技能)证书"));
+	// TODO:调用service返回PullListDTO
+
+	vo->success(dto);
+	return vo;
+	return vo;
 }

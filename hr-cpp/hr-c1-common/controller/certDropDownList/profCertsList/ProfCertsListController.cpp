@@ -20,7 +20,7 @@
 #include "profCertsListController.h"
 //#include "../../service/sample/SampleService.h"
 
-ProfCertsPageJsonVO::Wrapper ProfCertsListController::execQueryProfCertsList(const ProfCertsQuery::Wrapper& query, const PayloadDTO& payload)
+ProfCertsListJsonVO::Wrapper ProfCertsListController::execQueryProfCertsList(const ProfCertsQuery::Wrapper& query, const PayloadDTO& payload)
 {
-	return ProfCertsPageJsonVO::Wrapper();
+	return ProfCertsListJsonVO::Wrapper();
 }

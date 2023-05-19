@@ -20,7 +20,7 @@
 #ifndef _PROFCERTS_DTO_
 #define _PROFCERTS_DTO_
 #include "../../GlobalInclude.h"
-#include "../pullList/PullListDTO.h"
+
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
@@ -115,9 +115,9 @@ class ProfCertsDTO : public oatpp::DTO
 /**
  * 执(职)业资格证书下拉列表分页查询DTO
  */
-class ProfCertsListDTO : public ListDTO<ProfCertsDTO::Wrapper>
+class ProfCertsListDTO : public PageDTO<ProfCertsDTO::Wrapper>
 {
-	DTO_INIT(ProfCertsListDTO, ListDTO<ProfCertsDTO::Wrapper>);
+	DTO_INIT(ProfCertsListDTO, PageDTO<ProfCertsDTO::Wrapper>);
 };
 #include OATPP_CODEGEN_END(DTO)
 #endif // !_PROFCERTS_DTO_

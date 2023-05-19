@@ -21,9 +21,8 @@
 #define _CERTTYPELIST_CONTROLLER_
 
 #include "domain/vo/BaseJsonVO.h"
-#include "domain/query/certs/certTypeQuery.h"
-#include "domain/dto/certs/certTypeDTO.h"
-#include "domain/vo/certs/certTypeVO.h"
+#include "domain/dto/pullList/PullListDTO.h"
+#include "domain/vo/pullList/PullListVO.h"
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
 #include "oatpp/web/mime/multipart/FileProvider.hpp"
 #include "oatpp/web/mime/multipart/Reader.hpp"
@@ -51,7 +50,7 @@ public:
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(CertTypePageJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/query-Cert-Type", queryCertTypeList, API_HANDLER_AUTH_PARAME) {
@@ -59,7 +58,7 @@ public:
 		API_HANDLER_RESP_VO(execQueryCertTypeList(authObject->getPayload()));
 	}
 private:
-	CertTypePageJsonVO::Wrapper execQueryCertTypeList(const PayloadDTO& payload);
+	PullListVO::Wrapper execQueryCertTypeList(const PayloadDTO& payload);
 };
 
 // 0 取消API控制器使用宏
