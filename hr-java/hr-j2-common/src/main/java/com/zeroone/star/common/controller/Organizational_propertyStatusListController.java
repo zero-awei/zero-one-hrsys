@@ -5,7 +5,9 @@ import com.zeroone.star.project.dto.organizational_propertystatuslist.Organizati
 import com.zeroone.star.project.emplist.Organizational_propertyStatusApi;
 import com.zeroone.star.project.query.organizational_propertystatuslist.Organizational_propertyStatusListQuery;
 import com.zeroone.star.project.vo.JsonVO;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,11 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("employee")
+@RequestMapping("common")
+@Api(tags = "common")
 public class Organizational_propertyStatusListController implements Organizational_propertyStatusApi {
 
-    @RequestMapping("Organizational_property-status")
-    @ApiOperation(value ="组织性质下拉列表")
+    @GetMapping("Organizational_property-status")
+    @ApiOperation(value = "组织性质下拉列表")
 
     @Override
     public JsonVO<PageDTO<Organizational_propertyStatusListDTO>> queryAll(Organizational_propertyStatusListQuery query) {
