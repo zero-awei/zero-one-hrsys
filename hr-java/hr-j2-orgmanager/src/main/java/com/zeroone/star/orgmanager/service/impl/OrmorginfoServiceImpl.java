@@ -5,6 +5,7 @@ import com.zeroone.star.orgmanager.mapper.OrmorginfoMapper;
 import com.zeroone.star.orgmanager.service.IOrmorginfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zeroone.star.project.dto.orgmanager.DeptInfoDTO;
+import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
 import com.zeroone.star.project.vo.JsonVO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,11 @@ public class OrmorginfoServiceImpl extends ServiceImpl<OrmorginfoMapper, Ormorgi
 
     @Override
     public JsonVO<String> saveDept(DeptInfoDTO deptInfoDTO) {
+        return null;
+    }
+
+    @Override
+    public JsonVO<String> updateDept(ModifyDeptInfoDTO modifyDeptInfoDTO) {
         return null;
     }
 }

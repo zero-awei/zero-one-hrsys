@@ -3,6 +3,7 @@ package com.zeroone.star.orgmanager.controller;
 
 import com.zeroone.star.orgmanager.service.IOrmorginfoService;
 import com.zeroone.star.project.dto.orgmanager.DeptInfoDTO;
+import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
 import com.zeroone.star.project.orgmanager.OrgmanagerApis;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
@@ -35,6 +36,13 @@ public class OrmorginfoController implements OrgmanagerApis {
     @Override
     public JsonVO<String> addDept(DeptInfoDTO deptInfoDTO) {
         return ormorginfoService.saveDept(deptInfoDTO);
+    }
+
+    @ApiOperation(value = "修改指定部门信息")
+    @PostMapping("modifyDeptById")
+    @Override
+    public JsonVO<String> modifyDept(ModifyDeptInfoDTO modifyDeptInfoDTO) {
+        return ormorginfoService.updateDept(modifyDeptInfoDTO);
     }
 }
 

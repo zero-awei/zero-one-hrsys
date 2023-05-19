@@ -53,4 +53,5 @@ public class DeptInfoDTO {
     private String postInfo;
     @ApiModelProperty(value = "上级部门ID",example = "")
     private String pOrgSectorId;
+
 }

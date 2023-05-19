@@ -1,6 +1,7 @@
 package com.zeroone.star.project.orgmanager;
 
 import com.zeroone.star.project.dto.orgmanager.DeptInfoDTO;
+import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
 import com.zeroone.star.project.query.dashboard.EducationQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
@@ -12,4 +13,5 @@ import com.zeroone.star.project.vo.JsonVO;
  */
 public interface OrgmanagerApis {
     JsonVO<String> addDept(DeptInfoDTO deptInfoDTO);
+    JsonVO<String> modifyDept(ModifyDeptInfoDTO modifyDeptInfoDTO);
 }
