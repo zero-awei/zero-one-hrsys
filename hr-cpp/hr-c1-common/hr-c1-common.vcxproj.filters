@@ -15,7 +15,7 @@
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\filestatus\FilestatusDTO.h" />
-    <ClInclude Include="domain\query\filereservation\FilereservationQuery.h" />
+	
     <ClInclude Include="domain\query\filestatus\FilestatusQuery.h" />
     <ClInclude Include="domain\vo\filereservation\FilereservationVO.h" />
     <ClInclude Include="domain\vo\filestatus\FilestatusVO.h" />
@@ -24,8 +24,7 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="domain\vo\filereservation\FilereservationVO.h" />
-    <ClInclude Include="domain\query\filereservation\FilereservationQuery.h" />
     <ClInclude Include="domain\dto\filereservation\FilereservationDTO.h" />
+
   </ItemGroup>
 </Project>
