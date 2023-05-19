@@ -56,7 +56,7 @@ interface TableCell {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @include block(maintable) {
   @include element(form) {
     background-color: white;
