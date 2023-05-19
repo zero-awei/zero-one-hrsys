@@ -9,7 +9,7 @@ import lombok.NonNull;
 @Data
 @ApiModel("城市名称状态对象")
 public class City_NameStatusListDTO {
-    @NonNull
+
     @ApiModelProperty(value="唯一 id",example = "1")
     private  Integer id;
 
