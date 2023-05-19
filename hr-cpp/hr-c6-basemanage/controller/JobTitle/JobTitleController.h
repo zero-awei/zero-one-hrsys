@@ -18,9 +18,9 @@
  limitations under the License.
 */
 
-#include "./domain/do/job-title/JobTitleDo.h"  
-#include "./domain/vo/job-title/JobTitleJsonVO.h"
-#include "./domain/query/job-title/JobTitleQuery.h"
+#include "./domain/do/JobTitle/JobTitleDo.h"  
+#include "./domain/vo/JobTitle/JobTitleJsonVO.h"
+#include "./domain/query/JobTitle/JobTitleQuery.h"
 #include "./domain//vo/BaseJsonVO.h"
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
 #include "oatpp/web/mime/multipart/FileProvider.hpp"

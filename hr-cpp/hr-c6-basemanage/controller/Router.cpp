@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-#include "controller/job-title/JobTitleController.h"
+#include "controller/JobTitle/JobTitleController.h"
 #include "SelectController/MyController.h"
 
 #ifdef HTTP_SERVER_DEMO
@@ -29,7 +29,11 @@
 #endif
 #include "LDConstroller/LaborDispatchConstroller.h"
 
-// 如果定义了关闭Swagger文档宏
+
+#include "Muggle/labor_dispatch-Muggle.h"
+#include "Muggle/expense_ledger-Muggle.h"
+
+
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
 #define ROUTER_SIMPLE_BIND(__CLASS__) \
@@ -56,6 +60,8 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(LaborDispatchConstroller);
 	ROUTER_SIMPLE_BIND(TestController);
 	ROUTER_SIMPLE_BIND(JobTitleController);
+	ROUTER_SIMPLE_BIND(ExpenseLedgerMController);
+	ROUTER_SIMPLE_BIND(LaborDispatchConstroller);
 }
 
 #ifdef HTTP_SERVER_DEMO

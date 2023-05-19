@@ -7,7 +7,7 @@
 
 #include "stdafx.h"
 #include "../../GlobalInclude.h"
-#include "domain/dto/job-title/JobTitleDTO.h"
+#include "domain/dto/JobTitle/JobTitleDTO.h"
 
 #ifndef _JOBTITLE_VO_
 #define _JOBTITLE_VO_
