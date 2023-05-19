@@ -1,5 +1,6 @@
 package com.zeroone.star.project.j3.common;
 
+import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
 import com.zeroone.star.project.j3.query.common.OneConditionQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
@@ -24,4 +25,21 @@ public interface CommonApis {
 	 * @return 查询结果
 	 */
 	JsonVO<List<String>> queryOneColumn(OneConditionQuery oneConditionQuery);
+/**
+ *
+ * @return {@link JsonVO< List< DropdownListOptionDTO>>}
+ * @Author H_lzu
+ * @Date 20:27 2023/5/19
+ */
+	JsonVO<List<DropdownListOptionDTO>> queryRewardPenaltyLevels();
+/**
+ * 军转类型下拉列表
+ * @return
+ * @return {@link JsonVO< List< DropdownListOptionDTO>>}
+ * @Author H_lzu
+ * @Date 20:24 2023/5/19
+ */
+	JsonVO<List<DropdownListOptionDTO>> queryTypeofMilitaryTransfer();
+
 }
+
