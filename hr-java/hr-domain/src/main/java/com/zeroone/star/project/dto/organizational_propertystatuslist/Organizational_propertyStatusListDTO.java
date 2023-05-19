@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 @Data
 @ApiModel("组织性质状态对象")
-public class Organizational_propertyStatusDTO {
+public class Organizational_propertyStatusListDTO {
     @ApiModelProperty(value = "唯一编号",example = "1")
     private Integer id;
 

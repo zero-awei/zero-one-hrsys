@@ -1,4 +1,4 @@
-package com.zeroone.star.project.dto.subsidy_standardstatuslist;
+package com.zeroone.star.project.dto.department_typestatuslist;
 
 /**
  * @author abner
@@ -7,10 +7,9 @@ package com.zeroone.star.project.dto.subsidy_standardstatuslist;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-
 @Data
-@ApiModel("补贴标准状态对象")
-public class Subsidy_standardStatusDTO {
+@ApiModel("部门类型状态对象")
+public class Department_typeStatusListDTO {
     @ApiModelProperty(value = "唯一编号",example = "1")
     private Integer id;
 

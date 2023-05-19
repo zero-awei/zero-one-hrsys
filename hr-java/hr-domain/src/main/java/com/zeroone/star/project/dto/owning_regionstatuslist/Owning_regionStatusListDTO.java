@@ -1,4 +1,4 @@
-package com.zeroone.star.project.dto.department_typestatuslist;
+package com.zeroone.star.project.dto.owning_regionstatuslist;
 
 /**
  * @author abner
@@ -7,9 +7,10 @@ package com.zeroone.star.project.dto.department_typestatuslist;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
 @Data
-@ApiModel("部门类型状态对象")
-public class Department_typeStatusDTO {
+@ApiModel("所属区域状态对象")
+public class Owning_regionStatusListDTO {
     @ApiModelProperty(value = "唯一编号",example = "1")
     private Integer id;
 

@@ -1,4 +1,4 @@
-package com.zeroone.star.project.dto.owning_regionstatuslist;
+package com.zeroone.star.project.dto.subsidy_standardstatuslist;
 
 /**
  * @author abner
@@ -9,8 +9,8 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-@ApiModel("所属区域状态对象")
-public class Owning_regionStatusDTO {
+@ApiModel("补贴标准状态对象")
+public class Subsidy_standardStatusListDTO {
     @ApiModelProperty(value = "唯一编号",example = "1")
     private Integer id;
 
