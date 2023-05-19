@@ -41,7 +41,7 @@ class LanguageDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("sample.field.name");
 	}
 	// ƒÍ¡‰
-	DTO_FIELD(UInt32, age);
+	/*DTO_FIELD(UInt32, age);
 	DTO_FIELD_INFO(age) {
 		info->description = ZH_WORDS_GETTER("sample.field.age");
 	}
@@ -49,7 +49,7 @@ class LanguageDTO : public oatpp::DTO
 	DTO_FIELD(String, sex);
 	DTO_FIELD_INFO(sex) {
 		info->description = ZH_WORDS_GETTER("sample.field.sex");
-	}
+	}*/
 	//”Ô÷÷
 	DTO_FIELD(String, languageType);
 	DTO_FIELD_INFO(languageType) {
