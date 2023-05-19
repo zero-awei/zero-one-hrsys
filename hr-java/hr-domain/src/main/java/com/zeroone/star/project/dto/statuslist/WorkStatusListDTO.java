@@ -15,8 +15,6 @@ import lombok.Data;
 public class WorkStatusListDTO {
     @ApiModelProperty(value = "唯一编号",example = "1")
     private Integer id;
-    @ApiModelProperty(value = "姓名",example = "张三")
-    private String name;
 
     @ApiModelProperty(value = "工作状态",example = "在职")
     private String gzzt;

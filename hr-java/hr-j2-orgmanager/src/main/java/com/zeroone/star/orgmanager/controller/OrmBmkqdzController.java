@@ -20,12 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("org")
 @Api(tags = "departments")
 public class OrmBmkqdzController implements OrmBmkqdzApi {
-    @Override
+
     @ApiOperation(value = "更新部门考勤地址")
-    @PutMapping(value = "ormorgdzid")
-    public JsonVO<OrmBmkqdzDTO> modifyOrmBmkqdz(OrmBmkqdzQuery query) {
+    @PutMapping(value = "update-attendance-address")
+    @Override
+    public JsonVO<OrmBmkqdzDTO> modifyAttendanceAddress(OrmBmkqdzQuery query) {
         return null;
     }
-
-
 }

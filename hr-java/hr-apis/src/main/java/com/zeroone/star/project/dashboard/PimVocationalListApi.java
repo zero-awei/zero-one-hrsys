@@ -5,6 +5,8 @@ import com.zeroone.star.project.dto.dashboard.PimVocationalListDTO;
 import com.zeroone.star.project.query.dashboard.PimVocationalListQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
+import java.util.List;
+
 /**
  * @author mwx
  * @version 1.0
@@ -18,7 +20,7 @@ public interface PimVocationalListApi {
      * @param query
      * @return
      */
-    JsonVO<PageDTO<PimVocationalListDTO>> queryPimVocational(PimVocationalListQuery query);
+    JsonVO<List<PimVocationalListDTO>> queryPimVocational(PimVocationalListQuery query);
 
 
 }

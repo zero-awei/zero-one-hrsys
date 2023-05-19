@@ -15,9 +15,9 @@ import lombok.Data;
 public class PimVocationalListDTO {
 
     @ApiModelProperty(value = "职业资格名",example = "软件设计师")
-    private String pimqualmajorname;
+    private String qualificationName;
 
     @ApiModelProperty(value = "职业资格数量",example = "1")
-    private Integer pimqualmajorname_num;
+    private Integer countNum;
 
 }

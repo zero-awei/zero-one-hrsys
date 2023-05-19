@@ -6,12 +6,17 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
-@ApiModel("员工婚姻状态查询")
-public class MaritalStatusListQuery extends PageQuery {
+/**
+ * @author mwx
+ * @version 1.0
+ * @description: 婚姻状态查询Query
+ * @date 2023/5/19 23:04
+ */
 
-    @ApiModelProperty(value = "姓名", example = "张三")
-    private String name;
+
+@Data
+@ApiModel("婚姻状态查询")
+public class MaritalStatusListQuery {
+
 
 }

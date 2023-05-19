@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("common")
 @Api(tags = "common")
@@ -19,7 +21,7 @@ public class MaritalStatusListController implements MaritalStatusApi {
     @GetMapping("marital-status")
     @ApiOperation(value = "婚姻状况列表")
     @Override
-    public JsonVO<PageDTO<MaritalStatusListDTO>> queryAll(MaritalStatusListQuery query) {
+    public JsonVO<List<MaritalStatusListDTO>> queryAll(MaritalStatusListQuery query) {
         return null;
     }
 }

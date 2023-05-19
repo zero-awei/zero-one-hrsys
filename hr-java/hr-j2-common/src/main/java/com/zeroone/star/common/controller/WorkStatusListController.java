@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @author mwx
  * @version 1.0
@@ -25,7 +27,7 @@ public class WorkStatusListController implements WorkStatusApi {
     @Override
     @GetMapping("work-status")
     @ApiOperation(value = "工作状态列表")
-    public JsonVO<PageDTO<WorkStatusListDTO>> queryAll(WorkStatusListQuery query) {
+    public JsonVO<List<WorkStatusListDTO>> queryAll(WorkStatusListQuery query) {
         return null;
     }
 

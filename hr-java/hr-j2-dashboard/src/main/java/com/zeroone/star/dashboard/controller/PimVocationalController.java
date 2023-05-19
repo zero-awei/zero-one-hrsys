@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @author mwx
  * @version 1.0
@@ -26,7 +28,7 @@ public class PimVocationalController implements PimVocationalListApi {
     @GetMapping("fetchrep-vocational")
     @ApiOperation(value = "职业资格列表")
     @Override
-    public JsonVO<PageDTO<PimVocationalListDTO>> queryPimVocational(PimVocationalListQuery query) {
+    public JsonVO<List<PimVocationalListDTO>> queryPimVocational(PimVocationalListQuery query) {
         return null;
     }
 }

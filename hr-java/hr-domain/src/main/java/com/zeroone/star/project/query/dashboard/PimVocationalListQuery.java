@@ -8,13 +8,13 @@ import lombok.EqualsAndHashCode;
 /**
  * @author mwx
  * @version 1.0
- * @description: TODO
+ * @description: 首页职业资格查询Query
  * @date 2023/5/18 10:53
  */
-@EqualsAndHashCode(callSuper = true)
+
 @Data
 @ApiModel("职业资格查询")
-public class PimVocationalListQuery extends PageQuery {
+public class PimVocationalListQuery  {
 
 
 }

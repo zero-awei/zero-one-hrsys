@@ -5,12 +5,14 @@ import com.zeroone.star.project.dto.statuslist.MaritalStatusListDTO;
 import com.zeroone.star.project.query.statuslist.MaritalStatusListQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
+import java.util.List;
+
 public interface MaritalStatusApi {
     /**
      *
      * @param query
      * @return
      */
-    JsonVO<PageDTO<MaritalStatusListDTO>> queryAll(MaritalStatusListQuery query);
+    JsonVO<List<MaritalStatusListDTO>> queryAll(MaritalStatusListQuery query);
 
 }
