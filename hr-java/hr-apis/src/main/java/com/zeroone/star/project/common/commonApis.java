@@ -14,13 +14,20 @@ import java.util.List;
 */
 public interface commonApis {
     /**
-     * @param gwflDTO: 部门分类数据对象
+     * @param :
      * @return JsonVO<List<GwflDTO>> 部门分类信息
      * @author 乐天
-     * @description
-     * @date 2023/5/19 23:58
+     * @description 获取部门分类下拉列表
+     * @date 2023/5/20 0:02
      */
-    JsonVO<List<GwflDTO>> queryGwfl(GwflDTO gwflDTO);
+    JsonVO<List<GwflDTO>> queryGwfl();
 
-    JsonVO<List<PostNatureDTO>> queryPostNature(PostNatureDTO postNatureDTO);
+    /**
+     * @param :
+     * @return JsonVO<List<PostNatureDTO>> 部门性质信息
+     * @author 乐天
+     * @description 获取部门性质下拉列表
+     * @date 2023/5/20 0:03
+     */
+    JsonVO<List<PostNatureDTO>> queryPostNature();
 }
