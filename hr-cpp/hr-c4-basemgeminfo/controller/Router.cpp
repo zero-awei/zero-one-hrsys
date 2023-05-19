@@ -24,8 +24,11 @@
 #include "user/UserController.h"
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
+#include "uselib/ws/WSController.h"
 #endif
 #include "work-history/WorkHistoryController.h"
+#include"contract/ContractController.h"
+#include"military/MilitaryController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -53,6 +56,11 @@ void Router::initRouter()
 	//#TIP :系统扩展路由定义，写在这个后面
 	ROUTER_SIMPLE_BIND(SciResultController);
 
+	// 
+	// 绑定ContractController
+	ROUTER_SIMPLE_BIND(ContractController);
+	// 绑定MilitaryController
+	ROUTER_SIMPLE_BIND(MilitaryController);
 	ROUTER_SIMPLE_BIND(WorkHistoryController);
 
 }
@@ -66,7 +74,7 @@ void Router::createSampleRouter()
 	ROUTER_SIMPLE_BIND(SampleController);
 	// 绑定用户控制器
 	ROUTER_SIMPLE_BIND(UserController);
-	
+
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());
 }

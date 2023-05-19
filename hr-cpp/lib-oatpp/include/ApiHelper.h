@@ -43,10 +43,10 @@ using namespace oatpp::web::protocol::http;
 #define BIND_CONTROLLER(__DOC__, __ROUTER__, __CLASS__) \
 __DOC__->append(__ROUTER__->addController(__CLASS__::createShared())->getEndpoints())
 
-/**
-* 控制器类访问定义，用于绑定授权处理器和类创建入口函数
-* @param __CLASS__: controller类名称
-*/
+ /**
+ * 控制器类访问定义，用于绑定授权处理器和类创建入口函数
+ * @param __CLASS__: controller类名称
+ */
 #define API_ACCESS_DECLARE(__CLASS__) \
 public: \
 __CLASS__(OATPP_COMPONENT(std::shared_ptr<ObjectMapper>, objectMapper)) : oatpp::web::server::api::ApiController(objectMapper) { \
@@ -56,7 +56,7 @@ static std::shared_ptr<__CLASS__> createShared(OATPP_COMPONENT(std::shared_ptr<O
 	return std::make_shared<__CLASS__>(objectMapper); \
 }
 
-// 获取数据请求
+ // 获取数据请求
 #define API_M_GET  "GET";
 // 新增数据请求
 #define API_M_POST "POST";
@@ -64,8 +64,6 @@ static std::shared_ptr<__CLASS__> createShared(OATPP_COMPONENT(std::shared_ptr<O
 #define API_M_PUT  "PUT";
 // 删除数据请求
 #define API_M_DEL  "DELETE";
-
-//////////////////////////////////////////////////////////////////////////
 
 // API描述添加安全验证
 #define API_DEF_ADD_AUTH() info->addSecurityRequirement("bearer_auth")
@@ -76,13 +74,13 @@ static std::shared_ptr<__CLASS__> createShared(OATPP_COMPONENT(std::shared_ptr<O
  */
 #define API_DEF_ADD_RSP_JSON(__RESP_TYPE__) info->addResponse<__RESP_TYPE__>(Status::CODE_200, "application/json")
 
-/**
-* API描述添加响应数据，用oatpp::Object包装泛型
-* @param __RESP_TYPE__: 响应数据类型，如：JsonVO<X>
-*/
+ /**
+ * API描述添加响应数据，用oatpp::Object包装泛型
+ * @param __RESP_TYPE__: 响应数据类型，如：JsonVO<X>
+ */
 #define API_DEF_ADD_RSP_JSON_WRAPPER(__RESP_TYPE__) API_DEF_ADD_RSP_JSON(oatpp::Object<__RESP_TYPE__>)
 
-// 处理跨平台描述信息中文乱码问题
+ // 处理跨平台描述信息中文乱码问题
 #ifndef LINUX
 #define API_PAGE_INDEX_DESC u8"查询页码"
 #define API_PAGE_SIZE_DESC u8"查询条数"
@@ -107,12 +105,12 @@ info->queryParams["pageSize"].addExample("default", oatpp::UInt64(10));
 ENDPOINT_INFO(__API_FUN_NAME__) { \
 	info->summary = __TITLE__; \
 	API_DEF_ADD_AUTH(); \
-	API_DEF_ADD_RSP_JSON(__RESP_TYPE__); \
+	API_DEF_ADD_RSP(__RESP_TYPE__); \
 }
 
-//////////////////////////////////////////////////////////////////////////
+ //////////////////////////////////////////////////////////////////////////
 
-// 接口处理器分页参数获取定义
+ // 接口处理器分页参数获取定义
 #define API_HANDLER_PAGE_PARAME \
 QUERY(UInt64, pageIndex), \
 QUERY(UInt64, pageSize)
@@ -121,12 +119,12 @@ QUERY(UInt64, pageSize)
 #define API_HANDLER_AUTH_PARAME \
 AUTHORIZATION(std::shared_ptr<CustomerAuthorizeObject>, authObject)
 
- /**
-  * 接口处理器解析查询参数到查询数据对象
-  * @param __VAR__: 转换后的变量名称，如query
-  * @param __TYPE__: 查询数据对象类型，如XxxQuery
-  * @param __PARAMS__: QueryParams的变量名称，如：QUERIES(QueryParams, queryParams),则传入queryParams
-  */
+/**
+ * 接口处理器解析查询参数到查询数据对象
+ * @param __VAR__: 转换后的变量名称，如query
+ * @param __TYPE__: 查询数据对象类型，如XxxQuery
+ * @param __PARAMS__: QueryParams的变量名称，如：QUERIES(QueryParams, queryParams),则传入queryParams
+ */
 #define API_HANDLER_QUERY_PARAM(__VAR__, __TYPE__, __PARAMS__) \
 auto __VAR__ = __TYPE__::createShared(); \
 for (auto& param : __PARAMS__.getAll()) { \
@@ -150,16 +148,16 @@ for (auto& param : __PARAMS__.getAll()) { \
 		__VAR__[param.first.toString()] = oatpp::Boolean(*data == "true" || stoi(*data) == 1); \
 }
 
-/**
- * 接口处理器响应VO数据
- * @param __VO__: 响应数据对象
- */
+ /**
+  * 接口处理器响应VO数据
+  * @param __VO__: 响应数据对象
+  */
 #define API_HANDLER_RESP_VO(__VO__) return createDtoResponse(Status::CODE_200, __VO__)
 
-/**
-* 接口处理器响应VO数据，用oatpp::Object包装泛型
-* @param __VO__: 响应数据对象
-*/
+  /**
+  * 接口处理器响应VO数据，用oatpp::Object包装泛型
+  * @param __VO__: 响应数据对象
+  */
 #define API_HANDLER_RESP_VO_WRAPPER(__VO__) API_HANDLER_RESP_VO(oatpp::Object<__VO__>)
 
 #endif // !_API_HELPER_

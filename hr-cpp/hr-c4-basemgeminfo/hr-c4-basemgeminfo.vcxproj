@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -171,14 +171,24 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="controller\contract\ContractController.h" />
+    <ClInclude Include="controller\military\MilitaryController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\SciResult\SciResultController.h" />
     <ClInclude Include="controller\work-history\WorkHistoryController.h" />
+    <ClInclude Include="dao\contract\ContractDAO.h" />
+    <ClInclude Include="dao\contract\ContractMapper.h" />
+    <ClInclude Include="dao\military\MilitaryDAO.h" />
+    <ClInclude Include="dao\military\MilitaryMapper.h" />
     <ClInclude Include="dao\work-history\WorkHistoryDAO.h" />
     <ClInclude Include="dao\work-history\WorkHistoryMapper.h" />
+    <ClInclude Include="domain\do\contract\ContractDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\military\MilitaryDO.h" />
     <ClInclude Include="domain\do\work-history\WorkHistoryFindPageDO.h" />
+    <ClInclude Include="domain\dto\contract\ContractDTO.h" />
+    <ClInclude Include="domain\dto\military\militaryDTO.h" />
     <ClInclude Include="domain\dto\SciResult\AddSciResultDTO.h" />
     <ClInclude Include="domain\dto\SciResult\DelSciResultDTO.h" />
     <ClInclude Include="domain\dto\SciResult\IntoSciResultDTO.h" />
@@ -189,14 +199,20 @@
     <ClInclude Include="domain\dto\work-history\WorkHistoryFindDTO.h" />
     <ClInclude Include="domain\dto\work-history\WorkHistoryIntoDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\contract\ContractQuery.h" />
+    <ClInclude Include="domain\query\military\MilitaryQuery.h" />
     <ClInclude Include="domain\query\SciResult\SciResultQuery.h" />
     <ClInclude Include="domain\query\work-history\WorkHistoryExportQuery.h" />
     <ClInclude Include="domain\query\work-history\WorkHistoryPageQuery.h" />
+    <ClInclude Include="domain\vo\contract\ContractVO.h" />
+    <ClInclude Include="domain\vo\military\MilitaryVO.h" />
     <ClInclude Include="domain\vo\SciResult\SciResultVo.h" />
     <ClInclude Include="domain\vo\work-history\WorkHistoryExportVO.h" />
     <ClInclude Include="domain\vo\work-history\WorkHistoryFindVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\contract\ContractService.h" />
+    <ClInclude Include="service\military\MilitaryService.h" />
     <ClInclude Include="service\work-history\WorkHistoryService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="uselib\ws\WSController.h" />
@@ -204,12 +220,18 @@
     <ClInclude Include="uselib\ws\WSListener.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="controller\contract\ContractController.cpp" />
+    <ClCompile Include="controller\military\MilitaryController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SciResult\SciResultController.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\work-history\WorkHistoryController.cpp" />
+    <ClCompile Include="dao\contract\ContractDAO.cpp" />
+    <ClCompile Include="dao\military\MilitaryDAO.cpp" />
     <ClCompile Include="dao\work-history\WorkHistoryDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\contract\ContractService.cpp" />
+    <ClCompile Include="service\military\MilitaryService.cpp" />
     <ClCompile Include="service\work-history\WorkHistoryService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
