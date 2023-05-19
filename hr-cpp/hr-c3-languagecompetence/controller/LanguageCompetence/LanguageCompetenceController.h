@@ -39,10 +39,10 @@ class LanguageCompetenceController : public oatpp::web::server::api::ApiControll
 	// 定义控制器访问入口
 	API_ACCESS_DECLARE(LanguageCompetenceController);
 public: // 定义接口
-	// 3.1 定义查询接口描述
+	// 定义分页查询接口描述
 	ENDPOINT_INFO(queryLanguage) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("language.get.summary");
+		info->summary = ZH_WORDS_GETTER("language.get.summarys");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
@@ -59,6 +59,25 @@ public: // 定义接口
 		API_HANDLER_QUERY_PARAM(userQuery, LanguageQuery, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryLanguage(userQuery, authObject->getPayload()));
+	}
+	// 定义查询接口描述
+	ENDPOINT_INFO(queryOneLanguage) {
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("language.get.summary");
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		// 定义其他表单参数描述
+		API_DEF_ADD_QUERY_PARAMS(UInt64, "id", ZH_WORDS_GETTER("sample.field.id"), 1, false);
+		API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("sample.field.name"), "li ming", false);
+	}
+	//定义查询接口处理
+	ENDPOINT(API_M_GET, "/user/query-one-langugae", queryOneLanguage, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+		//解析查询参数
+		API_HANDLER_QUERY_PARAM(userQuery, LanguageQuery, queryParams);
+		// 响应结果
+		API_HANDLER_RESP_VO(execQueryOneLanguage(userQuery, authObject->getPayload()));
 	}
 	//定义新增接口描述
 	ENDPOINT_INFO(addLanguage) {
@@ -105,9 +124,22 @@ public: // 定义接口
 		//响应结果
 		API_HANDLER_RESP_VO(execUpdateLanguage(dto, authObject->getPayload()));
 	}
-
-	//定义一个单文件上传接口
-	ENDPOINT(API_M_POST, "/Language/upload", uploadFile, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
+	//定义一个单文件上传接口描述
+	ENDPOINT_INFO(uploadFile)
+	{
+		//定义接口标题
+		info->summary = ZH_WORDS_GETTER("language.post.file");
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		//API_DEF_ADD_AUTH();
+		// 定义响应参数格式
+		//API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		// 定义其他表单参数描述
+		API_DEF_ADD_QUERY_PARAMS(String, "url", ZH_WORDS_GETTER("user.file.url"), "", true);
+		API_DEF_ADD_QUERY_PARAMS(UInt64, "id", ZH_WORDS_GETTER("sample.field.id"), 1, false);
+	};
+	//定义一个单文件上传接口处理
+	ENDPOINT(API_M_POST, "/user/upload-language", uploadFile, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
 		/* 创建multipart容器 */
 		auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
 		/* 创建multipart读取器 */
@@ -140,8 +172,10 @@ public: // 定义接口
 		return createResponse(Status::CODE_200, "OK");
 	}
 private: // 定义接口执行函数
-	//定义查询接口执行函数
+	//定义分页查询接口执行函数
 	StringJsonVO::Wrapper execQueryLanguage(const LanguageQuery::Wrapper& query, const PayloadDTO& payload);
+	//定义查询接口接口执行函数
+	StringJsonVO::Wrapper execQueryOneLanguage(const LanguageQuery::Wrapper& query, const PayloadDTO& payload);
 	//定义新增接口执行函数
 	//Uint64JsonVO::Wrapper execAddLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);
 	StringJsonVO::Wrapper execAddLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);

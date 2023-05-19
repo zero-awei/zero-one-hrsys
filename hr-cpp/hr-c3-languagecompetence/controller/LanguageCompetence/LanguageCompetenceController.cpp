@@ -17,6 +17,13 @@ StringJsonVO::Wrapper LanguageCompetenceController::execQueryLanguage(const Lang
 	return jvo;
 }
 
+StringJsonVO::Wrapper LanguageCompetenceController::execQueryOneLanguage(const LanguageQuery::Wrapper& query, const PayloadDTO& payload)
+{
+	auto jvo = StringJsonVO::createShared();
+	jvo->success("query language competence success");
+	return jvo;
+}
+
 //Uint64JsonVO::Wrapper LanguageCompetenceController::execAddLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload)
 //{
 //	//定义一个返回数据对象
