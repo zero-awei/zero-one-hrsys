@@ -3,14 +3,14 @@
 #define _ARCHIVEVO_H_
 
 #include "../../GlobalInclude.h"
-#include "../../dto/archive/archiveDTO.h"
+#include "../../dto/archive/ArchiveDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
  * 定义一个档案室信息显示JsonVO对象，用于响应给客户端
  */
-class archiveJsonVO : public JsonVO<ArchiveDTO::Wrapper>
+class ArchiveJsonVO : public JsonVO<ArchiveDTO::Wrapper>
 {
 	DTO_INIT(archiveJsonVO, JsonVO<ArchiveDTO::Wrapper>);
 };
@@ -18,9 +18,9 @@ class archiveJsonVO : public JsonVO<ArchiveDTO::Wrapper>
 /**
  * 定义一个档案室信息分页显示JsonVO对象，用于响应给客户端
  */
-class archivePageJsonVO : public JsonVO<ArchivePageDTO::Wrapper>
+class ArchivePageJsonVO : public JsonVO<ArchivePageDTO::Wrapper>
 {
-	DTO_INIT(archivePageJsonVO, JsonVO<ArchivePageDTO::Wrapper>);
+	DTO_INIT(ArchivePageJsonVO, JsonVO<ArchivePageDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

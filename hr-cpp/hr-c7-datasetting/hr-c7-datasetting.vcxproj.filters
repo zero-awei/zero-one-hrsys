@@ -45,7 +45,7 @@
     <ClInclude Include="domain\vo\archive\ArchiveVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\archive\AchiveController.h">
+    <ClInclude Include="controller\archive\ArchiveController.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

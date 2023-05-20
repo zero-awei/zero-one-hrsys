@@ -170,7 +170,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="controller\archive\AchiveController.h" />
+    <ClInclude Include="controller\archive\ArchiveController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\archive\ArchiveDO.h" />
