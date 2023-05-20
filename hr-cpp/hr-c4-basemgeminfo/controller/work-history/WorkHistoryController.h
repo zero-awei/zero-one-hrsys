@@ -129,7 +129,7 @@ public: // 定义接口
 		info->queryParams["pimpersonid"].addExample("default", String("6611212223"));
 		info->queryParams["pimpersonid"].required = false;
 	}
-	// 定义查询接口处理
+	// 定义导出接口处理
 	ENDPOINT(API_M_GET, "/workhistory/export", exportWorkHistory, QUERIES(QueryParams, qps)) {
 		//解析导出参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, WorkHistoryExportQuery, qps);

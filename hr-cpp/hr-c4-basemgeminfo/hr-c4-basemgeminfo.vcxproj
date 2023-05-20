@@ -206,6 +206,7 @@
     <ClInclude Include="domain\dto\certificate-information\JobTitleInformationDTO.h" />
     <ClInclude Include="domain\dto\contract\ContractDTO.h" />
     <ClInclude Include="domain\dto\military\militaryDTO.h" />
+    <ClInclude Include="domain\dto\scientific\ScientificDTO.h" />
     <ClInclude Include="domain\dto\SciResult\AddSciResultDTO.h" />
     <ClInclude Include="domain\dto\SciResult\DelSciResultDTO.h" />
     <ClInclude Include="domain\dto\SciResult\IntoSciResultDTO.h" />
