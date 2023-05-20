@@ -172,14 +172,11 @@
     <ClInclude Include="domain\dto\certs\ProfCertsDTO.h" />
     <ClInclude Include="domain\dto\filestatus\FilestatusDTO.h" />
     <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
-    <ClInclude Include="domain\dto\sample\SampleDTO.h" />
     <ClInclude Include="domain\query\certs\CertTypeQuery.h" />
     <ClInclude Include="domain\query\certs\ProfCertsQuery.h" />
     <ClInclude Include="domain\query\filestatus\FilestatusQuery.h" />
     <ClInclude Include="domain\vo\certs\ProfCertsVO.h" />
     <ClInclude Include="domain\vo\certs\CertTypeVO.h" />
-    <ClInclude Include="domain\vo\filereservation\FilereservationVO.h" />
-    <ClInclude Include="domain\vo\filestatus\FilestatusVO.h" />
     <ClInclude Include="domain\vo\pullList\PullListVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
@@ -191,6 +188,7 @@
     <ClCompile Include="controller\armyLevelType\ArmyLevelTypeController.cpp" />
     <ClCompile Include="controller\contractType\ContractTypeListController.cpp" />
     <ClCompile Include="controller\fileReservation\FileReservationController.cpp" />
+    <ClCompile Include="controller\fileStatus\FileStatusController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />

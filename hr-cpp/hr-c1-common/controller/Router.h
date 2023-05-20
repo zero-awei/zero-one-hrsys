@@ -40,14 +40,22 @@ public:
 	Router(Endpoints* docEndpoints, HttpRouter* router);
 	// 呼叫初始化
 	void initRouter();
-	void createRouter();
+
 private:
-	//本地测试
-	void creatTestRouter();
 #ifdef HTTP_SERVER_DEMO
 	// 创建演示路由
 	void createSampleRouter();
 #endif
+	/**
+	 * 绑定档案保管地和档案状态下拉列表
+	 * 负责人：远翔
+	 */
+	void createRouter();
+	/**
+	 * 绑定证书类型和职业资格证书类型下拉列表
+	 * 负责人：米饭
+	 */
+	void creatTestRouter();
 	/**
 	 * 绑定合同类型下拉列表路由
 	 * 负责人：Andrew

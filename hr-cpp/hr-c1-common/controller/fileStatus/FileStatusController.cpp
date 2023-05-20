@@ -2,7 +2,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: yuanxiang
- @Date: 2023/05/17 20:24:15
+ @Date: 2023/05/17 16:46:06
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,10 +17,16 @@
  limitations under the License.
 */
 #include "stdafx.h"
-#include "FileReservationController.h"
+#include "FileStatusController.h"
 
-
-PullListVO::Wrapper FileReservationController::execQueryFileReservation()
+PullListVO::Wrapper FileStatusController::execQueryFileStatus()
 {
-	return nullptr;
+	auto dto = PullListDTO::createShared();
+	auto borrowing = ItemDTO::createShared(1, ZH_WORDS_GETTER("fileStatus.borrowing"));
+	dto->pullList->push_back(borrowing);
+	auto returned = ItemDTO::createShared(2, ZH_WORDS_GETTER("fileStatus.returned"));
+	dto->pullList->push_back(returned);
+	auto vo = PullListVO::createShared();
+	vo->success(dto);
+	return vo;
 }

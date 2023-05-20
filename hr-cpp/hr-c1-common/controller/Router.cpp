@@ -19,18 +19,18 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-//测试
-#include "certDropDownList/profCertsList/ProfCertsListController.h"
-#include "certDropDownList/certTypeList/CertTypeListController.h"
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
+//测试
+#include "certDropDownList/profCertsList/ProfCertsListController.h"
+#include "certDropDownList/certTypeList/CertTypeListController.h"
 #include "contractType/ContractTypeListController.h"
 #include "armyLevelType/ArmyLevelTypeController.h"
-#include "fileStatus/FilestatusController.h"
-#include "fileReservation/FilereservationController.h"
+#include "fileStatus/FileStatusController.h"
+#include "fileReservation/FileReservationController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -51,8 +51,6 @@ Router::Router(Endpoints* docEndpoints, HttpRouter* router)
 
 void Router::initRouter()
 {
-	//本地测试
-	creatTestRouter();
 #ifdef HTTP_SERVER_DEMO
 	createSampleRouter();
 #endif
@@ -61,19 +59,10 @@ void Router::initRouter()
 	createContractTypeRouter();
 	createArmyLevelTypeRouter();
 	createRouter();
+	//本地测试
+	creatTestRouter();
 }
-//本地测试
-void Router::creatTestRouter()
-{
-	// 绑定职业资格证书类型下拉列表控制器
-	ROUTER_SIMPLE_BIND(ProfCertsListController);
-	ROUTER_SIMPLE_BIND(CertTypeListController);
 
-void Router::createRouter()
-{
-	ROUTER_SIMPLE_BIND(FileReservationController);
-	ROUTER_SIMPLE_BIND(FileStatusController);
-}
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
@@ -86,6 +75,20 @@ void Router::createSampleRouter()
 	router->addController(WSContorller::createShared());
 }
 #endif
+
+//本地测试
+void Router::creatTestRouter()
+{
+	// 绑定职业资格证书类型下拉列表控制器
+	ROUTER_SIMPLE_BIND(ProfCertsListController);
+	ROUTER_SIMPLE_BIND(CertTypeListController);
+}
+
+void Router::createRouter()
+{
+	ROUTER_SIMPLE_BIND(FileReservationController);
+	ROUTER_SIMPLE_BIND(FileStatusController);
+}
 
 void Router::createContractTypeRouter()
 {
