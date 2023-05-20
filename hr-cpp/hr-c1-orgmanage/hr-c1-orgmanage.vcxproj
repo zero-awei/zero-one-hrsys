@@ -159,6 +159,8 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="controller\projTag\addTagController\AddTagController.cpp" />
+    <ClCompile Include="controller\projTag\importTagController\ImportTagController.cpp" />
     <ClCompile Include="controller\projTag\postDeleteController\PostDeleteController.cpp" />
     <ClCompile Include="controller\projTag\postQueryController\PostQueryController.cpp" />
     <ClCompile Include="controller\jobSet\importJobController\ImportJobController.cpp" />
@@ -174,6 +176,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
+    <ClInclude Include="controller\projTag\importTagController\ImportTagController.h" />
     <ClInclude Include="controller\projTag\postDeleteController\PostDeleteController.h" />
     <ClInclude Include="controller\projTag\postQueryController\PostQueryController.h" />
     <ClInclude Include="controller\jobSet\importJobController\ImportJobController.h" />
@@ -184,12 +188,17 @@
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\postSet\PostDeleteDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDetailDTO.h" />
+    <ClInclude Include="domain\dto\projTag\ImportTagDTO.h" />
+    <ClInclude Include="domain\dto\projTag\ProjTagDTO.h" />
     <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\postSet\PostDetailQuery.h" />
     <ClInclude Include="domain\vo\postSet\PostDetailVO.h" />
     <ClInclude Include="domain\dto\jobSet\ImportJobDTO.h" />
     <ClInclude Include="domain\query\projTag\ExportProjTagQuery.h" />
     <ClInclude Include="domain\vo\jobSet\ImportJobVO.h" />
+    <ClInclude Include="domain\vo\projTag\ImportTagVO.h" />
+    <ClInclude Include="domain\vo\projTag\ProjTagVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
