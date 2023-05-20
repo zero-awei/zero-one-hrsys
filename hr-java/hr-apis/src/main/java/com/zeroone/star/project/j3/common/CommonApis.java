@@ -5,6 +5,7 @@ import com.zeroone.star.project.j3.query.common.OneConditionQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -68,5 +69,19 @@ public interface CommonApis {
  * @Date 20:49 2023/5/19
  */
 	JsonVO<List<DropdownListOptionDTO>> queryDepartmentName();
+
+	/**
+	 * 学习形式下拉列表
+	 * sql:SELECT * FROM `t_srfcodeitem` WHERE CODELISTID = 'FC4B9F96-E6E4-4170-9587-9DB970C57AA3'
+	 * @return 学习形式List
+	 */
+	JsonVO<List<DropdownListOptionDTO>> queryLearningForms();
+
+	/**
+	 * 学校性质下拉列表
+	 * sql:SELECT * FROM `t_srfcodeitem` WHERE CODELISTID = 'FDA27067-9E4F-4DC1-9676-2D65375359A9'
+	 * @return 学校性质List
+	 */
+	JsonVO<List<DropdownListOptionDTO>> querySchoolNature();
 }
 
