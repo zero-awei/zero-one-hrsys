@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@ApiModel("职务信息查询对象")
+@ApiModel("职务信息查询")
 public class JobTitleQuery extends PageQuery {
 
     @NotBlank(message = "职务名称不能为空")

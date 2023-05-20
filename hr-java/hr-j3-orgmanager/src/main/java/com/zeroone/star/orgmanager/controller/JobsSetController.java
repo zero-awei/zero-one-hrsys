@@ -1,15 +1,14 @@
 package com.zeroone.star.orgmanager.controller;
 
+import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.dto.AllJobsDTO;
 import com.zeroone.star.project.j3.dto.ExportDTO;
+import com.zeroone.star.project.j3.dto.orgmanager.JobTitleDTO;
 import com.zeroone.star.project.j3.orgmanager.JobSetApis;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -41,4 +40,21 @@ public class JobsSetController implements JobSetApis {
     public JsonVO<Integer> importJobs(List<AllJobsDTO> jobs) {
         return null;
     }
+
+
+    @GetMapping("queryJobList")
+    @ApiOperation("查询职务")
+    @Override
+    public JsonVO<PageDTO<JobTitleDTO>> queryJobTitleList() {
+        return null;
+    }
+
+    @PutMapping("modify-jobTitles")
+    @ApiOperation("更新若干职务信息")
+    @Override
+    public void modifyJobTitle(List<JobTitleDTO> ids) {
+        return;
+    }
+
+
 }

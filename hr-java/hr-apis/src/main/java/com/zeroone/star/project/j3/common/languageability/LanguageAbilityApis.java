@@ -5,10 +5,12 @@ import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
 import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
+import java.util.List;
+
 public interface LanguageAbilityApis {
 
     /**
      * 分页查询某人的语言能力
      */
-    JsonVO<PageDTO<LanguageAbilityDTO>> queryLanguageAbilityList(LanguageAbilityQuery query);
+    JsonVO<PageDTO<List<LanguageAbilityDTO>>> queryLanguageAbilityList(LanguageAbilityQuery personId);
 }
