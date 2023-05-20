@@ -163,6 +163,9 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+  	    <ClCompile Include="controller\ExpenseLedge\ExpenseLedgeController.cpp" />
+    <ClCompile Include="controller\JobTitleInfo\JobTitleInfoController.cpp" />
+
     <ClCompile Include="controller\ContractController\ContractController.cpp" />
     <ClCompile Include="controller\GoshController\TestController.cpp" />
     <ClCompile Include="controller\JobTitle\JobTitleController.cpp" />
@@ -181,6 +184,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+  	<ClInclude Include="controller\ExpenseLedge\ExpenseLedgeController.h" />
+    <ClInclude Include="controller\JobTitleInfo\JobTitleInfoController.h" />
     <ClInclude Include="controller\ContractController\ContractController.h" />
     <ClInclude Include="controller\GoshController\TestController.h" />
     <ClInclude Include="controller\JobTitle\JobTitleController.h" />
@@ -189,6 +194,10 @@
     <ClInclude Include="controller\LDConstroller\LaborDispatchConstroller.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
+    <ClInclude Include="domain\dto\JobTitleInfo\JobTitleInfoDTO.h" />
+  	<ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h" />
+    <ClInclude Include="domain\vo\JobTitleInfo\JobTitleInfoVO.h" />
     <ClInclude Include="controller\SelectController\retirement.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\JobTitle\JobTitleDo.h" />
@@ -234,6 +243,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+	<None Include="conf\data-source.yaml" />
     <None Include="zh-dict.yaml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

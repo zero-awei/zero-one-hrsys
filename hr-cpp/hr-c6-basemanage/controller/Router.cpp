@@ -19,10 +19,13 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-
+#include "JobTitleInfo/JobTitleInfoController.h"
+#include "ExpenseLedge/ExpenseLedgeController.h"
 #include "./ContractController/ContractController.h"
 #include "../uselib/ws/WSController.h"
 #include "SelectController/retirement.h"
+#include "./JobTitle/JobTitleController.h"
+#include "./GoshController/TestController.h"
 
 
 #ifdef HTTP_SERVER_DEMO
@@ -59,15 +62,21 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
+	createJobAndExpenseRouter();
 
 	ROUTER_SIMPLE_BIND(ContractController);
 	ROUTER_SIMPLE_BIND(LaborDispatchMController);
 	ROUTER_SIMPLE_BIND(ExpenseLedgerMController);
 	ROUTER_SIMPLE_BIND(LaborDispatchConstroller);
 	ROUTER_SIMPLE_BIND(TestController);
-
+	ROUTER_SIMPLE_BIND(JobTitleController);
+	ROUTER_SIMPLE_BIND(GoshController);
 }
-
+void Router::createJobAndExpenseRouter()
+{
+	ROUTER_SIMPLE_BIND(JobTitleInfoController);
+	ROUTER_SIMPLE_BIND(ExpenseLedgeController);
+}
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
@@ -78,4 +87,5 @@ void Router::createSampleRouter()
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());
 }
+
 #endif
