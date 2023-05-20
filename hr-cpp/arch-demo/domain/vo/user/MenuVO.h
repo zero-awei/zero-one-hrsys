@@ -33,7 +33,7 @@ class MenuJsonVO : public JsonVO<List<MenuDTO::Wrapper>>
 public:
 	// 在构造函数中实例化data列表
 	MenuJsonVO() {
-		this->data = {};
+		this->data = {};  
 	}
 };
 

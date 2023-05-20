@@ -22,7 +22,7 @@
 
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
-#include "sample/SampleController.h"
+#include "controller/RosterOfPer/ExportEmployeeController.h"
 #include "uselib/ws/WSController.h"
 #endif
 
@@ -37,7 +37,8 @@
 #define ROUTER_SIMPLE_BIND(__CLASS__) \
 router->addController(__CLASS__::createShared())
 #else
-// 简化绑定控制器宏定义
+
+// 简化绑定控制器宏定义 
 #define ROUTER_SIMPLE_BIND(__CLASS__) \
 BIND_CONTROLLER(docEndpoints, router, __CLASS__)
 #endif
@@ -52,8 +53,7 @@ void Router::initRouter()
 {
 #ifdef HTTP_SERVER_DEMO
 	createSampleRouter();
-#endif
-
+#endif 
 	//#TIP :系统扩展路由定义，写在这个后面
 	ROUTER_SIMPLE_BIND(TempStaffController);//挂职人员swagger效果测试
 	ROUTER_SIMPLE_BIND(EmployeeInfoController);//人员信息查询swagger效果测试
@@ -64,7 +64,7 @@ void Router::initRouter()
 void Router::createSampleRouter()
 {
 	// 绑定示例控制器
-	ROUTER_SIMPLE_BIND(SampleController);
+	ROUTER_SIMPLE_BIND(ExportEmployeeController);
 	// 绑定用户控制器
 	ROUTER_SIMPLE_BIND(UserController);
 	
