@@ -17,8 +17,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _TESTCONTROLLER_H_
-#define _TESTCONTROLLER_H_
+#ifndef _GOSHCONTROLLER_H_
+#define _GOSHCONTROLLER_H_
 
 #include "domain/vo/BaseJsonVO.h"
 #include "domain/query/Gosh/ContractQuery.h"
