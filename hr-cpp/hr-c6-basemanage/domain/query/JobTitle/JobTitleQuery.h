@@ -28,6 +28,7 @@ class JobTitleQuery :public PageQuery {
 	}
 };
 
-#include OATPP_CODEGEN_END(DTO);
+#include OATPP_CODEGEN_END(DTO)
 
 #endif // !_JOBTITLE_QUERY_
+ 

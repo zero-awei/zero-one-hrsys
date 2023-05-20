@@ -89,7 +89,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib\debug;..\lib-common\lib\debug;..\lib-mysql\lib\vs14\debug;D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -111,7 +111,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib;..\lib-common\lib;..\lib-mysql\lib\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cpp.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
     <PreBuildEvent>
@@ -133,7 +133,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64;..\lib-common\lib64;..\lib-mysql\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -154,7 +154,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cpp.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64;..\lib-common\lib64;..\lib-mysql\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
@@ -163,15 +163,14 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-  	    <ClCompile Include="controller\ExpenseLedge\ExpenseLedgeController.cpp" />
+    <ClCompile Include="controller\ExpenseLedge\ExpenseLedgeController.cpp" />
     <ClCompile Include="controller\JobTitleInfo\JobTitleInfoController.cpp" />
-
     <ClCompile Include="controller\ContractController\ContractController.cpp" />
     <ClCompile Include="controller\GoshController\TestController.cpp" />
     <ClCompile Include="controller\JobTitle\JobTitleController.cpp" />
     <ClCompile Include="controller\Muggle\expense_ledger-Muggle.cpp" />
     <ClCompile Include="controller\Muggle\labor_dispatch-Muggle.cpp" />
-    <ClCompile Include="controller\LDConstroller\LaborDispatchConstroller.cpp" />
+    <ClCompile Include="controller\LaborDispatch\LaborDispatchConstroller.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SelectController\retirement.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
@@ -184,19 +183,19 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-  	<ClInclude Include="controller\ExpenseLedge\ExpenseLedgeController.h" />
+    <ClInclude Include="controller\ExpenseLedge\ExpenseLedgeController.h" />
     <ClInclude Include="controller\JobTitleInfo\JobTitleInfoController.h" />
     <ClInclude Include="controller\ContractController\ContractController.h" />
     <ClInclude Include="controller\GoshController\TestController.h" />
     <ClInclude Include="controller\JobTitle\JobTitleController.h" />
     <ClInclude Include="controller\Muggle\expense_ledger-Muggle.h" />
     <ClInclude Include="controller\Muggle\labor_dispatch-Muggle.h" />
-    <ClInclude Include="controller\LDConstroller\LaborDispatchConstroller.h" />
+    <ClInclude Include="controller\LaborDispatch\LaborDispatchConstroller.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
     <ClInclude Include="domain\dto\JobTitleInfo\JobTitleInfoDTO.h" />
-  	<ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h" />
+    <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h" />
     <ClInclude Include="domain\vo\JobTitleInfo\JobTitleInfoVO.h" />
     <ClInclude Include="controller\SelectController\retirement.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
@@ -223,10 +222,10 @@
     <ClInclude Include="domain\vo\Gosh\ContractVO.h" />
     <ClInclude Include="domain\vo\JobTitle\JobTitleJsonVO.h" />
     <ClInclude Include="domain\vo\Muggle\laborDispatchJsonVO.h" />
-    <ClInclude Include="domain\dto\LaborDispatchDTO.h" />
+    <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO.h" />
     <ClInclude Include="domain\dto\retirement\RetiremetDto.h" />
-    <ClInclude Include="domain\query\LaborDispatchQuery.h" />
-    <ClInclude Include="domain\vo\LaborDispatchVO.h" />
+    <ClInclude Include="domain\query\LaborDispatch\LaborDispatchQuery.h" />
+    <ClInclude Include="domain\vo\LaborDispatch\LaborDispatchVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
@@ -243,7 +242,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-	<None Include="conf\data-source.yaml" />
+    <None Include="conf\data-source.yaml" />
     <None Include="zh-dict.yaml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

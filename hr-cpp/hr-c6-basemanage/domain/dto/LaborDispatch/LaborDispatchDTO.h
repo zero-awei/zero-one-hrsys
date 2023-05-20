@@ -1,11 +1,9 @@
 #pragma once
-#include "../GlobalInclude.h"
-#include "domain/query/PageQuery.h"
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: mengHuan
- @Date: 2023/05/15 21:38:55
+ @Date: 2023/05/15 20:22:16
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -19,14 +17,18 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _LABORDISPATCHQUERY_H_
-#define _LABORDISPATCHQUERY_H_
+#ifndef _LABORDISPATCHDTO_H_
+#define _LABORDISPATCHDTO_H_
 
+#include "../../GlobalInclude.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class LaborDispatchQuery : public PageQuery
+/**
+ * 传输对象
+ */
+class LaborDispatchDTO : public oatpp::DTO
 {
-	DTO_INIT(LaborDispatchQuery, PageQuery);
+	DTO_INIT(LaborDispatchDTO, DTO);
 	//公司名称
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
@@ -53,7 +55,7 @@ class LaborDispatchQuery : public PageQuery
 		info->description = ZH_WORDS_GETTER("ldconpany.field.LXFS");
 	}
 	//注册本金
-	DTO_FIELD(Float64, regcapital);
+	DTO_FIELD(Float64,regcapital);
 	DTO_FIELD_INFO(regcapital) {
 		info->description = ZH_WORDS_GETTER("ldconpany.field.REGCAPITAL");
 	}
@@ -63,11 +65,20 @@ class LaborDispatchQuery : public PageQuery
 		info->description = ZH_WORDS_GETTER("ldconpany.field.LEGALPERSON");
 	}
 	//更新时间
-	DTO_FIELD(String, update);
+	DTO_FIELD(String,update);
 	DTO_FIELD_INFO(update) {
 		info->description = ZH_WORDS_GETTER("ldconpany.field.UPDATEDATE");
 	}
+
+};
+
+/**
+ * 分页传输对象
+ */
+class LaborDispatchPageDTO : public PageDTO<LaborDispatchDTO::Wrapper>
+{
+	DTO_INIT(LaborDispatchPageDTO, PageDTO<LaborDispatchDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_LABORDISPATCHQUERY_H_
+#endif // !_LABORDISPATCHDTO_H_

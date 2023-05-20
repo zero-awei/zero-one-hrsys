@@ -3,7 +3,7 @@
   <ItemGroup>
     <ClCompile Include="controller\Muggle\expense_ledger-Muggle.cpp" />
     <ClCompile Include="controller\Muggle\labor_dispatch-Muggle.cpp" />
-    <ClCompile Include="controller\LDConstroller\LaborDispatchConstroller.cpp" />
+    <ClCompile Include="controller\LaborDispatch\LaborDispatchConstroller.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SelectController\retirement.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
@@ -12,6 +12,8 @@
     <ClCompile Include="controller\ContractController\ContractController.cpp" />
     <ClCompile Include="controller\GoshController\TestController.cpp" />
     <ClCompile Include="controller\JobTitle\JobTitleController.cpp" />
+    <ClCompile Include="controller\ExpenseLedge\ExpenseLedgeController.cpp" />
+    <ClCompile Include="controller\JobTitleInfo\JobTitleInfoController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -24,12 +26,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-<ClCompile Include="controller\JobTitleInfo\JobTitleInfoController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\ExpenseLedge\ExpenseLedgeController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -61,23 +57,17 @@
     <ClInclude Include="domain\vo\ContractVO\ContractVO.h" />
     <ClInclude Include="domain\vo\Gosh\ContractVO.h" />
     <ClInclude Include="domain\vo\JobTitle\JobTitleJsonVO.h" />
-	<ClInclude Include="domain\vo\JobTitleInfo\JobTitleInfoVO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\ExpenseLedge\ExpenseLedgeController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
+    <ClInclude Include="controller\ExpenseLedge\ExpenseLedgeController.h" />
+    <ClInclude Include="controller\JobTitleInfo\JobTitleInfoController.h" />
+    <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
+    <ClInclude Include="domain\dto\JobTitleInfo\JobTitleInfoDTO.h" />
+    <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h" />
+    <ClInclude Include="domain\vo\JobTitleInfo\JobTitleInfoVO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\Muggle\expense_ledger-Muggle.h" />
     <ClInclude Include="controller\Muggle\labor_dispatch-Muggle.h" />
-    <ClInclude Include="controller\LDConstroller\LaborDispatchConstroller.h" />
+    <ClInclude Include="controller\LaborDispatch\LaborDispatchConstroller.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\SelectController\retirement.h" />
@@ -88,16 +78,16 @@
     <ClInclude Include="domain\query\Muggle\expenseLedgerQuery.h" />
     <ClInclude Include="domain\query\Muggle\laborDispatchQuery.h" />
     <ClInclude Include="domain\vo\Muggle\laborDispatchJsonVO.h" />
-    <ClInclude Include="domain\dto\LaborDispatchDTO.h" />
+    <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO.h" />
     <ClInclude Include="domain\dto\retirement\RetiremetDto.h" />
-    <ClInclude Include="domain\query\LaborDispatchQuery.h" />
-    <ClInclude Include="domain\vo\LaborDispatchVO.h" />
+    <ClInclude Include="domain\query\LaborDispatch\LaborDispatchQuery.h" />
+    <ClInclude Include="domain\vo\LaborDispatch\LaborDispatchVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-	<None Include="conf\data-source.yaml" />
+    <None Include="conf\data-source.yaml" />
     <None Include="zh-dict.yaml" />
   </ItemGroup>
 </Project>
