@@ -21,8 +21,8 @@ const routes = [
         component: () => import('@/views/sample/Communication/index.vue')
       },
       {
-        path: '/sample/aside',
-        component: () => import('@/views/sample/Aside/aside.vue')
+        path: '/sample/Aside',
+        component: () => import('@/views/sample/aside/Aside.vue')
       }
     ]
   }

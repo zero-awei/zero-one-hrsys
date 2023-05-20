@@ -1,6 +1,6 @@
 <template>
   <el-row class="tac">
-    <el-col :span="12">
+    <el-col :span="3">
       <el-menu
         background-color="#fff"
         text-color="#303133"  
@@ -13,7 +13,7 @@
                 v-for="(mes, index) in data"
                 :key="index"
                 @click="clickHandele(index)"
-                :class="[{elactive:isActive === index},'aside-layout-menuitem']"
+                :class="[{elactive:isActive === index},'hr-menuitem_layout']"
               >
                 <el-icon><User /></el-icon>
                 <span>{{ mes }}</span>
@@ -47,11 +47,10 @@ const clickHandele = (index)=>{
 </script>
 
 <style scoped>
-  *{
-    margin-left: 0;
-    padding-left: 0;
+  .el-main[data-v-3ab90702]{
+    padding: 0;
   }
-  .aside-layout-menuitem{
+  .hr-menuitem_layout{
     height: 40px;
     line-height: 36px;
     font-size: 14px;

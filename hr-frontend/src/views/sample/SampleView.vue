@@ -92,7 +92,7 @@ const menus = reactive([
     text: '兄弟组件通信'
   },
   {
-    path: '/sample/aside',
+    path: '/sample/Aside',
     text: '侧边栏'
   }
 ])
