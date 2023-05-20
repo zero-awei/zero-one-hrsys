@@ -29,3 +29,13 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+#pimpaper的中英词典
+pimpaper:
+ field:
+  pimpapername:论文名称
+  cbs:出版社
+  kwmc:刊物名称
+  gwqs:刊物期数
+  fbsj:发表时间
+  grzlwzzzdpm:个人在论文著作中的排名
+  fj:附件

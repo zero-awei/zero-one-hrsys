@@ -29,8 +29,3 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
-#pimpaper的中英词典，还未完成
-pimpaper:
- field:
-  updateman:更新人
-  pimpaperid
