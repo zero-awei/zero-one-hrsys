@@ -33,6 +33,30 @@
     <ClInclude Include="domain\do\DoInclude.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\query\RosterOfPer\EmployeePageQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\RosterOfPer\EmployeePageDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\RosterOfPer\EmployeePageVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\RosterOfPer\EmployeePageDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\RosterOfPer\EmployeePageController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\RosterOfPer\EmployeePageService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\RosterOfPer\EmployeePageDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\RosterOfPer\EmployeePageMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -45,6 +69,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\SystemInterceptor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\RosterOfPer\EmployeePageController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\RosterOfPer\EmployeePageService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\RosterOfPer\EmployeePageDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

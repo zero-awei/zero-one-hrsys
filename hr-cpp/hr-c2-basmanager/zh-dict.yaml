@@ -31,7 +31,7 @@ sample:
   sex: 性别，如：男
 employee:
  get:
-  summary: 分页查询示例数据
+  summary: 分页查询员工数据
  field:
-  employeeid: 员工编号employee
+  employeeid: 员工编号
   employeename: 员工姓名

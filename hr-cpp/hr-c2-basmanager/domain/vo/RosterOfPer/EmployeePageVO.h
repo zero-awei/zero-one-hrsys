@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: luoluo
- @Date: 2022/10/25 11:36:29
+ @Author: awei
+ @Date: 2022/10/25 11:34:14
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,31 +17,21 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _EMPLOYEE_PAGE_QUERY_ 
-#define _EMPLOYEE_PAGE_QUERY_
+#ifndef _EMPLOYEE_PAGE_VO_
+#define _EMPLOYEE_PAGE_VO_
 
 #include "../../GlobalInclude.h"
-#include "domain/query/PageQuery.h"
+#include "../../dto/RosterOfPer/EmployeePageDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 示例分页查询对象
+ * 示例分页显示JsonVO，用于响应给客户端的Json对象
  */
-class EmployeePageQuery : public PageQuery
-{
-	DTO_INIT(EmployeePageQuery, PageQuery);
-	// 员工姓名
-	DTO_FIELD(String, EMPLOYEENAME);
-	DTO_FIELD_INFO(EMPLOYEENAME) {
-		info->description = ZH_WORDS_GETTER("employee.field.employeename");
-	}
-	// 员工编号
-	DTO_FIELD(String, EMPLOYEEID);
-	DTO_FIELD_INFO(EMPLOYEEID) {
-		info->description = ZH_WORDS_GETTER("employee.field.employeeid");
-	}
+class EmployeePageJsonVO : public JsonVO<EmployeePageDTO::Wrapper> {
+	DTO_INIT(EmployeePageJsonVO, JsonVO<EmployeePageDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_SAMPLE_QUERY_
+
+#endif // !_EMPLOYEE_PAGE_VO_

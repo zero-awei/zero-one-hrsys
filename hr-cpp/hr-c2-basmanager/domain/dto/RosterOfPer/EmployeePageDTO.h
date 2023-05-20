@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: luoluo
- @Date: 2022/10/25 11:36:29
+ @Author: awei
+ @Date: 2022/10/25 10:59:38
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,20 +17,17 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _EMPLOYEE_PAGE_QUERY_ 
-#define _EMPLOYEE_PAGE_QUERY_
-
+#ifndef _EMPLOYEE_PAGE_DTO_
+#define _EMPLOYEE_PAGE_DTO_
 #include "../../GlobalInclude.h"
-#include "domain/query/PageQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
-
 /**
- * 示例分页查询对象
+ * 示例传输对象
  */
-class EmployeePageQuery : public PageQuery
+class EmployeeDTO : public oatpp::DTO
 {
-	DTO_INIT(EmployeePageQuery, PageQuery);
+	DTO_INIT(EmployeeDTO, DTO);
 	// 员工姓名
 	DTO_FIELD(String, EMPLOYEENAME);
 	DTO_FIELD_INFO(EMPLOYEENAME) {
@@ -42,6 +39,13 @@ class EmployeePageQuery : public PageQuery
 		info->description = ZH_WORDS_GETTER("employee.field.employeeid");
 	}
 };
+/**
+ * 示例分页传输对象
+ */
+class EmployeePageDTO : public PageDTO<EmployeeDTO::Wrapper>
+{
+	DTO_INIT(EmployeePageDTO, PageDTO<EmployeeDTO::Wrapper>);
+};
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_SAMPLE_QUERY_
+#endif // !_SAMPLE_DTO_

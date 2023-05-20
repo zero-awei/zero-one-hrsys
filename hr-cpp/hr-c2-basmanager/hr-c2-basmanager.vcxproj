@@ -183,16 +183,27 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\RosterOfPer\EmployeePageController.h" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\RosterOfPer\EmployeePageDAO.h" />
+    <ClInclude Include="dao\RosterOfPer\EmployeePageMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\RosterOfPer\EmployeePageDO.h" />
+    <ClInclude Include="domain\dto\RosterOfPer\EmployeePageDTO.h" />
+    <ClInclude Include="domain\query\RosterOfPer\EmployeePageQuery.h" />
+    <ClInclude Include="domain\vo\RosterOfPer\EmployeePageVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\RosterOfPer\EmployeePageService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="controller\RosterOfPer\EmployeePageController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\RosterOfPer\EmployeePageDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\RosterOfPer\EmployeePageService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

@@ -1,7 +1,7 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: awei
+ @Author: luoluo
  @Date: 2022/12/03 14:58:34
 
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,11 +20,9 @@
 #include "Router.h"
 #include "ApiHelper.h"
 
-#ifdef HTTP_SERVER_DEMO
-#include "user/UserController.h"
-#include "sample/SampleController.h"
-#include "uselib/ws/WSController.h"
-#endif
+#include "RosterOfPer/EmployeePageController.h"
+
+
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -45,23 +43,17 @@ Router::Router(Endpoints* docEndpoints, HttpRouter* router)
 
 void Router::initRouter()
 {
-#ifdef HTTP_SERVER_DEMO
-	createSampleRouter();
-#endif
+	createEmployeePageRouter();
 
 	//#TIP :系统扩展路由定义，写在这个后面
 
 }
 
-#ifdef HTTP_SERVER_DEMO
-void Router::createSampleRouter()
+
+void Router::createEmployeePageRouter()
 {
-	// 绑定示例控制器
-	ROUTER_SIMPLE_BIND(SampleController);
-	// 绑定用户控制器
-	ROUTER_SIMPLE_BIND(UserController);
-	
-	// 绑定WebSocket控制器
-	router->addController(WSContorller::createShared());
+	// 绑定分页查询员工控制器
+	ROUTER_SIMPLE_BIND(EmployeePageController);
+
 }
-#endif
+
