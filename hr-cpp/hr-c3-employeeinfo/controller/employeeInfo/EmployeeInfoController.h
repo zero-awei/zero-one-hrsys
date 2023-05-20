@@ -43,14 +43,13 @@ public: // 定义接口
 	ENDPOINT_INFO(employeeQuery) {
 		info->summary = ZH_WORDS_GETTER("employee.get.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-		API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("employee.field.name"), "HHH", true);
-		API_DEF_ADD_QUERY_PARAMS(UInt64, "id", ZH_WORDS_GETTER("employee.field.id"), 666, true);
-		API_DEF_ADD_QUERY_PARAMS(String, "idType", ZH_WORDS_GETTER("employee.field.idType"), "idCard", true);
-		API_DEF_ADD_QUERY_PARAMS(UInt64, "idNum", ZH_WORDS_GETTER("employee.field.idNum"), 666, true);
+		API_DEF_ADD_QUERY_PARAMS(UInt64, "id", ZH_WORDS_GETTER("employee.field.id"), 666, false);
+		API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("employee.field.name"), "HHH", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "idType", ZH_WORDS_GETTER("employee.field.idType"), "idCard", false);
+		API_DEF_ADD_QUERY_PARAMS(UInt64, "idNum", ZH_WORDS_GETTER("employee.field.idNum"), 666, false);
 		API_DEF_ADD_QUERY_PARAMS(String, "birthday", ZH_WORDS_GETTER("employee.field.birthday"), "6666-66-66 66:66:66", false);
 		API_DEF_ADD_QUERY_PARAMS(Int32, "age", ZH_WORDS_GETTER("employee.field.age"), 66, false);
 		API_DEF_ADD_QUERY_PARAMS(String, "sex", ZH_WORDS_GETTER("employee.field.sex"), "N", false);
-		API_DEF_ADD_QUERY_PARAMS(String, "blood", ZH_WORDS_GETTER("employee.field.blood"), "O", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "nation", ZH_WORDS_GETTER("employee.field.nation"), "Japan", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "native", ZH_WORDS_GETTER("employee.field.native"), "Japan", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "marriage", ZH_WORDS_GETTER("employee.field.marriage"), "married", false);
@@ -58,12 +57,14 @@ public: // 定义接口
 		API_DEF_ADD_QUERY_PARAMS(String, "rank", ZH_WORDS_GETTER("employee.field.rank"), "cleaner", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "workTime", ZH_WORDS_GETTER("employee.field.workTime"), "6666-66-66 66:66:66", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "inTime", ZH_WORDS_GETTER("employee.field.inTime"), "6666-66-66 66:66:66", false);
-		API_DEF_ADD_QUERY_PARAMS(String, "phone", ZH_WORDS_GETTER("employee.field.phone"), "6666", true);
 		API_DEF_ADD_QUERY_PARAMS(String, "email", ZH_WORDS_GETTER("employee.field.email"), "666@666.com", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "techTitle", ZH_WORDS_GETTER("employee.field.techTitle"), "best cleaner", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "acaCredit", ZH_WORDS_GETTER("employee.field.acaCredit"), "primary school", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "firAcaCredit", ZH_WORDS_GETTER("employee.field.firAcaCredit"), "primary school", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "pracCertificate", ZH_WORDS_GETTER("employee.field.pracCertificate"), "Java Boy", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "photo", ZH_WORDS_GETTER("employee.field.photo"), "/photo", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "phone", ZH_WORDS_GETTER("employee.field.phone"), "6666", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "state", ZH_WORDS_GETTER("employee.field.state"), "on", false);
 	}
 	API_HANDLER_ENDPOINT_QUERY(API_M_GET, "/employee-info/employee-query", employeeQuery, EmployeeInfoQuery, execEmployeeQuery(query));
 	ENDPOINT_INFO(employeePut) {

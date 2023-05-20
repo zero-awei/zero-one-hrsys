@@ -29,8 +29,8 @@ class EmployeeInfoQuery : public PageQuery
 {
 	DTO_INIT(EmployeeInfoQuery, PageQuery);
 	//员工编号
-	DTO_FIELD(UInt64, empid);
-	DTO_FIELD_INFO(empid) {
+	DTO_FIELD(UInt64, id);
+	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("employee.field.id");
 	}
 	//员工姓名
@@ -39,18 +39,18 @@ class EmployeeInfoQuery : public PageQuery
 		info->description = ZH_WORDS_GETTER("employee.field.name");
 	}
 	//证件类型
-	DTO_FIELD(String, idtype);
-	DTO_FIELD_INFO(idtype) {
+	DTO_FIELD(String, idType);
+	DTO_FIELD_INFO(idType) {
 		info->description = ZH_WORDS_GETTER("employee.field.idtype");
 	}
 	//证件号码
-	DTO_FIELD(UInt64, idnum);
-	DTO_FIELD_INFO(idnum) {
+	DTO_FIELD(UInt64, idNum);
+	DTO_FIELD_INFO(idNum) {
 		info->description = ZH_WORDS_GETTER("employee.field.idnum");
 	}
 	//出生日期
-	DTO_FIELD(String, bthdate);
-	DTO_FIELD_INFO(bthdate) {
+	DTO_FIELD(String, birthday);
+	DTO_FIELD_INFO(birthday) {
 		info->description = ZH_WORDS_GETTER("employee.field.birthday");
 	}
 	// 年龄
