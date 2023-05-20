@@ -1,9 +1,11 @@
 package com.zeroone.star.common.controller;
 
+import com.zeroone.star.common.service.ZzmmService;
 import com.zeroone.star.project.common.CommonApis;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
 import com.zeroone.star.project.dto.common.StatusListDTO;
+import com.zeroone.star.project.query.common.ZzmmQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -27,6 +30,10 @@ import java.util.List;
 @RequestMapping("common")
 @Api(tags = "common")
 public class CommonController implements CommonApis {
+
+    @Resource
+    ZzmmService zzmmService;
+
     @ApiOperation(value = "获取编制控制下拉列表")
     @GetMapping("query-staffing-control")
     @Override
@@ -77,4 +84,10 @@ public class CommonController implements CommonApis {
     }
 
 
+    @ApiOperation(value = "政治面貌下拉列表")
+    @GetMapping("query-zzmm")
+    @Override
+    public JsonVO<ZzmmQuery> queryZzmm() {
+        return zzmmService.getZzmm();
+    }
 }
