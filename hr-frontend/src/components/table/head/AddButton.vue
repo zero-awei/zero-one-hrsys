@@ -1,4 +1,5 @@
 <template>
+  <div>
     <el-button plain @click="dialogFormVisible = true">
       <span  class="hr-button">
           <IconDocument class="hr-button__icon"/>
@@ -8,6 +9,7 @@
       </span>
     </el-button>
     <el-dialog v-model="dialogFormVisible" :title="addTitle" :close-on-click-modal="false">
+      <div>
         <span class="dialog-footer">
           <el-button @click="dialogFormVisible = false">
             <span  class="hr-button">
@@ -27,17 +29,21 @@
             </span>
           </el-button>
         </span>
-    <el-form :model="formData" >
-      <div v-for="data in addData" :key="data.name">
-        <el-form-item  :label="data.label" :label-width="formLabelWidth" >
-              <el-input v-model="formData[data.name]" autocomplete="off" v-if="data.type!=Array"/>
-              <el-select v-model="formData[data.name]" placeholder="Please select a option" v-if="data.type===Array">
-                <el-option v-for="option in data.options" :key="option.id" :label="option.optionData" :value="option.optionData" />
-              </el-select>
-        </el-form-item>
       </div>
-    </el-form>
-  </el-dialog>
+      <div>
+        <el-form :model="formData" >
+          <div v-for="data in addData" :key="data.name">
+            <el-form-item  :label="data.label" :label-width="formLabelWidth" >
+                  <el-input v-model="formData[data.name]" autocomplete="off" v-if="data.type!=Array"/>
+                  <el-select v-model="formData[data.name]" placeholder="Please select a option" v-if="data.type===Array">
+                    <el-option v-for="option in data.options" :key="option.id" :label="option.optionData" :value="option.optionData" />
+                  </el-select>
+            </el-form-item>
+          </div>
+        </el-form>
+      </div>
+    </el-dialog>
+  </div>
 </template>
 
 <script setup>
