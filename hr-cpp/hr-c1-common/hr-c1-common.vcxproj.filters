@@ -1,16 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="controller\FileReservation\FileReservationController.cpp" />
-    <ClCompile Include="controller\FileStatus\FileStatusController.cpp" />
+    <ClCompile Include="controller\fileReservation\FileReservationController.cpp" />
+    <ClCompile Include="controller\fileStatus\FileStatusController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="controller\leaveReason\LeaveReasonController.cpp" />
+    <ClCompile Include="controller\dismissReason\DismissReasonController.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="controller\FileReservation\FileReservationController.h" />
-    <ClInclude Include="controller\FileStatus\FileStatusController.h" />
+    <ClInclude Include="controller\fileReservation\FileReservationController.h" />
+    <ClInclude Include="controller\fileStatus\FileStatusController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
@@ -25,5 +27,7 @@
     <ClInclude Include="domain\query\filestatus\FileStatusQuery.h" />
     <ClInclude Include="domain\vo\filereservation\FileReservationVO.h" />
     <ClInclude Include="domain\vo\filestatus\FileStatusVO.h" />
+    <ClInclude Include="controller\leaveReason\LeaveReasonController.h" />
+    <ClInclude Include="controller\dismissReason\DismissReasonController.h" />
   </ItemGroup>
 </Project>

@@ -40,6 +40,8 @@ common:
   contractType: 合同类型   
   fileStatus: 档案借阅状态
   fileReservation: 档案保管地
+  leaveReason: 离职理由
+  dismissReason: 解聘理由
 fileReservation:
  localbase: 局总部
  enterbase: 公司本部

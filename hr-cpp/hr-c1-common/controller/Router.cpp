@@ -25,9 +25,10 @@
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
-#include "FileStatus/FileStatusController.h"
-#include "FileReservation/FileReservationController.h"
-
+#include "fileStatus/FileStatusController.h"
+#include "fileReservation/FileReservationController.h"
+#include "leaveReason/LeaveReasonController.h"
+#include "dismissReason/DismissReasonController.h"
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -53,12 +54,24 @@ void Router::initRouter()
 
 	//#TIP :系统扩展路由定义，写在这个后面
 	createRouter();
+	createLeaveReasonRouter();
+	createDismissReasonRouter();
 }
 
 void Router::createRouter()
 {
 	ROUTER_SIMPLE_BIND(FileReservationController);
 	ROUTER_SIMPLE_BIND(FileStatusController);
+}
+
+void Router::createLeaveReasonRouter()
+{
+	ROUTER_SIMPLE_BIND(LeaveReasonController);
+}
+
+void Router::createDismissReasonRouter()
+{
+	ROUTER_SIMPLE_BIND(DismissReasonController);
 }
 
 #ifdef HTTP_SERVER_DEMO
