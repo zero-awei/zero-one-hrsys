@@ -42,7 +42,7 @@ public interface JobSetApis {
      * @Date 16:53 2023/5/19
      */
     JsonVO<String> importJobs(MultipartFile file);
-    JsonVO<Integer> importJobs(List<AllJobsDTO> jobs);
+
 
     /**
      * 查询职务列表
