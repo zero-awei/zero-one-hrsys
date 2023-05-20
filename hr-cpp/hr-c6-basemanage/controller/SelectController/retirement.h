@@ -1,17 +1,15 @@
 ﻿#pragma once
-#ifndef  _MYCONTROLLER_H_
-#define  _MYCONTROLLER_H_
-
+#ifndef  _RETIREMENT_H_
+#define  _RETIREMENT_H_
 
 #include "domain/vo/BaseJsonVO.h"
 #include "domain/query/PageQuery.h"
-#include "domain/dto/sample/MyDto.h"
-#include "ApiHelper.h"
+#include "domain/dto/retirement/RetiremetDto.h"
+
 
 // 0 定义API控制器使用宏  (api控制器是处理传入请求，返回响应的)
 
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
-
 /**
  * 示例控制器，演示基础接口的使用
  */
@@ -27,10 +25,10 @@ class TestController : public oatpp::web::server::api::ApiController // 1 继承
 public:
 
 	// 3.1 定义查询接口描述
-	ENDPOINT_INFO(queryTest)
+	ENDPOINT_INFO(retirement_query)
 	{
 		// 定义接口标题 固定写法
-		info->summary = "query test";
+		info->summary = ZH_WORDS_GETTER("retirement_gan.get.summary");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数类型
@@ -47,7 +45,7 @@ public:
 		queryTest：接口名字
 		QUERIES(QueryParams, qp1)：表示请求是表单数据，请求的参数都放到qp1中
 		*/
-	ENDPOINT(API_M_GET, "/query", queryTest, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qp1))
+	ENDPOINT(API_M_GET, "/query-retirement", retirement_query, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qp1))
 	{
 		/*
 		解析查询参数(解析为领域模型对象) 也就是query与dto
@@ -64,54 +62,15 @@ public:
 	}
 
 
-	//// 3.1 定义查询接口描述
-	//ENDPOINT_INFO(queryTest1)
-	//{
-	//	// 定义接口标题 固定写法
-	//	info->summary = "query test1";
-	//	// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
-	//	API_DEF_ADD_AUTH();
-	//	// 定义响应参数类型
-	//	API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-	//	// 定义分页参数描述
-	//	API_DEF_ADD_PAGE_PARAMS();
-	//}
-
-	//// 3.2 定义查询接口处理
-	//	//接受表单参数的时候需要用宏   QUERIES(QueryParams, qp1)
-	//	//定义了默认授权参数需要在路径(/query)后面加上 API_HANDLER_AUTH_PARAME
-	//ENDPOINT(API_M_GET, "/query1", queryTest1, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qp2))
-	//{
-	//	// 解析查询参数(解析为领域模型对象) 也就是query与dto
-	//	API_HANDLER_QUERY_PARAM(query1, PageQuery, qp2);
-	//	// 响应结果
-	//	API_HANDLER_RESP_VO(execQueryTest(query1));
-	//}
-
-	// 
-		// 3.1 定义新增接口描述
-	//ENDPOINT_INFO(addSample) {
-	//	// 定义接口标题
-	//	info->summary = ZH_WORDS_GETTER("sample.post.summary");
-	//	// 定义响应参数格式
-	//	API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-	//}
-	//// 3.2 定义新增接口处理
-	//ENDPOINT(API_M_POST, "/sample", addSample, BODY_DTO(SampleDTO::Wrapper, dto)) {
-	//	// 响应结果
-	//	API_HANDLER_RESP_VO(execAddSample(dto));
-	//}
-
-
 	// 3.1 定义新增接口描述
 	ENDPOINT_INFO(addTest) {
 		// 定义接口标题
-		info->summary = "add test";
+		info->summary = ZH_WORDS_GETTER("retirement_gan.post.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/add", addTest, BODY_DTO(ContractDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/add-retirement", addTest, BODY_DTO(RetirementDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddSample1(dto));
 	}
@@ -120,12 +79,12 @@ public:
 	// 3.1 定义修改接口描述
 	ENDPOINT_INFO(changeTest) {
 		// 定义接口标题
-		info->summary = "change test";
+		info->summary = ZH_WORDS_GETTER("retirement_gan.update.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/change", changeTest, BODY_DTO(ContractDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/change-retirement", changeTest, BODY_DTO(RetirementDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifySample(dto));
 	}
@@ -133,12 +92,12 @@ public:
 	// 3.1 定义删除接口描述
 	ENDPOINT_INFO(removeTest) {
 		// 定义接口标题
-		info->summary = "remove test";
+		info->summary = ZH_WORDS_GETTER("retirement_gan.delete.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/remove", removeTest, BODY_DTO(ContractDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/remove-retirement", removeTest, BODY_DTO(RetirementDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveSample(dto));
 	}
@@ -146,11 +105,11 @@ private:
 	//定义接口的执行函数
 	StringJsonVO::Wrapper execQueryTest(const PageQuery::Wrapper& query);
 
-	Uint64JsonVO::Wrapper execAddSample1(const ContractDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execAddSample1(const RetirementDTO::Wrapper& dto);
 
-	Uint64JsonVO::Wrapper execModifySample(const ContractDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execModifySample(const RetirementDTO::Wrapper& dto);
 	// 3.3 演示删除数据
-	Uint64JsonVO::Wrapper execRemoveSample(const ContractDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execRemoveSample(const RetirementDTO::Wrapper& dto);
 
 
 };
@@ -159,4 +118,4 @@ private:
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
 
 
-#endif // ! _MYCONTROLLER_H_
+#endif // ! _RETIREMENT_H_

@@ -72,3 +72,12 @@ expenseledger_mug:
   REGCAPITAL: 注册本金
   LEGALPERSON: 法人
   UPDATEDATE: 更新时间
+retirement_gan:
+ get:
+  summary: 分页查询离退休列表
+ post:
+  summary: 新增离退休列表
+ delete:
+  summary: 删除离退休列表
+ update:
+  summary: 离退休列表
