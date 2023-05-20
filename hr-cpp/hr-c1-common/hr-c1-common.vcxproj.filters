@@ -33,6 +33,18 @@
     <ClInclude Include="controller\Router.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="controller\JobLevelTypeList\JobLevelTypeListController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\pullList\PullListVo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\pullList\PullListDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\CostTypeList\CostTypeListController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -45,6 +57,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="controller\SystemInterceptor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\JobLevelTypeList\JobLevelTypeListController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\CostTypeList\CostTypeListController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

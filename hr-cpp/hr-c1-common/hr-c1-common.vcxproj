@@ -159,14 +159,20 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="controller\CostTypeList\CostTypeListController.h" />
+    <ClInclude Include="controller\JobLevelTypeList\JobLevelTypeListController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
+    <ClInclude Include="domain\vo\pullList\PullListVo.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="controller\CostTypeList\CostTypeListController.cpp" />
+    <ClCompile Include="controller\JobLevelTypeList\JobLevelTypeListController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />

@@ -45,6 +45,8 @@ private:
 	// 创建演示路由
 	void createSampleRouter();
 #endif
+	void createJobLevelTypeRouter();
+	void createCostTypeRouter();
 };
 
 #endif // !_ROUTER_
