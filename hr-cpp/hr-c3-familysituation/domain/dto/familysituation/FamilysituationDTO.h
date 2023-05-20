@@ -67,13 +67,13 @@ class FamilysituationDTO : public oatpp::DTO
 	}
 
 	// 是否遗嘱
-	DTO_FIELD(Boolean, testament);
+	DTO_FIELD(UInt8, testament);
 	DTO_FIELD_INFO(testament) {
 		info->description = ZH_WORDS_GETTER("familysituation.field.testament");
 	}
 
 	// 是否紧急联系人
-	DTO_FIELD(Boolean, ice);
+	DTO_FIELD(UInt8, ice);
 	DTO_FIELD_INFO(ice) {
 		info->description = ZH_WORDS_GETTER("familysituation.field.ice");
 	}
