@@ -25,8 +25,8 @@
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
-#include "Filestatus/FilestatusController.h"
-#include "Filereservation/FilereservationController.h"
+#include "FileStatus/FileStatusController.h"
+#include "FileReservation/FileReservationController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
