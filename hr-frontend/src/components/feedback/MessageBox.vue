@@ -21,7 +21,6 @@ const showMsg = (message) => {
         title: '成功',
         type: 'success',
         message: success.value,
-        position: 'top-right'
       })
     })
     .catch(function(){
@@ -29,7 +28,6 @@ const showMsg = (message) => {
         title: '出错',
         type: 'info',
         message:error.value ,
-        position: 'top-right'
       })
     })
 }
@@ -44,3 +42,14 @@ onBeforeUnmount(() => {
   mitt.off('changeInfo')
 })
 </script>
+<style>
+.el-message--success{
+  position: absolute !important;
+  left:90%;
+}
+
+.el-message--info{
+  position: absolute !important;
+  left:90%; 
+}
+</style>
