@@ -198,7 +198,7 @@ public class LoginController implements LoginApis {
         String loginDTOUsername = loginDTO.getUsername();
         String oldPassword = userService.getCurrentPassword(loginDTOUsername);
         boolean matches = passwordEncoder.matches(oldPassword, newPassword);
-        if (!matches) {
+        if (matches) {
             return JsonVO.fail("新旧密码不能一致！");
         }
         Boolean isSuccess = userService.updatePassword(loginDTOUsername, oldPassword);
