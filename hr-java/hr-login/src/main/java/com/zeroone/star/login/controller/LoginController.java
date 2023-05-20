@@ -24,10 +24,12 @@ import io.swagger.annotations.ApiOperation;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.spring.web.json.Json;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -62,6 +64,8 @@ public class LoginController implements LoginApis {
     RedisUtils redisUtils;
     @Resource
     CaptchaService captchaService;
+    @Resource
+    PasswordEncoder passwordEncoder;
 
     @ApiOperation(value = "授权登录")
     @PostMapping("auth-login")
@@ -188,20 +192,21 @@ public class LoginController implements LoginApis {
     @PostMapping("update-password")
     @Override
     public JsonVO<String> updatePassword(LoginDTO loginDTO) {
-        //1.获取当前用户密码 currentPassword
-        String username = userHolder.getCurrentUser().getUsername();
-        String currentPassword = userService.getCurrentPassword(username);
-        //2.获取用户输入的新密码 newPassword
+        //1.获取原密码
+        //2.更新
         String newPassword = loginDTO.getPassword();
-        if (currentPassword.equals(newPassword)) {
-            //新密码与旧密码一致，失败
-            return fail("原密码和新密码不能一致");
+        String loginDTOUsername = loginDTO.getUsername();
+        String oldPassword = userService.getCurrentPassword(loginDTOUsername);
+        boolean matches = passwordEncoder.matches(oldPassword, newPassword);
+        if (!matches) {
+            return JsonVO.fail("新旧密码不能一致！");
         }
-        //3.更新数据库中的密码
-        Boolean isSuccess = userService.updatePassword(username, newPassword);
-        if (isSuccess == true) {
-            return JsonVO.success("修改成功");
+        Boolean isSuccess = userService.updatePassword(loginDTOUsername, oldPassword);
+        if (!isSuccess) {
+            //更新失败
+            return JsonVO.fail("密码修改失败");
         }
-        return fail("修改失败");
+        return JsonVO.success("密码修改成功");
+
     }
 }
