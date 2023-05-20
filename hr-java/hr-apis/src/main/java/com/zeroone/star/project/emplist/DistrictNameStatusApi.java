@@ -6,7 +6,7 @@ import com.zeroone.star.project.query.district_namestatuslist.DistrictNameStatus
 
 import com.zeroone.star.project.vo.JsonVO;
 
-public interface District_NameStatusApi {
+public interface DistrictNameStatusApi {
     /**
      *
      * @param query

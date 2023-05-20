@@ -6,7 +6,7 @@ import com.zeroone.star.project.query.ethnic_typestatuslist.EthnicTypeStatusList
 
 import com.zeroone.star.project.vo.JsonVO;
 
-public interface Ethnic_TypeStatusApi {
+public interface EthnicTypeStatusApi {
 
 
     /**

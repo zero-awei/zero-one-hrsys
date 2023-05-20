@@ -7,7 +7,7 @@ import com.zeroone.star.project.query.city_namestatuslist.CityNameStatusListQuer
 
 import com.zeroone.star.project.vo.JsonVO;
 
-public interface City_NameStatusApi {
+public interface CityNameStatusApi {
 
     /**
      *

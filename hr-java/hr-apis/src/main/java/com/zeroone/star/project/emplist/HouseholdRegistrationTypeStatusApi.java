@@ -11,7 +11,7 @@ import com.zeroone.star.project.vo.JsonVO;
  * @version 2023/5/19 23:43
  * @since JDK8
  */
-public interface HouseholdRegistration_TypeStatusApi {
+public interface HouseholdRegistrationTypeStatusApi {
 
     /**
      *
