@@ -55,6 +55,7 @@ private:
 	void createSampleRouter();
 #endif
 	void createRouter();
+	void createJobAndExpenseRouter();
 };
 
 #endif // !_ROUTER_

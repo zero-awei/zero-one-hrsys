@@ -26,6 +26,12 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+<ClCompile Include="controller\JobTitleInfo\JobTitleInfoController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\ExpenseLedge\ExpenseLedgeController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />
@@ -55,6 +61,18 @@
     <ClInclude Include="domain\vo\ContractVO\ContractVO.h" />
     <ClInclude Include="domain\vo\Gosh\ContractVO.h" />
     <ClInclude Include="domain\vo\JobTitle\JobTitleJsonVO.h" />
+	<ClInclude Include="domain\vo\JobTitleInfo\JobTitleInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\ExpenseLedge\ExpenseLedgeController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\Muggle\expense_ledger-Muggle.h" />
@@ -79,6 +97,7 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+	<None Include="conf\data-source.yaml" />
     <None Include="zh-dict.yaml" />
   </ItemGroup>
 </Project>
