@@ -29,7 +29,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Override
     public String getCurrentPassword(String username) {
-        //TODO 待实现
         LambdaQueryWrapper<User> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         lambdaQueryWrapper.eq(User::getUsername, username);
         User user = baseMapper.selectOne(lambdaQueryWrapper);
@@ -41,7 +40,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         User user = null;
         user.setUsername(username);
         user.setPassword(passwordEncoder.encode(password));
-
         UpdateWrapper<User> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("username", username);
         int updateNum = baseMapper.update(user, updateWrapper);

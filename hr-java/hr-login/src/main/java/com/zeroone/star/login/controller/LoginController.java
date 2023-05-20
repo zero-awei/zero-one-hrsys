@@ -23,14 +23,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import springfox.documentation.spring.web.json.Json;
-
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
@@ -168,6 +165,8 @@ public class LoginController implements LoginApis {
     @Override
     public JsonVO<String> logout() {
         //TODO:登出逻辑，需要配合登录逻辑实现
+        //1.获取当前用户token
+        //2.删除当前用户token
         return null;
     }
 
@@ -192,16 +191,20 @@ public class LoginController implements LoginApis {
     @PostMapping("update-password")
     @Override
     public JsonVO<String> updatePassword(LoginDTO loginDTO) {
-        //1.获取原密码
-        //2.更新
+        //1.获取新密码
         String newPassword = loginDTO.getPassword();
-        String loginDTOUsername = loginDTO.getUsername();
-        String oldPassword = userService.getCurrentPassword(loginDTOUsername);
+        //2.获取用户名
+        String userName = loginDTO.getUsername();
+        //3.获取旧密码
+        String oldPassword = userService.getCurrentPassword(userName);
+        //4.判断新旧密码是否一致
         boolean matches = passwordEncoder.matches(oldPassword, newPassword);
         if (matches) {
             return JsonVO.fail("新旧密码不能一致！");
         }
-        Boolean isSuccess = userService.updatePassword(loginDTOUsername, oldPassword);
+        //5.修改密码
+        Boolean isSuccess = userService.updatePassword(userName, oldPassword);
+        //6.返回结果
         if (!isSuccess) {
             //更新失败
             return JsonVO.fail("密码修改失败");
