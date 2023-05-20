@@ -167,7 +167,6 @@
     <ClCompile Include="controller\JobTitleInfo\JobTitleInfoController.cpp" />
 
     <ClCompile Include="controller\ContractController\ContractController.cpp" />
-    <ClCompile Include="controller\GoshController\TestController.cpp" />
     <ClCompile Include="controller\JobTitle\JobTitleController.cpp" />
     <ClCompile Include="controller\GoshController\TestController.cpp" />
     <ClCompile Include="controller\Muggle\expense_ledger-Muggle.cpp" />
