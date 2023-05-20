@@ -12,5 +12,12 @@ import java.util.List;
   * @version: 1.0
 */
 public interface OrgDistributeApis {
-    JsonVO<List<OrgDistributeDTO>> queryOrg();
+    /**
+     * @param :
+     * @return JsonVO<List<OrgDistributeDTO>>
+     * @author 乐天
+     * @description 获取组织分布信息
+     * @date 2023/5/20 17:52
+     */
+    JsonVO<List<OrgDistributeDTO>> queryOrgDistribute();
 }
