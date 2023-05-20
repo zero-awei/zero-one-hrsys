@@ -1,6 +1,5 @@
-#include "ExportEmployeeController.h"
 #include "stdafx.h"
-
+#include "ExportEmployeeController.h"
 //#include "../../service/ExportEmployee/ExportEmployeeService.h"
 
 //ExportEmployeePageJsonVO::Wrapper ExportEmployeeController::execQueryExportEmployee(const ExportEmployeeQuery::Wrapper& query, const PayloadDTO& payload)
@@ -50,8 +49,8 @@ Uint64JsonVO::Wrapper ExportEmployeeController::execAddExportEmployee(const Expo
 
 Uint64JsonVO::Wrapper ExportEmployeeController::execModifyExportEmployee(const ExportEmployeeDTO::Wrapper& dto)
 {
-	//// 定义返回数据对象
-	//auto jvo = Uint64JsonVO::createShared();
+	// 定义返回数据对象
+	auto jvo = Uint64JsonVO::createShared();
 	//// 参数校验
 	//if (!dto->id || dto->id <= 0)
 	//{
@@ -67,13 +66,13 @@ Uint64JsonVO::Wrapper ExportEmployeeController::execModifyExportEmployee(const E
 	//	jvo->fail(dto->id);
 	//}
 	//// 响应结果
-	//return jvo;
+	return jvo;
 }
 
 Uint64JsonVO::Wrapper ExportEmployeeController::execRemoveExportEmployee(const ExportEmployeeDTO::Wrapper& dto)
 {
-	//// 定义返回数据对象
-	//auto jvo = Uint64JsonVO::createShared();
+	// 定义返回数据对象
+	auto jvo = Uint64JsonVO::createShared();
 	//// 参数校验
 	//if (!dto->id || dto->id <= 0)
 	//{
@@ -91,5 +90,5 @@ Uint64JsonVO::Wrapper ExportEmployeeController::execRemoveExportEmployee(const E
 	//	jvo->fail(dto->id);
 	//}
 	//// 响应结果
-	//return jvo;
+	return jvo;
 }
