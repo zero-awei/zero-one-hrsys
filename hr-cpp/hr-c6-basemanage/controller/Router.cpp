@@ -18,7 +18,8 @@
 */
 #include "stdafx.h"
 #include "Router.h"
-#include "ApiHelper.h"
+
+#include "GoshController/TestController.h"
 #include "SelectController/retirement.h"
 
 #ifdef HTTP_SERVER_DEMO
@@ -66,7 +67,6 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(LaborDispatchConstroller);
 	ROUTER_SIMPLE_BIND(FindController);
 }
-
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {

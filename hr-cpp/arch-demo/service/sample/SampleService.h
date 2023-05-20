@@ -17,8 +17,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _SAMPLE_SERVICE_
-#define _SAMPLE_SERVICE_
+#ifndef _Sample_SERVICE_
+#define _Sample_SERVICE_
 #include <list>
 #include "domain/vo/sample/SampleVO.h"
 #include "domain/query/sample/SampleQuery.h"
