@@ -26,7 +26,7 @@ public interface OrgmanagerApis {
     /**
      * @Description: 修改指定部门信息
      * @params: [modifyDeptInfoDTO]
-     * @return: JsonVO<jString>
+     * @return: JsonVO<String>
      * @Author: Rqs
      * @Date: 2023/5/19 23:43
      */
@@ -34,8 +34,8 @@ public interface OrgmanagerApis {
 
     /**
      * @Description: 查询指定部门考勤地址列表（分页查询）
-     * @params: [id] 部门编码
-     * @return: JsonVO<SampleDTO>
+     * @params: [kqdzQuery] 查询指定部门考勤地址数据对象
+     * @return: JsonVO<List<DeptKqdzVO>>
      * @Author: Rqs
      * @Date: 2023/5/19 23:56
      */

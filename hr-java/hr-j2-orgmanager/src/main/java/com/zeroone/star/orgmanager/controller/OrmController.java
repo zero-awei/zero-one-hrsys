@@ -37,21 +37,21 @@ public class OrmController implements OrgmanagerApis {
     IOrmService ormorginfoService;
 
     @ApiOperation(value = "新增部门")
-    @PostMapping("addDept")
+    @PostMapping("add-dept")
     @Override
     public JsonVO<String> addDept(DeptInfoDTO deptInfoDTO) {
         return ormorginfoService.saveDept(deptInfoDTO);
     }
 
     @ApiOperation(value = "修改指定部门信息")
-    @PostMapping("modifyDeptById")
+    @PostMapping("modify-dept-by-id")
     @Override
     public JsonVO<String> modifyDept(ModifyDeptInfoDTO modifyDeptInfoDTO) {
         return ormorginfoService.updateDept(modifyDeptInfoDTO);
     }
 
     @ApiOperation(value = "查询指定部门考勤地址列表（分页查询）")
-    @GetMapping("queryBmKqdzById")
+    @GetMapping("query-bm-kqdz-by-id")
     @Override
     public JsonVO<List<DeptKqdzVO>> queryBmKqdzById(KqdzQuery kqdzQuery) {
 

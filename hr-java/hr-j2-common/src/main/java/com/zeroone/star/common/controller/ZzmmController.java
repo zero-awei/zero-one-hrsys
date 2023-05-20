@@ -27,7 +27,7 @@ public class ZzmmController implements CommonApis {
     ZzmmService zzmmService;
 
     @ApiOperation(value = "政治面貌下拉列表")
-    @GetMapping("queryZzmm")
+    @GetMapping("query-zzmm")
     @Override
     public JsonVO<ZzmmQuery> queryZzmm() {
         return zzmmService.getZzmm();

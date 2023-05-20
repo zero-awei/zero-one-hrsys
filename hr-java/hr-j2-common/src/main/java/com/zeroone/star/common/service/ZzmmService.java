@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
  * 创建时间：2023/5/19 23:11
  */
 public interface ZzmmService {
-    @GetMapping("/getZzmm")
+    @GetMapping("/get-zzmm")
     public JsonVO<ZzmmQuery> getZzmm();
 }

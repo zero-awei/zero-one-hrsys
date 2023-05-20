@@ -31,7 +31,7 @@ public class BisEducationController implements DashboardApis {
     IBisEducationService bisEducationService;
 
     @ApiOperation(value = "学历分布")
-    @GetMapping("education-distribution")
+    @GetMapping("query-education-distribution")
     @Override
     public JsonVO<EducationQuery> queryEducationDistribution() {
         return bisEducationService.getEducationDistribution();

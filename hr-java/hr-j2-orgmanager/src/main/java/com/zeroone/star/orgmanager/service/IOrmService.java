@@ -21,12 +21,12 @@ import java.util.List;
  * @since 2023-05-19
  */
 public interface IOrmService extends IService<Ormorginfo> {
-    @PostMapping("/saveDept")
+    @PostMapping("/save-dept")
     JsonVO<String> saveDept(DeptInfoDTO deptInfoDTO);
 
-    @PostMapping("/updateDeptById")
+    @PostMapping("/update-dept-by-id")
     JsonVO<String> updateDept(ModifyDeptInfoDTO modifyDeptInfoDTO);
 
-    @GetMapping("/listBmKqdz")
+    @GetMapping("/list-bm-kqdz")
     List<DeptKqdzVO> listBmKqdz(KqdzQuery kqdzQuery);
 }
