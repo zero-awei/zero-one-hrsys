@@ -32,6 +32,7 @@
 #include "Muggle/labor_dispatch-Muggle.h"
 #include "Muggle/expense_ledger-Muggle.h"
 #include "controller/JobTitle/JobTitleController.h"
+#include "GoshController/TestController.h"
 
 
 
@@ -63,6 +64,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(JobTitleController);
 	ROUTER_SIMPLE_BIND(ExpenseLedgerMController);
 	ROUTER_SIMPLE_BIND(LaborDispatchConstroller);
+	ROUTER_SIMPLE_BIND(FindController);
 }
 
 #ifdef HTTP_SERVER_DEMO
