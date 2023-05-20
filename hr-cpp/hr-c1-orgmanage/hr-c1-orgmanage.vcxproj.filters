@@ -13,6 +13,8 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="controller\projTag\modifyProjTagController\ModifyProjTagController.cpp" />
     <ClCompile Include="uselib\jwt\TestToken.cpp" />
+    <ClCompile Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.cpp" />
+    <ClCompile Include="controller\projTag\deleteProjTag\DeleteProjTagController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -43,5 +45,10 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="domain\dto\projTag\ModifyTagDTO.h" />
     <ClInclude Include="uselib\jwt\TestToken.h" />
+    <ClInclude Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.h" />
+    <ClInclude Include="controller\projTag\deleteProjTag\DeleteProjTagController.h" />
+    <ClInclude Include="domain\dto\projTag\DeleteProjTagDTO.h" />
+    <ClInclude Include="domain\query\projTag\PageProjTagQuery.h" />
+    <ClInclude Include="domain\vo\pageQuery\PageQueryVO.h" />
   </ItemGroup>
 </Project>

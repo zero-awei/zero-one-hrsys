@@ -24,6 +24,8 @@
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
+#include "projTag/pageQueryProjTagList/PageQueryProjTagListController.h"
+#include "projTag/deleteProjTag/DeleteProjTagController.h"
 
 // 岗位设置
 #include "jobSet/importJobController/ImportJobController.h"
@@ -105,4 +107,10 @@ void Router::createProjTagRouter()
 	 */
 	ROUTER_SIMPLE_BIND(ImportTagController);
 	ROUTER_SIMPLE_BIND(AddTagController);
+	/**
+	 * 分页查询项目标签&删除项目标签
+	 * 负责人：咫尺之书
+	 */
+	ROUTER_SIMPLE_BIND(PageQueryProjTagListController);
+	ROUTER_SIMPLE_BIND(DeleteProjTagController);
 }

@@ -8,13 +8,13 @@ Uint64JsonVO::Wrapper AddTagController::execAddProjTag(const ProjTagDTO::Wrapper
 	// 校验dto数据
 	// 参数校验
 	// 非空校验
-	if (!dto->sortid || !dto->orgname || !dto->projecttag)
+	if (!dto->orgname || !dto->projecttag)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 	// 有效值校验
-	if (dto->sortid < 0 || dto->orgname->empty() || dto->projecttag->empty())
+	if (dto->orgname->empty() || dto->projecttag->empty())
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
@@ -25,10 +25,8 @@ Uint64JsonVO::Wrapper AddTagController::execAddProjTag(const ProjTagDTO::Wrapper
 	String payloadname = payload.getUsername();
 	// 执行数据新增
 	//uint64_t id = service.saveData(dto);
-	// id应从数据库中找到的序号字段
-	uint64_t id = dto->sortid;
 	//响应结果
-	jvo->success(UInt64(id));
+	jvo->success(UInt64(114514));
 	return jvo;
 }
 
@@ -41,9 +39,7 @@ Uint64JsonVO::Wrapper AddTagController::execAddProjTag(const ProjTagDTO::Wrapper
 
 	// 执行数据新增
 	//uint64_t id = service.saveData(dto);
-	// id应从数据库中找到的序号字段
-	uint64_t id = dto->sortid;
 	//响应结果
-	jvo->success(UInt64(id));
+	jvo->success(UInt64(155149));
 	return jvo;
 }

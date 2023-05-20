@@ -160,12 +160,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="controller\projTag\addTagController\AddTagController.cpp" />
+    <ClCompile Include="controller\projTag\deleteProjTag\DeleteProjTagController.cpp" />
     <ClCompile Include="controller\projTag\importTagController\ImportTagController.cpp" />
     <ClCompile Include="controller\projTag\modifyProjTagController\ModifyProjTagController.cpp" />
     <ClCompile Include="controller\jobSet\postDeleteController\PostDeleteController.cpp" />
     <ClCompile Include="controller\jobSet\postQueryController\PostQueryController.cpp" />
     <ClCompile Include="controller\jobSet\importJobController\ImportJobController.cpp" />
     <ClCompile Include="controller\projTag\exportProjTagController\ExportProjTagController.cpp" />
+    <ClCompile Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
@@ -179,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
+    <ClInclude Include="controller\projTag\deleteProjTag\DeleteProjTagController.h" />
     <ClInclude Include="controller\projTag\importTagController\ImportTagController.h" />
     <ClInclude Include="controller\jobSet\postDeleteController\PostDeleteController.h" />
     <ClInclude Include="controller\jobSet\postQueryController\PostQueryController.h" />
@@ -187,15 +190,19 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\projTag\exportProjTagController\ExportProjTagController.h" />
     <ClInclude Include="controller\projTag\modifyProjTagController\ModifyProjTagController.h" />
+    <ClInclude Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\postSet\PostDeleteDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDetailDTO.h" />
+    <ClInclude Include="domain\dto\projTag\DeleteProjTagDTO.h" />
     <ClInclude Include="domain\dto\projTag\ImportTagDTO.h" />
     <ClInclude Include="domain\dto\projTag\ModifyTagDTO.h" />
     <ClInclude Include="domain\dto\projTag\ProjTagDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\postSet\PostDetailQuery.h" />
+    <ClInclude Include="domain\query\projTag\PageProjTagQuery.h" />
+    <ClInclude Include="domain\vo\pageQuery\PageQueryVO.h" />
     <ClInclude Include="domain\vo\postSet\PostDetailVO.h" />
     <ClInclude Include="domain\dto\jobSet\ImportJobDTO.h" />
     <ClInclude Include="domain\query\projTag\ExportProjTagQuery.h" />

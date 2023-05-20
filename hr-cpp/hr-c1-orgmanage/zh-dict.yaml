@@ -88,4 +88,13 @@ projTag:
   tagName: 项目标签名
   orgId: 组织ID
  modify:
-  summary: 更新项目标签   
+  summary: 更新项目标签
+ tagId: 项目标签ID
+ tagIds: 批量项目标签ID
+ deleteProjTag: 删除项目标签
+ deleteProjTags: 批量删除项目标签
+ pageQuery:
+  size: 每页显示条数
+  page: 查询页码
+  sort: 显示顺序
+  controller: 分页查询项目标签列表
