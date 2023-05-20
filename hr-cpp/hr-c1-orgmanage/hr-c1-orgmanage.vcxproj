@@ -194,7 +194,6 @@
     <ClInclude Include="domain\dto\projTag\ImportTagDTO.h" />
     <ClInclude Include="domain\dto\projTag\ModifyTagDTO.h" />
     <ClInclude Include="domain\dto\projTag\ProjTagDTO.h" />
-    <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\postSet\PostDetailQuery.h" />
     <ClInclude Include="domain\vo\postSet\PostDetailVO.h" />

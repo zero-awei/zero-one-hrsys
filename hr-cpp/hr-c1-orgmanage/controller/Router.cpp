@@ -27,9 +27,9 @@
 
 // 岗位设置
 #include "jobSet/importJobController/ImportJobController.h"
-// 项目标签
 #include "jobSet/postQueryController/PostQueryController.h"
 #include "jobSet/postDeleteController/PostDeleteController.h"
+// 项目标签
 #include "projTag/exportProjTagController/ExportProjTagController.h"
 #include "projTag/importTagController/ImportTagController.h"
 #include "projTag/addTagController/AddTagController.h"
@@ -83,16 +83,16 @@ void Router::createJobSetRouter()
 	 * 负责人：Andrew
 	 */
 	ROUTER_SIMPLE_BIND(ImportJobController);
-}
-
-void Router::createProjTagRouter()
-{
 	/**
 	 * 查询指定岗位详情&删除岗位
 	 * 负责人：米饭
 	 */
 	ROUTER_SIMPLE_BIND(PostQueryController);
 	ROUTER_SIMPLE_BIND(PostDeleteController);
+}
+
+void Router::createProjTagRouter()
+{
 	/**
 	 * 导出项目标签&更新项目标签
 	 * 负责人：Andrew
