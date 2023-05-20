@@ -258,6 +258,30 @@
     <ClInclude Include="domain\dto\scientific\ScientificDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\Pimarmycadres\PimarmycadresController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\scientific\Scientific.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\Pimarmycadres\AddPimarmycadresDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\Pimarmycadres\DelPimarmycadresDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\Pimarmycadres\PimarmycadresFindDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\Pimarmycadres\PimarmycadresIntoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\PimarmycadresDTO\PimarmycadresDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresPageQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -336,6 +360,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="service\Archives\ArchivesService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\Pimarmycadres\PimarmycadresController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

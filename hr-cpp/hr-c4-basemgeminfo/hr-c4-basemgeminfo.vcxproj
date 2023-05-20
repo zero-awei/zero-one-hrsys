@@ -177,6 +177,7 @@
     <ClInclude Include="controller\jobtitle-information\JobTitleInformationController.h" />
     <ClInclude Include="controller\military\MilitaryController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\Pimarmycadres\PimarmycadresController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\scientific\ScientificController.h" />
     <ClInclude Include="controller\SciResult\SciResultController.h" />
@@ -199,6 +200,7 @@
     <ClInclude Include="domain\do\contract\ContractDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\military\MilitaryDO.h" />
+    <ClInclude Include="domain\do\scientific\Scientific.h" />
     <ClInclude Include="domain\do\work-history\WorkHistoryDO.h" />
     <ClInclude Include="domain\do\work-history\WorkHistoryFindPageDO.h" />
     <ClInclude Include="domain\dto\archives\ArchivesDTO.h" />
@@ -206,6 +208,11 @@
     <ClInclude Include="domain\dto\certificate-information\JobTitleInformationDTO.h" />
     <ClInclude Include="domain\dto\contract\ContractDTO.h" />
     <ClInclude Include="domain\dto\military\militaryDTO.h" />
+    <ClInclude Include="domain\dto\PimarmycadresDTO\PimarmycadresDTO.h" />
+    <ClInclude Include="domain\dto\Pimarmycadres\AddPimarmycadresDTO.h" />
+    <ClInclude Include="domain\dto\Pimarmycadres\DelPimarmycadresDTO.h" />
+    <ClInclude Include="domain\dto\Pimarmycadres\PimarmycadresFindDTO.h" />
+    <ClInclude Include="domain\dto\Pimarmycadres\PimarmycadresIntoDTO.h" />
     <ClInclude Include="domain\dto\scientific\ScientificDTO.h" />
     <ClInclude Include="domain\dto\SciResult\AddSciResultDTO.h" />
     <ClInclude Include="domain\dto\SciResult\DelSciResultDTO.h" />
@@ -224,6 +231,7 @@
     <ClInclude Include="domain\query\certificate-information\JobTitleInformationPageQuery.h" />
     <ClInclude Include="domain\query\contract\ContractQuery.h" />
     <ClInclude Include="domain\query\military\MilitaryQuery.h" />
+    <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresPageQuery.h" />
     <ClInclude Include="domain\query\scientific\ScientificQuery.h" />
     <ClInclude Include="domain\query\SciResult\SciResultQuery.h" />
     <ClInclude Include="domain\query\work-history\WorkHistoryExportQuery.h" />
@@ -259,6 +267,7 @@
     <ClCompile Include="controller\contract\ContractController.cpp" />
     <ClCompile Include="controller\jobtitle-information\JobTitleInformationController.cpp" />
     <ClCompile Include="controller\military\MilitaryController.cpp" />
+    <ClCompile Include="controller\Pimarmycadres\PimarmycadresController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\scientific\ScientficController.cpp" />
     <ClCompile Include="controller\SciResult\SciResultController.cpp" />

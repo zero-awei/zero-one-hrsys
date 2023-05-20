@@ -26,6 +26,7 @@
 #include "jobtitle-information/JobTitleInformationController.h"
 #include"military/MilitaryController.h"
 #include "work-history/WorkHistoryController.h"
+#include "controller/Pimarmycadres/PimarmycadresController.h"
 
 
 
@@ -62,7 +63,7 @@ void Router::initRouter()
 	//新增科研成果Controller和档案信息Controller
 	ROUTER_SIMPLE_BIND(ArchivesController);
 	ROUTER_SIMPLE_BIND(ScientificController);
-
+	ROUTER_SIMPLE_BIND(PimarmycadresController);
 
 	//#TIP :系统扩展路由定义，写在这个后面
 	//绑定路由（传入类名）
