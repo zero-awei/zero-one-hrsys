@@ -2,7 +2,7 @@
 #include "LanguageCompetenceController.h"
 #include "../../service/Language/LanguageService.h"
 
-StringJsonVO::Wrapper LanguageCompetenceController::execQueryLanguage(const LanguageQuery::Wrapper& query, const PayloadDTO& payload)
+StringJsonVO::Wrapper LanguageCompetenceController::execQueryLanguage(const LanguagePageQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	//// 定义一个Service
 	//LanguageService service;
