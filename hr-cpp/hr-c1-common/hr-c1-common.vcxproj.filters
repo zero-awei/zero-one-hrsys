@@ -1,71 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="controller\Filereservation\FilereservationController.cpp" />
-    <ClCompile Include="controller\Filestatus\FilestatusController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="controller\certDropDownList\certTypeList\CertTypeListController.cpp" />
+    <ClCompile Include="controller\certDropDownList\profCertsList\ProfCertsListController.cpp" />
+    <ClCompile Include="controller\armyLevelType\ArmyLevelTypeController.cpp" />
+    <ClCompile Include="controller\contractType\ContractTypeListController.cpp" />
+    <ClCompile Include="controller\fileReservation1\FilereservationController.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ServerInfo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Macros.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\do\DoInclude.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\OtherComponent.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\Router.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\query\certs\ProfCertsQuery.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\certDropDownList\profCertsList\ProfCertsListController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\certs\ProfCertsDTO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\certs\ProfCertsVO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\certs\CertTypeDTO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\query\certs\CertTypeQuery.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\certs\CertTypeVO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\certDropDownList\certTypeList\CertTypeListController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="domain\dto\pullList\PullListDTO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\pullList\PullListDTO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\contractType\ContractTypeListController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\pullList\PullListVO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
+    <ClInclude Include="controller\certDropDownList\certTypeList\CertTypeListController.h" />
+    <ClInclude Include="controller\certDropDownList\profCertsList\ProfCertsListController.h" />
+    <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\contractType\ContractTypeListController.h" />
+    <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\dto\certs\CertTypeDTO.h" />
+    <ClInclude Include="domain\dto\certs\ProfCertsDTO.h" />
+    <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
+    <ClInclude Include="domain\query\certs\CertTypeQuery.h" />
+    <ClInclude Include="domain\query\certs\ProfCertsQuery.h" />
+    <ClInclude Include="domain\vo\certs\ProfCertsVO.h" />
+    <ClInclude Include="domain\vo\certs\CertTypeVO.h" />
+    <ClInclude Include="domain\vo\pullList\PullListVO.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="domain\dto\filestatus\FilestatusDTO.h" />
+    <ClInclude Include="domain\dto\sample\SampleDTO.h" />
+    <ClInclude Include="domain\query\filestatus\FilestatusQuery.h" />
+    <ClInclude Include="domain\vo\filereservation\FilereservationVO.h" />
+    <ClInclude Include="domain\vo\filestatus\FilestatusVO.h" />
+    <ClInclude Include="controller\fileReservation1\FilereservationController.h" />
+    <ClInclude Include="controller\fileStatus1\FilestatusController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -78,18 +52,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="controller\SystemInterceptor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\certDropDownList\profCertsList\ProfCertsListController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\certDropDownList\certTypeList\CertTypeListController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\contractType\ContractTypeListController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\armyLevelType\ArmyLevelTypeController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
