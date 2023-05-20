@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "Router.h"
 
-#include "test/TestController.h"
+#include "GoshController/TestController.h"
 #include "SelectController/retirement.h"
 
 #ifdef HTTP_SERVER_DEMO
@@ -61,7 +61,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(ExpenseLedgerMController);
 	ROUTER_SIMPLE_BIND(LaborDispatchConstroller);
 	ROUTER_SIMPLE_BIND(TestController);
-	ROUTER_SIMPLE_BIND(FindController);
+	ROUTER_SIMPLE_BIND(GoshController);
 }
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
