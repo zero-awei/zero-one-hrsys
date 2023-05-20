@@ -25,8 +25,8 @@
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
-#include "JobLevelTypeList/JobLevelTypeListController.h"
-#include "CostTypeList/CostTypeListController.h"
+#include "jobLevelTypeList/JobLevelTypeListController.h"
+#include "costTypeList/CostTypeListController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC

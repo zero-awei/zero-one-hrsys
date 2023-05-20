@@ -159,8 +159,8 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="controller\CostTypeList\CostTypeListController.h" />
-    <ClInclude Include="controller\JobLevelTypeList\JobLevelTypeListController.h" />
+    <ClInclude Include="controller\costTypeList\CostTypeListController.h" />
+    <ClInclude Include="controller\jobLevelTypeList\JobLevelTypeListController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
@@ -171,8 +171,8 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="controller\CostTypeList\CostTypeListController.cpp" />
-    <ClCompile Include="controller\JobLevelTypeList\JobLevelTypeListController.cpp" />
+    <ClCompile Include="controller\costTypeList\CostTypeListController.cpp" />
+    <ClCompile Include="controller\jobLevelTypeList\JobLevelTypeListController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
