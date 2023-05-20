@@ -1,8 +1,7 @@
-package com.zeroone.star.project.dept;
+package com.zeroone.star.project.orgmanager;
 
-import com.zeroone.star.project.dto.dept.DeptDTO;
+import com.zeroone.star.project.dto.orgmanager.DeptDTO;
 import com.zeroone.star.project.vo.JsonVO;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 

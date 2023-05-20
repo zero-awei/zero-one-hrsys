@@ -1,7 +1,7 @@
 package com.zeroone.star.orgmanager.controller;
 
-import com.zeroone.star.project.dept.RemoveDeptApis;
-import com.zeroone.star.project.dto.dept.DeptDTO;
+import com.zeroone.star.project.orgmanager.RemoveDeptApis;
+import com.zeroone.star.project.dto.orgmanager.DeptDTO;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
