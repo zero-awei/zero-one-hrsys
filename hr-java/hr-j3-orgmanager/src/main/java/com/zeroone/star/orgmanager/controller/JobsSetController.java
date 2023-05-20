@@ -2,8 +2,10 @@ package com.zeroone.star.orgmanager.controller;
 
 import com.zeroone.star.project.components.fastdfs.FastDfsClientComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
+import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.dto.AllJobsDTO;
 import com.zeroone.star.project.j3.dto.ExportDTO;
+import com.zeroone.star.project.j3.dto.orgmanager.JobTitleDTO;
 import com.zeroone.star.project.j3.orgmanager.JobSetApis;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -62,5 +65,22 @@ public class JobsSetController implements JobSetApis  {
         // 返回下载地址
         return JsonVO.success(fastDfsClientComponent.fetchUrl(fastDfsFileInfo, "http://" + fileServerUrl, true));
     }
+
+
+
+    @GetMapping("queryJobList")
+    @ApiOperation("查询职务")
+    @Override
+    public JsonVO<PageDTO<JobTitleDTO>> queryJobTitleList() {
+        return null;
+    }
+
+    @PutMapping("modify-jobTitles")
+    @ApiOperation("更新若干职务信息")
+    @Override
+    public void modifyJobTitle(List<JobTitleDTO> ids) {
+        return;
+    }
+
 
 }

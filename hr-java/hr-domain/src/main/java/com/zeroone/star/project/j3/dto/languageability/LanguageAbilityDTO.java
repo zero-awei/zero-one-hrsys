@@ -11,7 +11,7 @@ public class LanguageAbilityDTO {
 
     @ApiModelProperty(value = "语言能力标识",example = "101")
     private String languageId;
-    @ApiModelProperty(value = "人员标识",example = "username")
+    @ApiModelProperty(value = "人员标识",example = "66958E87-91A4-4DA8-8124-060E93B47EBE")
     private String personId; // 人员信息标识
     @ApiModelProperty(value = "外语类型",example = "英语")
     private String languageType; // 外语类型
