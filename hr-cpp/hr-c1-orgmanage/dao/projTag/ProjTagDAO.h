@@ -20,12 +20,12 @@
 #ifndef _PROJTAGDAO_H_
 #define _PROJTAGDAO_H_
 #include "BaseDAO.h"
-#include "domain/do/"
+//#include "domain/do/"
 class ProjTagDAO : public BaseDAO
 {
 public:
 	// ≤Â»Î ˝æ›
-	uint64_t insert(const SampleDO& iObj);
+	//uint64_t insert(const SampleDO& iObj);
 };
 
 #endif // !_PROJTAGDAO_H_

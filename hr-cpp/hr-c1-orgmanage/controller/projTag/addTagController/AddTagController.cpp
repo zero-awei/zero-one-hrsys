@@ -20,12 +20,12 @@ Uint64JsonVO::Wrapper AddTagController::execAddProjTag(const ProjTagDTO::Wrapper
 		return jvo;
 	}
 	// 定义一个Service
-	SampleService service;
-	// 执行数据新增
-	uint64_t id = service.saveData(dto);
-	// 获取payload字段
-	String payloadid =  payload.getId();
-	String payloadname = payload.getUsername();
+	//SampleService service;
+	//// 执行数据新增
+	//uint64_t id = service.saveData(dto);
+	//// 获取payload字段
+	//String payloadid =  payload.getId();
+	//String payloadname = payload.getUsername();
 	// 执行数据新增
 	//uint64_t id = service.saveData(dto);
 	// id应从数据库中找到的序号字段
