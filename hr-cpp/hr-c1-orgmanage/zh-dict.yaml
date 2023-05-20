@@ -85,11 +85,3 @@ projTag:
   updatetime: 更新时间
   xh: 序号
   ormorgid: 组织ID
-
-jobSet:
- import:
-  summary: 岗位名称
-  fileType: 文件类型
-  sheetName: 文件名称
-  file: 文件名称
-
