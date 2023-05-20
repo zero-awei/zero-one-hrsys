@@ -1,20 +1,17 @@
+//
+
+
+
 #pragma once
 #ifndef _DECLARE_CONTROLLER_
 #define _DECLARE_CONTROLLER_
 
 #include "domain/vo/BaseJsonVO.h"
-#include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
-#include "oatpp/web/mime/multipart/FileProvider.hpp"
-#include "oatpp/web/mime/multipart/Reader.hpp"
-#include "oatpp/web/mime/multipart/PartList.hpp"
 #include "domain/vo/declareList/DeclareListVO.h"
 #include "domain/dto/declareDto/declareDTO.h"
 #include "ApiHelper.h"
 #include "Macros.h"
 #include "ServerInfo.h"
-
-using namespace oatpp;
-namespace multipart = oatpp::web::mime::multipart;
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 

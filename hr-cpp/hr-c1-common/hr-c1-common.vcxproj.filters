@@ -45,6 +45,18 @@
     <ClInclude Include="domain\query\declareQuery\DeclareQuery.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="controller\archiveslevels\ArchivesLevelsController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\archivesLevelsDto\archivesLevelsDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\archivesListQuery\ArchivesQuery.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\archivesList\ArchivesListVO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -60,6 +72,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="controller\declare\DeclareController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\archiveslevels\ArchivesLevelsController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

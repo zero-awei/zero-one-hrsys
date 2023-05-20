@@ -26,6 +26,7 @@
 #include "uselib/ws/WSController.h"
 #endif
 #include "declare/DeclareController.h"
+#include "archiveslevels/ArchivesLevelsController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -51,11 +52,16 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-	createDeclareRouter();
+	//createDeclareRouter();
+	createArchivesLevelsRouter();
 }
 
 void Router::createDeclareRouter() {
 	ROUTER_SIMPLE_BIND(DeclareController);
+}
+
+void Router::createArchivesLevelsRouter() {
+	ROUTER_SIMPLE_BIND(ArchivesLevelsController);
 }
 
 #ifdef HTTP_SERVER_DEMO

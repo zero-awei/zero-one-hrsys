@@ -42,13 +42,14 @@ public:
 	void initRouter();
 	
 private:
-void createDeclareRouter();
+
 #ifdef HTTP_SERVER_DEMO
 	// 创建演示路由
 	void createSampleRouter();
 
 #endif
-
+void createDeclareRouter();
+void createArchivesLevelsRouter();
 };
 
 #endif // !_ROUTER_
