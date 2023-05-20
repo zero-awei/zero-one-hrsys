@@ -15,9 +15,9 @@
 */
 
 
-class EducationDTO : public oatpp::DTO
+class EducationSingleDTO : public oatpp::DTO
 {
-	DTO_INIT(EducationDTO, DTO);
+	DTO_INIT(EducationSingleDTO, DTO);
 	// 备注
 	DTO_FIELD(String, BZ);
 	DTO_FIELD_INFO(BZ) {
@@ -189,9 +189,9 @@ class EducationDTO : public oatpp::DTO
 /**
  * 教育信息分页传输对象
  */
-class EducationPageDTO : public PageDTO<EducationDTO::Wrapper>
+class EducationPageDTO : public PageDTO<EducationSingleDTO::Wrapper>
 {
-	DTO_INIT(EducationPageDTO, PageDTO<EducationDTO::Wrapper>);
+	DTO_INIT(EducationPageDTO, PageDTO<EducationSingleDTO::Wrapper>);
 };
 
 

@@ -20,6 +20,11 @@ class EducationPageQuery : public PageQuery
 	DTO_FIELD_INFO(pimpersonname) {
 		info->description = ZH_WORDS_GETTER("t_pimperson.pimpersonname");
 	}
+	// 排序类别:排序方式,(asc/desc)
+	DTO_FIELD(String, sort);
+	DTO_FIELD_INFO(sort) {
+		info->description = ZH_WORDS_GETTER("t_pimperson.sort");
+	}
 };
 
 #include OATPP_CODEGEN_END(DTO)

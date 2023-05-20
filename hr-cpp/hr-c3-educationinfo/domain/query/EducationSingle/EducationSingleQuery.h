@@ -14,6 +14,11 @@
 class EducationSingleQuery : public oatpp::DTO
 {
 	DTO_INIT(EducationSingleQuery, DTO);
+	// Ô±¹¤ÐÕÃûpimpersonname
+	DTO_FIELD(String, pimpersonname);
+	DTO_FIELD_INFO(pimpersonname) {
+		info->description = ZH_WORDS_GETTER("t_pimperson.pimpersonname");
+	}
 	
 };
 
