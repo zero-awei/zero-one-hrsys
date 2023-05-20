@@ -69,6 +69,15 @@
     <ClInclude Include="controller\CertificateManage\CertificateTypeController.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\do\RosterOfPer\TemporaryStaffDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\CertificateManage\EmployeeInfoDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\CertificateManage\CertificateTypeDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

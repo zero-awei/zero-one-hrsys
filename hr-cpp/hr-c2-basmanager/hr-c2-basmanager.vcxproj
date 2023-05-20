@@ -187,7 +187,10 @@
     <ClInclude Include="controller\RosterOfPer\TemporaryStaffController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="domain\do\CertificateManage\CertificateTypeDO.h" />
+    <ClInclude Include="domain\do\CertificateManage\EmployeeInfoDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\RosterOfPer\TemporaryStaffDO.h" />
     <ClInclude Include="domain\dto\CertificateManage\CertificateTypeDTO.h" />
     <ClInclude Include="domain\dto\CertificateManage\EmployeeInfoDTO.h" />
     <ClInclude Include="domain\dto\RosterOfPer\TemporaryStaffDTO.h" />
