@@ -2,6 +2,7 @@ package com.zeroone.star.project.emplist;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.common.StatusListDTO;
+import com.zeroone.star.project.query.departmenttypestatuslist.DepartmentTypeStatusListQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
 public interface CommonApi {
@@ -11,4 +12,7 @@ public interface CommonApi {
      * @return
      */
     JsonVO<PageDTO<StatusListDTO>> queryEmployeeStatus();
+
 }
+
+

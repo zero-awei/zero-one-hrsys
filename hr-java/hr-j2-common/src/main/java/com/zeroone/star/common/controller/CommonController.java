@@ -4,6 +4,7 @@ import com.zeroone.star.project.common.CommonApis;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
 import com.zeroone.star.project.dto.common.StatusListDTO;
+//import com.zeroone.star.project.dto.departmenttypestatuslist.DepartmentTypeStatusListDTO;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -47,4 +48,31 @@ public class CommonController implements CommonApis {
     public JsonVO<PageDTO<StatusListDTO>> queryEmployeeStatus() {
         return null;
     }
+
+    @ApiOperation(value = "组织性质下拉列表")
+    @GetMapping("query-dtstatus")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryDTStatus() {
+        return null;
+    }
+    @ApiOperation(value = "组织性质下拉列表")
+    @GetMapping("query-opstatus")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryOPStatus() {
+        return null;
+    }
+    @ApiOperation(value = "所属区域下拉列表")
+    @GetMapping("query-orstatus")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryORStatus() {
+        return null;
+    }
+    @ApiOperation(value = "补贴标准下拉列表")
+    @GetMapping("query-ssstatus")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> querySSStatus() {
+        return null;
+    }
+
+
 }
