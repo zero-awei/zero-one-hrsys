@@ -161,6 +161,7 @@
   <ItemGroup>
     <ClCompile Include="controller\projTag\addTagController\AddTagController.cpp" />
     <ClCompile Include="controller\projTag\importTagController\ImportTagController.cpp" />
+    <ClCompile Include="controller\projTag\modifyProjTagController\ModifyProjTagController.cpp" />
     <ClCompile Include="controller\projTag\postDeleteController\PostDeleteController.cpp" />
     <ClCompile Include="controller\projTag\postQueryController\PostQueryController.cpp" />
     <ClCompile Include="controller\jobSet\importJobController\ImportJobController.cpp" />
@@ -174,6 +175,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="uselib\jwt\TestToken.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -190,6 +192,7 @@
     <ClInclude Include="domain\dto\postSet\PostDeleteDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDetailDTO.h" />
     <ClInclude Include="domain\dto\projTag\ImportTagDTO.h" />
+    <ClInclude Include="domain\dto\projTag\ModifyTagDTO.h" />
     <ClInclude Include="domain\dto\projTag\ProjTagDTO.h" />
     <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
@@ -203,6 +206,7 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\jwt\TestToken.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\lib-common\lib-common.vcxproj">

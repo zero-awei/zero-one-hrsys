@@ -84,3 +84,8 @@ projTag:
   creattime: 建立时间
   updater: 更新人
   updatetime: 更新时间
+  id: 项目标签标识
+  tagName: 项目标签名
+  orgId: 组织ID
+ modify:
+  summary: 更新项目标签   

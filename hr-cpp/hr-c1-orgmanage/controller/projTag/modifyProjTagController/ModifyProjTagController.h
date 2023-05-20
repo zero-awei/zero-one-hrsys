@@ -24,6 +24,7 @@
 #include "ApiHelper.h"
 #include "Macros.h"
 #include "ServerInfo.h"
+#include "domain/dto/projTag/ModifyTagDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
@@ -33,14 +34,21 @@ class ModifyProjTagController : public oatpp::web::server::api::ApiController
 	API_ACCESS_DECLARE(ModifyProjTagController);
 public: // 定义接口
 	ENDPOINT_INFO(modifyProjTag) {
-
+		info->summary = ZH_WORDS_GETTER("projTag.modify.summary");
+		API_DEF_ADD_AUTH();
+		/*API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("projTag.field.id"), "tag114514", true);
+		API_DEF_ADD_QUERY_PARAMS(String, "tagName", ZH_WORDS_GETTER("projTag.field.tagName"), "test tag", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "orgId", ZH_WORDS_GETTER("projTag.field.orgId"), "org114514", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "updater", ZH_WORDS_GETTER("projTag.field.updater"), "root", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "updateTime", ZH_WORDS_GETTER("projTag.field.updateTime"), "2000-01-01 24:00:00", false);*/
 	}
 
-	ENDPOINT(API_M_PUT, PATH_TO_PROJTAG("update-project-tag"), modifuProjTag, BODY_DTO()) {
-
+	ENDPOINT(API_M_PUT, PATH_TO_PROJTAG("/modify-project-tag"), modifyProjTag, API_HANDLER_AUTH_PARAME, BODY_DTO(ModifyTagDTO::Wrapper, dto)) {
+		API_HANDLER_RESP_VO(execModifyTag(dto, authObject->getPayload()));
 	}
 private: // 定义接口执行函数
-	
+	StringJsonVO::Wrapper execModifyTag(const ModifyTagDTO::Wrapper& dto, const PayloadDTO& payload);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

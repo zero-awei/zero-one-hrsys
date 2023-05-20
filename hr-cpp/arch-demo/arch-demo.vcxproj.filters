@@ -33,9 +33,6 @@
     <ClCompile Include="uselib\redis\TestRedis.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="uselib\jwt\TestToken.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="controller\SystemInterceptor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -66,6 +63,9 @@
     <ClCompile Include="uselib\ws\WSListener.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="uselib\jwt\TestToken.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
@@ -90,9 +90,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="uselib\redis\TestRedis.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="uselib\jwt\TestToken.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\do\sample\SampleDO.h">
@@ -174,6 +171,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\vo\filestatus\FilestatusVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\jwt\TestToken.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
