@@ -25,6 +25,8 @@
 #include "controller/RosterOfPer/ExportEmployeeController.h"
 #include "uselib/ws/WSController.h"
 #endif
+#include "controller/RosterOfPer/ExportEmployeeController.h"
+#include "controller/RosterOfPer/PageQueryEmployeeListController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -49,13 +51,15 @@ void Router::initRouter()
 	createSampleRouter();
 #endif 
 	//#TIP :系统扩展路由定义，写在这个后面
+	ROUTER_SIMPLE_BIND(ExportEmployeeController);
+	ROUTER_SIMPLE_BIND(PageQueryEmployeeListController);
 }
 
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
 	// 绑定示例控制器
-	ROUTER_SIMPLE_BIND(ExportEmployeeController);
+	ROUTER_SIMPLE_BIND(SampleController);
 	// 绑定用户控制器
 	ROUTER_SIMPLE_BIND(UserController);
 	

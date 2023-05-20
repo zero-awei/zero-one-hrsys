@@ -18,7 +18,7 @@
  limitations under the License.
 */
 #ifndef _SAMPLE_DTO_
-#define _SAMPLE_DTO_
+#define _PAGEQUERYRMPLOYEELISTQUERY_DTO_
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)

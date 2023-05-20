@@ -30,37 +30,10 @@
     <ClCompile Include="controller\LegalEntitySet\LegalerNamePullDownListController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="domain\do\LegalEntitySet\LegalerNamePullDownListDO.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="domain\dto\LegalEntitySet\LegalerNamePullDownListDTO.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="domain\vo\LegalEntitySet\LegalerNamePullDownListVO.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="controller\LegalEntitySet\UpdateLegalerSetingMessageController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="domain\do\LegalEntitySet\UpdateLegalerSetingMessageDO.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="domain\dto\LegalEntitySet\UpdateLegalerSetingMessageDTO.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="domain\vo\LegalEntitySet\UpdateLegalerSetingMessageVO.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="controller\LegalEntitySet\ExportLegalerSetingController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="domain\do\LegalEntitySet\ExportLegalerSetingDO.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="domain\dto\LegalEntitySet\ExportLegalerSetingDTO.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="domain\vo\LegalEntitySet\ExportLegalerSetingVO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

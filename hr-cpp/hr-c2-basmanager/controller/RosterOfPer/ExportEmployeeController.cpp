@@ -1,6 +1,5 @@
-#include "ExportEmployeeController.h"
 #include "stdafx.h"
-
+#include "ExportEmployeeController.h"
 //#include "../../service/ExportEmployee/ExportEmployeeService.h"
 
 //ExportEmployeePageJsonVO::Wrapper ExportEmployeeController::execQueryExportEmployee(const ExportEmployeeQuery::Wrapper& query, const PayloadDTO& payload)
@@ -21,17 +20,17 @@ Uint64JsonVO::Wrapper ExportEmployeeController::execAddExportEmployee(const Expo
 	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
 	// 非空校验
-	if (!dto->age || !dto->name || !dto->sex)
-	{
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-		return jvo;
-	}
-	// 有效值校验
-	if (dto->age < 0 || dto->name->empty() || dto->sex->empty())
-	{
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-		return jvo;
-	}
+	//if (!dto->age || !dto->name || !dto->sex)
+	//{
+	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+	//	return jvo;
+	//}
+	//// 有效值校验
+	//if (dto->age < 0 || dto->name->empty() || dto->sex->empty())
+	//{
+	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+	//	return jvo;
+	//}
 
 	// 定义一个Service 
 	//ExportEmployeeService service;
@@ -51,7 +50,7 @@ Uint64JsonVO::Wrapper ExportEmployeeController::execAddExportEmployee(const Expo
 Uint64JsonVO::Wrapper ExportEmployeeController::execModifyExportEmployee(const ExportEmployeeDTO::Wrapper& dto)
 {
 	//// 定义返回数据对象
-	//auto jvo = Uint64JsonVO::createShared();
+	auto jvo = Uint64JsonVO::createShared();
 	//// 参数校验
 	//if (!dto->id || dto->id <= 0)
 	//{
@@ -67,13 +66,13 @@ Uint64JsonVO::Wrapper ExportEmployeeController::execModifyExportEmployee(const E
 	//	jvo->fail(dto->id);
 	//}
 	//// 响应结果
-	//return jvo;
+	return jvo;
 }
 
 Uint64JsonVO::Wrapper ExportEmployeeController::execRemoveExportEmployee(const ExportEmployeeDTO::Wrapper& dto)
 {
 	//// 定义返回数据对象
-	//auto jvo = Uint64JsonVO::createShared();
+	auto jvo = Uint64JsonVO::createShared();
 	//// 参数校验
 	//if (!dto->id || dto->id <= 0)
 	//{
@@ -91,5 +90,15 @@ Uint64JsonVO::Wrapper ExportEmployeeController::execRemoveExportEmployee(const E
 	//	jvo->fail(dto->id);
 	//}
 	//// 响应结果
-	//return jvo;
+	return jvo;
 }
+
+//BooleanJsonVO::Wrapper ExportEmployeeController::execImportLEM(const ExportEmployeeDTO::Wrapper& dto)
+//{
+//	return BooleanJsonVO::createShared();
+//}
+
+//BooleanJsonVO::Wrapper ExportEmployeeController::execExportLEM(const ExportEmployeeQuery::Wrapper& legalEntityMaiQuery)
+//{
+//	return BooleanJsonVO::createShared();
+//}

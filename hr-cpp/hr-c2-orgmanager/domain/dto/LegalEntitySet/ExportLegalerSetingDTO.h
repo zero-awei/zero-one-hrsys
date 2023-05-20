@@ -5,6 +5,7 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
+
 class ExportLegalerSetingDTO : public oatpp::DTO {
 	DTO_INIT(ExportLegalerSetingDTO, DTO);
 	// ±àºÅ

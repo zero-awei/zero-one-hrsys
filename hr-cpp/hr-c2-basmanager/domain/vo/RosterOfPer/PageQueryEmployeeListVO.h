@@ -1,11 +1,11 @@
 #pragma once
 #ifndef _SAMPLE_VO_
 #define _SAMPLE_VO_
-
 #include "../../GlobalInclude.h"
 #include "domain/dto/RosterOfPer/PageQueryEmployeeListDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
+
 /**
  * 示例显示JsonVO，用于响应给客户端的Json对象
  */
