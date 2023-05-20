@@ -36,10 +36,10 @@
     <ClCompile Include="testlib\jwt\TestToken.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="service\projtag\ProjTagService.cpp">
+    <ClCompile Include="service\projTag\ProjTagService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="dao\projtag\ProjTagDAO.cpp">
+    <ClCompile Include="dao\projTag\ProjTagDAO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,13 +86,13 @@
     <ClInclude Include="testlib\jwt\TestToken.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="service\projtag\ProjTagService.h">
+    <ClInclude Include="service\projTag\ProjTagService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="dao\projtag\ProjTagDAO.h">
+    <ClInclude Include="dao\projTag\ProjTagDAO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\projtag\ProjTagDO.h">
+    <ClInclude Include="domain\do\projTag\ProjTagDO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

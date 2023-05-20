@@ -45,8 +45,18 @@ private:
 	// 创建演示路由
 	void createSampleRouter();
 #endif
-	// 项目标签相关类的路由绑定
-	void createProjTagRouter();
+ 
+	/**
+	 * 导入项目标签的路由绑定
+	 * 负责人：远翔
+	 */
+	void createImportProjTagRouter();
+	
+	/**
+	 * 新增项目标签的路由绑定
+	 * 负责人：远翔
+	 */
+	void createAddProjTagRouter();
 };
 
 #endif // !_ROUTER_

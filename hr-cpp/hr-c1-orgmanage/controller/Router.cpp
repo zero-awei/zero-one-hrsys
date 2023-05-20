@@ -51,7 +51,8 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-	createProjTagRouter();
+	createImportProjTagRouter();
+	createAddProjTagRouter();
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -67,10 +68,12 @@ void Router::createSampleRouter()
 }
 
 #endif
-
-
-void Router::createProjTagRouter()
+void Router::createImportProjTagRouter()
 {
 	ROUTER_SIMPLE_BIND(ImportTagController);
+}
+
+void Router::createAddProjTagRouter()
+{
 	ROUTER_SIMPLE_BIND(AddTagController);
 }
