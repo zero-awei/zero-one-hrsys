@@ -4,6 +4,7 @@ import com.zeroone.star.project.dto.sample.SampleDTO;
 import com.zeroone.star.project.j3.dto.AllJobsDTO;
 import com.zeroone.star.project.j3.dto.ExportDTO;
 import com.zeroone.star.project.vo.JsonVO;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -32,11 +33,11 @@ public interface JobSetApis {
     /**
      * 导入职务
      *
-     * @param jobs jobs
+     * @param file files
      * @return
      * @return {@link int}
      * @Author H_lzu
      * @Date 16:53 2023/5/19
      */
-    JsonVO<Integer> importJobs(List<AllJobsDTO> jobs);
+    JsonVO<String> importJobs(MultipartFile file);
 }
