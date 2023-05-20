@@ -67,7 +67,7 @@ public:
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, SampleQuery, queryParams);
 		// 响应结果
-		API_HANDLER_RESP_VO(execQuerySample(userQuery, authObject->getPayload()));
+		API_HANDLER_RESP_VO(execQuerySample(userQuery));
 	}
 	// 3.1 定义新增接口描述
 	ENDPOINT_INFO(addSample) {
@@ -161,7 +161,7 @@ public:
 	}
 private:
 	// 3.3 演示分页查询数据
-	SamplePageJsonVO::Wrapper execQuerySample(const SampleQuery::Wrapper& query, const PayloadDTO& payload);
+	SamplePageJsonVO::Wrapper execQuerySample(const SampleQuery::Wrapper& query);
 	// 3.3 演示新增数据
 	Uint64JsonVO::Wrapper execAddSample(const SampleDTO::Wrapper& dto);
 	// 3.3 演示修改数据
