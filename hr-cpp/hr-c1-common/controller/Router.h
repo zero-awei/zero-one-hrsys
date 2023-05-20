@@ -41,13 +41,36 @@ public:
 	// 呼叫初始化
 	void initRouter();
 	void createRouter();
-	void createLeaveReasonRouter();
-	void createDismissReasonRouter();
+
+
 private:
 #ifdef HTTP_SERVER_DEMO
 	// 创建演示路由
 	void createSampleRouter();
 #endif
+	/**
+	 * 绑定档案保管地和档案状态下拉列表
+	 * 负责人：远翔
+	 */
+	void createRouter();
+	/**
+	 * 绑定证书类型和职业资格证书类型下拉列表
+	 * 负责人：米饭
+	 */
+	void creatTestRouter();
+	/**
+	 * 绑定合同类型下拉列表路由
+	 * 负责人：Andrew
+	 */
+	void createContractTypeRouter();
+	/**
+	 * 绑定军转级别下拉列表路由
+	 * 负责人：Andrew
+	 */
+	void createArmyLevelTypeRouter();
+	
+	void createLeaveReasonRouter();
+	void createDismissReasonRouter();
 };
 
 #endif // !_ROUTER_

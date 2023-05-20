@@ -30,12 +30,10 @@
 using namespace oatpp;
 
 /**
- * 档案借阅状态下拉列表
- * 列表存有：1（借阅中） 2（已归还）
- * 返回：列表键值对
+ * 借阅状态下拉列表控制器
  * 负责人：远翔
  */
- 
+
 class FileStatusController : public oatpp::web::server::api::ApiController
 {
 	// 定义控制器访问入口

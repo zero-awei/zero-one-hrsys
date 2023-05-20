@@ -27,11 +27,8 @@
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
-
 /**
- * 档案保管地下拉列表Controller
- * 列表存有：1（局总部） 2（公司本部） 3（其他）
- * 返回：键值对列表
+ * 档案保管地下拉列表控制器
  * 负责人：远翔
  */
 
