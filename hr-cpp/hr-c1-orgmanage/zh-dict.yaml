@@ -29,3 +29,13 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+
+ormanage:
+ dto:
+  uptime: 更新时间
+  createtime: 创建时间
+  id: 项目编号
+  name: 创建人
+  xh: 排序号
+  label: 项目标签
+  ormorgid: 项目ID
