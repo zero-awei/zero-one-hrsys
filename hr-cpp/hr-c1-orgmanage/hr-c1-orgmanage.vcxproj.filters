@@ -27,10 +27,10 @@
     <ClCompile Include="controller\SystemInterceptor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="controller\postSet\postQueryController\PostQueryController.cpp">
+    <ClCompile Include="controller\projTag\postQueryController\PostQueryController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="controller\postSet\postDeleteController\PostDeleteController.cpp">
+    <ClCompile Include="controller\projTag\postDeleteController\PostDeleteController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="controller\jobSet\importJobController\ImportJobController.cpp">
@@ -77,7 +77,7 @@
     <ClInclude Include="domain\query\projTag\ExportProjTagQuery.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="controller\postSet\postQueryController\PostQueryController.h">
+    <ClInclude Include="controller\projTag\postQueryController\PostQueryController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="domain\dto\postSet\PostDetailDTO.h">
@@ -89,7 +89,7 @@
     <ClInclude Include="domain\vo\postSet\PostDetailVO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="controller\postSet\postDeleteController\PostDeleteController.h">
+    <ClInclude Include="controller\projTag\postDeleteController\PostDeleteController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="domain\dto\postSet\PostDeleteDTO.h">

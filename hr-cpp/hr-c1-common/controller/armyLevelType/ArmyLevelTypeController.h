@@ -42,7 +42,7 @@ public: // 定义接口
 		info->summary = ZH_WORDS_GETTER("common.controller.armyLevelType");
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
-	ENDPOINT(API_M_GET, "/army-level-type", queryArmyLevelType) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/army-level-type"), queryArmyLevelType) {
 		API_HANDLER_RESP_VO(execQueryArmyLevelType());
 	}
 private: // 定义接口执行函数

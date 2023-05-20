@@ -19,15 +19,16 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-//测试
-#include "postSet/postQueryController/PostQueryController.h"
-#include "postSet/postDeleteController/PostDeleteController.h"
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
+// 岗位设置
 #include "jobSet/importJobController/ImportJobController.h"
+// 项目标签
+#include "projTag/postQueryController/PostQueryController.h"
+#include "projTag/postDeleteController/PostDeleteController.h"
 #include "projTag/exportProjTagController/ExportProjTagController.h"
 
 // 如果定义了关闭Swagger文档宏

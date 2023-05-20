@@ -70,7 +70,7 @@ public: // 定义接口
 		info->queryParams["file"].required = true;
 	}
 
-	ENDPOINT(API_M_POST, "/import-job", importJob, /*API_HANDLER_AUTH_PARAME, */REQUEST(std::shared_ptr<IncomingRequest>, request)) {
+	ENDPOINT(API_M_POST, PATH_TO_JOBSET("/import-job"), importJob, /*API_HANDLER_AUTH_PARAME, */REQUEST(std::shared_ptr<IncomingRequest>, request)) {
 		/* 创建multipart容器 */
 		auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
 		/* 创建multipart读取器 */
