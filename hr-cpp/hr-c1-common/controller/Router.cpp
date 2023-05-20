@@ -29,8 +29,8 @@
 #endif
 #include "contractType/ContractTypeListController.h"
 #include "armyLevelType/ArmyLevelTypeController.h"
-#include "Filestatus/FilestatusController.h"
-#include "Filereservation/FilereservationController.h"
+#include "fileStatus/FilestatusController.h"
+#include "fileReservation/FilereservationController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC

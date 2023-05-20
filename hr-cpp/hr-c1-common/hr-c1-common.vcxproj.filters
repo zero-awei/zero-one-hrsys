@@ -9,7 +9,7 @@
     <ClCompile Include="controller\certDropDownList\profCertsList\ProfCertsListController.cpp" />
     <ClCompile Include="controller\armyLevelType\ArmyLevelTypeController.cpp" />
     <ClCompile Include="controller\contractType\ContractTypeListController.cpp" />
-    <ClCompile Include="controller\fileReservation1\FilereservationController.cpp" />
+    <ClCompile Include="controller\fileReservation\FileReservationController1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="domain\dto\pullList\PullListDTO.h">
@@ -38,8 +38,8 @@
     <ClInclude Include="domain\query\filestatus\FilestatusQuery.h" />
     <ClInclude Include="domain\vo\filereservation\FilereservationVO.h" />
     <ClInclude Include="domain\vo\filestatus\FilestatusVO.h" />
-    <ClInclude Include="controller\fileReservation1\FilereservationController.h" />
-    <ClInclude Include="controller\fileStatus1\FilestatusController.h" />
+    <ClInclude Include="controller\fileReservation\FileReservationController1.h" />
+    <ClInclude Include="controller\fileStatus\FileStatusController1.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
