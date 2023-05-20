@@ -18,12 +18,12 @@ import java.util.List;
   * @version: 1.0
 */
 @RestController
-@RequestMapping("dash-board")
+@RequestMapping("/dash-board")
 @Api(tags = "组织分布接口")
 public class DashBoardController implements OrgDistributeApis {
 
     @ApiOperation(value = "获取组织分布信息")
-    @GetMapping("query-org-distribute")
+    @GetMapping("/query-org-distribute")
     @Override
     public JsonVO<List<OrgDistributeDTO>> queryOrgDistribute() {
         return null;

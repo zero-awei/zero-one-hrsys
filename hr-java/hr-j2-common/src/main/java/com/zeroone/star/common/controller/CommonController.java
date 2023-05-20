@@ -19,19 +19,19 @@ import java.util.List;
   * @version: 1.0
 */
 @RestController
-@RequestMapping("common")
+@RequestMapping("/common")
 @Api(tags = "岗位分类下拉列表接口、岗位性质下拉列表接口")
 public class CommonController implements CommonApis {
 
     @ApiOperation(value = "获取岗位分类下拉列表")
-    @GetMapping("query-post-classification")
+    @GetMapping("/query-post-classification")
     @Override
     public JsonVO<List<GwflDTO>> queryGwfl() {
         return null;
     }
 
     @ApiOperation(value = "获取岗位性质下拉列表")
-    @GetMapping("query-post-nature")
+    @GetMapping("/query-post-nature")
     @Override
     public JsonVO<List<PostNatureDTO>> queryPostNature() {
         return null;
