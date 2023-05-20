@@ -10,7 +10,7 @@ if (query->pimvocationalname) { \
 	sql << " AND `PIMPERSONNAME`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->pimvocationalname.getValue("")); \
 }
-
+//统计证书的记录数
 uint64_t CertificateInformationDAO::count(const CertificateInformationPageQuery::Wrapper& query)
 {
 	stringstream sql;
@@ -19,7 +19,7 @@ uint64_t CertificateInformationDAO::count(const CertificateInformationPageQuery:
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
 }
-
+//证书分页查询函数
 list<CertificateInformationDO> CertificateInformationDAO::selectWithPage(const CertificateInformationPageQuery::Wrapper& query)
 {
 	stringstream sql;

@@ -60,7 +60,7 @@ workhistory:
  delete:
   summary: 删除数据(支持批量删除)  
  select:
-  summary: 查询数据
+  summary: 指定工作履历详情
   
 sciresult:
  field:

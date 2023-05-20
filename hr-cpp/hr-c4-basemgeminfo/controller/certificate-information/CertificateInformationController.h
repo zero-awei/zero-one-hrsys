@@ -38,12 +38,12 @@ public:
 		// 添加其他查询参数
 		info->queryParams.add<String>("pimvocationalname").description = ZH_WORDS_GETTER("certificateinformation.field.pimvocationalname");
 		info->queryParams["pimvocationalname"].addExample("default", String(" "));
-		info->queryParams["pimvocationalname"].required = true;
+		info->queryParams["pimvocationalname"].required = false;
 		
 		
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/certificate-information", queryCertificateInformation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/certificate-information/select", queryCertificateInformation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, CertificateInformationPageQuery, queryParams);
 		// 响应结果

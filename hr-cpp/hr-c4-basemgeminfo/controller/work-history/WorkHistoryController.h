@@ -159,13 +159,13 @@ public: // 定义接口
 		//API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("ormorgname").description = ZH_WORDS_GETTER("workhistory.field.ormorgname");
-		info->queryParams["ormorgname"].addExample("default", String(" "));
-		info->queryParams["ormorgname"].required = true;
+		info->queryParams["ormorgname"].addExample("default", String("6611212223"));
+		info->queryParams["ormorgname"].required = false;
 
 
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/work-history", queryWorkHistory, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/work-history/specify-details", queryWorkHistory, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, WorkHistoryQuery, queryParams);
 		// 响应结果
@@ -179,7 +179,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/work-history", modifyWorkHistory, BODY_DTO(WorkHistoryDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/work-history/update", modifyWorkHistory, BODY_DTO(WorkHistoryDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyWorkHistory(dto));
 	}
@@ -209,8 +209,9 @@ private:
 	/**
 	 * 陈靓仔
 	 */
-	// 3.3 演示修改数据
+	//定义查询详情函数
 	WorkHistoryJsonVO::Wrapper execQueryWorkHistory(const WorkHistoryQuery::Wrapper& query);
+	//定义修改执行函数
 	StringJsonVO::Wrapper execModifyWorkHistory(const WorkHistoryDTO::Wrapper& dto);
 };
 

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "WorkHistoryService.h"
 #include "dao/work-history/WorkHistoryDAO.h"
-
+//列出详细工作履历函数
 WorkHistoryDTO::Wrapper WorkHistoryService::listDetail(const WorkHistoryQuery::Wrapper& query)
 {
 	// 构建返回对象

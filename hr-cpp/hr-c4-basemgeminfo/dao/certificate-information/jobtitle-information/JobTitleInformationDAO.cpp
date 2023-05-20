@@ -10,7 +10,7 @@ if (query->professoranalysis_name) { \
 	sql << " AND `PIMPERSONNAME`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->professoranalysis_name.getValue("")); \
 }
-
+//统计职称的记录数
 uint64_t JobTitleInformationDAO::count(const JobTitleInformationPageQuery::Wrapper& query)
 {
 	stringstream sql;
@@ -19,11 +19,11 @@ uint64_t JobTitleInformationDAO::count(const JobTitleInformationPageQuery::Wrapp
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
 }
-
+//职称分页查询函数
 list<JobTitleInformationDO> JobTitleInformationDAO::selectWithPage(const JobTitleInformationPageQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT professoranalysis_name,credentials_num,professor_grades,major,zchqrq,reviewbody,lssuingagency,employtime,enable FROM `bis_professoranalysis_t`  ";
+	sql << "SELECT a.professoranalysis_name,a.credentials_num,a.professor_grades,a.major,b.zchqrq,b.reviewbody,b.lssuingagency,b.employtime,b.enable FROM `bis_professoranalysis_t` a left join `t_pimtitle` b on a.professoranalysis_name=b.pimtitlename  ";
 	JOBTITLE_INFORMATION_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	JobTitleInformationMapper mapper;

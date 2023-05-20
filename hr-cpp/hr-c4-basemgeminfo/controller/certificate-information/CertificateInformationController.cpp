@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "CertificateInformationController.h"
 #include "../../service/certificate-information/certificate-information/CertificateInformationService.h"
+//定义证书分页查询函数execQueryCertificateInformation
 CertificateInformationPageJsonVO::Wrapper CertificateInformationController::execQueryCertificateInformation(const CertificateInformationPageQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	// 定义一个Service

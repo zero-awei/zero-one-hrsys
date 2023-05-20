@@ -40,11 +40,11 @@ public:
 		// 添加其他查询参数
 		info->queryParams.add<String>("professoranalysis_name").description = ZH_WORDS_GETTER("jobtitleinformation.field.professoranalysis_name");
 		info->queryParams["professoranalysis_name"].addExample("default", String(" "));
-		info->queryParams["professoranalysis_name"].required = true;
+		info->queryParams["professoranalysis_name"].required = false;
 		
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/jobtitle-information", queryJobTitleInformation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/jobtitle-information/select", queryJobTitleInformation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, JobTitleInformationPageQuery, queryParams);
 		// 响应结果

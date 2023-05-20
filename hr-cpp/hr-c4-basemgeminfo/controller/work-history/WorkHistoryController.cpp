@@ -212,7 +212,7 @@ StringJsonVO::Wrapper WorkHistoryController::execExportWorkHistory(const WorkHis
 	vo->success(u8"导出成功");
 	return vo;
 }
-
+//定义查看指定员工工作履历详情函数execQueryWorkHistory
 WorkHistoryJsonVO::Wrapper WorkHistoryController::execQueryWorkHistory(const WorkHistoryQuery::Wrapper& query)
 {
 	// 定义一个Service
@@ -224,6 +224,7 @@ WorkHistoryJsonVO::Wrapper WorkHistoryController::execQueryWorkHistory(const Wor
 	jvo->success(result);
 	return jvo;
 }
+//定义修改指定员工工作履历函数execModifyWorkHistory
 StringJsonVO::Wrapper WorkHistoryController::execModifyWorkHistory(const WorkHistoryDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
@@ -238,13 +239,11 @@ StringJsonVO::Wrapper WorkHistoryController::execModifyWorkHistory(const WorkHis
 	WorkHistoryService service;
 	// 执行数据修改
 	if (service.updateData(dto)) {
-		jvo->success(dto->rzkssj);
-		
+		jvo->success(dto->rzkssj);	
 	}
 	else
 	{
-		jvo->fail(dto->rzkssj);
-		
+		jvo->fail(dto->rzkssj);		
 	}
 	// 响应结果
 	return jvo;
