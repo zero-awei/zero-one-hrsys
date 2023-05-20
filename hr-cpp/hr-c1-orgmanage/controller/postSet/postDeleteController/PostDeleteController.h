@@ -35,6 +35,8 @@ namespace multipart = oatpp::web::mime::multipart;
 
 /**
  * 岗位设置 - 删除岗位控制器
+ * 返回值 : Uint64JsonVO - 返回是否成功删除
+ * 负责人 : rice
  */
 class PostDeleteController : public oatpp::web::server::api::ApiController // 1 继承控制器
 {
@@ -45,14 +47,14 @@ public:
 	// 删除单条数据
 	ENDPOINT_INFO(deleteByOrmPostId) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("deleteByOrmPostId");
+		info->summary = ZH_WORDS_GETTER("orgmanage.controller.postDeleteOne");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 
 	}
-	ENDPOINT(API_M_DEL, "/delete-one-by-OrmPostId/{ormPostId}", deleteByOrmPostId, API_HANDLER_AUTH_PARAME, PATH(String, ormPostId)) {
+	ENDPOINT(API_M_DEL, "/delete-one-post-by-OrmPostId/{ormPostId}", deleteByOrmPostId, API_HANDLER_AUTH_PARAME, PATH(String, ormPostId)) {
 		// 解析查询参数
 		auto postDeleteDTO = PostDeleteDTO::createShared();
 		postDeleteDTO->ormPostId = ormPostId;
@@ -63,22 +65,22 @@ public:
 	// 删除多条数据
 	ENDPOINT_INFO(deleteBatchByOrmPostId) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("deleteBatchByOrmPostId");
+		info->summary = ZH_WORDS_GETTER("orgmanage.controller.postDeleteBatch");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	ENDPOINT(API_M_DEL, "/deleteBatch-one-by-OrmPostId", deleteBatchByOrmPostId, API_HANDLER_AUTH_PARAME, BODY_STRING(String, jsonPayload)) {
+	ENDPOINT(API_M_DEL, "/delete-batch-post-by-OrmPostId", deleteBatchByOrmPostId, API_HANDLER_AUTH_PARAME, BODY_STRING(String, jsonPayload)) {
 		const std::shared_ptr<ObjectMapper>& objectMapper = oatpp::parser::json::mapping::ObjectMapper::createShared();
 		// 解析查询参数
 		auto postDeleteBatchDTO = PostDeleteBatchDTO::createShared();
 		postDeleteBatchDTO->ormPostIds = objectMapper->readFromString<oatpp::List<String>>(jsonPayload);
 		//测试
-		//for (const auto& item : *postDeleteBatchDTO->ormPostIds) {
-		//	/*OATPP_LOGD("testEndpoint", "Item: %s", item->c_str());*/
-		//	cout << item->c_str() << endl;
-		//}
+		for (const auto& item : *postDeleteBatchDTO->ormPostIds) {
+			/*OATPP_LOGD("testEndpoint", "Item: %s", item->c_str());*/
+			cout << item->c_str() << endl;
+		}
 		// 响应结果
 		API_HANDLER_RESP_VO(exeDeleteBatchByOrmPostId(postDeleteBatchDTO, authObject->getPayload()));
 	}

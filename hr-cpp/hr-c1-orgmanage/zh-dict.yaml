@@ -29,27 +29,32 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
- common:
-  dto:
-   xh: 排序标号
-   gwfl: 岗位分类
-   isConfidential: 是否保密岗
-   ormPostName: 岗位集名称
-   nx: 建议交流年限
-   bxjlnx: 必须交流年限
-   isKeyPostion: 是否关键岗位
-   postNature: 岗位性质
-   startStopSign: 启用标识
-   ormPostId: 岗位集标识
-   ormPostIds: 岗位集标识集
-   query: 查询岗位名称
-   sort: 排序类别:排序方式,(asc/desc)
-   createMan: 建立人
-   updateDate: 更新时间
-   updateMan: 更新人
-   createDate: 建立时间
-   orgId: 内部组织机构标识
-   gwType: 岗位类型
-   isTemp: 是否临时数据
-   ormOrgId: 外部组织机构标识
-   ormOrgName: 组织机构名称
+orgmanage:
+ controller:
+  postQuery: queryByQuerySort
+  postDeleteOne: deleteByOrmPostId
+  postDeleteBatch: deleteBatchByOrmPostId
+common:
+ dto:
+  xh: 排序标号
+  gwfl: 岗位分类
+  isConfidential: 是否保密岗
+  ormPostName: 岗位集名称
+  nx: 建议交流年限
+  bxjlnx: 必须交流年限
+  isKeyPostion: 是否关键岗位
+  postNature: 岗位性质
+  startStopSign: 启用标识
+  ormPostId: 岗位集标识
+  ormPostIds: 岗位集标识集
+  query: 查询岗位名称
+  sort: 排序类别:排序方式,(asc/desc)
+  createMan: 建立人
+  updateDate: 更新时间
+  updateMan: 更新人
+  createDate: 建立时间
+  orgId: 内部组织机构标识
+  gwType: 岗位类型
+  isTemp: 是否临时数据
+  ormOrgId: 外部组织机构标识
+  ormOrgName: 组织机构名称
