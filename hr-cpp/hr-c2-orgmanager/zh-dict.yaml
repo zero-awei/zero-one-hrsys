@@ -29,3 +29,27 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+LegalEntityMai:
+ query:
+  summary: 分页查询法人主体列表
+ put:
+  summary: 更新指定法人主体信息
+ post:
+  summary: 新增法人主体（支持批量新增）
+ delete:
+  summary: 删除法人主体（支持批量删除）
+ import:
+  summary: 导入法人主体
+ export:
+  summary: 导出法人主体
+ field:
+  id: 法人主体标识
+  updateman: 更新人
+  createman: 建立人
+  createdate: 建立时间
+  name: 法人主体名称
+  updatedate: 更新时间
+  orgcode: 组织编号
+  short: 简称
+ sample:
+  name: 东北公司

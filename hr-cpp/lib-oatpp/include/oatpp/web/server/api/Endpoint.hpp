@@ -248,9 +248,9 @@ public:
       auto& hint = responses[status];
       hint.contentType = contentType;
       hint.description = responseDescription.get() == nullptr ? status.description : responseDescription;
-      hint.schema = Wrapper::Class::getType();
-      return hint;
-    }
+	  hint.schema = Wrapper::Class::getType();
+	  return hint;
+	}
 
     /**
      * Add security requirement.
