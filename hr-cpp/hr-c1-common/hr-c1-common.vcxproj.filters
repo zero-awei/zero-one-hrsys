@@ -1,30 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="controller\Filereservation\FilereservationController.cpp" />
-    <ClCompile Include="controller\Filestatus\FilestatusController.cpp" />
+    <ClCompile Include="controller\FileReservation\FileReservationController.cpp" />
+    <ClCompile Include="controller\FileStatus\FileStatusController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="controller\Filereservation\FilereservationController.h" />
-    <ClInclude Include="controller\Filestatus\FilestatusController.h" />
+    <ClInclude Include="controller\FileReservation\FileReservationController.h" />
+    <ClInclude Include="controller\FileStatus\FileStatusController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\dto\filestatus\FilestatusDTO.h" />
-	
-    <ClInclude Include="domain\query\filestatus\FilestatusQuery.h" />
-    <ClInclude Include="domain\vo\filereservation\FilereservationVO.h" />
-    <ClInclude Include="domain\vo\filestatus\FilestatusVO.h" />
     <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
     <ClInclude Include="domain\vo\pullList\PullListVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="domain\dto\filereservation\FilereservationDTO.h" />
-
+    <ClInclude Include="domain\dto\fileReservation\FileReservationDTO.h" />
+    <ClInclude Include="domain\dto\filestatus\FileStatusDTO.h" />
+    <ClInclude Include="domain\query\filereservation\FilereservationQuery.h" />
+    <ClInclude Include="domain\query\filestatus\FileStatusQuery.h" />
+    <ClInclude Include="domain\vo\filereservation\FileReservationVO.h" />
+    <ClInclude Include="domain\vo\filestatus\FileStatusVO.h" />
   </ItemGroup>
 </Project>
