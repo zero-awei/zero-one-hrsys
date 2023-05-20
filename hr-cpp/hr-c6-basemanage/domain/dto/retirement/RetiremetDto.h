@@ -1,14 +1,14 @@
 #pragma once
-#ifndef _MYDTO_H_
-#define _MYDTO_H_
+#ifndef _RETIREMETDTO_H_
+#define _RETIREMETDTO_H_
 
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
-class ContractDTO : public oatpp::DTO
+class RetirementDTO : public oatpp::DTO
 {
 	//初始化
-	DTO_INIT(ContractDTO, DTO);
+	DTO_INIT(RetirementDTO, DTO);
 	// 员工姓名
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
@@ -34,11 +34,11 @@ class ContractDTO : public oatpp::DTO
 /**
  * 示例分页传输对象
  */
-class ContractPageDTO : public PageDTO<ContractDTO::Wrapper>
+class ContractPageDTO : public PageDTO<RetirementDTO::Wrapper>
 {
-	DTO_INIT(ContractPageDTO, PageDTO<ContractDTO::Wrapper>);
+	DTO_INIT(ContractPageDTO, PageDTO<RetirementDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif // !_MYDTO_H_
+#endif // !_RETIREMETDTO_H_
