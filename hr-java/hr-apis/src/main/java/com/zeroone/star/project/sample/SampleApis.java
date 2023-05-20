@@ -4,6 +4,7 @@ import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sample.SampleDTO;
 import com.zeroone.star.project.query.sample.SampleQuery;
 import com.zeroone.star.project.vo.JsonVO;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * <p>
@@ -14,6 +15,21 @@ import com.zeroone.star.project.vo.JsonVO;
  * @author 阿伟学长
  * @version 1.0.0
  */
+
+
+//参考示例
+//@PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','ehr-OrmDuty-Default-all')")
+//@ApiOperation(value = "获取DEFAULT", tags = {"职务管理" } ,notes = "获取DEFAULT")
+//@RequestMapping(method= RequestMethod.GET , value="/ormduties/fetchdefault")
+//public ResponseEntity<List<OrmDutyDTO>> fetchDefault(OrmDutySearchContext context) {
+//        Page<OrmDuty> domains = ormdutyService.searchDefault(context) ;
+//        List<OrmDutyDTO> list = ormdutyMapping.toDto(domains.getContent());
+//        return ResponseEntity.status(HttpStatus.OK)
+//        .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+//        .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+//        .header("x-total", String.valueOf(domains.getTotalElements()))
+//        .body(list);
+//        }
 public interface SampleApis {
     /**
      * 测试分页查询
