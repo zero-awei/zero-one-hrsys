@@ -7,7 +7,7 @@
           </p>
       </span>
     </el-button>
-    <el-dialog v-model="dialogFormVisible" :title="tableTitle">
+    <el-dialog v-model="dialogFormVisible" :title="tableTitle" :close-on-click-modal="false">
         <span class="dialog-footer">
           <el-button @click="dialogFormVisible = false">
             <span  class="hr-button">
@@ -28,15 +28,14 @@
           </el-button>
         </span>
     <el-form :model="formData" >
-      <el-form-item  v-for="data in addData" :key="data.name" :label="data.label" :label-width="formLabelWidth">
-            <el-input v-model="formData[data.name]" autocomplete="off"/>
-      </el-form-item>
-      <!-- <el-form-item label="Zones" :label-width="formLabelWidth">
-        <el-select v-model="form.region" placeholder="Please select a zone">
-          <el-option label="Zone No.1" value="shanghai" />
-          <el-option label="Zone No.2" value="beijing" />
-        </el-select>
-      </el-form-item> -->
+      <div v-for="data in addData" :key="data.name">
+        <el-form-item  :label="data.label" :label-width="formLabelWidth" >
+              <el-input v-model="formData[data.name]" autocomplete="off" v-if="data.type!=Array"/>
+              <el-select v-model="formData[data.name]" placeholder="Please select a option" v-if="data.type===Array">
+                <el-option v-for="option in data.options" :key="option.id" :label="option.optionData" :value="option.optionData" />
+              </el-select>
+        </el-form-item>
+      </div>
     </el-form>
   </el-dialog>
 </template>

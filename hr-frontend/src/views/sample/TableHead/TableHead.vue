@@ -20,7 +20,24 @@ const tableOperations = reactive([
 const addData = reactive([
   {
     label:'员工姓名',
-    name:'name'
+    name:'name',
+    type:String,
   },
+  {
+    label:'员工编号',
+    name:'ID',
+    type:Array,
+    //如果是选项请配置以下属性
+    options:[
+      {
+        id:1,
+        optionData:"111"
+      },
+      {
+        id:2,
+        optionData:"222"
+      },
+    ]   
+  }
 ])
 </script>
