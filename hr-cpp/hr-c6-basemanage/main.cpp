@@ -44,7 +44,7 @@
 	// 数据库连接信息
 	std::string dbUsername = "root";
 	//std::string dbPassword = "123";
-	std::string dbPassword = "zpf1219290549";
+	std::string dbPassword = "123456";
 	//std::string dbName = "01xinqiu";
 	std::string dbName = "test";
 	std::string dbHost = "127.0.0.1";

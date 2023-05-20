@@ -29,3 +29,10 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+contract:
+ post:
+  summary: 新增一条合同信息
+ field:
+ name: 员工姓名
+ id: 合同编号
+ 
