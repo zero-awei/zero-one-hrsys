@@ -28,8 +28,8 @@
 // 岗位设置
 #include "jobSet/importJobController/ImportJobController.h"
 // 项目标签
-#include "projTag/postQueryController/PostQueryController.h"
-#include "projTag/postDeleteController/PostDeleteController.h"
+#include "jobSet/postQueryController/PostQueryController.h"
+#include "jobSet/postDeleteController/PostDeleteController.h"
 #include "projTag/exportProjTagController/ExportProjTagController.h"
 #include "projTag/importTagController/ImportTagController.h"
 #include "projTag/addTagController/AddTagController.h"
