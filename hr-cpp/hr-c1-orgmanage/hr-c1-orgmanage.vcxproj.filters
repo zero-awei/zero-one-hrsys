@@ -30,6 +30,9 @@
     <ClCompile Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="controller\projTag\deleteProjTag\DeleteProjTagController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
@@ -59,7 +62,10 @@
     <ClInclude Include="domain\vo\pageQuery\PageQueryVO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\pageQuery\PageQueryDTO.h">
+    <ClInclude Include="controller\projTag\deleteProjTag\DeleteProjTagController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\projTag\DeleteProjTagDTO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

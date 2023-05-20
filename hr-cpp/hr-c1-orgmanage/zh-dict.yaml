@@ -30,6 +30,10 @@ sample:
   name: 姓名
   sex: 性别，如：男
 projTag:
+ tagId: 项目标签ID
+ tagIds: 批量项目标签ID
+ deleteProjTag: 删除项目标签
+ deleteProjTags: 批量删除项目标签
  pageQuery:
   size: 每页显示条数
   page: 查询页码

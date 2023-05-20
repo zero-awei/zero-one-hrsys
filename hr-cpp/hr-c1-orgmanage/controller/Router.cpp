@@ -26,6 +26,7 @@
 #include "uselib/ws/WSController.h"
 #endif
 #include "projTag/pageQueryProjTagList/PageQueryProjTagListController.h"
+#include "projTag/deleteProjTag/DeleteProjTagController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -69,4 +70,5 @@ void Router::createSampleRouter()
 void Router::createProjTagRouter()
 {
 	ROUTER_SIMPLE_BIND(PageQueryProjTagListController);
+	ROUTER_SIMPLE_BIND(DeleteProjTagController);
 }
