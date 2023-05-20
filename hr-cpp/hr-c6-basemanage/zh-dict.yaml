@@ -1,20 +1,3 @@
-user:
- query-all: 
-  summary: 查询所有用户
-  nickname: 昵称
- file:
-  summary: 文件上传
-  suffix: 文件后缀
- query-menu:
-  summary: 查询所有菜单
- field:
-  age: 年龄
-  nickname: 昵称
-  idCard: 身份证号码
-  menuname: 菜单名称
-  menuicon: 图标名称
-  menuhref: 路由地址
-  menusub: 子菜单
 contract:
  get:
   summary: 分页查询合同信息

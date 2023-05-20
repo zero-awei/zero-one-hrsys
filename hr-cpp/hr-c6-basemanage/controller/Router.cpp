@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"`
-#include "test/TestController.h"
+#include "controller/GoshController/GoshController.h"
 
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
@@ -51,7 +51,7 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-	ROUTER_SIMPLE_BIND(FindController);
+	ROUTER_SIMPLE_BIND(GoshController);
 }	
 
 #ifdef HTTP_SERVER_DEMO
