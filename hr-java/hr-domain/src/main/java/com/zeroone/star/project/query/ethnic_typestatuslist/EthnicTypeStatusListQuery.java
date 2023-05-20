@@ -1,4 +1,4 @@
-package com.zeroone.star.project.query.householdregistration_typestatuslist;
+package com.zeroone.star.project.query.ethnic_typestatuslist;
 
 import com.zeroone.star.project.query.PageQuery;
 import io.swagger.annotations.ApiModel;
@@ -7,11 +7,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 
+
 @EqualsAndHashCode(callSuper = true)
 @Data
-@ApiModel("户口类型状态查询")
-public class HouseholdRegistration_TypestatuslistQuery extends PageQuery {
-    @ApiModelProperty(value = "姓名",example = "Bob")
+@ApiModel("民族类型状态查询")
+public class EthnicTypeStatusListQuery extends PageQuery {
+    @ApiModelProperty(value = "name",example = "Bob")
     private  String name;
-
 }

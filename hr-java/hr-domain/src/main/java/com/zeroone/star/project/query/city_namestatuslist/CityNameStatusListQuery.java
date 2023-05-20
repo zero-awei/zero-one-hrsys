@@ -1,4 +1,4 @@
-package com.zeroone.star.project.query.district_namestatuslist;
+package com.zeroone.star.project.query.city_namestatuslist;
 
 import com.zeroone.star.project.query.PageQuery;
 import io.swagger.annotations.ApiModel;
@@ -9,8 +9,8 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@ApiModel("区(县)名称状态查询")
-public class District_NameStatusListQuery extends PageQuery {
+@ApiModel("城市名称状态查询")
+public class CityNameStatusListQuery extends PageQuery {
     @ApiModelProperty(name = "姓名",example = "Bob")
     private  String name;
 }

@@ -1,7 +1,9 @@
 package com.zeroone.star.project.emplist;
 
-import com.zeroone.star.project.dto.householdregistration_typestatuslist.HouseholdDregistration_typestatusListDTO;
-import com.zeroone.star.project.query.householdregistration_typestatuslist.HouseholdRegistration_TypestatuslistQuery;
+import com.zeroone.star.project.dto.householdregistration_typestatuslist.HouseholdDregistrationTypestatusListDTO;
+
+import com.zeroone.star.project.query.householdregistration_typestatuslist.HouseholdRegistrationTypestatuslistQuery;
+
 import com.zeroone.star.project.vo.JsonVO;
 
 /**
@@ -16,5 +18,5 @@ public interface HouseholdRegistration_TypeStatusApi {
      * @param query
      * @return
      */
-    JsonVO<HouseholdDregistration_typestatusListDTO> queryAll(HouseholdRegistration_TypestatuslistQuery query);
+    JsonVO<HouseholdDregistrationTypestatusListDTO> queryAll(HouseholdRegistrationTypestatuslistQuery query);
 }

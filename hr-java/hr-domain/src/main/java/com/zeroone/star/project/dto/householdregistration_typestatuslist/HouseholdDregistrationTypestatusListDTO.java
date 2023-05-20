@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 @ApiModel("户口类型状态对象")
-public class HouseholdDregistration_typestatusListDTO {
+public class HouseholdDregistrationTypestatusListDTO {
     @ApiModelProperty(value="唯一 id",example = "1")
     private  Integer id;
 

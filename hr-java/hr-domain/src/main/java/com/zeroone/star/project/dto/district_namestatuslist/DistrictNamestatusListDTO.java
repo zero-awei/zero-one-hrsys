@@ -1,15 +1,14 @@
-package com.zeroone.star.project.dto.city_namestatuslist;
+package com.zeroone.star.project.dto.district_namestatuslist;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.NonNull;
+
 
 
 @Data
-@ApiModel("城市名称状态对象")
-public class City_NameStatusListDTO {
-
+@ApiModel("区(县)名称状态对象")
+public class DistrictNamestatusListDTO {
     @ApiModelProperty(value="唯一 id",example = "1")
     private  Integer id;
 
