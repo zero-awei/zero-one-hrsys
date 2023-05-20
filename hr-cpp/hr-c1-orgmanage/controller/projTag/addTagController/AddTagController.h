@@ -28,8 +28,8 @@
 #include OATPP_CODEGEN_BEGIN(ApiController)
 /**
  * 新增项目标签Controller接口：
- * 接收内容为排序号sortid，组织名称orgname，项目标签projecttag，
- * 返回值：sortid
+ * 接收内容为 ormxmbqname(项目标签)，ormorgid(组织id)，其他字段自动生成
+ * 返回值：xh,数据库自增字段
  * 负责人：远翔
  */
 class AddTagController : public oatpp::web::server::api::ApiController
@@ -45,16 +45,8 @@ public: // 定义接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 
-		// 定义分页参数描述
-		info->queryParams.add<String>("sortid").description = ZH_WORDS_GETTER("projTag.field.sortid");
-		info->queryParams["sortid"].addExample("default", String("1"));
-		info->queryParams["sortid"].required = true;
-		info->queryParams.add<String>("orgname").description = ZH_WORDS_GETTER("projTag.field.orgname");
-		info->queryParams["orgname"].addExample("default", String("xxxx"));
-		info->queryParams["orgname"].required = true;
-		info->queryParams.add<String>("projecttag").description = ZH_WORDS_GETTER("projTag.field.projecttag");
-		info->queryParams["projecttag"].addExample("default", String("123"));
-		info->queryParams["projecttag"].required = true;
+		// 定义参数描述
+
 	}
 	ENDPOINT(API_M_POST, "/add-proj-tag", addTag, API_HANDLER_AUTH_PARAME, BODY_DTO(ProjTagDTO::Wrapper, dto)) {
 		// 响应结果

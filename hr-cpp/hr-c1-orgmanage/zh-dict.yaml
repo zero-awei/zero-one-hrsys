@@ -38,13 +38,15 @@ projTag:
  add:
   summary: 新增项目标签
  filed:
-  sortid: 排序号
-  orgname: 组织名称
-  projecttag: 项目标签
-  creater: 建立人
-  creattime: 建立时间
-  updater: 更新人
+  ormxmbqid: 项目标签标识
+  createman: 建立人
+  ormxmbqname: 项目标签
+  updateman: 更新人
+  createtime: 建立时间
   updatetime: 更新时间
+  xh: 序号
+  ormorgid: 组织ID
+
 jobSet:
  import:
   summary: 岗位名称
