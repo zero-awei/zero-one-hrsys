@@ -27,12 +27,6 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\test\TestController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="dao\Sample\ContractDao.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="controller\GoshController\GoshController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -75,9 +69,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="service\sample\ContractService.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="dao\Sample\ContractDao.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="dao\Sample\ContractMapper.h">
