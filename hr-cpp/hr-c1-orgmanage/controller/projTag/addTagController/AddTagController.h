@@ -40,6 +40,8 @@ public: // 定义接口
 	ENDPOINT_INFO(addTag) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("projTag.add.summary");
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 
@@ -54,11 +56,13 @@ public: // 定义接口
 		info->queryParams["projecttag"].addExample("default", String("123"));
 		info->queryParams["projecttag"].required = true;
 	}
-	ENDPOINT(API_M_POST, "/add-proj-tag", addTag, BODY_DTO(ProjTagDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/add-proj-tag", addTag, API_HANDLER_AUTH_PARAME, BODY_DTO(ProjTagDTO::Wrapper, dto)) {
 		// 响应结果
-		API_HANDLER_RESP_VO(execAddProjTag(dto));
+		API_HANDLER_RESP_VO(execAddProjTag(dto, authObject->getPayload()));
 	}
+
 private: // 定义接口执行函数
+	Uint64JsonVO::Wrapper execAddProjTag(const ProjTagDTO::Wrapper& dto, const PayloadDTO& payload);
 	Uint64JsonVO::Wrapper execAddProjTag(const ProjTagDTO::Wrapper& dto);
 };
 

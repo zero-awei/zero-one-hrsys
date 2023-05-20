@@ -70,7 +70,7 @@ void Router::createSampleRouter()
 	ROUTER_SIMPLE_BIND(SampleController);
 	// 绑定用户控制器
 	ROUTER_SIMPLE_BIND(UserController);
-	
+
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());
 }
@@ -99,10 +99,10 @@ void Router::createProjTagRouter()
 	 */
 	ROUTER_SIMPLE_BIND(ExportProjTagController);
 	ROUTER_SIMPLE_BIND(ModifyProjTagController);
-	 /**
-	  * 导入项目标签&新增项目标签
-	  * 负责人：远翔
-	  */
+	/**
+	 * 导入项目标签&新增项目标签
+	 * 负责人：远翔
+	 */
 	ROUTER_SIMPLE_BIND(ImportTagController);
 	ROUTER_SIMPLE_BIND(AddTagController);
 }

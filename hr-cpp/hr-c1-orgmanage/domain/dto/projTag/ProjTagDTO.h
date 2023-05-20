@@ -31,12 +31,6 @@ class ProjTagDTO : public oatpp::DTO
 {
 	DTO_INIT(ProjTagDTO, DTO);
 	
-	// ÅÅÐòºÅ
-	DTO_FIELD(UInt64, sortid);
-	DTO_FIELD_INFO(sortid) {
-		info->description = ZH_WORDS_GETTER("projTag.field.sortid");
-	}
-	
 	// ×éºÏÃû³Æ
 	DTO_FIELD(String, orgname);
 	DTO_FIELD_INFO(orgname) {
