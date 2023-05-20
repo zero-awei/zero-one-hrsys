@@ -1,0 +1,37 @@
+<template>
+    <div class="hr-table-header">
+        <div class="hr-table-header__title">{{tableTitle}}</div>
+        <div class="hr-table-header__menus" v-if="tableOperations[0].is">
+            <AddButton :tableTitle="tableTitle" :addData="addData"/>
+        </div>
+        <div class="hr-table-header__menus" v-if="tableOperations[1].is">
+            <AddButton :tableTitle="tableTitle" :addData="addData"/>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import AddButton from "./AddButton.vue"
+
+defineProps(['tableTitle','tableOperations','addData'])
+</script>
+
+<style lang="scss" scoped>
+
+.hr-table-header{
+    width: 100%;
+    height: 40px;
+    padding: 0 10px 10px 10px;
+    @include element(title){
+        float: left;
+        width: 64px;
+        height: 32px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    @include element(menus){
+        float: right;
+        height: 100%;
+    }
+}
+</style>
