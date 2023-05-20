@@ -109,7 +109,6 @@ bool getStartArg(int argc, char* argv[]) {
 		// 更新索引
 		currIndex++;
 	}
-
 	// 记录服务器配置到内存中方便使用
 	ServerInfo::getInstance().setServerPort(serverPort);
 	ServerInfo::getInstance().setDbUsername(dbUsername);

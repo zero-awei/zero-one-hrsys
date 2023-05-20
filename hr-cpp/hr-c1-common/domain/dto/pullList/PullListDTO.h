@@ -49,7 +49,7 @@ public:
 		val = "否";
 	}
 
-	ItemDTO(Int32 k, String v)
+	ItemDTO(Int32 k, String v) 
 	{
 		key = k;
 		val = v;

@@ -40,6 +40,7 @@ public:
 	Router(Endpoints* docEndpoints, HttpRouter* router);
 	// 網請場宎趙
 	void initRouter();
+	void createRouter();
 private:
 	//掛華聆彸
 	void creatTestRouter();

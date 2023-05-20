@@ -29,6 +29,8 @@
 #endif
 #include "contractType/ContractTypeListController.h"
 #include "armyLevelType/ArmyLevelTypeController.h"
+#include "Filestatus/FilestatusController.h"
+#include "Filereservation/FilereservationController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -58,6 +60,7 @@ void Router::initRouter()
 	//#TIP :系统扩展路由定义，写在这个后面
 	createContractTypeRouter();
 	createArmyLevelTypeRouter();
+	createRouter();
 }
 //本地测试
 void Router::creatTestRouter()
@@ -66,6 +69,10 @@ void Router::creatTestRouter()
 	ROUTER_SIMPLE_BIND(ProfCertsListController);
 	ROUTER_SIMPLE_BIND(CertTypeListController);
 
+void Router::createRouter()
+{
+	ROUTER_SIMPLE_BIND(FileReservationController);
+	ROUTER_SIMPLE_BIND(FileStatusController);
 }
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()

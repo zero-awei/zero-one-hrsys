@@ -58,3 +58,6 @@ common:
  controller:
   contractType: 合同类型下拉列表
   armyLevelType: 军转级别下拉列表
+  contractType: 合同类型   
+  fileStatus: 档案借阅状态
+  fileReservation: 档案保管地
