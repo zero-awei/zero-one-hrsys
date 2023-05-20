@@ -60,7 +60,9 @@ void Router::createSampleRouter()
 	ROUTER_SIMPLE_BIND(SampleController);
 	// 绑定用户控制器
 	ROUTER_SIMPLE_BIND(UserController);
-	
+	ROUTER_SIMPLE_BIND(TypeDeleteController);
+	ROUTER_SIMPLE_BIND(TypeQueryController);
+	ROUTER_SIMPLE_BIND(TypeChangeController);
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());
 }
