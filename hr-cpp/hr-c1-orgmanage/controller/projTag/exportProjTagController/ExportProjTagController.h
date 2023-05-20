@@ -41,7 +41,7 @@ class ExportProjTagController : public oatpp::web::server::api::ApiController
 	API_ACCESS_DECLARE(ExportProjTagController);
 public: // 定义接口
 	ENDPOINT_INFO(exportProjTag) {
-		info->summary = ZH_WORDS_GETTER("projTag.export.controller");
+		info->summary = ZH_WORDS_GETTER("projTag.export.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		info->queryParams.add<UInt8>("rows").description = ZH_WORDS_GETTER("projTag.export.rows");
 		info->queryParams["rows"].addExample("default", UInt8(1));
@@ -51,7 +51,7 @@ public: // 定义接口
 		info->queryParams["sequence"].required = true;
 	}
 
-	ENDPOINT(API_M_GET, "/export-project-tag", exportProjTag, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, PATH_TO_PROJTAG("/export-project-tag"), exportProjTag, QUERIES(QueryParams, qps)) {
 		API_HANDLER_QUERY_PARAM(query, ExportProjTagQuery, qps);
 		API_HANDLER_RESP_VO(execExportProjTag(query));
 	}

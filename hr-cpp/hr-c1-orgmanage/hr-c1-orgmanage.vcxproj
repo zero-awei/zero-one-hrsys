@@ -159,8 +159,8 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="controller\postSet\postDeleteController\PostDeleteController.cpp" />
-    <ClCompile Include="controller\postSet\postQueryController\PostQueryController.cpp" />
+    <ClCompile Include="controller\projTag\postDeleteController\PostDeleteController.cpp" />
+    <ClCompile Include="controller\projTag\postQueryController\PostQueryController.cpp" />
     <ClCompile Include="controller\jobSet\importJobController\ImportJobController.cpp" />
     <ClCompile Include="controller\projTag\exportProjTagController\ExportProjTagController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
@@ -174,8 +174,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="controller\postSet\postDeleteController\PostDeleteController.h" />
-    <ClInclude Include="controller\postSet\postQueryController\PostQueryController.h" />
+    <ClInclude Include="controller\projTag\postDeleteController\PostDeleteController.h" />
+    <ClInclude Include="controller\projTag\postQueryController\PostQueryController.h" />
     <ClInclude Include="controller\jobSet\importJobController\ImportJobController.h" />
     <ClInclude Include="controller\jobSet\JobController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
