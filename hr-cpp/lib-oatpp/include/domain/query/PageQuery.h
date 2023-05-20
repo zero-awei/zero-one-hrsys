@@ -21,6 +21,7 @@
 #define _PAGE_QUERY_
 #include "oatpp/core/macro/codegen.hpp"
 #include "oatpp/core/Types.hpp"
+#include "ApiHelper.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 /**

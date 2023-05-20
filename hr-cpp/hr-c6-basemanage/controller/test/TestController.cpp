@@ -18,7 +18,7 @@ StringJsonVO::Wrapper FindController::execQueryPerson(const PersonQuery::Wrapper
 	return vo;
 }
 //演示新增合同数据
-Uint64JsonVO::Wrapper FindController::execAddContract(const ContractDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper FindController::execAddContract(const ContractDTO_gs::Wrapper& dto)
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
@@ -52,7 +52,7 @@ Uint64JsonVO::Wrapper FindController::execAddContract(const ContractDTO::Wrapper
 	//return jvo;
 }
 //演示删除合同数据
-Uint64JsonVO::Wrapper FindController::execRemoveContract(const ContractDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper FindController::execRemoveContract(const ContractDTO_gs::Wrapper& dto)
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
