@@ -163,9 +163,9 @@
     <ClCompile Include="controller\projTag\importTagController\ImportTagController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
-    <ClCompile Include="dao\projtag\ProjTagDAO.cpp" />
+    <ClCompile Include="dao\projTag\ProjTagDAO.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="service\projtag\ProjTagService.cpp" />
+    <ClCompile Include="service\projTag\ProjTagService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -180,16 +180,16 @@
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
     <ClInclude Include="controller\projTag\importTagController\ImportTagController.h" />
     <ClInclude Include="controller\Router.h" />
-    <ClInclude Include="dao\projtag\ProjTagDAO.h" />
+    <ClInclude Include="dao\projTag\ProjTagDAO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\do\projtag\ProjTagDO.h" />
+    <ClInclude Include="domain\do\projTag\ProjTagDO.h" />
     <ClInclude Include="domain\dto\projTag\ImportTagDTO.h" />
     <ClInclude Include="domain\dto\projTag\ProjTagDTO.h" />
     <ClInclude Include="domain\vo\projTag\ImportTagVO.h" />
     <ClInclude Include="domain\vo\projTag\ProjTagVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
-    <ClInclude Include="service\projtag\ProjTagService.h" />
+    <ClInclude Include="service\projTag\ProjTagService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="testlib\jwt\TestToken.h" />
   </ItemGroup>
