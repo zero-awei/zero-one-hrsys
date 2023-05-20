@@ -182,6 +182,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="controller\LegalEntityMai\LegalEntityMaiController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
@@ -193,9 +194,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="controller\LegalEntityMai\LegalEntityMaiController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\LegalEntityMai\t_ormsignorgDO.h" />
+    <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDTO.h" />
+    <ClInclude Include="domain\query\LegalEntityMai\LegalEntityMaiQuery.h" />
+    <ClInclude Include="domain\vo\LegalEntityMai\LegalEntityMaiVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
