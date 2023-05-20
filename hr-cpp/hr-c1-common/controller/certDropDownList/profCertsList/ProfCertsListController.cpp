@@ -21,6 +21,9 @@
 //#include "../../service/sample/SampleService.h"
 
 ProfCertsListJsonVO::Wrapper ProfCertsListController::execQueryProfCertsList(const ProfCertsQuery::Wrapper& query, const PayloadDTO& payload)
-{
-	return ProfCertsListJsonVO::Wrapper();
+{	
+	auto dto = ProfCertsListDTO::createShared();
+	auto vo = ProfCertsListJsonVO::createShared();
+	vo->success(dto);
+	return vo;
 }

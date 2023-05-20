@@ -38,6 +38,8 @@ namespace multipart = oatpp::web::mime::multipart;
 
 /**
  * 职业资格证书类型下拉列表控制器
+ * 返回值 : ProfCertsListJsonVO
+ * 负责人 : rice
  */
 class ProfCertsListController : public oatpp::web::server::api::ApiController // 1 继承控制器
 {
@@ -48,7 +50,7 @@ public:
 	// 3.1 定义查询接口描述
 	ENDPOINT_INFO(queryProfCertsList) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("queryProfCertsList");
+		info->summary = ZH_WORDS_GETTER("common.controller.queryProfCertsList");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
@@ -57,7 +59,7 @@ public:
 		API_DEF_ADD_PAGE_PARAMS();
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/query-Prof-Certs", queryProfCertsList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {			
+	ENDPOINT(API_M_GET, "/query-prof-certs", queryProfCertsList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {			
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(profCertsQuery, ProfCertsQuery, queryParams);
 		// 响应结果
