@@ -13,9 +13,4 @@ import lombok.EqualsAndHashCode;
 public class DepartmentQuery extends PageQuery {
     @ApiModelProperty(value = "部门名称", example = "市场营销部")
     private String name;
-    @ApiModelProperty(value = "页码", example = "1")
-    private Integer page;
-    @ApiModelProperty(value = "每页显示条数", example = "10")
-    private long pageSize;
-
 }
