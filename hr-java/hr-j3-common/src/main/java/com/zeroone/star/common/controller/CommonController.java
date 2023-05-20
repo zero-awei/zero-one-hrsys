@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -66,6 +67,16 @@ public class CommonController implements CommonApis {
 @ApiOperation("部门名称下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryDepartmentName() {
+        return null;
+    }
+
+    @Override
+    public JsonVO<Map<Integer, String>> LearningFormsDropdownList() {
+        return null;
+    }
+
+    @Override
+    public JsonVO<Map<Integer, String>> SchoolNatureDropdownList() {
         return null;
     }
 }
