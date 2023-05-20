@@ -1,0 +1,7 @@
+docker run -id --name nginx \
+-p 80:80 \
+-v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf \
+-v $PWD/conf/conf.d:/etc/nginx/conf.d \
+-v $PWD/logs:/var/log/nginx \
+-v $PWD/html:/usr/share/nginx/html \
+nginx

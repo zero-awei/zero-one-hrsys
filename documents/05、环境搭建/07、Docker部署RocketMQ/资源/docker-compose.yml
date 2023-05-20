@@ -1,0 +1,41 @@
+version: '3'
+services:
+  rocketmq-namesrv:
+    image: apache/rocketmq:4.9.3
+    container_name: rocketmq-namesrv
+    ports:
+      - "9876:9876"
+    environment:
+      - JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn64m
+    volumes:
+      - /home/rocketmq/namesrv/logs:/home/rocketmq/logs
+      - /home/rocketmq/namesrv/store:/home/rocketmq/store
+    command: sh mqnamesrv
+  rocketmq-broker:
+    image: apache/rocketmq:4.9.3
+    container_name: rocketmq-broker
+    ports:
+      - "10909:10909"
+      - "10911:10911"
+      - "10912:10912"
+    environment:
+      - JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn64m
+    volumes:
+      - /home/rocketmq/broker/logs:/home/rocketmq/logs
+      - /home/rocketmq/broker/store:/home/rocketmq/store
+      - /home/rocketmq/broker/conf:/home/rocketmq/rocketmq-4.9.3/conf
+    command: sh mqbroker -c /home/rocketmq/rocketmq-4.9.3/conf/broker.conf
+    depends_on:
+      - rocketmq-namesrv
+    restart: on-failure
+  rocketmq-console:
+    image: apacherocketmq/rocketmq-dashboard:latest
+    container_name: rocketmq-console
+    ports:
+      - "8280:8080"
+    environment:
+      - JAVA_OPTS=-Drocketmq.namesrv.addr=rocketmq-namesrv:9876 -Dlogging.level.root=info -Dcom.rocketmq.sendMessageWithVIPChannel=false
+    depends_on:
+      - rocketmq-namesrv
+      - rocketmq-broker
+    restart: on-failure

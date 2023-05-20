@@ -2,16 +2,16 @@
 #include "ContractController.h"
 
 
-ContractJsonVO::Wrapper ContractController::execQueryContract(const ContractQuery::Wrapper& query)
+ContractJsonVO_::Wrapper ContractController::execQueryContract(const ContractQuery_::Wrapper& query)
 {
 	// 创建响应对象
-	auto vo = ContractJsonVO::createShared();
+	auto vo = ContractJsonVO_::createShared();
 	// 响应结果
 	//vo->success(1);
 	return vo;
 }
 
-Uint64JsonVO::Wrapper ContractController::execUpdateContract(const ContractDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper ContractController::execUpdateContract(const ContractDTO_::Wrapper& dto)
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
