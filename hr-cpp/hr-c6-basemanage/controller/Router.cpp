@@ -1,4 +1,4 @@
-ï»¿/*
+/*
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
@@ -19,28 +19,29 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
+
+#include "./ContractController/ContractController.h"
+#include "../uselib/ws/WSController.h"
 #include "SelectController/retirement.h"
 
+
 #ifdef HTTP_SERVER_DEMO
-#include "user/UserController.h"
-#include "sample/SampleController.h"
-#include "uselib/ws/WSController.h"
+#include "./ContractController/ContractController.h"
+#include "../uselib/ws/WSController.h"
 #endif
 #include "LDConstroller/LaborDispatchConstroller.h"
 
-
 #include "Muggle/labor_dispatch-Muggle.h"
 #include "Muggle/expense_ledger-Muggle.h"
-#include "controller/JobTitle/JobTitleController.h"
 
 
-
+// Èç¹û¶¨ÒåÁË¹Ø±ÕSwaggerÎÄµµºê
 #ifdef CLOSE_SWAGGER_DOC
-// ï¿½ò»¯°ó¶¨¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¶¨ï¿½ï¿½
+// ¼ò»¯°ó¶¨¿ØÖÆÆ÷ºê¶¨Òå
 #define ROUTER_SIMPLE_BIND(__CLASS__) \
 router->addController(__CLASS__::createShared())
 #else
-// ï¿½ò»¯°ó¶¨¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¶¨ï¿½ï¿½
+// ¼ò»¯°ó¶¨¿ØÖÆÆ÷ºê¶¨Òå
 #define ROUTER_SIMPLE_BIND(__CLASS__) \
 BIND_CONTROLLER(docEndpoints, router, __CLASS__)
 #endif
@@ -57,31 +58,24 @@ void Router::initRouter()
 	createSampleRouter();
 #endif
 
-	//#TIP :ÏµÍ³ï¿½ï¿½Õ¹Â·ï¿½É¶ï¿½ï¿½å£¬Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	ROUTER_SIMPLE_BIND(LaborDispatchConstroller);
-	ROUTER_SIMPLE_BIND(TestController);
-	ROUTER_SIMPLE_BIND(JobTitleController);
+	//#TIP :ÏµÍ³À©Õ¹Â·ÓÉ¶¨Òå£¬Ð´ÔÚÕâ¸öºóÃæ
+
+	ROUTER_SIMPLE_BIND(ContractController);
+	ROUTER_SIMPLE_BIND(LaborDispatchMController);
 	ROUTER_SIMPLE_BIND(ExpenseLedgerMController);
 	ROUTER_SIMPLE_BIND(LaborDispatchConstroller);
+	ROUTER_SIMPLE_BIND(TestController);
+
 }
 
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
-	// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	ROUTER_SIMPLE_BIND(SampleController);
-	// ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	ROUTER_SIMPLE_BIND(UserController);
+	// °ó¶¨ºÏÍ¬¿ØÖÆÆ÷
+	ROUTER_SIMPLE_BIND(ContractController);
 
-	// ï¿½ï¿½Ö°ï¿½Æ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	ROUTER_SIMPLE_BIND(JobTitleController);
-
-	// ï¿½ï¿½WebSocketï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	
+	// °ó¶¨WebSocket¿ØÖÆÆ÷
 	router->addController(WSContorller::createShared());
 }
 #endif
-
-void Router::createRouter()
-{
-
-}

@@ -1,0 +1,18 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:6.0.2
+    container_name: mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=123456
+      - MONGO_INITDB_DATABASE=firstDb
+      - MONGO_USERNAME=awei
+      - MONGO_PASSWORD=123456
+    command: [ --auth ]
+    volumes:
+      - ./db:/data/db
+      - ./mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh
+    ports:
+      - 27017-27019:27017-27019
+    restart: always
