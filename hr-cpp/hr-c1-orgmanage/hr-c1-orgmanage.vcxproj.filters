@@ -33,6 +33,15 @@
     <ClCompile Include="controller\projTag\addTagController\AddTagController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="testlib\jwt\TestToken.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="service\projtag\ProjTagService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\projtag\ProjTagDAO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
@@ -72,6 +81,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="controller\projTag\importTagController\ImportTagController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testlib\jwt\TestToken.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="service\projtag\ProjTagService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\projtag\ProjTagDAO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\projtag\ProjTagDO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
