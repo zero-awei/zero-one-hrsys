@@ -98,5 +98,8 @@
     <ClInclude Include="domain\dto\pullList\PullListDTO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="controller\projTag\updateProjTagController\UpdateProjTagController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
