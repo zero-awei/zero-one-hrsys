@@ -2,7 +2,6 @@ package com.zeroone.star.project.j3.orgmanager;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sample.SampleDTO;
-import com.zeroone.star.project.j3.dto.AllJobsDTO;
 import com.zeroone.star.project.j3.dto.ExportDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.JobTitleDTO;
 import com.zeroone.star.project.vo.JsonVO;
@@ -52,9 +51,11 @@ public interface JobSetApis {
 
     /**
      * 修改所选若干个职务
-     * @param ids
+     *
+     * @param jobTitleDTOList
+     * @return
      */
-    public void modifyJobTitle(List<JobTitleDTO> ids);
+    public JsonVO<Boolean> modifyJobTitle(List<JobTitleDTO> jobTitleDTOList);
 
 
 }

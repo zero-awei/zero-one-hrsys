@@ -3,7 +3,6 @@ package com.zeroone.star.orgmanager.controller;
 import com.zeroone.star.project.components.fastdfs.FastDfsClientComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
 import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.j3.dto.AllJobsDTO;
 import com.zeroone.star.project.j3.dto.ExportDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.JobTitleDTO;
 import com.zeroone.star.project.j3.orgmanager.JobSetApis;
@@ -78,8 +77,8 @@ public class JobsSetController implements JobSetApis  {
     @PutMapping("modify-jobTitles")
     @ApiOperation("更新若干职务信息")
     @Override
-    public void modifyJobTitle(List<JobTitleDTO> ids) {
-        return;
+    public JsonVO<Boolean> modifyJobTitle(List<JobTitleDTO> ids) {
+        return JsonVO.success(true);
     }
 
 
