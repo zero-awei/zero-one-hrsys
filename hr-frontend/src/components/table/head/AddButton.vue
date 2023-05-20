@@ -7,7 +7,7 @@
           </p>
       </span>
     </el-button>
-    <el-dialog v-model="dialogFormVisible" :title="tableTitle" :close-on-click-modal="false">
+    <el-dialog v-model="dialogFormVisible" :title="addTitle" :close-on-click-modal="false">
         <span class="dialog-footer">
           <el-button @click="dialogFormVisible = false">
             <span  class="hr-button">
@@ -41,16 +41,18 @@
 </template>
 
 <script setup>
+
 const dialogTableVisible = ref(false)
 const dialogFormVisible = ref(false)
 const formLabelWidth = '140px'
 
 defineProps({
     tableTitle : String,
+    addTitle : String,
     addData : Array
   })
 
-const formData = ref({
+const formData = reactive({
   // name: '',
   // region: '',
   // date1: '',

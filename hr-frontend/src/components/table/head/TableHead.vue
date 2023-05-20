@@ -2,10 +2,10 @@
     <div class="hr-table-header">
         <div class="hr-table-header__title">{{tableTitle}}</div>
         <div class="hr-table-header__menus" v-if="tableOperations[0].is">
-            <AddButton :tableTitle="tableTitle" :addData="addData"/>
+            <AddButton :tableTitle="tableTitle" :addTitle="addTitle" :addData="addData"/>
         </div>
         <div class="hr-table-header__menus" v-if="tableOperations[1].is">
-            <AddButton :tableTitle="tableTitle" :addData="addData"/>
+            <AddButton :tableTitle="tableTitle" :addTitle="addTitle" :addData="addData"/>
         </div>
     </div>
 </template>
@@ -13,7 +13,7 @@
 <script setup>
 import AddButton from "./AddButton.vue"
 
-defineProps(['tableTitle','tableOperations','addData'])
+defineProps(['tableTitle','addTitle','tableOperations','addData'])
 </script>
 
 <style lang="scss" scoped>

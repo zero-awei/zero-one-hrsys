@@ -1,5 +1,5 @@
 <template>
-  <TableHead :tableTitle="tableTitle" :tableOperations ="tableOperations" :addData="addData"/>
+  <TableHead :tableTitle="tableTitle" :addTitle="addTitle" :tableOperations ="tableOperations" :addData="addData"/>
 </template>
 
 <script setup>
@@ -7,6 +7,7 @@ import TableHead from '@/components/table/head/TableHead.vue'
 import { reactive } from 'vue'
 import { stringifyQuery } from 'vue-router'
 const tableTitle = ref('人员列表')
+const addTitle = ref('人员列表编辑')
 const tableOperations = reactive([
   {
     is:true,
