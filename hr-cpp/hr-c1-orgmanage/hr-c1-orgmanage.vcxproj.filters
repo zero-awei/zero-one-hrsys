@@ -27,6 +27,9 @@
     <ClCompile Include="controller\SystemInterceptor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
@@ -45,6 +48,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="controller\Router.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\projTag\PageProjTagQuery.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\pageQuery\PageQueryVO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\pageQuery\PageQueryDTO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

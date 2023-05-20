@@ -29,3 +29,9 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+projTag:
+ pageQuery:
+  size: 每页显示条数
+  page: 查询页码
+  sort: 显示顺序
+  controller: 分页查询项目标签列表

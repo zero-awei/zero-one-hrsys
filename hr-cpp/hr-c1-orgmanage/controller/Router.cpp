@@ -25,6 +25,7 @@
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
+#include "projTag/pageQueryProjTagList/PageQueryProjTagListController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -50,7 +51,7 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-
+	createProjTagRouter();
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -65,3 +66,7 @@ void Router::createSampleRouter()
 	router->addController(WSContorller::createShared());
 }
 #endif
+void Router::createProjTagRouter()
+{
+	ROUTER_SIMPLE_BIND(PageQueryProjTagListController);
+}
