@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -32,28 +32,30 @@
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
-// 0 å®šä¹‰APIæ§åˆ¶å™¨ä½¿ç”¨å®
+// 0 ¶¨ÒåAPI¿ØÖÆÆ÷Ê¹ÓÃºê  (api¿ØÖÆÆ÷ÊÇ´¦Àí´«ÈëÇëÇó£¬·µ»ØÏìÓ¦µÄ)
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
-	/**
-	 * ç¤ºä¾‹æ§åˆ¶å™¨ï¼Œæ¼”ç¤ºåŸºç¡€æ¥å£çš„ä½¿ç”¨
-	 */
-class SampleController : public oatpp::web::server::api::ApiController // 1 ç»§æ‰¿æ§åˆ¶å™¨
+/**
+ * Ê¾Àı¿ØÖÆÆ÷£¬ÑİÊ¾»ù´¡½Ó¿ÚµÄÊ¹ÓÃ
+ */
+class SampleController : public oatpp::web::server::api::ApiController // 1 ¼Ì³Ğ¿ØÖÆÆ÷
 {
-	// 2 å®šä¹‰æ§åˆ¶å™¨è®¿é—®å…¥å£
+	// 2 ¶¨Òå¿ØÖÆÆ÷·ÃÎÊÈë¿Ú
 	API_ACCESS_DECLARE(SampleController);
+	// 3 ¶¨Òå½Ó¿Ú
+// API¿ØÖÆÆ÷¿ÉÒÔ¸ù¾İ´«ÈëÇëÇóµÄURLºÍHTTP·½·¨·ÖÀà£¬È»ºó½«ÇëÇóÂ·ÓÉµ½ÏàÓ¦µÄ·½·¨ºÍ·şÎñÖĞ½øĞĞ´¦Àí
 public:
-	// 3.1 å®šä¹‰æŸ¥è¯¢æ¥å£æè¿°
+	// 3.1 ¶¨Òå²éÑ¯½Ó¿ÚÃèÊö
 	ENDPOINT_INFO(querySample) {
-		// å®šä¹‰æ¥å£æ ‡é¢˜
-		info->summary = ZH_WORDS_GETTER("sample.get.summary");//è°ƒç”¨ä¸­è‹±æ–‡è¯å…¸â€”â€”zh-dict.yaml
-		// å®šä¹‰é»˜è®¤æˆæƒå‚æ•°ï¼ˆå¯é€‰å®šä¹‰ï¼Œå¦‚æœå®šä¹‰äº†ï¼Œä¸‹é¢ENDPOINTé‡Œé¢éœ€è¦åŠ å…¥API_HANDLER_AUTH_PARAMEï¼‰
+		// ¶¨Òå½Ó¿Ú±êÌâ
+		info->summary = ZH_WORDS_GETTER("sample.get.summary");//µ÷ÓÃÖĞÓ¢ÎÄ´Êµä¡ª¡ªzh-dict.yaml
+		// ¶¨ÒåÄ¬ÈÏÊÚÈ¨²ÎÊı£¨¿ÉÑ¡¶¨Òå£¬Èç¹û¶¨ÒåÁË£¬ÏÂÃæENDPOINTÀïÃæĞèÒª¼ÓÈëAPI_HANDLER_AUTH_PARAME£©
 		API_DEF_ADD_AUTH();
-		// å®šä¹‰å“åº”å‚æ•°æ ¼å¼
+		// ¶¨ÒåÏìÓ¦²ÎÊı¸ñÊ½
 		API_DEF_ADD_RSP_JSON_WRAPPER(SamplePageJsonVO);
-		// å®šä¹‰åˆ†é¡µå‚æ•°æè¿°
+		// ¶¨Òå·ÖÒ³²ÎÊıÃèÊö
 		API_DEF_ADD_PAGE_PARAMS();
-		// å®šä¹‰å…¶ä»–è¡¨å•å‚æ•°æè¿°
+		// ¶¨ÒåÆäËû±íµ¥²ÎÊıÃèÊö
 		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("sample.field.name");
 		info->queryParams["name"].addExample("default", String("li ming"));
 		info->queryParams["name"].required = false;
@@ -61,115 +63,115 @@ public:
 		info->queryParams["sex"].addExample("default", String("N"));
 		info->queryParams["sex"].required = false;
 	}
-	// 3.2 å®šä¹‰æŸ¥è¯¢æ¥å£å¤„ç†	
+	// 3.2 ¶¨Òå²éÑ¯½Ó¿Ú´¦Àí	
 	ENDPOINT(API_M_GET, "/sample", querySample, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
-		// è§£ææŸ¥è¯¢å‚æ•°
+		// ½âÎö²éÑ¯²ÎÊı
 		API_HANDLER_QUERY_PARAM(userQuery, SampleQuery, queryParams);
-		// å“åº”ç»“æœ
+		// ÏìÓ¦½á¹û
 		API_HANDLER_RESP_VO(execQuerySample(userQuery, authObject->getPayload()));
 	}
-	// 3.1 å®šä¹‰æ–°å¢æ¥å£æè¿°
+	// 3.1 ¶¨ÒåĞÂÔö½Ó¿ÚÃèÊö
 	ENDPOINT_INFO(addSample) {
-		// å®šä¹‰æ¥å£æ ‡é¢˜
+		// ¶¨Òå½Ó¿Ú±êÌâ
 		info->summary = ZH_WORDS_GETTER("sample.post.summary");
-		// å®šä¹‰å“åº”å‚æ•°æ ¼å¼
+		// ¶¨ÒåÏìÓ¦²ÎÊı¸ñÊ½
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	// 3.2 å®šä¹‰æ–°å¢æ¥å£å¤„ç†
+	// 3.2 ¶¨ÒåĞÂÔö½Ó¿Ú´¦Àí
 	ENDPOINT(API_M_POST, "/sample", addSample, BODY_DTO(SampleDTO::Wrapper, dto)) {
-		// å“åº”ç»“æœ
+		// ÏìÓ¦½á¹û
 		API_HANDLER_RESP_VO(execAddSample(dto));
 	}
-
-	// 3.1 å®šä¹‰ä¿®æ”¹æ¥å£æè¿°
+	// 3.1 ¶¨ÒåĞŞ¸Ä½Ó¿ÚÃèÊö
 	ENDPOINT_INFO(modifySample) {
-		// å®šä¹‰æ¥å£æ ‡é¢˜
+		// ¶¨Òå½Ó¿Ú±êÌâ
 		info->summary = ZH_WORDS_GETTER("sample.put.summary");
-		// å®šä¹‰å“åº”å‚æ•°æ ¼å¼
+		// ¶¨ÒåÏìÓ¦²ÎÊı¸ñÊ½
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	// 3.2 å®šä¹‰ä¿®æ”¹æ¥å£å¤„ç†
+	// 3.2 ¶¨ÒåĞŞ¸Ä½Ó¿Ú´¦Àí
 	ENDPOINT(API_M_PUT, "/sample", modifySample, BODY_DTO(SampleDTO::Wrapper, dto)) {
-		// å“åº”ç»“æœ
+		// ÏìÓ¦½á¹û
 		API_HANDLER_RESP_VO(execModifySample(dto));
 	}
-	// 3.1 å®šä¹‰åˆ é™¤æ¥å£æè¿°
+	// 3.1 ¶¨ÒåÉ¾³ı½Ó¿ÚÃèÊö
 	ENDPOINT_INFO(removeSample) {
-		// å®šä¹‰æ¥å£æ ‡é¢˜
+		// ¶¨Òå½Ó¿Ú±êÌâ
 		info->summary = ZH_WORDS_GETTER("sample.delete.summary");
-		// å®šä¹‰å“åº”å‚æ•°æ ¼å¼
+		// ¶¨ÒåÏìÓ¦²ÎÊı¸ñÊ½
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	// 3.2 å®šä¹‰åˆ é™¤æ¥å£å¤„ç†
+	// 3.2 ¶¨ÒåÉ¾³ı½Ó¿Ú´¦Àí
 	ENDPOINT(API_M_DEL, "/sample", removeSample, BODY_DTO(SampleDTO::Wrapper, dto)) {
-		// å“åº”ç»“æœ
+		// ÏìÓ¦½á¹û
 		API_HANDLER_RESP_VO(execRemoveSample(dto));
 	}
 
-	// [å…¶ä»–] å®šä¹‰ä¸€ä¸ªå•æ–‡ä»¶ä¸Šä¼ æ¥å£
+	// [ÆäËû] ¶¨ÒåÒ»¸öµ¥ÎÄ¼şÉÏ´«½Ó¿Ú
 	ENDPOINT(API_M_POST, "/upload", uploadFile, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
-		/* åˆ›å»ºmultipartå®¹å™¨ */
+		/* ´´½¨multipartÈİÆ÷ */
 		auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
-		/* åˆ›å»ºmultipartè¯»å–å™¨ */
+		/* ´´½¨multipart¶ÁÈ¡Æ÷ */
 		multipart::Reader multipartReader(multipartContainer.get());
-		/* é…ç½®è¯»å–å™¨è¯»å–è¡¨å•å­—æ®µ */
+		/* ÅäÖÃ¶ÁÈ¡Æ÷¶ÁÈ¡±íµ¥×Ö¶Î */
 		multipartReader.setPartReader("nickname", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 		multipartReader.setPartReader("age", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-		/* é…ç½®è¯»å–å™¨è¯»å–æ–‡ä»¶åˆ°æ–‡ä»¶ */
+		/* ÅäÖÃ¶ÁÈ¡Æ÷¶ÁÈ¡ÎÄ¼şµ½ÎÄ¼ş */
 		multipartReader.setPartReader("file", multipart::createFilePartReader("public/static/file/test.png"));
-		/* è¯»å–è¯·æ±‚ä½“ä¸­çš„æ•°æ® */
+		/* ¶ÁÈ¡ÇëÇóÌåÖĞµÄÊı¾İ */
 		request->transferBody(&multipartReader);
-		/* æ‰“å°partæ•°é‡ */
+		/* ´òÓ¡partÊıÁ¿ */
 		OATPP_LOGD("Multipart", "parts_count=%d", multipartContainer->count());
-		/* è·å–è¡¨å•æ•°æ® */
+		/* »ñÈ¡±íµ¥Êı¾İ */
 		auto nickname = multipartContainer->getNamedPart("nickname");
 		auto age = multipartContainer->getNamedPart("age");
-		/* æ–­è¨€è¡¨å•æ•°æ®æ˜¯å¦æ­£ç¡® */
+		/* ¶ÏÑÔ±íµ¥Êı¾İÊÇ·ñÕıÈ· */
 		OATPP_ASSERT_HTTP(nickname, Status::CODE_400, "nickname is null");
 		OATPP_ASSERT_HTTP(age, Status::CODE_400, "age is null");
-		/* æ‰“å°åº”è¡¨å•æ•°æ® */
+		/* ´òÓ¡Ó¦±íµ¥Êı¾İ */
 		OATPP_LOGD("Multipart", "nickname='%s'", nickname->getPayload()->getInMemoryData()->c_str());
 		OATPP_LOGD("Multipart", "age='%s'", age->getPayload()->getInMemoryData()->c_str());
-		/* è·å–æ–‡ä»¶éƒ¨åˆ† */
+		/* »ñÈ¡ÎÄ¼ş²¿·Ö */
 		auto filePart = multipartContainer->getNamedPart("file");
-		/* æ–­è¨€æ–‡ä»¶æ˜¯å¦è·å–åˆ° */
+		/* ¶ÏÑÔÎÄ¼şÊÇ·ñ»ñÈ¡µ½ */
 		OATPP_ASSERT_HTTP(filePart, Status::CODE_400, "file is null");
-		/* æ‰“å°æ–‡ä»¶åç§° */
+		/* ´òÓ¡ÎÄ¼şÃû³Æ */
 		OATPP_LOGD("Multipart", "file='%s'", filePart->getFilename()->c_str());
-		/* å“åº”OK */
+		/* ÏìÓ¦OK */
 		return createResponse(Status::CODE_200, "OK");
 	}
-	// [å…¶ä»–] å®šä¹‰ä¸€ä¸ªå¤šæ–‡ä»¶ä¸Šä¼ æ¥å£
+	// [ÆäËû] ¶¨ÒåÒ»¸ö¶àÎÄ¼şÉÏ´«½Ó¿Ú
 	ENDPOINT(API_M_POST, "/upload-more", uploadFileMore, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
-		/* åˆ›å»ºmultipartå®¹å™¨ */
+		/* ´´½¨multipartÈİÆ÷ */
 		auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
-		/* åˆ›å»ºmultipartè¯»å–å™¨ */
+		/* ´´½¨multipart¶ÁÈ¡Æ÷ */
 		multipart::Reader multipartReader(multipartContainer.get());
-		/* é…ç½®è¯»å–å™¨è¯»å–æ–‡ä»¶åˆ°æ–‡ä»¶ */
+		/* ÅäÖÃ¶ÁÈ¡Æ÷¶ÁÈ¡ÎÄ¼şµ½ÎÄ¼ş */
 		multipartReader.setPartReader("file0", multipart::createFilePartReader("public/static/file/test1.png"));
 		multipartReader.setPartReader("file1", multipart::createFilePartReader("public/static/file/test2.png"));
-		/* è¯»å–è¯·æ±‚ä½“ä¸­çš„æ•°æ® */
+		/* ¶ÁÈ¡ÇëÇóÌåÖĞµÄÊı¾İ */
 		request->transferBody(&multipartReader);
-		/* è·å–æ–‡ä»¶éƒ¨åˆ† */
+		/* »ñÈ¡ÎÄ¼ş²¿·Ö */
 		auto file0 = multipartContainer->getNamedPart("file0");
 		auto file1 = multipartContainer->getNamedPart("file1");
-		/* æ–­è¨€æ–‡ä»¶æ˜¯å¦è·å–åˆ° */
+		/* ¶ÏÑÔÎÄ¼şÊÇ·ñ»ñÈ¡µ½ */
 		OATPP_ASSERT_HTTP(file0, Status::CODE_400, "file0 is null");
 		OATPP_ASSERT_HTTP(file1, Status::CODE_400, "file1 is null");
-		/* å“åº”OK */
+		/* ÏìÓ¦OK */
 		return createResponse(Status::CODE_200, "OK");
 	}
 private:
-	// 3.3 æ¼”ç¤ºåˆ†é¡µæŸ¥è¯¢æ•°æ®
+
+	// 3.3 ÑİÊ¾·ÖÒ³²éÑ¯Êı¾İ
 	SamplePageJsonVO::Wrapper execQuerySample(const SampleQuery::Wrapper& query, const PayloadDTO& payload);
-	// 3.3 æ¼”ç¤ºæ–°å¢æ•°æ®
+	// 3.3 ÑİÊ¾ĞÂÔöÊı¾İ
 	Uint64JsonVO::Wrapper execAddSample(const SampleDTO::Wrapper& dto);
-	// 3.3 æ¼”ç¤ºä¿®æ”¹æ•°æ®
+	// 3.3 ÑİÊ¾ĞŞ¸ÄÊı¾İ
 	Uint64JsonVO::Wrapper execModifySample(const SampleDTO::Wrapper& dto);
-	// 3.3 æ¼”ç¤ºåˆ é™¤æ•°æ®
+	// 3.3 ÑİÊ¾É¾³ıÊı¾İ
 	Uint64JsonVO::Wrapper execRemoveSample(const SampleDTO::Wrapper& dto);
 };
 
-// 0 å–æ¶ˆAPIæ§åˆ¶å™¨ä½¿ç”¨å®
+// 0 È¡ÏûAPI¿ØÖÆÆ÷Ê¹ÓÃºê
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
 #endif // _SAMPLE_CONTROLLER_

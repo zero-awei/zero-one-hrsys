@@ -11,10 +11,72 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="dao\Sample\ContractDao.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="controller\ContractController\ContractController.cpp" />
     <ClCompile Include="controller\JobTitle\JobTitleController.cpp" />
     <ClCompile Include="domain\do\JobTitle\JobTitleDo.h" />
     <ClCompile Include="domain\dto\JobTitle\JobTitleDTO.h" />
     <ClCompile Include="domain\vo\JobTitle\JobTitleJsonVO.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\Router.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\SystemInterceptor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+<ClCompile Include="controller\JobTitleInfo\JobTitleInfoController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\ExpenseLedge\ExpenseLedgeController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="controller\ContractController\ContractController.h" />
+    <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\dto\ContractDTO.h" />
+    <ClInclude Include="domain\dto\ContractDTO\ContractDTO_.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\ContractQuery.h" />
+    <ClInclude Include="domain\query\ContractQuery\ContractQuery_.h" />
+    <ClInclude Include="domain\vo\ContractVO.h" />
+    <ClInclude Include="domain\vo\ContractVO\ContractVO_.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="domain\query\Gosh\ContractQuery.h" />
+    <ClInclude Include="domain\query\Gosh\PersonQuery.h" />
+    <ClInclude Include="controller\GoshController\TestController.h" />
+    <ClInclude Include="controller\JobTitle\JobTitleController.h" />
+    <ClInclude Include="domain\do\JobTitle\JobTitleDo.h" />
+    <ClInclude Include="domain\dto\ContractDTO\ContractDTO.h" />
+    <ClInclude Include="domain\dto\Gosh\ContractDTO.h" />
+    <ClInclude Include="domain\dto\JobTitle\JobTitleDTO.h" />
+    <ClInclude Include="domain\query\ContractQuery\ContractQuery.h" />
+    <ClInclude Include="domain\query\JobTitle\JobTitleQuery.h" />
+    <ClInclude Include="domain\vo\ContractVO\ContractVO.h" />
+    <ClInclude Include="domain\vo\Gosh\ContractVO.h" />
+    <ClInclude Include="domain\vo\JobTitle\JobTitleJsonVO.h" />
+	<ClInclude Include="domain\vo\JobTitleInfo\JobTitleInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\ExpenseLedge\ExpenseLedgeController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\Muggle\expense_ledger-Muggle.h" />
@@ -51,5 +113,4 @@
     <None Include="conf\data-source.yaml" />
     <None Include="domain\dto\.keep" />
     <None Include="zh-dict.yaml" />
-  </ItemGroup>
-</Project>
+  </ItemGroup></Project>

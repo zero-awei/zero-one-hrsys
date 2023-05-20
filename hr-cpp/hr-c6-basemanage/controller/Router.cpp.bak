@@ -18,26 +18,15 @@
 */
 #include "stdafx.h"
 #include "Router.h"
-
-#include "GoshController/TestController.h"
+#include "ApiHelper.h"
 #include "JobTitleInfo/JobTitleInfoController.h"
 #include "ExpenseLedge/ExpenseLedgeController.h"
-#include "./ContractController/ContractController.h"
-#include "../uselib/ws/WSController.h"
-#include "SelectController/retirement.h"
-#include "./JobTitle/JobTitleController.h"
-
-
 #ifdef HTTP_SERVER_DEMO
-#include "./ContractController/ContractController.h"
-#include "../uselib/ws/WSController.h"
+#include "user/UserController.h"
+#include "sample/SampleController.h"
+#include "uselib/ws/WSController.h"
 #endif
 #include "LDConstroller/LaborDispatchConstroller.h"
-
-#include "Muggle/labor_dispatch-Muggle.h"
-#include "Muggle/expense_ledger-Muggle.h"
-#include "GoshController/TestController.h"
-
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -63,30 +52,32 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-	createJobAndExpenseRouter();
-
-	ROUTER_SIMPLE_BIND(ContractController);
-	ROUTER_SIMPLE_BIND(LaborDispatchMController);
-	ROUTER_SIMPLE_BIND(ExpenseLedgerMController);
+<<<<<<< HEAD
+	createJobTitleRouter();
+	createExpenseRouter();
+=======
 	ROUTER_SIMPLE_BIND(LaborDispatchConstroller);
-	ROUTER_SIMPLE_BIND(TestController);
-	ROUTER_SIMPLE_BIND(JobTitleController);
-	ROUTER_SIMPLE_BIND(GoshController);
-	ROUTER_SIMPLE_BIND(GoshController);
+>>>>>>> c6
 }
-void Router::createJobAndExpenseRouter()
-{
-	ROUTER_SIMPLE_BIND(JobTitleInfoController);
-	ROUTER_SIMPLE_BIND(ExpenseLedgeController);
-}#ifdef HTTP_SERVER_DEMO
+
+#ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
-	// 绑定合同控制器
-	ROUTER_SIMPLE_BIND(ContractController);
-
+	// 绑定示例控制器
+	ROUTER_SIMPLE_BIND(SampleController);
+	// 绑定用户控制器
+	ROUTER_SIMPLE_BIND(UserController);
 	
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());
 }
-
 #endif
+void Router::createJobTitleRouter()
+{
+	ROUTER_SIMPLE_BIND(JobTitleInfoController);
+}
+
+void Router::createExpenseRouter()
+{
+	ROUTER_SIMPLE_BIND(ExpenseLedgeController);
+}

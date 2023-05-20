@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 #include "../dto/LaborDispatchDTO.h"
 #include "../GlobalInclude.h"
 
@@ -31,7 +31,7 @@ class LaborDispatchJsonVO : public JsonVO<LaborDispatchDTO::Wrapper>
 	DTO_INIT(LaborDispatchJsonVO, JsonVO< LaborDispatchDTO::Wrapper>);
 };
 
-// åˆ†é¡µæ˜¾ç¤ºJsonVOï¼Œç”¨äºå“åº”ç»™å®¢æˆ·ç«¯çš„Jsonå¯¹è±¡
+// ·ÖÒ³ÏÔÊ¾JsonVO£¬ÓÃÓÚÏìÓ¦¸ø¿Í»§¶ËµÄJson¶ÔÏó
 class LaborDispatchPageJsonVO : public JsonVO<LaborDispatchPageDTO::Wrapper>
 {
 	DTO_INIT(LaborDispatchPageJsonVO, JsonVO< LaborDispatchPageDTO::Wrapper>);

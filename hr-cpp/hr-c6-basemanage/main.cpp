@@ -1,4 +1,4 @@
-﻿/*
+﻿﻿/*
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
@@ -38,14 +38,12 @@
  * 参数中数据需要满足一定的格式，如：sp=8090、sn=feign-cpp-sample
  * 前缀与真实值之间使用=分隔
  */
-bool getStartArg(int argc, char* argv[]) {
+	bool getStartArg(int argc, char* argv[]) {
 	// 服务器端口
 	std::string serverPort = "8090";
 	// 数据库连接信息
 	std::string dbUsername = "root";
-	//std::string dbPassword = "123";
 	std::string dbPassword = "123456";
-	//std::string dbName = "01xinqiu";
 	std::string dbName = "test";
 	std::string dbHost = "127.0.0.1";
 	int dbPort = 3306;
