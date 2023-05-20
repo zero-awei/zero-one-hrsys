@@ -6,17 +6,17 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 //DTO:合同信息
-class ContractDTO : public oatpp::DTO
+class ContractDTO_ : public oatpp::DTO
 {
 public:
-	ContractDTO() {};
-	ContractDTO(String PIMCONTRACTID, String CREATEMAN, String CREATEDATE, \
+	ContractDTO_() {};
+	ContractDTO_(String PIMCONTRACTID, String CREATEMAN, String CREATEDATE, \
 	String UPDATEDATE, String PIMCONTRACTNAME) :\
 		PIMCONTRACTID(PIMCONTRACTID), CREATEMAN(CREATEMAN),\
 		CREATEDATE(CREATEDATE), UPDATEDATE(UPDATEDATE),\
 		PIMCONTRACTNAME(PIMCONTRACTNAME){};
 
-	DTO_INIT(ContractDTO, DTO);
+	DTO_INIT(ContractDTO_, DTO);
 
 	// 合同信息标识
 	DTO_FIELD(String, PIMCONTRACTID);
@@ -65,7 +65,7 @@ public:
 };
 
 //DTO:导出地址+分页操作
-class DownloadPageDTO : public PageDTO<ContractDTO::Wrapper>
+class DownloadPageDTO : public PageDTO<ContractDTO_::Wrapper>
 {
 public:
 	DownloadPageDTO() {};
@@ -80,12 +80,12 @@ public:
 };
 
 //DTO:导出地址
-class DownloadPathDTO : public PageDTO<ContractDTO::Wrapper>
+class DownloadPathDTO : public PageDTO<ContractDTO_::Wrapper>
 {
 public:
 	DownloadPathDTO() {};
 
-	DTO_INIT(DownloadPathDTO, PageDTO<ContractDTO::Wrapper>);
+	DTO_INIT(DownloadPathDTO, PageDTO<ContractDTO_::Wrapper>);
 
 	// 下载路径
 	DTO_FIELD(String, DownloadPath);

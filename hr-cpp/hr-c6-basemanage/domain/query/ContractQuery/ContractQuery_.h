@@ -7,9 +7,9 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 //合同信息query
-class ContractQuery : public PageQuery
+class ContractQuery_ : public PageQuery
 {
-	DTO_INIT(ContractQuery, PageQuery);
+	DTO_INIT(ContractQuery_, PageQuery);
 
 	// 合同信息标识
 	DTO_FIELD(String, PIMCONTRACTID);
