@@ -38,7 +38,7 @@ public class JobsSetController implements JobSetApis {
     @PostMapping("import-jobs")
     @ApiOperation("导入职务")
     @Override
-    public int importJobs(List<AllJobsDTO> jobs) {
-        return 0;
+    public JsonVO<Integer> importJobs(List<AllJobsDTO> jobs) {
+        return null;
     }
 }

@@ -38,5 +38,5 @@ public interface JobSetApis {
      * @Author H_lzu
      * @Date 16:53 2023/5/19
      */
-    int importJobs(List<AllJobsDTO> jobs);
+    JsonVO<Integer> importJobs(List<AllJobsDTO> jobs);
 }
