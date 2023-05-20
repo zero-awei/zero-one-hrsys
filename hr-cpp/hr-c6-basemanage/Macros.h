@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -21,77 +21,77 @@
 #define _MACROS_
 #include "YamlHelper.h"
 
-/** ¶¨ÒåÊÜ±£»¤µÄ±äÁ¿£¬²¢Ìá¹©get¡¢set·½·¨ */
+/** å®šä¹‰å—ä¿æŠ¤çš„å˜é‡ï¼Œå¹¶æä¾›getã€setæ–¹æ³• */
 #define CC_SYNTHESIZE(varType, varName, funName)\
 protected: varType varName;\
 public: varType get##funName(void) const { return varName; }\
 public: void set##funName(varType var){	varName = var; }
 
-/** ¶¨ÒåÊÜ±£»¤µÄmap±äÁ¿£¬²¢Ìá¹©get¡¢set·½·¨ */
+/** å®šä¹‰å—ä¿æŠ¤çš„mapå˜é‡ï¼Œå¹¶æä¾›getã€setæ–¹æ³• */
 #define CC_SYNTHESIZE_MAP(keyType, valType, varName, funName)\
 protected: std::map<keyType, valType> varName;\
 public: std::map<keyType, valType> get##funName(void) const { return varName; }\
 public: void set##funName(std::map<keyType,valType> var){ varName = var; }
 
-/** ¶¨ÒåÊÜ±£»¤µÄ±äÁ¿£¬²¢Ìá¹©get·½·¨ */
+/** å®šä¹‰å—ä¿æŠ¤çš„å˜é‡ï¼Œå¹¶æä¾›getæ–¹æ³• */
 #define CC_SYNTHESIZE_GET(varType, varName, funName)\
 protected: varType varName;\
 public: varType get##funName(void) const { return varName; }
 
-/** ¶¨ÒåÊÜ±£»¤µÄmap±äÁ¿£¬²¢Ìá¹©get·½·¨ */
+/** å®šä¹‰å—ä¿æŠ¤çš„mapå˜é‡ï¼Œå¹¶æä¾›getæ–¹æ³• */
 #define CC_SYNTHESIZE_MAP_GET(keyType, valType, varName, funName)\
 protected: std::map<keyType, valType> varName;\
 public: std::map<keyType, valType> get##funName(void) const { return varName; }\
 
-/** ¶¨ÒåÊÜ±£»¤µÄ±äÁ¿£¬²¢Ìá¹©set·½·¨ */
+/** å®šä¹‰å—ä¿æŠ¤çš„å˜é‡ï¼Œå¹¶æä¾›setæ–¹æ³• */
 #define CC_SYNTHESIZE_SET(varType, varName, funName)\
 protected: varType varName;\
 public: void set##funName(varType var){	varName = var; }
 
-/** ¶¨ÒåÊÜ±£»¤µÄmap±äÁ¿£¬²¢Ìá¹©set·½·¨ */
+/** å®šä¹‰å—ä¿æŠ¤çš„mapå˜é‡ï¼Œå¹¶æä¾›setæ–¹æ³• */
 #define CC_SYNTHESIZE_MAP_SET(keyType, valType, varName, funName)\
 protected: std::map<keyType, valType> varName;\
 public: void set##funName(std::map<keyType,valType> var){ varName = var; }
 
-/** ¶¨ÒåÊÜ±£»¤µÄ±äÁ¿£¬²¢Ìá¹©get·½·¨£¬·µ»Ø±äÁ¿ÒıÓÃ */
+/** å®šä¹‰å—ä¿æŠ¤çš„å˜é‡ï¼Œå¹¶æä¾›getæ–¹æ³•ï¼Œè¿”å›å˜é‡å¼•ç”¨ */
 #define CC_SYNTHESIZE_CR_GET(varType, varName, funName)\
 protected: varType varName;\
 public: varType& get##funName(void) { return varName; }\
 
-/** ¶¨ÒåÊÜ±£»¤µÄmap±äÁ¿£¬²¢Ìá¹©get·½·¨£¬·µ»ØmapÒıÓÃ */
+/** å®šä¹‰å—ä¿æŠ¤çš„mapå˜é‡ï¼Œå¹¶æä¾›getæ–¹æ³•ï¼Œè¿”å›mapå¼•ç”¨ */
 #define CC_SYNTHESIZE_CR_MAP_GET(keyType, valType, varName, funName)\
 protected: std::map<keyType, valType> varName;\
 public: std::map<keyType, valType>& get##funName(void) { return varName; }\
 
-/** ¶¨ÒåÊÜ±£»¤µÄ±äÁ¿£¬²¢Ìá¹©Ğéget¡¢set·½·¨ */
+/** å®šä¹‰å—ä¿æŠ¤çš„å˜é‡ï¼Œå¹¶æä¾›è™šgetã€setæ–¹æ³• */
 #define CC_SYNTHESIZE_VIRTUAL(varType, varName, funName)\
 protected: varType varName;\
 public: virtual varType get##funName(void) const { return varName; }\
 public: virtual void set##funName(varType var){ varName = var; }
 
-/** ¶¨ÒåÊÜ±£»¤µÄ±äÁ¿£¬²¢Ìá¹©Ğéget·½·¨ */
+/** å®šä¹‰å—ä¿æŠ¤çš„å˜é‡ï¼Œå¹¶æä¾›è™šgetæ–¹æ³• */
 #define CC_SYNTHESIZE_VIRTUAL_GET(varType, varName, funName)\
 protected: varType varName;\
 public: virtual varType get##funName(void) const { return varName; }
 
-/** ¶¨ÒåÊÜ±£»¤µÄ±äÁ¿£¬²¢Ìá¹©Ğéset·½·¨ */
+/** å®šä¹‰å—ä¿æŠ¤çš„å˜é‡ï¼Œå¹¶æä¾›è™šsetæ–¹æ³• */
 #define CC_SYNTHESIZE_VIRTUAL_SET(varType, varName, funName)\
 protected: varType varName;\
 public: virtual void set##funName(varType var){ varName = var; }
 
-/** ¶¨ÒåÊÜ±£»¤µÄ±äÁ¿£¬²¢Ìá¹©Ğéget·½·¨£¬·µ»Ø±äÁ¿ÒıÓÃ */
+/** å®šä¹‰å—ä¿æŠ¤çš„å˜é‡ï¼Œå¹¶æä¾›è™šgetæ–¹æ³•ï¼Œè¿”å›å˜é‡å¼•ç”¨ */
 #define CC_SYNTHESIZE_VIRTUAL_CR_GET(varType, varName, funName)\
 protected: varType varName;\
 public: virtual varType& get##funName(void) { return varName; }
 
-/** Ë½ÓĞ»¯¸³ÖµÔËËã·û/¿½±´¹¹Ôì/ÎŞ²Î¹¹Ôì */
+/** ç§æœ‰åŒ–èµ‹å€¼è¿ç®—ç¬¦/æ‹·è´æ„é€ /æ— å‚æ„é€  */
 #define SINGLETON_HEPLER(TypeName) \
 private: \
 TypeName() { init(); } \
 TypeName(const TypeName&) = delete; \
 TypeName& operator=(const TypeName&) = delete;
 
-/** ¶¨Òåµ¥Àı¡£×¢Òâ£ºĞèÒªÔÚ×Ô¼ºµÄÀàÖĞÌá¹©Ò»¸öË½ÓĞinitº¯ÊıÓÃÓÚ³õÊ¼»¯Êı¾İ */
+/** å®šä¹‰å•ä¾‹ã€‚æ³¨æ„ï¼šéœ€è¦åœ¨è‡ªå·±çš„ç±»ä¸­æä¾›ä¸€ä¸ªç§æœ‰initå‡½æ•°ç”¨äºåˆå§‹åŒ–æ•°æ® */
 #define DECLARE_INSTANCE(TypeName) \
 SINGLETON_HEPLER(TypeName) \
 public: \
@@ -102,7 +102,7 @@ public: \
 
 #include "oatpp/parser/json/mapping/ObjectMapper.hpp"
 
-// RocketMQÒì²½·¢²¼¶ÔÏóÏûÏ¢£¬ÕâÀï»á½«¶ÔÏó×ª»»³ÉJSON×Ö·û´®
+// RocketMQå¼‚æ­¥å‘å¸ƒå¯¹è±¡æ¶ˆæ¯ï¼Œè¿™é‡Œä¼šå°†å¯¹è±¡è½¬æ¢æˆJSONå­—ç¬¦ä¸²
 #define RC_PUBLISH_OBJ_MSG_ASYNC(__ROCKET_CLIENT__, __TOPIC__, __DATA_OBJ__, __CB_OBJ__) \
 [&] { \
 	auto mapper = oatpp::parser::json::mapping::ObjectMapper::createShared(); \
@@ -110,7 +110,7 @@ public: \
 	__ROCKET_CLIENT__->productMsgAsync(__TOPIC__, jobj.getValue(""), __CB_OBJ__); \
 }()
 
-// RocketMQÍ¬²½·¢²¼¶ÔÏóÏûÏ¢£¬ÕâÀï»á½«¶ÔÏó×ª»»³ÉJSON×Ö·û´®
+// RocketMQåŒæ­¥å‘å¸ƒå¯¹è±¡æ¶ˆæ¯ï¼Œè¿™é‡Œä¼šå°†å¯¹è±¡è½¬æ¢æˆJSONå­—ç¬¦ä¸²
 #define RC_PUBLISH_OBJ_MSG_SYNC(__RETURN_VAR_NAME__, __ROCKET_CLIENT__, __TOPIC__, __DATA_OBJ__) \
 rocketmq::SendStatus __RETURN_VAR_NAME__; \
 [&] { \
@@ -119,7 +119,7 @@ rocketmq::SendStatus __RETURN_VAR_NAME__; \
 	__RETURN_VAR_NAME__ = __ROCKET_CLIENT__->productMsgSync(__TOPIC__, jobj.getValue("")); \
 }()
 
-// RocketMQ½ÓÊÕÏûÏ¢£¬½«JSON×Ö·û´®×ª»»³É¶ÔÏó
+// RocketMQæ¥æ”¶æ¶ˆæ¯ï¼Œå°†JSONå­—ç¬¦ä¸²è½¬æ¢æˆå¯¹è±¡
 #define RC_RECEIVER_MSG_CONVERT(__RETURN_VAR_NAME__, __DATA__TYPE__, __PAYLOAD__) \
 oatpp::Object<__DATA__TYPE__> __RETURN_VAR_NAME__; \
 [&] { \
@@ -127,7 +127,7 @@ oatpp::Object<__DATA__TYPE__> __RETURN_VAR_NAME__; \
 	__RETURN_VAR_NAME__ = mapper->readFromString<oatpp::Object<__DATA__TYPE__>>(__PAYLOAD__); \
 }()
 
-// ¶¨ÒåÒ»¸ö»ñÈ¡ÖĞÎÄ×Ö»ñÈ¡ºê
+// å®šä¹‰ä¸€ä¸ªè·å–ä¸­æ–‡å­—è·å–å®
 #define ZH_WORDS_GETTER(_KEY_) \
 YamlHelper().getString(&(ServerInfo::getInstance().getZhDictNode()), _KEY_)
 
@@ -230,24 +230,24 @@ YamlHelper().getString(&(ServerInfo::getInstance().getZhDictNode()), _KEY_)
 #define ZO_STAR_PASTE29(target, src, func, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58) ZO_STAR_PASTE1(target, src, func, v1, v2) ZO_STAR_PASTE28(target, src, func, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58)
 #define ZO_STAR_PASTE30(target, src, func, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60) ZO_STAR_PASTE1(target, src, func, v1, v2) ZO_STAR_PASTE29(target, src, func, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60)
 
-// DO×ª³ÉDTOÊôĞÔÉèÖÃ
+// DOè½¬æˆDTOå±æ€§è®¾ç½®
 #define ZO_STAR_DOMAIN_FILED_DO_TO_DTO(target, src, f1, f2) target->f1=src.get##f2();
 /**
-* DO×ªDTO°ïÖúºê
-* @param target: ÊôĞÔÖµ½ÓÊÕÄ¿±ê¶ÔÏó
-* @param src: ÊôĞÔÖµÀ´Ô´¶ÔÏó
-* @param ...: ×Ö¶Î²ÎÊı£ºÄ¿±ê¶ÔÏó×Ö¶ÎÃû,À´Ô´¶ÔÏóget·½·¨Ãû³Æ¡£Èç:id,Id,name,Name......
+* DOè½¬DTOå¸®åŠ©å®
+* @param target: å±æ€§å€¼æ¥æ”¶ç›®æ ‡å¯¹è±¡
+* @param src: å±æ€§å€¼æ¥æºå¯¹è±¡
+* @param ...: å­—æ®µå‚æ•°ï¼šç›®æ ‡å¯¹è±¡å­—æ®µå,æ¥æºå¯¹è±¡getæ–¹æ³•åç§°ã€‚å¦‚:id,Id,name,Name......
 */
 #define ZO_STAR_DOMAIN_DO_TO_DTO(target, src, ...) \
 ZO_STAR_EXPAND(ZO_STAR_PASTE(target, src, ZO_STAR_DOMAIN_FILED_DO_TO_DTO, __VA_ARGS__))
 
-// DTO×ª³ÉDOÊôĞÔÉèÖÃ
+// DTOè½¬æˆDOå±æ€§è®¾ç½®
 #define ZO_STAR_DOMAIN_FILED_DTO_TO_DO(target, src, f1, f2) target.set##f1(src->f2.getValue({}));
 /**
-* DTO×ªDO°ïÖúºê
-* @param target: ÊôĞÔÖµ½ÓÊÕÄ¿±ê¶ÔÏó
-* @param src: ÊôĞÔÖµÀ´Ô´¶ÔÏó
-* @param ...: ×Ö¶Î²ÎÊı£ºÄ¿±ê¶ÔÏóset·½·¨Ãû³Æ,À´Ô´¶ÔÏó×Ö¶ÎÃû¡£Èç:Id,id,Name,name......
+* DTOè½¬DOå¸®åŠ©å®
+* @param target: å±æ€§å€¼æ¥æ”¶ç›®æ ‡å¯¹è±¡
+* @param src: å±æ€§å€¼æ¥æºå¯¹è±¡
+* @param ...: å­—æ®µå‚æ•°ï¼šç›®æ ‡å¯¹è±¡setæ–¹æ³•åç§°,æ¥æºå¯¹è±¡å­—æ®µåã€‚å¦‚:Id,id,Name,name......
 */
 #define ZO_STAR_DOMAIN_DTO_TO_DO(target, src, ...) \
 ZO_STAR_EXPAND(ZO_STAR_PASTE(target, src, ZO_STAR_DOMAIN_FILED_DTO_TO_DO, __VA_ARGS__))

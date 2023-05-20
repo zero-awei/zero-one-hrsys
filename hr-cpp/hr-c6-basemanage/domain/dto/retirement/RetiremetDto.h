@@ -1,30 +1,31 @@
-#pragma once
+ï»¿#pragma once
 #ifndef _RETIREMETDTO_H_
 #define _RETIREMETDTO_H_
 
+#include "stdafx.h"
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 class RetirementDTO : public oatpp::DTO
 {
-	//³õÊ¼»¯
+	//ï¿½ï¿½Ê¼ï¿½ï¿½
 	DTO_INIT(RetirementDTO, DTO);
-	// Ô±¹¤ÐÕÃû
+	// Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
 		info->description = ZH_WORDS_GETTER("My.field.name");
 	}
-	// Ô±¹¤±àºÅ
+	// Ô±ï¿½ï¿½ï¿½ï¿½ï¿½
 	DTO_FIELD(UInt64, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("My.field.id");
 	}
-	//ÐÔ±ð
+	//ï¿½Ô±ï¿½
 	DTO_FIELD(String, sex);
 	DTO_FIELD_INFO(sex) {
 		info->description = ZH_WORDS_GETTER("My.field.sex");
 	}
-	// ÄêÁä
+	// ï¿½ï¿½ï¿½ï¿½
 	DTO_FIELD(UInt64, age);
 	DTO_FIELD_INFO(age) {
 		info->description = ZH_WORDS_GETTER("My.field.age");
@@ -32,7 +33,7 @@ class RetirementDTO : public oatpp::DTO
 };
 
 /**
- * Ê¾Àý·ÖÒ³´«Êä¶ÔÏó
+ * Ê¾ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 class ContractPageDTO : public PageDTO<RetirementDTO::Wrapper>
 {
