@@ -1,6 +1,10 @@
 
 #include "stdafx.h"
+<<<<<<< HEAD
 #include "FileStatusController.h"
+=======
+#include "FilestatusController.h"
+>>>>>>> 5e5d758661078be8d67150db2b1b28256751a4a6
 
 PullListVO::Wrapper FileStatusController::execQueryFileStatus()
 {
