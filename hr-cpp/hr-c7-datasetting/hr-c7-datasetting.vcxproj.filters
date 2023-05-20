@@ -27,6 +27,9 @@
     <ClCompile Include="controller\Router.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="controller\Title\TitleController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="public.pem" />
@@ -37,6 +40,7 @@
     <None Include="domain\dto\.keep" />
     <None Include="dao\.keep" />
     <None Include="conf\data-source.yaml" />
+    <None Include="service\.keep" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
@@ -58,6 +62,21 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="controller\OtherComponent.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\Title\TitleVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\Title\TitleQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\Title\TitleDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Title\TitleDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\Title\TitleController.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

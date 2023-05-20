@@ -1,0 +1,98 @@
+[33mcommit 8bedf72a66390c132abe9bb710d7de371bd1a764[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/c7-title-black[m[33m, [m[1;32mc7[m[33m)[m
+Merge: 83a429c 3ba6804
+Author: za11r <49856164+za11r@users.noreply.github.com>
+Date:   Tue May 16 16:48:02 2023 +0800
+
+    Merge pull request #2 from zero-awei/origin/c7-title-black
+    
+    Origin/c7 title black
+
+[33mcommit 3ba680457c5fe27e403aac19b466a189475ebbe1[m[33m ([m[1;31morigin/origin/c7-title-black[m[33m)[m
+Author: Black <a1817916071@126.com>
+Date:   Tue May 16 16:20:29 2023 +0800
+
+    title 初始化
+
+[33mcommit c9bc46226030b13eeca3bb4ce898ccf99236066e[m
+Author: Black <a1817916071@126.com>
+Date:   Tue May 16 16:15:18 2023 +0800
+
+    title init
+
+[33mcommit 83a429cf1fbd5861f8a76280c6c086ec801a6c27[m[33m ([m[1;31morigin/c7[m[33m)[m
+Author: Zhen hua <2509859469@qq.com>
+Date:   Tue May 16 09:25:41 2023 +0800
+
+    华仔分支
+
+[33mcommit a8b7bee56bee33c9ea9ec7e44d0d903234a2e9cf[m
+Author: Zhen hua <2509859469@qq.com>
+Date:   Mon May 15 23:05:41 2023 +0800
+
+    1
+
+[33mcommit 0250c80e1af5901f109d259eff4b2e22d539962d[m
+Author: Zhen hua <2509859469@qq.com>
+Date:   Mon May 15 23:03:18 2023 +0800
+
+    hz分支
+
+[33mcommit c3c69db2a2263a1dc71d2b355642d025add98bc2[m
+Author: Zhen hua <2509859469@qq.com>
+Date:   Mon May 15 23:01:56 2023 +0800
+
+    华仔分支
+
+[33mcommit 59361bb29005d9f48a92e5ee43591a60db2b94a0[m
+Author: Zhen hua <2509859469@qq.com>
+Date:   Sun May 14 17:40:31 2023 +0800
+
+    环境配置
+
+[33mcommit 5f84d6172493cef94129f8134b05edbce436a30d[m
+Author: Zhen hua <2509859469@qq.com>
+Date:   Sun May 14 16:14:23 2023 +0800
+
+    C7
+
+[33mcommit 497ee5abf5f42b96a20da1f4db3afffdff39322f[m[33m ([m[1;31morigin/hr-c6-basemanage[m[33m, [m[1;31morigin/c3[m[33m)[m
+Author: awei <2069682479@qq.com>
+Date:   Sun May 7 11:42:02 2023 +0800
+
+    新增C++项目架构
+
+[33mcommit 8d6c9a6687b119bd8f00ddb293fb00fc6b6b1340[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: awei <2069682479@qq.com>
+Date:   Wed May 3 23:25:23 2023 +0800
+
+    新增核心业务流程相关文档
+
+[33mcommit 928dd2e30e30eca5d08882cd40b57be4543ba6f1[m
+Author: awei <2069682479@qq.com>
+Date:   Fri Apr 28 21:17:03 2023 +0800
+
+    更新项目描述
+
+[33mcommit 0ec877a0309e2a46751fe0577923c57ef9cffc6c[m
+Author: awei <2069682479@qq.com>
+Date:   Fri Apr 28 21:13:08 2023 +0800
+
+    更新版本迭代计划
+
+[33mcommit 4fedf2ffdab0bf1d3911e86f666c52ca4b54ce2a[m
+Author: awei <2069682479@qq.com>
+Date:   Fri Apr 21 11:06:48 2023 +0800
+
+    新增yarn配置教程
+
+[33mcommit 49c89e8966021060cfe130fee42275c094df7afa[m
+Author: awei <2069682479@qq.com>
+Date:   Fri Apr 21 11:05:15 2023 +0800
+
+    新增业务参考系统相关说明
+
+[33mcommit aed37018d9e4bd6c8e6941c33d75cbd025377413[m
+Author: 01xqawei <112749336+zero-awei@users.noreply.github.com>
+Date:   Fri Apr 14 15:10:52 2023 +0800
+
+    Initial commit
