@@ -29,3 +29,35 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+ common:
+  dto:
+   certType: 证书类型名称
+   pimQualMajorId: 执业资格专业编码
+   pimQualMajorName: 执业资格
+   createMan: 建立人
+   createDate: 建立时间
+   enable: ENABLE
+   upDateMan: 更新人
+   upDateDate: 更新时间
+   pimQualTypeId: 执业资格类别标识
+   ormOrgId: 组织标识
+   professionalType: 执业资格类别
+   zyjszw: 专业技术职务
+   quaLevel: 级别
+   quaMajor: 专业
+   gwlx: 岗位类型
+   gwType: 岗位类型
+   gwzs: 岗位类型
+
+# 公共接口
+common:
+ dto:
+  code: 列表项对应键
+  value: 列表项映射值
+  list: 下拉列表
+ controller:
+  contractType: 合同类型下拉列表
+  armyLevelType: 军转级别下拉列表
+  contractType: 合同类型   
+  fileStatus: 档案借阅状态
+  fileReservation: 档案保管地

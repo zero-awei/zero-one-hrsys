@@ -40,6 +40,7 @@ public:
 	Router(Endpoints* docEndpoints, HttpRouter* router);
 	// 呼叫初始化
 	void initRouter();
+
 private:
 #ifdef HTTP_SERVER_DEMO
 	// 创建演示路由
@@ -57,6 +58,12 @@ private:
 	 * 负责人：远翔
 	 */
 	void createAddProjTagRouter();
+
+	// 岗位设置路由绑定
+	void createJobSetRouter();
+	// 项目标签路由绑定
+	void createProjTagRouter();
+
 };
 
 #endif // !_ROUTER_

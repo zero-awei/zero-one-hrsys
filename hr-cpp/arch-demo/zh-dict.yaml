@@ -29,11 +29,3 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
-
-#岗位设置-导入岗位
-jobSet:
- import:
-  summary: 导入岗位
-  fileType: 文件类型(xlx/xlsx/csv)
-  sheetName: 数据表名
-  file: 待导入文件
