@@ -19,21 +19,24 @@ import java.util.List;
  * @date 2023/5/19 14:27
  */
 public interface JobSetApis {
-/**
- *  导出所有职务
- * @return
- * @return {@link JsonVO< SampleDTO>}
- * @Author H_lzu
- * @Date  2023/5/19
- */
+    /**
+     * 导出所有职务
+     *
+     * @return
+     * @return {@link JsonVO< SampleDTO>}
+     * @Author H_lzu
+     * @Date 2023/5/19
+     */
     JsonVO<ExportDTO> exportAllJobs();
-/**
- * 导入职务
- * @param jobs jobs
- * @return
- * @return {@link int}
- * @Author H_lzu
- * @Date 16:53 2023/5/19
- */
+
+    /**
+     * 导入职务
+     *
+     * @param jobs jobs
+     * @return
+     * @return {@link int}
+     * @Author H_lzu
+     * @Date 16:53 2023/5/19
+     */
     int importJobs(List<AllJobsDTO> jobs);
 }
