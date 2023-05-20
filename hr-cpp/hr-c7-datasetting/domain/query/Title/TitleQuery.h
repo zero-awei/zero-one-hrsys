@@ -14,6 +14,7 @@ class TitleQuery : public PageQuery
 {
 	DTO_INIT(TitleQuery, PageQuery);
 
+	API_DTO_FIELD_DEFAULT(String, titleName, ZH_WORDS_GETTER("title.field.titleName"));
 };
 
 #include OATPP_CODEGEN_END(DTO)

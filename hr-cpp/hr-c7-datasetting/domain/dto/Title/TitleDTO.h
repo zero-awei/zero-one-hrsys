@@ -12,7 +12,10 @@ class TitleDTO : public oatpp::DTO
 {
 	DTO_INIT(TitleDTO, DTO);
 	
-	
+	//≈≈–Ú∫≈
+	API_DTO_FIELD_DEFAULT(String, titleId, ZH_WORDS_GETTER("title.field.id"));
+	//∏⁄Œª÷§ È
+	API_DTO_FIELD_DEFAULT(String, titleName, ZH_WORDS_GETTER("title.field.titleName"));
 };
 
 /**

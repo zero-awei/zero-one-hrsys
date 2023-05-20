@@ -4,7 +4,7 @@
 
 #include "../DoInclude.h"
 /**
- * 档案室信息实体
+ * 职称目录信息实体
  */
 class TitleDO
 {
