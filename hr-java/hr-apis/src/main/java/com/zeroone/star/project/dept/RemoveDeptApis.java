@@ -12,7 +12,6 @@ import io.swagger.annotations.ApiParam;
   * @description：删除部门信息API
   * @version: 1.0
 */
-@Api(tags = "删除部门接口")
 public interface RemoveDeptApis {
     /**
      * @param deptDTO: 查询条件

@@ -3,6 +3,7 @@ package com.zeroone.star.orgmanager.controller;
 import com.zeroone.star.project.dept.RemoveDeptApis;
 import com.zeroone.star.project.dto.dept.DeptDTO;
 import com.zeroone.star.project.vo.JsonVO;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,8 @@ import org.springframework.web.bind.annotation.*;
 */
 @RestController
 @RequestMapping("/org-manager")
-public class DeptController implements RemoveDeptApis {
+@Api(tags = "删除部门接口")
+public class OrgManagerController implements RemoveDeptApis {
 
     @Override
     @DeleteMapping("/dept")

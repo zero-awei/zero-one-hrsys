@@ -12,7 +12,7 @@ import java.util.List;
   * @description：共用接口：岗位分类和岗位性质列表
   * @version: 1.0
 */
-public interface commonApis {
+public interface CommonApis {
     /**
      * @param :
      * @return JsonVO<List<GwflDTO>> 部门分类信息
