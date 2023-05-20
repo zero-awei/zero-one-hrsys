@@ -1,16 +1,16 @@
 #pragma once
-#ifndef _Import_Employee_Assign_Info_DTO_
-#define _Import_Employee_Assign_Info_DTO_
+#ifndef _Delete_Assign_Info_DTO_
+#define _IDelete_Assign_Info_DTO_
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 导入指定员工分配信息
+ * 删除指定员工分配信息
  */
-class ImportEmployeeAssignInfoDTO : public oatpp::DTO
+class DeleteAssignInfoDTO : public PageDTO<DeleteAssignInfoDTO::Wrapper>
 {
-	DTO_INIT(ImportEmployeeAssignInfoDTO, DTO);
+	DTO_INIT(DeleteAssignInfoDTO, PageDTO<DeleteAssignInfoDTO::Wrapper>);
 	// 分配(主分配或次分配)
 	DTO_FIELD(String, assign);
 	DTO_FIELD_INFO(assign) {
@@ -55,4 +55,4 @@ class ImportEmployeeAssignInfoDTO : public oatpp::DTO
 
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_Import_Employee_Assign_Info_DTO_
+#endif // !_Delete_Assign_Info_DTO_

@@ -1,16 +1,18 @@
 #pragma once
-#ifndef _Delete_Employee_Assign_Info_DTO_
-#define _IDelete_Employee_Assign_Info_DTO_
+#ifndef _Assign_Info_Query
+#define _Assign_Info_Query
+
+
 #include "../../GlobalInclude.h"
+#include "domain/query/PageQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
-
 /**
- * 删除指定员工分配信息
+ * 查找指定员工分配信息
  */
-class DeleteEmployeeAssignInfoDTO : public PageDTO<DeleteEmployeeAssignInfoDTO::Wrapper>
+class AssignInfoQueryDTO : public PageQuery
 {
-	DTO_INIT(DeleteEmployeeAssignInfoDTO, PageDTO<DeleteEmployeeAssignInfoDTO::Wrapper>);
+	DTO_INIT(AssignInfoQueryDTO, PageQuery);
 	// 分配(主分配或次分配)
 	DTO_FIELD(String, assign);
 	DTO_FIELD_INFO(assign) {
@@ -53,6 +55,5 @@ class DeleteEmployeeAssignInfoDTO : public PageDTO<DeleteEmployeeAssignInfoDTO::
 	}
 };
 
-
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_Delete_Employee_Assign_Info_DTO_
+#endif // !_Assign_Info_Query

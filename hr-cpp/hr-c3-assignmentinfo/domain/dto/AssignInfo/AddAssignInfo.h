@@ -1,18 +1,16 @@
 #pragma once
-#ifndef _Employee_Assign_Info_Query
-#define _Employee_Assign_Info_Query
-
-
+#ifndef _Add_Assign_Info_DTO_
+#define _Add_Assign_Info_DTO_
 #include "../../GlobalInclude.h"
-#include "domain/query/PageQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
+
 /**
- * 查找指定员工分配信息
+ * 新增指定员工分配信息
  */
-class EmployeeAssignInfoQueryDTO : public PageQuery
+class AddAssignInfoDTO : public oatpp::DTO
 {
-	DTO_INIT(EmployeeAssignInfoQueryDTO, PageQuery);
+	DTO_INIT(AddAssignInfoDTO, DTO);
 	// 分配(主分配或次分配)
 	DTO_FIELD(String, assign);
 	DTO_FIELD_INFO(assign) {
@@ -55,5 +53,6 @@ class EmployeeAssignInfoQueryDTO : public PageQuery
 	}
 };
 
+
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_Employee_Assign_Info_Query
+#endif // !_Add_Assign_Info_DTO_

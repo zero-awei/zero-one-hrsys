@@ -181,10 +181,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="controller\AssignController\QueryAssignController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\dto\AssignInfo\AddAssignInfo.h" />
+    <ClInclude Include="domain\dto\AssignInfo\DeleteAssignInfo.h" />
+    <ClInclude Include="domain\dto\AssignInfo\ImportAssignInfoDTO.h" />
+    <ClInclude Include="domain\dto\AssignInfo\ModifyAssignInfo.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\AssignInfoQuery\AssignInfoQueryDTO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
