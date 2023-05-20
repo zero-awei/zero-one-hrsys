@@ -172,7 +172,22 @@
   <ItemGroup>
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="controller\titleCatalogue\typeChangeController\TypeChangeController.h" />
+    <ClInclude Include="controller\titleCatalogue\typeDeleteController\TypeDeleteController.h" />
+    <ClInclude Include="controller\titleCatalogue\typeQueryController\TypeQueryController.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\dto\certificate\CertificateDTO.h" />
+    <ClInclude Include="domain\dto\contracttype\ContractTypeCreateDTO.h" />
+    <ClInclude Include="domain\dto\contracttype\ContractTypeDeleteDTO.h" />
+    <ClInclude Include="domain\dto\contracttype\ContractTypeDTO.h" />
+    <ClInclude Include="domain\dto\contracttype\ContractTypeImportDTO.h" />
+    <ClInclude Include="domain\dto\contracttype\ContractTypeUpdateDTO.h" />
+    <ClInclude Include="domain\query\certificate\CertificateQuery.h" />
+    <ClInclude Include="domain\query\contracttype\ContractTypeQuery.h" />
+    <ClInclude Include="domain\vo\certificate\CertificateVO.h" />
+    <ClInclude Include="domain\vo\contracttype\ContractTypeExportVO.h" />
+    <ClInclude Include="domain\vo\contracttype\ContractTypeUpdateResultVO.h" />
+    <ClInclude Include="domain\vo\contracttype\ContractTypeVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
@@ -180,6 +195,9 @@
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="controller\titleCatalogue\typeChangeController\TypeChangeController.cpp" />
+    <ClCompile Include="controller\titleCatalogue\typeDeleteController\TypeDeleteController.cpp" />
+    <ClCompile Include="controller\titleCatalogue\typeQueryController\TypeQueryController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

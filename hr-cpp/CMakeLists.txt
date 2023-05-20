@@ -4,7 +4,7 @@
 cmake_minimum_required (VERSION 3.8)
 
 # 指定工程名
-project ("zero-one-hrsys")
+project ("zero-one-hrsys-cpp-proj")
 
 # 设置安装目录前缀
 set (CMAKE_INSTALL_PREFIX "../install/${PROJECT_NAME}" CACHE PATH "install path prefix" FORCE )
