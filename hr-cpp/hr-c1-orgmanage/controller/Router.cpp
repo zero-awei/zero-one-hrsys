@@ -76,8 +76,6 @@ void Router::createSampleRouter()
 }
 #endif
 
-void Router::createImportProjTagRouter()
-
 
 void Router::createJobSetRouter()
 {
@@ -89,7 +87,6 @@ void Router::createJobSetRouter()
 }
 
 void Router::createProjTagRouter()
->>>>>>> remotes/origin/c1
 {
 	/**
 	 * 查询指定岗位详情&删除岗位
@@ -107,6 +104,11 @@ void Router::createProjTagRouter()
 	  * 负责人：远翔
 	  */
 	ROUTER_SIMPLE_BIND(ImportTagController);
+}
+
+void Router::createImportProjTagRouter()
+{
+	// ROUTER_SIMPLE_BIND(ImportTagController);
 }
 
 void Router::createAddProjTagRouter()

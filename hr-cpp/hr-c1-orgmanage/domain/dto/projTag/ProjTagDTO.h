@@ -56,30 +56,23 @@ class ProjTagDTO : public oatpp::DTO
 	}
 
 	// 建立时间
-	DTO_FIELD(String, createtime);
-	DTO_FIELD_INFO(createtime) {
+	DTO_FIELD(String, createdate);
+	DTO_FIELD_INFO(createdate) {
 		info->description = ZH_WORDS_GETTER("projTag.field.createtime");
 	}
 
 	// 更新时间
-	DTO_FIELD(String, updatetime);
-	DTO_FIELD_INFO(updatetime) {
+	DTO_FIELD(String, updatedate);
+	DTO_FIELD_INFO(updatedate) {
 		info->description = ZH_WORDS_GETTER("projTag.field.updatetime");
 	}
 
-	// 组织ID
-	DTO_FIELD(String, xh);
-	DTO_FIELD_INFO(xh) {
-		info->description = ZH_WORDS_GETTER("projTag.field.xh");
-	}
-
-	// 组合名称
+	// 组织id
 	DTO_FIELD(String, ormorgid);
 	DTO_FIELD_INFO(ormorgid) {
 		info->description = ZH_WORDS_GETTER("projTag.field.ormorgid");
 	}
 
-	
 };
 class ProjTagPageDTO : public PageDTO<ProjTagDTO::Wrapper>
 {
