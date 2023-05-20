@@ -30,7 +30,8 @@
 #include "projTag/postQueryController/PostQueryController.h"
 #include "projTag/postDeleteController/PostDeleteController.h"
 #include "projTag/exportProjTagController/ExportProjTagController.h"
-
+#include "projTag/importTagController/ImportTagController.h"
+#include "projTag/addTagController/AddTagController.h"
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -50,8 +51,6 @@ Router::Router(Endpoints* docEndpoints, HttpRouter* router)
 
 void Router::initRouter()
 {
-	//测试
-	createTestRouter();
 #ifdef HTTP_SERVER_DEMO
 	createSampleRouter();
 #endif
@@ -60,12 +59,7 @@ void Router::initRouter()
 	createJobSetRouter();
 	createProjTagRouter();
 }
-//测试
-void Router::createTestRouter()
-{
-	ROUTER_SIMPLE_BIND(PostQueryController);
-	ROUTER_SIMPLE_BIND(PostDeleteController);
-}
+
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
@@ -77,15 +71,34 @@ void Router::createSampleRouter()
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());
 }
-
 #endif
 
 void Router::createJobSetRouter()
 {
+	/**
+	 * 导入岗位
+	 * 负责人：Andrew
+	 */
 	ROUTER_SIMPLE_BIND(ImportJobController);
 }
 
 void Router::createProjTagRouter()
 {
+	/**
+	 * 查询指定岗位详情&删除岗位
+	 * 负责人：米饭
+	 */
+	ROUTER_SIMPLE_BIND(PostQueryController);
+	ROUTER_SIMPLE_BIND(PostDeleteController);
+	/**
+	 * 导出项目标签
+	 * 负责人：Andrew
+	 */
 	ROUTER_SIMPLE_BIND(ExportProjTagController);
+	 /**
+	  * 导入项目标签&新增项目标签
+	  * 负责人：远翔
+	  */
+	ROUTER_SIMPLE_BIND(ImportTagController);
+	ROUTER_SIMPLE_BIND(AddTagController);
 }

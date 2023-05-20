@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: Andrew211vibe
- @Date: 2023/05/16 18:28:33
+ @Author: yuanxiang
+ @Date: 2023/05/18 11:33:06
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,24 +17,22 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _IMPORTJOBCONTROLLER_H_
-#define _IMPORTJOBCONTROLLER_H_
+#ifndef _IMPORTTAGCONTROLLER_H_
+#define _IMPORTTAGCONTROLLER_H_
 
 #include "domain/vo/BaseJsonVO.h"
 #include "ApiHelper.h"
 #include "SimpleDateTimeFormat.h"
 #include "ServerInfo.h"
 #include "Macros.h"
-#include "domain/dto/jobSet/ImportJobDTO.h"
-#include "CharsetConvertHepler.h"
-#include "domain/vo/jobSet/ImportJobVO.h"
 
-// 文件上传
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
 #include "oatpp/web/mime/multipart/FileProvider.hpp"
 #include "oatpp/web/mime/multipart/Reader.hpp"
 #include "oatpp/web/mime/multipart/PartList.hpp"
-
+#include "domain/dto/projTag/ImportTagDTO.h"
+#include "domain/vo/projTag/ImportTagVO.h"
+#include "CharsetConvertHepler.h"
 
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
@@ -42,35 +40,38 @@ namespace multipart = oatpp::web::mime::multipart;
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
 /**
- * 岗位设置 - 导入岗位
- * 接收前端请求解析数据表名、文件格式、表格文件并保存到主机
- * 使用表格文件中的数据执行批量新增操作，并返回装载新增id的List信息
- * 负责人：Andrew
+ * 导入项目标签Controller接口：
+ * fileType指定文件后缀名（如test.xlsx，后缀名为xlsx），sheetName为excel表格中sheet名，file为具体文件
+ * 将文件按%Y-%m-%d_%H-%M-%S_ProjTag.xlsx格式放到"public/static/file/"目录下，
+ * 最终将文件内容导入到数据库。
+ * 返回值：项目标签排序号
+ * 负责人：远翔
  */
-class ImportJobController : public oatpp::web::server::api::ApiController
+class ImportTagController : public oatpp::web::server::api::ApiController
 {
 	// 定义控制器访问入口
-	API_ACCESS_DECLARE(ImportJobController);
+	API_ACCESS_DECLARE(ImportTagController);
 public: // 定义接口
-	ENDPOINT_INFO(importJob) {
+	// 定义文件上传端点描述
+	ENDPOINT_INFO(postFile) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("jobSet.import.summary");
+		info->summary = ZH_WORDS_GETTER("projTag.import.summary");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		//API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(ImportJobJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(NoDataJsonVO);
 		// 定义分页参数描述
-		info->queryParams.add<String>("fileType").description = ZH_WORDS_GETTER("jobSet.import.fileType");
+		info->queryParams.add<String>("fileType").description = ZH_WORDS_GETTER("projTag.import.fileType");
 		info->queryParams["fileType"].addExample("default", String("xlsx"));
 		info->queryParams["fileType"].required = false;
-		info->queryParams.add<String>("sheetName").description = ZH_WORDS_GETTER("jobSet.import.sheetName");
+		info->queryParams.add<String>("sheetName").description = ZH_WORDS_GETTER("projTag.import.sheetName");
 		info->queryParams["sheetName"].addExample("default", String("Sheet1"));
 		info->queryParams["sheetName"].required = true;
-		info->queryParams.add<String>("file").description = ZH_WORDS_GETTER("jobSet.import.file");
+		info->queryParams.add<String>("file").description = ZH_WORDS_GETTER("projTag.import.file");
 		info->queryParams["file"].required = true;
 	}
-
-	ENDPOINT(API_M_POST, PATH_TO_JOBSET("/import-job"), importJob, /*API_HANDLER_AUTH_PARAME, */REQUEST(std::shared_ptr<IncomingRequest>, request)) {
+	// 定义文件上传端点处理
+	ENDPOINT(API_M_POST, "/import-proj-tag", postFile, /*API_HANDLER_AUTH_PARAME, */REQUEST(std::shared_ptr<IncomingRequest>, request)) {
 		/* 创建multipart容器 */
 		auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
 		/* 创建multipart读取器 */
@@ -81,7 +82,7 @@ public: // 定义接口
 		/* 配置读取器读取文件到文件 */
 		String filePath = "public/static/file/";
 		filePath->append(SimpleDateTimeFormat::format("%Y-%m-%d_%H-%M-%S_"));
-		filePath->append("JobSet.xlsx");
+		filePath->append("ProjTag.xlsx");
 		multipartReader.setPartReader("file", multipart::createFilePartReader(filePath));
 
 		/* 读取请求体中的数据 */
@@ -114,14 +115,14 @@ public: // 定义接口
 		/* 打印文件名称 */
 		OATPP_LOGD("Multipart", "file='%s'", filePart->getFilename()->c_str());
 
-		auto dto = ImportJobDTO::createShared(String(fileType), String(sheetName), filePath);
+		auto dto = ImportTagDTO::createShared(String(fileType), String(sheetName), filePath);
 		// 响应结果
-		API_HANDLER_RESP_VO(execImportJob(dto/*, authObject->getPayload()*/));
+		API_HANDLER_RESP_VO(execImportTag(dto/*, authObject->getPayload()*/));
 	}
 private: // 定义接口执行函数
-	ImportJobJsonVO::Wrapper execImportJob(const ImportJobDTO::Wrapper& dto/*, const PayloadDTO& payload*/);
+	ImportProjTagJsonVO::Wrapper execImportTag(const ImportTagDTO::Wrapper& dto/*, const PayloadDTO& payload*/);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
 
-#endif // !_IMPORTJOBCONTROLLER_H_
+#endif // !_IMPORTTAGCONTROLLER_H_
