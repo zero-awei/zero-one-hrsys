@@ -1,7 +1,7 @@
 package com.zeroone.star.project.common;
 
-import com.zeroone.star.project.dto.post.GwflDTO;
-import com.zeroone.star.project.dto.post.PostNatureDTO;
+import com.zeroone.star.project.dto.common.GwflDTO;
+import com.zeroone.star.project.dto.common.PostNatureDTO;
 import com.zeroone.star.project.vo.JsonVO;
 
 import java.util.List;

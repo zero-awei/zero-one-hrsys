@@ -1,8 +1,8 @@
 package com.zeroone.star.common.controller;
 
 import com.zeroone.star.project.common.CommonApis;
-import com.zeroone.star.project.dto.post.GwflDTO;
-import com.zeroone.star.project.dto.post.PostNatureDTO;
+import com.zeroone.star.project.dto.common.GwflDTO;
+import com.zeroone.star.project.dto.common.PostNatureDTO;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -1,6 +1,7 @@
 package com.zeroone.star.project.orgmanager;
 
 import com.zeroone.star.project.dto.orgmanager.DeptDTO;
+import com.zeroone.star.project.query.orgmanager.DeptQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -13,14 +14,14 @@ import io.swagger.annotations.ApiParam;
 */
 public interface RemoveDeptApis {
     /**
-     * @param deptDTO: 查询条件
+     * @param deptQuery: 查询条件
      * @return JsonVO<PageDTO<DeptDTO>> 删除结果
      * @author 乐天
      * @description 批量删除部门信息
      * @date 2023/5/19 10:36
      */
     @ApiOperation(value = "批量删除部门", notes = "根据多个部门ids删除部分部门")
-    JsonVO<DeptDTO> removeDepts(DeptDTO deptDTO);
+    JsonVO<DeptDTO> removeDepts(DeptQuery deptQuery);
 
     /**
      * @param id: 部门编号
