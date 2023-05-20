@@ -5,8 +5,8 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class SampleDTO : public oatpp::DTO {
-	DTO_INIT(SampleDTO, DTO);
+class ArchiveManagementDTO : public oatpp::DTO {
+	DTO_INIT(ArchiveManagementDTO, DTO);
 	//µµ°¸±àºÅ
 	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
