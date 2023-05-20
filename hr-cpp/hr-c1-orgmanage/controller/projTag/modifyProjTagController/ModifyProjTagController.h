@@ -27,16 +27,16 @@
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
-class UpdateProjTagController : public oatpp::web::server::api::ApiController
+class ModifyProjTagController : public oatpp::web::server::api::ApiController
 {
 	// 定义控制器访问入口
-	API_ACCESS_DECLARE(UpdateProjTagController);
+	API_ACCESS_DECLARE(ModifyProjTagController);
 public: // 定义接口
-	ENDPOINT_INFO() {
+	ENDPOINT_INFO(modifyProjTag) {
 
 	}
 
-	ENDPOINT(API_M_PUT, ) {
+	ENDPOINT(API_M_PUT, PATH_TO_PROJTAG("update-project-tag"), modifuProjTag, BODY_DTO()) {
 
 	}
 private: // 定义接口执行函数

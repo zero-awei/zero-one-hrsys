@@ -180,7 +180,7 @@
     <ClInclude Include="controller\jobSet\JobController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\projTag\exportProjTagController\ExportProjTagController.h" />
-    <ClInclude Include="controller\projTag\updateProjTagController\UpdateProjTagController.h" />
+    <ClInclude Include="controller\projTag\modifyProjTagController\ModifyProjTagController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\postSet\PostDeleteDTO.h" />
