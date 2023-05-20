@@ -11,6 +11,11 @@
 class DeleteAssignInfoDTO : public PageDTO<DeleteAssignInfoDTO::Wrapper>
 {
 	DTO_INIT(DeleteAssignInfoDTO, PageDTO<DeleteAssignInfoDTO::Wrapper>);
+	//编号
+	DTO_FIELD(String, id);
+	DTO_FIELD_INFO(id) {
+		info->description = ZH_WORDS_GETTER("employee.field.id");
+	}
 	// 分配(主分配或次分配)
 	DTO_FIELD(String, assign);
 	DTO_FIELD_INFO(assign) {

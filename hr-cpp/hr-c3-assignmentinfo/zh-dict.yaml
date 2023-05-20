@@ -15,7 +15,7 @@ user:
   menuicon: 图标名称
   menuhref: 路由地址
   menusub: 子菜单
-sample:
+employee:
  get:
   summary: 分页查询示例数据
  post:
@@ -26,6 +26,11 @@ sample:
   summary: 删除一条示例数据
  field:
   id: 编号
-  age: 年龄
-  name: 姓名
-  sex: 性别，如：男
+  assign: 分配
+  type: 类型
+  organize: 组织
+  depart: 部门
+  job: 职务
+  post: 岗位
+  start-time: 任职开始时间
+  end-time: 任职结束时间

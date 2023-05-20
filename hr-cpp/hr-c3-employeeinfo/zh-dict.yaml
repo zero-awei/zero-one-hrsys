@@ -109,13 +109,3 @@ member:
     ormorgsectorname: 部门名字
     zw: 职务
   sex: 性别，如：男
-employee:
- field:
-  assign: 分配
-  type: 类型
-  organize: 组织
-  depart: 部门
-  job: 职务
-  post: 岗位
-  start-time: 任职开始时间
-  end-time: 任职结束时间

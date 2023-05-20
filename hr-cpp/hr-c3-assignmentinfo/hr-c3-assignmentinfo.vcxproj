@@ -170,9 +170,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="controller\assignController\QueryAssignController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\assignInfo\AssignInfoQueryService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -185,14 +187,20 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\dto\AssignInfo\AddAssignInfo.h" />
-    <ClInclude Include="domain\dto\AssignInfo\DeleteAssignInfo.h" />
+    <ClInclude Include="domain\dto\assignInfo\AddAssignInfoDTO.h" />
+    <ClInclude Include="domain\dto\assignInfo\DeleteAssignInfoDTO.h" />
     <ClInclude Include="domain\dto\AssignInfo\ImportAssignInfoDTO.h" />
-    <ClInclude Include="domain\dto\AssignInfo\ModifyAssignInfo.h" />
+    <ClInclude Include="domain\dto\assignInfo\ModifyAssignInfoDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
-    <ClInclude Include="domain\query\AssignInfoQuery\AssignInfoQueryDTO.h" />
+    <ClInclude Include="domain\query\assignInfo\AssignInfoQuery.h" />
+    <ClInclude Include="domain\vo\assignInfo\AddAssignInfoVO.h" />
+    <ClInclude Include="domain\vo\assignInfo\AssignInfoQueryVO.h" />
+    <ClInclude Include="domain\vo\assignInfo\DeleteAssignInfoVO.h" />
+    <ClInclude Include="domain\vo\assignInfo\ImportAssignInfoVO.h" />
+    <ClInclude Include="domain\vo\assignInfo\ModifyAssignInfoVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\assignInfo\AssignInfoQueryService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

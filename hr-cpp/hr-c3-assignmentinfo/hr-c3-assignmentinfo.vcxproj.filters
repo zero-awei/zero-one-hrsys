@@ -27,6 +27,12 @@
     <ClCompile Include="controller\SystemInterceptor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="service\assignInfo\AssignInfoQueryService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\assignController\QueryAssignController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
@@ -50,22 +56,40 @@
     <ClInclude Include="controller\Router.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\AssignInfo\AddAssignInfo.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\AssignInfo\DeleteAssignInfo.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\dto\AssignInfo\ImportAssignInfoDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\AssignInfo\ModifyAssignInfo.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\query\AssignInfoQuery\AssignInfoQueryDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="controller\AssignController\QueryAssignController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\assignInfo\AssignInfoQueryService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\assignInfo\AddAssignInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\assignInfo\AssignInfoQueryVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\assignInfo\DeleteAssignInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\assignInfo\ImportAssignInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\assignInfo\ModifyAssignInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\assignInfo\AssignInfoQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\assignInfo\AddAssignInfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\assignInfo\DeleteAssignInfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\assignInfo\ModifyAssignInfoDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
