@@ -20,12 +20,26 @@
 #ifndef _FAMILYSITUATIONCONTROLLER_H_
 #define _FAMILYSITUATIONCONTROLLER_H_
 
+// 领域模型
 #include "domain/vo/BaseJsonVO.h"
-#include "ApiHelper.h"
 #include "domain/query/familysituation/FamilysituationQuery.h"
 #include "domain/dto/familysituation/FamilysituationDTO.h"
 #include "domain/dto/familysituation/ImportfamilysituationDTO.h"
 #include "domain/vo/familysituation/FamilysituationVO.h"
+
+// API助手
+#include "ApiHelper.h"
+#include "SimpleDateTimeFormat.h"
+#include "CharsetConvertHepler.h"
+
+// 文件上传
+#include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
+#include "oatpp/web/mime/multipart/FileProvider.hpp"
+#include "oatpp/web/mime/multipart/Reader.hpp"
+#include "oatpp/web/mime/multipart/PartList.hpp"
+
+using namespace oatpp;
+namespace multipart = oatpp::web::mime::multipart;
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
@@ -63,11 +77,42 @@ public: // 定义接口
 		info->summary = ZH_WORDS_GETTER("familysituation.getone.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(FamilysituationJsonVO);
-		info->queryParams.add<String>("id").description = "ID";
-		info->queryParams["id"].addExample("default", String("1"));
+		info->queryParams.add<UInt64>("id").description = "ID";
+		info->queryParams["id"].addExample("default", UInt64(1));
+		info->queryParams.add<String>("frelationship").description = ZH_WORDS_GETTER("familysituation.field.relationship");
+		info->queryParams["frelationship"].addExample("default", String(ZH_WORDS_GETTER("familysituation.description.dadson")));
+		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("familysituation.field.name");
+		info->queryParams["name"].addExample("default", String("Marvin"));
+		info->queryParams.add<String>("gender").description = ZH_WORDS_GETTER("familysituation.field.gender");
+		info->queryParams["gender"].addExample("default", String("Male"));
+		info->queryParams["gender"].required = false;
+		info->queryParams.add<UInt64>("age").description = ZH_WORDS_GETTER("familysituation.field.age");
+		info->queryParams["age"].addExample("default", UInt64(1));
+		info->queryParams["age"].required = false;
+		info->queryParams.add<String>("workplace").description = ZH_WORDS_GETTER("familysituation.field.workplace");
+		info->queryParams["workplace"].addExample("default", String("home"));
+		info->queryParams["workplace"].required = false;
+		info->queryParams.add<String>("job").description = ZH_WORDS_GETTER("familysituation.field.job");
+		info->queryParams["job"].addExample("default", String("teacher"));
+		info->queryParams["job"].required = false;
+		info->queryParams.add<String>("politicalstatus").description = ZH_WORDS_GETTER("familysituation.field.politicalstatus");
+		info->queryParams["politicalstatus"].addExample("default", String("xx"));
+		info->queryParams["politicalstatus"].required = false;
+		info->queryParams.add<String>("identification").description = ZH_WORDS_GETTER("familysituation.field.identification");
+		info->queryParams["identification"].addExample("default", String("46126132513251251X"));
+		info->queryParams["identification"].required = false;
+		info->queryParams.add<String>("dob").description = ZH_WORDS_GETTER("familysituation.field.dob");
+		info->queryParams["dob"].addExample("default", String("1998/06/25"));
+		info->queryParams["dob"].required = false;
+		info->queryParams.add<UInt8>("testament").description = ZH_WORDS_GETTER("familysituation.field.testament");
+		info->queryParams["testament"].addExample("default", UInt8(1));
+		info->queryParams["testament"].required = false;
+		info->queryParams.add<UInt8>("ice").description = ZH_WORDS_GETTER("familysituation.field.ice");
+		info->queryParams["ice"].addExample("default", UInt8(1));
+		info->queryParams["ice"].required = false;
 	}
 	// 定义查询指定家庭情况接口处理
-	ENDPOINT(API_M_GET, "/query-by-OneFamilysituation", queryOneFamilysituation, QUERIES(QueryParams, queryParams))
+	ENDPOINT(API_M_GET, "/queryOne-by-Familysituation", queryOneFamilysituation, QUERIES(QueryParams, queryParams))
 	{
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(oneQuery, FamilysituationQuery, queryParams);
@@ -81,7 +126,6 @@ public: // 定义接口
 		info->summary = ZH_WORDS_GETTER("familysituation.post.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-
 	}
 	// 定义添加接口处理
 	ENDPOINT(API_M_POST, "/add-by-Familysituation", addFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
@@ -118,32 +162,76 @@ public: // 定义接口
 		API_HANDLER_RESP_VO(execRemoveFamilysituation(dto));
 	}
 	// 定义导入接口描述
-	ENDPOINT_INFO(importFamilysituation)
+	ENDPOINT_INFO(importFile)
 	{
-		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("familysituation.import.summary");
-		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		info->summary = ZH_WORDS_GETTER("familysituation.import-file.summary");
+		API_DEF_ADD_RSP_JSON(StringJsonVO::Wrapper);
+		info->queryParams["suffix"].description = ZH_WORDS_GETTER("familysituation.import-file.suffix");
+		info->queryParams["suffix"].addExample("xlsx", String(".xlsx"));
 	}
 	// 定义导入接口处理
-	ENDPOINT(API_M_POST, "/import-by-Familysituation", importFamilysituation, BODY_DTO(ImportfamilysituationDTO::Wrapper, dto))
+	ENDPOINT(API_M_POST, "/import-by-Familysituation", importFile, BODY_STRING(String, body), QUERY(String, suffix))
 	{
-		// 响应结果
-		API_HANDLER_RESP_VO(execImportFamilysituation(dto));
+		// 执行文件保存和解析逻辑
+		API_HANDLER_RESP_VO(executeImportFamilysituation(body, suffix));
 	}
+	//ENDPOINT(API_M_POST, "/import-by-Familysituation", importFile, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
+	//	/* 创建multipart容器 */
+	//	auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
+	//	/* 创建multipart读取器 */
+	//	multipart::Reader multipartReader(multipartContainer.get());
+	//	/* 配置读取器读取表单字段 */
+	//	multipartReader.setPartReader("frelationship", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+	//	multipartReader.setPartReader("name", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+	//	multipartReader.setPartReader("gender", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+	//	multipartReader.setPartReader("age", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+	//	multipartReader.setPartReader("workplace", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+	//	multipartReader.setPartReader("job", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+	//	multipartReader.setPartReader("politicalstatus", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+	//	multipartReader.setPartReader("identification", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+	//	multipartReader.setPartReader("dob", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+	//	multipartReader.setPartReader("testament", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+	//	multipartReader.setPartReader("ice", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+	//	/* 配置读取器读取文件到文件 */
+	//	String filePath = "public/static/file/";
+	//	filePath->append(SimpleDateTimeFormat::format("%Y-%m-%d_%H-%M-%S_"));
+	//	filePath->append("FamilySituation.xlsx");
+	//	multipartReader.setPartReader("file", multipart::createFilePartReader(filePath));
+	//	/* 读取请求体中的数据 */
+	//	request->transferBody(&multipartReader);
+	//	/* 打印part数量 */
+	//	OATPP_LOGD("Multipart", "parts_count=%d", multipartContainer->count());
+	//	/* 获取表单数据 */
+	//	auto frelationship = multipartContainer->getNamedPart("relationship");
+	//	auto name = multipartContainer->getNamedPart("familyName");
+	//	/* 断言表单数据是否正确 */
+	//	OATPP_ASSERT_HTTP(frelationship, Status::CODE_400, "relationship is null");
+	//	OATPP_ASSERT_HTTP(name, Status::CODE_400, "familyName is null");
+	//	/* 获取文件部分 */
+	//	auto filePart = multipartContainer->getNamedPart("file");
+	//	/* 断言文件是否获取到 */
+	//	OATPP_ASSERT_HTTP(filePart, Status::CODE_400, "file is null");
+	//	/* 打印文件名称 */
+	//	OATPP_LOGD("Multipart", "file='%s'", filePart->getFilename()->c_str());
+	//	/* 响应OK */
+	//	return createResponse(Status::CODE_200, "OK");
+	//}
+
 	// 定义导出接口描述
 	ENDPOINT_INFO(exportFamilysituation)
 	{
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("familysituation.export.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(FamilysituationJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		info->queryParams["url"].description = ZH_WORDS_GETTER("familysituation.export-file.summary");
+		info->queryParams["url"].addExample("xlsx", String(".xlsx"));
 	}
 	// 定义导出接口处理
-	ENDPOINT(API_M_GET, "/export-by-Familysituation", exportFamilysituation, BODY_DTO(ImportfamilysituationDTO::Wrapper, dto))
+	ENDPOINT(API_M_GET, "/export-by-Familysituation", exportFamilysituation, QUERY(String, url))
 	{
 		// 响应结果
-		API_HANDLER_RESP_VO(execExportFamilysituation(dto));
+		API_HANDLER_RESP_VO(execExportFamilysituation(url));
 	}
 
 private: // 定义接口执行函数
@@ -158,9 +246,9 @@ private: // 定义接口执行函数
 	// 删除数据响应
 	StringJsonVO::Wrapper execRemoveFamilysituation(const FamilysituationDTO::Wrapper& dto);
 	// 导入数据响应
-	StringJsonVO::Wrapper execImportFamilysituation(const ImportfamilysituationDTO::Wrapper& dto);
+	StringJsonVO::Wrapper executeImportFamilysituation(const String& fileBody, const String& suffix);
 	// 导出数据响应
-	FamilysituationJsonVO::Wrapper execExportFamilysituation(const ImportfamilysituationDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execExportFamilysituation(const String& url);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
