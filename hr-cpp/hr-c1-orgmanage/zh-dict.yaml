@@ -34,7 +34,6 @@ orgmanage:
   postQuery: queryByQuerySort
   postDeleteOne: deleteByOrmPostId
   postDeleteBatch: deleteBatchByOrmPostId
-common:
  dto:
   xh: 排序标号
   gwfl: 岗位分类
@@ -47,8 +46,6 @@ common:
   startStopSign: 启用标识
   ormPostId: 岗位集标识
   ormPostIds: 岗位集标识集
-  query: 查询岗位名称
-  sort: 排序类别:排序方式,(asc/desc)
   createMan: 建立人
   updateDate: 更新时间
   updateMan: 更新人
@@ -58,3 +55,6 @@ common:
   isTemp: 是否临时数据
   ormOrgId: 外部组织机构标识
   ormOrgName: 组织机构名称
+ query:
+  queryPostName: 查询岗位名称
+  sortTypeAndMethod: 排序类别:排序方式,(asc/desc)

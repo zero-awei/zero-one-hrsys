@@ -32,7 +32,7 @@ class PostDeleteDTO : public oatpp::DTO
 	// 岗位集标识
 	DTO_FIELD(String, ormPostId);
 	DTO_FIELD_INFO(ormPostId) {
-		info->description = ZH_WORDS_GETTER("common.dto.ormPostId");
+		info->description = ZH_WORDS_GETTER("orgmanage.dto.ormPostId");
 	}
 };
 
@@ -45,7 +45,7 @@ class PostDeleteBatchDTO : public oatpp::DTO
 	// 岗位集标识集
 	DTO_FIELD(oatpp::List<String>, ormPostIds);
 	DTO_FIELD_INFO(ormPostIds) {
-		info->description = ZH_WORDS_GETTER("common.dto.ormPostIds");
+		info->description = ZH_WORDS_GETTER("orgmanage.dto.ormPostIds");
 	}
 };
 #include OATPP_CODEGEN_END(DTO)
