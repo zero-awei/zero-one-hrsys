@@ -109,12 +109,6 @@ void Router::creatTestRouter()
 	ROUTER_SIMPLE_BIND(CertTypeListController);
 }
 
-void Router::createRouter()
-{
-	ROUTER_SIMPLE_BIND(FileReservationController);
-	ROUTER_SIMPLE_BIND(FileStatusController);
-}
-
 void Router::createContractTypeRouter()
 {
 	ROUTER_SIMPLE_BIND(ContractTypeListController);

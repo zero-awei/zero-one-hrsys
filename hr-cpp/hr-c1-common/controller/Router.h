@@ -40,7 +40,6 @@ public:
 	Router(Endpoints* docEndpoints, HttpRouter* router);
 	// 呼叫初始化
 	void initRouter();
-	void createRouter();
 
 
 private:
@@ -69,7 +68,16 @@ private:
 	 */
 	void createArmyLevelTypeRouter();
 	
+	/**
+	 * 绑定离职原因下拉列表
+	 * 负责人：远翔
+	 */
 	void createLeaveReasonRouter();
+
+	/**
+	 * 绑定解聘原因下拉列表
+	 * 负责人：远翔
+	 */
 	void createDismissReasonRouter();
 };
 

@@ -159,26 +159,21 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-
     <ClInclude Include="controller\dismissReason\DismissReasonController.h" />
     <ClInclude Include="controller\fileReservation\FileReservationController.h" />
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
     <ClInclude Include="controller\certDropDownList\certTypeList\CertTypeListController.h" />
     <ClInclude Include="controller\certDropDownList\profCertsList\ProfCertsListController.h" />
-    <ClInclude Include="controller\fileReservation\FileReservationController.h" />
     <ClInclude Include="controller\fileStatus\FileStatusController.h" />
-
+    <ClInclude Include="controller\leaveReason\LeaveReasonController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\contractType\ContractTypeListController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-
     <ClInclude Include="domain\dto\fileReservation\FileReservationDTO.h" />
-
     <ClInclude Include="domain\dto\certs\CertTypeDTO.h" />
     <ClInclude Include="domain\dto\certs\ProfCertsDTO.h" />
     <ClInclude Include="domain\dto\filestatus\FilestatusDTO.h" />
-
     <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
     <ClInclude Include="domain\query\certs\CertTypeQuery.h" />
     <ClInclude Include="domain\query\certs\ProfCertsQuery.h" />
@@ -191,7 +186,6 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-
     <ClCompile Include="controller\dismissReason\DismissReasonController.cpp" />
     <ClCompile Include="controller\leaveReason\LeaveReasonController.cpp" />
     <ClCompile Include="controller\certDropDownList\certTypeList\CertTypeListController.cpp" />

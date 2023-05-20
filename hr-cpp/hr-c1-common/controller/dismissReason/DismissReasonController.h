@@ -26,6 +26,11 @@
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
+/**
+ * 离职原因Controller
+ * 接收前端请求，查询离职原因并组装成列表返回
+ * 负责人：远翔
+ */
 class DismissReasonController : public oatpp::web::server::api::ApiController
 {
 	// 定义控制器访问入口
