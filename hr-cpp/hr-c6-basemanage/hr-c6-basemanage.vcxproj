@@ -192,9 +192,6 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\arch-demo\arch-demo.vcxproj">
-      <Project>{14c5b354-692f-4dd3-901c-35756cf336b8}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\lib-common\lib-common.vcxproj">
       <Project>{213f58ad-9943-4155-8a45-1b2dab0bb8f9}</Project>
     </ProjectReference>

@@ -48,7 +48,7 @@ public:
 	// 3.1 定义查询合同接口描述
 	ENDPOINT_INFO(queryContract) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("contract_gs.get.summary");
+		info->summary = ZH_WORDS_GETTER("contract_gosh.get.summary");
 		// 定义响应参数类型
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 定义分页查询参数描述
@@ -64,7 +64,7 @@ public:
 	//3.1 定义查询个人信息接口描述
 	ENDPOINT_INFO(queryPerson) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("person.get.summary");
+		info->summary = ZH_WORDS_GETTER("contract_gosh.get.summary");
 		// 定义响应参数类型
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 定义分页查询参数描述
@@ -80,7 +80,7 @@ public:
 	// 3.1 定义新增合同接口描述
 	ENDPOINT_INFO(addContract) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("contract_gs.post.summary");
+		info->summary = ZH_WORDS_GETTER("contract_gosh.post.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
@@ -92,7 +92,7 @@ public:
 	// 3.1 定义删除合同接口描述
 	ENDPOINT_INFO(removeContract) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("contract_gs.delete.summary");
+		info->summary = ZH_WORDS_GETTER("contract_gosh.delete.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}

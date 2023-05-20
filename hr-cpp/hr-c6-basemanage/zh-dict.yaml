@@ -1,4 +1,4 @@
-contract:
+contract_gosh:
  get:
   summary: 分页查询合同信息
  post:
@@ -18,7 +18,7 @@ contract:
   department_c: 合同签订单位
   date_end: 合同到期时间
   tip: 备注
-person:
+person_gosh:
  get:
   summary: 分页查询个人信息
  post:
