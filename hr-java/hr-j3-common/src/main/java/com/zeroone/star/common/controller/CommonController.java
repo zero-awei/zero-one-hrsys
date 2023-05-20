@@ -32,13 +32,16 @@ public class CommonController implements CommonApis {
     public JsonVO<List<String>> queryOneColumn(OneConditionQuery oneConditionQuery) {
         return null;
     }
-@GetMapping("query-reward-levels")
-@ApiOperation("奖惩级别下拉列表")
+
+    @GetMapping("query-reward-levels")
+    @ApiOperation("奖惩级别下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryRewardPenaltyLevels() {
         return null;
     }
-@GetMapping("query-type-of-military-transfer")
+
+    @GetMapping("query-type-of-military-transfer")
+    @ApiOperation("军转类型下拉菜单")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryTypeofMilitaryTransfer() {
         return null;
@@ -57,14 +60,16 @@ public class CommonController implements CommonApis {
     public JsonVO<List<DropdownListOptionDTO>> queryDistributionStatus() {
         return null;
     }
+
     @GetMapping("query-name-of-association")
     @ApiOperation("组织名称下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryNameofAssociation() {
         return null;
     }
-@GetMapping("query-department-name")
-@ApiOperation("部门名称下拉列表")
+
+    @GetMapping("query-department-name")
+    @ApiOperation("部门名称下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryDepartmentName() {
         return null;
