@@ -162,8 +162,10 @@
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
     <ClInclude Include="controller\certDropDownList\certTypeList\CertTypeListController.h" />
     <ClInclude Include="controller\certDropDownList\profCertsList\ProfCertsListController.h" />
+    <ClInclude Include="controller\costTypeList\CostTypeListController.h" />
     <ClInclude Include="controller\fileReservation\FileReservationController.h" />
     <ClInclude Include="controller\fileStatus\FileStatusController.h" />
+    <ClInclude Include="controller\jobLevelTypeList\JobLevelTypeListController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\contractType\ContractTypeListController.h" />
     <ClInclude Include="controller\Router.h" />
@@ -187,8 +189,10 @@
     <ClCompile Include="controller\certDropDownList\profCertsList\ProfCertsListController.cpp" />
     <ClCompile Include="controller\armyLevelType\ArmyLevelTypeController.cpp" />
     <ClCompile Include="controller\contractType\ContractTypeListController.cpp" />
+    <ClCompile Include="controller\costTypeList\CostTypeListController.cpp" />
     <ClCompile Include="controller\fileReservation\FileReservationController.cpp" />
     <ClCompile Include="controller\fileStatus\FileStatusController.cpp" />
+    <ClCompile Include="controller\jobLevelTypeList\JobLevelTypeListController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />

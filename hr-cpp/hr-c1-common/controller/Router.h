@@ -66,6 +66,16 @@ private:
 	 * 负责人：Andrew
 	 */
 	void createArmyLevelTypeRouter();
+	/**
+	 * 绑定职称等级类型下拉列表路由
+	 * 负责人：咫尺之书
+	 */
+	void createJobLevelTypeRouter();
+	/**
+	 * 绑定费用类别下拉列表路由
+	 * 负责人：咫尺之书
+	 */
+	void createCostTypeRouter();
 };
 
 #endif // !_ROUTER_

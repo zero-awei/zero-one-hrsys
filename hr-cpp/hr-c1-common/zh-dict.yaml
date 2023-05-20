@@ -61,3 +61,5 @@ common:
   contractType: 合同类型   
   fileStatus: 档案借阅状态
   fileReservation: 档案保管地
+  jobLevelType: 职称级别类型 
+  costType: 费用类别

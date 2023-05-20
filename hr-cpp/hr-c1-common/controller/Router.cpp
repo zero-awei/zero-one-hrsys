@@ -31,6 +31,8 @@
 #include "armyLevelType/ArmyLevelTypeController.h"
 #include "fileStatus/FileStatusController.h"
 #include "fileReservation/FileReservationController.h"
+#include "jobLevelTypeList/JobLevelTypeListController.h"
+#include "costTypeList/CostTypeListController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -61,6 +63,8 @@ void Router::initRouter()
 	createRouter();
 	//本地测试
 	creatTestRouter();
+	createJobLevelTypeRouter();
+	createCostTypeRouter();
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -98,4 +102,14 @@ void Router::createContractTypeRouter()
 void Router::createArmyLevelTypeRouter()
 {
 	ROUTER_SIMPLE_BIND(ArmyLevelTypeController);
+}
+
+void Router::createJobLevelTypeRouter()
+{
+	ROUTER_SIMPLE_BIND(JobLevelTypeListController);
+}
+
+void Router::createCostTypeRouter()
+{
+	ROUTER_SIMPLE_BIND(CostTypeListController);
 }
