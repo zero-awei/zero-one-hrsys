@@ -44,6 +44,9 @@ class SampleController : public oatpp::web::server::api::ApiController // 1 继承
 	API_ACCESS_DECLARE(SampleController);
 	// 3 定义接口
 public: 
+
+	
+
 	// 3.1 定义查询接口描述
 	ENDPOINT_INFO(querySample) {
 		// 定义接口标题
@@ -69,6 +72,7 @@ public:
 		// 响应结果
 		API_HANDLER_RESP_VO(execQuerySample(userQuery, authObject->getPayload()));
 	}
+	
 	// 3.1 定义新增接口描述
 	ENDPOINT_INFO(addSample) {
 		// 定义接口标题
