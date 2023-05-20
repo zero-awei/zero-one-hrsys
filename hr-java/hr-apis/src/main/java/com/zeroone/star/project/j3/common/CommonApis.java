@@ -23,12 +23,18 @@ import java.util.List;
 public interface CommonApis {
 
     /**
-     * 获取分配信息中的职务信息数据接口
-     *
-     * @param oneConditionQuery 查询的字段名
+     * 获取分配信息中的职务名称下拉列表数据
+     * @param
      * @return 查询结果
      */
-    JsonVO<List<String>> queryOneColumn(OneConditionQuery oneConditionQuery);
+    JsonVO<List<DropdownListOptionDTO>> queryPositionTitle();
+
+    /**
+     * 获取分配信息中的岗位名称下拉列表数据
+     * @param
+     * @return 查询结果
+     */
+    JsonVO<List<DropdownListOptionDTO>> queryJobTitle();
 
     /**
      * @return {@link JsonVO< List< DropdownListOptionDTO>>}

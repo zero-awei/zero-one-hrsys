@@ -27,9 +27,9 @@ public interface OrgInfoApis {
 	  * 修改组织信息数据
 	  *
 	  * @param orgInfoDTO 修改数据内容
-	  * @return 修改成功影响行数
+	  * @return 是否修改成功
 	  */
-	 JsonVO<Long> modifyOrgInfo(OrgInfoDTO orgInfoDTO);
+	 JsonVO<Boolean> modifyOrgInfo(OrgInfoDTO orgInfoDTO);
 
 	/**
 	 * 批量删除组织信息

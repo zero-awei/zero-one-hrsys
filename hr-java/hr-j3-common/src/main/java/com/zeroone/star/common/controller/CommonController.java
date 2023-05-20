@@ -28,17 +28,29 @@ import java.util.Map;
 @Api(tags = "公用接口common")
 @RequestMapping("common")
 public class CommonController implements CommonApis {
+
+    @GetMapping("query-start-position-title")
+    @ApiOperation("职务名称下拉列表")
     @Override
-    public JsonVO<List<String>> queryOneColumn(OneConditionQuery oneConditionQuery) {
+    public JsonVO<List<DropdownListOptionDTO>> queryPositionTitle() {
         return null;
     }
-@GetMapping("query-reward-levels")
-@ApiOperation("奖惩级别下拉列表")
+
+    @GetMapping("query-start-job-title")
+    @ApiOperation("岗位名称下拉列表")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryJobTitle() {
+        return null;
+    }
+
+    @GetMapping("query-reward-levels")
+    @ApiOperation("奖惩级别下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryRewardPenaltyLevels() {
         return null;
     }
-@GetMapping("query-type-of-military-transfer")
+
+    @GetMapping("query-type-of-military-transfer")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryTypeofMilitaryTransfer() {
         return null;
@@ -57,14 +69,16 @@ public class CommonController implements CommonApis {
     public JsonVO<List<DropdownListOptionDTO>> queryDistributionStatus() {
         return null;
     }
+
     @GetMapping("query-name-of-association")
     @ApiOperation("组织名称下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryNameofAssociation() {
         return null;
     }
-@GetMapping("query-department-name")
-@ApiOperation("部门名称下拉列表")
+
+    @GetMapping("query-department-name")
+    @ApiOperation("部门名称下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryDepartmentName() {
         return null;
