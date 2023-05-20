@@ -53,8 +53,15 @@ familysituation:
   politicalstatus: 政治面貌
   identification: 证件号
   dob: 出生日期
-  testament: 是否遗嘱
-  ice: 紧急联系人
+  testament: 是否遗嘱 (1.是 2.否)
+  ice: 紧急联系人 (1.是 2.否)
   relationship: 与本人关系
  description:
   dadson: 父子
+ import-file:
+  summary: 导入.xlsx文件
+  suffix: 文件后缀
+ export-file:
+  summary: 导出全部文件
+
+   
