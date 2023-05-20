@@ -54,7 +54,8 @@ title:
   name: "职称名称"
   grades: "职称等级"
   type: "职称类型"
-  category: "专业类别"labordispatch_mug:
+  category: "专业类别"
+labordispatch_mug:
  get:
   summary: 查看指定公司信息
  modify:

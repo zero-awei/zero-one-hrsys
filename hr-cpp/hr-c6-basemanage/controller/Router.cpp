@@ -65,7 +65,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(JobTitleController);
 	ROUTER_SIMPLE_BIND(ExpenseLedgerMController);
 	ROUTER_SIMPLE_BIND(LaborDispatchConstroller);
-	ROUTER_SIMPLE_BIND(FindController);
+	ROUTER_SIMPLE_BIND(GoshController);
 }
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()

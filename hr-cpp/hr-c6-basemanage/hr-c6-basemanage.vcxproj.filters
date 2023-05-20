@@ -11,6 +11,10 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="dao\Sample\ContractDao.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="controller\JobTitle\JobTitleController.cpp" />
+    <ClCompile Include="domain\do\JobTitle\JobTitleDo.h" />
+    <ClCompile Include="domain\dto\JobTitle\JobTitleDTO.h" />
+    <ClCompile Include="domain\vo\JobTitle\JobTitleJsonVO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\Muggle\expense_ledger-Muggle.h" />
@@ -41,6 +45,7 @@
     <ClInclude Include="service\sample\ContractService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="domain\query\Gosh\PersonQuery.h" />
+    <ClInclude Include="controller\JobTitle\JobTitleController.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="conf\data-source.yaml" />
