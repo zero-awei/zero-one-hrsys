@@ -1,4 +1,4 @@
-package com.zeroone.star.project.query.sysmanager.menumanager;
+package com.zeroone.star.project.query.sysmanager.rightmanager;
 
 import com.zeroone.star.project.query.PageQuery;
 import io.swagger.annotations.ApiModel;
@@ -6,28 +6,35 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.validation.constraints.NotBlank;
-
+/**
+ * <p>
+ * 描述：权限显示数据对象
+ * </p>
+ * <p>版权：&copy;01星球</p>
+ * <p>地址：01星球总部</p>
+ * @author
+ * @version 1.0.0
+ */
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@ApiModel("菜单查询")
-public class MenuQuery extends PageQuery {
+@ApiModel("权限分页查询")
+public class RightQuery extends PageQuery {
 
     @ApiModelProperty(value = "唯一编号",example = "1")
     private String id;
 
-    @ApiModelProperty(value = "菜单名称",example = "系统管理")
+    @ApiModelProperty(value = "权限名称",example = "增加权限")
     private String name;
 
-    @ApiModelProperty(value = "路由地址", example = "/sysmanager")
-    private String path;
+    @ApiModelProperty(value = "链接地址", example = "/login")
+    private String linkUrl;
 
     @ApiModelProperty(value = "显示级别", example = "1")
     private Integer priority;
 
-    @ApiModelProperty(value = "父菜单名称", example = "根菜单")
-    private String parentMenuName;
+    @ApiModelProperty(value = "父权限名称", example = "根权限")
+    private String parentRightName;
 
     @ApiModelProperty(value = "层次", example = "1")
     private Integer level;
