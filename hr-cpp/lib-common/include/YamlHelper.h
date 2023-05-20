@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -29,9 +29,9 @@ public:
 	// FullName:  YamlCpp::getString
 	// Access:    public 
 	// Returns:   std::string
-	// Qualifier: ÒÔProperties·ç¸ñ¶ÁÈ¡YamlÅäÖÃ¶ÔÓ¦µÄ×Ö·û´®
-	// Parameter: YAML::Node * node Êı¾İ½Úµã
-	// Parameter: const std::string & key Êı¾İµÄkey£¬Èçspring.datasource.url
+	// Qualifier: ä»¥Propertiesé£æ ¼è¯»å–Yamlé…ç½®å¯¹åº”çš„å­—ç¬¦ä¸²
+	// Parameter: YAML::Node * node æ•°æ®èŠ‚ç‚¹
+	// Parameter: const std::string & key æ•°æ®çš„keyï¼Œå¦‚spring.datasource.url
 	//************************************
 	std::string getString(YAML::Node* node, const std::string& key);
 
@@ -40,11 +40,11 @@ public:
 	// FullName:  YamlHelper::parseDbConnUrl
 	// Access:    public 
 	// Returns:   void
-	// Qualifier: ½âÎöÊı¾İ¿âÁ¬½Ó×Ö·û´®»ñÈ¡Êı¾İ¿âÏà¹ØĞÅÏ¢
-	// Parameter: const std::string& url Êı¾İ¿âÁ¬½Ó×Ö·û´®
-	// Parameter: std::string * ip ±£´æIP
-	// Parameter: int * port ±£´æ¶Ë¿Ú
-	// Parameter: std::string * dbname ±£´æÊı¾İ¿âÃû³Æ
+	// Qualifier: è§£ææ•°æ®åº“è¿æ¥å­—ç¬¦ä¸²è·å–æ•°æ®åº“ç›¸å…³ä¿¡æ¯
+	// Parameter: const std::string& url æ•°æ®åº“è¿æ¥å­—ç¬¦ä¸²
+	// Parameter: std::string * ip ä¿å­˜IP
+	// Parameter: int * port ä¿å­˜ç«¯å£
+	// Parameter: std::string * dbname ä¿å­˜æ•°æ®åº“åç§°
 	//************************************
 	void parseDbConnUrl(const std::string& url, std::string* ip, int* port, std::string* dbname);
 };

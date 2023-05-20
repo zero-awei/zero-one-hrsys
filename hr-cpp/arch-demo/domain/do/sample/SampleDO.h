@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -22,17 +22,17 @@
 #include "../DoInclude.h"
 
 /**
- * Ê¾ÀıÊı¾İ¿âÊµÌåÀà
+ * ç¤ºä¾‹æ•°æ®åº“å®ä½“ç±»
  */
 class SampleDO
 {
-	// ±àºÅ
+	// ç¼–å·
 	CC_SYNTHESIZE(uint64_t, id, Id);
-	// ĞÕÃû
+	// å§“å
 	CC_SYNTHESIZE(string, name, Name);
-	// ĞÔ±ğ
+	// æ€§åˆ«
 	CC_SYNTHESIZE(string, sex, Sex);
-	// ÄêÁä
+	// å¹´é¾„
 	CC_SYNTHESIZE(int, age, Age);
 public:
 	SampleDO() {

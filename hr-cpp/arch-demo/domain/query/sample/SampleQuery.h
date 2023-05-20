@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -26,22 +26,22 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * Ê¾Àý·ÖÒ³²éÑ¯¶ÔÏó
+ * ç¤ºä¾‹åˆ†é¡µæŸ¥è¯¢å¯¹è±¡
  */
 class SampleQuery : public PageQuery
 {
 	DTO_INIT(SampleQuery, PageQuery);
-	// ÐÕÃû
+	// å§“å
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
 		info->description = ZH_WORDS_GETTER("sample.field.name");
 	}
-	// ÐÔ±ð
+	// æ€§åˆ«
 	DTO_FIELD(String, sex);
 	DTO_FIELD_INFO(sex) {
 		info->description = ZH_WORDS_GETTER("sample.field.sex");
 	}
-	// ÄêÁä
+	// å¹´é¾„
 	DTO_FIELD(UInt32, age);
 	DTO_FIELD_INFO(age) {
 		info->description = ZH_WORDS_GETTER("sample.field.age");

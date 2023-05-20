@@ -21,6 +21,7 @@
 #define _PAGE_QUERY_
 #include "oatpp/core/macro/codegen.hpp"
 #include "oatpp/core/Types.hpp"
+#include "ApiHelper.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 /**
@@ -46,6 +47,22 @@ class PageQuery : public oatpp::DTO
 		info->description = u8"每页数据条数";
 #else
 		info->description = "curr page size";
+#endif
+	}
+};
+
+class PageQuery_person : public oatpp::DTO
+{
+	// 初始化定义
+	DTO_INIT(PageQuery_person, DTO);
+	// 查询姓名
+	DTO_FIELD(String, PersonName)= API_PERSON_defalut_DESC;
+	DTO_FIELD_INFO(PersonName)
+	{
+#ifndef LINUX
+		info->description = u8"员工姓名";
+#else
+		info->description = "curr person name";
 #endif
 	}
 };

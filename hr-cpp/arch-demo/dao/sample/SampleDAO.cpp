@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
@@ -21,7 +21,7 @@
 #include "SampleMapper.h"
 #include <sstream>
 
-//¶¨ÒåÌõ¼ş½âÎöºê£¬¼õÉÙÖØ¸´´úÂë
+//å®šä¹‰æ¡ä»¶è§£æå®ï¼Œå‡å°‘é‡å¤ä»£ç 
 #define SAMPLE_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
@@ -38,7 +38,7 @@ if (query->age) { \
 	SQLPARAMS_PUSH(params, "i", int, query->age.getValue(0)); \
 }
 
-uint64_t SampleDAO::count(const SampleQuery::Wrapper & query)
+uint64_t SampleDAO::count(const SampleQuery::Wrapper& query)
 {
 	stringstream sql;
 	sql << "SELECT COUNT(*) FROM sample";
