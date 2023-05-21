@@ -7,6 +7,8 @@ import com.zeroone.star.project.j3.query.common.OneConditionQuery;
 import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import com.zeroone.star.project.vo.JsonVO;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 import java.util.Map;
@@ -33,7 +35,16 @@ public interface CommonApis {
      */
     JsonVO<List<String>> queryOneColumn(OneConditionQuery oneConditionQuery);
 
+    @GetMapping("query-start-position-title")
+    @ApiOperation("职务名称下拉列表")
+    JsonVO<List<DropdownListOptionDTO>> queryPositionTitle();
+
+    @GetMapping("query-start-job-title")
+    @ApiOperation("岗位名称下拉列表")
+    JsonVO<List<DropdownListOptionDTO>> queryJobTitle();
+
     /**
+     * 获取奖惩级别下拉列表
      * @return {@link JsonVO< List< DropdownListOptionDTO>>}
      * @Author H_lzu
      * @Date 20:27 2023/5/19
