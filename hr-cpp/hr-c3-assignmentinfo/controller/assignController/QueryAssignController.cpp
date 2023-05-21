@@ -6,7 +6,7 @@ AssignInfoQueryJsonVO::Wrapper QueryAssignController::execAssignQuery(const Assi
 {
 	// 定义一个Service
 	AssignInfoQueryService service;
-	// 查询数据
+	//// 查询数据
 	auto result = service.listAll(query);
 	// 响应结果
 	auto jvo = AssignInfoQueryJsonVO::createShared();

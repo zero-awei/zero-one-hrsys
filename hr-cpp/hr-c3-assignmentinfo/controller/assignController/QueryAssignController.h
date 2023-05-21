@@ -31,7 +31,7 @@ public:
 	// 3.1 定义查询接口描述
 	ENDPOINT_INFO(assignQuery) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("employee.get.sumary");
+		info->summary = ZH_WORDS_GETTER("employee.get.summary");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
@@ -41,10 +41,10 @@ public:
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.field.id");
 		info->queryParams["id"].addExample("default", String("114514"));
-		info->queryParams["id"].required = false;
+		info->queryParams["id"].required = true;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/sample", assignQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/query-assign", assignQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, AssignInfoQuery, queryParams);
 		// 响应结果
