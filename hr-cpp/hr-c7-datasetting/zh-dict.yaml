@@ -34,6 +34,10 @@ certificate:
   id: 排序号
   certificateName:	证书名称
 contractType:
+
+  certificateName: 证书名称
+  contractType:
+
   query-all:
     summary: 分页查询合同类别列表
   post:
@@ -52,3 +56,8 @@ contractType:
     description: 描述
     createTime: 创建时间
     ids: 编号列表
+qulification:
+ filed:
+  qulificationName: 执业资格名称
+  rank: 级别
+  practicingQulification: 执业资格

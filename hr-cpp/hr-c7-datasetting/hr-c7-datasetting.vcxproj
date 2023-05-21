@@ -195,6 +195,9 @@
     <ClInclude Include="domain\dto\archive\ArchiveDTO.h" />
     <ClInclude Include="domain\query\archive\ArchiveQuery.h" />
     <ClInclude Include="domain\vo\archive\ArchiveVO.h" />
+    <ClInclude Include="domain\dto\Qualification\QulificationDTO.h" />
+    <ClInclude Include="domain\query\Qualification\QualificationQuery.h" />
+    <ClInclude Include="domain\vo\Qulification\QulificationVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
