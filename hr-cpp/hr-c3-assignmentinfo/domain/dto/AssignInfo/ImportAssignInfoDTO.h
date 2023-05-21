@@ -12,7 +12,7 @@ class ImportAssignInfoDTO : public oatpp::DTO
 {
 	DTO_INIT(ImportAssignInfoDTO, DTO);
 	//编号
-	DTO_FIELD(String, id);
+	DTO_FIELD(UInt64, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("employee.field.id");
 	}
@@ -22,9 +22,9 @@ class ImportAssignInfoDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("employee.field.assign");
 	}
 	// 类型
-	DTO_FIELD(String, type);
-	DTO_FIELD_INFO(type) {
-		info->description = ZH_WORDS_GETTER("employee.field.type");
+	DTO_FIELD(String, Etype);
+	DTO_FIELD_INFO(Etype) {
+		info->description = ZH_WORDS_GETTER("employee.field.Etype");
 	}
 	// 组织
 	DTO_FIELD(String, organize);
@@ -47,14 +47,14 @@ class ImportAssignInfoDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("employee.field.post");
 	}
 	// 任职开始时间
-	DTO_FIELD(String, start_time);
-	DTO_FIELD_INFO(start_time) {
-		info->description = ZH_WORDS_GETTER("employee.field.start-time");
+	DTO_FIELD(String, startTime);
+	DTO_FIELD_INFO(startTime) {
+		info->description = ZH_WORDS_GETTER("employee.field.startTime");
 	}
 	// 任职结束时间
-	DTO_FIELD(String, end_time);
-	DTO_FIELD_INFO(end_time) {
-		info->description = ZH_WORDS_GETTER("employee.field.end-time");
+	DTO_FIELD(String, endTime);
+	DTO_FIELD_INFO(endTime) {
+		info->description = ZH_WORDS_GETTER("employee.field.endTime");
 	}
 };
 
