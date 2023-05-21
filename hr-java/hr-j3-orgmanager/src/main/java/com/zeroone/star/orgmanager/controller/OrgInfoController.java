@@ -1,5 +1,6 @@
 package com.zeroone.star.orgmanager.controller;
 
+import cn.hutool.http.server.HttpServerResponse;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoApis;
 import com.zeroone.star.project.vo.JsonVO;
@@ -35,7 +36,7 @@ public class OrgInfoController implements OrgInfoApis {
     @DeleteMapping("export-org-address")
     @ApiOperation("导出指定组织地址信息")
     @Override
-    public JsonVO<Boolean> exportOrgAddress(OrgAddressDto orgAddressDto) {
+    public JsonVO<Boolean> exportOrgAddress(HttpServerResponse response,OrgAddressDto orgAddressDto) {
         return null;
     }
 }

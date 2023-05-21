@@ -23,6 +23,4 @@ public class OrgAddressDto {
     @ApiModelProperty(value = "组织id列表", example = "[\"aaa\",\"bbb\"]")
     private List<String> ids;
 
-    @ApiModelProperty(value = "下载存储路径", example = "C:\\Users\\one\\Desktop\\address.txt")
-    private String url;
 }

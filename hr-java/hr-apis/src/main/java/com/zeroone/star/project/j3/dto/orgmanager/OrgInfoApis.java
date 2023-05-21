@@ -1,5 +1,6 @@
 package com.zeroone.star.project.j3.dto.orgmanager;
 
+import cn.hutool.http.server.HttpServerResponse;
 import com.zeroone.star.project.vo.JsonVO;
 
 /**
@@ -22,7 +23,7 @@ public interface OrgInfoApis {
 
     /**
      * 导出组织地址接口
-     * @param orgAddressDto
+     * @param response,ids
      */
-    JsonVO<Boolean> exportOrgAddress(OrgAddressDto orgAddressDto);
+    JsonVO<Boolean> exportOrgAddress(HttpServerResponse response, OrgAddressDto ids);
 }

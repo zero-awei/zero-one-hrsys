@@ -27,14 +27,14 @@ import java.util.List;
 @Api(tags = "公共管理")
 public class CommonController implements CommonApis {
 
-    @GetMapping("delete-common-discipline")
+    @GetMapping("list-common-discipline")
     @ApiOperation("获取学科下拉列表")
     @Override
     public JsonVO<List<String>> listDisciplineType(DisciplineTypeQuery discipline) {
         return null;
     }
 
-    @GetMapping("remove-common-education")
+    @GetMapping("list-common-education")
     @ApiOperation("获取学历下拉列表")
     @Override
     public JsonVO<List<String>> listEducationType(EducationTypeQuery education) {
