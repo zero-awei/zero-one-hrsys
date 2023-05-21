@@ -31,9 +31,9 @@ sample:
   sex: 性别，如：男
 orgmanage:
  controller:
-  postQuery: queryByQuerySort
-  postDeleteOne: deleteByOrmPostId
-  postDeleteBatch: deleteBatchByOrmPostId
+  postQuery: 查询指定岗位详情
+  postDeleteOne: 删除一条岗位数据
+  postDeleteBatch: 删除多条岗位数据
  dto:
   xh: 排序标号
   gwfl: 岗位分类

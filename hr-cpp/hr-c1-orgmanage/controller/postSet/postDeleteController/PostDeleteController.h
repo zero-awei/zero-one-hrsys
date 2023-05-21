@@ -54,7 +54,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 
 	}
-	ENDPOINT(API_M_DEL, "/delete-one-post-by-OrmPostId/{ormPostId}", deleteByOrmPostId, API_HANDLER_AUTH_PARAME, PATH(String, ormPostId)) {
+	ENDPOINT(API_M_DEL, PATH_TO_JOBSET("/delete-one-post-by-OrmPostId/{ormPostId}"), deleteByOrmPostId, API_HANDLER_AUTH_PARAME, PATH(String, ormPostId)) {
 		// 解析查询参数
 		auto postDeleteDTO = PostDeleteDTO::createShared();
 		postDeleteDTO->ormPostId = ormPostId;
@@ -71,7 +71,7 @@ public:
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	ENDPOINT(API_M_DEL, "/delete-batch-post-by-OrmPostId", deleteBatchByOrmPostId, API_HANDLER_AUTH_PARAME, BODY_STRING(String, jsonPayload)) {
+	ENDPOINT(API_M_DEL, PATH_TO_JOBSET("/delete-batch-post-by-OrmPostId"), deleteBatchByOrmPostId, API_HANDLER_AUTH_PARAME, BODY_STRING(String, jsonPayload)) {
 		const std::shared_ptr<ObjectMapper>& objectMapper = oatpp::parser::json::mapping::ObjectMapper::createShared();
 		// 解析查询参数
 		auto postDeleteBatchDTO = PostDeleteBatchDTO::createShared();

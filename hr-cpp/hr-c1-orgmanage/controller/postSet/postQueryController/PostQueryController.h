@@ -50,8 +50,6 @@ public:
 	ENDPOINT_INFO(queryByQuerySort) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("orgmanage.controller.postQuery");
-		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
-		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(PostDetailPageJsonVO);
 		// 定义分页参数描述
@@ -65,16 +63,16 @@ public:
 		info->queryParams["sex"].required = false;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/query-by-query-sort", queryByQuerySort, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, PATH_TO_JOBSET("/query-by-query-sort"), queryByQuerySort, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(postDetailQuery, PostDetailQuery, queryParams);
 		// 响应结果
-		API_HANDLER_RESP_VO(execQueryByQuerySort(postDetailQuery, authObject->getPayload()));
+		API_HANDLER_RESP_VO(execQueryByQuerySort(postDetailQuery));
 	}
 	
 private:
 	// 查询指定岗位详情
-	PostDetailPageJsonVO::Wrapper execQueryByQuerySort(const PostDetailQuery::Wrapper& postDetailQuery, const PayloadDTO& payload);
+	PostDetailPageJsonVO::Wrapper execQueryByQuerySort(const PostDetailQuery::Wrapper& postDetailQuery);
 };
 
 // 0 取消API控制器使用宏
