@@ -39,6 +39,11 @@ const addData = reactive([
         optionData:"222"
       },
     ]   
-  }
+  },
+  {
+    label:'备注',
+    name:'remark',
+    type:'Text',
+  },
 ])
 </script>
