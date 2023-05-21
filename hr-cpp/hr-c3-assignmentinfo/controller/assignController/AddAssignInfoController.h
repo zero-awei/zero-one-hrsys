@@ -4,15 +4,10 @@
 
 #include "domain/vo/BaseJsonVO.h"
 #include "ApiHelper.h"
-#include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
-#include "oatpp/web/mime/multipart/FileProvider.hpp"
-#include "oatpp/web/mime/multipart/Reader.hpp"
-#include "oatpp/web/mime/multipart/PartList.hpp"
 #include "domain/dto/assignInfo/AddAssignInfoDTO.h"
 #include "domain/vo/assignInfo/AddAssignInfoVO.h"
 
-using namespace oatpp;
-namespace multipart = oatpp::web::mime::multipart;
+
 
 // 0 定义API控制器使用宏
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
@@ -32,10 +27,10 @@ public:
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("employee.post.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(AddAssignInfoJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/add-assign", addAssignInfo, BODY_DTO(AddAssignInfoDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/add-assignInfo", addAssignInfo, BODY_DTO(AddAssignInfoDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddAssignInfo(dto));
 	}

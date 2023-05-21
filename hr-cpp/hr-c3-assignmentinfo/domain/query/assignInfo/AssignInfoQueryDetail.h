@@ -1,18 +1,17 @@
 #pragma once
-#ifndef _Assign_Info_Query
-#define _Assign_Info_Query
-
-
+#pragma once
+#ifndef _Assign_Info_Query_Detail_DTO_
+#define _Assign_Info_Query_Detail_DTO_
 #include "../../GlobalInclude.h"
-#include "domain/query/PageQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
+
 /**
- * 查找指定员工分配信息
+ * 查询指定员工详细分配信息
  */
-class AssignInfoQuery : public PageQuery
+class AssignInfoQueryDetail : public oatpp::DTO
 {
-	DTO_INIT(AssignInfoQuery, PageQuery);
+	DTO_INIT(AssignInfoQueryDetail, DTO);
 	//编号
 	DTO_FIELD(UInt64, id);
 	DTO_FIELD_INFO(id) {
@@ -60,5 +59,6 @@ class AssignInfoQuery : public PageQuery
 	}
 };
 
+
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_Assign_Info_Query
+#endif // !_Query_Assign_Info_Detail_DTO_

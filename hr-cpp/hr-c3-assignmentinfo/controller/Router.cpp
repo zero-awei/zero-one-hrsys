@@ -21,6 +21,10 @@
 #include "ApiHelper.h"
 #include "assignController/QueryAssignController.h"
 #include "assignController/AddAssignInfoController.h"
+#include "assignController/DeleteAssignInfoController.h"
+#include "assignController/ModifyAssignInfoController.h"
+#include "assignController/ImportAssignInfoController.h"
+#include "assignController/QueryDetailAssignController.h"
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
 #include "sample/SampleController.h"
@@ -53,6 +57,10 @@ void Router::initRouter()
 	//#TIP :系统扩展路由定义，写在这个后面
 	ROUTER_SIMPLE_BIND(QueryAssignController);
 	ROUTER_SIMPLE_BIND(AddAssignInfoController);
+	ROUTER_SIMPLE_BIND(DeleteAssignInfoController);
+	ROUTER_SIMPLE_BIND(ModifyAssignInfoController);
+	ROUTER_SIMPLE_BIND(ImportAssignInfoController);
+	ROUTER_SIMPLE_BIND(QueryDetailAssignController);
 }
 
 #ifdef HTTP_SERVER_DEMO

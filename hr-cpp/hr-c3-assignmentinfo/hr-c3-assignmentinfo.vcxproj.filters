@@ -36,6 +36,18 @@
     <ClCompile Include="controller\assignController\AddAssignInfoController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="controller\assignController\DeleteAssignInfoController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\assignController\ModifyAssignInfoController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\assignController\ImportAssignInfoController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\assignController\QueryDetailController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
@@ -96,6 +108,24 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="controller\assignController\AddAssignInfoController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\assignController\DeleteAssignInfoController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\assignController\ModifyAssignInfoController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\assignController\ImportAssignInfoController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\assignInfo\AssignInfoQueryDetail.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\assignInfo\AssignInfoQueryDetailVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\assignController\QueryDetailAssignController.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
