@@ -29,3 +29,8 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+htlx:
+ query-list:
+  summary: 查询合同类别下拉列表
+ field:
+   htlxname: 合同类别名称

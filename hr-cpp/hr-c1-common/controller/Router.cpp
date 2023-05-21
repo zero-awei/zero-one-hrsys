@@ -24,6 +24,7 @@
 #include "user/UserController.h"
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
+#include "HTLX_pimcontracttype/HtlxController.h"
 #endif
 
 // 如果定义了关闭Swagger文档宏
@@ -50,7 +51,7 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-
+	ROUTER_SIMPLE_BIND(HtlxController);
 }
 
 #ifdef HTTP_SERVER_DEMO
