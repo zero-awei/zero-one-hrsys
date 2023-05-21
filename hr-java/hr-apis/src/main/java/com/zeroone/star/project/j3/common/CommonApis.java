@@ -19,15 +19,15 @@ import java.util.List;
 public interface CommonApis {
     /**
      * 学科类型下拉列表
-     * @param disciplineTypeQuery
+     * @param discipline
      * @return 集合
      */
-    JsonVO<List<String>> listDisciplineType(DisciplineTypeQuery disciplineTypeQuery);
+    JsonVO<List<String>> listDisciplineType(DisciplineTypeQuery discipline);
 
     /**
      * 学历类型下拉列表
-     * @param educationTypeQuery
+     * @param education
      * @return 集合
      */
-    JsonVO<List<String>> listEducationType(EducationTypeQuery educationTypeQuery);
+    JsonVO<List<String>> listEducationType(EducationTypeQuery education);
 }

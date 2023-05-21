@@ -1,6 +1,5 @@
 package com.zeroone.star.project.j3.orgmanager;
 
-import com.zeroone.star.project.j3.dto.OrgAddressDto;
 import com.zeroone.star.project.vo.JsonVO;
 
 /**
@@ -17,8 +16,13 @@ public interface OrgInfoApis {
 
     /**
      * 删除组织地址接口
-     * @param orgAddressDto
-     * @return 删除行数
+     * @param ids
      */
-    JsonVO<Integer> deleteDepAddress(OrgAddressDto orgAddressDto);
+    JsonVO<Boolean> deleteOrgAddress(OrgAddressDto ids);
+
+    /**
+     * 导出组织地址接口
+     * @param ids
+     */
+    JsonVO<Boolean> exportOrgAddress(OrgAddressDto ids);
 }
