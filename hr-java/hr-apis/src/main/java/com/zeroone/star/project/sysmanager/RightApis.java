@@ -29,7 +29,7 @@ public interface RightApis {
      * @param dto 权限对象
      * @return 结果状态
      */
-    JsonVO<ResultStatus> addRight(RightDTO dto);
+    JsonVO<Boolean> addRight(RightDTO dto);
 
     /**
      * 修改权限
@@ -37,7 +37,7 @@ public interface RightApis {
      * @param dto 修改权限
      * @return 结果状态
      */
-    JsonVO<ResultStatus> modifyRight(RightDTO dto);
+    JsonVO<Boolean> modifyRight(RightDTO dto);
 
     /**
      * 删除权限
@@ -45,5 +45,5 @@ public interface RightApis {
      * @param dto 删除权限
      * @return 结果状态
      */
-    JsonVO<ResultStatus> removeRight(RightDTO dto);
+    JsonVO<Boolean> removeRight(RightDTO dto);
 }

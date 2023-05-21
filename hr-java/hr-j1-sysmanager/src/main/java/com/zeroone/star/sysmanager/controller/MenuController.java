@@ -34,21 +34,21 @@ public class MenuController implements MenuApis {
     @ApiOperation(value = "增加菜单")
     @PostMapping("/add-right")
     @Override
-    public JsonVO<ResultStatus> addMenu(MenuDTO dto) {
+    public JsonVO<Boolean> addMenu(MenuDTO dto) {
         return null;
     }
 
     @ApiOperation(value = "修改菜单")
     @PostMapping("/modify-right")
     @Override
-    public JsonVO<ResultStatus> modifyMenu(MenuDTO dto) {
+    public JsonVO<Boolean> modifyMenu(MenuDTO dto) {
         return null;
     }
 
     @ApiOperation(value = "删除菜单")
     @DeleteMapping("/remove-right")
     @Override
-    public JsonVO<ResultStatus> removeMenu(MenuDTO dto) {
+    public JsonVO<Boolean> removeMenu(MenuDTO dto) {
         return null;
     }
 }

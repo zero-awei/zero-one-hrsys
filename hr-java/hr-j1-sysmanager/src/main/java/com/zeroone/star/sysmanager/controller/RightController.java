@@ -39,21 +39,21 @@ public class RightController implements RightApis {
     @ApiOperation(value = "增加权限")
     @PostMapping("/add-right")
     @Override
-    public JsonVO<ResultStatus> addRight(RightDTO dto) {
+    public JsonVO<Boolean> addRight(RightDTO dto) {
         return null;
     }
 
     @ApiOperation(value = "修改权限")
     @PostMapping("/modify-right")
     @Override
-    public JsonVO<ResultStatus> modifyRight(RightDTO dto) {
+    public JsonVO<Boolean> modifyRight(RightDTO dto) {
         return null;
     }
 
     @ApiOperation(value = "删除权限")
     @DeleteMapping ("/remove-right")
     @Override
-    public JsonVO<ResultStatus> removeRight(RightDTO dto) {
+    public JsonVO<Boolean> removeRight(RightDTO dto) {
         return null;
     }
 

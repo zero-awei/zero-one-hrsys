@@ -31,7 +31,7 @@ public interface MenuApis {
      * @param dto 菜单对象
      * @return 结果状态
      */
-    JsonVO<ResultStatus> addMenu(MenuDTO dto);
+    JsonVO<Boolean> addMenu(MenuDTO dto);
 
     /**
      * 修改权限
@@ -39,7 +39,7 @@ public interface MenuApis {
      * @param dto 修改权限
      * @return 结果状态
      */
-    JsonVO<ResultStatus> modifyMenu(MenuDTO dto);
+    JsonVO<Boolean> modifyMenu(MenuDTO dto);
 
     /**
      * 删除权限
@@ -47,5 +47,5 @@ public interface MenuApis {
      * @param dto 删除权限
      * @return 结果状态
      */
-    JsonVO<ResultStatus> removeMenu(MenuDTO dto);
+    JsonVO<Boolean> removeMenu(MenuDTO dto);
 }

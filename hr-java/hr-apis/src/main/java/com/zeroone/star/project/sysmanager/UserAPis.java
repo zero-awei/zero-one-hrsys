@@ -33,20 +33,20 @@ public interface UserAPis {
      * @param dto 数据对象
      * @return 新增用户的编号
      */
-    JsonVO<ResultStatus> addUser(UserDTO dto);
+    JsonVO<Boolean> addUser(UserDTO dto);
 
     /**
      * 删除用户
      * @param id 用户id
      * @return 删除结果
      */
-    JsonVO<ResultStatus> deleteUser(@NotBlank(message = "id 不能为空") String id);
+    JsonVO<Boolean> deleteUser(@NotBlank(message = "id 不能为空") String id);
 
     /**
      * 修改用户
      * @param dto 数据数据内容
      * @return 修改结果
      */
-    JsonVO<ResultStatus> modifyUser(UserDTO dto);
+    JsonVO<Boolean> modifyUser(UserDTO dto);
 
 }
