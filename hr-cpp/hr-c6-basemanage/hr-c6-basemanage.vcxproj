@@ -207,7 +207,6 @@
     <ClInclude Include="domain\dto\ContractDTO.h" />
     <ClInclude Include="domain\dto\ContractDTO\ContractDTO.h" />
     <ClInclude Include="domain\dto\ContractDTO\ContractDTO_.h" />
-    <ClInclude Include="domain\dto\Gosh\ContractDTO.h" />
     <ClInclude Include="domain\dto\JobTitle\JobTitleDTO.h" />
     <ClInclude Include="domain\dto\Muggle\expenseLedgerDTO.h" />
     <ClInclude Include="domain\dto\Muggle\laborDispatchDTO.h" />
