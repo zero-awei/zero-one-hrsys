@@ -78,7 +78,9 @@ void Router::createJobAndExpenseRouter()
 {
 	ROUTER_SIMPLE_BIND(JobTitleInfoController);
 	ROUTER_SIMPLE_BIND(ExpenseLedgeController);
-}#ifdef HTTP_SERVER_DEMO
+}
+
+#ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
 	// 绑定合同控制器

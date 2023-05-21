@@ -30,7 +30,6 @@ sample:
   name: 姓名
   sex: 性别，如：男
 ldcompany:
-contract:
  get:
   summary: 分页查询劳务公司列表
  post:
@@ -68,7 +67,8 @@ title:
   name: "职称名称"
   grades: "职称等级"
   type: "职称类型"
-  category: "专业类别"labordispatch_mug:
+  category: "专业类别"
+labordispatch_mug:
  get:
   summary: 查看指定公司信息
  modify:
@@ -124,6 +124,7 @@ retirement_gan:
  delete:
   summary: 删除离退休列表
  update:
+  summary: 更新离退休列表
 contract:
   upload: 导入合同
   download: 导出合同
