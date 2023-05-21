@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "组织信息管理")
 public class OrgInfoController implements OrgInfoApis {
 
-    @DeleteMapping("remove-org-address")
+    @DeleteMapping("delete-org-address")
     @ApiOperation("删除指定组织地址信息（支持批量）")
     @Override
     public JsonVO<Boolean> deleteOrgAddress(@RequestBody OrgAddressDto ids) {
