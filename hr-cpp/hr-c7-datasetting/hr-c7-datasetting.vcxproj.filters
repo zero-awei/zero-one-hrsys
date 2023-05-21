@@ -42,15 +42,6 @@
     <ClInclude Include="domain\query\certificate\CertificateQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\titleCatalogue\typeChangeController\TypeChangeController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\titleCatalogue\typeDeleteController\TypeDeleteController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\titleCatalogue\typeQueryController\TypeQueryController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\dto\contracttype\ContractTypeCreateDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -90,15 +81,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\SystemInterceptor.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\titleCatalogue\typeChangeController\TypeChangeController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\titleCatalogue\typeDeleteController\TypeDeleteController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\titleCatalogue\typeQueryController\TypeQueryController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
