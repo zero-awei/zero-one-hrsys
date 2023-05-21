@@ -12,7 +12,7 @@
  */
 class ArchiveJsonVO : public JsonVO<ArchiveDTO::Wrapper>
 {
-	DTO_INIT(archiveJsonVO, JsonVO<ArchiveDTO::Wrapper>);
+	DTO_INIT(ArchiveJsonVO, JsonVO<ArchiveDTO::Wrapper>);
 };
 
 /**

@@ -92,4 +92,4 @@ private:
 
 // 0 取消API控制器使用宏
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
-#endif // _SAMPLE_CONTROLLER_
+#endif // 
