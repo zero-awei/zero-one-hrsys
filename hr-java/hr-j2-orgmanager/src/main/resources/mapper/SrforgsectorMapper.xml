@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zeroone.star.orgmanager.mapper.SrforgsectorMapper">
-
+    <delete id="deleteDepts" parameterType="com.zeroone.star.project.query.orgmanager.DeptQuery2">
+        DELETE FROM t_srforgsector WHERE ORGSECTORID IN
+        <foreach collection="orgSectorIds" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>
