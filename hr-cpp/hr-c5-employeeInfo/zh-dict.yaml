@@ -32,6 +32,8 @@ sample:
 #pimpaper的中英词典
 pimpaper:
  field:
+  ygbh:员工编号
+  pimpersonname:员工姓名
   pimpapername:论文名称
   cbs:出版社
   kwmc:刊物名称
