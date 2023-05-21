@@ -111,11 +111,11 @@ export default {
 .box {
   display: flex;
 }
-.h1 {
-  height: 250px;
-}
+// .h1 {
+//   height: 250px;
+// }
 .h2 {
-  height: 200px;
+  padding-top: 50px;
 }
 .box div {
   flex: 1;

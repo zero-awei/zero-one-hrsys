@@ -1,10 +1,9 @@
 <script>
-// import Edit from '@element-plus/icons-vue'
-import Education from './Employee/Education.vue'
-import Experience from './Employee/Experience.vue'
-import Employee from './Employee/Employee.vue'
-import RewardsAndPunishment from './Employee/RewardsAndPunishment.vue'
-import additional from './Employee/additional.vue'
+import Education from './employee/Education.vue'
+import Experience from './employee/Experience.vue'
+import Employee from './employee/Employee.vue'
+import RewardsAndPunishment from './employee/RewardsAndPunishment.vue'
+import Additional from './employee/Additional.vue'
 
 export default {
   components: {
@@ -12,7 +11,7 @@ export default {
     Experience,
     Education,
     Employee,
-    additional
+    Additional
   }
 }
 </script>
@@ -26,17 +25,21 @@ export default {
     <div class="info">
       <Employee />
       <Education />
-      <Experience />/
-      <additional />
+      <Experience />
+      <Additional />
       <RewardsAndPunishment />
     </div>
   </div>
 </template>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
 .title {
+  top: 50px;
   position: fixed;
-  top: 0;
   color: #000;
   height: 50px;
   width: 100%;
@@ -45,15 +48,17 @@ export default {
   font-weight: 600;
   background-color: #fff;
   border-bottom: 1px solid #ebeef5;
-  z-index: 2;
-}
-.info {
-  padding-top: 55px;
-  margin: 30px;
+  z-index: 1;
 }
 .edit {
+  height: 50px;
+  width: 100px;
   position: absolute;
   right: 30px;
   top: 10px;
+  z-index: 2;
+}
+.info {
+  margin: 50px;
 }
 </style>

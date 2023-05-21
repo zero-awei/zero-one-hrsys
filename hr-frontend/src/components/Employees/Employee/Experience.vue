@@ -30,6 +30,7 @@
       <el-table-column width="150px" prop="department" label="部门" sortable />
       <el-table-column width="150px" prop="post" label="岗位" sortable />
       <el-table-column width="150px" prop="grade" label="职级" sortable />
+      <el-table-column width="150px" :prop="grade" label="职级" sortable />
       <el-table-column />
     </el-table>
   </div>
