@@ -21,11 +21,15 @@ class DeclareController : public oatpp::web::server::api::ApiController
 public:
 	ENDPOINT_INFO(queryDeclare) {
 		info -> summary = ZH_WORDS_GETTER("common.get.declare");
+		API_DEF_ADD_RSP_JSON_WRAPPER(DeclareListVO);
+		
 	}
-	ENDPOINT(API_M_GET, "/declare", queryDeclare, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/declare", queryDeclare) {
 		// ÏìÓ¦½á¹û
 		API_HANDLER_RESP_VO(execQueryDeclare());
+		return createResponse(Status::CODE_202, "OK");
 	}
+	
 private:
 	DeclareListVO::Wrapper execQueryDeclare();
 };

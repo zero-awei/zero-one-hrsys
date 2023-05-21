@@ -27,6 +27,8 @@
 #endif
 #include "declare/DeclareController.h"
 #include "archiveslevels/ArchivesLevelsController.h"
+#include "jobupdate/JobUpdateController.h"
+#include "joboutput/JobOutputController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -52,8 +54,10 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-	//createDeclareRouter();
+	createDeclareRouter();
 	createArchivesLevelsRouter();
+	createJobUpdateRouter();
+	createJobOutputRouter();
 }
 
 void Router::createDeclareRouter() {
@@ -62,6 +66,14 @@ void Router::createDeclareRouter() {
 
 void Router::createArchivesLevelsRouter() {
 	ROUTER_SIMPLE_BIND(ArchivesLevelsController);
+}
+
+void Router::createJobUpdateRouter() {
+	ROUTER_SIMPLE_BIND(JobUpdateController);
+}
+
+void Router::createJobOutputRouter() {
+	ROUTER_SIMPLE_BIND(JobOutputController);
 }
 
 #ifdef HTTP_SERVER_DEMO

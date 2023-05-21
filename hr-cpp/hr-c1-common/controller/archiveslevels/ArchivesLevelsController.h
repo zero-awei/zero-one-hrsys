@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #ifndef _ARCHIVESLEVELS_CONTROLLER_
 #define _ARCHIVESLEVELS_CONTROLLER_
 
@@ -18,11 +18,17 @@ class ArchivesLevelsController : public oatpp::web::server::api::ApiController
 public:
 	ENDPOINT_INFO(queryArchivesLevels) {
 		info->summary = ZH_WORDS_GETTER("common.get.archiveslevels");
+		info->queryParams.add<String>("层级").description = ZH_WORDS_GETTER("archiveslevels");
+		info->queryParams["层级"].addExample("default", String("up"));
+		info->queryParams["层级"].required = false;
+		API_DEF_ADD_RSP_JSON_WRAPPER(ArchivesListVO);
 	}
-	ENDPOINT(API_M_GET, "/archives", queryArchivesLevels, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
-		// ��Ӧ���
+	ENDPOINT(API_M_GET, "/archives", queryArchivesLevels) {
+		// 响应结果
 		API_HANDLER_RESP_VO(execQueryArchivesLevels());
+		return createResponse(Status::CODE_203, "OK");
 	}
+	
 private:
 	ArchivesListVO::Wrapper execQueryArchivesLevels();
 };

@@ -161,15 +161,22 @@
   <ItemGroup>
     <ClInclude Include="controller\archiveslevels\ArchivesLevelsController.h" />
     <ClInclude Include="controller\declare\DeclareController.h" />
+    <ClInclude Include="controller\joboutput\JobOutputController.h" />
+    <ClInclude Include="controller\jobupdate\JobUpdateController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\archivesLevelsDto\archivesLevelsDTO.h" />
     <ClInclude Include="domain\dto\declareDto\declareDTO.h" />
+    <ClInclude Include="domain\dto\jobDownloadDto\JobDownloadDTO.h" />
+    <ClInclude Include="domain\dto\jobUpdateDto\JobUpdateDTO.h" />
     <ClInclude Include="domain\query\archivesListQuery\ArchivesQuery.h" />
     <ClInclude Include="domain\query\declareQuery\DeclareQuery.h" />
     <ClInclude Include="domain\vo\archivesList\ArchivesListVO.h" />
     <ClInclude Include="domain\vo\declareList\DeclareListVO.h" />
+    <ClInclude Include="domain\vo\JobDownloadVO\JobDownloadVO.h" />
+    <ClInclude Include="domain\vo\JobUpdateVO\JobUpdateVO.h" />
+    <ClInclude Include="JobUpdateController.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
@@ -177,6 +184,8 @@
   <ItemGroup>
     <ClCompile Include="controller\archiveslevels\ArchivesLevelsController.cpp" />
     <ClCompile Include="controller\declare\DeclareController.cpp" />
+    <ClCompile Include="controller\joboutput\JobOutputController.cpp" />
+    <ClCompile Include="controller\jobupdate\JobUpdateController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />

@@ -50,6 +50,8 @@ private:
 #endif
 void createDeclareRouter();
 void createArchivesLevelsRouter();
+void createJobUpdateRouter();
+void createJobOutputRouter();
 };
 
 #endif // !_ROUTER_

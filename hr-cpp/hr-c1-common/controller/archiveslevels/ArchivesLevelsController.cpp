@@ -1,17 +1,19 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "ArchivesLevelsController.h"
 
 ArchivesListVO::Wrapper ArchivesLevelsController::execQueryArchivesLevels() {
 	auto dto = ArchivesLevelsListDTO::createShared();
 	auto vo = ArchivesListVO::createShared();
 
-	auto upLevels = ArchivesLevelsDTO::createShared("ÉÏ²ã");
-	auto midLevels = ArchivesLevelsDTO::createShared("ÖÐ²ã");
-	auto downLevels = ArchivesLevelsDTO::createShared("ÏÂ²ã");
+	auto upLevels = ArchivesLevelsDTO::createShared("ä¸Šå±‚");
+	auto midLevels = ArchivesLevelsDTO::createShared("ä¸­å±‚");
+	auto downLevels = ArchivesLevelsDTO::createShared("ä¸‹å±‚");
 
 	dto->levelsList->push_back(upLevels);
 	dto->levelsList->push_back(midLevels);
 	dto->levelsList->push_back(downLevels);
+
+	vo->success(dto);
 
 	return vo;
 }
