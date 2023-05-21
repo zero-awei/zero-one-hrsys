@@ -20,7 +20,9 @@
 #include "PostQueryController.h"
 //#include "../../service/sample/SampleService.h"
 
-PostDetailPageJsonVO::Wrapper PostQueryController::execQueryByQuerySort(const PostDetailQuery::Wrapper& postDetailQuery, const PayloadDTO& payload)
+PostDetailPageJsonVO::Wrapper PostQueryController::execQueryByQuerySort(const PostDetailQuery::Wrapper& postDetailQuery)
 {
-	return PostDetailPageJsonVO::Wrapper();
+	// 定义返回数据对象
+	auto jvo = PostDetailPageJsonVO::createShared();
+	return jvo;
 }

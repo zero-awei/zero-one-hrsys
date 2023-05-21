@@ -37,6 +37,8 @@ namespace multipart = oatpp::web::mime::multipart;
 
 /**
  * 岗位设置 - 查询指定岗位详情控制器
+ * 返回值 : PostDetailPageJsonVO - 返回一个分页岗位查询列表
+ * 负责人 : rice
  */
 class PostQueryController : public oatpp::web::server::api::ApiController // 1 继承控制器
 {
@@ -47,32 +49,30 @@ public:
 	// 3.1 定义查询接口描述
 	ENDPOINT_INFO(queryByQuerySort) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("queryByQuerySort");
-		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
-		API_DEF_ADD_AUTH();
+		info->summary = ZH_WORDS_GETTER("orgmanage.controller.postQuery");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(PostDetailPageJsonVO);
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("query").description = ZH_WORDS_GETTER("查询岗位");
-		info->queryParams["name"].addExample("default", String("网络工程师"));
+		info->queryParams.add<String>("query").description = u8"查询岗位";
+		info->queryParams["name"].addExample("default", String(u8"网络工程师"));
 		info->queryParams["name"].required = false;
-		info->queryParams.add<String>("sort").description = ZH_WORDS_GETTER("排序类别以及升序或降序");
-		info->queryParams["sex"].addExample("default", String("nx,asc"));
+		info->queryParams.add<String>("sort").description = u8"排序类别以及升序或降序";
+		info->queryParams["sex"].addExample("default", String(u8"nx,asc"));
 		info->queryParams["sex"].required = false;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/query-by-query-sort", queryByQuerySort, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, PATH_TO_JOBSET("/query-by-query-sort"), queryByQuerySort, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(postDetailQuery, PostDetailQuery, queryParams);
 		// 响应结果
-		API_HANDLER_RESP_VO(execQueryByQuerySort(postDetailQuery, authObject->getPayload()));
+		API_HANDLER_RESP_VO(execQueryByQuerySort(postDetailQuery));
 	}
 	
 private:
 	// 查询指定岗位详情
-	PostDetailPageJsonVO::Wrapper execQueryByQuerySort(const PostDetailQuery::Wrapper& postDetailQuery, const PayloadDTO& payload);
+	PostDetailPageJsonVO::Wrapper execQueryByQuerySort(const PostDetailQuery::Wrapper& postDetailQuery);
 };
 
 // 0 取消API控制器使用宏
