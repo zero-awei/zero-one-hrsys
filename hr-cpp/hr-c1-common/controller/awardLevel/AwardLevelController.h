@@ -50,9 +50,9 @@ public: // 定义接口
 		info->queryParams["name"].addExample("default", String("310111198710101234"));
 		info->queryParams["name"].required = false;
 
-		info->queryParams.add<String>("pcmAwardName").description = ZH_WORDS_GETTER("common.dto.pcmAwardName");
-		info->queryParams["pcmAwardName"].addExample("default", String("NULL"));
-		info->queryParams["pcmAwardName"].required = false;
+		info->queryParams.add<String>("awardCription").description = ZH_WORDS_GETTER("common.dto.awardCription");
+		info->queryParams["awardCription"].addExample("default", String("NULL"));
+		info->queryParams["awardCription"].required = false;
 
 		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("common.dto.id");
 		info->queryParams["id"].addExample("default", String("04BD20DD-6D90-4E69-AD68-F8CDEAAC566B"));
@@ -82,8 +82,12 @@ public: // 定义接口
 		info->queryParams["awardTime"].addExample("default", String("2019-09-09 00:00:00"));
 		info->queryParams["awardTime"].required = false;
 
+		info->queryParams.add<String>("prmID").description = ZH_WORDS_GETTER("common.dto.prmID");
+		info->queryParams["prmID"].addExample("default", String("039FC740-E340-4931-BF42-D2F38F81C4C6"));
+		info->queryParams["prmID"].required = false;
+
 		info->queryParams.add<String>("judGeorp").description = ZH_WORDS_GETTER("common.dto.judGeorp");
-		info->queryParams["judGeorp"].addExample("default", String("55B9BF26-CC78-44A7-9FF9-0CD0F0B725AD"));
+		info->queryParams["judGeorp"].addExample("default", String("test"));
 		info->queryParams["judGeorp"].required = false;
 
 		info->queryParams.add<String>("bbSj").description = ZH_WORDS_GETTER("common.dto.bbSj");
