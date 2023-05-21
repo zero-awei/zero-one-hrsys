@@ -1,4 +1,4 @@
-#pragma once
+
 /*
  Copyright Muggle. All rights reserved.
 
@@ -17,6 +17,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+#pragma once
 #ifndef _LD_M_SERVICE_
 #define _LD_M_SERVICE_
 #include "domain/dto/muggle/LaborDispatchDTO.h"
