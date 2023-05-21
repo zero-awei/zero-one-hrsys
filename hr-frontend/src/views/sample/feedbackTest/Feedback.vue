@@ -2,21 +2,25 @@
   <!--  1.消息弹出框演示 -->
   <MessageBox></MessageBox>
   <div>
-    <el-table :data="tableData" style="width: 100%" @click="changeMessage">
+    <el-table :data="tableData" style="width: 100%" @cell-click="changeMessage">
       <el-table-column prop="date" label="Date" width="180" />
       <el-table-column prop="name" label="Name" width="180" />
-      <el-table-column prop="action" label="Action"/>
+      <el-table-column prop="action" label="Action" />
     </el-table>
   </div>
 
-  <br/>
+  <br />
   <!-- 2.消息提示演示 -->
   <Notification></Notification>
-    <el-row class="mb-4">
-      <el-button type="success" @click="changeValue">保存成功</el-button>
-      <el-button type="warning" @click="changeValueThree">未配置导入项--警告</el-button>
-      <el-button type="danger" @click="changeValueTwo">输入项为空--出错</el-button>
-    </el-row>
+  <el-row class="mb-4">
+    <el-button type="success" @click="changeValue">保存成功</el-button>
+    <el-button type="warning" @click="changeValueThree"
+      >未配置导入项--警告</el-button
+    >
+    <el-button type="danger" @click="changeValueTwo"
+      >输入项为空--出错</el-button
+    >
+  </el-row>
 </template>
 
 <script setup>
@@ -48,20 +52,25 @@ const tableData = [
 ]
 
 let messageInfo = ref('确定删除吗？')
-let messageSuccess = ref('保存成功')
-let messageError = ref('值规则校验失败')
+let messageSuccess = ref('删除成功')
+let messageError = ref('取消')
 let message = reactive({ messageInfo, messageSuccess, messageError })
 
 //点击按钮，向公共组件发消息
 const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
-const changeMessage = () => {
-  mitt.emit('changeInfo', message)
+const changeMessage = (row, column) => {
+  console.log(row)
+  //点击某一列执行，利用column中的label属性，例如点击Action这一列
+  if (column.label === 'Action') {
+    //执行逻辑
+    mitt.emit('changeInfo', message)
+  }
 }
 
 //2.消息提示演示
 let success = ref('成功')
-let warn = ref('警告')
-let error = ref('出错')
+let warn = ref('请配置数据导入项')
+let error = ref('值规则校验异常')
 let messageTwo = reactive({
   success,
   error,
@@ -69,7 +78,7 @@ let messageTwo = reactive({
 })
 
 const changeValue = () => {
-  messageTwo.success='保存成功'
+  messageTwo.success = '保存成功'
   mitt.emit('showSuccess', messageTwo.success)
 }
 
