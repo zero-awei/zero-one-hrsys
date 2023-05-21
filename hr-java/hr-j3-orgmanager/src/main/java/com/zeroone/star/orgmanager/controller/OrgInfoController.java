@@ -3,6 +3,8 @@ package com.zeroone.star.orgmanager.controller;
 import com.zeroone.star.project.j3.dto.DeleteDTO;
 import com.zeroone.star.project.j3.dto.OrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
+import cn.hutool.http.server.HttpServerResponse;
+import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.j3.orgmanager.OrgInfoApis;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
@@ -45,5 +47,19 @@ public class OrgInfoController implements OrgInfoApis {
     @Override
     public JsonVO<Boolean> removeOrgData(DeleteDTO ids) {
         return JsonVO.success(true);
+    }
+
+    @DeleteMapping("delete-org-address")
+    @ApiOperation("删除指定组织地址信息（支持批量）")
+    @Override
+    public JsonVO<Boolean> deleteOrgAddress(@RequestBody OrgAddressDto ids) {
+        return null;
+    }
+
+    @DeleteMapping("export-org-address")
+    @ApiOperation("导出指定组织地址信息")
+    @Override
+    public JsonVO<Boolean> exportOrgAddress(HttpServerResponse response,OrgAddressDto orgAddressDto) {
+        return null;
     }
 }

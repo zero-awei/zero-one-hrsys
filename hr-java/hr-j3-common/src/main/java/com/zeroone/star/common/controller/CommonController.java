@@ -4,11 +4,10 @@ import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.common.CommonApis;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
 import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
+import com.zeroone.star.project.j3.query.common.DisciplineTypeQuery;
+import com.zeroone.star.project.j3.query.common.EducationTypeQuery;
 import com.zeroone.star.project.j3.query.common.OneConditionQuery;
 import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
-import com.zeroone.star.project.j3.common.CommonApis;
-import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
-import com.zeroone.star.project.j3.query.common.OneConditionQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -136,5 +135,18 @@ public class CommonController implements CommonApis {
     public JsonVO<List<DropdownListOptionDTO>> querySchoolNature() {
         List<DropdownListOptionDTO> list = new ArrayList<>();
         return JsonVO.success(list);
+    }
+    @GetMapping("list-common-discipline")
+    @ApiOperation("获取学科下拉列表")
+    @Override
+    public JsonVO<List<String>> listDisciplineType(DisciplineTypeQuery discipline) {
+        return null;
+    }
+
+    @GetMapping("list-common-education")
+    @ApiOperation("获取学历下拉列表")
+    @Override
+    public JsonVO<List<String>> listEducationType(EducationTypeQuery education) {
+        return null;
     }
 }

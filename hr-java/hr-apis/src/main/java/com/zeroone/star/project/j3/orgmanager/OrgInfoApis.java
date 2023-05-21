@@ -3,6 +3,8 @@ package com.zeroone.star.project.j3.orgmanager;
 import com.zeroone.star.project.j3.dto.DeleteDTO;
 import com.zeroone.star.project.j3.dto.OrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
+import cn.hutool.http.server.HttpServerResponse;
+import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.vo.JsonVO;
 
 /**
@@ -32,4 +34,15 @@ public interface OrgInfoApis {
 	 */
 	JsonVO<Boolean> removeOrgData(DeleteDTO ids);
 
+    /**
+     * 删除组织地址接口
+     * @param ids
+     */
+    JsonVO<Boolean> deleteOrgAddress(OrgAddressDto ids);
+
+    /**
+     * 导出组织地址接口
+     * @param response,ids
+     */
+    JsonVO<Boolean> exportOrgAddress(HttpServerResponse response, OrgAddressDto ids);
 }
