@@ -77,4 +77,12 @@ public interface CommonApis {
      * @Date: 2023/5/19 23:17
      */
     JsonVO<ZzmmQuery> queryZzmm();
+
+
+    /**
+     * 描述：血型下拉列表
+     * @author C.C.
+     * @version 1.0.0
+     */
+    JsonVO<List<DropdownListOptionDTO>> queryBloodType();
 }
