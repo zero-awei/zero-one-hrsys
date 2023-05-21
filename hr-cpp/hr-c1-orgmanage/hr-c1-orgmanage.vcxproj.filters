@@ -55,5 +55,6 @@
     <ClInclude Include="domain\query\itemlabel\ItemlabelQuery.h" />
     <ClInclude Include="domain\vo\itemLabel\ItemLabelVO.h" />
     <ClInclude Include="domain\vo\pageQuery\PageQueryVO.h" />
+    <ClInclude Include="domain\do\projTag\ProjTagDO.h" />
   </ItemGroup>
 </Project>
