@@ -169,15 +169,11 @@
     <ClCompile Include="controller\JobTitle\JobTitleController.cpp" />
     <ClCompile Include="controller\GoshController\TestController.cpp" />
     <ClCompile Include="controller\LaborDispatch\LaborDispatchConstroller.cpp" />
-    <ClCompile Include="controller\muggle\ExpenseLedgerController.cpp" />
-    <ClCompile Include="controller\muggle\LaborDispatchController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SelectController\retirement.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
-    <ClCompile Include="dao\muggle\LaborDispatchDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="dao\Sample\ContractDao.cpp" />
-    <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -196,8 +192,6 @@
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
     <ClInclude Include="domain\dto\JobTitleInfo\JobTitleInfoDTO.h" />
-    <ClInclude Include="domain\query\muggle\ExpenseLedgerQuery.h" />
-    <ClInclude Include="domain\query\muggle\LaborDispatchQuery.h" />
     <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h" />
     <ClInclude Include="domain\vo\JobTitleInfo\JobTitleInfoVO.h" />
     <ClInclude Include="controller\SelectController\retirement.h" />
@@ -231,12 +225,18 @@
     <ClInclude Include="service\sample\ContractService.h" />
     <ClInclude Include="controller\muggle\ExpenseLedgerController.h" />
     <ClInclude Include="controller\muggle\LaborDispatchController.h" />
-    <ClInclude Include="dao\muggle\LaborDispatchDAO.h" />
+    <ClCompile Include="controller\muggle\ExpenseLedgerController.cpp" />
+    <ClCompile Include="controller\muggle\LaborDispatchController.cpp" />
     <ClInclude Include="domain\do\muggle\LaborDispatchDO.h" />
     <ClInclude Include="domain\dto\muggle\ExpenseLedgerDTO.h" />
     <ClInclude Include="domain\dto\muggle\LaborDispatchDTO.h" />
     <ClInclude Include="domain\vo\muggle\LaborDispatchJsonVO.h" />
+    <ClInclude Include="domain\query\muggle\ExpenseLedgerQuery.h" />
+    <ClInclude Include="domain\query\muggle\LaborDispatchQuery.h" />
+    <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
     <ClInclude Include="service\muggle\LaborDispatchService.h" />
+    <ClInclude Include="dao\muggle\LaborDispatchDAO.h" />
+    <ClCompile Include="dao\muggle\LaborDispatchDAO.cpp" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
