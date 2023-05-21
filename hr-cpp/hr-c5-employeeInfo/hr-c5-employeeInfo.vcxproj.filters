@@ -36,7 +36,13 @@
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\ArchiveManagement\ArchiveManagementDTO.h">
+    <ClInclude Include="domain\dto\NotInArchive\NotInArchiveDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\NotInArchive\NotInArchive.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\NotInArchive\NotInArchiveVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

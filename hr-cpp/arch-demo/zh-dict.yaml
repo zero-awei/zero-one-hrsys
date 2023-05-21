@@ -29,15 +29,13 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
-management:
- archive:
-  id : 档案编号
-  bgd : 档案保管地
+archive:
+ dto : 
+  dabh : 档案编号
   gldw : 管理单位
-center:
- name : 档案室
- state : 档案状态
- user:
-  number : 员工编号
-  name : 员工姓名
-  operator : 操作列
+  dabgd : 档案保管地
+  archivescentername : 档案室
+  dastate : 档案状态
+  ygbh : 员工编号
+  pimpersonname : 员工姓名
+  operat : 操作列
