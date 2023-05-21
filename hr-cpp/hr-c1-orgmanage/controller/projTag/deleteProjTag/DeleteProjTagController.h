@@ -34,7 +34,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 
 	}
-	ENDPOINT(API_M_DEL, "/delete-one-by-tagId/{tagId}", deleteByTagId, API_HANDLER_AUTH_PARAME, PATH(String, tagId)) {
+	ENDPOINT(API_M_DEL, "/project-tag/delete-one-by-tag-id/{tagId}", deleteByTagId, API_HANDLER_AUTH_PARAME, PATH(String, tagId)) {
 		// 解析查询参数
 		auto deleteProjTagDTO = DeleteProjTagDTO::createShared();
 		deleteProjTagDTO->tagId = tagId;
@@ -51,7 +51,7 @@ public:
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	ENDPOINT(API_M_DEL, "/deleteBatch-one-by-tagId", deleteBatchByTagId, API_HANDLER_AUTH_PARAME, BODY_STRING(String, jsonPayload)) {
+	ENDPOINT(API_M_DEL, "/project-tag/delete-batch-by-tag-id", deleteBatchByTagId, API_HANDLER_AUTH_PARAME, BODY_STRING(String, jsonPayload)) {
 		const std::shared_ptr<ObjectMapper>& objectMapper = oatpp::parser::json::mapping::ObjectMapper::createShared();
 		// 解析查询参数
 		auto deleteProjTagBatchDTO = DeleteProjTagBatchDTO::createShared();

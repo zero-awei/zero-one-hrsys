@@ -32,7 +32,7 @@ public: // 定义接口
 		info->queryParams["sort"].required = true;
 	}
 
-	ENDPOINT(API_M_GET, "/page-query-project-tag-list", pageQueryProjTag, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/project-tag/page-query-project-tag-list", pageQueryProjTag, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
 		API_HANDLER_QUERY_PARAM(query, PageProjTagQuery, qps);
 		API_HANDLER_RESP_VO(execPageQueryProjTag(query));
 	}
