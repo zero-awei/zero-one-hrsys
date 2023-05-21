@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -25,30 +25,94 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * ���Թ��ܴ�����������
+ * 测试功能传输数据类型
  */
 class AwardLevelDTO : public oatpp::DTO
 {
 public:
 	AwardLevelDTO() {};
-	AwardLevelDTO(String id, String level) :id(id), level(level) {};
+	AwardLevelDTO(String id, String level,String createTime,String name,String pcmAwardName,String updataName,String updataTime,
+		String awardName,String awardCription,String awardTime,String prmID,String judGeorp,String bbSj,String flag) :
+		id(id), level(level) , createTime(createTime), name(name), pcmAwardName(pcmAwardName), updataName(updataName), updataTime(updataTime),
+		awardName(awardName) , awardCription(awardCription), awardTime(awardTime), prmID(prmID), judGeorp(judGeorp), bbSj(bbSj), flag(flag)
+	{};
 
 	DTO_INIT(AwardLevelDTO, DTO);
 
-	// �񽱱��
+	// 获奖情况标识
 	DTO_FIELD(String,id);
 	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("common.dto.code");
+		info->description = ZH_WORDS_GETTER("common.dto.id");
 	}
-	// �񽱵ȼ�
+	// 获奖等级
 	DTO_FIELD(String, level);
 	DTO_FIELD_INFO(level) {
-		info->description = ZH_WORDS_GETTER("common.dto.value");
+		info->description = ZH_WORDS_GETTER("common.dto.level");
+	}
+	//创建时间
+	DTO_FIELD(String, createTime);
+	DTO_FIELD_INFO(createTime) {
+		info->description = ZH_WORDS_GETTER("ormanage.dto.createtime");
+	}
+	// 建立人
+	DTO_FIELD(String, name);
+	DTO_FIELD_INFO(name) {
+		info->description = ZH_WORDS_GETTER("ormanage.dto.name");
+	}
+	// 获奖情况名称
+	DTO_FIELD(String, pcmAwardName);
+	DTO_FIELD_INFO(pcmAwardName) {
+		info->description = ZH_WORDS_GETTER("ormanage.dto.pcmAwardName");
+	}
+	//更新人
+	DTO_FIELD(String, updataName);
+	DTO_FIELD_INFO(updataName) {
+		info->description = ZH_WORDS_GETTER("ormanage.dto.updataName");
+	}
+	//更新时间
+	DTO_FIELD(String, updataTime);
+	DTO_FIELD_INFO(updataTime) {
+		info->description = ZH_WORDS_GETTER("ormanage.dto.uptime");
+	}
+	// 获奖名称
+	DTO_FIELD(String, awardName);
+	DTO_FIELD_INFO(awardName) {
+		info->description = ZH_WORDS_GETTER("ormanage.dto.awardName");
+	}
+	// 获奖情况
+	DTO_FIELD(String, awardCription);
+	DTO_FIELD_INFO(awardCription) {
+		info->description = ZH_WORDS_GETTER("ormanage.dto.awardCription");
+	}
+	// 获奖时间
+	DTO_FIELD(String, awardTime);
+	DTO_FIELD_INFO(awardTime) {
+		info->description = ZH_WORDS_GETTER("ormanage.dto.awardTime");
+	}
+	//应聘者ID
+	DTO_FIELD(String, prmID);
+	DTO_FIELD_INFO(prmID) {
+		info->description = ZH_WORDS_GETTER("ormanage.dto.prmID");
+	}
+	//评定机构
+	DTO_FIELD(String, judGeorp);
+	DTO_FIELD_INFO(judGeorp) {
+		info->description = ZH_WORDS_GETTER("ormanage.dto.judGeorp");
+	}
+	//版本时间
+	DTO_FIELD(String, bbSj);
+	DTO_FIELD_INFO(bbSj) {
+		info->description = ZH_WORDS_GETTER("ormanage.dto.bbSj");
+	}
+	//是否有效
+	DTO_FIELD(String, flag);
+	DTO_FIELD_INFO(flag) {
+		info->description = ZH_WORDS_GETTER("ormanage.dto.flag");
 	}
 };
 
 /**
- * ���Թ��ܷ�ҳ������������
+ * 测试功能分页传输数据类型
  */
 class AwardLevelPageDTO : public PageDTO<AwardLevelDTO::Wrapper>
 {

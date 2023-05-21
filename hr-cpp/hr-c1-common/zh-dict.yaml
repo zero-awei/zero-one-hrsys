@@ -34,8 +34,21 @@ common:
       code: 列表项对应键
       value: 列表项映射值
       list: 下拉列表
-    file:
+      pcmAwardName: 获奖情况名称
+      name: 建立人
+      createtime: 建立时间
+      id: 获奖情况标识
       level: 获奖等级
+      updataName: 更新人
+      uptime: 更新时间
+      awardName: 获奖名称
+      awardCription: 获奖情况
+      awardTime: 获奖时间
+      prmID: 应聘者ID
+      judGeorp: 评价机构
+      bbSj: 版本时间
+      flag: 是否有效
+    file:
       job: 工作岗位
     controller:
         JobCategory: 工作岗位

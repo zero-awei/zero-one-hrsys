@@ -25,8 +25,8 @@ AwardLevelPageJsonVO::Wrapper AwardLevelController::execQueryAwardLevel(const Aw
 	auto vo = AwardLevelPageJsonVO::createShared();
 	// 创建分页对象
 	auto pdto = AwardLevelPageDTO::createShared();
-	pdto->addData(AwardLevelDTO::createShared("qwe", "zs"));
-	pdto->addData(AwardLevelDTO::createShared("asd", "ls"));
+	//pdto->addData(AwardLevelDTO::createShared("qwe", "zs"));
+	//pdto->addData(AwardLevelDTO::createShared("asd", "ls"));
 	// 响应结果
 	vo->success(pdto);
 	return vo;
