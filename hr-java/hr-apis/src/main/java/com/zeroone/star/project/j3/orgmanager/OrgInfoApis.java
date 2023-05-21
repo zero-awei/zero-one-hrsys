@@ -1,7 +1,6 @@
 package com.zeroone.star.project.j3.orgmanager;
 
 import com.zeroone.star.project.j3.dto.DeleteDTO;
-import com.zeroone.star.project.j3.dto.OrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
 import com.zeroone.star.project.vo.JsonVO;
 
@@ -31,5 +30,12 @@ public interface OrgInfoApis {
 	 * @return 删除结果
 	 */
 	JsonVO<Boolean> removeOrgData(DeleteDTO ids);
+
+	/**
+	 * 添加组织信息
+	 * @param orgInfoDTO 添加组织的内容
+	 * @return 是否添加成功
+	 */
+	JsonVO<Boolean> addOryData(OrgInfoDTO orgInfoDTO);
 
 }

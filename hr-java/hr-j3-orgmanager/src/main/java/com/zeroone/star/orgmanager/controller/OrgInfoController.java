@@ -1,16 +1,11 @@
 package com.zeroone.star.orgmanager.controller;
 
 import com.zeroone.star.project.j3.dto.DeleteDTO;
-import com.zeroone.star.project.j3.dto.OrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
 import com.zeroone.star.project.j3.orgmanager.OrgInfoApis;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -28,10 +23,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("orginfo")
 @Api(tags = "组织信息管理")
 public class OrgInfoController implements OrgInfoApis {
-    @Override
-    public JsonVO<Integer> deleteDepAddress(OrgAddressDto orgAddressDto) {
-        return null;
-    }
 
     @PostMapping("modify-org-info")
     @ApiOperation("修改组织信息")
@@ -44,6 +35,13 @@ public class OrgInfoController implements OrgInfoApis {
     @ApiOperation("删除组织信息（支持批量）")
     @Override
     public JsonVO<Boolean> removeOrgData(DeleteDTO ids) {
+        return JsonVO.success(true);
+    }
+
+    @PutMapping("add-org-info")
+    @ApiOperation("添加组织")
+    @Override
+    public JsonVO<Boolean> addOryData(OrgInfoDTO orgInfoDTO) {
         return JsonVO.success(true);
     }
 }
