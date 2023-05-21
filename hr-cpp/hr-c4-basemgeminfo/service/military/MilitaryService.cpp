@@ -13,8 +13,6 @@ ss.str("");
 
 MilitaryDTO::Wrapper MilitaryService::listDetail(const MilitaryDetailQuery::Wrapper& query)
 {
-	// 构建返回对象
-	//auto lists = MilitaryDTO::createShared();
 	MilitaryDAO dao;
 	auto lists = dao.selectDetail(query);
 	auto dto = MilitaryDTO::createShared();

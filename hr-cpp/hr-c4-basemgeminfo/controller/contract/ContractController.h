@@ -49,7 +49,7 @@ public: // 定义接口
 		info->queryParams["name"].required = false;
 	}
 	// 4 定义接口端点
-	ENDPOINT(API_M_GET,"/contract", queryContract, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET,"/contract/select", queryContract, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, ContractQuery, qps);
 		// 响应结果

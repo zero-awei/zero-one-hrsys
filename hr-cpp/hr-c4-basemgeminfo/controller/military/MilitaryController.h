@@ -42,7 +42,7 @@ public: // 定义接口
 		info->queryParams.add<String>("PIMARMYCADRESID").description = ZH_WORDS_GETTER("military.PIMARMYCADRESID");
 		info->queryParams["PIMARMYCADRESID"].addExample("default", String("0453FC72-E19C-43E0-984C-4406706EB79E"));
 	}
-	ENDPOINT(API_M_GET, "/military", queryMilitary, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/military/select", queryMilitary, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, MilitaryDetailQuery, qps);
 		// 响应结果
@@ -55,7 +55,7 @@ public: // 定义接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
-	ENDPOINT(API_M_PUT, "/military", modifyMilitary, BODY_DTO(MilitaryDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/military/modify", modifyMilitary, BODY_DTO(MilitaryDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyMilitary(dto));
 	}
@@ -69,7 +69,7 @@ public: // 定义接口
 		info->queryParams.add<String>("PIMPERSONID").description = ZH_WORDS_GETTER("military.PIMPERSONID");
 		info->queryParams["PIMPERSONID"].addExample("default", String("66958E87-91A4-4DA8-8124-060E93B47EBE"));
 	}
-	ENDPOINT(API_M_POST, "/military", downloadMilitary, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_POST, "/military/download", downloadMilitary, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, MilitaryDownloadQuery, qps);
 		// 响应结果

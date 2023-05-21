@@ -3,13 +3,19 @@
 #include "../../service/military/MilitaryService.h"
 
 MilitaryJsonVO::Wrapper MilitaryController::execQueryMilitary(const MilitaryDetailQuery::Wrapper& query) {
+	// 响应结果
+	auto jvo = MilitaryJsonVO::createShared();
 	// 定义一个Service
 	MilitaryService service;
 	// 查询数据
 	auto result = service.listDetail(query);
-	// 响应结果
-	auto jvo = MilitaryJsonVO::createShared();
-	jvo->success(result);
+	if (result->PIMARMYCADRESID.getValue("").empty()) {
+		cout << "No details were found" << endl;
+		jvo->fail(result);
+	}
+	else {
+		jvo->success(result);
+	}
 	return jvo;
 }
 
@@ -31,6 +37,7 @@ StringJsonVO::Wrapper MilitaryController::execModifyMilitary(const MilitaryDTO::
 	}        
 	else
 	{
+		cout << "The primary key is not found or the data is consistent before and after the modification!" << endl;
 		jvo->fail(dto->PIMARMYCADRESID);
 	}
 	// 响应结果
