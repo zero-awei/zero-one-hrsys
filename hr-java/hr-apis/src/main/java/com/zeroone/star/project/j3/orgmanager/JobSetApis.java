@@ -1,9 +1,14 @@
 package com.zeroone.star.project.j3.orgmanager;
 
 import com.zeroone.star.project.dto.PageDTO;
+import com.zeroone.star.project.dto.PageDTO;
+import com.zeroone.star.project.j3.dto.JobDTO;
+import com.zeroone.star.project.dto.orgmanager.dataset.JobDTO;
 import com.zeroone.star.project.dto.sample.SampleDTO;
+import com.zeroone.star.project.j3.dto.AllJobsDTO;
 import com.zeroone.star.project.j3.dto.ExportDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.JobTitleDTO;
+import com.zeroone.star.project.j3.query.JobByNameQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -58,4 +63,21 @@ public interface JobSetApis {
     public JsonVO<Boolean> modifyJobTitle(List<JobTitleDTO> jobTitleDTOList);
 
 
+/**
+ * 导入职务
+ * @param jobs jobs
+ * @return
+ * @return {@link int}
+ * @Author H_lzu
+ * @Date 16:53 2023/5/19
+ */
+    int importJobs(List<AllJobsDTO> jobs);
+
+    /**
+     * 通过名称查询指定职务详情
+     * 表 t_ormduty
+     * @param condition 搜索框关键字＋页面分页信息
+     * @return 搜索出的 PageDTO<JobDTO>
+     */
+    JsonVO<PageDTO<JobDTO>> queryJobByName(JobByNameQuery condition);
 }

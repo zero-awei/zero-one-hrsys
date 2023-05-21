@@ -6,6 +6,9 @@ import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
 import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
 import com.zeroone.star.project.j3.query.common.OneConditionQuery;
 import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
+import com.zeroone.star.project.j3.common.CommonApis;
+import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
+import com.zeroone.star.project.j3.query.common.OneConditionQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -27,9 +31,10 @@ import java.util.Map;
  * @version 1.0.0
  * @date 2023/5/20 15:46
  */
+
 @RestController
-@Api(tags = "公用接口common")
 @RequestMapping("common")
+@Api(tags = "通用接口")
 public class CommonController implements CommonApis {
     @Override
     public JsonVO<List<String>> queryOneColumn(OneConditionQuery oneConditionQuery) {
@@ -109,6 +114,27 @@ public class CommonController implements CommonApis {
     @ApiOperation("分页查询某人的语言能力")
     @Override
     public JsonVO<PageDTO<List<LanguageAbilityDTO>>> queryLanguageAbilityList(LanguageAbilityQuery personId) {
-        return null;
+        return null;}
+    @GetMapping("query-learning-forms")
+    @ApiOperation("获取学习形式下拉列表")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryLearningForms() {
+        List<DropdownListOptionDTO> list = new ArrayList<>();
+        //测试用例
+        for (int i = 0; i < 5; i++){
+            DropdownListOptionDTO dropdownListOptionDTO = new DropdownListOptionDTO();
+            dropdownListOptionDTO.setKey(i);
+            dropdownListOptionDTO.setValue("帅" + i);
+            list.add(dropdownListOptionDTO);
+        }
+        return JsonVO.success(list);
+    }
+
+    @GetMapping("query-school-nature")
+    @ApiOperation("获取学校性质下拉列表")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> querySchoolNature() {
+        List<DropdownListOptionDTO> list = new ArrayList<>();
+        return JsonVO.success(list);
     }
 }
