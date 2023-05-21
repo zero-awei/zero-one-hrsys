@@ -55,7 +55,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/query-cert-type", queryCertTypeList, API_HANDLER_AUTH_PARAME) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/query-cert-type"), queryCertTypeList, API_HANDLER_AUTH_PARAME) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryCertTypeList(authObject->getPayload()));
 	}

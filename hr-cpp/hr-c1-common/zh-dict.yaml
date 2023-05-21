@@ -31,8 +31,8 @@ sample:
   sex: 性别，如：男
 common:
  controller:
-   certTypeList: queryCertTypeList
-   profCertsList: queryProfCertsList
+  certTypeList: 证书类型下拉列表
+  profCertsList: 职业资格证书类型下拉列表
  dto:
   pimQualMajorId: 执业资格专业编码
   pimQualMajorName: 执业资格
