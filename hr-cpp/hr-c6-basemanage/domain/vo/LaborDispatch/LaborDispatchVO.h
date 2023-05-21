@@ -1,6 +1,6 @@
 #pragma once
-#include "../dto/LaborDispatchDTO.h"
-#include "../GlobalInclude.h"
+#include "../../GlobalInclude.h"
+#include "../../dto/LaborDispatch/LaborDispatchDTO.h"
 
 /*
  Copyright Zero One Star. All rights reserved.

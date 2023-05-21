@@ -32,10 +32,9 @@
 #include "./ContractController/ContractController.h"
 #include "../uselib/ws/WSController.h"
 #endif
-#include "LDConstroller/LaborDispatchConstroller.h"
-
 #include "Muggle/labor_dispatch-Muggle.h"
 #include "Muggle/expense_ledger-Muggle.h"
+#include "LaborDispatch/LaborDispatchConstroller.h"
 #include "GoshController/TestController.h"
 
 

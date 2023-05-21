@@ -23,8 +23,8 @@
 #include "ApiHelper.h"
 #include "domain/query/PageQuery.h"
 #include "domain/vo/BaseJsonVO.h"
-#include "domain/vo/LaborDispatchVO.h"
-#include "domain/query/LaborDispatchQuery.h"
+#include "domain/query/LaborDispatch/LaborDispatchQuery.h"
+#include "domain/vo/LaborDispatch/LaborDispatchVO.h"
 
 // 0 定义API控制器使用宏
 #include OATPP_CODEGEN_BEGIN(ApiController)
@@ -50,7 +50,7 @@ public:
 
 	}
 	// 3.2 定义接口端点
-	ENDPOINT(API_M_GET, "/query", queryLDCorlist, QUERIES(QueryParams, qcl)) {
+	ENDPOINT(API_M_GET, "/query-labordispatch-information-by-pages", queryLDCorlist, QUERIES(QueryParams, qcl)) {
 		//解析查询参数
 		API_HANDLER_QUERY_PARAM(query, PageQuery, qcl);
 		//响应结果
@@ -66,7 +66,7 @@ public:
 		
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/add", addLDCor, BODY_DTO(LaborDispatchDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/add-labordispatch-information", addLDCor, BODY_DTO(LaborDispatchDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddLaborDispatch(dto));
 	}
@@ -84,7 +84,7 @@ public:
 		
 	}
 	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/remove", removeCor, BODY_DTO(LaborDispatchDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/remove-labordispatch-information", removeCor, BODY_DTO(LaborDispatchDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveLaborDispatch(dto));
 	}
@@ -97,7 +97,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	// 3.2 定义导出接口处理
-	ENDPOINT(API_M_PUT, "/export",exportCor, BODY_DTO(LaborDispatchDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/export-labordispatch-information",exportCor, BODY_DTO(LaborDispatchDTO::Wrapper, dto)) {
 		//响应结果
 		API_HANDLER_RESP_VO(execExportLaborDispatch(dto));
 	} 
