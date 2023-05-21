@@ -78,6 +78,15 @@
     <ClInclude Include="domain\do\CertificateManage\CertificateTypeDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="service\RosterOfPer\TemporaryStaffService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\RosterOfPer\TemporaryStaffDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\RosterOfPer\TemporaryStaffMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -99,6 +108,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\CertificateManage\CertificateTypeController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\RosterOfPer\TemporaryStaffService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\RosterOfPer\TemporaryStaffDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
