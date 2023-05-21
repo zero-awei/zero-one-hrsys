@@ -140,5 +140,8 @@
     <ClCompile Include="controller\organizationDepartmentTreeStructure\organizationDepartmentTreeStructure.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="service\EmployeeInformation\EmployeeInformationService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

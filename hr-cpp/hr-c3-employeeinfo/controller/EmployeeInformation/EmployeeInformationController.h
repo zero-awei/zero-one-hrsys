@@ -47,8 +47,8 @@ public: // 定义接口
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
 		//编号
-		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.field.id");
-		info->queryParams["id"].addExample("default", String("10001"));
+		info->queryParams.add<UInt64>("id").description = ZH_WORDS_GETTER("employee.field.id");
+		info->queryParams["id"].addExample("default", UInt64(10001));
 		//姓名
 		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("employee.field.name");
 		info->queryParams["name"].addExample("default", String("li ming"));
@@ -78,7 +78,7 @@ public: // 定义接口
 		info->queryParams["bitrhday"].required = false;
 		// 年龄
 		info->queryParams.add<UInt32>("age").description = ZH_WORDS_GETTER("employee.field.age");
-		info->queryParams["age"].addExample("default", String("20"));
+		info->queryParams["age"].addExample("default", UInt32(20));
 		info->queryParams["age"].required = false;
 		//手机号码
 		info->queryParams.add<String>("phone").description = ZH_WORDS_GETTER("employee.field.phone");
