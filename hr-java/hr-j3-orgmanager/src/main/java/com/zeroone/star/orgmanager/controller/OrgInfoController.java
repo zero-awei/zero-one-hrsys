@@ -24,10 +24,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("orginfo")
 @Api(tags = "组织信息管理")
 public class OrgInfoController implements OrgInfoApis {
-    @Override
-    public JsonVO<Integer> deleteDepAddress(OrgAddressDto orgAddressDto) {
-        return null;
-    }
 
     @PostMapping("modify-org-info")
     @ApiOperation("修改组织信息")

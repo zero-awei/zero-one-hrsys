@@ -83,14 +83,4 @@ public class CommonController implements CommonApis {
     public JsonVO<List<DropdownListOptionDTO>> queryDepartmentName() {
         return null;
     }
-
-    @Override
-    public JsonVO<Map<Integer, String>> LearningFormsDropdownList() {
-        return null;
-    }
-
-    @Override
-    public JsonVO<Map<Integer, String>> SchoolNatureDropdownList() {
-        return null;
-    }
 }
