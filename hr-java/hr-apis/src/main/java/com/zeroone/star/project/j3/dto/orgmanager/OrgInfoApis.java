@@ -1,4 +1,4 @@
-package com.zeroone.star.project.j3.orgmanager;
+package com.zeroone.star.project.j3.dto.orgmanager;
 
 import com.zeroone.star.project.vo.JsonVO;
 
@@ -22,7 +22,7 @@ public interface OrgInfoApis {
 
     /**
      * 导出组织地址接口
-     * @param ids
+     * @param orgAddressDto
      */
-    JsonVO<Boolean> exportOrgAddress(OrgAddressDto ids);
+    JsonVO<Boolean> exportOrgAddress(OrgAddressDto orgAddressDto);
 }

@@ -27,7 +27,7 @@ import java.util.List;
 @Api(tags = "公共管理")
 public class CommonController implements CommonApis {
 
-    @GetMapping("remove-common-discipline")
+    @GetMapping("delete-common-discipline")
     @ApiOperation("获取学科下拉列表")
     @Override
     public JsonVO<List<String>> listDisciplineType(DisciplineTypeQuery discipline) {
