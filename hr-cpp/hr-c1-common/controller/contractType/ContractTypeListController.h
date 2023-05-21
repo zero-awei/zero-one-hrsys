@@ -43,7 +43,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
 
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/contract-type-pull-list"), queryContractType) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/contract-type"), queryContractType) {
 		API_HANDLER_RESP_VO(execQueryContractType());
 	}
 private: // 定义接口执行函数

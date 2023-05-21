@@ -25,7 +25,6 @@
     <ClInclude Include="domain\dto\certs\CertTypeDTO.h" />
     <ClInclude Include="domain\dto\certs\ProfCertsDTO.h" />
     <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
-    <ClInclude Include="domain\query\certs\CertTypeQuery.h" />
     <ClInclude Include="domain\query\certs\ProfCertsQuery.h" />
     <ClInclude Include="domain\vo\certs\ProfCertsVO.h" />
     <ClInclude Include="domain\vo\certs\CertTypeVO.h" />
@@ -33,7 +32,6 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="domain\dto\filestatus\FilestatusDTO.h" />
     <ClInclude Include="domain\query\filestatus\FilestatusQuery.h" />
     <ClInclude Include="controller\fileReservation\FileReservationController.h" />
     <ClInclude Include="controller\fileStatus\FileStatusController.h" />
