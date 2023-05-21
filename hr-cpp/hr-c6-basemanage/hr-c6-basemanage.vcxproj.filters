@@ -17,6 +17,7 @@
     <ClCompile Include="controller\muggle\LaborDispatchController.cpp" />
     <ClCompile Include="dao\muggle\LaborDispatchDAO.cpp" />
     <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
+    <ClCompile Include="controller\TerminationReminder\terminationReminder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -50,6 +51,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="domain\query\muggle\expenseLedgerQuery.h" />
     <ClInclude Include="domain\query\muggle\laborDispatchQuery.h" />
+    <ClInclude Include="controller\TerminationReminder\terminationReminder.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />
