@@ -1,4 +1,4 @@
-package com.zeroone.star.project.j3.dto.orgmanager;
+package com.zeroone.star.project.j3.dto.orgmager;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

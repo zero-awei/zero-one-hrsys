@@ -1,6 +1,7 @@
-package com.zeroone.star.project.j3.dto.orgmanager;
+package com.zeroone.star.project.j3.orgmanager;
 
 import cn.hutool.http.server.HttpServerResponse;
+import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.vo.JsonVO;
 
 /**

@@ -1,8 +1,8 @@
 package com.zeroone.star.orgmanager.controller;
 
 import cn.hutool.http.server.HttpServerResponse;
-import com.zeroone.star.project.j3.dto.orgmanager.OrgAddressDto;
-import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoApis;
+import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
+import com.zeroone.star.project.j3.orgmanager.OrgInfoApis;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
