@@ -26,6 +26,8 @@
 #include "uselib/ws/WSController.h"
 #endif
 
+#include "pimpaper/pimpaperController.h"
+
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -50,7 +52,7 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-
+	ROUTER_SIMPLE_BIND(PimpaperController);
 }
 
 #ifdef HTTP_SERVER_DEMO

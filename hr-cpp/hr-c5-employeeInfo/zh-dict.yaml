@@ -31,13 +31,19 @@ sample:
   sex: 性别，如：男
 #pimpaper的中英词典
 pimpaper:
- field:
-  ygbh:员工编号
-  pimpersonname:员工姓名
-  pimpapername:论文名称
-  cbs:出版社
-  kwmc:刊物名称
-  gwqs:刊物期数
-  fbsj:发表时间
-  grzlwzzzdpm:个人在论文著作中的排名
-  fj:附件
+ get:
+  summary: 查看指定员工论文信息(分页)
+ post:
+  summary: 新增指定员工论文信息
+ delete:
+  summary: 删除指定员工论文信息
+ field: 
+  ygbh: 员工编号
+  pimpersonname: 员工姓名
+  pimpapername: 论文名称
+  cbs: 出版社
+  kwmc: 刊物名称
+  gwqs: 刊物期数
+  fbsj: 发表时间
+  grzlwzzzdpm: 个人在论文著作中的排名
+  fj: 附件
