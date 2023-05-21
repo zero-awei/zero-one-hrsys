@@ -19,9 +19,9 @@
 */
 #ifndef _LD_M_SERVICE_
 #define _LD_M_SERVICE_
-#include "domain/dto/muggle/laborDispatchDTO.h"
-#include "domain/vo/muggle/laborDispatchJsonVO.h"
-#include "domain/query/muggle/laborDispatchQuery.h"
+#include "domain/dto/muggle/LaborDispatchDTO.h"
+#include "domain/vo/muggle/LaborDispatchJsonVO.h"
+#include "domain/query/muggle/LaborDispatchQuery.h"
 
 class LaborDispatchMService
 {
