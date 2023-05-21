@@ -25,6 +25,8 @@ class ExportEmployeeController : public oatpp::web::server::api::ApiController {
 	
 	API_ACCESS_DECLARE(ExportEmployeeController); // 2 定义控制器访问入口
 public:
+
+	//  3.1 定义增加接口描述
 	ENDPOINT_INFO(addExportEmployee) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("LegalEntitySet.post.summary");
@@ -32,7 +34,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/ExportEmployee", addExportEmployee, BODY_DTO(ExportEmployeeDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/ExportEmployee-add", addExportEmployee, BODY_DTO(ExportEmployeeDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddExportEmployee(dto));
 	}
@@ -46,7 +48,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/ExportEmployee", modifyExportEmployee, BODY_DTO(ExportEmployeeDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/ExportEmployee-modify", modifyExportEmployee, BODY_DTO(ExportEmployeeDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyExportEmployee(dto));
 	}
@@ -60,7 +62,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/ExportEmployee", removeExportEmployee, BODY_DTO(ExportEmployeeDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/ExportEmployee-delete", removeExportEmployee, BODY_DTO(ExportEmployeeDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveExportEmployee(dto));
 	}
