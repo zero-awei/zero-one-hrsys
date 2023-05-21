@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -27,31 +27,63 @@
 #include "domain/query/itemlabel/ItemlabelQuery.h"
 #include "domain/vo/itemLabel/ItemLabelVO.h"
 #include "Macros.h"
-
+#include "CharsetConvertHepler.h"
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
 class ItemLabelController : public oatpp::web::server::api::ApiController // 1
 {
-	// 2 ¶¨Òå¿ØÖÆÆ÷·ÃÎÊÈë¿Ú
+	// 2 å®šä¹‰æ§åˆ¶å™¨è®¿é—®å…¥å£
 	API_ACCESS_DECLARE(ItemLabelController);
-public: // ¶¨Òå½Ó¿Ú
-	// 3 ¶¨Òå½Ó¿ÚÃèÊö
+public: // å®šä¹‰æ¥å£
+	// 3 å®šä¹‰æ¥å£æè¿°
 	ENDPOINT_INFO(queryItemLabel) {
-		// ¶¨Òå½Ó¿Ú±êÌâ
+		// å®šä¹‰æ¥å£æ ‡é¢˜
 		info->summary = ZH_WORDS_GETTER("ormanage.dto.label");
-		// ¶¨ÒåÏìÓ¦²ÎÊıÀàĞÍ
+		// å®šä¹‰å“åº”å‚æ•°ç±»å‹
 		API_DEF_ADD_RSP_JSON_WRAPPER(ItemLabelPageJsonVO);
-		// ¶¨Òå·ÖÒ³²éÑ¯²ÎÊıÃèÊö
+		// å®šä¹‰åˆ†é¡µå‚æ•°æè¿°
+		API_DEF_ADD_PAGE_PARAMS();
+		// å®šä¹‰å…¶ä»–è¡¨å•å‚æ•°æè¿°
+		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("ormanage.dto.name");
+		info->queryParams["name"].addExample("default", String(CharsetConvertHepler::ansiToUtf8("å…‰å½±ç§‘æŠ€")));
+		info->queryParams["name"].required = false;
+
+		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("ormanage.dto.id");
+		info->queryParams["id"].addExample("default", String("07a2e123awed"));
+		info->queryParams["id"].required = false;
+		
+		info->queryParams.add<String>("createTime").description = ZH_WORDS_GETTER("ormanage.dto.createtime");
+		info->queryParams["createTime"].addExample("default", String("2020-05-29 01:12:02"));
+		info->queryParams["createTime"].required = false;
+		
+		info->queryParams.add<String>("updataTime").description = ZH_WORDS_GETTER("ormanage.dto.uptime");
+		info->queryParams["updataTime"].addExample("default", String("2020-06-18 21:21:34"));
+		info->queryParams["updataTime"].required = false;
+
+		info->queryParams.add<String>("itemLabel").description = ZH_WORDS_GETTER("ormanage.dto.itemlabel");
+		info->queryParams["itemLabel"].addExample("default", String(CharsetConvertHepler::ansiToUtf8("å“ˆå“ˆå“ˆ")));
+		info->queryParams["itemLabel"].required = false;
+
+		info->queryParams.add<String>("ormorgId").description = ZH_WORDS_GETTER("ormanage.dto.ormorgid");
+		info->queryParams["ormorgId"].addExample("default", String("020369F7-AFE6-4014-82D9-30915844D604"));
+		info->queryParams["ormorgId"].required = false;
+
+		info->queryParams.add<String>("ormxbqId").description = ZH_WORDS_GETTER("ormanage.dto.ormxbqid");
+		info->queryParams["ormxbqId"].addExample("default", String("cf2efbee8b8875e6393ac03a17c73d2a"));
+		info->queryParams["ormxbqId"].required = false;
+
+
 	}
-	// 4 ¶¨Òå½Ó¿Ú¶Ëµã
+	// 4 å®šä¹‰æ¥å£ç«¯ç‚¹
 	ENDPOINT(API_M_GET, "/ItemLabel", queryItemLabel, QUERIES(QueryParams, qps)) {
-		// ½âÎö²éÑ¯²ÎÊı£¨½âÎö³ÉÁìÓòÄ£ĞÍ¶ÔÏó£©
+		// è§£ææŸ¥è¯¢å‚æ•°ï¼ˆè§£ææˆé¢†åŸŸæ¨¡å‹å¯¹è±¡ï¼‰
 		API_HANDLER_QUERY_PARAM(query, ItemLabelQuery, qps);
-		// ÏìÓ¦½á¹û
+		// å“åº”ç»“æœ
 		API_HANDLER_RESP_VO(execQueryItemLabel(query));
+		
 	}
-private: // ¶¨Òå½Ó¿ÚÖ´ĞĞº¯Êı
-	// 5 ¶¨Òå½Ó¿ÚµÄÖ´ĞĞº¯Êı
+private: // å®šä¹‰æ¥å£æ‰§è¡Œå‡½æ•°
+	// 5 å®šä¹‰æ¥å£çš„æ‰§è¡Œå‡½æ•°
 	ItemLabelPageJsonVO::Wrapper execQueryItemLabel(const ItemLabelQuery::Wrapper& query);
 };
 
