@@ -44,7 +44,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
 
-	ENDPOINT(API_M_GET, "/common/file-status-pull-list", queryFileStatus) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/file-status"), queryFileStatus) {
 		API_HANDLER_RESP_VO(execQueryFileStatus());
 	}
 private: // 定义接口执行函数

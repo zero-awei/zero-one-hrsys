@@ -42,7 +42,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
 
-	ENDPOINT(API_M_GET, "/common/file-reservation-pull-list", queryFileReservation) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/file-reservation"), queryFileReservation) {
 		API_HANDLER_RESP_VO(execQueryFileReservation());
 	}
 private: // 定义接口执行函数

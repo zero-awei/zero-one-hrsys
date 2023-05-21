@@ -41,7 +41,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
 
-	ENDPOINT(API_M_GET, "/common/dismiss-reason-pull-list", queryDismissReason) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/dismiss-reason"), queryDismissReason) {
 		API_HANDLER_RESP_VO(execQueryDismissReason());
 	}
 private: // 定义接口执行函数
