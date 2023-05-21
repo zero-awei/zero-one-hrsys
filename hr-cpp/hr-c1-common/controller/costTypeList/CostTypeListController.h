@@ -20,7 +20,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
 
-	ENDPOINT(API_M_GET, "/cost-type-pull-list", queryCostType) {
+	ENDPOINT(API_M_GET, "/common/cost-type-pull-list", queryCostType) {
 		API_HANDLER_RESP_VO(execQueryCostType());
 	}
 private: // 定义接口执行函数
