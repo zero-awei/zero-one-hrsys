@@ -72,7 +72,7 @@ public: // 定义接口
 		API_DEF_ADD_PAGE_PARAMS();
 	}
 	//定义导入员工信息接口端点处理
-	ENDPOINT(API_M_GET, "/EmployeeInformation/Employee-Info2", importEmployeeInfo, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_POST, "/EmployeeInformation/Employee-Info2", importEmployeeInfo, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(importInfo, EmployeeInformationPageQuery, queryParams);
 		// 响应结果
