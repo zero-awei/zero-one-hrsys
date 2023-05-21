@@ -107,4 +107,3 @@ public interface CommonApis {
      */
     JsonVO<PageDTO<List<LanguageAbilityDTO>>> queryLanguageAbilityList(LanguageAbilityQuery personId);
 }
-

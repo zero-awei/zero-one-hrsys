@@ -6,6 +6,9 @@ import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
 import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
 import com.zeroone.star.project.j3.query.common.OneConditionQuery;
 import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
+import com.zeroone.star.project.j3.common.CommonApis;
+import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
+import com.zeroone.star.project.j3.query.common.OneConditionQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -36,6 +39,20 @@ public class CommonController implements CommonApis {
         return null;
     }
 
+
+    @GetMapping("query-start-position-title")
+    @ApiOperation("职务名称下拉列表")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryPositionTitle() {
+        return null;
+    }
+
+    @GetMapping("query-start-job-title")
+    @ApiOperation("岗位名称下拉列表")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryJobTitle() {
+        return null;
+    }
 
     @GetMapping("query-reward-levels")
     @ApiOperation("奖惩级别下拉列表")

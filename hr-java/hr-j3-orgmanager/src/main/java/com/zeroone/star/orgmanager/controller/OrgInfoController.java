@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -32,8 +33,10 @@ public class OrgInfoController implements OrgInfoApis {
         return null;
     }
 
+    @PostMapping("modify-org-info")
+    @ApiOperation("修改组织信息")
     @Override
-    public JsonVO<Long> modifyOrgInfo(OrgInfoDTO orgInfoDTO) {
+    public JsonVO<Boolean> modifyOrgInfo(@RequestBody OrgInfoDTO orgInfoDTO) {
         return null;
     }
 
