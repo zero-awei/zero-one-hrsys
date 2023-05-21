@@ -90,4 +90,11 @@ public class CommonController implements CommonApis {
     public JsonVO<ZzmmQuery> queryZzmm() {
         return zzmmService.getZzmm();
     }
+
+    @ApiOperation(value = "血型下拉列表")
+    @GetMapping("query-blood-type")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryBloodType() {
+        return null;
+    }
 }
