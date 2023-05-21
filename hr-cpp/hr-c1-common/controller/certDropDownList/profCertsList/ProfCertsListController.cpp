@@ -20,7 +20,7 @@
 #include "profCertsListController.h"
 //#include "../../service/sample/SampleService.h"
 
-ProfCertsListJsonVO::Wrapper ProfCertsListController::execQueryProfCertsList(const ProfCertsQuery::Wrapper& query, const PayloadDTO& payload)
+ProfCertsListJsonVO::Wrapper ProfCertsListController::execQueryProfCertsList(const ProfCertsQuery::Wrapper& query)
 {	
 	auto dto = ProfCertsListDTO::createShared();
 	auto vo = ProfCertsListJsonVO::createShared();
