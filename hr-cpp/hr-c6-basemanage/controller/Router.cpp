@@ -18,24 +18,24 @@
 */
 #include "stdafx.h"
 #include "Router.h"
-#include "ApiHelper.h"
+
+#include "GoshController/TestController.h"
 #include "JobTitleInfo/JobTitleInfoController.h"
 #include "ExpenseLedge/ExpenseLedgeController.h"
 #include "./ContractController/ContractController.h"
 #include "../uselib/ws/WSController.h"
 #include "SelectController/retirement.h"
 #include "./JobTitle/JobTitleController.h"
-#include "./GoshController/TestController.h"
 
 
 #ifdef HTTP_SERVER_DEMO
 #include "./ContractController/ContractController.h"
 #include "../uselib/ws/WSController.h"
 #endif
-#include "LDConstroller/LaborDispatchConstroller.h"
-
 #include "Muggle/labor_dispatch-Muggle.h"
 #include "Muggle/expense_ledger-Muggle.h"
+#include "LaborDispatch/LaborDispatchConstroller.h"
+#include "GoshController/TestController.h"
 
 
 // 如果定义了关闭Swagger文档宏
@@ -71,12 +71,14 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(TestController);
 	ROUTER_SIMPLE_BIND(JobTitleController);
 	ROUTER_SIMPLE_BIND(GoshController);
+	ROUTER_SIMPLE_BIND(GoshController);
 }
 void Router::createJobAndExpenseRouter()
 {
 	ROUTER_SIMPLE_BIND(JobTitleInfoController);
 	ROUTER_SIMPLE_BIND(ExpenseLedgeController);
 }
+
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {

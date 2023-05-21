@@ -55,7 +55,7 @@ public:
 		QUERYCONTRACTINFO;
 	}
 	// 3.1.2 定义接口端点
-	ENDPOINT(API_M_GET, "/queryContract", queryContract, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/query-contract-info", queryContract, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, ContractQuery_, qps);
 		// 响应结果
@@ -73,7 +73,7 @@ public:
 	}
 
 	// 3.2.2 定义接口端点
-	ENDPOINT(API_M_PUT, "/updateContract", updateContract, BODY_DTO(ContractDTO_::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/update-contract-info", updateContract, BODY_DTO(ContractDTO_::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execUpdateContract(dto));
 	}
@@ -90,7 +90,7 @@ public:
 	}
 	// 3.3.2 定义接口端点
 	// 定义文件上传端点处理
-	ENDPOINT(API_M_POST, "/uploadContract", uploadContract, BODY_STRING(String, body), QUERY(String, suffix)) {
+	ENDPOINT(API_M_POST, "/upload-contract-info", uploadContract, BODY_STRING(String, body), QUERY(String, suffix)) {
 		// 执行文件保存逻辑
 		API_HANDLER_RESP_VO(execUploadContract(body, suffix));
 	}
@@ -109,7 +109,7 @@ public:
 		info->queryParams["sequence"].required = true;
 	}
 	// 3.4.2 定义接口端点
-	ENDPOINT(API_M_GET, "/downloadContract", downloadContract, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/download-contract-info", downloadContract, QUERIES(QueryParams, qps)) {
 		API_HANDLER_QUERY_PARAM(query, ContractDownloadQuery, qps);
 		API_HANDLER_RESP_VO(execDownloadContract(query));
 	}
