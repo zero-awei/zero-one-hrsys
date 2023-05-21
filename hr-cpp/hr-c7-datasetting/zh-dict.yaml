@@ -33,7 +33,7 @@ certificate:
  field:
   id: 排序号
   certificateName:	证书名称
-  contractType:
+contractType:
   query-all:
     summary: 分页查询合同类别列表
   post:
