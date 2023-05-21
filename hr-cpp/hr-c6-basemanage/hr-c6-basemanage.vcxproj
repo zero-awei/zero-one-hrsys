@@ -193,7 +193,6 @@
     <ClInclude Include="controller\Muggle\expense_ledger-Muggle.h" />
     <ClInclude Include="controller\Muggle\labor_dispatch-Muggle.h" />
     <ClInclude Include="controller\LDConstroller\LaborDispatchConstroller.h" />
-    <ClInclude Include="controller\GoshController\TestController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
