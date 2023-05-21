@@ -43,7 +43,10 @@ class SampleController : public oatpp::web::server::api::ApiController // 1 继承
 	// 2 定义控制器访问入口
 	API_ACCESS_DECLARE(SampleController);
 	// 3 定义接口
-public:
+public: 
+
+	
+
 	// 3.1 定义查询接口描述
 	ENDPOINT_INFO(querySample) {
 		// 定义接口标题
@@ -69,6 +72,7 @@ public:
 		// 响应结果
 		API_HANDLER_RESP_VO(execQuerySample(userQuery, authObject->getPayload()));
 	}
+	
 	// 3.1 定义新增接口描述
 	ENDPOINT_INFO(addSample) {
 		// 定义接口标题
@@ -112,7 +116,7 @@ public:
 		auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
 		/* 创建multipart读取器 */
 		multipart::Reader multipartReader(multipartContainer.get());
-		/* 配置读取器读取表单字段 */
+		/* 配置读取器读取表单字段3*/
 		multipartReader.setPartReader("nickname", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 		multipartReader.setPartReader("age", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 		/* 配置读取器读取文件到文件 */

@@ -18,7 +18,7 @@
  limitations under the License.
 */
 #ifndef _SAMPLE_QUERY_
-#define _SAMPLE_QUERY_
+#define _PAGEQUERYEMPLOYEELIST_QUERY_
 
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
