@@ -64,7 +64,7 @@ public class Srforgsector implements Serializable {
     private String orgname;
 
     /**
-     * 部门标识
+     * 部门标识：主键
      */
     private String orgsectorid;
 

@@ -12,5 +12,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2023-05-21
  */
 public interface ISrforgsectorService extends IService<Srforgsector> {
-
+    Boolean  removeDeptById(String id);
 }

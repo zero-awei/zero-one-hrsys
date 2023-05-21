@@ -1,13 +1,17 @@
 package com.zeroone.star.orgmanager.controller;
 
+import com.zeroone.star.orgmanager.service.ISrforgsectorService;
 import com.zeroone.star.project.orgmanager.RemoveDeptApis;
 import com.zeroone.star.project.dto.orgmanager.DeptDTO;
 import com.zeroone.star.project.query.orgmanager.DeptQuery;
 import com.zeroone.star.project.vo.JsonVO;
+import com.zeroone.star.project.vo.ResultStatus;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 /**
   * @author：letian
@@ -19,11 +23,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/org-manager")
 @Api(tags = "删除部门接口")
 public class OrgManagerController implements RemoveDeptApis {
-
+    @Resource
+    private ISrforgsectorService srforgsectorService;
     @Override
     @DeleteMapping("/dept")
     @ApiOperation(value = "批量删除部门", notes = "根据多个部门ids删除部分部门")
     public JsonVO<DeptDTO> removeDepts(DeptQuery deptQuery) {
+        if (srforgsectorService.removeDeptById(deptQuery.getOrgSectorId())) {
+
+        }
         return null;
     }
 
