@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
- @Date: 2023/05/19 23:24:57
+ @Date: 2023/05/20 0:00:36
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,25 +17,19 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#pragma once
-#ifndef _LB_M_QUERY_
-#define _LB_M_QUERY
-#include "../../GlobalInclude.h"
-#include OATPP_CODEGEN_BEGIN(DTO)
+#ifndef _LD_M_SERVICE_
+#define _LD_M_SERVICE_
+#include "domain/dto/muggle/laborDispatchDTO.h"
+#include "domain/vo/muggle/laborDispatchJsonVO.h"
+#include "domain/query/muggle/laborDispatchQuery.h"
 
-class LaborDispatchMQuery : public oatpp::DTO
+class LaborDispatchMService
 {
-	DTO_INIT(LaborDispatchMQuery, DTO);
-	/**
-	 * ¹«Ë¾Ãû³Æ
-	 */
-	DTO_FIELD(String, corporateName);
-	DTO_FIELD_INFO(corporateName) {
-		info->description = ZH_WORDS_GETTER("labordispatch_mug.field.corporatename");
-	}
+public:
+	LaborDispatchMDTO::Wrapper ListData(const LaborDispatchMQuery::Wrapper& query);
 
+	bool modifyData(const LaborDispatchMDTO::Wrapper& dto);
+protected:
+private:
 };
-
-
-#include OATPP_CODEGEN_END(DTO)
-#endif // !_LB_M_QUERY_
+#endif

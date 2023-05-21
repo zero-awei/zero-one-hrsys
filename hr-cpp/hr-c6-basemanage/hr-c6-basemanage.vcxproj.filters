@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="controller\GoshController\TestController.cpp" />
-    <ClCompile Include="controller\Muggle\expense_ledger-Muggle.cpp" />
-    <ClCompile Include="controller\Muggle\labor_dispatch-Muggle.cpp" />
     <ClCompile Include="controller\LaborDispatch\LaborDispatchConstroller.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SelectController\retirement.cpp" />
@@ -15,6 +13,10 @@
     <ClCompile Include="controller\JobTitle\JobTitleController.cpp" />
     <ClCompile Include="controller\ExpenseLedge\ExpenseLedgeController.cpp" />
     <ClCompile Include="controller\JobTitleInfo\JobTitleInfoController.cpp" />
+    <ClCompile Include="controller\Muggle\ExpenseLedgerController.cpp" />
+    <ClCompile Include="controller\muggle\LaborDispatchController.cpp" />
+    <ClCompile Include="dao\muggle\LaborDispatchDAO.cpp" />
+    <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -29,6 +31,25 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="controller\Muggle\ExpenseLedgerController.h" />
+    <ClInclude Include="controller\Muggle\LaborDispatchController.h" />
+    <ClInclude Include="dao\muggle\LaborDispatchDAO.h" />
+    <ClInclude Include="domain\do\muggle\LaborDispatchDO.h" />
+    <ClInclude Include="domain\dto\muggle\ExpenseLedgerDTO.h" />
+    <ClInclude Include="domain\dto\muggle\LaborDispatchDTO.h" />
+    <ClInclude Include="domain\vo\muggle\LaborDispatchJsonVO.h" />
+    <ClInclude Include="service\muggle\LaborDispatchService.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="domain\query\muggle\expenseLedgerQuery.h" />
+    <ClInclude Include="domain\query\muggle\laborDispatchQuery.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />
@@ -66,8 +87,6 @@
     <ClInclude Include="domain\vo\JobTitleInfo\JobTitleInfoVO.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="controller\Muggle\expense_ledger-Muggle.h" />
-    <ClInclude Include="controller\Muggle\labor_dispatch-Muggle.h" />
     <ClInclude Include="controller\LaborDispatch\LaborDispatchConstroller.h" />
     <ClInclude Include="controller\GoshController\TestController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
@@ -100,5 +119,6 @@
     <None Include="domain\dto\.keep" />
     <None Include="zh-dict.yaml" />
     <None Include="zh-dict.yaml.bak" />
+    <None Include="conf\data-source.yaml" />
   </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
- @Date: 2023/05/19 23:24:57
+ @Date: 2023/05/20 10:53:13
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,24 +17,26 @@
  limitations under the License.
 */
 #pragma once
-#ifndef _LB_M_QUERY_
-#define _LB_M_QUERY
-#include "../../GlobalInclude.h"
-#include OATPP_CODEGEN_BEGIN(DTO)
+#ifndef _LD_M_DO_
+#define _LD_M_DO_
+#include "../DoInclude.h"
 
-class LaborDispatchMQuery : public oatpp::DTO
+class LaborDispatchMDO
 {
-	DTO_INIT(LaborDispatchMQuery, DTO);
-	/**
-	 * 公司名称
-	 */
-	DTO_FIELD(String, corporateName);
-	DTO_FIELD_INFO(corporateName) {
-		info->description = ZH_WORDS_GETTER("labordispatch_mug.field.corporatename");
+	// 公司名称
+	CC_SYNTHESIZE(string, corporatename, CorporateName);
+	// 公司地址
+	CC_SYNTHESIZE(string, corporateAddress, CorporateAddress);
+	// 公司联系人
+	CC_SYNTHESIZE(string, corporateContact, CorporateContact);
+	// 公司联系电话
+	CC_SYNTHESIZE(string, corporateNumber, CorporateNumber);
+public:
+	LaborDispatchMDO() {
+		corporatename = "";
+		corporateAddress = "";
+		corporateContact = "";
+		corporateNumber = "";
 	}
-
 };
-
-
-#include OATPP_CODEGEN_END(DTO)
-#endif // !_LB_M_QUERY_
+#endif

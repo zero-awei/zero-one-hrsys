@@ -168,14 +168,16 @@
     <ClCompile Include="controller\ContractController\ContractController.cpp" />
     <ClCompile Include="controller\JobTitle\JobTitleController.cpp" />
     <ClCompile Include="controller\GoshController\TestController.cpp" />
-    <ClCompile Include="controller\Muggle\expense_ledger-Muggle.cpp" />
-    <ClCompile Include="controller\Muggle\labor_dispatch-Muggle.cpp" />
     <ClCompile Include="controller\LaborDispatch\LaborDispatchConstroller.cpp" />
+    <ClCompile Include="controller\muggle\ExpenseLedgerController.cpp" />
+    <ClCompile Include="controller\muggle\LaborDispatchController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SelectController\retirement.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\muggle\LaborDispatchDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="dao\Sample\ContractDao.cpp" />
+    <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -189,13 +191,13 @@
     <ClInclude Include="controller\ContractController\ContractController.h" />
     <ClInclude Include="controller\GoshController\TestController.h" />
     <ClInclude Include="controller\JobTitle\JobTitleController.h" />
-    <ClInclude Include="controller\Muggle\expense_ledger-Muggle.h" />
-    <ClInclude Include="controller\Muggle\labor_dispatch-Muggle.h" />
     <ClInclude Include="controller\LaborDispatch\LaborDispatchConstroller.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
     <ClInclude Include="domain\dto\JobTitleInfo\JobTitleInfoDTO.h" />
+    <ClInclude Include="domain\query\muggle\ExpenseLedgerQuery.h" />
+    <ClInclude Include="domain\query\muggle\LaborDispatchQuery.h" />
     <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h" />
     <ClInclude Include="domain\vo\JobTitleInfo\JobTitleInfoVO.h" />
     <ClInclude Include="controller\SelectController\retirement.h" />
@@ -207,8 +209,6 @@
     <ClInclude Include="domain\dto\ContractDTO\ContractDTO.h" />
     <ClInclude Include="domain\dto\ContractDTO\ContractDTO_.h" />
     <ClInclude Include="domain\dto\JobTitle\JobTitleDTO.h" />
-    <ClInclude Include="domain\dto\Muggle\expenseLedgerDTO.h" />
-    <ClInclude Include="domain\dto\Muggle\laborDispatchDTO.h" />
     <ClInclude Include="domain\dto\Gosh\ContractDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\ContractQuery.h" />
@@ -219,10 +219,7 @@
     <ClInclude Include="domain\vo\ContractVO.h" />
     <ClInclude Include="domain\vo\ContractVO\ContractVO.h" />
     <ClInclude Include="domain\vo\ContractVO\ContractVO_.h" />
-    <ClInclude Include="domain\query\Muggle\expenseLedgerQuery.h" />
-    <ClInclude Include="domain\query\Muggle\laborDispatchQuery.h" />
     <ClInclude Include="domain\vo\JobTitle\JobTitleJsonVO.h" />
-    <ClInclude Include="domain\vo\Muggle\laborDispatchJsonVO.h" />
     <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO.h" />
     <ClInclude Include="domain\dto\retirement\RetiremetDto.h" />
     <ClInclude Include="domain\query\LaborDispatch\LaborDispatchQuery.h" />
@@ -232,6 +229,14 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\sample\ContractService.h" />
+    <ClInclude Include="controller\muggle\ExpenseLedgerController.h" />
+    <ClInclude Include="controller\muggle\LaborDispatchController.h" />
+    <ClInclude Include="dao\muggle\LaborDispatchDAO.h" />
+    <ClInclude Include="domain\do\muggle\LaborDispatchDO.h" />
+    <ClInclude Include="domain\dto\muggle\ExpenseLedgerDTO.h" />
+    <ClInclude Include="domain\dto\muggle\LaborDispatchDTO.h" />
+    <ClInclude Include="domain\vo\muggle\LaborDispatchJsonVO.h" />
+    <ClInclude Include="service\muggle\LaborDispatchService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

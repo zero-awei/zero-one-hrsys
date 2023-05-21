@@ -2,7 +2,7 @@
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
- @Date: 2023/05/19 23:24:57
+ @Date: 2023/05/19 23:25:03
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,25 +16,23 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#pragma once
-#ifndef _LB_M_QUERY_
-#define _LB_M_QUERY
-#include "../../GlobalInclude.h"
-#include OATPP_CODEGEN_BEGIN(DTO)
+#include "stdafx.h"
+#include "LaborDispatchController.h"
+#include "../../service/muggle/LaborDispatchService.h"
 
-class LaborDispatchMQuery : public oatpp::DTO
+LaborDispatchJsonMVO::Wrapper LaborDispatchMController::execQueryLaborDispatch(const LaborDispatchMQuery::Wrapper& query)
 {
-	DTO_INIT(LaborDispatchMQuery, DTO);
-	/**
-	 * 公司名称
-	 */
-	DTO_FIELD(String, corporateName);
-	DTO_FIELD_INFO(corporateName) {
-		info->description = ZH_WORDS_GETTER("labordispatch_mug.field.corporatename");
-	}
+	// 定义Service
+	LaborDispatchMService service;
+	// service执行并返回数据
+	auto result = service.ListData(query);
+	// 响应结果
+	auto vo = LaborDispatchJsonMVO::createShared();
+	vo->success(result);
+	return vo;
+}
 
-};
-
-
-#include OATPP_CODEGEN_END(DTO)
-#endif // !_LB_M_QUERY_
+StringJsonVO::Wrapper LaborDispatchMController::execModifyLaborDispatch()
+{
+	return StringJsonVO::Wrapper();
+}
