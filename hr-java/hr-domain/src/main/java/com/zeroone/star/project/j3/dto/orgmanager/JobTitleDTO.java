@@ -1,4 +1,4 @@
-package com.zeroone.star.project.j3.dto.jobtitle;
+package com.zeroone.star.project.j3.dto.orgmanager;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -14,6 +14,6 @@ public class JobTitleDTO {
     private String title; // 职务名称
     @ApiModelProperty(value = "职务序号",example = "3")
     private int order; // 职务序号
-    @ApiModelProperty(value = "修改前职务名称",example = "总经理")
-    private String preTitle; // 职务名称
+    @ApiModelProperty(value = "职务标识",example = "039bb636-099a-4deb-bf9b-c9b865e35e0f")
+    private String dutyId; //职务标识
 }

@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@ApiModel("语言能力查询对象（用户标识）")
+@ApiModel("某人语言能力查询")
 public class LanguageAbilityQuery extends PageQuery {
 
     @NotBlank(message = "用户标识不能为空")

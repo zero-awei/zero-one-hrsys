@@ -1,7 +1,10 @@
 package com.zeroone.star.project.j3.common;
 
+import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
+import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
 import com.zeroone.star.project.j3.query.common.OneConditionQuery;
+import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import com.zeroone.star.project.vo.JsonVO;
 
@@ -98,5 +101,10 @@ public interface CommonApis {
      * @return Map<Integer, String> Integer: 代码标示符 String: 名称
      */
     JsonVO<Map<Integer, String>> SchoolNatureDropdownList();
+
+    /**
+     * 分页查询某人的语言能力
+     */
+    JsonVO<PageDTO<List<LanguageAbilityDTO>>> queryLanguageAbilityList(LanguageAbilityQuery personId);
 }
 

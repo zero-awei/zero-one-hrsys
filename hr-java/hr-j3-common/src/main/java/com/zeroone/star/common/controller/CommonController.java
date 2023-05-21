@@ -1,8 +1,11 @@
 package com.zeroone.star.common.controller;
 
+import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.common.CommonApis;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
+import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
 import com.zeroone.star.project.j3.query.common.OneConditionQuery;
+import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -32,13 +35,18 @@ public class CommonController implements CommonApis {
     public JsonVO<List<String>> queryOneColumn(OneConditionQuery oneConditionQuery) {
         return null;
     }
-@GetMapping("query-reward-levels")
-@ApiOperation("奖惩级别下拉列表")
+
+
+    @GetMapping("query-reward-levels")
+    @ApiOperation("奖惩级别下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryRewardPenaltyLevels() {
         return null;
     }
-@GetMapping("query-type-of-military-transfer")
+
+
+    @ApiOperation("军转类型下拉菜单")
+    @GetMapping("query-type-of-military-transfer")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryTypeofMilitaryTransfer() {
         return null;
@@ -57,14 +65,17 @@ public class CommonController implements CommonApis {
     public JsonVO<List<DropdownListOptionDTO>> queryDistributionStatus() {
         return null;
     }
+
     @GetMapping("query-name-of-association")
     @ApiOperation("组织名称下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryNameofAssociation() {
         return null;
     }
-@GetMapping("query-department-name")
-@ApiOperation("部门名称下拉列表")
+
+
+    @GetMapping("query-department-name")
+    @ApiOperation("部门名称下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryDepartmentName() {
         return null;
@@ -77,6 +88,13 @@ public class CommonController implements CommonApis {
 
     @Override
     public JsonVO<Map<Integer, String>> SchoolNatureDropdownList() {
+        return null;
+    }
+
+    @GetMapping("queryList")
+    @ApiOperation("分页查询某人的语言能力")
+    @Override
+    public JsonVO<PageDTO<List<LanguageAbilityDTO>>> queryLanguageAbilityList(LanguageAbilityQuery personId) {
         return null;
     }
 }
