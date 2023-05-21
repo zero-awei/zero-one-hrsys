@@ -1,4 +1,4 @@
-package com.zeroone.star.orgmanager.controller;
+package com.zeroone.star.common.controller;
 
 import com.zeroone.star.project.j3.common.CommonApis;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
