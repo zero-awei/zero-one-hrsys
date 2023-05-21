@@ -221,7 +221,6 @@
     <ClInclude Include="domain\vo\ContractVO\ContractVO.h" />
     <ClInclude Include="domain\vo\ContractVO\ContractVO_.h" />    <ClInclude Include="domain\query\Muggle\expenseLedgerQuery.h" />
     <ClInclude Include="domain\query\Muggle\laborDispatchQuery.h" />
-    <ClInclude Include="domain\vo\Gosh\ContractVO.h" />
     <ClInclude Include="domain\vo\JobTitle\JobTitleJsonVO.h" />
     <ClInclude Include="domain\vo\Muggle\laborDispatchJsonVO.h" />
     <ClInclude Include="domain\dto\LaborDispatchDTO.h" />
