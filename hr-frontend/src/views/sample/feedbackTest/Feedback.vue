@@ -5,21 +5,17 @@
     <el-table :data="tableData" style="width: 100%" @cell-click="changeMessage">
       <el-table-column prop="date" label="Date" width="180" />
       <el-table-column prop="name" label="Name" width="180" />
-      <el-table-column prop="action" label="Action" />
+      <el-table-column prop="action" label="Action"/>
     </el-table>
   </div>
 
-  <br />
+  <br/>
   <!-- 2.消息提示演示 -->
   <Notification></Notification>
   <el-row class="mb-4">
     <el-button type="success" @click="changeValue">保存成功</el-button>
-    <el-button type="warning" @click="changeValueThree"
-      >未配置导入项--警告</el-button
-    >
-    <el-button type="danger" @click="changeValueTwo"
-      >输入项为空--出错</el-button
-    >
+    <el-button type="warning" @click="changeValueThree">未配置导入项--警告</el-button>
+    <el-button type="danger" @click="changeValueTwo">输入项为空--出错</el-button>
   </el-row>
 </template>
 
