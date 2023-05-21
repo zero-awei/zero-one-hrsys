@@ -21,7 +21,7 @@ public interface ISrforgsectorService extends IService<Srforgsector> {
      * @description：根据id删除指定部门信息
      * @date 2023/5/22 0:04
      */
-    Boolean removeDeptById(DeptQuery1 deptQuery1);
+    Boolean removeDept(DeptQuery1 deptQuery1);
 
     /**
      * @param deptQuery2:部门信息对象（ids）

@@ -27,7 +27,7 @@ public class OrgManagerController implements RemoveDeptApis {
     @Resource
     private ISrforgsectorService srforgsectorService;
     @Override
-    @DeleteMapping("/dept")
+    @DeleteMapping("/remove-depts")
     @ApiOperation(value = "批量删除部门", notes = "根据多个部门ids删除部分部门")
     public JsonVO<DeptDTO> removeDepts(DeptQuery2 deptQuery2) {
         if (srforgsectorService.removeDepts(deptQuery2)) {
@@ -38,9 +38,9 @@ public class OrgManagerController implements RemoveDeptApis {
 
     @Override
     @ApiOperation(value = "删除部门", notes = "根据部门编号id删除指定部门")
-    @DeleteMapping("/dept/{id}")
+    @DeleteMapping("/remove-dept")
     public JsonVO<DeptDTO> removeDeptById(DeptQuery1 deptQuery1) {
-        if (srforgsectorService.removeDeptById(deptQuery1)) {
+        if (srforgsectorService.removeDept(deptQuery1)) {
             return JsonVO.create(null, ResultStatus.SUCCESS);
         }
         return JsonVO.create(null, ResultStatus.FAIL);

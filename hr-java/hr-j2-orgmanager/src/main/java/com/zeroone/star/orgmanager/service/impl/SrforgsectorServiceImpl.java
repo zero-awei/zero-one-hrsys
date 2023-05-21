@@ -24,7 +24,7 @@ public class SrforgsectorServiceImpl extends ServiceImpl<SrforgsectorMapper, Srf
     @Resource
     private SrforgsectorMapper srforgsectorMapper;
     @Override
-    public Boolean removeDeptById(DeptQuery1 deptQuery1) {
+    public Boolean removeDept(DeptQuery1 deptQuery1) {
         if (srforgsectorMapper.deleteById(deptQuery1.getOrgSectorId()) > 0) {
             return true;
         }
