@@ -17,8 +17,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _EMPLOYEEINFORMATION_H_
-#define _EMPLOYEEINFORMATION_H_
+#ifndef _EMPLOYEE_INFOMATION_CONTROLLER
+#define _EMPLOYEE_INFOMATION_CONTROLLER
 
 #include "domain/vo/BaseJsonVO.h"
 #include "ApiHelper.h"
@@ -159,4 +159,4 @@ private:// 定义接口执行函数
 
 #include OATPP_CODEGEN_END(ApiController)
 
-#endif // !_EMPLOYEEINFORMATION_H_
+#endif // !_EMPLOYEE_INFOMATION_CONTROLLER

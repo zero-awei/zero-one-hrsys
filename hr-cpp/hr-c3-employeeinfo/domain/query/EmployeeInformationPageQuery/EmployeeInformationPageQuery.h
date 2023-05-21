@@ -17,8 +17,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _Employee_Information_Page_Query
-#define _Employee_Information_Page_Query
+#ifndef _EMPLOYEE_INFORMATION_PAGE_QUERY
+#define _EMPLOYEE_INFORMATION_PAGE_QUERY
 
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
@@ -94,4 +94,4 @@ class EmployeeInformationPageQuery : public PageQuery
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_SAMPLE_QUERY_
+#endif // !_EMPLOYEE_INFORMATION_PAGE_QUERY

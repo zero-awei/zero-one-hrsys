@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _Root_Org_Query_
-#define _Root_Org_Query_
+#ifndef _ROOT_ORG_QUERY_
+#define _ROOT_ORG_QUERY_
 
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
@@ -35,4 +35,4 @@ class RootOrgQuery : public PageQuery {
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_Root_Org_Query_
+#endif // !_ROOT_ORG_QUERY_

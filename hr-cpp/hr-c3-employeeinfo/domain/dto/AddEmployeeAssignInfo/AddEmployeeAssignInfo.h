@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _Add_Employee_Assign_Info_DTO_
-#define _Add_Employee_Assign_Info_DTO_
+#ifndef _ADD_EMPLOYEE_ASSIGN_INFO_DTO_
+#define _ADD_EMPLOYEE_ASSIGN_INFO_DTO_
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
@@ -55,4 +55,4 @@ class AddEmployeeAssignInfoDTO : public oatpp::DTO
 
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_Add_Employee_Assign_Info_DTO_
+#endif // !_ADD_EMPLOYEE_ASSIGN_INFO_DTO_

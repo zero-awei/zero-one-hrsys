@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _Import_Query_
-#define _Import_Query_
+#ifndef _IMPORT_QUERY_
+#define _IMPORT_QUERY_
 
 #include "../../GlobalInclude.h"
 
@@ -15,4 +15,4 @@ class ImportQuery : public oatpp::DTO {
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_Import_Query_
+#endif // !_IMPORT_QUERY_

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _Employee_Assign_Info_Query
-#define _Employee_Assign_Info_Query
+#ifndef _EMPLOYEE_ASSIGN_IF_QUERY_DTO_
+#define _EMPLOYEE_ASSIGN_IF_QUERY_DTO_
 
 
 #include "../../GlobalInclude.h"
@@ -56,4 +56,4 @@ class EmployeeAssignInfoQueryDTO : public PageQuery
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_Employee_Assign_Info_Query
+#endif // !_EMPLOYEE_ASSIGN_IF_QUERY_DTO_

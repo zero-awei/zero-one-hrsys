@@ -1,8 +1,8 @@
 #pragma once
 
 
-#ifndef _EMPLOYEEINFOCONTROLLER_H_
-#define _EMPLOYEEINFOCONTROLLER_H_
+#ifndef _ORGNAIZATION_DEPARTMENT_TREE_STRUCTURE_
+#define _ORGNAIZATION_DEPARTMENT_TREE_STRUCTURE_
 
 #include "domain/vo/BaseJsonVO.h"
 #include "ApiHelper.h"
@@ -93,4 +93,4 @@ private: // 定义接口执行函数
 
 #include OATPP_CODEGEN_END(ApiController)
 
-#endif // !_EMPLOYEEINFOCONTROLLER_H_
+#endif // !_ORGNAIZATION_DEPARTMENT_TREE_STRUCTURE_

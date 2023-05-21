@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _Sector_Query_
-#define _Sector_Query_
+#ifndef _SECTOR_QUERY_
+#define _SECTOR_QUERY_
 
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
@@ -34,4 +34,4 @@ class SectorQuery : public PageQuery {
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_Sector_Query_
+#endif // !_SECTOR_QUERY_

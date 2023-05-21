@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _Member_Query_
-#define _Member_Query_
+#ifndef _MEMBER_QUERY_
+#define _MEMBER_QUERY_
 
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
@@ -34,4 +34,4 @@ class MemberQuery : public PageQuery {
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_Member_Query_
+#endif // !_MEMBER_QUERY_

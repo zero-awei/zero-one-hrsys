@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _Valid_Org_Query_
-#define _Valid_Org_Query_
+#ifndef _VALID_ORG_QUERY_
+#define _VALID_ORG_QUERY_
 
 
 #include "../../GlobalInclude.h"
@@ -40,4 +40,4 @@ class ValidOrgQuery : public PageQuery {
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_Valid_Org_Query_
+#endif // !_VALID_ORG_QUERY_
