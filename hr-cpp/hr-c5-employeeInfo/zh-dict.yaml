@@ -29,3 +29,29 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+patentInformation:
+ file:
+  summary: 文件上传
+  suffix: 文件后缀
+ field:
+  ZLH: 专利号
+  PIMPATENTNAME: 专利名称
+  ZLHQSJ: 专利获取时间
+  ZLPZGB: 专利批准国别
+  ENCLOLURE: 附件
+  PIMPATENTID: 专利信息编码
+  PIMPERSONID: 人员信息标识
+ export:
+  summary: 导出数据
+ upload:
+  summary: 导入数据即插入多条数据
+ get:
+  summary: 分页查询数据
+ post:
+  summary: 新增一条数据
+ delete:
+  summary: 删除数据(支持批量删除)
+ put:
+  summary: 修改一条专利信息
+ select:
+  summary: 查看指定员工专利信息（指定专利信息详情）
