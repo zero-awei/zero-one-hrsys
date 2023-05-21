@@ -103,3 +103,13 @@ projTag:
   page: 查询页码
   sort: 显示顺序
   controller: 分页查询项目标签列表
+
+ormanage:
+ dto:
+  uptime: 更新时间
+  createtime: 创建时间
+  id: 项目编号
+  name: 创建人
+  xh: 排序号
+  label: 项目标签
+  ormorgid: 项目ID

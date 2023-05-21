@@ -37,6 +37,7 @@
 #include "projTag/addTagController/AddTagController.h"
 #include "projTag/modifyProjTagController/ModifyProjTagController.h"
 
+#include "itemLabel/ItemLabelController.h"
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -113,4 +114,9 @@ void Router::createProjTagRouter()
 	 */
 	ROUTER_SIMPLE_BIND(PageQueryProjTagListController);
 	ROUTER_SIMPLE_BIND(DeleteProjTagController);
+	/**
+	 * 查询指定项目标签详情
+	 * 负责人：缘尘
+	 */
+	ROUTER_SIMPLE_BIND(ItemLabelController);
 }
