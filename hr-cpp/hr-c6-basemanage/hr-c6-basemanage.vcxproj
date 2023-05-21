@@ -251,7 +251,6 @@
   <ItemGroup>
 	<None Include="conf\data-source.yaml" />
     <None Include="zh-dict.yaml" />
-    <None Include="conf\data-source.yaml" />
     <None Include="domain\dto\.keep" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
