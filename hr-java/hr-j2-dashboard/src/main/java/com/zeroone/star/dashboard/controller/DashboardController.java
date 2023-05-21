@@ -3,6 +3,7 @@ package com.zeroone.star.dashboard.controller;
 
 import com.zeroone.star.dashboard.service.IBisEducationService;
 import com.zeroone.star.project.dashboard.DashboardApis;
+import com.zeroone.star.project.dto.dashboard.AgeDTO;
 import com.zeroone.star.project.dto.dashboard.AgencyProjectStaffDTO;
 import com.zeroone.star.project.dto.dashboard.PimOutputDTO;
 import com.zeroone.star.project.dto.dashboard.PimTitleDTO;
@@ -51,5 +52,14 @@ public class DashboardController implements DashboardApis {
     @Override
     public JsonVO<EducationQuery> queryEducationDistribution() {
         return bisEducationService.getEducationDistribution();
+    }
+    /**
+     * 描述：年龄分布
+     * 创建者：C.C.
+     */
+    @ApiOperation(value = "年龄分布")
+    @GetMapping("/query-age-distribution")
+    public JsonVO<List<AgeDTO>> queryAgeDistribution() {
+        return null;
     }
 }
