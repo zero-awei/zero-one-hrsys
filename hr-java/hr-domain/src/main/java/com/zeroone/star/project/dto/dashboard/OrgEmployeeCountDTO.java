@@ -6,15 +6,15 @@ import lombok.Data;
 
 /**
   * @author：letian
-  * @date  2023/5/20
-  * @description：组织分布数据对象
+  * @date  2023/5/22
+  * @description：组织人数数据对象
   * @version: 1.0
 */
-@ApiModel("组织分布信息数据对象")
 @Data
-public class OrgDistributeDTO {
+@ApiModel("组织人数信息数据对象")
+public class OrgEmployeeCountDTO {
     @ApiModelProperty(value = "组织标识", example = "020369F7-AFE6-4014-82D9-30915844D604")
-    private String orgId;
-    @ApiModelProperty(value = "组织名称", example = "湖南公司")
-    private String orgName;
+    private String organizationId;
+    @ApiModelProperty(value = "员工名称", example = "张**")
+    private String employeeName;
 }

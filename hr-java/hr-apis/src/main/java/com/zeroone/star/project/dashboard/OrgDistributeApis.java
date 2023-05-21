@@ -1,6 +1,7 @@
 package com.zeroone.star.project.dashboard;
 
 import com.zeroone.star.project.dto.dashboard.OrgDistributeDTO;
+import com.zeroone.star.project.dto.dashboard.OrgEmployeeCountDTO;
 import com.zeroone.star.project.vo.JsonVO;
 
 import java.util.List;
@@ -20,4 +21,6 @@ public interface OrgDistributeApis {
      * @date 2023/5/20 17:52
      */
     JsonVO<List<OrgDistributeDTO>> queryOrgDistribute();
+
+    JsonVO<OrgEmployeeCountDTO> queryEmployeeCount();
 }
