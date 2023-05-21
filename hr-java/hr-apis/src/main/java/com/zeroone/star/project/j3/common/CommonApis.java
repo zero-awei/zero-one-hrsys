@@ -3,6 +3,8 @@ package com.zeroone.star.project.j3.common;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
 import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
+import com.zeroone.star.project.j3.query.common.DisciplineTypeQuery;
+import com.zeroone.star.project.j3.query.common.EducationTypeQuery;
 import com.zeroone.star.project.j3.query.common.OneConditionQuery;
 import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
@@ -122,10 +124,15 @@ public interface CommonApis {
 	 * 分页查询某人的语言能力
 	 */
 	JsonVO<PageDTO<List<LanguageAbilityDTO>>> queryLanguageAbilityList(LanguageAbilityQuery personId);
+
+
+
     /**
      * 学历类型下拉列表
      * @param education
      * @return 集合
      */
     JsonVO<List<String>> listEducationType(EducationTypeQuery education);
+
+
 }

@@ -1,7 +1,6 @@
 package com.zeroone.star.project.j3.orgmanager;
 
 import com.zeroone.star.project.j3.dto.DeleteDTO;
-import com.zeroone.star.project.j3.dto.OrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
 import cn.hutool.http.server.HttpServerResponse;
 import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
@@ -19,7 +18,9 @@ import com.zeroone.star.project.vo.JsonVO;
  */
 public interface OrgInfoApis {
 
-/**
+	JsonVO<Integer> deleteDepAddress(OrgAddressDto orgAddressDto);
+
+	/**
 	  * 修改组织信息数据
 	  *
 	  * @param orgInfoDTO 修改数据内容

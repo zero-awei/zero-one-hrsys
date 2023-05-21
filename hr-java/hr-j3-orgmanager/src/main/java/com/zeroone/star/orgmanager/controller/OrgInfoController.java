@@ -1,7 +1,6 @@
 package com.zeroone.star.orgmanager.controller;
 
 import com.zeroone.star.project.j3.dto.DeleteDTO;
-import com.zeroone.star.project.j3.dto.OrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
 import cn.hutool.http.server.HttpServerResponse;
 import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
