@@ -14,7 +14,7 @@ class PaperinfoService
 {
 public:
 	// 分页查询所有数据
-	PaperPageDTO::Wrapper listByPimpersonid(const PaperQuery::Wrapper& query);
+	PaperPageDTO::Wrapper listByPimpersonId(const PaperQuery::Wrapper& query);
 	// 修改数据
 	bool updateData(const PaperDTO::Wrapper& dto);
 };

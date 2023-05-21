@@ -20,6 +20,7 @@
 #include "Router.h"
 #include "ApiHelper.h"
 #include "paperinfoController/PaperinfoController.h"
+#include "archives/ArchivesController.h"
 
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
@@ -52,6 +53,7 @@ void Router::initRouter()
 
 	//#TIP :系统扩展路由定义，写在这个后面
 	ROUTER_SIMPLE_BIND(PaperinfoController);
+	ROUTER_SIMPLE_BIND(ArchivesController);
 }
 
 #ifdef HTTP_SERVER_DEMO

@@ -24,7 +24,7 @@ if (query->age) { \
 uint64_t t_pimpaperDAO::count(const PaperQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM sample";
+	sql << "SELECT COUNT(*) FROM sample ";
 	SAMPLE_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);

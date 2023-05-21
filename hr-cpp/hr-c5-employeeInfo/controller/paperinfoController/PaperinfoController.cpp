@@ -1,19 +1,22 @@
 #include "stdafx.h"
 #include "PaperinfoController.h"
-#include "../../service/paperinfo/PaperinfoService.h"
 
-StringJsonVO::Wrapper PaperinfoController::execQueryPaperinfo(const PageQuery::Wrapper& query)
+PaperPageJsonVO::Wrapper PaperinfoController::execQueryPaperinfo(const PageQuery::Wrapper& query)
 {
-	// 定义一个Service
-	PaperinfoService service;
-	// 查询数据
-	auto result = service.listByPimpersonId(query);
+	// 创建响应对象
+	auto vo = PaperPageJsonVO::createShared();
+	// 创建分页对象
+	auto pdto = PaperPageDTO::createShared();
+	pdto->addData(PaperDTO::createShared());
+	pdto->addData(PaperDTO::createShared());
 	// 响应结果
-	auto jvo = PaperPageJsonVO::createShared();
-	jvo->success(result);
-	return jvo;
+	vo->success(pdto);
+	return vo;
+}
 
-	//auto vo = StringJsonVO::createShared();
-	//vo->success("test query success");
-	//return vo;
+Uint64JsonVO::Wrapper PaperinfoController::execModifyPaperinfo(const PaperDTO::Wrapper& dto)
+{
+	// 定义返回数据对象
+	auto jvo = Uint64JsonVO::createShared();
+	return jvo;
 }

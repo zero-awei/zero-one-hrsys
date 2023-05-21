@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _PERSONINFOTREEEXPVIEW_VO_
-#define _PERSONINFOTREEEXPVIEW_VO_
+#ifndef _PAPER_VO_
+#define _PAPER_VO_
 
 #include "../../GlobalInclude.h"
 #include "../../dto/paperinfo/PaperDTO.h"

@@ -43,3 +43,16 @@ paperinfo:
   summary: 分页查询论文信息
  put:
   summary: 修改一条论文信息
+archives:
+ get:
+  summary: 分页查询档案信息
+ field:
+  archivesNo: 档案编号
+  managementUnits: 管理单位
+  DABGD: 档案保管地
+  archivesCenterName: 档案室
+  DAZT: 档案状态
+  YGBH: 员工编号
+  PimPersonName: 员工姓名
+  ygzt: 员工状态
+  ORMORGName: 所属单位
