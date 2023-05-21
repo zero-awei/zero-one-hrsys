@@ -23,11 +23,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
@@ -51,6 +53,7 @@ import static com.zeroone.star.project.vo.JsonVO.fail;
 @Api(tags = "login")
 @Slf4j
 public class LoginController implements LoginApis {
+
     @Resource
     OauthService oAuthService;
     @Resource
@@ -62,7 +65,7 @@ public class LoginController implements LoginApis {
     @Resource
     CaptchaService captchaService;
     @Resource
-    PasswordEncoder passwordEncoder;
+    BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @ApiOperation(value = "授权登录")
     @PostMapping("auth-login")
@@ -198,7 +201,7 @@ public class LoginController implements LoginApis {
         //3.获取旧密码
         String oldPassword = userService.getCurrentPassword(userName);
         //4.判断新旧密码是否一致
-        boolean matches = passwordEncoder.matches(oldPassword, newPassword);
+        boolean matches = bCryptPasswordEncoder.matches(oldPassword, newPassword);
         if (matches) {
             return JsonVO.fail("新旧密码不能一致！");
         }

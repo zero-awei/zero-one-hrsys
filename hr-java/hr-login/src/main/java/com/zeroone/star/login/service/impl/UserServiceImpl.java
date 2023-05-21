@@ -8,6 +8,7 @@ import com.zeroone.star.login.entity.User;
 import com.zeroone.star.login.mapper.UserMapper;
 import com.zeroone.star.login.service.IUserService;
 import com.zeroone.star.project.components.user.UserHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -20,12 +21,8 @@ import javax.annotation.Resource;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
-
     @Resource
-    UserMapper userMapper;
-
-    @Resource
-    PasswordEncoder passwordEncoder;
+    BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public String getCurrentPassword(String username) {
@@ -39,7 +36,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     public Boolean updatePassword(String username, String password) {
         User user = null;
         user.setUsername(username);
-        user.setPassword(passwordEncoder.encode(password));
+        user.setPassword(bCryptPasswordEncoder.encode(password));
         UpdateWrapper<User> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("username", username);
         int updateNum = baseMapper.update(user, updateWrapper);
