@@ -91,12 +91,12 @@ public: // 定义接口
 		
 	}
 	//定义分页查询员工列表接口端点处理
-	ENDPOINT(API_M_GET, "/EmployeeInformation/Employee-Info1", PageQueryInfo, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/EmployeeInformation/page-query", PageQueryInfo, QUERIES(QueryParams, queryParams)) {
 		//解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, EmployeeInformationPageQuery, queryParams);
 		//响应结果
 		API_HANDLER_RESP_VO(execEmployeeInformation(query));
-	}
+	}	
 	//定义导入员工信息接口端点描述
 	ENDPOINT_INFO(importEmployeeInfo) {
 		// 定义接口标题
@@ -109,7 +109,7 @@ public: // 定义接口
 		API_DEF_ADD_PAGE_PARAMS();
 	}
 	//定义导入员工信息接口端点处理
-	ENDPOINT(API_M_POST, "/EmployeeInformation/Employee-Info2", importEmployeeInfo, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_POST, "/EmployeeInformation/import-info", importEmployeeInfo, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(importInfo, EmployeeInformationPageQuery, queryParams);
 		// 响应结果
@@ -127,7 +127,7 @@ public: // 定义接口
 		API_DEF_ADD_PAGE_PARAMS();
 	}
 	//定义导出员工信息(导出本页在前端完成)接口端点处理
-	ENDPOINT(API_M_GET, "/EmployeeInformation/Employee-Info3", exportEmployeeInfo, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams,queryParams)) {
+	ENDPOINT(API_M_GET, "/EmployeeInformation/export-info", exportEmployeeInfo, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams,queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(exportInfo, EmployeeInformationPageQuery,queryParams);
 		// 响应结果
@@ -141,7 +141,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	//定义新增员工信息接口端点处理
-	ENDPOINT(API_M_POST, "/EmployeeInformation/Employee-Info4", addEmployee, BODY_DTO(EmployeeInformationDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/EmployeeInformation/add-new-info", addEmployee, BODY_DTO(EmployeeInformationDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddEmployee(dto));
 	}
