@@ -6,7 +6,7 @@
 EmployeeInformationPageJsonVO::Wrapper EmployeeInformationController::execEmployeeInformation(const EmployeeInformationPageQuery::Wrapper& query)
 {
 	// 定义一个Service
-	EmployeeInformationService service;
+	//EmployeeInformationService service;
 	// 查询数据
 	//auto result = service.listAll(query);
 	// 响应结果
