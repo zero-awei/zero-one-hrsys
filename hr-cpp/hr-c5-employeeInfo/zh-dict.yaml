@@ -29,3 +29,17 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+paperinfo:
+ field:
+  fbsj: 发表时间
+  cbs: 出版社
+  kwqs: 刊物期数
+  fj: 附件
+  grzlwzzzdpm: 个人在论文著作中的排名
+  kwmc: 刊物名称
+  pimpapername: 论文名称
+  pimpersonid: 员工编号
+ get:
+  summary: 分页查询论文信息
+ put:
+  summary: 修改一条论文信息
