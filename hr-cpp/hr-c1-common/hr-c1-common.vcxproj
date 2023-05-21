@@ -159,10 +159,12 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="controller\archivesLevel\ArchivesLevelsController.h" />
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
     <ClInclude Include="controller\certDropDownList\certTypeList\CertTypeListController.h" />
     <ClInclude Include="controller\certDropDownList\profCertsList\ProfCertsListController.h" />
     <ClInclude Include="controller\costTypeList\CostTypeListController.h" />
+    <ClInclude Include="controller\declareType\DeclareController.h" />
     <ClInclude Include="controller\fileReservation\FileReservationController.h" />
     <ClInclude Include="controller\fileStatus\FileStatusController.h" />
     <ClInclude Include="controller\jobLevelTypeList\JobLevelTypeListController.h" />
@@ -183,11 +185,13 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="controller\archivesLevel\ArchivesLevelsController.cpp" />
     <ClCompile Include="controller\certDropDownList\certTypeList\CertTypeListController.cpp" />
     <ClCompile Include="controller\certDropDownList\profCertsList\ProfCertsListController.cpp" />
     <ClCompile Include="controller\armyLevelType\ArmyLevelTypeController.cpp" />
     <ClCompile Include="controller\contractType\ContractTypeListController.cpp" />
     <ClCompile Include="controller\costTypeList\CostTypeListController.cpp" />
+    <ClCompile Include="controller\declareType\DeclareController.cpp" />
     <ClCompile Include="controller\fileReservation\FileReservationController.cpp" />
     <ClCompile Include="controller\fileStatus\FileStatusController.cpp" />
     <ClCompile Include="controller\jobLevelTypeList\JobLevelTypeListController.cpp" />

@@ -13,6 +13,8 @@
     <ClCompile Include="controller\fileStatus\FileStatusController.cpp" />
     <ClCompile Include="controller\jobLevelTypeList\JobLevelTypeListController.cpp" />
     <ClCompile Include="controller\costTypeList\CostTypeListController.cpp" />
+    <ClCompile Include="controller\declareType\DeclareController.cpp" />
+    <ClCompile Include="controller\archivesLevel\ArchivesLevelsController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -38,6 +40,8 @@
     <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
     <ClInclude Include="controller\jobLevelTypeList\JobLevelTypeListController.h" />
     <ClInclude Include="controller\costTypeList\CostTypeListController.h" />
+    <ClInclude Include="controller\declareType\DeclareController.h" />
+    <ClInclude Include="controller\archivesLevel\ArchivesLevelsController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -42,9 +42,11 @@ public:
 	void initRouter();
 
 private:
+
 #ifdef HTTP_SERVER_DEMO
 	// 创建演示路由
 	void createSampleRouter();
+
 #endif
 	/**
 	 * 绑定档案保管地和档案状态下拉列表
@@ -76,6 +78,12 @@ private:
 	 * 负责人：咫尺之书
 	 */
 	void createCostTypeRouter();
+	/**
+	 * 档案室层级&申报类型下拉列表
+	 * 负责人：狗皮电耗子
+	 */
+	void createDeclareRouter();
+	void createArchivesLevelsRouter();
 };
 
 #endif // !_ROUTER_

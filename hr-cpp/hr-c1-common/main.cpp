@@ -38,12 +38,13 @@
  * 参数中数据需要满足一定的格式，如：sp=8090、sn=feign-cpp-sample
  * 前缀与真实值之间使用=分隔
  */
+
 bool getStartArg(int argc, char* argv[]) {
 	// 服务器端口
 	std::string serverPort = "8091";
 	// 数据库连接信息
 	std::string dbUsername = "root";
-	std::string dbPassword = "123456";
+	std::string dbPassword = "114514mysql";
 	std::string dbName = "test";
 	std::string dbHost = "192.168.56.97";
 	int dbPort = 3306;

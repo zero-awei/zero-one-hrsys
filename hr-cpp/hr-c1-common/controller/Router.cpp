@@ -33,6 +33,8 @@
 #include "fileReservation/FileReservationController.h"
 #include "jobLevelTypeList/JobLevelTypeListController.h"
 #include "costTypeList/CostTypeListController.h"
+#include "declareType/DeclareController.h"
+#include "archivesLevel/ArchivesLevelsController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -61,10 +63,19 @@ void Router::initRouter()
 	createContractTypeRouter();
 	createArmyLevelTypeRouter();
 	createRouter();
-	//本地测试
 	creatTestRouter();
 	createJobLevelTypeRouter();
 	createCostTypeRouter();
+	createDeclareRouter();
+	createArchivesLevelsRouter();
+}
+
+void Router::createDeclareRouter() {
+	ROUTER_SIMPLE_BIND(DeclareController);
+}
+
+void Router::createArchivesLevelsRouter() {
+	ROUTER_SIMPLE_BIND(ArchivesLevelsController);
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -74,13 +85,13 @@ void Router::createSampleRouter()
 	ROUTER_SIMPLE_BIND(SampleController);
 	// 绑定用户控制器
 	ROUTER_SIMPLE_BIND(UserController);
-	
+
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());
 }
+
 #endif
 
-//本地测试
 void Router::creatTestRouter()
 {
 	// 绑定职业资格证书类型下拉列表控制器
