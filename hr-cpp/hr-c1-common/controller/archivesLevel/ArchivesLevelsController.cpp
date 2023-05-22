@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
 #include "ArchivesLevelsController.h"
 
-ArchivesListVO::Wrapper ArchivesLevelsController::execQueryArchivesLevels() {
+PullListVO::Wrapper ArchivesLevelsController::execQueryArchivesLevels() {
 	auto dto = ArchivesLevelsListDTO::createShared();
 	auto vo = ArchivesListVO::createShared();
 

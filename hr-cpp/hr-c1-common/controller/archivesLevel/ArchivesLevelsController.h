@@ -3,7 +3,7 @@
 #define _ARCHIVESLEVELS_CONTROLLER_
 
 #include "domain/vo/BaseJsonVO.h"
-#include "domain/dto/archivesLevelsDto/archivesLevelsDTO.h"
+#include "domain/dto/archivesLevels/ArchivesLevelsDTO.h"
 #include "domain/vo/archivesList/ArchivesListVO.h"
 #include "ApiHelper.h"
 #include "Macros.h"
@@ -17,11 +17,11 @@ class ArchivesLevelsController : public oatpp::web::server::api::ApiController
 public:
 	ENDPOINT_INFO(queryArchivesLevels) {
 		info->summary = ZH_WORDS_GETTER("common.controller.archivesLevel");
+		API_DEF_ADD_RSP_JSON_WRAPPER(ArchivesListVO);
 	}
 	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/archives-level"), queryArchivesLevels) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryArchivesLevels());
-		return createResponse(Status::CODE_203, "OK");
 	}
 	
 private:

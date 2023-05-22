@@ -175,9 +175,11 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\contractType\ContractTypeListController.h" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="domain\do\certs\ProCertsDO.h" />
+    <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\dto\archivesLevelsDto\archivesLevelsDTO.h" />
-    <ClInclude Include="domain\dto\archivesLevels\archivesLevelsDTO.h" />
+    <ClInclude Include="domain\do\leaveReson\LeaveReasonDO.h" />
+    <ClInclude Include="domain\dto\archivesLevels\ArchivesLevelsDTO.h" />
     <ClInclude Include="domain\dto\awardLevel\AwardLevelDTO.h" />
     <ClInclude Include="domain\dto\certs\CertTypeDTO.h" />
     <ClInclude Include="domain\dto\certs\ProfCertsDTO.h" />
