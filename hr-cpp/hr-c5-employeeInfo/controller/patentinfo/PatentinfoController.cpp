@@ -16,9 +16,58 @@ PatentinfoPageJsonVO::Wrapper PatentinfoController::execQueryPatentinfo(const Pa
 	return vo;
 }
 
+PatentinfoPageJsonVO::Wrapper PatentinfoController::execQueryPagePatent(const PatentinfoQuery::Wrapper& query)
+{
+	// 创建响应对象
+	auto vo = PatentinfoPageJsonVO::createShared();
+	// 创建分页对象
+	auto pdto = PatentinfoPageDTO::createShared();
+	pdto->addData(PatentinfoDTO::createShared("1", "page1"));
+	pdto->addData(PatentinfoDTO::createShared("2", "page2"));
+	// 响应结果
+	vo->success(pdto);
+	return vo;
+}
+
 Uint64JsonVO::Wrapper PatentinfoController::execModifyPatentinfo(const PatentinfoDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
+	return jvo;
+}
+
+
+Uint64JsonVO::Wrapper PatentinfoController::execAddPatent(const PatentinfoDTO::Wrapper& dto)
+{
+	// 定义返回数据对象
+	auto jvo = Uint64JsonVO::createShared();
+	// 参数校验
+	// 非空校验
+	if (!dto->PIMPERSONID)
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	// 有效值校验
+	if (dto->PIMPERSONID->empty())
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	//响应结果
+	return jvo;
+}
+
+Uint64JsonVO::Wrapper PatentinfoController::execRemovePatent(const PatentinfoDTO::Wrapper& dto)
+{
+	// 定义返回数据对象
+	auto jvo = Uint64JsonVO::createShared();
+	// 参数校验
+	if (!dto->PIMPERSONID->empty())
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	// 响应结果
 	return jvo;
 }

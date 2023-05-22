@@ -46,20 +46,12 @@ patentInformation:
  upload:
   summary: 导入数据即插入多条数据
  get:
-  summary: 分页查询数据
+  summary: 查看指定员工专利信息（分页查询列表）
  post:
-  summary: 新增一条数据
+  summary: 新增指定员工专利信息
  delete:
-  summary: 删除数据(支持批量删除)
+  summary: 删除指定员工专利信息（支持批量删除）
  put:
   summary: 修改一条专利信息
  select:
   summary: 查看指定员工专利信息（指定专利信息详情）
- person:
-  empname: 员工姓名
-  empID: 员工编号
-  empidNumber: 证件号码
-  emporg: 组织
-  empdep: 部门
-  empstatus: 员工状态
-  emppostatus: 在岗状态

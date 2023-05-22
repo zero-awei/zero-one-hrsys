@@ -14,8 +14,8 @@ class PatentinfoDTO : public oatpp::DTO
 {
 
 public:
- /*   PatentinfoDTO() {};
-    PatentinfoDTO(String ZLH, String PIMPATENTNAME) :ZLH(ZLH), PIMPATENTNAME(PIMPATENTNAME) {};*/
+    PatentinfoDTO() {};
+    PatentinfoDTO(String ZLH, String PIMPATENTNAME) :ZLH(ZLH), PIMPATENTNAME(PIMPATENTNAME) {};
 
     DTO_INIT(PatentinfoDTO, DTO);
 
