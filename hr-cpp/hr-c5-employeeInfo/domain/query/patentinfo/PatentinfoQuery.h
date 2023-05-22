@@ -7,6 +7,8 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
+
+
 /**
  * 专利信息查询对象
  */
@@ -20,6 +22,8 @@ class PatentinfoQuery : public PageQuery
 		info->description = ZH_WORDS_GETTER("patentInformation.field.PIMPERSONID");
 	}
 };
+
+
 
 #include OATPP_CODEGEN_END(DTO)
 #endif

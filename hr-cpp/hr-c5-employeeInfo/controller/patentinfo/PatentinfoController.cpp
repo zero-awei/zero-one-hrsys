@@ -16,9 +16,15 @@ PatentinfoPageJsonVO::Wrapper PatentinfoController::execQueryPatentinfo(const Pa
 	return vo;
 }
 
+
+
+
+
 Uint64JsonVO::Wrapper PatentinfoController::execModifyPatentinfo(const PatentinfoDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
 	return jvo;
 }
+
+

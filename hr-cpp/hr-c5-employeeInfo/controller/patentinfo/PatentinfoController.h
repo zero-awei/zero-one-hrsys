@@ -19,6 +19,13 @@ class PatentinfoController : public oatpp::web::server::api::ApiController // 1
 	// 2 定义控制器访问入口
 	API_ACCESS_DECLARE(PatentinfoController);
 public: // 定义接口
+
+
+
+
+
+
+
 	// 3 定义接口描述
 	ENDPOINT_INFO(queryPatentinfo) {
 		// 定义接口标题
@@ -57,23 +64,7 @@ public: // 定义接口
 		info->queryParams.add<String>("emppostatus").description = ZH_WORDS_GETTER("patentInformation.person.emppostatus");
 		info->queryParams["emppostatus"].addExample("default", String("yes"));
 		info->queryParams["emppostatus"].required = false;
-
-
-
-
-
-
-
-
-
-
-
 	}
-
-
-
-
-
 	// 4 定义接口端点
 	ENDPOINT(API_M_GET, "/test", queryPatentinfo, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
@@ -81,14 +72,6 @@ public: // 定义接口
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryPatentinfo(query));
 	}
-
-
-
-
-
-
-
-
 
 
 
@@ -120,9 +103,10 @@ public: // 定义接口
 
 
 
-
-
 private: // 定义接口执行函数
+
+
+
 	// 5 定义接口的执行函数
 	PatentinfoPageJsonVO::Wrapper execQueryPatentinfo(const PatentinfoQuery::Wrapper& query);
 
