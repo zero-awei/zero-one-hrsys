@@ -5,8 +5,8 @@
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="controller\Title\TitleController.cpp" />
     <ClCompile Include="controller\Certificate\CertificateController.cpp" />
+    <ClCompile Include="controller\archive\archiveController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\OtherComponent.hpp" />
@@ -34,11 +34,11 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="controller\Title\TitleController.h" />
     <ClInclude Include="domain\do\Title\TitleDO.h" />
     <ClInclude Include="domain\dto\Title\TitleDTO.h" />
     <ClInclude Include="domain\query\Title\TitleQuery.h" />
     <ClInclude Include="domain\vo\Title\TitleVO.h" />
     <ClInclude Include="controller\Certificate\CertificateController.h" />
+    <ClInclude Include="controller\archive\ArchiveController.h" />
   </ItemGroup>
 </Project>

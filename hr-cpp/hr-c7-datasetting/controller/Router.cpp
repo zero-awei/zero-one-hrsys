@@ -27,6 +27,7 @@
 #endif
 #include"contract/ContractController.h"
 #include"Certificate/CertificateController.h"
+#include "archive/ArchiveController.h"
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -54,6 +55,7 @@ void Router::initRouter()
 	
 	// xxxxxxxxxx
 ROUTER_SIMPLE_BIND(CertificateController);
+ROUTER_SIMPLE_BIND(ArchiveController);
 }
 
 #ifdef HTTP_SERVER_DEMO
