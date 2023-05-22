@@ -81,7 +81,8 @@ const menus = reactive([
   },
   {
     path: '/sample/print',
-    text: '打印演示'  },
+    text: '打印演示'
+  },
   {
     path: '/sample/sass',
     text: 'sass演示'
@@ -89,6 +90,10 @@ const menus = reactive([
   {
     path: '/sample/communication',
     text: '兄弟组件通信'
+  },
+  {
+    path: '/sample/pagination',
+    text: '分页'
   },
   {
     path: '/sample/echarts',
