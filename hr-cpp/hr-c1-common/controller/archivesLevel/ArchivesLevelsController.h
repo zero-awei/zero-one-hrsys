@@ -4,7 +4,6 @@
 
 #include "domain/vo/BaseJsonVO.h"
 #include "domain/dto/archivesLevelsDto/archivesLevelsDTO.h"
-#include "domain/query/archivesListQuery/ArchivesQuery.h"
 #include "domain/vo/archivesList/ArchivesListVO.h"
 #include "ApiHelper.h"
 #include "Macros.h"

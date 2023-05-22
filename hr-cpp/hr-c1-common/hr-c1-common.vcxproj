@@ -172,11 +172,14 @@
     <ClInclude Include="controller\contractType\ContractTypeListController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\dto\archivesLevelsDto\archivesLevelsDTO.h" />
     <ClInclude Include="domain\dto\certs\CertTypeDTO.h" />
     <ClInclude Include="domain\dto\certs\ProfCertsDTO.h" />
+    <ClInclude Include="domain\dto\declareDto\declareDTO.h" />
     <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\certs\ProfCertsQuery.h" />
-    <ClInclude Include="domain\query\filestatus\FilestatusQuery.h" />
+    <ClInclude Include="domain\vo\archivesList\ArchivesListVO.h" />
     <ClInclude Include="domain\vo\certs\ProfCertsVO.h" />
     <ClInclude Include="domain\vo\certs\CertTypeVO.h" />
     <ClInclude Include="domain\vo\pullList\PullListVO.h" />

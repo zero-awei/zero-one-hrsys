@@ -46,7 +46,7 @@ public:
 	ItemDTO()
 	{
 		key = 1;
-		val = "否";
+		val = "null";
 	}
 
 	ItemDTO(Int32 k, String v)

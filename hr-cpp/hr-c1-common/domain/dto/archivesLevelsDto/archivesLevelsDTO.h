@@ -24,19 +24,14 @@ public:
 		archiveslevels = levels;
 	}
 };
-template <typename T>
-class ArchivesDTO : public oatpp::DTO
+
+class ArchivesLevelsListDTO : public oatpp::DTO
 {
-	DTO_INIT(ArchivesDTO, DTO);
+	DTO_INIT(ArchivesLevelsListDTO, DTO);
 	DTO_FIELD_INFO(levelsList) {
 		info->description = ZH_WORDS_GETTER("common.dto.archiveslist");
 	}
-	DTO_FIELD(List<T>, levelsList) = {};
-};
-
-class ArchivesLevelsListDTO : public ArchivesDTO<ArchivesLevelsDTO::Wrapper>
-{
-	DTO_INIT(ArchivesLevelsListDTO, ArchivesDTO<ArchivesLevelsDTO::Wrapper>);
+	DTO_FIELD(List<ArchivesLevelsDTO::Wrapper>, levelsList) = {};
 };
 #include OATPP_CODEGEN_END(DTO)
 #endif // !_ARCHIVES_LEVELS_DTO_
