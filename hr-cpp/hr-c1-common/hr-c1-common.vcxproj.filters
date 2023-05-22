@@ -61,7 +61,7 @@
     <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
     <ClInclude Include="domain\do\certs\ProCertsDO.h" />
     <ClInclude Include="controller\typeContract\TypeContractController.h" />
-    <ClInclude Include="domain\do\HTLX_pimcontracttype\HtlxDO.h" />
+    <ClInclude Include="domain\do\typeContract\TypeContractDO.h" />
     <ClInclude Include="domain\dto\typeContract\TypeContractDTO.h" />
     <ClInclude Include="domain\vo\typeContract\TypeContractVO.h" />
   </ItemGroup>

@@ -179,7 +179,7 @@
     <ClInclude Include="domain\do\certs\ProCertsDO.h" />
     <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\do\HTLX_pimcontracttype\HtlxDO.h" />
+    <ClInclude Include="domain\do\typeContract\TypeContractDO.h" />
     <ClInclude Include="domain\do\leaveReson\LeaveReasonDO.h" />
     <ClInclude Include="domain\dto\archivesLevels\ArchivesLevelsDTO.h" />
     <ClInclude Include="domain\dto\awardLevel\AwardLevelDTO.h" />
