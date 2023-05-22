@@ -52,4 +52,4 @@ class PageOrgSector : public PageDTO<OrgSectorDTO::Wrapper>
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_org_DTO_
+#endif // !_Org_Sector_DTO_

@@ -1,6 +1,8 @@
 #pragma once
-#ifndef _Modify_Assign_Info_DTO_
-#define _Modify_Assign_Info_DTO_
+#ifndef _EMPLOYEE_ASSIGN_IF_QUERY_DTO_
+#define _EMPLOYEE_ASSIGN_IF_QUERY_DTO_
+
+
 #include "../../GlobalInclude.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
 
@@ -57,4 +59,4 @@
 	}
 };
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_Modify_Assign_Info_DTO_
+#endif // !_EMPLOYEE_ASSIGN_IF_QUERY_DTO_

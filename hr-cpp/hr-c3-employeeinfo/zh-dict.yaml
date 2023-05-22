@@ -2,6 +2,8 @@ user:
  query-all: 
   summary: 查询所有用户
   nickname: 昵称
+  export: 导出员工信息(导出本页在前端完成)
+  import: 导入员工信息
  file:
   summary: 文件上传
   suffix: 文件后缀
@@ -66,6 +68,14 @@ employee:
   summary: 增加指定员工员工信息
  delete:
   summary: 删除指定员工员工信息
+  assign: 分配
+  type: 类型
+  organize: 组织
+  depart: 部门
+  job: 职务
+  post: 岗位
+  start-time: 任职开始时间
+  end-time: 任职结束时间
 sample:
  get:
   summary: 分页查询示例数据
@@ -81,24 +91,24 @@ sample:
   name: 姓名
   sex: 性别，如：男
 rootorg:
-  query:
-    filter: 匹配名称
-    page: 页码
-    size: 页的记录数
-    sort: 排序方式
+ query:
+  filter: 匹配名称
+  page: 页码
+  size: 页的记录数
+  sort: 排序方式
 validorg:
-  query:
-    filter: 匹配名称
-    porgid: 父组织id
-    page: 页码
-    size: 页的记录数
-    sort: 排序方式
+ query:
+  filter: 匹配名称
+  porgid: 父组织id
+  page: 页码
+  size: 页的记录数
+  sort: 排序方式
 sector:
-  query:
-    parentkey: 查询parent的id
-    page: 页码
-    size: 页的记录数
-    sort: 排序方式
+ query:
+  parentkey: 查询parent的id
+  page: 页码
+  size: 页的记录数
+  sort: 排序方式
 member:
   query:
     parentdename: 查询parent类型
@@ -132,3 +142,27 @@ orgsector:
     orgsectorid: 部门id 
     orgname: 组织名字
     orgid: 组织id
+ query:
+  parentdename: 查询parent类型
+  parentkey: 查询parent的id
+  page: 页码
+  size: 页的记录数
+ field:
+  summary: 新增员工信息
+  ygbh: 员工编号
+  pimpersonname: 个人名字
+  ormorgname: 组织名字
+  ormorgsectorname: 部门名字
+  zw: 职务
+  sex: 性别，如：男
+org:
+ field:
+  summary: 查询所有部门结构树信息 
+  root: 根组织
+  validorg: 有效组织
+  sector: 部门
+  companyflag: 是否为根组织
+  orgname: 组织名字 
+  orgid: 组织id
+  porgname: 父组织名字
+  porgid: 父组织id

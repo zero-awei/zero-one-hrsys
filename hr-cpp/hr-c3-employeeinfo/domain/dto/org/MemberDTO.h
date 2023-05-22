@@ -47,4 +47,4 @@ class PageMember : public PageDTO<MemberDTO::Wrapper>
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_org_DTO_
+#endif // !_Member_DTO_
