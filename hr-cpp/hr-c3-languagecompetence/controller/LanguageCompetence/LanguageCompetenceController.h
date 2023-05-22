@@ -24,6 +24,8 @@
 #include "ApiHelper.h"
 #include "domain/query/Language/LanguageQuery.h"
 #include "domain/dto/Language/LanguageDTO.h"
+#include "domain/vo/Language/LanguageVO.h"
+#include "domain/query/LanguagePage/LanguagePageQuery.h"
 #include "domain/dto/ImportLanguage/ImportLanguageDTO.h"
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
 #include "oatpp/web/mime/multipart/FileProvider.hpp"
@@ -53,10 +55,11 @@ public: // 定义接口
 		API_DEF_ADD_QUERY_PARAMS(UInt64, "id", ZH_WORDS_GETTER("sample.field.id"), 1, false);
 		API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("sample.field.name"), "li ming", false);
 	}
-	//定义查询接口处理
+	//定义分页查询接口处理
+	//API_HANDLER_ENDPOINT_QUERY_AUTH(API_M_GET, "/user/query-langugae", queryLanguage, LanguagePageQuery, execQueryLanguage(query, authObject->getPayload()));
 	ENDPOINT(API_M_GET, "/user/query-langugae", queryLanguage, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		//解析查询参数
-		API_HANDLER_QUERY_PARAM(userQuery, LanguageQuery, queryParams);
+		API_HANDLER_QUERY_PARAM(userQuery, LanguagePageQuery, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryLanguage(userQuery, authObject->getPayload()));
 	}
@@ -173,7 +176,7 @@ public: // 定义接口
 	}
 private: // 定义接口执行函数
 	//定义分页查询接口执行函数
-	StringJsonVO::Wrapper execQueryLanguage(const LanguageQuery::Wrapper& query, const PayloadDTO& payload);
+	StringJsonVO::Wrapper execQueryLanguage(const LanguagePageQuery::Wrapper& query, const PayloadDTO& payload);
 	//定义查询接口接口执行函数
 	StringJsonVO::Wrapper execQueryOneLanguage(const LanguageQuery::Wrapper& query, const PayloadDTO& payload);
 	//定义新增接口执行函数
