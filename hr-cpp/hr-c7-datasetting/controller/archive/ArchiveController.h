@@ -37,7 +37,7 @@ public:
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 	}
-	ENDPOINT(API_M_GET, "/archive", queryArchive, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/archive/query", queryArchive, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(archiveQuery, ArchiveQuery, queryParams);
 		// 响应结果
@@ -51,7 +51,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/archive", addArchive, BODY_DTO(ArchiveDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/archive/add", addArchive, BODY_DTO(ArchiveDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddArchive(dto));
 	}
@@ -63,7 +63,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/archive", modifyArchive, BODY_DTO(ArchiveDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/archive/modify", modifyArchive, BODY_DTO(ArchiveDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyArchive(dto));
 	}
@@ -75,7 +75,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/archive", removeArchive, BODY_DTO(ArchiveDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/archive/delete", removeArchive, BODY_DTO(ArchiveDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveArchive(dto));
 	}
