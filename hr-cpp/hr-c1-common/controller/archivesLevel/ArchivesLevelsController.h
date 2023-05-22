@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #ifndef _ARCHIVESLEVELS_CONTROLLER_
 #define _ARCHIVESLEVELS_CONTROLLER_
 
@@ -19,9 +19,11 @@ public:
 		info->summary = ZH_WORDS_GETTER("common.controller.archivesLevel");
 	}
 	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/archives-level"), queryArchivesLevels) {
-		// ÏìÓ¦½á¹û
+		// å“åº”ç»“æœ
 		API_HANDLER_RESP_VO(execQueryArchivesLevels());
+		return createResponse(Status::CODE_203, "OK");
 	}
+	
 private:
 	ArchivesListVO::Wrapper execQueryArchivesLevels();
 };

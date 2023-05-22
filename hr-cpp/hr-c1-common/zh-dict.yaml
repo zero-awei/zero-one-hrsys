@@ -1,4 +1,4 @@
-user:
+﻿user:
  query-all: 
   summary: 查询所有用户
   nickname: 昵称
@@ -80,8 +80,6 @@ common:
   JobCategory: 工作岗位
   leaveReason: 离职理由
   dismissReason: 解聘理由
- file:
-  job: 工作岗位
 
 fileReservation:
  localbase: 局总部

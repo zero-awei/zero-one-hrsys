@@ -29,7 +29,7 @@ class ArchivesLevelsListDTO : public oatpp::DTO
 {
 	DTO_INIT(ArchivesLevelsListDTO, DTO);
 	DTO_FIELD_INFO(levelsList) {
-		info->description = ZH_WORDS_GETTER("common.dto.archiveslist");
+		info->description = ZH_WORDS_GETTER("common.get.list");
 	}
 	DTO_FIELD(List<ArchivesLevelsDTO::Wrapper>, levelsList) = {};
 };

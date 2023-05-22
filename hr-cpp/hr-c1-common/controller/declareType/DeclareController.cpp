@@ -15,5 +15,6 @@ DeclareListVO::Wrapper DeclareController::execQueryDeclare()
 	dto->declareList->push_back(c);
 
 	vo->success(dto);
+
 	return vo;
 }
