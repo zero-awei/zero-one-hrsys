@@ -1,8 +1,6 @@
 package com.zeroone.star.common.controller;
 
 import com.zeroone.star.project.j3.common.CommonApis;
-import com.zeroone.star.project.j3.query.common.DisciplineTypeQuery;
-import com.zeroone.star.project.j3.query.common.EducationTypeQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -30,14 +28,14 @@ public class CommonController implements CommonApis {
     @GetMapping("list-common-discipline")
     @ApiOperation("获取学科下拉列表")
     @Override
-    public JsonVO<List<String>> listDisciplineType(DisciplineTypeQuery discipline) {
+    public JsonVO<List<String>> listDisciplineType() {
         return null;
     }
 
     @GetMapping("list-common-education")
     @ApiOperation("获取学历下拉列表")
     @Override
-    public JsonVO<List<String>> listEducationType(EducationTypeQuery education) {
+    public JsonVO<List<String>> listEducationType() {
         return null;
     }
 }
