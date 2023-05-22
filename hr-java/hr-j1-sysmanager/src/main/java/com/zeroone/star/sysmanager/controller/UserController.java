@@ -3,63 +3,66 @@ package com.zeroone.star.sysmanager.controller;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.usermanager.UserDTO;
-import com.zeroone.star.project.query.sysmanager.usermanager.UserQuery;
+import com.zeroone.star.project.query.PageQuery;
+import com.zeroone.star.project.query.sysmanager.usermanager.PageQueryById;
 import com.zeroone.star.project.sysmanager.UserAPis;
 import com.zeroone.star.project.vo.JsonVO;
-import com.zeroone.star.project.vo.ResultStatus;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
- * 用户 前端控制器
+ * 用户表 前端控制器
  * </p>
  *
  * @author axiao
- * @since 2023-05-18
+ * @since 2023-05-22
  */
-@Slf4j
 @RestController
-@RequestMapping("/user")
 @Api(tags = "用户管理")
-@Validated
-public class TUserController implements UserAPis {
+@RequestMapping("/user")
+public class UserController implements UserAPis {
 
     @ApiOperation(value = "分页查询所有用户")
-    @GetMapping("query-all")
+    @GetMapping("query_all")
     @Override
-    public JsonVO<PageDTO<UserDTO>> listAllUsers(UserQuery condition) {
+    public JsonVO<PageDTO<UserDTO>> listAllUsers(PageQuery condition) {
         return null;
     }
 
-    @ApiOperation(value = "用编号查询用户")
-    @GetMapping("query-user")
+    @ApiOperation(value = "编号模糊查询用户")
+    @GetMapping("query_user")
     @Override
-    public JsonVO<PageDTO<UserDTO>> queryUser(int id) {
+    public JsonVO<PageDTO<UserDTO>> queryUser(PageQueryById userQuery) {
         return null;
     }
 
     @ApiOperation(value = "添加用户")
     @PostMapping("add")
     @Override
-    public JsonVO<Boolean> addUser(UserDTO dto) {
+    public JsonVO<String> addUser(UserDTO dto) {
         return null;
     }
 
     @ApiOperation(value = "删除用户")
     @DeleteMapping("delete")
     @Override
-    public JsonVO<Boolean> deleteUser(String id) {
+    public JsonVO<String> deleteUser(@RequestParam String id) {
         return null;
     }
 
     @ApiOperation(value = "修改用户")
     @PutMapping("modify")
     @Override
-    public JsonVO<Boolean> modifyUser(UserDTO dto) {
+    public JsonVO<String> modifyUser(UserDTO dto) {
+        return null;
+    }
+
+    @ApiOperation(value = "修改状态")
+    @PutMapping("modifyStatus")
+    @Override
+    public JsonVO<String> modifyStatus(@RequestParam String id) {
         return null;
     }
 }

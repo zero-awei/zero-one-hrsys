@@ -1,6 +1,5 @@
 package com.zeroone.star.project.query.sysmanager.usermanager;
 
-import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.query.PageQuery;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -16,6 +15,8 @@ import javax.validation.constraints.NotBlank;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ApiModel("用户分页查询")
-public class UserQuery extends PageQuery {
-
+public class PageQueryById extends PageQuery {
+    @NotBlank(message = "id不能为空")
+    @ApiModelProperty(value = "ID",example = "ABC123")
+    private String id;
 }
