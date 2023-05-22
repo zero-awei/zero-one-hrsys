@@ -19,6 +19,8 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
+#include "joboutput/JobOutputController.h"
+#include "jobupdate/JobUpdateController.h"
 
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
@@ -65,3 +67,11 @@ void Router::createSampleRouter()
 	router->addController(WSContorller::createShared());
 }
 #endif
+
+void Router::createJobDownloadRouter() {
+	ROUTER_SIMPLE_BIND(JobOutputController);
+}
+
+void Router::createJobUpdateRouter() {
+	ROUTER_SIMPLE_BIND(JobUpdateController);
+}

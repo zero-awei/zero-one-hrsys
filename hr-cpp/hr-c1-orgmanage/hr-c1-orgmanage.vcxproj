@@ -159,6 +159,8 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="controller\joboutput\JobOutputController.cpp" />
+    <ClCompile Include="controller\jobupdate\JobUpdateController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
@@ -170,9 +172,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="controller\joboutput\JobOutputController.h" />
+    <ClInclude Include="controller\jobupdate\JobUpdateController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\dto\jobDownloadDto\JobDownloadDTO.h" />
+    <ClInclude Include="domain\dto\jobUpdateDto\JobUpdateDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\vo\JobDownloadVO\JobDownloadVO.h" />
+    <ClInclude Include="domain\vo\JobUpdateVO\JobUpdateVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
