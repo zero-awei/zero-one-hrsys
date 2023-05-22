@@ -1,18 +1,18 @@
 #include "stdafx.h"
 #include "PatentinfoController.h"
 
-PatentinfoPageJsonVO::Wrapper PatentinfoController::execQueryPatentinfo(const PatentinfoQuery::Wrapper& query)
+PatentinfoJsonVO::Wrapper PatentinfoController::execQueryPatentinfo(const PatentinfoQuery::Wrapper& query)
 {
 	// 创建响应对象
-	auto vo = PatentinfoPageJsonVO::createShared();
+	auto vo = PatentinfoJsonVO::createShared();
 	// 创建分页对象
-	auto pdto = PatentinfoPageDTO::createShared();
-	pdto->addData(PatentinfoDTO::createShared(/*oatpp::data::mapping::type::DTO::String(1), "专利1名称"*/));
-	pdto->addData(PatentinfoDTO::createShared(/*oatpp::data::mapping::type::DTO::String(2), "专利2名称"*/));
+	//auto pdto = PatentinfoPageDTO::createShared();
+	//pdto->addData(PatentinfoDTO::createShared(/*oatpp::data::mapping::type::DTO::String(1), "专利1名称"*/));
+	//pdto->addData(PatentinfoDTO::createShared(/*oatpp::data::mapping::type::DTO::String(2), "专利2名称"*/));
 	//pdto->addData(PatentDTO::createShared(1, "zs"));
 	//pdto->addData(PatentDTO::createShared(2, "ls"));
 	// 响应结果
-	vo->success(pdto);
+	vo->success({});
 	return vo;
 }
 

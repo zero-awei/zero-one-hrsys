@@ -31,17 +31,15 @@ public: // 定义接口
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("patentInformation.select.summary");
 		// 定义响应参数类型
-		API_DEF_ADD_RSP_JSON_WRAPPER(PatentinfoPageJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(PatentinfoJsonVO);
 		// 定义分页查询参数描述
-		API_DEF_ADD_PAGE_PARAMS();
+		//API_DEF_ADD_PAGE_PARAMS();
 		// 添加其他查询参数
-		//info->queryParams.add<String>("ZLH").description = ZH_WORDS_GETTER("patentInformation.field.ZLH");
-		//info->queryParams["ZLH"].addExample("default", String("patentInformation"));
-
 
 		//员工编号
-		info->queryParams.add<String>("empID").description = ZH_WORDS_GETTER("patentInformation.person.empID");
-		info->queryParams["empID"].addExample("default", String("1234"));
+		info->queryParams.add<String>("PIMPATENTID").description = ZH_WORDS_GETTER("patentInformation.pimpatent.PIMPATENTID");
+		info->queryParams["PIMPATENTID"].addExample("default", String("1234"));
+		info->queryParams["PIMPATENTID"].required = true;
 
 	}
 	// 4 定义接口端点
@@ -87,7 +85,7 @@ private: // 定义接口执行函数
 
 
 	// 5 定义接口的执行函数
-	PatentinfoPageJsonVO::Wrapper execQueryPatentinfo(const PatentinfoQuery::Wrapper& query);
+	PatentinfoJsonVO::Wrapper execQueryPatentinfo(const PatentinfoQuery::Wrapper& query);
 
 	// 3.3 演示修改数据
 	Uint64JsonVO::Wrapper execModifyPatentinfo(const PatentinfoDTO::Wrapper& dto);
