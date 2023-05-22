@@ -22,5 +22,5 @@ public interface OrgDistributeApis {
      */
     JsonVO<List<OrgDistributeDTO>> queryOrgDistribute();
 
-    JsonVO<OrgEmployeeCountDTO> queryEmployeeCount();
+    JsonVO<List<OrgEmployeeCountDTO>> queryEmployeeCount();
 }

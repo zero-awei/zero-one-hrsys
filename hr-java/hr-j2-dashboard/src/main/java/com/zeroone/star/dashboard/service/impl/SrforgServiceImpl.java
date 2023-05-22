@@ -8,6 +8,7 @@ import com.zeroone.star.project.dto.dashboard.OrgDistributeDTO;
 import com.zeroone.star.project.dto.dashboard.OrgEmployeeCountDTO;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -20,15 +21,11 @@ import java.util.List;
  */
 @Service
 public class SrforgServiceImpl extends ServiceImpl<SrforgMapper, Srforg> implements ISrforgService {
-
+    @Resource
     private SrforgMapper srforgMapper;
     @Override
     public List<OrgDistributeDTO> getAllOrg() {
         return srforgMapper.selectAllOrg();
     }
 
-    @Override
-    public List<OrgEmployeeCountDTO> getOrgCount() {
-        return srforgMapper.selectOrgEmployeeCount();
-    }
 }

@@ -25,12 +25,4 @@ public interface ISrforgService extends IService<Srforg> {
      */
     List<OrgDistributeDTO> getAllOrg();
 
-    /**
-     * @param :
-     * @return Integer：组织人数
-     * @author 乐天
-     * @description：获取组织人数
-     * @date 2023/5/22 1:18
-     */
-    List<OrgEmployeeCountDTO> getOrgCount();
 }

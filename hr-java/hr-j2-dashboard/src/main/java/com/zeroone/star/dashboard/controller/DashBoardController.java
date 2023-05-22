@@ -1,5 +1,6 @@
 package com.zeroone.star.dashboard.controller;
 
+import com.zeroone.star.dashboard.service.IBisEmployeeanalysisService;
 import com.zeroone.star.dashboard.service.ISrforgService;
 import com.zeroone.star.project.dashboard.OrgDistributeApis;
 import com.zeroone.star.project.dto.dashboard.OrgDistributeDTO;
@@ -27,6 +28,8 @@ import java.util.List;
 public class DashBoardController implements OrgDistributeApis {
     @Resource
     private ISrforgService srforgService;
+    @Resource
+    private IBisEmployeeanalysisService bisEmployeeanalysisService;
 
     @ApiOperation(value = "获取组织分布信息")
     @GetMapping("/query-org-distribute")
@@ -39,8 +42,8 @@ public class DashBoardController implements OrgDistributeApis {
     @ApiOperation(value = "获取组织人数信息")
     @GetMapping("/query-org-count")
     @Override
-    public JsonVO<OrgEmployeeCountDTO> queryEmployeeCount() {
-        List<OrgEmployeeCountDTO> list = srforgService.getOrgCount();
-        return null;
+    public JsonVO<List<OrgEmployeeCountDTO>> queryEmployeeCount() {
+        List<OrgEmployeeCountDTO> list = bisEmployeeanalysisService.getOrgCount();
+        return JsonVO.success(list);
     }
 }
