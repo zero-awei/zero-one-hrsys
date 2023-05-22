@@ -67,17 +67,11 @@ static std::shared_ptr<__CLASS__> createShared(OATPP_COMPONENT(std::shared_ptr<O
 
 //////////////////////////////////////////////////////////////////////////
 
-<<<<<<< HEAD
-// APIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó±ï¿½ï¿½ï¿½
+
+// APIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó±ï¿½ï¿½ï¿½
 #define API_DEF_ADD_TITLE(_TITLE_) info->summary = _TITLE_
 
-// APIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó°ï¿½È«ï¿½ï¿½Ö¤
-=======
-// APIÃèÊöÌí¼Ó±êÌâ
-#define API_DEF_ADD_TITLE(_TITLE_) info->summary = _TITLE_
-
-// APIÃèÊöÌí¼Ó°²È«ÑéÖ¤
->>>>>>> remotes/origin/arch-cpp
+// APIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó°ï¿½È«ï¿½ï¿½Ö¤
 #define API_DEF_ADD_AUTH() info->addSecurityRequirement("bearer_auth")
 
 /**
@@ -92,46 +86,29 @@ static std::shared_ptr<__CLASS__> createShared(OATPP_COMPONENT(std::shared_ptr<O
  */
 #define API_DEF_ADD_RSP_JSON_WRAPPER(__RESP_TYPE__) API_DEF_ADD_RSP_JSON(oatpp::Object<__RESP_TYPE__>)
 
-<<<<<<< HEAD
- /**
-  * APIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-  * @param _TITLE_: ï¿½Ó¿Ú±ï¿½ï¿½ï¿½
-  * @param __RESP_TYPE__: ï¿½Ó¿ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½ï¿½ç£º"UserPageJsonVO"ï¿½ï¿½"StringJsonVO"
-  */
-=======
+
 /**
- * APIÃèÊöÌí¼ÓÍ¨ÓÃ²ÎÊý¶¨Òå
- * @param _TITLE_: ½Ó¿Ú±êÌâ
- * @param __RESP_TYPE__: ½Ó¿ÚÏìÓ¦²ÎÊýÀàÐÍ¡£Èç£º"UserPageJsonVO"¡¢"StringJsonVO"
+ * APIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @param _TITLE_: ï¿½Ó¿Ú±ï¿½ï¿½ï¿½
+ * @param __RESP_TYPE__: ï¿½Ó¿ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½ï¿½ç£º"UserPageJsonVO"ï¿½ï¿½"StringJsonVO"
  */
->>>>>>> remotes/origin/arch-cpp
 #define API_DEF_ADD_COMMON(_TITLE_, __RESP_TYPE__) \
 API_DEF_ADD_TITLE(_TITLE_); \
 API_DEF_ADD_RSP_JSON(__RESP_TYPE__::Wrapper)
 
-<<<<<<< HEAD
-  /**
-  * APIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½á¶¨ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½
-  * @param _TITLE_: ï¿½Ó¿Ú±ï¿½ï¿½ï¿½
-  * @param __RESP_TYPE__: ï¿½Ó¿ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½ï¿½ç£º"UserPageJsonVO"ï¿½ï¿½"StringJsonVO"
-  */
-=======
+
 /**
-* APIÃèÊöÌí¼ÓÍ¨ÓÃ²ÎÊý¶¨Òå£¬¶¨ÒåµÄÊ±ºò»á¶¨ÒåÊÚÈ¨²ÎÊý
-* @param _TITLE_: ½Ó¿Ú±êÌâ
-* @param __RESP_TYPE__: ½Ó¿ÚÏìÓ¦²ÎÊýÀàÐÍ¡£Èç£º"UserPageJsonVO"¡¢"StringJsonVO"
+* APIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½á¶¨ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½
+* @param _TITLE_: ï¿½Ó¿Ú±ï¿½ï¿½ï¿½
+* @param __RESP_TYPE__: ï¿½Ó¿ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½ï¿½ç£º"UserPageJsonVO"ï¿½ï¿½"StringJsonVO"
 */
->>>>>>> remotes/origin/arch-cpp
 #define API_DEF_ADD_COMMON_AUTH(_TITLE_, __RESP_TYPE__) \
 API_DEF_ADD_TITLE(_TITLE_); \
 API_DEF_ADD_AUTH(); \
 API_DEF_ADD_RSP_JSON(__RESP_TYPE__::Wrapper)
 
-<<<<<<< HEAD
-  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-=======
-// ´¦Àí¿çÆ½Ì¨ÃèÊöÐÅÏ¢ÖÐÎÄÂÒÂëÎÊÌâ
->>>>>>> remotes/origin/arch-cpp
+
+// ï¿½ï¿½ï¿½ï¿½ï¿½Æ½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifndef LINUX
 #define API_PAGE_INDEX_DESC u8"ï¿½ï¿½Ñ¯Ò³ï¿½ï¿½"
 #define API_PAGE_SIZE_DESC u8"ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½"
@@ -145,10 +122,9 @@ info->queryParams.add<UInt64>("pageIndex").description = API_PAGE_INDEX_DESC;\
 info->queryParams["pageIndex"].addExample("default", oatpp::UInt64(1)); \
 info->queryParams.add<UInt64>("pageSize").description = API_PAGE_SIZE_DESC; \
 info->queryParams["pageSize"].addExample("default", oatpp::UInt64(10))
-<<<<<<< HEAD
 
 /**
- * APIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½
+ * APIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½
  * @param _TYPE_: ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½ï¿½ç£ºStringï¿½ï¿½UInt32ï¿½ï¿½
  * @param _FIELD_NAME_: ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½ç£º"age"ï¿½ï¿½"sex"
  * @param _DESCRIPTION_: ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
@@ -160,35 +136,11 @@ info->queryParams.add<_TYPE_>(_FIELD_NAME_).description = _DESCRIPTION_; \
 info->queryParams[_FIELD_NAME_].addExample("default", _TYPE_(_EXAMPLE_VAL_)); \
 info->queryParams[_FIELD_NAME_].required = _REQUIRE_
 
- /**
-  * APIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-  * @param __TITLE__: Apiï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-  * @param __ENDPOINT_FUN_NAME__: Apiï¿½Ëµãº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-  * @param __RESP_TYPE__: ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºXxxJsonVO
-  */
-#define API_DEF_ENDPOINT_INFO(__TITLE__, __ENDPOINT_FUN_NAME__, __RESP_TYPE__) \
-ENDPOINT_INFO(__ENDPOINT_FUN_NAME__) { \
-	info->summary = __TITLE__; \
-=======
-
 /**
- * APIÃèÊöÌí¼Ó²éÑ¯²ÎÊýËµÃ÷
- * @param _TYPE_: ×Ö¶ÎÊý¾ÝÀàÐÍ¡£Èç£ºString¡¢UInt32µÈ
- * @param _FIELD_NAME_: ×Ö¶ÎÃû³Æ¡£Èç£º"age"¡¢"sex"
- * @param _DESCRIPTION_: ×Ö¶ÎÃèÊö¡£
- * @param _EXAMPLE_VAL_: Ê¾ÀýÖµ¡£Èç£º"li si"¡¢123
- * @param _REQUIRE_: ÊÇ·ñ±Ø´«²ÎÊý£¬boolÖµ¡£Èç£ºtrue¡¢false
- */
-#define API_DEF_ADD_QUERY_PARAMS(_TYPE_, _FIELD_NAME_, _DESCRIPTION_, _EXAMPLE_VAL_, _REQUIRE_) \
-info->queryParams.add<_TYPE_>(_FIELD_NAME_).description = _DESCRIPTION_; \
-info->queryParams[_FIELD_NAME_].addExample("default", _TYPE_(_EXAMPLE_VAL_)); \
-info->queryParams[_FIELD_NAME_].required = _REQUIRE_
-
-/**
- * APIÃèÊö¶¨Òå
- * @param __TITLE__: ApiÃèÊö±êÌâ
- * @param __ENDPOINT_FUN_NAME__: Api¶Ëµãº¯ÊýÃû³Æ
- * @param __RESP_TYPE__: ÏìÓ¦Êý¾ÝÀàÐÍÈç£ºXxxJsonVO
+ * APIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @param __TITLE__: Apiï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @param __ENDPOINT_FUN_NAME__: Apiï¿½Ëµãº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @param __RESP_TYPE__: ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºXxxJsonVO
  */
 #define API_DEF_ENDPOINT_INFO(__TITLE__, __ENDPOINT_FUN_NAME__, __RESP_TYPE__) \
 ENDPOINT_INFO(__ENDPOINT_FUN_NAME__) { \
@@ -197,16 +149,15 @@ ENDPOINT_INFO(__ENDPOINT_FUN_NAME__) { \
 }
 
 /**
-* APIÃèÊö¶¨Òå£¬¶¨ÒåµÄÊ±ºòÌí¼ÓÊÚÈ¨¶¨Òå
-* @param __TITLE__: ApiÃèÊö±êÌâ
-* @param __ENDPOINT_FUN_NAME__: Api¶Ëµãº¯ÊýÃû³Æ
-* @param __RESP_TYPE__: ÏìÓ¦Êý¾ÝÀàÐÍÈç£ºXxxJsonVO
+* APIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½
+* @param __TITLE__: Apiï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @param __ENDPOINT_FUN_NAME__: Apiï¿½Ëµãº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @param __RESP_TYPE__: ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºXxxJsonVO
 */
 #define API_DEF_ENDPOINT_INFO_AUTH(__TITLE__, __ENDPOINT_FUN_NAME__, __RESP_TYPE__) \
 ENDPOINT_INFO(__ENDPOINT_FUN_NAME__) { \
 	info->summary = __TITLE__; \
 	API_DEF_ADD_AUTH(); \
->>>>>>> remotes/origin/arch-cpp
 	API_DEF_ADD_RSP_JSON_WRAPPER(__RESP_TYPE__); \
 }
 
@@ -241,10 +192,10 @@ AUTHORIZATION(std::shared_ptr<CustomerAuthorizeObject>, authObject)
 * @param __TYPE__: ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½XxxQuery
 * @param __PARAMS__: QueryParamsï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ç£ºQUERIES(QueryParams, queryParams),ï¿½ï¿½ï¿½ï¿½queryParams
 =======
-* ½Ó¿Ú´¦ÀíÆ÷½âÎö²éÑ¯²ÎÊýµ½²éÑ¯Êý¾Ý¶ÔÏó
-* @param __VAR__: ×ª»»ºóµÄ±äÁ¿Ãû³Æ£¬Èçquery
-* @param __TYPE__: ²éÑ¯Êý¾Ý¶ÔÏóÀàÐÍ£¬ÈçXxxQuery
-* @param __PARAMS__: QueryParamsµÄ±äÁ¿Ãû³Æ£¬Èç£ºQUERIES(QueryParams, queryParams),Ôò´«ÈëqueryParams
+* ï¿½Ó¿Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½
+* @param __VAR__: ×ªï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½query
+* @param __TYPE__: ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½XxxQuery
+* @param __PARAMS__: QueryParamsï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ç£ºQUERIES(QueryParams, queryParams),ï¿½ï¿½ï¿½ï¿½queryParams
 >>>>>>> remotes/origin/arch-cpp
 */
 #define API_HANDLER_QUERY_PARAM(__VAR__, __TYPE__, __PARAMS__) \
@@ -282,171 +233,104 @@ for (auto& param : __PARAMS__.getAll()) { \
  */
 #define API_HANDLER_RESP_VO_WRAPPER(__VO__) API_HANDLER_RESP_VO(oatpp::Object<__VO__>)
 
-<<<<<<< HEAD
- /**
-  * APIï¿½Ëµã¶¨ï¿½ï¿½
-  * @param _METHOD_: ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ç£ºAPI_M_GET
-  * @param _PATH_: ï¿½Ëµï¿½ï¿½ï¿½Êµï¿½Ö·ï¿½ï¿½ï¿½ç£º/user/query-by-name
-  * @param __ENDPOINT_FUN_NAME__: Apiï¿½Ëµãº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-  * @param _PARAM_MACRO_: Ö¸ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¡£ï¿½ç£ºBODY_DTO(SampleDTO::Wrapper, dto)
-  * @param _EXECUTE_: ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½execXXXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºexecModifySample(dto)
-  */
-=======
+
 /**
- * API¶Ëµã¶¨Òå
- * @param _METHOD_: ÇëÇó·½Ê½¡£Èç£ºAPI_M_GET
- * @param _PATH_: ¶Ëµã·ÃÎÊµØÖ·¡£Èç£º/user/query-by-name
- * @param __ENDPOINT_FUN_NAME__: Api¶Ëµãº¯ÊýÃû³Æ
- * @param _PARAM_MACRO_: Ö¸¶¨Ò»¸ö²ÎÊý½âÎö²Ù×÷ºê¡£Èç£ºBODY_DTO(SampleDTO::Wrapper, dto)
- * @param _EXECUTE_: ´¦ÀíÂß¼­£¬µ÷ÓÃexecXXXº¯Êý¡£Èç£ºexecModifySample(dto)
+ * APIï¿½Ëµã¶¨ï¿½ï¿½
+ * @param _METHOD_: ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ç£ºAPI_M_GET
+ * @param _PATH_: ï¿½Ëµï¿½ï¿½ï¿½Êµï¿½Ö·ï¿½ï¿½ï¿½ç£º/user/query-by-name
+ * @param __ENDPOINT_FUN_NAME__: Apiï¿½Ëµãº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @param _PARAM_MACRO_: Ö¸ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¡£ï¿½ç£ºBODY_DTO(SampleDTO::Wrapper, dto)
+ * @param _EXECUTE_: ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½execXXXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºexecModifySample(dto)
  */
->>>>>>> remotes/origin/arch-cpp
+
 #define API_HANDLER_ENDPOINT(_METHOD_, _PATH_, __ENDPOINT_FUN_NAME__, _PARAM_MACRO_, _EXECUTE_) \
 ENDPOINT(_METHOD_, _PATH_, __ENDPOINT_FUN_NAME__, _PARAM_MACRO_) { \
 	API_HANDLER_RESP_VO(_EXECUTE_); \
 }
 
-<<<<<<< HEAD
-  /**
-  * APIï¿½Ëµã¶¨ï¿½å£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½
-  * @param _METHOD_: ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ç£ºAPI_M_GET
-  * @param _PATH_: ï¿½Ëµï¿½ï¿½ï¿½Êµï¿½Ö·ï¿½ï¿½ï¿½ç£º/user/query-by-name
-  * @param __ENDPOINT_FUN_NAME__: Apiï¿½Ëµãº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-  * @param _PARAM_MACRO_: Ö¸ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¡£ï¿½ç£ºBODY_DTO(SampleDTO::Wrapper, dto)
-  * @param _EXECUTE_: ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½execXXXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºexecModifySample(dto)
-  */
-=======
+
 /**
-* API¶Ëµã¶¨Òå£¬¶¨ÒåµÄÊ±ºòÌí¼ÓÊÚÈ¨¶¨Òå
-* @param _METHOD_: ÇëÇó·½Ê½¡£Èç£ºAPI_M_GET
-* @param _PATH_: ¶Ëµã·ÃÎÊµØÖ·¡£Èç£º/user/query-by-name
-* @param __ENDPOINT_FUN_NAME__: Api¶Ëµãº¯ÊýÃû³Æ
-* @param _PARAM_MACRO_: Ö¸¶¨Ò»¸ö²ÎÊý½âÎö²Ù×÷ºê¡£Èç£ºBODY_DTO(SampleDTO::Wrapper, dto)
-* @param _EXECUTE_: ´¦ÀíÂß¼­£¬µ÷ÓÃexecXXXº¯Êý¡£Èç£ºexecModifySample(dto)
+* APIï¿½Ëµã¶¨ï¿½å£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½
+* @param _METHOD_: ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ç£ºAPI_M_GET
+* @param _PATH_: ï¿½Ëµï¿½ï¿½ï¿½Êµï¿½Ö·ï¿½ï¿½ï¿½ç£º/user/query-by-name
+* @param __ENDPOINT_FUN_NAME__: Apiï¿½Ëµãº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @param _PARAM_MACRO_: Ö¸ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¡£ï¿½ç£ºBODY_DTO(SampleDTO::Wrapper, dto)
+* @param _EXECUTE_: ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½execXXXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºexecModifySample(dto)
 */
->>>>>>> remotes/origin/arch-cpp
 #define API_HANDLER_ENDPOINT_AUTH(_METHOD_, _PATH_, __ENDPOINT_FUN_NAME__, _PARAM_MACRO_, _EXECUTE_) \
 ENDPOINT(_METHOD_, _PATH_, __ENDPOINT_FUN_NAME__, _PARAM_MACRO_, API_HANDLER_AUTH_PARAME) { \
 	API_HANDLER_RESP_VO(_EXECUTE_); \
 }
 
-<<<<<<< HEAD
-  /**
-   * APIï¿½Ëµã¶¨ï¿½å£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-   * @param _METHOD_: ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ç£ºAPI_M_GET
-   * @param _PATH_: ï¿½Ëµï¿½ï¿½ï¿½Êµï¿½Ö·ï¿½ï¿½ï¿½ç£º/user/query-by-name
-   * @param __ENDPOINT_FUN_NAME__: Apiï¿½Ëµãº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-   * @param _EXECUTE_: ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½execXXXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºexecModifySample(dto)
-   */
-=======
+
 /**
- * API¶Ëµã¶¨Òå£¬²»¶¨Òå²ÎÊý½âÎö
- * @param _METHOD_: ÇëÇó·½Ê½¡£Èç£ºAPI_M_GET
- * @param _PATH_: ¶Ëµã·ÃÎÊµØÖ·¡£Èç£º/user/query-by-name
- * @param __ENDPOINT_FUN_NAME__: Api¶Ëµãº¯ÊýÃû³Æ
- * @param _EXECUTE_: ´¦ÀíÂß¼­£¬µ÷ÓÃexecXXXº¯Êý¡£Èç£ºexecModifySample(dto)
+ * APIï¿½Ëµã¶¨ï¿½å£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @param _METHOD_: ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ç£ºAPI_M_GET
+ * @param _PATH_: ï¿½Ëµï¿½ï¿½ï¿½Êµï¿½Ö·ï¿½ï¿½ï¿½ç£º/user/query-by-name
+ * @param __ENDPOINT_FUN_NAME__: Apiï¿½Ëµãº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @param _EXECUTE_: ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½execXXXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºexecModifySample(dto)
  */
->>>>>>> remotes/origin/arch-cpp
 #define API_HANDLER_ENDPOINT_NOPARAM(_METHOD_, _PATH_, __ENDPOINT_FUN_NAME__, _EXECUTE_) \
 ENDPOINT(_METHOD_, _PATH_, __ENDPOINT_FUN_NAME__) { \
 	API_HANDLER_RESP_VO(_EXECUTE_); \
 }
 
-<<<<<<< HEAD
-   /**
-   * APIï¿½Ëµã¶¨ï¿½å£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½
-   * @param _METHOD_: ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ç£ºAPI_M_GET
-   * @param _PATH_: ï¿½Ëµï¿½ï¿½ï¿½Êµï¿½Ö·ï¿½ï¿½ï¿½ç£º/user/query-by-name
-   * @param __ENDPOINT_FUN_NAME__: Apiï¿½Ëµãº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-   * @param _EXECUTE_: ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½execXXXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºexecModifySample(dto)
-   */
-=======
+
 /**
-* API¶Ëµã¶¨Òå£¬²»¶¨Òå²ÎÊý½âÎö£¬¶¨ÒåµÄÊ±ºòÌí¼ÓÊÚÈ¨¶¨Òå
-* @param _METHOD_: ÇëÇó·½Ê½¡£Èç£ºAPI_M_GET
-* @param _PATH_: ¶Ëµã·ÃÎÊµØÖ·¡£Èç£º/user/query-by-name
-* @param __ENDPOINT_FUN_NAME__: Api¶Ëµãº¯ÊýÃû³Æ
-* @param _EXECUTE_: ´¦ÀíÂß¼­£¬µ÷ÓÃexecXXXº¯Êý¡£Èç£ºexecModifySample(dto)
+* APIï¿½Ëµã¶¨ï¿½å£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½
+* @param _METHOD_: ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ç£ºAPI_M_GET
+* @param _PATH_: ï¿½Ëµï¿½ï¿½ï¿½Êµï¿½Ö·ï¿½ï¿½ï¿½ç£º/user/query-by-name
+* @param __ENDPOINT_FUN_NAME__: Apiï¿½Ëµãº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @param _EXECUTE_: ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½execXXXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºexecModifySample(dto)
 */
->>>>>>> remotes/origin/arch-cpp
 #define API_HANDLER_ENDPOINT_NOPARAM_AUTH(_METHOD_, _PATH_, __ENDPOINT_FUN_NAME__, _EXECUTE_) \
 ENDPOINT(_METHOD_, _PATH_, __ENDPOINT_FUN_NAME__, API_HANDLER_AUTH_PARAME) { \
 	API_HANDLER_RESP_VO(_EXECUTE_); \
 }
 
-<<<<<<< HEAD
-   /**
-   * APIï¿½Ëµã¶¨ï¿½å£¬ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½Îªquery
-   * @param _METHOD_: ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ç£ºAPI_M_GET
-   * @param _PATH_: ï¿½Ëµï¿½ï¿½ï¿½Êµï¿½Ö·ï¿½ï¿½ï¿½ç£º/user/query-by-name
-   * @param __ENDPOINT_FUN_NAME__: Apiï¿½Ëµãº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-   * @param _QUERY_TYPE_: ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½ï¿½ç£ºSampleQuery
-   * @param _EXECUTE_: ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½execXXXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºexecQuerySample(query)
-   */
-=======
+
 /**
-* API¶Ëµã¶¨Òå£¬ÓÃÓÚ´¦Àí´«Êä²éÑ¯²ÎÊýµÄÇëÇó£¬²éÑ¯²ÎÊý½âÎöºóµÄ±äÁ¿ÃûÎªquery
-* @param _METHOD_: ÇëÇó·½Ê½¡£Èç£ºAPI_M_GET
-* @param _PATH_: ¶Ëµã·ÃÎÊµØÖ·¡£Èç£º/user/query-by-name
-* @param __ENDPOINT_FUN_NAME__: Api¶Ëµãº¯ÊýÃû³Æ
-* @param _QUERY_TYPE_: ²éÑ¯²ÎÊýÀàÐÍ¡£Èç£ºSampleQuery
-* @param _EXECUTE_: ´¦ÀíÂß¼­£¬µ÷ÓÃexecXXXº¯Êý¡£Èç£ºexecQuerySample(query)
+* APIï¿½Ëµã¶¨ï¿½å£¬ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½Îªquery
+* @param _METHOD_: ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ç£ºAPI_M_GET
+* @param _PATH_: ï¿½Ëµï¿½ï¿½ï¿½Êµï¿½Ö·ï¿½ï¿½ï¿½ç£º/user/query-by-name
+* @param __ENDPOINT_FUN_NAME__: Apiï¿½Ëµãº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @param _QUERY_TYPE_: ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½ï¿½ç£ºSampleQuery
+* @param _EXECUTE_: ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½execXXXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºexecQuerySample(query)
 */
->>>>>>> remotes/origin/arch-cpp
+
 #define API_HANDLER_ENDPOINT_QUERY(_METHOD_, _PATH_, __ENDPOINT_FUN_NAME__, _QUERY_TYPE_, _EXECUTE_) \
 ENDPOINT(_METHOD_, _PATH_, __ENDPOINT_FUN_NAME__, QUERIES(QueryParams, queryParams)) { \
 	API_HANDLER_QUERY_PARAM(query, _QUERY_TYPE_, queryParams);\
 	API_HANDLER_RESP_VO(_EXECUTE_); \
 }
 
-<<<<<<< HEAD
-   /**
-   * APIï¿½Ëµã¶¨ï¿½å£¬ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½Îªqueryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½
-   * @param _METHOD_: ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ç£ºAPI_M_GET
-   * @param _PATH_: ï¿½Ëµï¿½ï¿½ï¿½Êµï¿½Ö·ï¿½ï¿½ï¿½ç£º/user/query-by-name
-   * @param __ENDPOINT_FUN_NAME__: Apiï¿½Ëµãº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-   * @param _QUERY_TYPE_: ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½ï¿½ç£ºSampleQuery
-   * @param _EXECUTE_: ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½execXXXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºexecQuerySample(query, authObject->getPayload())
-   */
-=======
 /**
-* API¶Ëµã¶¨Òå£¬ÓÃÓÚ´¦Àí´«Êä²éÑ¯²ÎÊýµÄÇëÇó£¬²éÑ¯²ÎÊý½âÎöºóµÄ±äÁ¿ÃûÎªquery£¬¶¨ÒåµÄÊ±ºòÌí¼ÓÊÚÈ¨¶¨Òå
-* @param _METHOD_: ÇëÇó·½Ê½¡£Èç£ºAPI_M_GET
-* @param _PATH_: ¶Ëµã·ÃÎÊµØÖ·¡£Èç£º/user/query-by-name
-* @param __ENDPOINT_FUN_NAME__: Api¶Ëµãº¯ÊýÃû³Æ
-* @param _QUERY_TYPE_: ²éÑ¯²ÎÊýÀàÐÍ¡£Èç£ºSampleQuery
-* @param _EXECUTE_: ´¦ÀíÂß¼­£¬µ÷ÓÃexecXXXº¯Êý¡£Èç£ºexecQuerySample(query, authObject->getPayload())
+* APIï¿½Ëµã¶¨ï¿½å£¬ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½Îªqueryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½
+* @param _METHOD_: ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ç£ºAPI_M_GET
+* @param _PATH_: ï¿½Ëµï¿½ï¿½ï¿½Êµï¿½Ö·ï¿½ï¿½ï¿½ç£º/user/query-by-name
+* @param __ENDPOINT_FUN_NAME__: Apiï¿½Ëµãº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @param _QUERY_TYPE_: ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½ï¿½ç£ºSampleQuery
+* @param _EXECUTE_: ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½execXXXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºexecQuerySample(query, authObject->getPayload())
 */
->>>>>>> remotes/origin/arch-cpp
+
 #define API_HANDLER_ENDPOINT_QUERY_AUTH(_METHOD_, _PATH_, __ENDPOINT_FUN_NAME__, _QUERY_TYPE_, _EXECUTE_) \
 ENDPOINT(_METHOD_, _PATH_, __ENDPOINT_FUN_NAME__, QUERIES(QueryParams, queryParams), API_HANDLER_AUTH_PARAME) { \
 	API_HANDLER_QUERY_PARAM(query, _QUERY_TYPE_, queryParams);\
 	API_HANDLER_RESP_VO(_EXECUTE_); \
 }
 
-<<<<<<< HEAD
-   //////////////////////////////////////////////////////////////////////////
 
-   /**
-   * DTOï¿½Ö¶Î¶ï¿½ï¿½ï¿½ï¿½
-   * @param _TYPE_: ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½Í¡ï¿½ï¿½ç£ºStringï¿½ï¿½Int32ï¿½ï¿½List<Int32>ï¿½ï¿½List<SampleQuery::Wrapper>
-   * @param _NAME_: ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½ç£ºnameï¿½ï¿½sex
-   * @param _DESCRIPTION_: ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½
-   * @param _REQUIRE_: ï¿½Ç·ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºtrueï¿½ï¿½false
-   * @param _DEFAULT_: ï¿½Ö¶ï¿½Ä¬ï¿½ï¿½Öµï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ÖµÃ»ï¿½Ð±ï¿½ï¿½ï¿½ï¿½Ç¾Í»á±£ï¿½ï¿½ÖµÎªÄ¬ï¿½ï¿½Öµï¿½ï¿½ï¿½ç£º"zhangsan" ï¿½ï¿½123
-   */
-=======
 //////////////////////////////////////////////////////////////////////////
 
 /**
-* DTO×Ö¶Î¶¨Òåºê
-* @param _TYPE_: ×Ö¶ÎÀàÐÍ¡£Èç£ºString¡¢Int32¡¢List<Int32>¡¢List<SampleQuery::Wrapper>
-* @param _NAME_: ×Ö¶ÎÃû³Æ¡£Èç£ºname¡¢sex
-* @param _DESCRIPTION_: ×Ö¶ÎÃèÊö
-* @param _REQUIRE_: ÊÇ·ñ±Ø´«²ÎÊý¡£Èç£ºtrue¡¢false
-* @param _DEFAULT_: ×Ö¶ÎÄ¬ÈÏÖµ£¬×¢ÒâÈç¹ûÉèÖÃÄ¬ÈÏÖµ£¬Èç¹û´Ë×Ö¶ÎÖµÃ»ÓÐ±»¸²¸Ç¾Í»á±£³ÖÖµÎªÄ¬ÈÏÖµ¡£Èç£º"zhangsan" ¡¢123
+* DTOï¿½Ö¶Î¶ï¿½ï¿½ï¿½ï¿½
+* @param _TYPE_: ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½Í¡ï¿½ï¿½ç£ºStringï¿½ï¿½Int32ï¿½ï¿½List<Int32>ï¿½ï¿½List<SampleQuery::Wrapper>
+* @param _NAME_: ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½ç£ºnameï¿½ï¿½sex
+* @param _DESCRIPTION_: ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½
+* @param _REQUIRE_: ï¿½Ç·ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºtrueï¿½ï¿½false
+* @param _DEFAULT_: ï¿½Ö¶ï¿½Ä¬ï¿½ï¿½Öµï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ÖµÃ»ï¿½Ð±ï¿½ï¿½ï¿½ï¿½Ç¾Í»á±£ï¿½ï¿½ÖµÎªÄ¬ï¿½ï¿½Öµï¿½ï¿½ï¿½ç£º"zhangsan" ï¿½ï¿½123
 */
->>>>>>> remotes/origin/arch-cpp
+
 #define API_DTO_FIELD(_TYPE_, _NAME_, _DESCRIPTION_, _REQUIRE_, _DEFAULT_) \
 DTO_FIELD(_TYPE_, _NAME_) = _DEFAULT_; \
 DTO_FIELD_INFO(_NAME_) { \
@@ -454,21 +338,13 @@ DTO_FIELD_INFO(_NAME_) { \
 	info->required = _REQUIRE_; \
 }
 
-<<<<<<< HEAD
-   /**
-   * DTOï¿½Ö¶Î¶ï¿½ï¿½ï¿½ê£¬ï¿½ó²¿·ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ÏµÍ³Ä¬ï¿½ï¿½
-   * @param _TYPE_: ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½Í¡ï¿½ï¿½ç£ºStringï¿½ï¿½Int32ï¿½ï¿½List<Int32>ï¿½ï¿½List<SampleQuery::Wrapper>
-   * @param _NAME_: ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½ç£ºnameï¿½ï¿½sex
-   * @param _DESCRIPTION_: ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½
-   */
-=======
+
 /**
-* DTO×Ö¶Î¶¨Òåºê£¬´ó²¿·ÖÊôÐÔ±£³ÖÏµÍ³Ä¬ÈÏ
-* @param _TYPE_: ×Ö¶ÎÀàÐÍ¡£Èç£ºString¡¢Int32¡¢List<Int32>¡¢List<SampleQuery::Wrapper>
-* @param _NAME_: ×Ö¶ÎÃû³Æ¡£Èç£ºname¡¢sex
-* @param _DESCRIPTION_: ×Ö¶ÎÃèÊö
+* DTOï¿½Ö¶Î¶ï¿½ï¿½ï¿½ê£¬ï¿½ó²¿·ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ÏµÍ³Ä¬ï¿½ï¿½
+* @param _TYPE_: ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½Í¡ï¿½ï¿½ç£ºStringï¿½ï¿½Int32ï¿½ï¿½List<Int32>ï¿½ï¿½List<SampleQuery::Wrapper>
+* @param _NAME_: ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½ç£ºnameï¿½ï¿½sex
+* @param _DESCRIPTION_: ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½
 */
->>>>>>> remotes/origin/arch-cpp
 #define API_DTO_FIELD_DEFAULT(_TYPE_, _NAME_, _DESCRIPTION_) \
 DTO_FIELD(_TYPE_, _NAME_); \
 DTO_FIELD_INFO(_NAME_) { \
