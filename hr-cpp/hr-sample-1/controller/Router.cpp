@@ -19,21 +19,12 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-#include "RosterOfPer/FormerEmployeesController.h"
-#include "CertificateManage/UpdateCertificateController.h"
 
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
-#include "controller/RosterOfPer/ExportEmployeeController.h"
+#include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
-#include "controller/RosterOfPer/ExportEmployeeController.h"
-#include "controller/RosterOfPer/PageQueryEmployeeListController.h"
-
-//测试controller引入头文件
-#include "controller/RosterOfPer/TemporaryStaffController.h"
-#include "controller/CertificateManage/EmployeeInfoController.h"
-#include "controller/CertificateManage/CertificateTypeController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -41,9 +32,7 @@
 #define ROUTER_SIMPLE_BIND(__CLASS__) \
 router->addController(__CLASS__::createShared())
 #else
-
-
-// 简化绑定控制器宏定义 
+// 简化绑定控制器宏定义
 #define ROUTER_SIMPLE_BIND(__CLASS__) \
 BIND_CONTROLLER(docEndpoints, router, __CLASS__)
 #endif
@@ -58,14 +47,10 @@ void Router::initRouter()
 {
 #ifdef HTTP_SERVER_DEMO
 	createSampleRouter();
-#endif 
+#endif
+
 	//#TIP :系统扩展路由定义，写在这个后面
-	ROUTER_SIMPLE_BIND(FormerEmployeesController);
-	ROUTER_SIMPLE_BIND(UpdateCertificateController);	ROUTER_SIMPLE_BIND(ExportEmployeeController);
-	ROUTER_SIMPLE_BIND(PageQueryEmployeeListController);
-	ROUTER_SIMPLE_BIND(TempStaffController);//挂职人员swagger效果测试
-	ROUTER_SIMPLE_BIND(EmployeeInfoController);//人员信息查询swagger效果测试
-	ROUTER_SIMPLE_BIND(CertificateTypeController); //证书类型查询swagger效果测试
+
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -80,4 +65,3 @@ void Router::createSampleRouter()
 	router->addController(WSContorller::createShared());
 }
 #endif
-
