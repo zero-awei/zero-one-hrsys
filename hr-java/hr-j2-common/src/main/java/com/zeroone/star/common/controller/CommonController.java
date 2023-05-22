@@ -28,7 +28,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("common")
-@Api(tags = "common")
+@Api(tags = "公用接口")
 public class CommonController implements CommonApis {
 
     @Resource

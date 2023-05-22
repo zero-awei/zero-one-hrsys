@@ -21,7 +21,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("common")
-@Api(tags = "common")
+@Api(tags = "公用接口")
 public class WorkStatusListController implements WorkStatusApi {
 
     @Override

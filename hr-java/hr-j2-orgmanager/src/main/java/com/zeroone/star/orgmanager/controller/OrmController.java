@@ -29,8 +29,8 @@ import java.util.List;
  * @since 2023-05-19
  */
 @RestController
-@RequestMapping("orgmanager")
-@Api(tags = "orgmanager")
+@RequestMapping("org-manager")
+@Api(tags = "组织管理")
 public class OrmController implements OrgmanagerApis {
 
     @Resource

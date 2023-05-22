@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2023/5/18 15:54
  */
 @RestController
-@RequestMapping("org")
-@Api(tags = "departments")
+@RequestMapping("org-manager")
+@Api(tags = "组织管理")
 public class OrmBmkqdzController implements OrmBmkqdzApi {
 
     @ApiOperation(value = "更新部门考勤地址")

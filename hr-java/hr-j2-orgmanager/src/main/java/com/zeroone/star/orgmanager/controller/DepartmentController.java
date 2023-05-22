@@ -24,8 +24,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 1.0.0
  */
 @RestController
-@RequestMapping("org")
-@Api(tags = "departments")
+@RequestMapping("org-manager")
+@Api(tags = "组织管理")
 public class DepartmentController implements DepartmentApis {
     @ApiOperation(value = "导出部门信息")
     @GetMapping("export-departments")

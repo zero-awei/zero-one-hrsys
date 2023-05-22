@@ -20,7 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("dashboard")
-@Api(tags = "dashboard")
+@Api(tags = "系统首页")
 public class DashboardController implements DashboardApis {
 
     @GetMapping("pim-title-zcdj")
