@@ -21,6 +21,10 @@ const routes = [
         component: () => import('@/views/sample/Communication/index.vue')
       },
       {
+        path: '/sample/Aside',
+        component: () => import('@/views/sample/aside/Aside.vue')
+      },
+      {
         path: '/sample/echarts',
         component: () => import('@/views/sample/echarts_test/Echart.vue')
       },

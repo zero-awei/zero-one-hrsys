@@ -102,6 +102,10 @@ const menus = reactive([
   {
     path: '/sample/maintable',
     text: '表格主体测试页面'
+  },
+  {
+    path: '/sample/Aside',
+    text: '侧边栏'
   }
 ])
 </script>
