@@ -1,11 +1,8 @@
 <template>
     <div class="hr-table-header">
         <div class="hr-table-header__title">{{tableTitle}}</div>
-        <div class="hr-table-header__menus" v-if="tableOperations[0].is">
-            <AddButton :tableTitle="tableTitle" :addTitle="addTitle" :addData="addData"/>
-        </div>
-        <div class="hr-table-header__menus" v-if="tableOperations[1].is">
-            <AddButton :tableTitle="tableTitle" :addTitle="addTitle" :addData="addData"/>
+        <div class="hr-table-header__menus" v-for="tableOperation in tableOperations" :key="tableOperation.name">
+            <AddButton :tableTitle="tableTitle" :addTitle="addTitle" :addData="addData" v-if="tableOperation.name==='新增'"/>
         </div>
     </div>
 </template>

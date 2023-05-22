@@ -6,18 +6,20 @@
 import TableHead from '@/components/table/head/TableHead.vue'
 import { reactive } from 'vue'
 import { stringifyQuery } from 'vue-router'
+//表格表名
 const tableTitle = ref('人员列表')
+//新增表单的表名
 const addTitle = ref('人员列表编辑')
+//功能按键需求配置
 const tableOperations = reactive([
   {
-    is:true,
     name:'新增'
   },
   {
-    is:true,
     name:'导入'
   },  
 ])
+//新增表单所需栏目配置
 const addData = reactive([
   {
     label:'员工姓名',
@@ -46,4 +48,5 @@ const addData = reactive([
     type:'Text',
   },
 ])
+
 </script>
