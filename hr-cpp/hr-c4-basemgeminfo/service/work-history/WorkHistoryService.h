@@ -16,6 +16,8 @@
 #include "domain/query/work-history/WorkHistoryPageQuery.h"
 #include "domain/dto/work-history/WorkHistoryDTO.h"
 #include "domain/query/work-history/WorkHistoryQuery.h"
+#include "domain/dto/work-history/AddWorkHistoryDTO.h"
+#include "domain/dto/work-history/DelWorkHistoryDTO.h"
 
 class WorkHistoryService
 {
@@ -24,7 +26,12 @@ public:
 	WorkHistoryFindPageDTO::Wrapper listAll(const WorkHistoryPageQuery::Wrapper& query);
 
 
+	// 增加一条数据
+	uint64_t saveData(const AddWorkHistoryDTO::Wrapper& dto);
 
+
+	//删除数据(支持批量删除)
+	bool removeData(const DelWorkHistoryDTO::Wrapper& dto);
 
 
 

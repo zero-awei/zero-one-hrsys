@@ -201,6 +201,8 @@
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\military\MilitaryDO.h" />
     <ClInclude Include="domain\do\scientific\Scientific.h" />
+    <ClInclude Include="domain\do\work-history\AddWorkHistoryDO.h" />
+    <ClInclude Include="domain\do\work-history\DelWorkHistoryDO.h" />
     <ClInclude Include="domain\do\work-history\WorkHistoryDO.h" />
     <ClInclude Include="domain\do\work-history\WorkHistoryFindPageDO.h" />
     <ClInclude Include="domain\dto\archives\ArchivesDTO.h" />

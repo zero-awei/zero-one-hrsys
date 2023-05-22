@@ -33,7 +33,26 @@ Uint64JsonVO::Wrapper WorkHistoryController::execAddWorkHistory(const AddWorkHis
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	jvo->success(1);
+
+	//有效值效验
+	if (dto->ormorgsectorname->empty() || dto->ormdutyname->empty() || dto->pimpersonid->empty() || dto->rzjssj->empty() || \
+		dto->rzkssj->empty() || dto->ormorgname->empty() || dto->ormpostname->empty() || dto->cfplx->empty() || dto->pimworkhistoryid->empty())
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+
+	WorkHistoryService service;
+	uint64_t id  = service.saveData(dto);
+
+	if (id > 0)
+	{
+		jvo->success(id);
+	}
+	else
+	{
+		jvo->fail(id);
+	}
 
 	return jvo;
 }
@@ -49,20 +68,24 @@ Uint64JsonVO::Wrapper WorkHistoryController::execDelWorkHistory(const DelWorkHis
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	else
+	for (auto it = dto->deleteById->begin(); it != dto->deleteById->end(); ++it)
 	{
-		for (auto it = dto->deleteById->begin(); it != dto->deleteById->end(); ++it)
+		if (!(*it))
 		{
-			if (!(*it))
-			{
-				jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-				return jvo;
-			}
+			jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+			return jvo;
 		}
 	}
 
-	jvo->success(1);
-
+	WorkHistoryService service;
+	if (service.removeData(dto))
+	{
+		jvo->success(1);
+	}
+	else
+	{
+		jvo->fail(1);
+	}
 	return jvo;
 
 }

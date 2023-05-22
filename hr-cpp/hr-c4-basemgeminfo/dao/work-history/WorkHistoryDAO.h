@@ -27,6 +27,7 @@
 //陈靓仔
 #include "../../domain/do/work-history/WorkHistoryDO.h"
 #include "../../domain/query/work-history/WorkHistoryQuery.h"
+#include "domain/do/work-history/AddWorkHistoryDO.h"
 
 class WorkHistoryDAO : public BaseDAO
 {
@@ -37,7 +38,11 @@ public:
 	// 统计数据条数
 	uint64_t count(const WorkHistoryPageQuery::Wrapper& query);
 
+	//插入数据
+	uint64_t insert(const AddWorkHistoryDO& iObj);
 
+	//删除数据（支持批量删除数据）
+	int deleteById(std::string pimpersonid, std::string pimworkhistoryid);
 
 
 

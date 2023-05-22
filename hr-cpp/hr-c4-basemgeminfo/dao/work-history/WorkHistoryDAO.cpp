@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "WorkHistoryDAO.h"
 #include "WorkHistoryMapper.h"
+#include "domain/do/work-history/DelWorkHistoryDO.h"
 
 //
 #define SAMPLE_TERAM_PARSE(query, sql) \
@@ -76,6 +77,23 @@ uint64_t WorkHistoryDAO::count(const WorkHistoryPageQuery::Wrapper& query)
 	SAMPLE_TERAM_PARSE(query, sql);
 	std::string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
+}
+
+uint64_t WorkHistoryDAO::insert(const AddWorkHistoryDO& iObj)
+{
+	std::string sql = "INSERT INTO `t_pimworkhistory` \
+		(`RZKSSJ`, `RZJSSJ`, `ORMORGNAME`, ORMORGSECTORNAME,\
+		ORMDUTYNAME, ORMPOSTNAME, CFPLX, EXPERIENCE,PIMWORKHISTORYID,PIMPERSONID ) VALUES \
+		(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%i%s%s", iObj.getrZKSSJ(), iObj.getrZJSSJ() \
+		, iObj.getoRMORGNAME(), iObj.getoRMORGSECTORNAME(), iObj.getoRMDUTYNAME(), iObj.getoRMPOSTNAME(), \
+		iObj.getcFPLX(), iObj.geteXPERIENCE(), iObj.getpIMWORKHISTORYID(), iObj.getpIMPERSONID());
+}
+
+int WorkHistoryDAO::deleteById(std::string pimpersonid, std::string pimworkhistoryid)
+{
+	std::string sql = "delete from t_pimworkhistory where PIMPERSONID=? and PIMWORKHISTORYID=?";
+	return sqlSession->executeUpdate(sql, "%s%s", pimpersonid, pimworkhistoryid);
 }
 
 list<WorkHistoryDO> WorkHistoryDAO::selectDetail(const WorkHistoryQuery::Wrapper& query)

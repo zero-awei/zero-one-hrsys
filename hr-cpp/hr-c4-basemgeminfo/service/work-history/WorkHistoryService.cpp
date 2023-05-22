@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "WorkHistoryService.h"
 #include "dao/work-history/WorkHistoryDAO.h"
+#include "domain/do/work-history/DelWorkHistoryDO.h"
 
 WorkHistoryDTO::Wrapper WorkHistoryService::listDetail(const WorkHistoryQuery::Wrapper& query)
 {
@@ -61,4 +62,38 @@ WorkHistoryFindPageDTO::Wrapper WorkHistoryService::listAll(const WorkHistoryPag
 
 	}
 	return pages;
+}
+
+uint64_t WorkHistoryService::saveData(const AddWorkHistoryDTO::Wrapper& dto)
+{
+	// 组装DO数据
+	AddWorkHistoryDO data;
+	// 	data.setName(dto->name.getValue(""));
+	// 	data.setSex(dto->sex.getValue(""));
+	// 	data.setAge(dto->age.getValue(1));
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, rZKSSJ, rzkssj, \
+		rZJSSJ, rzjssj, oRMORGNAME, ormorgname, oRMORGSECTORNAME,\
+		ormorgsectorname, oRMDUTYNAME, ormdutyname, oRMPOSTNAME, \
+		ormpostname, cFPLX, cfplx, eXPERIENCE, experience, \
+		pIMWORKHISTORYID, pimworkhistoryid, pIMPERSONID, pimpersonid)
+		// 执行数据添加
+		WorkHistoryDAO dao;
+	return dao.insert(data);
+}
+
+bool WorkHistoryService::removeData(const DelWorkHistoryDTO::Wrapper& dto)
+{
+	/*// 组装DO数据
+	DelWorkHistoryDO data;
+
+
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, pIMPERSONID, pimpersonid);*/
+
+	WorkHistoryDAO dao;
+	std::string pimpersonid = dto->pimpersonid;
+	for (auto it = dto->deleteById->begin(); it != dto->deleteById->end(); ++it)
+	{
+		dao.deleteById(pimpersonid, *it);
+	}
+	return true;
 }
