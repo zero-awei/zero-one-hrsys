@@ -15,6 +15,8 @@
     <ClCompile Include="controller\costTypeList\CostTypeListController.cpp" />
     <ClCompile Include="controller\declareType\DeclareController.cpp" />
     <ClCompile Include="controller\archivesLevel\ArchivesLevelsController.cpp" />
+    <ClCompile Include="controller\awardLevel\AwardLevelController.cpp" />
+    <ClCompile Include="controller\jobCategory\JobCategoryController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -45,6 +47,10 @@
     <ClInclude Include="domain\vo\archivesList\ArchivesListVO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\certs\ProfCertsQuery.h" />
+    <ClInclude Include="domain\vo\awardLevel\AwardLevelVO.h" />
+    <ClInclude Include="controller\awardLevel\AwardLevelController.h" />
+    <ClInclude Include="controller\jobCategory\JobCategoryController.h" />
+    <ClInclude Include="domain\dto\awardLevel\AwardLevelDTO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

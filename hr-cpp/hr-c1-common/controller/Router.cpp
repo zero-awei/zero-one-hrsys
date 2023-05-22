@@ -36,6 +36,8 @@
 #include "declareType/DeclareController.h"
 #include "archivesLevel/ArchivesLevelsController.h"
 
+#include "awardLevel/AwardLevelController.h"
+#include "jobCategory/JobCategoryController.h"
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -57,9 +59,12 @@ void Router::initRouter()
 {
 #ifdef HTTP_SERVER_DEMO
 	createSampleRouter();
+	
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
+	createAwardLevelRouter();
+	createJobCategoryRouter();
 	createContractTypeRouter();
 	createArmyLevelTypeRouter();
 	createRouter();
@@ -123,4 +128,14 @@ void Router::createJobLevelTypeRouter()
 void Router::createCostTypeRouter()
 {
 	ROUTER_SIMPLE_BIND(CostTypeListController);
+}
+
+void Router::createAwardLevelRouter()
+{
+	ROUTER_SIMPLE_BIND(AwardLevelController);
+}
+
+void Router::createJobCategoryRouter()
+{
+	ROUTER_SIMPLE_BIND(JobCategoryController);
 }

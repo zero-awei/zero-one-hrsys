@@ -161,18 +161,21 @@
   <ItemGroup>
     <ClInclude Include="controller\archivesLevel\ArchivesLevelsController.h" />
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
+    <ClInclude Include="controller\awardLevel\AwardLevelController.h" />
     <ClInclude Include="controller\certDropDownList\certTypeList\CertTypeListController.h" />
     <ClInclude Include="controller\certDropDownList\profCertsList\ProfCertsListController.h" />
     <ClInclude Include="controller\costTypeList\CostTypeListController.h" />
     <ClInclude Include="controller\declareType\DeclareController.h" />
     <ClInclude Include="controller\fileReservation\FileReservationController.h" />
     <ClInclude Include="controller\fileStatus\FileStatusController.h" />
+    <ClInclude Include="controller\jobCategory\JobCategoryController.h" />
     <ClInclude Include="controller\jobLevelTypeList\JobLevelTypeListController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\contractType\ContractTypeListController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\archivesLevelsDto\archivesLevelsDTO.h" />
+    <ClInclude Include="domain\dto\awardLevel\AwardLevelDTO.h" />
     <ClInclude Include="domain\dto\certs\CertTypeDTO.h" />
     <ClInclude Include="domain\dto\certs\ProfCertsDTO.h" />
     <ClInclude Include="domain\dto\declareDto\declareDTO.h" />
@@ -180,6 +183,7 @@
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\certs\ProfCertsQuery.h" />
     <ClInclude Include="domain\vo\archivesList\ArchivesListVO.h" />
+    <ClInclude Include="domain\vo\awardLevel\AwardLevelVO.h" />
     <ClInclude Include="domain\vo\certs\ProfCertsVO.h" />
     <ClInclude Include="domain\vo\certs\CertTypeVO.h" />
     <ClInclude Include="domain\vo\pullList\PullListVO.h" />
@@ -189,6 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\archivesLevel\ArchivesLevelsController.cpp" />
+    <ClCompile Include="controller\awardLevel\AwardLevelController.cpp" />
     <ClCompile Include="controller\certDropDownList\certTypeList\CertTypeListController.cpp" />
     <ClCompile Include="controller\certDropDownList\profCertsList\ProfCertsListController.cpp" />
     <ClCompile Include="controller\armyLevelType\ArmyLevelTypeController.cpp" />
@@ -197,6 +202,7 @@
     <ClCompile Include="controller\declareType\DeclareController.cpp" />
     <ClCompile Include="controller\fileReservation\FileReservationController.cpp" />
     <ClCompile Include="controller\fileStatus\FileStatusController.cpp" />
+    <ClCompile Include="controller\jobCategory\JobCategoryController.cpp" />
     <ClCompile Include="controller\jobLevelTypeList\JobLevelTypeListController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />

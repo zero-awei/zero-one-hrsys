@@ -84,6 +84,12 @@ private:
 	 */
 	void createDeclareRouter();
 	void createArchivesLevelsRouter();
+	/**
+	 * 获奖等级&岗位类别下拉列表
+	 * 负责人：缘尘
+	 */
+	void createAwardLevelRouter();
+	void createJobCategoryRouter();
 };
 
 #endif // !_ROUTER_
