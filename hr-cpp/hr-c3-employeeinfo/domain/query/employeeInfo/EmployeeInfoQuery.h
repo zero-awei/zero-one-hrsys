@@ -29,7 +29,7 @@ class EmployeeInfoQuery : public PageQuery
 {
 	DTO_INIT(EmployeeInfoQuery, PageQuery);
 	//员工编号
-	DTO_FIELD(UInt64, id);
+	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("employee.field.id");
 	}
@@ -44,7 +44,7 @@ class EmployeeInfoQuery : public PageQuery
 		info->description = ZH_WORDS_GETTER("employee.field.idtype");
 	}
 	//证件号码
-	DTO_FIELD(UInt64, idNum);
+	DTO_FIELD(String, idNum);
 	DTO_FIELD_INFO(idNum) {
 		info->description = ZH_WORDS_GETTER("employee.field.idnum");
 	}
@@ -132,11 +132,6 @@ class EmployeeInfoQuery : public PageQuery
 	DTO_FIELD(String, phone);
 	DTO_FIELD_INFO(phone) {
 		info->description = ZH_WORDS_GETTER("employee.field.phone");
-	}
-	//员工状态
-	DTO_FIELD(String, state);
-	DTO_FIELD_INFO(state) {
-		info->description = ZH_WORDS_GETTER("employee.field.state");
 	}
 };
 

@@ -61,11 +61,11 @@ employee:
   summary: 查询指定员工员工信息
   summaryList: 分页查询岗位信息
  post:
-  summary:
- put:
   summary: 修改指定员工员工信息
+ put:
+  summary: 增加指定员工员工信息
  delete:
-  summary:
+  summary: 删除指定员工员工信息
 sample:
  get:
   summary: 分页查询示例数据
