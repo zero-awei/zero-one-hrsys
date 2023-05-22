@@ -3,32 +3,50 @@
   <ItemGroup>
     <ClCompile Include="controller\projTag\addTagController\AddTagController.cpp" />
     <ClCompile Include="controller\projTag\importTagController\ImportTagController.cpp" />
-    <ClCompile Include="controller\projTag\postDeleteController\PostDeleteController.cpp" />
-    <ClCompile Include="controller\projTag\postQueryController\PostQueryController.cpp" />
+
+    <ClCompile Include="controller\jobSet\postDeleteController\PostDeleteController.cpp" />
+    <ClCompile Include="controller\jobSet\postQueryController\PostQueryController.cpp" />
+
     <ClCompile Include="controller\jobSet\importJobController\ImportJobController.cpp" />
     <ClCompile Include="controller\projTag\exportProjTagController\ExportProjTagController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp" />
+
     <ClCompile Include="testlib\jwt\TestToken.cpp" />
+
+    <ClCompile Include="controller\projTag\modifyProjTagController\ModifyProjTagController.cpp" />
+    <ClCompile Include="uselib\jwt\TestToken.cpp" />
+    <ClCompile Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.cpp" />
+    <ClCompile Include="controller\projTag\deleteProjTag\DeleteProjTagController.cpp" />
+    <ClCompile Include="controller\itemLabel\ItemLabelController.cpp" />
+    <ClCompile Include="controller\jobUpdate1\JobUpdateController.cpp" />
+    <ClCompile Include="controller\jobOutput1\JobOutputController.cpp" />
+
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
     <ClInclude Include="controller\projTag\importTagController\ImportTagController.h" />
-    <ClInclude Include="controller\projTag\postDeleteController\PostDeleteController.h" />
-    <ClInclude Include="controller\projTag\postQueryController\PostQueryController.h" />
+
+    <ClInclude Include="controller\jobSet\postDeleteController\PostDeleteController.h" />
+    <ClInclude Include="controller\jobSet\postQueryController\PostQueryController.h" />
+
     <ClInclude Include="controller\jobSet\importJobController\ImportJobController.h" />
     <ClInclude Include="controller\jobSet\JobController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\projTag\exportProjTagController\ExportProjTagController.h" />
+
+    <ClInclude Include="controller\projTag\modifyProjTagController\ModifyProjTagController.h" />
+
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\postSet\PostDeleteDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDetailDTO.h" />
     <ClInclude Include="domain\dto\projTag\ImportTagDTO.h" />
     <ClInclude Include="domain\dto\projTag\ProjTagDTO.h" />
-    <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
+
+	<ClInclude Include="domain\dto\pullList\PullListDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\postSet\PostDetailQuery.h" />
     <ClInclude Include="domain\vo\postSet\PostDetailVO.h" />
@@ -40,7 +58,25 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="testlib\jwt\TestToken.h" />
-    <ClInclude Include="domain\do\sector\SectorDO.h" />
+
+	<ClInclude Include="domain\do\sector\SectorDO.h" />
+    <ClInclude Include="domain\dto\projTag\ModifyTagDTO.h" />
+    <ClInclude Include="uselib\jwt\TestToken.h" />
+    <ClInclude Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.h" />
+    <ClInclude Include="controller\projTag\deleteProjTag\DeleteProjTagController.h" />
+    <ClInclude Include="domain\dto\projTag\DeleteProjTagDTO.h" />
+    <ClInclude Include="domain\query\projTag\PageProjTagQuery.h" />
+    <ClInclude Include="controller\itemLabel\ItemLabelController.h" />
+    <ClInclude Include="domain\dto\itemLabel\ItemLabelDTO.h" />
+    <ClInclude Include="domain\query\itemlabel\ItemlabelQuery.h" />
+    <ClInclude Include="domain\vo\itemLabel\ItemLabelVO.h" />
+    <ClInclude Include="domain\vo\pageQuery\PageQueryVO.h" />
+    <ClInclude Include="domain\do\projTag\ProjTagDO.h" />
+    <ClInclude Include="domain\vo\jobUpdateVO1\JobUpdateVO.h" />
+    <ClInclude Include="domain\vo\jobDownloadVO1\JobDownloadVO.h" />
+    <ClInclude Include="domain\dto\jobDownloadDto\JobDownloadDTO.h" />
+    <ClInclude Include="domain\dto\jobUpdateDto\JobUpdateDTO.h" />
+    <ClInclude Include="controller\jobUpdate1\JobUpdateController.h" />
+    <ClInclude Include="controller\jobOutput1\JobOutputController.h" />
   </ItemGroup>
 </Project>

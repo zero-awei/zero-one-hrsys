@@ -46,28 +46,14 @@ public:
 	ItemDTO()
 	{
 		key = 1;
-		val = "否";
+		val = "null";
 	}
 
-	ItemDTO(Int32 k, String v) 
+	ItemDTO(Int32 k, String v)
 	{
 		key = k;
 		val = v;
 	}
-};
-
-/**
- * 组装下拉列表项到List
- * 负责人：Andrew
- */
-template <typename T>
-class ListDTO : public oatpp::DTO
-{
-	DTO_INIT(ListDTO, DTO);
-	DTO_FIELD_INFO(pullList) {
-		info->description = ZH_WORDS_GETTER("common.dto.list");
-	}
-	DTO_FIELD(List<T>, pullList) = {};
 };
 
 /**

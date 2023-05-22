@@ -33,6 +33,7 @@ using namespace oatpp;
  * 借阅状态下拉列表控制器
  * 负责人：远翔
  */
+
 class FileStatusController : public oatpp::web::server::api::ApiController
 {
 	// 定义控制器访问入口
@@ -43,7 +44,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
 
-	ENDPOINT(API_M_GET, "/file-status-pull-list", queryFileStatus) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/file-status"), queryFileStatus) {
 		API_HANDLER_RESP_VO(execQueryFileStatus());
 	}
 private: // 定义接口执行函数

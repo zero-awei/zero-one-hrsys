@@ -31,7 +31,7 @@ class ProjTagDTO : public oatpp::DTO
 {
 	DTO_INIT(ProjTagDTO, DTO);
 	
-	// 排序号
+	// 项目标签标识
 	DTO_FIELD(String, ormxmbqid);
 	DTO_FIELD_INFO(ormxmbqid) {
 		info->description = ZH_WORDS_GETTER("projTag.field.ormxmbqid");

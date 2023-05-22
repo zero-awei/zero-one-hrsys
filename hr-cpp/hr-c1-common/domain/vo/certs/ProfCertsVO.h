@@ -35,8 +35,8 @@ class ProfCertsJsonVO : public JsonVO<ProfCertsDTO::Wrapper> {
 /**
  *  执(职)业资格证书下拉列表查询分页显示JsonVO，用于响应给客户端的Json对象
  */
-class ProfCertsPageJsonVO : public JsonVO<ProfCertsPageDTO::Wrapper> {
-	DTO_INIT(ProfCertsPageJsonVO, JsonVO<ProfCertsPageDTO::Wrapper>);
+class ProfCertsListJsonVO : public JsonVO<ProfCertsListDTO::Wrapper> {
+	DTO_INIT(ProfCertsListJsonVO, JsonVO<ProfCertsListDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

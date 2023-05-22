@@ -43,10 +43,10 @@ using namespace oatpp::web::protocol::http;
 #define BIND_CONTROLLER(__DOC__, __ROUTER__, __CLASS__) \
 __DOC__->append(__ROUTER__->addController(__CLASS__::createShared())->getEndpoints())
 
-/**
-* 控制器类访问定义，用于绑定授权处理器和类创建入口函数
-* @param __CLASS__: controller类名称
-*/
+ /**
+ * 控制器类访问定义，用于绑定授权处理器和类创建入口函数
+ * @param __CLASS__: controller类名称
+ */
 #define API_ACCESS_DECLARE(__CLASS__) \
 public: \
 __CLASS__(OATPP_COMPONENT(std::shared_ptr<ObjectMapper>, objectMapper)) : oatpp::web::server::api::ApiController(objectMapper) { \
@@ -56,7 +56,7 @@ static std::shared_ptr<__CLASS__> createShared(OATPP_COMPONENT(std::shared_ptr<O
 	return std::make_shared<__CLASS__>(objectMapper); \
 }
 
-// 获取数据请求
+ // 获取数据请求
 #define API_M_GET  "GET";
 // 新增数据请求
 #define API_M_POST "POST";
@@ -79,10 +79,10 @@ static std::shared_ptr<__CLASS__> createShared(OATPP_COMPONENT(std::shared_ptr<O
  */
 #define API_DEF_ADD_RSP_JSON(__RESP_TYPE__) info->addResponse<__RESP_TYPE__>(Status::CODE_200, "application/json")
 
-/**
-* API描述添加响应数据，用oatpp::Object包装泛型
-* @param __RESP_TYPE__: 响应数据类型，如：JsonVO<X>
-*/
+ /**
+ * API描述添加响应数据，用oatpp::Object包装泛型
+ * @param __RESP_TYPE__: 响应数据类型，如：JsonVO<X>
+ */
 #define API_DEF_ADD_RSP_JSON_WRAPPER(__RESP_TYPE__) API_DEF_ADD_RSP_JSON(oatpp::Object<__RESP_TYPE__>)
 
 /**
@@ -157,9 +157,9 @@ ENDPOINT_INFO(__ENDPOINT_FUN_NAME__) { \
 	API_DEF_ADD_RSP_JSON_WRAPPER(__RESP_TYPE__); \
 }
 
-//////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////
 
-// 接口处理器分页参数获取定义
+  // 接口处理器分页参数获取定义
 #define API_HANDLER_PAGE_PARAME \
 QUERY(UInt64, pageIndex), \
 QUERY(UInt64, pageSize)
@@ -203,10 +203,10 @@ for (auto& param : __PARAMS__.getAll()) { \
  */
 #define API_HANDLER_RESP_VO(__VO__) return createDtoResponse(Status::CODE_200, __VO__)
 
-/**
-* 接口处理器响应VO数据，用oatpp::Object包装泛型
-* @param __VO__: 响应数据对象
-*/
+ /**
+ * 接口处理器响应VO数据，用oatpp::Object包装泛型
+ * @param __VO__: 响应数据对象
+ */
 #define API_HANDLER_RESP_VO_WRAPPER(__VO__) API_HANDLER_RESP_VO(oatpp::Object<__VO__>)
 
 /**
