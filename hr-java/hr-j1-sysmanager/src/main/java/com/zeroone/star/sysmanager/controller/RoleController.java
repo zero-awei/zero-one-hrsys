@@ -5,15 +5,13 @@ import com.zeroone.star.project.dto.sample.SampleDTO;
 import com.zeroone.star.project.dto.sysmanager.RoleDTO;
 import com.zeroone.star.project.sysmanager.RolesApis;
 import com.zeroone.star.project.vo.JsonVO;
+import com.zeroone.star.project.vo.ResultStatus;
 import com.zeroone.star.sysmanager.service.IRoleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.management.relation.Role;
@@ -26,6 +24,8 @@ import javax.management.relation.Role;
  * @author alan
  * @since 2023-05-20
  */
+
+@Slf4j
 @RestController
 @Api(tags="角色管理")
 @RequestMapping("/roles")
@@ -34,29 +34,29 @@ public class RoleController implements RolesApis {
     @Resource
     IRoleService service;
 
-    @GetMapping("get-by-id")
-    @ApiOperation(value = "编号查询")
+    @ApiOperation(value = "查询一个角色")
+    @GetMapping("query-one")
     @Override
     public JsonVO<RoleDTO> queryById(Integer id) {
-        return JsonVO.success(service.getById(id));
-    }
-
-    @Override
-    public JsonVO<Void> deleteByName(String name) {
         return null;
     }
-
+    @ApiOperation(value = "删除角色")
+    @DeleteMapping("delete")
     @Override
-    public JsonVO<RoleDTO> insertOneRole(Integer id, String name, String keyword, String description) {
+    public JsonVO<ResultStatus> deleteByName(RoleDTO dto) {
         return null;
     }
-
+    @ApiOperation(value = "增加角色")
+    @PostMapping("add-one")
     @Override
-    public JsonVO<RoleDTO> modifyOneRole(Role role) {
+    public JsonVO<ResultStatus> addOneRole(RoleDTO dto) {
         return null;
     }
-
-
-
+    @ApiOperation(value = "修改角色")
+    @PutMapping("modify")
+    @Override
+    public JsonVO<ResultStatus> modifyRole(RoleDTO dto) {
+        return null;
+    }
 }
 
