@@ -1,14 +1,20 @@
 package com.zeroone.star.project.common;
 
+<<<<<<< HEAD
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
 import com.zeroone.star.project.dto.common.StatusListDTO;
 import com.zeroone.star.project.query.common.ZzmmQuery;
+=======
+import com.zeroone.star.project.dto.common.GwTypeDTO;
+import com.zeroone.star.project.dto.common.PostNatureDTO;
+>>>>>>> origin/j2-letian
 import com.zeroone.star.project.vo.JsonVO;
 
 import java.util.List;
 
 /**
+<<<<<<< HEAD
  * <p>
  * 描述：公用接口
  * </p>
@@ -85,4 +91,29 @@ public interface CommonApis {
      * @version 1.0.0
      */
     JsonVO<List<DropdownListOptionDTO>> queryBloodType();
+=======
+  * @author：letian
+  * @date  2023/5/19
+  * @description：共用接口：岗位分类和岗位性质列表
+  * @version: 1.0
+*/
+public interface CommonApis {
+    /**
+     * @param :
+     * @return JsonVO<List<GwflDTO>> 部门分类信息
+     * @author 乐天
+     * @description 获取部门分类下拉列表
+     * @date 2023/5/20 0:02
+     */
+    JsonVO<List<GwTypeDTO>> queryGwfl();
+
+    /**
+     * @param :
+     * @return JsonVO<List<PostNatureDTO>> 部门性质信息
+     * @author 乐天
+     * @description 获取部门性质下拉列表
+     * @date 2023/5/20 0:03
+     */
+    JsonVO<List<PostNatureDTO>> queryPostNature();
+>>>>>>> origin/j2-letian
 }
