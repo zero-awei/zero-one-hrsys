@@ -23,6 +23,7 @@
 #include "controller/Router.h"
 #include "controller/OtherComponent.hpp"
 #include "DbInit.h"
+#include "uselib/jwt/TestToken.h"
 #ifdef HTTP_SERVER_DEMO
 #include "uselib/jwt/TestToken.h"
 #endif
@@ -40,12 +41,12 @@
  */
 bool getStartArg(int argc, char* argv[]) {
 	// 服务器端口
-	std::string serverPort = "8090";
+	std::string serverPort = "8091";
 	// 数据库连接信息
 	std::string dbUsername = "root";
 	std::string dbPassword = "123456";
 	std::string dbName = "test";
-	std::string dbHost = "192.168.220.128";
+	std::string dbHost = "192.168.56.97";
 	int dbPort = 3306;
 	int dbMax = 25;
 #ifdef USE_NACOS
@@ -135,6 +136,9 @@ int main(int argc, char* argv[]) {
 
 	// 服务器参数初始化
 	bool isSetDb = getStartArg(argc, argv);
+
+	// 测试生成 JWT Token
+	TestToken::generateToken();
 
 #ifdef USE_NACOS
 	// 创建Nacos客户端对象

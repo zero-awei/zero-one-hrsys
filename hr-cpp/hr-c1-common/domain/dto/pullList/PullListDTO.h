@@ -1,23 +1,42 @@
-#pragma once
-#ifndef _PullList_DTO_
-#define _PullList_DTO_
-#include "../../GlobalInclude.h"
+ï»¿#pragma once
+/*
+ Copyright Zero One Star. All rights reserved.
 
+ @Author: Andrew211vibe
+ @Date: 2023/05/17 23:04:11
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+	  https://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+#ifndef _PULLLISTDTO_H_
+#define _PULLLISTDTO_H_
+
+#include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * Ê¾Àý´«Êä¶ÔÏó
+ * ä¸‹æ‹‰åˆ—è¡¨é¡¹
+ * è´Ÿè´£äººï¼šAndrew
  */
 class ItemDTO : public oatpp::DTO
 {
 	DTO_INIT(ItemDTO, DTO);
-	// ÁÐ±íÏî´úºÅ
+	// åˆ—è¡¨é¡¹ä»£å·
 	DTO_FIELD_INFO(key) {
 		info->description = ZH_WORDS_GETTER("common.dto.code");
 	}
 	DTO_FIELD(UInt32, key);
-	// ¶ÔÓ¦Öµ
+	// å¯¹åº”å€¼
 	DTO_FIELD_INFO(val) {
 		info->description = ZH_WORDS_GETTER("common.dto.value");
 	}
@@ -27,7 +46,7 @@ public:
 	ItemDTO()
 	{
 		key = 1;
-		val = "·ñ";
+		val = "null";
 	}
 
 	ItemDTO(Int32 k, String v)
@@ -38,27 +57,19 @@ public:
 };
 
 /**
- * ×é×°ÏÂÀ­ÁÐ±íÏîµ½List
- * ¸ºÔðÈË£ºfengchu
+ * ä¸‹æ‹‰åˆ—è¡¨DTOé¢†åŸŸæ¨¡åž‹
+ * è´Ÿè´£äººï¼šAndrew
  */
-template <typename T>
-class ListDTO : public oatpp::DTO
+class PullListDTO : public oatpp::DTO
 {
-	DTO_INIT(ListDTO, DTO);
+	DTO_INIT(PullListDTO, DTO);
 	DTO_FIELD_INFO(pullList) {
 		info->description = ZH_WORDS_GETTER("common.dto.list");
 	}
-	DTO_FIELD(List<T>, pullList) = {};
+	DTO_FIELD(List<ItemDTO::Wrapper>, pullList) = {};
 };
 
-class PullListDTO : public ListDTO<ItemDTO::Wrapper>
-{
-	DTO_INIT(PullListDTO, ListDTO<ItemDTO::Wrapper>);
-};
 
 #include OATPP_CODEGEN_END(DTO)
 
 #endif // !_PULLLISTDTO_H_
-
-
-

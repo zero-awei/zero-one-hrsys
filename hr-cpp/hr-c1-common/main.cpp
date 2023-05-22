@@ -38,6 +38,7 @@
  * 参数中数据需要满足一定的格式，如：sp=8090、sn=feign-cpp-sample
  * 前缀与真实值之间使用=分隔
  */
+
 bool getStartArg(int argc, char* argv[]) {
 	// 服务器端口
 	std::string serverPort = "8090";
@@ -45,7 +46,7 @@ bool getStartArg(int argc, char* argv[]) {
 	std::string dbUsername = "root";
 	std::string dbPassword = "123456";
 	std::string dbName = "test";
-	std::string dbHost = "localhost";
+	std::string dbHost = "127.0.0.1";
 	int dbPort = 3306;
 	int dbMax = 25;
 #ifdef USE_NACOS
@@ -109,7 +110,6 @@ bool getStartArg(int argc, char* argv[]) {
 		// 更新索引
 		currIndex++;
 	}
-
 	// 记录服务器配置到内存中方便使用
 	ServerInfo::getInstance().setServerPort(serverPort);
 	ServerInfo::getInstance().setDbUsername(dbUsername);
