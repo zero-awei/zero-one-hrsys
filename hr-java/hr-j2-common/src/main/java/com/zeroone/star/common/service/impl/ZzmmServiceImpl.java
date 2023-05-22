@@ -1,10 +1,20 @@
 package com.zeroone.star.common.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.zeroone.star.common.entity.Ormpostlib;
+import com.zeroone.star.common.entity.Zzmm;
+import com.zeroone.star.common.mapper.OrmpostlibMapper;
+import com.zeroone.star.common.mapper.ZzmmMapper;
 import com.zeroone.star.common.service.ZzmmService;
+import com.zeroone.star.project.dto.common.ZzmmDTO;
 import com.zeroone.star.project.query.common.ZzmmQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import springfox.documentation.spring.web.json.Json;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 描述：
@@ -14,10 +24,14 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @AllArgsConstructor
-public class ZzmmServiceImpl implements ZzmmService {
+public class ZzmmServiceImpl extends ServiceImpl<ZzmmMapper, Zzmm> implements ZzmmService {
+
+    @Resource
+    private ZzmmMapper zzmmMapper;
     @Override
-    public JsonVO<ZzmmQuery> getZzmm() {
-        
-        return null;
+    public List<ZzmmDTO> getZzmm() {
+        List<ZzmmDTO> zzmmDTOList = zzmmMapper.selectZzmmList();
+        return zzmmDTOList;
     }
+
 }

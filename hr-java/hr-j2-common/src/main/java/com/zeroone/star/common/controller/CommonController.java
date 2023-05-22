@@ -4,10 +4,7 @@ import com.zeroone.star.common.service.IOrmpostlibService;
 import com.zeroone.star.common.service.ZzmmService;
 import com.zeroone.star.project.common.CommonApis;
 import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
-import com.zeroone.star.project.dto.common.GwTypeDTO;
-import com.zeroone.star.project.dto.common.PostNatureDTO;
-import com.zeroone.star.project.dto.common.StatusListDTO;
+import com.zeroone.star.project.dto.common.*;
 import com.zeroone.star.project.query.common.ZzmmQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
@@ -90,8 +87,9 @@ public class CommonController implements CommonApis {
     @ApiOperation(value = "政治面貌下拉列表")
     @GetMapping("query-zzmm")
     @Override
-    public JsonVO<ZzmmQuery> queryZzmm() {
-        return zzmmService.getZzmm();
+    public JsonVO<List<ZzmmDTO>> queryZzmm() {
+        List<ZzmmDTO> zzmmDTOList = zzmmService.getZzmm();
+        return JsonVO.success(zzmmDTOList);
     }
 
     @ApiOperation(value = "血型下拉列表")

@@ -1,11 +1,8 @@
 package com.zeroone.star.project.common;
 
 import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
-import com.zeroone.star.project.dto.common.StatusListDTO;
+import com.zeroone.star.project.dto.common.*;
 import com.zeroone.star.project.query.common.ZzmmQuery;
-import com.zeroone.star.project.dto.common.GwTypeDTO;
-import com.zeroone.star.project.dto.common.PostNatureDTO;
 import com.zeroone.star.project.vo.JsonVO;
 
 import java.util.List;
@@ -78,7 +75,7 @@ public interface CommonApis {
      * @Author: Rqs
      * @Date: 2023/5/19 23:17
      */
-    JsonVO<ZzmmQuery> queryZzmm();
+    JsonVO<List<ZzmmDTO>> queryZzmm();
 
 
     /**
