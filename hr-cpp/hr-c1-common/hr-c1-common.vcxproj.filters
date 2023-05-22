@@ -36,9 +36,6 @@
     <ClInclude Include="controller\awardLevel\AwardLevelController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\awardLevel\AwardLevelQuery.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="domain\vo\awardLevel\AwardLevelVO.h">
       <Filter>Header Files</Filter>
     </ClInclude>

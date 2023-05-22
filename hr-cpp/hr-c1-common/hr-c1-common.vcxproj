@@ -166,7 +166,6 @@
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\awardLevel\AwardLevelDTO.h" />
     <ClInclude Include="domain\dto\jobCategory\JobCategoryDTO.h" />
-    <ClInclude Include="domain\query\awardLevel\AwardLevelQuery.h" />
     <ClInclude Include="domain\query\jobCategory\JobCategoryQuery.h" />
     <ClInclude Include="domain\vo\awardLevel\AwardLevelVO.h" />
     <ClInclude Include="domain\vo\jobCategory\JobCategoryVO.h" />

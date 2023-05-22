@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "AwardLevelController.h"
 
-AwardLevelPageJsonVO::Wrapper AwardLevelController::execQueryAwardLevel(const AwardLevelQuery::Wrapper& query)
+AwardLevelPageJsonVO::Wrapper AwardLevelController::execQueryAwardLevel()
 {
 	// 创建响应对象
 	auto vo = AwardLevelPageJsonVO::createShared();
