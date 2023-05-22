@@ -29,6 +29,10 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(PaperPageJsonVO);
 		//定义分页查询参数描述
 		API_DEF_ADD_PAGE_PARAMS();
+		// 其他表单参数
+		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("paperinfo.field.pimpersonid");
+		info->queryParams["pimpersonid"].addExample("default", String("10001"));
+		info->queryParams["pimpersonid"].required = true;
 	}
 	//4 定义接口端点
 	ENDPOINT(API_M_GET, "/employee-info/query-by-pimpersonid", queryPaperinfo, QUERIES(QueryParams, qps)) {

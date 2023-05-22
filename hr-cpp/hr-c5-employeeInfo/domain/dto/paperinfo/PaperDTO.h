@@ -46,6 +46,11 @@ class PaperDTO : public oatpp::DTO
 	DTO_FIELD_INFO(pimpapername) {
 		info->description = ZH_WORDS_GETTER("paperinfo.field.pimpapername");
 	}
+	// Ô±¹¤±àºÅ
+	DTO_FIELD(String, pimpersonid);
+	DTO_FIELD_INFO(pimpersonid) {
+		info->description = ZH_WORDS_GETTER("paperinfo.field.pimpersonid");
+	}
 };
 
 /**
