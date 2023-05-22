@@ -80,6 +80,8 @@ common:
   JobCategory: 工作岗位
   leaveReason: 离职理由
   dismissReason: 解聘理由
+  evaluationTypes: 评价类型 
+  auditStatus: 审阅状态
 
 fileReservation:
  localbase: 局总部
