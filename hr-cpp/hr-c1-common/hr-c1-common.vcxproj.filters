@@ -19,6 +19,7 @@
     <ClCompile Include="controller\jobCategory\JobCategoryController.cpp" />
     <ClCompile Include="controller\dismissReason\DismissReasonController.cpp" />
     <ClCompile Include="controller\leaveReason\LeaveReasonController.cpp" />
+    <ClCompile Include="controller\typeContract\TypeContractController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -59,6 +60,10 @@
     <ClInclude Include="domain\do\leaveReson\LeaveReasonDO.h" />
     <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
     <ClInclude Include="domain\do\certs\ProCertsDO.h" />
+    <ClInclude Include="controller\typeContract\TypeContractController.h" />
+    <ClInclude Include="domain\do\HTLX_pimcontracttype\HtlxDO.h" />
+    <ClInclude Include="domain\dto\typeContract\TypeContractDTO.h" />
+    <ClInclude Include="domain\vo\typeContract\TypeContractVO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

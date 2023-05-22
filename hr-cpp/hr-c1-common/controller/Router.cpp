@@ -23,10 +23,8 @@
 #include "user/UserController.h"
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
+#include "HTLX_pimcontracttype/HtlxController.h"
 #endif
-
-
-
 
 //测试
 #include "certDropDownList/profCertsList/ProfCertsListController.h"
@@ -41,9 +39,10 @@
 #include "archivesLevel/ArchivesLevelsController.h"
 #include "leaveReason/LeaveReasonController.h"
 #include "dismissReason/DismissReasonController.h"
-
 #include "awardLevel/AwardLevelController.h"
 #include "jobCategory/JobCategoryController.h"
+#include "typeContract/TypeContractController.h"
+
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -82,6 +81,7 @@ void Router::initRouter()
 	createFileStatusRouter();
 	createLeaveReasonRouter();
 	createDismissReasonRouter();
+	ROUTER_SIMPLE_BIND(TypeContractController);
 }
 
 #ifdef HTTP_SERVER_DEMO
