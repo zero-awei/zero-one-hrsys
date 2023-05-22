@@ -2,7 +2,7 @@
 #ifndef _PullList_DTO_
 #define _PullList_DTO_
 #include "../../GlobalInclude.h"
-#include <domain/query/auditstatusQuery/auditstatusQuery.h>
+
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 

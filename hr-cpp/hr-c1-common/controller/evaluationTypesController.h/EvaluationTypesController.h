@@ -24,7 +24,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
 
-	ENDPOINT(API_M_GET, "/audit-status-pull-list", queryEvaluationTypes) {
+	ENDPOINT(API_M_GET, "/evaluation-types-pull-list", queryEvaluationTypes) {
 		API_HANDLER_RESP_VO(execQueryEvaluationTypes());
 	}
 
