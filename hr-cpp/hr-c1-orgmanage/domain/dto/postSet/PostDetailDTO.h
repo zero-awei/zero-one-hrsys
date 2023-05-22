@@ -24,7 +24,7 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 岗位详情对象
+ * 岗位设置 - 查询指定岗位详情DTO
  */
 class PostDetailDTO : public oatpp::DTO
 {

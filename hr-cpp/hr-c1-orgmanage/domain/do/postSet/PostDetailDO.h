@@ -22,7 +22,7 @@
 #include "../DoInclude.h"
 
 /**
- * 示例数据库实体类
+ * 岗位设置 - 查询指定岗位详情DO
  */
 class PostDetailDO
 {
