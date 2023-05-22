@@ -78,6 +78,36 @@
     <ClInclude Include="domain\do\CertificateManage\CertificateTypeDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\RosterOfPer\ExportEmployeeController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\RosterOfPer\PageQueryEmployeeListController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\RosterOfPer\ExportEmployeeDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\RosterOfPer\PageQueryEmployeeListDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\RosterOfPer\ExportEmployeeDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\RosterOfPer\PageQueryEmployeeListDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\RosterOfPer\PageQueryEmployeeListQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\RosterOfPer\ExportEmployeeVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\RosterOfPer\PageQueryEmployeeListVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\ExportEmployeeVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -99,6 +129,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\CertificateManage\CertificateTypeController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\RosterOfPer\ExportEmployeeController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\RosterOfPer\PageQueryEmployeeListController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

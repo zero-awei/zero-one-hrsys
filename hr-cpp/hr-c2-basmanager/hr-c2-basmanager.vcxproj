@@ -184,21 +184,31 @@
   <ItemGroup>
     <ClInclude Include="controller\CertificateManage\CertificateTypeController.h" />
     <ClInclude Include="controller\CertificateManage\EmployeeInfoController.h" />
+    <ClInclude Include="controller\RosterOfPer\ExportEmployeeController.h" />
+    <ClInclude Include="controller\RosterOfPer\PageQueryEmployeeListController.h" />
     <ClInclude Include="controller\RosterOfPer\TemporaryStaffController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\CertificateManage\CertificateTypeDO.h" />
     <ClInclude Include="domain\do\CertificateManage\EmployeeInfoDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\RosterOfPer\ExportEmployeeDO.h" />
+    <ClInclude Include="domain\do\RosterOfPer\PageQueryEmployeeListDO.h" />
     <ClInclude Include="domain\do\RosterOfPer\TemporaryStaffDO.h" />
     <ClInclude Include="domain\dto\CertificateManage\CertificateTypeDTO.h" />
     <ClInclude Include="domain\dto\CertificateManage\EmployeeInfoDTO.h" />
+    <ClInclude Include="domain\dto\RosterOfPer\ExportEmployeeDTO.h" />
+    <ClInclude Include="domain\dto\RosterOfPer\PageQueryEmployeeListDTO.h" />
     <ClInclude Include="domain\dto\RosterOfPer\TemporaryStaffDTO.h" />
     <ClInclude Include="domain\query\CertificateManage\CertificateTypeQuery.h" />
     <ClInclude Include="domain\query\CertificateManage\EmployeeInfoQuery.h" />
+    <ClInclude Include="domain\query\RosterOfPer\PageQueryEmployeeListQuery.h" />
     <ClInclude Include="domain\query\RosterOfPer\TemporaryStaffQuery.h" />
     <ClInclude Include="domain\vo\CertificateManage\CertificateTypeVO.h" />
     <ClInclude Include="domain\vo\CertificateManage\EmployeeInfoVO.h" />
+    <ClInclude Include="domain\vo\ExportEmployeeVO.h" />
+    <ClInclude Include="domain\vo\RosterOfPer\ExportEmployeeVO.h" />
+    <ClInclude Include="domain\vo\RosterOfPer\PageQueryEmployeeListVO.h" />
     <ClInclude Include="domain\vo\RosterOfPer\TemporaryStaffVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
@@ -207,6 +217,8 @@
   <ItemGroup>
     <ClCompile Include="controller\CertificateManage\CertificateTypeController.cpp" />
     <ClCompile Include="controller\CertificateManage\EmployeeInfoController.cpp" />
+    <ClCompile Include="controller\RosterOfPer\ExportEmployeeController.cpp" />
+    <ClCompile Include="controller\RosterOfPer\PageQueryEmployeeListController.cpp" />
     <ClCompile Include="controller\RosterOfPer\TemporaryStaffController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
