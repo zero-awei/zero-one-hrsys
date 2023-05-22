@@ -31,8 +31,8 @@ class ItemLabelDTO : public oatpp::DTO
 {
 public:
 	ItemLabelDTO() {};
-	ItemLabelDTO(String id, String itemlabel,String name,Int64 xh,String createtime,String updatatime, String ormorgid):
-		id(id),name(name),xh(xh),createtime(createtime), updatatime(updatatime), itemlabel(itemlabel), ormorgid(ormorgid) {};
+	ItemLabelDTO(String id, String itemLabel,String name,String  ormxbqId,String createTime,String updataTime, String ormorgId):
+		id(id),name(name), ormxbqId(ormxbqId), createTime(createTime), updataTime(updataTime), itemLabel(itemLabel), ormorgId(ormorgId) {};
 
 	DTO_INIT(ItemLabelDTO, DTO);
 
@@ -47,28 +47,28 @@ public:
 		info->description = ZH_WORDS_GETTER("ormanage.dto.name");
 	}
 	//排序号
-	DTO_FIELD(Int64,xh);
-	DTO_FIELD_INFO(xh) {
-		info->description = ZH_WORDS_GETTER("ormanage.dto.xh");
+	DTO_FIELD(String, ormxbqId);
+	DTO_FIELD_INFO(ormxbqId) {
+		info->description = ZH_WORDS_GETTER("ormanage.dto.ormxbqid");
 	}
 	//创建时间
-	 DTO_FIELD(String,createtime);
-	DTO_FIELD_INFO(createtime) {
+	 DTO_FIELD(String,createTime);
+	DTO_FIELD_INFO(createTime) {
 		info->description = ZH_WORDS_GETTER("ormanage.dto.createtime");
 	}
 	//更新时间
-	DTO_FIELD(String,updatatime);
-	DTO_FIELD_INFO(updatatime) {
+	DTO_FIELD(String,updataTime);
+	DTO_FIELD_INFO(updataTime) {
 		info->description = ZH_WORDS_GETTER("ormanage.dto.uptime");
 	}
 	// 项目标签
-	DTO_FIELD(String,itemlabel);
-	DTO_FIELD_INFO(itemlabel) {
+	DTO_FIELD(String,itemLabel);
+	DTO_FIELD_INFO(itemLabel) {
 		info->description = ZH_WORDS_GETTER("ormanage.dto.label");
 	}
 	//组织ID
-	DTO_FIELD(String,ormorgid);
-	DTO_FIELD_INFO(ormorgid) {
+	DTO_FIELD(String,ormorgId);
+	DTO_FIELD_INFO(ormorgId) {
 		info->description = ZH_WORDS_GETTER("ormanage.dto.ormorgid");
 	}
 };
