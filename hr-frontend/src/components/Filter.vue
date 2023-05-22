@@ -51,76 +51,76 @@
 
 <script>
 export default {
-  name:"Filter",
+  name: 'Filter',
   data() {
     return {
       IsshowFilter: false,
       tableData: [
-        { zuzhi: "成都分公司", xinming: "sayori", zhengjianhao: 123 },
-        { zuzhi: "蓝海", xinming: "sayoriqwq", zhengjianhao: 12 },
-        { zuzhi: "成都蓝海", xinming: "saqwq", zhengjianhao: 12344 },
+        { zuzhi: '成都分公司', xinming: 'sayori', zhengjianhao: 123 },
+        { zuzhi: '蓝海', xinming: 'sayoriqwq', zhengjianhao: 12 },
+        { zuzhi: '成都蓝海', xinming: 'saqwq', zhengjianhao: 12344 }
       ],
 
       info: {
         itemArr: [
           {
-            name: "组织",
-            val: ["成都分公司", "蓝海"],
+            name: '组织',
+            val: ['成都分公司', '蓝海']
           },
           {
-            name: "姓名",
-            val: "",
+            name: '姓名',
+            val: ''
           },
           {
-            name: "证件号码",
-            val: "",
-          },
-        ],
+            name: '证件号码',
+            val: ''
+          }
+        ]
       },
 
       form: {
         itemArr: [
           {
-            name: "组织",
-            val: "",
+            name: '组织',
+            val: ''
           },
           {
-            name: "姓名",
-            val: "",
+            name: '姓名',
+            val: ''
           },
           {
-            name: "证件号码",
-            val: "",
-          },
-        ],
-      },
-    };
+            name: '证件号码',
+            val: ''
+          }
+        ]
+      }
+    }
   },
   mounted() {
-    sessionStorage.setItem("formData", JSON.stringify(this.form));
+    sessionStorage.setItem('formData', JSON.stringify(this.form))
   },
   computed: {
     filteredTableData() {
       return this.tableData.filter((item) => {
-        const Match1 = item.xinming.includes(this.form.itemArr[1].val);
-        const Match2 = item.zuzhi.includes(this.form.itemArr[0].val);
+        const Match1 = item.xinming.includes(this.form.itemArr[1].val)
+        const Match2 = item.zuzhi.includes(this.form.itemArr[0].val)
         const Match3 = item.zhengjianhao
           .toString()
-          .includes(this.form.itemArr[2].val);
+          .includes(this.form.itemArr[2].val)
 
-        return Match1 && Match2 && Match3;
-      });
-    },
+        return Match1 && Match2 && Match3
+      })
+    }
   },
   methods: {
     async submitFilter() {
-      console.log("带着筛选过的内容发请求", this.form);
+      console.log('带着筛选过的内容发请求', this.form)
     },
     resetFilter() {
-      this.form = JSON.parse(sessionStorage.getItem("formData"));
-    },
-  },
-};
+      this.form = JSON.parse(sessionStorage.getItem('formData'))
+    }
+  }
+}
 </script>
 
 <style scoped>
