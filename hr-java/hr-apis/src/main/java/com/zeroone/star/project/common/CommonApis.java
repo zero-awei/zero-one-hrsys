@@ -1,6 +1,6 @@
 package com.zeroone.star.project.common;
 
-import com.zeroone.star.project.dto.common.GwflDTO;
+import com.zeroone.star.project.dto.common.GwTypeDTO;
 import com.zeroone.star.project.dto.common.PostNatureDTO;
 import com.zeroone.star.project.vo.JsonVO;
 
@@ -20,7 +20,7 @@ public interface CommonApis {
      * @description 获取部门分类下拉列表
      * @date 2023/5/20 0:02
      */
-    JsonVO<List<GwflDTO>> queryGwfl();
+    JsonVO<List<GwTypeDTO>> queryGwfl();
 
     /**
      * @param :

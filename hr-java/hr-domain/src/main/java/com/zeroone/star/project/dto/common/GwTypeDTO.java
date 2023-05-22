@@ -12,9 +12,9 @@ import lombok.Data;
 */
 @Data
 @ApiModel("岗位分类数据对象")
-public class GwflDTO {
+public class GwTypeDTO {
     @ApiModelProperty(value = "岗位标识", example = "1ED4D76B-8470-405C-90CA-147A399B3050")
     private String ormPostId;
     @ApiModelProperty(value = "岗位分类", example = "招聘管理岗")
-    private String gwfl;
+    private String gwType;
 }
