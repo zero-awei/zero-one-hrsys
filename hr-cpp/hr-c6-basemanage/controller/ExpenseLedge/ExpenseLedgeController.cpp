@@ -9,10 +9,10 @@ ExpenseLedgeJsonVO::Wrapper ExpenseLedgeController::execQueryExpense(const Expen
 	return jvo;
 }
 
-ExportExpenseJsonV0::Wrapper ExpenseLedgeController::execGetExpense(const ExpenseLedgeDTO::Wrapper& query, const PayloadDTO& payload)
+StringJsonVO::Wrapper ExpenseLedgeController::execGetExpense(const ExpenseLedgeDTO::Wrapper& query, const PayloadDTO& payload)
 {
-	auto jvo = ExportExpenseJsonV0::createShared();
-	Vector<ExpenseLedgeDTO::Wrapper> result;
+	auto jvo = StringJsonVO::createShared();
+	String result;
 	//此处插入测试数据
 	jvo->success(result);
 	return jvo;
