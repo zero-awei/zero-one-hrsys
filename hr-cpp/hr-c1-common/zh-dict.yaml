@@ -37,5 +37,5 @@ common:
   value: 列表项映射值
   list: 下拉列表
  controller:
-  jobLevelType: 职称级别类型 
-  costType: 费用类别
+  jobLevelType: 职称级别类型下拉列表
+  costType: 费用类别下拉列表
