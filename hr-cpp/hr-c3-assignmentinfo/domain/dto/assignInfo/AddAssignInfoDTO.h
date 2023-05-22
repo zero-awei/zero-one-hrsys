@@ -1,4 +1,3 @@
-#pragma once
 #ifndef _Add_Assign_Info_DTO_
 #define _Add_Assign_Info_DTO_
 #include "../../GlobalInclude.h"

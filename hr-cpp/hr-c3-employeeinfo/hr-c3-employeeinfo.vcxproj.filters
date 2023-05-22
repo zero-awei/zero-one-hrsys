@@ -51,21 +51,6 @@
     <ClInclude Include="controller\employeeInfo\EmployeeInfoController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\EmployeeAssignInfoQuery\EmployeeAssignInfoQueryDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\ImportEmployeeAssignInfo\ImportEmployeeAssignInfoDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\AddEmployeeAssignInfo\AddEmployeeAssignInfo.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\DeleteEmployeeAssignInfo\DeleteEmployeeAssignInfo.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\ModifyEmployeeAssignInfo\ModifyEmployeeAssignInfo.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">

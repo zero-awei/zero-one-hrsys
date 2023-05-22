@@ -112,6 +112,13 @@ member:
     ormorgsectorname: 部门名字
     zw: 职务
     sex: 性别，如：男
+  field:
+    ygbh: 员工编号
+    pimpersonname: 个人名字
+    ormorgname: 组织名字
+    ormorgsectorname: 部门名字
+    zw: 职务
+    sex: 性别，如：男
 org:
   field:
     companyflag: 是否为根组织
