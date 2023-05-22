@@ -53,38 +53,35 @@ private:
 	 * 绑定档案保管地和档案状态下拉列表
 	 * 负责人：远翔
 	 */
-	void createRouter();
+	void createFileReservationRouter();
+	void createFileStatusRouter();
 	/**
 	 * 绑定证书类型和职业资格证书类型下拉列表
 	 * 负责人：米饭
 	 */
 	void creatTestRouter();
+
 	/**
-	 * 绑定合同类型下拉列表路由
+	 * 绑定合同类型&军转级别下拉列表路由
 	 * 负责人：Andrew
 	 */
 	void createContractTypeRouter();
-	/**
-	 * 绑定军转级别下拉列表路由
-	 * 负责人：Andrew
-	 */
 	void createArmyLevelTypeRouter();
+
 	/**
-	 * 绑定职称等级类型下拉列表路由
+	 * 绑定职称等级类型&费用类别下拉列表路由
 	 * 负责人：咫尺之书
 	 */
 	void createJobLevelTypeRouter();
-	/**
-	 * 绑定费用类别下拉列表路由
-	 * 负责人：咫尺之书
-	 */
 	void createCostTypeRouter();
+
 	/**
 	 * 档案室层级&申报类型下拉列表
 	 * 负责人：狗皮电耗子
 	 */
 	void createDeclareRouter();
 	void createArchivesLevelsRouter();
+
 	/**
 	 * 获奖等级&岗位类别下拉列表
 	 * 负责人：缘尘
@@ -93,15 +90,10 @@ private:
 	void createJobCategoryRouter();
 	
 	/**
-	 * 绑定离职原因下拉列表
+	 * 绑定离职原因&解聘原因下拉列表
 	 * 负责人：远翔
 	 */
 	void createLeaveReasonRouter();
-
-	/**
-	 * 绑定解聘原因下拉列表
-	 * 负责人：远翔
-	 */
 	void createDismissReasonRouter();
 };
 

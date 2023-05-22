@@ -17,6 +17,8 @@
     <ClCompile Include="controller\archivesLevel\ArchivesLevelsController.cpp" />
     <ClCompile Include="controller\awardLevel\AwardLevelController.cpp" />
     <ClCompile Include="controller\jobCategory\JobCategoryController.cpp" />
+    <ClCompile Include="controller\dismissReason\DismissReasonController.cpp" />
+    <ClCompile Include="controller\leaveReason\LeaveReasonController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -51,6 +53,11 @@
     <ClInclude Include="controller\awardLevel\AwardLevelController.h" />
     <ClInclude Include="controller\jobCategory\JobCategoryController.h" />
     <ClInclude Include="domain\dto\awardLevel\AwardLevelDTO.h" />
+    <ClInclude Include="domain\dto\archivesLevels\archivesLevelsDTO.h" />
+    <ClInclude Include="domain\dto\declareType\declareDTO.h" />
+    <ClInclude Include="domain\vo\declareList\DeclareListVO.h" />
+    <ClInclude Include="controller\dismissReason\DismissReasonController.h" />
+    <ClInclude Include="controller\leaveReason\LeaveReasonController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

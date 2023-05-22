@@ -73,13 +73,30 @@ void Router::initRouter()
 	createJobCategoryRouter();
 	createContractTypeRouter();
 	createArmyLevelTypeRouter();
-	createRouter();
 	creatTestRouter();
 	createJobLevelTypeRouter();
 	createCostTypeRouter();
 	createDeclareRouter();
 	createArchivesLevelsRouter();
+	createFileReservationRouter();
+	createFileStatusRouter();
+	createLeaveReasonRouter();
+	createDismissReasonRouter();
 }
+
+#ifdef HTTP_SERVER_DEMO
+void Router::createSampleRouter()
+{
+	// 绑定示例控制器
+	ROUTER_SIMPLE_BIND(SampleController);
+	// 绑定用户控制器
+	ROUTER_SIMPLE_BIND(UserController);
+
+	// 绑定WebSocket控制器
+	router->addController(WSContorller::createShared());
+}
+
+#endif
 
 void Router::createDeclareRouter() {
 	ROUTER_SIMPLE_BIND(DeclareController);
@@ -99,19 +116,15 @@ void Router::createDismissReasonRouter()
 	ROUTER_SIMPLE_BIND(DismissReasonController);
 }
 
-#ifdef HTTP_SERVER_DEMO
-void Router::createSampleRouter()
+void Router::createFileReservationRouter()
 {
-	// 绑定示例控制器
-	ROUTER_SIMPLE_BIND(SampleController);
-	// 绑定用户控制器
-	ROUTER_SIMPLE_BIND(UserController);
-
-	// 绑定WebSocket控制器
-	router->addController(WSContorller::createShared());
+	ROUTER_SIMPLE_BIND(FileReservationController);
 }
 
-#endif
+void Router::createFileStatusRouter()
+{
+	ROUTER_SIMPLE_BIND(FileStatusController);
+}
 
 void Router::creatTestRouter()
 {
