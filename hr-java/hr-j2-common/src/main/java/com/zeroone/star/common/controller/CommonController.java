@@ -1,18 +1,14 @@
 package com.zeroone.star.common.controller;
 
-<<<<<<< HEAD
+import com.zeroone.star.common.service.IOrmpostlibService;
 import com.zeroone.star.common.service.ZzmmService;
 import com.zeroone.star.project.common.CommonApis;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
-import com.zeroone.star.project.dto.common.StatusListDTO;
-import com.zeroone.star.project.query.common.ZzmmQuery;
-=======
-import com.zeroone.star.common.service.IOrmpostlibService;
-import com.zeroone.star.project.common.CommonApis;
 import com.zeroone.star.project.dto.common.GwTypeDTO;
 import com.zeroone.star.project.dto.common.PostNatureDTO;
->>>>>>> origin/j2-letian
+import com.zeroone.star.project.dto.common.StatusListDTO;
+import com.zeroone.star.project.query.common.ZzmmQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,7 +20,6 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
-<<<<<<< HEAD
  * <p>
  * 描述：公用接口
  * </p>
@@ -104,18 +99,11 @@ public class CommonController implements CommonApis {
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryBloodType() {
         return null;
-=======
-  * @author：letian
-  * @date  2023/5/20
-  * @description：岗位分类下拉列表接口、岗位性质下拉列表接口
-  * @version: 1.0
-*/
-@RestController
-@RequestMapping("/common")
-@Api(tags = "岗位分类下拉列表接口、岗位性质下拉列表接口")
-public class CommonController implements CommonApis {
+    }
+
     @Resource
     private IOrmpostlibService ormpostlibService;
+
     @ApiOperation(value = "获取岗位分类下拉列表")
     @GetMapping("/query-post-classification")
     @Override
@@ -130,6 +118,5 @@ public class CommonController implements CommonApis {
     public JsonVO<List<PostNatureDTO>> queryPostNature() {
         List<PostNatureDTO> list = ormpostlibService.getPostNature();
         return JsonVO.success(list);
->>>>>>> origin/j2-letian
     }
 }
