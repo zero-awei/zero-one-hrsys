@@ -17,8 +17,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _EMPLOYEEINFODTO_H_
-#define _EMPLOYEEINFODTO_H_
+#ifndef _EMPLOYEEINFOADDDTO_H_
+#define _EMPLOYEEINFOADDDTO_H_
 
 #include "../../GlobalInclude.h"
 
@@ -28,7 +28,7 @@ class EmployeeInfoAddDTO : public oatpp::DTO
 {
 	DTO_INIT(EmployeeInfoAddDTO, DTO);
 	//员工编号
-	DTO_FIELD(UInt64, empid);
+	DTO_FIELD(String, empid);
 	DTO_FIELD_INFO(empid) {
 		info->description = ZH_WORDS_GETTER("employee.field.id");
 	}
@@ -38,18 +38,18 @@ class EmployeeInfoAddDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("employee.field.name");
 	}
 	//证件类型
-	DTO_FIELD(String, idtype);
-	DTO_FIELD_INFO(idtype) {
+	DTO_FIELD(String, idType) = {};
+	DTO_FIELD_INFO(idType) {
 		info->description = ZH_WORDS_GETTER("employee.field.idtype");
 	}
 	//证件号码
-	DTO_FIELD(Int32, idnum);
-	DTO_FIELD_INFO(idnum) {
+	DTO_FIELD(String, idNum);
+	DTO_FIELD_INFO(idNum) {
 		info->description = ZH_WORDS_GETTER("employee.field.idnum");
 	}
 	//手机号码
-	DTO_FIELD(Int32, phonenum);
-	DTO_FIELD_INFO(phonenum) {
+	DTO_FIELD(String, phoneNum);
+	DTO_FIELD_INFO(phoneNum) {
 		info->description = ZH_WORDS_GETTER("employee.field.phone");
 	}
 	//员工状态
