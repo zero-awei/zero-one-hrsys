@@ -29,3 +29,11 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+  units: 管理单位
+  pos: 档案保管地
+  office: 档案室
+  degree: 档案学历，如高中结业
+  date_birth: 档案出生日期 
+  date_time: 档案入党时间
+  date_work: 档案参加工作时间
+  status: 档案状态
