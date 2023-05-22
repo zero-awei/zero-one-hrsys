@@ -5,7 +5,6 @@ import com.zeroone.star.project.dto.sysmanager.rightmanagement.RightDTO;
 import com.zeroone.star.project.query.sysmanager.rightmanager.RightQuery;
 import com.zeroone.star.project.sysmanager.RightApis;
 import com.zeroone.star.project.vo.JsonVO;
-import com.zeroone.star.project.vo.ResultStatus;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -36,8 +35,8 @@ public class RightController implements RightApis {
         return null;
     }
 
-    @ApiOperation(value = "分页查询列表")
-    @GetMapping("/query-list")
+    @ApiOperation(value = "模糊查询列表")
+    @GetMapping("/query-like")
     @Override
     public JsonVO<PageDTO<RightDTO>> queryAll(String query) {
         return null;

@@ -19,13 +19,10 @@ import org.springframework.web.bind.annotation.*;
  * @since 2023-05-20
  */
 
-@Slf4j
 @RestController
 @Api(tags="角色管理")
 @RequestMapping("/roles")
 public class RoleController implements RoleApis {
-
-
 
     @GetMapping("query-one")
     @ApiOperation(value = "查询一个角色")

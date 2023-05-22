@@ -2,11 +2,9 @@ package com.zeroone.star.sysmanager.controller;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.menumanager.MenuDTO;
-import com.zeroone.star.project.dto.sysmanager.rightmanagement.RightDTO;
 import com.zeroone.star.project.sysmanager.MenuApis;
 import com.zeroone.star.project.query.sysmanager.menumanager.MenuQuery;
 import com.zeroone.star.project.vo.JsonVO;
-import com.zeroone.star.project.vo.ResultStatus;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
