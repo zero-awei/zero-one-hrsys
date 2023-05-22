@@ -1,5 +1,5 @@
 #pragma once
-#ifndef _Delete_Assign_Info_DTO_
+#ifndef _IDelete_Assign_Info_DTO_
 #define _IDelete_Assign_Info_DTO_
 #include "../../GlobalInclude.h"
 
@@ -8,9 +8,9 @@
 /**
  * 删除指定员工分配信息
  */
-class DeleteAssignInfoDTO : public PageDTO<DeleteAssignInfoDTO::Wrapper>
+class DeleteAssignInfoDTO : public oatpp::DTO//PageDTO<DeleteAssignInfoDTO::Wrapper>
 {
-	DTO_INIT(DeleteAssignInfoDTO, PageDTO<DeleteAssignInfoDTO::Wrapper>);
+	DTO_INIT(DeleteAssignInfoDTO, DTO); //PageDTO<DeleteAssignInfoDTO::Wrapper>);
 	//编号
 	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {

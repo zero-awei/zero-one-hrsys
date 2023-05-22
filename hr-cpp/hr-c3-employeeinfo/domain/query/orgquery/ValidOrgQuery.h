@@ -13,15 +13,9 @@ class ValidOrgQuery : public PageQuery {
     DTO_INIT(ValidOrgQuery, PageQuery);
 
     // À—À˜∆•≈‰
-    DTO_FILED(String, filter)
-    DTO_FILED_INFO(filter) {
-        info->description = ZH_WORDS_GETTER("validorg.query.filter");
-    }
+    API_DTO_FIELD_DEFAULT(String, fillter, ZH_WORDS_GETTER("validorg.query.filter"));
     // ∏∏◊È÷Øid
-    DTO_FILED(String, porgid);
-    DTO_FILED_INFO(porgid) {
-        info->description = ZH_WORDS_GETTER("validorg.query.porgid");
-    }
+    API_DTO_FIELD_DEFAULT(String, porgid, ZH_WORDS_GETTER("validorg.query.porgid"));
     // ≈≈–Ú∑Ω Ω
 	DTO_FIELD(String, sort);
 	DTO_FIELD_INFO(sort) {

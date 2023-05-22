@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "EmployeeInformationController.h"
-#include "../../service/EmployeeInformation/EmployeeInformationService.h"
+//#include "../../service/EmployeeInformation/EmployeeInformationService.h"
 
 //分页查询员工列表
 EmployeeInformationPageJsonVO::Wrapper EmployeeInformationController::execEmployeeInformation(const EmployeeInformationPageQuery::Wrapper& query)
@@ -19,7 +19,7 @@ EmployeeInformationPageJsonVO::Wrapper EmployeeInformationController::execEmploy
 EmployeeInformationPageJsonVO::Wrapper EmployeeInformationController::execImportEmployeeInfo(const EmployeeInformationPageQuery::Wrapper& importInfo)
 {
 	// 定义一个Service
-	EmployeeInformationService service;
+	//EmployeeInformationService service;
 	// 查询数据
 	//auto result = service.listAll(importInfo);
 	// 响应结果
@@ -32,7 +32,7 @@ EmployeeInformationPageJsonVO::Wrapper EmployeeInformationController::execImport
 EmployeeInformationPageJsonVO::Wrapper EmployeeInformationController::execExportEmployeeInfo(const EmployeeInformationPageQuery::Wrapper& exportInfo)
 {
 	// 定义一个Service
-	EmployeeInformationService service;
+	//EmployeeInformationService service;
 	// 查询数据
 	//auto result = service.listAll(exportInfo);
 	// 响应结果

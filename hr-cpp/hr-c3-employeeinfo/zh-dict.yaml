@@ -124,45 +124,7 @@ member:
   query:
     parentdename: 查询parent类型
     parentkey: 查询parent的id
-org:
-  field:
-    companyflag: 根组织id
-    orgname: 组织名字 
-    orgid: 组织id
-    porgname: 父组织名字
-    porgid: 父组织id
-orgsector:
-  field:
-    orgsectorname: 部门名字
-    orgsectorid: 部门id 
-    orgname: 组织名字
-    orgid: 组织id
- query:
-  parentdename: 查询parent类型
-  parentkey: 查询parent的id
-  page: 页码
-  size: 页的记录数
- field:
-  summary: 新增员工信息
-  ygbh: 员工编号
-  pimpersonname: 个人名字
-  ormorgname: 组织名字
-  ormorgsectorname: 部门名字
-  zw: 职务
-  sex: 性别，如：男
-org:
- field:
-  summary: 查询所有部门结构树信息 
-  root: 根组织
-  validorg: 有效组织
-  sector: 部门
-  companyflag: 是否为根组织
-  orgname: 组织名字 
-  orgid: 组织id
-  porgname: 父组织名字
-  porgid: 父组织id
-member:
-  field:
+    field:
     ygbh: 员工编号
     pimpersonname: 个人名字
     ormorgname: 组织名字
@@ -173,3 +135,33 @@ member:
     srq: 出生日期
     nj: 年纪
     lxdh: 联系电话
+org:
+  field:
+    summary: 查询所有部门结构树信息 
+    root: 根组织
+    validorg: 有效组织
+    sector: 部门
+    companyflag: 是否为根组织
+    orgname: 组织名字 
+    orgid: 组织id
+    porgname: 父组织名字
+    porgid: 父组织id
+orgsector:
+  field:
+    orgsectorname: 部门名字
+    orgsectorid: 部门id 
+    orgname: 组织名字
+    orgid: 组织id
+    summary: 新增员工信息
+    ygbh: 员工编号
+    pimpersonname: 个人名字
+    ormorgname: 组织名字
+    ormorgsectorname: 部门名字
+    zw: 职务
+    sex: 性别，如：男
+  query:
+    parentdename: 查询parent类型
+    parentkey: 查询parent的id
+    page: 页码
+    size: 页的记录数
+    
