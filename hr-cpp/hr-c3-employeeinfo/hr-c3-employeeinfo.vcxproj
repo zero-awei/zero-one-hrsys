@@ -165,6 +165,10 @@
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoAddDTO.h" />
     <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoDTO.h" />
+    <ClInclude Include="domain\dto\org\ImportDTO.h" />
+    <ClInclude Include="domain\dto\org\MemberDTO.h" />
+    <ClInclude Include="domain\dto\org\OrgDTO.h" />
+    <ClInclude Include="domain\dto\org\OrgSectorDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\employeeInfo\EmployeeInfoQuery.h" />
     <ClInclude Include="domain\query\jobList\JobListQuery.h" />
