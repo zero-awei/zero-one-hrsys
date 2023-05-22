@@ -2,41 +2,16 @@
   <div class="employee">
     <div class="head">补充信息</div>
     <div class="box">
-      <div>
-        <div class="right">户口类型</div>
-        <div class="left">{{ nodeType }}</div>
-        <br />
-        <div class="right">健康状况</div>
-        <div class="left">{{ health }}</div>
-        <br />
-        <div class="right">有独生子女证</div>
-        <div class="left">{{ onlyChild }}</div>
-        <br />
-        <div class="right">员工状态</div>
-        <div class="left">{{ employeeStatus }}</div>
-      </div>
-      <div>
-        <div class="right">户籍所在地</div>
-        <div class="left">{{ residence }}</div>
-        <br />
-        <div class="right">爱好特长</div>
-        <div class="left">{{ hobby }}</div>
-        <br />
-        <div class="right">通讯地址</div>
-        <div class="left">{{ mailAddress }}</div>
-        <br />
-        <div class="right">列入黑名单</div>
-        <div class="left">{{ blacklist }}</div>
-      </div>
-      <div>
-        <div class="right">出生地</div>
-        <div class="left">{{ birthplace }}</div>
-        <br />
-        <div class="right">血型</div>
-        <div class="left">{{ blood }}</div>
-        <br />
-        <div class="right">入职渠道</div>
-        <div class="left">{{ onboardingChannels }}</div>
+      <div v-for="n in val" :key="n">
+        <div v-for="k in 4" :key="k">
+          <div class="right">
+            {{ Object.values(data)[(n - 1) * 4 + k - 1]?.title }}
+          </div>
+          <div class="left">
+            {{ Object.values(data)[(n - 1) * 4 + k - 1]?.val }}
+          </div>
+          <br />
+        </div>
       </div>
     </div>
   </div>
@@ -45,17 +20,35 @@
 export default {
   data() {
     return {
-      nodeType: '农村户口',
-      residence: '北京市',
-      health: '健康',
-      onlyChild: '有',
-      onboardingChannels: '校招',
-      employeeStatus: '在职',
-      hobby: '唱、跳、rep、篮球',
-      mailAddress: '北京市丰台区',
-      blacklist: '否',
-      birthplace: '美国',
-      blood: '0型'
+      data: {
+        nodeType: { title: '户口类型', val: '农村户口', id: 0 },
+        nodeType1: { title: '户籍所在地', val: '北京市', id: 1 },
+        nodeType2: { title: '出生地', val: '北京市丰台区', id: 2 },
+        nodeType3: { title: '健康状况', val: '健康', id: 3 },
+        nodeType4: { title: '爱好特长', val: '唱、跳、rep、篮球', id: 4 },
+        nodeType5: { title: '血型', val: '0型', id: 5 },
+        nodeType6: { title: '有独生子女证', val: '有', id: 5 },
+        nodeType7: { title: '通讯地址', val: '北京市丰台区', id: 5 },
+        nodeType8: { title: '入职渠道', val: '校招', id: 5 },
+        nodeType9: { title: '员工状态', val: '在职', id: 5 },
+        nodeType10: { title: '列入黑名单', val: '否', id: 5 }
+
+        // residence: '北京市',
+        // health: '健康',
+        // onlyChild: '有',
+        // onboardingChannels: '校招',
+        // employeeStatus: '在职',
+        // hobby: '唱、跳、rep、篮球',
+        // mailAddress: '北京市丰台区',
+        // blacklist: '否',
+        // birthplace: '美国',
+        // blood: '0型'
+      }
+    }
+  },
+  computed: {
+    val() {
+      return Math.ceil(Object.values(this.data).length / 4)
     }
   }
 }
