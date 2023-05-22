@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "PageQueryProjTagListController.h"
 
-PageQueryVO::Wrapper PageQueryProjTagListController::execPageQueryProjTag(const PageProjTagQuery::Wrapper& query)
+PageQueryProjTagVO::Wrapper PageQueryProjTagListController::execPageQueryProjTag(const PageProjTagQuery::Wrapper& query)
 {
-	auto vo = PageQueryVO::createShared();
+	auto vo = PageQueryProjTagVO::createShared();
 	return vo;
 }

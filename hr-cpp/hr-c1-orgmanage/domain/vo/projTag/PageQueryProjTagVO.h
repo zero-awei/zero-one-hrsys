@@ -12,9 +12,9 @@
  * 下拉列表VO领域模型
  * 负责人：Andrew
  */
-class PageQueryVO : public JsonVO<PageProjTagQuery::Wrapper>
+class PageQueryProjTagVO : public JsonVO<PageProjTagQuery::Wrapper>
 {
-	DTO_INIT(PageQueryVO, JsonVO<PageProjTagQuery::Wrapper>);
+	DTO_INIT(PageQueryProjTagVO, JsonVO<PageProjTagQuery::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

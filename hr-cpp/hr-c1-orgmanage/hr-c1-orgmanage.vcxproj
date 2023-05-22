@@ -179,7 +179,7 @@
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\projTag\DeleteProjTagDTO.h" />
     <ClInclude Include="domain\query\projTag\PageProjTagQuery.h" />
-    <ClInclude Include="domain\vo\pageQuery\PageQueryVO.h" />
+    <ClInclude Include="domain\vo\projTag\PageQueryProjTagVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />

@@ -7,7 +7,7 @@
 #include "Macros.h"
 #include "ServerInfo.h"
 #include "domain/query/projTag/PageProjTagQuery.h"
-#include "domain/vo/pageQuery/PageQueryVO.h"
+#include "domain/vo/projTag/PageQueryProjTagVO.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
@@ -19,7 +19,7 @@ public: // 定义接口
 	ENDPOINT_INFO(pageQueryProjTag) {
 		info->summary = ZH_WORDS_GETTER("projTag.pageQuery.controller");
 		API_DEF_ADD_AUTH();
-		API_DEF_ADD_RSP_JSON_WRAPPER(PageQueryVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(PageQueryProjTagVO);
 		//API_DEF_ADD_PAGE_PARAMS();
 		info->queryParams.add<UInt8>("size").description = ZH_WORDS_GETTER("projTag.pageQuery.size");
 		info->queryParams["size"].addExample("default", UInt8(20));
@@ -37,7 +37,7 @@ public: // 定义接口
 		API_HANDLER_RESP_VO(execPageQueryProjTag(query));
 	}
 private: // 定义接口执行函数
-	PageQueryVO::Wrapper execPageQueryProjTag(const PageProjTagQuery::Wrapper& Query);
+	PageQueryProjTagVO::Wrapper execPageQueryProjTag(const PageProjTagQuery::Wrapper& query);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
