@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
+#include"auditstatusController.h/AuditstatusController.h"
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
 #include "sample/SampleController.h"
@@ -82,6 +83,7 @@ void Router::initRouter()
 	createLeaveReasonRouter();
 	createDismissReasonRouter();
 	ROUTER_SIMPLE_BIND(TypeContractController);
+	createAuditStatusRouter();
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -161,4 +163,8 @@ void Router::createAwardLevelRouter()
 void Router::createJobCategoryRouter()
 {
 	ROUTER_SIMPLE_BIND(JobCategoryController);
+}
+void Router::createAuditStatusRouter()
+{
+	ROUTER_SIMPLE_BIND(AuditStatusController);
 }
