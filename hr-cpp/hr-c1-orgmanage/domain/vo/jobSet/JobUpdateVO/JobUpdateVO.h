@@ -2,8 +2,9 @@
 #ifndef _JOB_UPDATE_VO_
 #define _JOB_UPDATE_VO_
 
-#include "../../GlobalInclude.h"
-#include "../../hr-c1-common/domain/dto/jobDownloadDto/JobDownloadDTO.h"
+#include "../../../GlobalInclude.h"
+#include "../../hr-c1-orgmanage/domain/dto/jobSet/jobDownloadDto/JobDownloadDTO.h"
+using namespace oatpp;
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 

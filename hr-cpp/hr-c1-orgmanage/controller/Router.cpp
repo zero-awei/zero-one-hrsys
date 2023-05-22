@@ -19,8 +19,8 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-#include "joboutput/JobOutputController.h"
-#include "jobupdate/JobUpdateController.h"
+#include "jobSet/joboutput/JobOutputController.h"
+#include "jobSet/jobupdate/JobUpdateController.h"
 
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"

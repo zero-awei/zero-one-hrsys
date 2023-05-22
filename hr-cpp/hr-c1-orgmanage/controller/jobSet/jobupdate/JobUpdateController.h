@@ -6,8 +6,8 @@
 #include "Macros.h"
 #include "ServerInfo.h"
 #include "domain/vo/BaseJsonVO.h"
-#include "../../domain/dto/jobUpdateDto/JobUpdateDTO.h"
-#include "../../domain/vo/JobUpdateVO/JobUpdateVO.h"
+#include "../../../domain/dto/jobSet/jobUpdateDto/JobUpdateDTO.h"
+#include "../../../domain/vo/jobSet/JobUpdateVO/JobUpdateVO.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 

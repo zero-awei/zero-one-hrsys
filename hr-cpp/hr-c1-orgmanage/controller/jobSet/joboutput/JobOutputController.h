@@ -6,8 +6,8 @@
 #include "ApiHelper.h"
 #include "Macros.h"
 #include "ServerInfo.h"
-#include "domain/dto/jobDownloadDto/JobDownloadDTO.h"
-#include "domain/vo/JobDownloadVO/JobDownloadVO.h"
+#include "domain/dto/jobSet/jobDownloadDto/JobDownloadDTO.h"
+#include "domain/vo/jobSet/JobDownloadVO/JobDownloadVO.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 

@@ -27,10 +27,10 @@
     <ClCompile Include="controller\SystemInterceptor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="controller\joboutput\JobOutputController.cpp">
+    <ClCompile Include="controller\jobSet\joboutput\JobOutputController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="controller\jobupdate\JobUpdateController.cpp">
+    <ClCompile Include="controller\jobSet\jobupdate\JobUpdateController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,25 +53,25 @@
     <ClInclude Include="controller\Router.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="controller\joboutput\JobOutputController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\jobupdate\JobUpdateController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\jobDownloadDto\JobDownloadDTO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\jobUpdateDto\JobUpdateDTO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\JobDownloadVO\JobDownloadVO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\JobUpdateVO\JobUpdateVO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="domain\GlobalInclude.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\jobSet\jobDownloadDto\JobDownloadDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\jobSet\jobUpdateDto\JobUpdateDTO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\jobSet\JobDownloadVO\JobDownloadVO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\jobSet\JobUpdateVO\JobUpdateVO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\jobSet\joboutput\JobOutputController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\jobSet\jobupdate\JobUpdateController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,7 +1,7 @@
 #pragma once
 #ifndef _JOB_DOWNLOAD_DTO_
 #define _JOB_DOWNLOAD_DTO_
-#include "../../GlobalInclude.h"
+#include "../../../GlobalInclude.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
 class JobDownloadDTO : public oatpp::DTO
 {

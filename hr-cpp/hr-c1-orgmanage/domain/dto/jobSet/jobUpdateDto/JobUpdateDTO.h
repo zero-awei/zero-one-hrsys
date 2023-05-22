@@ -1,7 +1,7 @@
 #pragma once
 #ifndef _JOB_UPDATE_DTO_
 #define _JOB_UPDATE_DTO_
-#include "../../GlobalInclude.h"
+#include "../../../GlobalInclude.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 class JobUpdateDTO : public oatpp::DTO
