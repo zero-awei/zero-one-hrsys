@@ -4,7 +4,6 @@ import Experience from './employee/Experience.vue'
 import Employee from './employee/Employee.vue'
 import RewardsAndPunishment from './employee/RewardsAndPunishment.vue'
 import Additional from './employee/Additional.vue'
-//接口定义 待补充
 </script>
 
 <template>
@@ -14,7 +13,6 @@ import Additional from './employee/Additional.vue'
       <el-button class="edit" type="primary" icon="Edit">编辑</el-button>
     </div>
     <div class="info">
-      <!-- 分别传入数据 -->
       <Employee />
       <Education />
       <Experience />

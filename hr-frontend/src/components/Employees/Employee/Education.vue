@@ -2,7 +2,7 @@
   <div style="width: 100%">
     <div class="head">教育背景</div>
     <el-table
-      :data="educationData"
+      :data="educationInfo"
       table-layout="auto"
       style="padding-left: 30px"
       :cell-style="{ textAlign: 'center' }"
@@ -74,21 +74,9 @@ interface User {
   ifHighestDegree: string
 }
 
-const educationData: User[] = [
-  {
-    degree: '博士',
-    date: '2016-05-03',
-    admission: '2018-05-03',
-    graduation: '2021-05-03',
-    school: '北京大学',
-    firstDiscipline: '土木工程',
-    major: '土木工程',
-    studyMode: '正规高等院校（统招）',
-    category: '公办院校',
-    ifFirstDegree: '是',
-    ifHighestDegree: '是'
-  }
-]
+import { inject } from 'vue'
+const userData: any = inject('userData')
+let { educationInfo } = userData
 </script>
 <style>
 .head {

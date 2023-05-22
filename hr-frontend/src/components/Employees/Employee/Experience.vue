@@ -49,41 +49,6 @@ interface User {
   post: string
   grade: string
 }
-
-const tableData: User[] = [
-  {
-    employmentDate: '2018-05-03',
-    endOfOffice: '2016-05-03',
-    workUnit: '一局',
-    department: '技术组',
-    post: '技术员',
-    grade: '组长'
-  },
-  {
-    employmentDate: '2018-05-03',
-    endOfOffice: '2016-05-03',
-    workUnit: '一局',
-    department: '技术组',
-    post: '技术员',
-    grade: '组长'
-  },
-  {
-    employmentDate: '2018-05-03',
-    endOfOffice: '2016-05-03',
-    workUnit: '一局',
-    department: '技术组',
-    post: '技术员',
-    grade: '组长'
-  },
-  {
-    employmentDate: '2018-05-03',
-    endOfOffice: '2016-05-03',
-    workUnit: '一局',
-    department: '技术组',
-    post: '技术员',
-    grade: '组长'
-  }
-]
 </script>
 <style>
 .head {

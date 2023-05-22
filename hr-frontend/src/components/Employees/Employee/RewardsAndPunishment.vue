@@ -2,7 +2,7 @@
   <div style="width: 100%">
     <div class="head">奖惩信息</div>
     <el-table
-      :data="tableData"
+      :data="reandpuInfo"
       table-layout="auto"
       style="padding-left: 30px"
       :cell-style="{ textAlign: 'center' }"
@@ -29,39 +29,15 @@
 </template>
 
 <script lang="ts" setup>
+import { inject } from 'vue'
+const userData: any = inject('userData')
+let { reandpuInfo } = userData
 interface User {
   rewardsAndPunishmentsTime: string
   name: string
   classification: string
   unit: string
 }
-
-const tableData: User[] = [
-  {
-    rewardsAndPunishmentsTime: '2021-05-03',
-    name: '3355',
-    classification: '奖励',
-    unit: '北京市'
-  },
-  {
-    rewardsAndPunishmentsTime: '2021-05-03',
-    name: '3355',
-    classification: '奖励',
-    unit: '北京市'
-  },
-  {
-    rewardsAndPunishmentsTime: '2021-05-03',
-    name: '3355',
-    classification: '奖励',
-    unit: '北京市'
-  },
-  {
-    rewardsAndPunishmentsTime: '2021-05-03',
-    name: '3355',
-    classification: '奖励',
-    unit: '北京市'
-  }
-]
 </script>
 <style>
 .head {

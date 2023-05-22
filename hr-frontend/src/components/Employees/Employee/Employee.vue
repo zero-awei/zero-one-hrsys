@@ -3,108 +3,89 @@
     <div class="box h1">
       <div>
         <div class="right">员工姓名</div>
-        <div class="left">{{ ename }}</div>
+        <div class="left">{{ basicInfo.ename }}</div>
         <br />
         <div class="right">证件类型</div>
-        <div class="left">{{ IDType }}</div>
+        <div class="left">{{ basicInfo.IDType }}</div>
         <br />
         <div class="right">出生日期</div>
-        <div class="left">{{ birth }}</div>
+        <div class="left">{{ basicInfo.birth }}</div>
         <br />
         <div class="right">性别</div>
-        <div class="left">{{ sex }}</div>
+        <div class="left">{{ basicInfo.sex }}</div>
         <br />
         <div class="right">籍贯</div>
-        <div class="left">{{ birthplace }}</div>
+        <div class="left">{{ basicInfo.birthplace }}</div>
       </div>
       <div>
         <div class="right">员工编号</div>
-        <div class="left">{{ empno }}</div>
+        <div class="left">{{ basicInfo.empno }}</div>
         <br />
         <div class="right">证件号码</div>
-        <div class="left">{{ IDNumber }}</div>
+        <div class="left">{{ basicInfo.IDNumber }}</div>
         <br />
         <div class="right">年龄</div>
-        <div class="left">{{ age }}</div>
+        <div class="left">{{ basicInfo.age }}</div>
         <br />
         <div class="right">民族</div>
-        <div class="left">{{ nation }}</div>
+        <div class="left">{{ basicInfo.nation }}</div>
         <br />
         <div class="right">婚姻状况</div>
-        <div class="left">{{ marriage }}</div>
+        <div class="left">{{ basicInfo.marriage }}</div>
       </div>
       <div>
         <div class="right">照片</div>
         <div class="left">
-          <el-avatar shape="square" :size="100" :fit="fit" :src="url" />
+          <el-avatar
+            shape="square"
+            :size="100"
+            fit="fit"
+            :src="basicInfo.url"
+          />
         </div>
       </div>
     </div>
     <div class="box h2">
       <div>
         <div class="right">政治面貌</div>
-        <div class="left">{{ politicalLandscape }}</div>
+        <div class="left">{{ basicInfo.politicalLandscape }}</div>
         <br />
         <div class="right">到本单位时间</div>
-        <div class="left">{{ unitTime }}</div>
+        <div class="left">{{ basicInfo.unitTime }}</div>
         <br />
         <div class="right">技术职称</div>
-        <div class="left">{{ technicalTitle }}</div>
+        <div class="left">{{ basicInfo.technicalTitle }}</div>
         <br />
         <div class="right">执业证书</div>
-        <div class="left">{{ practisingCertificate }}</div>
+        <div class="left">{{ basicInfo.practisingCertificate }}</div>
       </div>
       <div>
         <div class="right">职级</div>
-        <div class="left">{{ grade }}</div>
+        <div class="left">{{ basicInfo.grade }}</div>
         <br />
         <div class="right">手机号码</div>
-        <div class="left">{{ mobileNumber }}</div>
+        <div class="left">{{ basicInfo.mobileNumber }}</div>
         <br />
         <div class="right">最高学历</div>
-        <div class="left">{{ highestDegree }}</div>
+        <div class="left">{{ basicInfo.highestDegree }}</div>
       </div>
       <div>
         <div class="right">参加工作时间</div>
-        <div class="left">{{ cjgzsj }}</div>
+        <div class="left">{{ basicInfo.cjgzsj }}</div>
         <br />
         <div class="right">电子邮箱</div>
-        <div class="left">{{ eMail }}</div>
+        <div class="left">{{ basicInfo.eMail }}</div>
         <br />
         <div class="right">第一学历</div>
-        <div class="left">{{ firstDegree }}</div>
+        <div class="left">{{ basicInfo.firstDegree }}</div>
       </div>
     </div>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      ename: '鸽鸽',
-      IDType: '居民身份证',
-      birth: '2000-01-01',
-      sex: '武装直升机',
-      birthplace: '北京市丰台区',
-      empno: '008',
-      IDNumber: '101111197001012132',
-      age: '18',
-      nation: '赛博坦',
-      marriage: '未婚',
-      politicalLandscape: '群众',
-      unitTime: '2022-01-18',
-      technicalTitle: '高级技工',
-      practisingCertificate: '高级技工证',
-      grade: '组长',
-      mobileNumber: '15000244488',
-      cjgzsj: '2022-01-18',
-      eMail: '1111158@193.com',
-      highestDegree: '硕士研究生',
-      firstDegree: '硕士研究生',
-      url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
-    }
-  }
-}
+<script setup>
+import { inject } from 'vue'
+const userData = inject('userData')
+let { basicInfo } = userData
 </script>
 
 <style lang="scss">
