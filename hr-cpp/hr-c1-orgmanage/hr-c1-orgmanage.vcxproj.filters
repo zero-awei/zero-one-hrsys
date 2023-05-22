@@ -16,6 +16,8 @@
     <ClCompile Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.cpp" />
     <ClCompile Include="controller\projTag\deleteProjTag\DeleteProjTagController.cpp" />
     <ClCompile Include="controller\itemLabel\ItemLabelController.cpp" />
+    <ClCompile Include="controller\jobUpdate1\JobUpdateController.cpp" />
+    <ClCompile Include="controller\jobOutput1\JobOutputController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -56,5 +58,11 @@
     <ClInclude Include="domain\vo\itemLabel\ItemLabelVO.h" />
     <ClInclude Include="domain\vo\pageQuery\PageQueryVO.h" />
     <ClInclude Include="domain\do\projTag\ProjTagDO.h" />
+    <ClInclude Include="domain\vo\jobUpdateVO1\JobUpdateVO.h" />
+    <ClInclude Include="domain\vo\jobDownloadVO1\JobDownloadVO.h" />
+    <ClInclude Include="domain\dto\jobDownloadDto\JobDownloadDTO.h" />
+    <ClInclude Include="domain\dto\jobUpdateDto\JobUpdateDTO.h" />
+    <ClInclude Include="controller\jobUpdate1\JobUpdateController.h" />
+    <ClInclude Include="controller\jobOutput1\JobOutputController.h" />
   </ItemGroup>
 </Project>

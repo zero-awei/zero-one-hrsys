@@ -2,13 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
-<<<<<<<< HEAD:hr-cpp/hr-c1-common/domain/vo/pullList/PullListVo.h
- @Author: Andrew211vibe
+ @Author: Ô¶Ïè
  @Date: 2023/05/17 22:56:57
-========
- @Author: awei
- @Date: 2023/05/21 21:30:35
->>>>>>>> origin/c1-common-yuanxiang:hr-cpp/hr-c1-common/domain/do/dismissReason/DismissReasonDO.h
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -22,24 +17,6 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-<<<<<<<< HEAD:hr-cpp/hr-c1-common/domain/vo/pullList/PullListVo.h
-#ifndef _PULLLISTVO_H_
-#define _PULLLISTVO_H_
-
-#include "../../GlobalInclude.h"
-#include "../../dto/pullList/PullListDTO.h"
-
-#include OATPP_CODEGEN_BEGIN(DTO)
-
-class PullListVO : public JsonVO<PullListDTO::Wrapper>
-{
-	DTO_INIT(PullListVO, JsonVO<PullListDTO::Wrapper>);
-};
-
-#include OATPP_CODEGEN_END(DTO)
-
-#endif // !_PULLLISTVO_H_
-========
 #ifndef _DISMISSREASONDO_H_
 #define _DISMISSREASONDO_H_
 
@@ -55,4 +32,3 @@ class DismissReasonDO
 };
 
 #endif // !_DISMISSREASONDO_H_
->>>>>>>> origin/c1-common-yuanxiang:hr-cpp/hr-c1-common/domain/do/dismissReason/DismissReasonDO.h
