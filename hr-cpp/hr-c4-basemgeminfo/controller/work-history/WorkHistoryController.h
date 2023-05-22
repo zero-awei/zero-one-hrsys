@@ -155,11 +155,10 @@ public: // 定义接口
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(WorkHistoryJsonVO);
-		//// 定义分页参数描述
-		//API_DEF_ADD_PAGE_PARAMS();
+		
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("ormorgname").description = ZH_WORDS_GETTER("workhistory.field.ormorgname");
-		info->queryParams["ormorgname"].addExample("default", String("6611212223"));
+		info->queryParams["ormorgname"].addExample("default", String(""));
 		info->queryParams["ormorgname"].required = false;
 
 
@@ -171,14 +170,14 @@ public: // 定义接口
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryWorkHistory(userQuery));
 	}
-	// 3.1 定义修改接口描述
+	// 定义修改指定员工工作履历(单条修改)接口
 	ENDPOINT_INFO(modifyWorkHistory) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("workhistory.put.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
-	// 3.2 定义修改接口处理
+	
 	ENDPOINT(API_M_PUT, "/work-history/update", modifyWorkHistory, BODY_DTO(WorkHistoryDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyWorkHistory(dto));

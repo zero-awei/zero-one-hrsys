@@ -11,12 +11,12 @@ public:
 	{
 		CertificateInformationDO data;
 		
-		data.setZgzsbh(resultSet->getString(5));
-		data.setPimvocationalname(resultSet->getString(6));
-		data.setZslx(resultSet->getString(7));
-		data.setZghqrq(resultSet->getString(8));
-		data.setZgsydw(resultSet->getString(9));
-		data.setFzyxq(resultSet->getString(10));
+		data.setZgzsbh(resultSet->getString(1));
+		data.setPimvocationalname(resultSet->getString(2));
+		data.setZslx(resultSet->getString(3));
+		data.setZghqrq(resultSet->getString(4));
+		data.setZgsydw(resultSet->getString(5));
+		data.setFzyxq(resultSet->getString(6));
 		
 		return data;
 	}

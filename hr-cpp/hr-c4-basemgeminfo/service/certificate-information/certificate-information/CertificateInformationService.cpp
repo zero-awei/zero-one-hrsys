@@ -26,7 +26,6 @@ CertificateInformationPageDTO::Wrapper CertificateInformationService::listAll(co
 		auto dto = CertificateInformationDTO::createShared();
 		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub,  zgzsbh, Zgzsbh, pimvocationalname, Pimvocationalname, zslx, Zslx, zghqrq, Zghqrq, zgsydw, Zgsydw, fzyxq, Fzyxq);
 		pages->addData(dto);
-
 	}
 	return pages;
 }

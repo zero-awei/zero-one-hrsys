@@ -17,7 +17,7 @@ namespace multipart = oatpp::web::mime::multipart;
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
 /**
- * 示例控制器，演示基础接口的使用
+ * 证书控制器，基础接口的使用
  */
 class CertificateInformationController : public oatpp::web::server::api::ApiController // 1 继承控制器
 {
@@ -27,7 +27,7 @@ class CertificateInformationController : public oatpp::web::server::api::ApiCont
 public:
 		//定义查询接口描述
 	ENDPOINT_INFO(queryCertificateInformation) {
-		// 定义接口标题,用到中英文字典函数，用过zh-dict.yaml确定参数
+		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("certificateinformation.get.summary");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();

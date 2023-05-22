@@ -18,7 +18,7 @@ namespace multipart = oatpp::web::mime::multipart;
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
 /**
- * 示例控制器，演示基础接口的使用
+ * 职称控制器，基础接口的使用
  */
 class JobTitleInformationController : public oatpp::web::server::api::ApiController // 1 继承控制器
 {

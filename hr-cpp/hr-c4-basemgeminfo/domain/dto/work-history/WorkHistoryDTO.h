@@ -9,6 +9,10 @@
 class WorkHistoryDTO : public oatpp::DTO
 {
 	DTO_INIT(WorkHistoryDTO, DTO);
+	DTO_FIELD(String, pimpersonid);
+	DTO_FIELD_INFO(pimpersonid) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.pimpersionid");
+	}
 
 	// rzkssj: 任职开始时间
 	DTO_FIELD(String, rzkssj);

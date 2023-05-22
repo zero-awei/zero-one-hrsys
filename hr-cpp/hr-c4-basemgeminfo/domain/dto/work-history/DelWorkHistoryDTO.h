@@ -38,7 +38,7 @@ class DelWorkHistoryDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("workhistory.field.list<pimworkhistoryid>");
 	}
 	//人员信息id
-	DTO_INIT_(String, pimpersonid, "workhistory.field.pimpersonid")
+	DTO_INIT_(String, pimpersonid, "workhistory.field.pimpersonid");
 
 };
 

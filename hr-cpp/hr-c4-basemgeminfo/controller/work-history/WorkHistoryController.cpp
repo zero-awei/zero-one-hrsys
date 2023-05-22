@@ -221,7 +221,13 @@ WorkHistoryJsonVO::Wrapper WorkHistoryController::execQueryWorkHistory(const Wor
 	auto result = service.listDetail(query);
 	// 响应结果
 	auto jvo = WorkHistoryJsonVO::createShared();
-	jvo->success(result);
+	if (result->ormorgname.getValue("").empty()) {
+		cout << "No details were found" << endl;
+		jvo->fail(result);
+	}
+	else {
+		jvo->success(result);
+	}
 	return jvo;
 }
 //定义修改指定员工工作履历函数execModifyWorkHistory
@@ -243,6 +249,7 @@ StringJsonVO::Wrapper WorkHistoryController::execModifyWorkHistory(const WorkHis
 	}
 	else
 	{
+		cout << "The primary key is not found or the data is consistent before and after the modification!" << endl;
 		jvo->fail(dto->rzkssj);		
 	}
 	// 响应结果
