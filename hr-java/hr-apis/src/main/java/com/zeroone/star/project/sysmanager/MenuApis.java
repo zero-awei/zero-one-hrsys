@@ -34,18 +34,25 @@ public interface MenuApis {
     JsonVO<Boolean> addMenu(MenuDTO dto);
 
     /**
-     * 修改权限
+     * 修改菜单
      *
-     * @param dto 修改权限
+     * @param dto 修改菜单
      * @return 结果状态
      */
     JsonVO<Boolean> modifyMenu(MenuDTO dto);
 
     /**
-     * 删除权限
+     * 删除菜单
      *
-     * @param dto 删除权限
+     * @param dto 删除菜单
      * @return 结果状态
      */
     JsonVO<Boolean> removeMenu(MenuDTO dto);
+
+    /**
+     * 描述：模糊查询
+     * @param query 查询条件
+     * @return 查询结果
+     */
+    JsonVO<PageDTO<MenuDTO>> queryLike(MenuQuery query);
 }

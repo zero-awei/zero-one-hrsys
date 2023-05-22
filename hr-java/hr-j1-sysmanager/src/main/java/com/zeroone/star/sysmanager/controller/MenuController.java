@@ -51,4 +51,11 @@ public class MenuController implements MenuApis {
     public JsonVO<Boolean> removeMenu(MenuDTO dto) {
         return null;
     }
+
+    @ApiOperation(value = "模糊查询")
+    @GetMapping("/query-like")
+    @Override
+    public JsonVO<PageDTO<MenuDTO>> queryLike(MenuQuery query) {
+        return null;
+    }
 }
