@@ -17,20 +17,10 @@ class MemberQuery : public PageQuery {
 		info->description = ZH_WORDS_GETTER("member.query.parentdename");
 	}
     // 查询的parent id
-	DTO_FIELD(String, parentkey);
-	DTO_FIELD_INFO(parentkey) {
-		info->description = ZH_WORDS_GETTER("member.query.parentkey");
-	}
-    // 页码
-	DTO_FIELD(UInt64, page);
-	DTO_FIELD_INFO(page) {
-		info->description = ZH_WORDS_GETTER("member.query.page");
-	}
-    // 一页的记录数
-	DTO_FIELD(UInt64, size);
-	DTO_FIELD_INFO(size) {
-		info->description = ZH_WORDS_GETTER("member.query.size");
-	}
+    DTO_FILED(String, parentkey);
+    DTO_FILED_INFO(parentkey) {
+        info->description = ZH_WORDS_GETTER("member.query.parentkey");
+    }
 };
 
 #include OATPP_CODEGEN_END(DTO)

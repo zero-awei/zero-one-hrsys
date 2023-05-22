@@ -13,25 +13,15 @@ class ValidOrgQuery : public PageQuery {
     DTO_INIT(ValidOrgQuery, PageQuery);
 
     // 搜索匹配
-	DTO_FIELD(String, filter);
-	DTO_FIELD_INFO(filter) {
-		info->description = ZH_WORDS_GETTER("validorg.query.filter");
-	}
+    DTO_FILED(String, filter)
+    DTO_FILED_INFO(filter) {
+        info->description = ZH_WORDS_GETTER("validorg.query.filter");
+    }
     // 父组织id
-	DTO_FIELD(String, porgid);
-	DTO_FIELD_INFO(porgid) {
-		info->description = ZH_WORDS_GETTER("validorg.query.porgid");
-	}
-    // 页码
-	DTO_FIELD(UInt64, page);
-	DTO_FIELD_INFO(page) {
-		info->description = ZH_WORDS_GETTER("validorg.query.page");
-	}
-    // 一页的记录数
-	DTO_FIELD(UInt64, size);
-	DTO_FIELD_INFO(size) {
-		info->description = ZH_WORDS_GETTER("validorg.query.size");
-	}
+    DTO_FILED(String, porgid);
+    DTO_FILED_INFO(porgid) {
+        info->description = ZH_WORDS_GETTER("validorg.query.porgid");
+    }
     // 排序方式
 	DTO_FIELD(String, sort);
 	DTO_FIELD_INFO(sort) {

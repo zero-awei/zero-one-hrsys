@@ -13,20 +13,10 @@ class RootOrgQuery : public PageQuery {
     DTO_INIT(RootOrgQuery, PageQuery);
 
     // À—À˜∆•≈‰
-	DTO_FIELD(String, filter);
-	DTO_FIELD_INFO(filter) {
-		info->description = ZH_WORDS_GETTER("rootorg.query.filter");
-	}
-    // “≥¬Î
-	DTO_FIELD(UInt32, page);
-	DTO_FIELD_INFO(page) {
-		info->description = ZH_WORDS_GETTER("rootorg.query.page");
-	}
-    // “ª“≥µƒº«¬º ˝
-	DTO_FIELD(UInt64, size);
-	DTO_FIELD_INFO(size) {
-		info->description = ZH_WORDS_GETTER("rootorg.query.size");
-	}
+    DTO_FILED(String, filter)
+    DTO_FILED_INFO(filter) {
+        info->description = ZH_WORDS_GETTER("rootorg.query.filter");
+    }
     // ≈≈–Ú∑Ω Ω
 	DTO_FIELD(String, sort);
 	DTO_FIELD_INFO(sort) {
