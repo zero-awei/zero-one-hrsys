@@ -1,15 +1,19 @@
 package com.zeroone.star.sysmanager.controller;
 
-import com.zeroone.star.project.dto.sysmanager.rolemanager.RoleDTO;
-import com.zeroone.star.project.dto.sysmanager.rolemanager.RoleMenuDTO;
-import com.zeroone.star.project.dto.sysmanager.rolemanager.RolePermissionDTO;
-import com.zeroone.star.project.sysmanager.RoleApis;
+
+import com.zeroone.star.project.dto.sample.SampleDTO;
+import com.zeroone.star.project.dto.sysmanager.RoleDTO;
+import com.zeroone.star.project.sysmanager.RolesApis;
 import com.zeroone.star.project.vo.JsonVO;
+import com.zeroone.star.project.vo.ResultStatus;
+import com.zeroone.star.sysmanager.service.IRoleService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 import javax.management.relation.Role;
 
 /**
@@ -20,36 +24,35 @@ import javax.management.relation.Role;
  * @author alan
  * @since 2023-05-20
  */
+
+@Slf4j
 @RestController
 @Api(tags="角色管理")
 @RequestMapping("/roles")
 public class RoleController implements RoleApis {
 
-    @GetMapping("query-by-id")
-    @ApiOperation(value = "编号查询")
+    @GetMapping("query-one")
+    @ApiOperation(value = "查询一个角色")
     @Override
     public JsonVO<RoleDTO> queryById(Integer id) {
         return null;
     }
-
-    @GetMapping("query-by-name")
-    @ApiOperation(value = "名称查询")
+    @ApiOperation(value = "删除角色")
+    @DeleteMapping("delete")
     @Override
-    public JsonVO<Void> deleteByName(String name) {
+    public JsonVO<Boolean> deleteByName(RoleDTO dto) {
         return null;
     }
-
-    @GetMapping("add")
-    @ApiOperation(value = "添加角色")
+    @ApiOperation(value = "增加角色")
+    @PostMapping("add-one")
     @Override
-    public JsonVO<RoleDTO> insertOneRole(Integer id, String name, String keyword, String description) {
+    public JsonVO<Boolean> addOneRole(RoleDTO dto) {
         return null;
     }
-
-    @GetMapping("modify")
     @ApiOperation(value = "修改角色")
+    @PutMapping("modify")
     @Override
-    public JsonVO<RoleDTO> modifyOneRole(Role role) {
+    public JsonVO<Boolean> modifyRole(RoleDTO dto) {
         return null;
     }
 
