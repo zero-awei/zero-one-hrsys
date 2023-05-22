@@ -3,6 +3,7 @@ package com.zeroone.star.common.controller;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.common.CommonApis;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
+import com.zeroone.star.project.j3.dto.RelationshipDTO;
 import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
 import com.zeroone.star.project.j3.query.common.DisciplineTypeQuery;
 import com.zeroone.star.project.j3.query.common.EducationTypeQuery;
@@ -13,6 +14,7 @@ import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -127,6 +129,13 @@ public class CommonController implements CommonApis {
     @ApiOperation("获取学历下拉列表")
     @Override
     public JsonVO<List<String>> listEducationType(EducationTypeQuery education) {
+        return null;
+    }
+
+    @PostMapping("Relationship")
+    @ApiOperation("与本人关系列表")
+    @Override
+    public JsonVO<List<RelationshipDTO>> queryRelationship() {
         return null;
     }
 }

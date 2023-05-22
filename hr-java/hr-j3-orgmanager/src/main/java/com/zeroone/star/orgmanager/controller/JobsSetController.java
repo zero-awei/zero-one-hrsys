@@ -3,6 +3,8 @@ package com.zeroone.star.orgmanager.controller;
 import com.zeroone.star.project.components.fastdfs.FastDfsClientComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
 import com.zeroone.star.project.dto.PageDTO;
+import com.zeroone.star.project.j3.dto.AddPositionDTO;
+import com.zeroone.star.project.j3.dto.DeletePositionDTO;
 import com.zeroone.star.project.j3.dto.ExportDTO;
 import com.zeroone.star.project.j3.dto.JobDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.JobTitleDTO;
@@ -84,6 +86,18 @@ public class JobsSetController implements JobSetApis {
     public JsonVO<PageDTO<JobDTO>> queryJobByName(JobByNameQuery condition) {
         //测试接收数据
         System.out.println(condition.getName());
+        return null;
+    }
+    @DeleteMapping("delete-position")
+    @ApiOperation("删除组织信息(支持批量)")
+    @Override
+    public JsonVO<Boolean> DeletePosition(@RequestBody DeletePositionDTO deletePositionDTO) {
+        return null;
+    }
+    @PostMapping ("add-position")
+    @ApiOperation("批量新增组织信息(支持批量)")
+    @Override
+    public JsonVO<Boolean> AddPosition(@RequestBody AddPositionDTO addPositionDTO) {
         return null;
     }
 }

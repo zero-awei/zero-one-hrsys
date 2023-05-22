@@ -2,6 +2,7 @@ package com.zeroone.star.project.j3.common;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
+import com.zeroone.star.project.j3.dto.RelationshipDTO;
 import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
 import com.zeroone.star.project.j3.query.common.DisciplineTypeQuery;
 import com.zeroone.star.project.j3.query.common.EducationTypeQuery;
@@ -117,6 +118,12 @@ public interface CommonApis {
      * @return 集合
      */
     JsonVO<List<String>> listEducationType(EducationTypeQuery education);
+	/**
+	 * 获取与本人关系
+	 * @return 数据对象
+	 *@Date 21:27 2023/5/19
+	 */
+	JsonVO<List<RelationshipDTO>> queryRelationship();
 
 
 }
