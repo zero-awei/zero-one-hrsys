@@ -23,13 +23,6 @@
 #include "domain/vo/BaseJsonVO.h"
 #include "domain/dto/pullList/PullListDTO.h"
 #include "domain/vo/pullList/PullListVO.h"
-#include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
-#include "oatpp/web/mime/multipart/FileProvider.hpp"
-#include "oatpp/web/mime/multipart/Reader.hpp"
-#include "oatpp/web/mime/multipart/PartList.hpp"
-
-using namespace oatpp;
-namespace multipart = oatpp::web::mime::multipart;
 
 // 0 定义API控制器使用宏
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
