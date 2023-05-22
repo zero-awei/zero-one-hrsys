@@ -1,0 +1,18 @@
+package com.zeroone.star.sysmanager.mapper;
+
+import com.zeroone.star.sysmanager.entity.Role;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+
+/**
+ * <p>
+ * 角色表 Mapper 接口
+ * </p>
+ *
+ * @author alan
+ * @since 2023-05-20
+ */
+@Mapper
+public interface RoleMapper extends BaseMapper<Role> {
+
+}

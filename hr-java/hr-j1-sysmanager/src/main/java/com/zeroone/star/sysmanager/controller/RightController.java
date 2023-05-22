@@ -1,10 +1,9 @@
 package com.zeroone.star.sysmanager.controller;
 
 import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.dto.sysmanager.menumanager.MenuDTO;
 import com.zeroone.star.project.dto.sysmanager.rightmanagement.RightDTO;
-import com.zeroone.star.project.sysmanager.MenuApis;
-import com.zeroone.star.project.query.sysmanager.menumanager.MenuQuery;
+import com.zeroone.star.project.query.sysmanager.rightmanager.RightQuery;
+import com.zeroone.star.project.sysmanager.RightApis;
 import com.zeroone.star.project.vo.JsonVO;
 import com.zeroone.star.project.vo.ResultStatus;
 import io.swagger.annotations.Api;
@@ -13,42 +12,49 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
- * 描述：TODO
+ * 描述：权限管理控制层
  * </p>
  * <p>版权：&copy;01星球</p>
  * <p>地址：01星球总部</p>
+ * @author
  * @version 1.0.0
  */
 
 @RestController
-@RequestMapping("/menu")
-@Api(tags = "菜单管理")
-public class MenuController implements MenuApis {
+@RequestMapping("/right")
+@Api(tags = "权限管理")
+public class RightController implements RightApis {
+    /**
+     * 分页查询列表
+     * @param query 查询条件
+     * @return 查询结果
+     */
     @ApiOperation(value = "分页查询列表")
     @GetMapping("/query-list")
     @Override
-    public JsonVO<PageDTO<MenuDTO>> queryAll(MenuQuery query) {
+    public JsonVO<PageDTO<RightDTO>> queryAll(RightQuery query) {
         return null;
     }
 
-    @ApiOperation(value = "增加菜单")
+    @ApiOperation(value = "增加权限")
     @PostMapping("/add-right")
     @Override
-    public JsonVO<ResultStatus> addMenu(MenuDTO dto) {
+    public JsonVO<ResultStatus> addRight(RightDTO dto) {
         return null;
     }
 
-    @ApiOperation(value = "修改菜单")
+    @ApiOperation(value = "修改权限")
     @PostMapping("/modify-right")
     @Override
-    public JsonVO<ResultStatus> modifyMenu(MenuDTO dto) {
+    public JsonVO<ResultStatus> modifyRight(RightDTO dto) {
         return null;
     }
 
-    @ApiOperation(value = "删除菜单")
-    @DeleteMapping("/remove-right")
+    @ApiOperation(value = "删除权限")
+    @DeleteMapping ("/remove-right")
     @Override
-    public JsonVO<ResultStatus> removeMenu(MenuDTO dto) {
+    public JsonVO<ResultStatus> removeRight(RightDTO dto) {
         return null;
     }
+
 }
