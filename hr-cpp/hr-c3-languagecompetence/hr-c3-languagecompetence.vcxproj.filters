@@ -57,6 +57,9 @@
     <ClInclude Include="domain\query\LanguagePage\LanguagePageQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\query\EmployeeLanguareQuery\EmployeeLanguareQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">

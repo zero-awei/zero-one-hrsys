@@ -169,6 +169,7 @@
     <ClInclude Include="domain\dto\ImportLanguage\ImportLanguageDTO.h" />
     <ClInclude Include="domain\dto\Language\LanguageDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\EmployeeLanguareQuery\EmployeeLanguareQuery.h" />
     <ClInclude Include="domain\query\LanguagePage\LanguagePageQuery.h" />
     <ClInclude Include="domain\query\Language\LanguageQuery.h" />
     <ClInclude Include="domain\vo\Language\LanguageVO.h" />
