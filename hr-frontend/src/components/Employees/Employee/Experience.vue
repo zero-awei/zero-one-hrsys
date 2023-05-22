@@ -2,7 +2,7 @@
   <div style="width: 100%">
     <div class="head">工作履历</div>
     <el-table
-      :data="tableData"
+      :data="userData.workRecord"
       table-layout="auto"
       style="padding-left: 30px"
       :cell-style="{ textAlign: 'center' }"
@@ -30,13 +30,17 @@
       <el-table-column width="150px" prop="department" label="部门" sortable />
       <el-table-column width="150px" prop="post" label="岗位" sortable />
       <el-table-column width="150px" prop="grade" label="职级" sortable />
-      <el-table-column width="150px" :prop="grade" label="职级" sortable />
+      <!-- <el-table-column width="150px" :prop="grade" label="职级" sortable /> -->
       <el-table-column />
     </el-table>
   </div>
 </template>
 
 <script lang="ts" setup>
+//引入数据
+import { inject } from 'vue'
+const userData: any = inject('userData')
+
 interface User {
   employmentDate: string
   endOfOffice: string

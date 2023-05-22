@@ -1,28 +1,20 @@
-<script>
+<script setup>
 import Education from './employee/Education.vue'
 import Experience from './employee/Experience.vue'
 import Employee from './employee/Employee.vue'
 import RewardsAndPunishment from './employee/RewardsAndPunishment.vue'
 import Additional from './employee/Additional.vue'
-
-export default {
-  components: {
-    RewardsAndPunishment,
-    Experience,
-    Education,
-    Employee,
-    Additional
-  }
-}
+//接口定义 待补充
 </script>
 
 <template>
   <div>
     <div class="title">
       员工信息
-      <el-button class="edit" type="primary" :icon="Edit">编辑</el-button>
+      <el-button class="edit" type="primary" icon="Edit">编辑</el-button>
     </div>
     <div class="info">
+      <!-- 分别传入数据 -->
       <Employee />
       <Education />
       <Experience />
