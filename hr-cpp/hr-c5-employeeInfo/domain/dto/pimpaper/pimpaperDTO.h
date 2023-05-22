@@ -30,63 +30,51 @@ class PimpaperDTO : public oatpp::DTO
 {
 public:
 	PimpaperDTO() {}
-	PimpaperDTO(UInt64 ygbh, String pimpersonname) : ygbh(ygbh), pimpersonname(pimpersonname) {}
+	PimpaperDTO(String ygbh, String pimpersonname) : ygbh(ygbh), pimpersonname(pimpersonname) {}
 
 	DTO_INIT(PimpaperDTO, DTO);
 	
-	//员工编号
-	DTO_FIELD(UInt64, ygbh);
-	DTO_FIELD_INFO(ygbh) {
-		info->description = ZH_WORDS_GETTER("sample.field.ygbh");
-	}
-
 	//员工姓名
 	DTO_FIELD(String, pimpersonname);
 	DTO_FIELD_INFO(pimpersonname) {
-		info->description = ZH_WORDS_GETTER("sample.field.pimpersonname");
+		info->description = ZH_WORDS_GETTER("pimpaper.field.pimpersonname");
 	}
 
-	////论文名称
-	//DTO_FIELD(String, pimpapername);
-	//DTO_FIELD_INFO(pimpapername) {
-	//	info->description = ZH_WORDS_GETTER("sample.field.pimpapername");
-	//}
+	//员工编号
+	DTO_FIELD(String, ygbh);
+	DTO_FIELD_INFO(ygbh) {
+		info->description = ZH_WORDS_GETTER("pimpaper.field.ygbh");
+	}
 
-	////出版社
-	//DTO_FIELD(String, cbs);
-	//DTO_FIELD_INFO(cbs) {
-	//	info->description = ZH_WORDS_GETTER("sample.field.cbs");
-	//}
+	//证件号码
+	DTO_FIELD(String, zjhm);
+	DTO_FIELD_INFO(zjhm) {
+		info->description = ZH_WORDS_GETTER("pimpaper.field.zjhm");
+	}
 
-	////刊物名称
-	//DTO_FIELD(String, kwmc);
-	//DTO_FIELD_INFO(kwmc) {
-	//	info->description = ZH_WORDS_GETTER("sample.field.kwmc");
-	//}
+	//组织
+	DTO_FIELD(String, zzdzs);
+	DTO_FIELD_INFO(zzdzs) {
+		info->description = ZH_WORDS_GETTER("pimpaper.field.zzdzs");
+	}
 
-	////刊物期数
-	//DTO_FIELD(String, gwqs);
-	//DTO_FIELD_INFO(gwqs) {
-	//	info->description = ZH_WORDS_GETTER("sample.field.gwqs");
-	//}
+	//部门
+	DTO_FIELD(String, ormorgsectorname);
+	DTO_FIELD_INFO(ormorgsectorname) {
+		info->description = ZH_WORDS_GETTER("pimpaper.field.ormorgsectorname");
+	}
 
-	////发表时间
-	//DTO_FIELD(String, fbsj);
-	//DTO_FIELD_INFO(fbsj) {
-	//	info->description = ZH_WORDS_GETTER("sample.field.fbsj");
-	//}
+	//员工状态
+	DTO_FIELD(String, ygzt);
+	DTO_FIELD_INFO(ygzt) {
+		info->description = ZH_WORDS_GETTER("pimpaper.field.ygzt");
+	}
 
-	////个人在论文著作中的排名
-	//DTO_FIELD(UInt64, grzlwzzzdpm);
-	//DTO_FIELD_INFO(grzlwzzzdpm) {
-	//	info->description = ZH_WORDS_GETTER("sample.field.grzlwzzzdpm");
-	//}
-
-	////附件
-	//DTO_FIELD(String, fj);
-	//DTO_FIELD_INFO(fj) {
-	//	info->description = ZH_WORDS_GETTER("sample.field.fj");
-	//}
+	//在岗状态
+	DTO_FIELD(String, zgzt);
+	DTO_FIELD_INFO(zgzt) {
+		info->description = ZH_WORDS_GETTER("pimpaper.field.zgzt");
+	}
 };
 
 /**

@@ -56,10 +56,32 @@ public:
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		info->queryParams.add<UInt64>("ygbh").description = ZH_WORDS_GETTER("pimpaper.field.ygbh");
-		info->queryParams["ygbh"].addExample("default", String("1234"));
+		//员工姓名
 		info->queryParams.add<String>("pimpersonname").description = ZH_WORDS_GETTER("pimpaper.field.pimpersonname");
 		info->queryParams["pimpersonname"].addExample("default", String("LiHua"));
+		//员工编号
+		info->queryParams.add<String>("ygbh").description = ZH_WORDS_GETTER("pimpaper.field.ygbh");
+		info->queryParams["ygbh"].addExample("default", String("1234"));
+		//证件号码
+		info->queryParams.add<String>("zjhm").description = ZH_WORDS_GETTER("pimpaper.field.zjhm");
+		info->queryParams["zjhm"].addExample("default", String("12345"));
+		info->queryParams["zjhm"].required = false;
+		//组织
+		info->queryParams.add<String>("zzdzs").description = ZH_WORDS_GETTER("pimpaper.field.zzdzs");
+		info->queryParams["zzdzs"].addExample("default", String("HuaWeiZhongBu"));
+		info->queryParams["zzdzs"].required = false;
+		//部门
+		info->queryParams.add<String>("ormorgsectorname").description = ZH_WORDS_GETTER("pimpaper.field.ormorgsectorname");
+		info->queryParams["ormorgsectorname"].addExample("default", String("Development department"));
+		info->queryParams["ormorgsectorname"].required = false;
+		//员工状态
+		info->queryParams.add<String>("ygzt").description = ZH_WORDS_GETTER("pimpaper.field.ygzt");
+		info->queryParams["ygzt"].addExample("default", String("working"));
+		info->queryParams["ygzt"].required = false;
+		//在岗状态
+		info->queryParams.add<String>("zgzt").description = ZH_WORDS_GETTER("pimpaper.field.zgzt");
+		info->queryParams["zgzt"].addExample("default", String("yes"));
+		info->queryParams["zgzt"].required = false;
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/pimpaper", pimpaperQuery, QUERIES(QueryParams, queryParams)) {
@@ -99,8 +121,6 @@ private:
 	PimpaperPageJsonVO::Wrapper execQueryPimpaper(const PimpaperQuery::Wrapper& query);
 	// 3.3 演示新增数据
 	Uint64JsonVO::Wrapper execAddPimpaper(const PimpaperDTO::Wrapper& dto);
-	//// 3.3 演示修改数据
-	//Uint64JsonVO::Wrapper execModifySample(const PimpaperDTO::Wrapper& dto);
 	// 3.3 演示删除数据
 	Uint64JsonVO::Wrapper execRemovePimpaper(const PimpaperDTO::Wrapper& dto);
 };

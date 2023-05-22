@@ -38,8 +38,13 @@ pimpaper:
  delete:
   summary: 删除指定员工论文信息
  field: 
-  ygbh: 员工编号
   pimpersonname: 员工姓名
+  ygbh: 员工编号
+  zjhm: 证件号码
+  zzdzs: 组织
+  ormorgsectorname: 部门
+  ygzt: 员工状态
+  zgzt: 在岗状态
   pimpapername: 论文名称
   cbs: 出版社
   kwmc: 刊物名称
