@@ -55,3 +55,11 @@ patentInformation:
   summary: 修改一条专利信息
  select:
   summary: 查看指定员工专利信息（指定专利信息详情）
+ person:
+  empname: 员工姓名
+  empID: 员工编号
+  empidNumber: 证件号码
+  emporg: 组织
+  empdep: 部门
+  empstatus: 员工状态
+  emppostatus: 在岗状态
