@@ -30,19 +30,13 @@ public:
 	}
 };
 
-template <typename T>
-class DeclareListDTO : public oatpp::DTO
+class DeclareTypeListDTO : public oatpp::DTO
 {
-	DTO_INIT(DeclareListDTO, DTO);
+	DTO_INIT(DeclareTypeListDTO, DTO);
 	DTO_FIELD_INFO(declareList) {
 		info->description = ZH_WORDS_GETTER("common.dto.declarelist");
 	}
-	DTO_FIELD(List<T>, declareList) = {};
-};
-
-class DeclareTypeListDTO : public DeclareListDTO<DeclareDTO::Wrapper>
-{
-	DTO_INIT(DeclareTypeListDTO, DeclareListDTO<DeclareDTO::Wrapper>);
+	DTO_FIELD(List<DeclareDTO::Wrapper>, declareList) = {};
 };
 
 #include OATPP_CODEGEN_END(DTO)

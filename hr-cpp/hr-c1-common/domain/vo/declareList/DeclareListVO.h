@@ -3,7 +3,7 @@
 #define _DECLARE_LIST_
 
 #include "../../GlobalInclude.h"
-#include "../../dto/declareDto/declareDTO.h"
+#include "../../dto/declareType/DeclareTypeDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 

@@ -183,8 +183,7 @@
     <ClInclude Include="domain\dto\awardLevel\AwardLevelDTO.h" />
     <ClInclude Include="domain\dto\certs\CertTypeDTO.h" />
     <ClInclude Include="domain\dto\certs\ProfCertsDTO.h" />
-    <ClInclude Include="domain\dto\declareDto\declareDTO.h" />
-    <ClInclude Include="domain\dto\declareType\declareDTO.h" />
+    <ClInclude Include="domain\dto\declareType\DeclareTypeDTO.h" />
     <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\certs\ProfCertsQuery.h" />

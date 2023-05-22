@@ -44,7 +44,7 @@
     <ClInclude Include="controller\costTypeList\CostTypeListController.h" />
     <ClInclude Include="controller\declareType\DeclareController.h" />
     <ClInclude Include="controller\archivesLevel\ArchivesLevelsController.h" />
-    <ClInclude Include="domain\dto\declareDto\declareDTO.h" />
+    <ClInclude Include="domain\dto\declareType\DeclareTypeDTO.h" />
     <ClInclude Include="domain\vo\archivesList\ArchivesListVO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\certs\ProfCertsQuery.h" />
@@ -53,7 +53,6 @@
     <ClInclude Include="controller\jobCategory\JobCategoryController.h" />
     <ClInclude Include="domain\dto\awardLevel\AwardLevelDTO.h" />
     <ClInclude Include="domain\dto\archivesLevels\ArchivesLevelsDTO.h" />
-    <ClInclude Include="domain\dto\declareType\declareDTO.h" />
     <ClInclude Include="domain\vo\declareList\DeclareListVO.h" />
     <ClInclude Include="controller\dismissReason\DismissReasonController.h" />
     <ClInclude Include="controller\leaveReason\LeaveReasonController.h" />

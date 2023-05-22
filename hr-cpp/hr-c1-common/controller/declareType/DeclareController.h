@@ -1,14 +1,11 @@
-//
-
-
-
 #pragma once
+
 #ifndef _DECLARE_CONTROLLER_
 #define _DECLARE_CONTROLLER_
 
 #include "domain/vo/BaseJsonVO.h"
 #include "domain/vo/declareList/DeclareListVO.h"
-#include "domain/dto/declareDto/declareDTO.h"
+#include "domain/dto/declareType/DeclareTypeDTO.h"
 #include "ApiHelper.h"
 #include "Macros.h"
 #include "ServerInfo.h"

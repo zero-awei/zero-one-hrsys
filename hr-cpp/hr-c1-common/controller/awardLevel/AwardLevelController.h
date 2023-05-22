@@ -17,8 +17,6 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-
-
 #ifndef _AwardLevelCONTROLLER_H_
 #define _AwardLevelCONTROLLER_H_
 #include "ServerInfo.h"
