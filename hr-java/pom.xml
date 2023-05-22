@@ -41,6 +41,7 @@
         <module>hr-gateway</module>
         <module>hr-doc</module>
         <module>hr-j1-sysmanager</module>
+        <module>hr-user</module>
     </modules>
     <properties>
         <!-- 打包的时候忽略测试案例调用 -->
