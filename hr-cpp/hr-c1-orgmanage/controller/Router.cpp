@@ -24,20 +24,22 @@
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
-#include "projTag/pageQueryProjTagList/PageQueryProjTagListController.h"
-#include "projTag/deleteProjTag/DeleteProjTagController.h"
 
 // 岗位设置
 #include "jobSet/importJobController/ImportJobController.h"
 #include "jobSet/postQueryController/PostQueryController.h"
 #include "jobSet/postDeleteController/PostDeleteController.h"
+#include "jobSet/jobOutput/JobOutputController.h"
+#include "jobSet/jobUpdate/JobUpdateController.h"
 // 项目标签
+#include "projTag/pageQueryProjTagList/PageQueryProjTagListController.h"
+#include "projTag/deleteProjTag/DeleteProjTagController.h"
 #include "projTag/exportProjTagController/ExportProjTagController.h"
 #include "projTag/importTagController/ImportTagController.h"
 #include "projTag/addTagController/AddTagController.h"
 #include "projTag/modifyProjTagController/ModifyProjTagController.h"
-
 #include "itemLabel/ItemLabelController.h"
+
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -92,6 +94,12 @@ void Router::createJobSetRouter()
 	 */
 	ROUTER_SIMPLE_BIND(PostQueryController);
 	ROUTER_SIMPLE_BIND(PostDeleteController);
+	/**
+	 * 更新岗位&导出岗位
+	 * 负责人：狗皮电耗子
+	 */
+	ROUTER_SIMPLE_BIND(JobOutputController);
+	ROUTER_SIMPLE_BIND(JobUpdateController);
 }
 
 void Router::createProjTagRouter()

@@ -160,8 +160,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="controller\itemLabel\ItemLabelController.cpp" />
-    <ClCompile Include="controller\jobOutput1\JobOutputController.cpp" />
-    <ClCompile Include="controller\jobUpdate1\JobUpdateController.cpp" />
+    <ClCompile Include="controller\jobSet\jobOutput\JobOutputController.cpp" />
+    <ClCompile Include="controller\jobSet\jobUpdate\JobUpdateController.cpp" />
     <ClCompile Include="controller\projTag\addTagController\AddTagController.cpp" />
     <ClCompile Include="controller\projTag\deleteProjTag\DeleteProjTagController.cpp" />
     <ClCompile Include="controller\projTag\importTagController\ImportTagController.cpp" />
@@ -184,8 +184,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\itemLabel\ItemLabelController.h" />
-    <ClInclude Include="controller\jobOutput1\JobOutputController.h" />
-    <ClInclude Include="controller\jobUpdate1\JobUpdateController.h" />
+    <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
+    <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
     <ClInclude Include="controller\projTag\deleteProjTag\DeleteProjTagController.h" />
     <ClInclude Include="controller\projTag\importTagController\ImportTagController.h" />
@@ -201,8 +201,8 @@
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\projTag\ProjTagDO.h" />
     <ClInclude Include="domain\dto\itemLabel\ItemLabelDTO.h" />
-    <ClInclude Include="domain\dto\jobDownloadDto\JobDownloadDTO.h" />
-    <ClInclude Include="domain\dto\jobUpdateDto\JobUpdateDTO.h" />
+    <ClInclude Include="domain\dto\jobDownload\JobDownloadDTO.h" />
+    <ClInclude Include="domain\dto\jobUpdate\JobUpdateDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDeleteDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDetailDTO.h" />
     <ClInclude Include="domain\dto\projTag\DeleteProjTagDTO.h" />
@@ -214,8 +214,8 @@
     <ClInclude Include="domain\query\postSet\PostDetailQuery.h" />
     <ClInclude Include="domain\query\projTag\PageProjTagQuery.h" />
     <ClInclude Include="domain\vo\itemLabel\ItemLabelVO.h" />
-    <ClInclude Include="domain\vo\jobDownloadVO1\JobDownloadVO.h" />
-    <ClInclude Include="domain\vo\jobUpdateVO1\JobUpdateVO.h" />
+    <ClInclude Include="domain\vo\jobDownload\JobDownloadVO.h" />
+    <ClInclude Include="domain\vo\jobUpdate\JobUpdateVO.h" />
     <ClInclude Include="domain\vo\pageQuery\PageQueryVO.h" />
     <ClInclude Include="domain\vo\postSet\PostDetailVO.h" />
     <ClInclude Include="domain\dto\jobSet\ImportJobDTO.h" />
