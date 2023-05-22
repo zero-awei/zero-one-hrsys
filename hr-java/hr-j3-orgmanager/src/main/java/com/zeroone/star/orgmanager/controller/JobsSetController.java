@@ -78,7 +78,7 @@ public class JobsSetController implements JobSetApis {
         return JsonVO.success(true);
     }
 
-    @GetMapping("query-job-by-name")
+    @GetMapping("query-by-name")
     @ApiOperation("通过名称查找职位详情")
     @Override
     public JsonVO<PageDTO<JobDTO>> queryJobByName(JobByNameQuery condition) {
