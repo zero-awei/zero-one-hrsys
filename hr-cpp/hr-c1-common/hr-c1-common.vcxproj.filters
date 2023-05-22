@@ -79,7 +79,4 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="dao\.keep" />
-  </ItemGroup>
 </Project>

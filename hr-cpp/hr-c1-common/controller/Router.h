@@ -41,7 +41,6 @@ public:
 	// ∫ÙΩ–≥ı ºªØ
 	void initRouter();
 
-
 private:
 
 #ifdef HTTP_SERVER_DEMO
