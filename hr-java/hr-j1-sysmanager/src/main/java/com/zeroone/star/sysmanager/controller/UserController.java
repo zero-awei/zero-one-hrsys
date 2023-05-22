@@ -3,7 +3,8 @@ package com.zeroone.star.sysmanager.controller;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.usermanager.UserDTO;
-import com.zeroone.star.project.query.sysmanager.usermanager.UserQuery;
+import com.zeroone.star.project.query.PageQuery;
+import com.zeroone.star.project.query.sysmanager.usermanager.PageQueryById;
 import com.zeroone.star.project.sysmanager.UserAPis;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
@@ -26,14 +27,14 @@ public class UserController implements UserAPis {
     @ApiOperation(value = "分页查询所有用户")
     @GetMapping("query_all")
     @Override
-    public JsonVO<PageDTO<UserDTO>> listAllUsers(UserQuery condition) {
+    public JsonVO<PageDTO<UserDTO>> listAllUsers(PageQuery condition) {
         return null;
     }
 
-    @ApiOperation(value = "用编号查询用户")
+    @ApiOperation(value = "编号模糊查询用户")
     @GetMapping("query_user")
     @Override
-    public JsonVO<PageDTO<UserDTO>> queryUser(@RequestParam String id) {
+    public JsonVO<PageDTO<UserDTO>> queryUser(PageQueryById userQuery) {
         return null;
     }
 
