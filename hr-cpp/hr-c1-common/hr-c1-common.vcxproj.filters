@@ -60,16 +60,10 @@
     <ClInclude Include="JobUpdateController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="controller\jobupdate\JobUpdateController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="domain\dto\jobUpdateDto\JobUpdateDTO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="domain\vo\JobUpdateVO\JobUpdateVO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\joboutput\JobOutputController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="domain\vo\JobDownloadVO\JobDownloadVO.h">
@@ -96,12 +90,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="controller\archiveslevels\ArchivesLevelsController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\jobupdate\JobUpdateController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\joboutput\JobOutputController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

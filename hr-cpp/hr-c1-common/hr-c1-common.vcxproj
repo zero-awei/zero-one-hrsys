@@ -161,8 +161,6 @@
   <ItemGroup>
     <ClInclude Include="controller\archiveslevels\ArchivesLevelsController.h" />
     <ClInclude Include="controller\declare\DeclareController.h" />
-    <ClInclude Include="controller\joboutput\JobOutputController.h" />
-    <ClInclude Include="controller\jobupdate\JobUpdateController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
@@ -184,8 +182,6 @@
   <ItemGroup>
     <ClCompile Include="controller\archiveslevels\ArchivesLevelsController.cpp" />
     <ClCompile Include="controller\declare\DeclareController.cpp" />
-    <ClCompile Include="controller\joboutput\JobOutputController.cpp" />
-    <ClCompile Include="controller\jobupdate\JobUpdateController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
