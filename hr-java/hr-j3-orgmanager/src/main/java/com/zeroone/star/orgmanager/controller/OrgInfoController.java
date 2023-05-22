@@ -52,7 +52,7 @@ public class OrgInfoController implements OrgInfoApis {
         return null;
     }
 
-    @DeleteMapping("export-org-address")
+    @GetMapping("export-org-address")
     @ApiOperation("导出指定组织地址信息")
     @Override
     public JsonVO<Boolean> exportOrgAddress(HttpServerResponse response,OrgAddressDto orgAddressDto) {
