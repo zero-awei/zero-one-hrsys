@@ -6,10 +6,7 @@ import com.zeroone.star.project.j3.orgmanager.OrgInfoApis;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -33,7 +30,7 @@ public class OrgInfoController implements OrgInfoApis {
         return null;
     }
 
-    @DeleteMapping("export-org-address")
+    @GetMapping("export-org-address")
     @ApiOperation("导出指定组织地址信息")
     @Override
     public JsonVO<Boolean> exportOrgAddress(HttpServerResponse response,OrgAddressDto orgAddressDto) {
