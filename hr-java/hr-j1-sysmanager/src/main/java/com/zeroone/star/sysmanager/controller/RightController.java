@@ -36,6 +36,13 @@ public class RightController implements RightApis {
         return null;
     }
 
+    @ApiOperation(value = "分页查询列表")
+    @GetMapping("/query-list")
+    @Override
+    public JsonVO<PageDTO<RightDTO>> queryAll(String query) {
+        return null;
+    }
+
     @ApiOperation(value = "增加权限")
     @PostMapping("/add-right")
     @Override

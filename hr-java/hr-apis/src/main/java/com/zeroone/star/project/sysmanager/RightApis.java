@@ -7,12 +7,9 @@ import com.zeroone.star.project.vo.JsonVO;
 import com.zeroone.star.project.vo.ResultStatus;
 
 /**
- * <p>
- * 描述：权限管理API接口定义
- * </p>
- * <p>版权：&copy;01星球</p>
- * <p>地址：01星球总部</p>
- * @version 1.0.0
+ * 权限接口
+ *
+ * @author authoralankay
  */
 
 public interface RightApis {
@@ -22,6 +19,14 @@ public interface RightApis {
      * @return 查询结果
      */
     JsonVO<PageDTO<RightDTO>> queryAll(RightQuery query);
+
+    /**
+     * 模糊查询
+     *
+     * @param query 模糊查询条件
+     * @return JsonVO<PageDTO < RightsDTO>>
+     */
+    JsonVO<PageDTO<RightDTO>> queryAll(String query);
 
     /**
      * 添加权限

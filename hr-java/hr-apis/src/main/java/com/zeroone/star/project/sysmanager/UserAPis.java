@@ -2,9 +2,9 @@ package com.zeroone.star.project.sysmanager;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.usermanager.UserDTO;
-import com.zeroone.star.project.query.sysmanager.usermanager.UserQuery;
+import com.zeroone.star.project.query.PageQuery;
+import com.zeroone.star.project.query.sysmanager.usermanager.PageQueryById;
 import com.zeroone.star.project.vo.JsonVO;
-import com.zeroone.star.project.vo.ResultStatus;
 
 import javax.validation.constraints.NotBlank;
 

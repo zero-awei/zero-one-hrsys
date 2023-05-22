@@ -41,28 +41,28 @@ public class UserController implements UserAPis {
     @ApiOperation(value = "添加用户")
     @PostMapping("add")
     @Override
-    public JsonVO<String> addUser(UserDTO dto) {
+    public JsonVO<Boolean> addUser(UserDTO dto) {
         return null;
     }
 
     @ApiOperation(value = "删除用户")
     @DeleteMapping("delete")
     @Override
-    public JsonVO<String> deleteUser(@RequestParam String id) {
+    public JsonVO<Boolean> deleteUser(@RequestParam String id) {
         return null;
     }
 
     @ApiOperation(value = "修改用户")
     @PutMapping("modify")
     @Override
-    public JsonVO<String> modifyUser(UserDTO dto) {
+    public JsonVO<Boolean> modifyUser(UserDTO dto) {
         return null;
     }
 
     @ApiOperation(value = "修改状态")
     @PutMapping("modifyStatus")
     @Override
-    public JsonVO<String> modifyStatus(@RequestParam String id) {
+    public JsonVO<Boolean> modifyStatus(@RequestParam String id) {
         return null;
     }
 }

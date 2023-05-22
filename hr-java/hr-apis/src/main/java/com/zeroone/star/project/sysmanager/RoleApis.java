@@ -5,8 +5,6 @@ import com.zeroone.star.project.dto.sysmanager.rolemanager.RolePermissionDTO;
 import com.zeroone.star.project.dto.sysmanager.rolemanager.RoleDTO;
 import com.zeroone.star.project.vo.JsonVO;
 
-import javax.management.relation.Role;
-
 public interface RoleApis {
     /**
      * 通过编号查询角色
@@ -16,28 +14,25 @@ public interface RoleApis {
     JsonVO<RoleDTO> queryById(Integer id);
 
     /**
-     * 通过角色名字删除
-     * @param name
+     * 删除角色
+     * @param dto
      * @return
      */
-    JsonVO<Void>  deleteByName(String name);
+    JsonVO<Boolean>  deleteByName(RoleDTO dto);
 
     /**
      * 新增一个角色
-     * @param id
-     * @param name
-     * @param keyword
-     * @param description
+     * @param dto 数据对象
      * @return
      */
-    JsonVO<RoleDTO> insertOneRole(Integer id, String name,String keyword,String description);
+    JsonVO<Boolean> addOneRole(RoleDTO dto);
 
     /**
-     * 修改一个角色
-     * @param role
+     * 修改角色
+     * @param dto 数据对象
      * @return
      */
-    JsonVO<RoleDTO> modifyOneRole(Role role);
+    JsonVO<Boolean> modifyRole(RoleDTO dto);
 
     /**
      * 角色分配菜单

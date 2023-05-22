@@ -1,20 +1,14 @@
 package com.zeroone.star.sysmanager.controller;
 
-
-import com.zeroone.star.project.dto.sample.SampleDTO;
-import com.zeroone.star.project.dto.sysmanager.RoleDTO;
-import com.zeroone.star.project.sysmanager.RolesApis;
+import com.zeroone.star.project.dto.sysmanager.rolemanager.RoleDTO;
+import com.zeroone.star.project.dto.sysmanager.rolemanager.RoleMenuDTO;
+import com.zeroone.star.project.dto.sysmanager.rolemanager.RolePermissionDTO;
+import com.zeroone.star.project.sysmanager.RoleApis;
 import com.zeroone.star.project.vo.JsonVO;
-import com.zeroone.star.project.vo.ResultStatus;
-import com.zeroone.star.sysmanager.service.IRoleService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Resource;
-import javax.management.relation.Role;
 
 /**
  * <p>
@@ -30,6 +24,8 @@ import javax.management.relation.Role;
 @Api(tags="角色管理")
 @RequestMapping("/roles")
 public class RoleController implements RoleApis {
+
+
 
     @GetMapping("query-one")
     @ApiOperation(value = "查询一个角色")
