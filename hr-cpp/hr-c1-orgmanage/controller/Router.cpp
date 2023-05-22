@@ -52,7 +52,8 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-
+	createJobDownloadRouter();
+	createJobUpdateRouter();
 }
 
 #ifdef HTTP_SERVER_DEMO
