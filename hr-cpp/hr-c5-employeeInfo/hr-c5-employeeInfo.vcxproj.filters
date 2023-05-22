@@ -36,13 +36,19 @@
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\NotInArchive\NotInArchiveDTO.h">
+    <ClInclude Include="domain\dto\NotEmployeeInArchive\NotEmployeeInArchiveDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\NotInArchive\NotInArchive.h">
+    <ClInclude Include="domain\query\NotEmployeeInArchive\NotEmployeeInArchiveQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\NotInArchive\NotInArchiveVO.h">
+    <ClInclude Include="domain\vo\NotEmployeeInArchive\NotEmployeeInArchiveVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\NotEmployeeInArchive\NotEmployeeInArchiveDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -57,6 +63,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

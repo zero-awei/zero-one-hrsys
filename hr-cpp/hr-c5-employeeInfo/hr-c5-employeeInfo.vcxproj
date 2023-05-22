@@ -171,18 +171,21 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\dto\NotInArchive\NotInArchiveDTO.h" />
+    <ClInclude Include="domain\do\NotEmployeeInArchive\NotEmployeeInArchiveDO.h" />
+    <ClInclude Include="domain\dto\NotEmployeeInArchive\NotEmployeeInArchiveDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
-    <ClInclude Include="domain\query\NotInArchive\NotInArchive.h" />
-    <ClInclude Include="domain\vo\NotInArchive\NotInArchiveVO.h" />
+    <ClInclude Include="domain\query\NotEmployeeInArchive\NotEmployeeInArchiveQuery.h" />
+    <ClInclude Include="domain\vo\NotEmployeeInArchive\NotEmployeeInArchiveVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
