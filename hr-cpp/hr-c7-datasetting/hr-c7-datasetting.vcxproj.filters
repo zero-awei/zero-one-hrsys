@@ -5,9 +5,9 @@
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="controller\Title\TitleController.cpp" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\archive\ArchiveDO.h" />
@@ -27,69 +27,16 @@
     <ClInclude Include="domain\dto\archive\ArchiveDTO.h" />
     <ClInclude Include="domain\query\archive\ArchiveQuery.h" />
     <ClInclude Include="domain\vo\archive\ArchiveVO.h" />
+    <ClInclude Include="domain\dto\Qualification\QulificationDTO.h" />
+    <ClInclude Include="domain\query\Qualification\QualificationQuery.h" />
+    <ClInclude Include="domain\vo\Qulification\QulificationVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
-=======
-    <ClInclude Include="stdafx.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ServerInfo.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Macros.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\OtherComponent.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\Router.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\do\DoInclude.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\Qualification\QulificationDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\Qulification\QulificationVO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\query\Qualification\QualificationQuery.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\titleCatalogue\typeChangeController\TypeChangeController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\titleCatalogue\typeDeleteController\TypeDeleteController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\titleCatalogue\typeQueryController\TypeQueryController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\Router.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\SystemInterceptor.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\titleCatalogue\typeChangeController\TypeChangeController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\titleCatalogue\typeDeleteController\TypeDeleteController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\titleCatalogue\typeQueryController\TypeQueryController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
->>>>>>> remotes/origin/c7-gwjn-longyiye
+    <ClInclude Include="controller\Title\TitleController.h" />
+    <ClInclude Include="domain\do\Title\TitleDO.h" />
+    <ClInclude Include="domain\dto\Title\TitleDTO.h" />
+    <ClInclude Include="domain\query\Title\TitleQuery.h" />
+    <ClInclude Include="domain\vo\Title\TitleVO.h" />
   </ItemGroup>
 </Project>
