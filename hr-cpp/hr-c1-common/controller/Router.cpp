@@ -24,6 +24,10 @@
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
+
+
+
+
 //测试
 #include "certDropDownList/profCertsList/ProfCertsListController.h"
 #include "certDropDownList/certTypeList/CertTypeListController.h"
@@ -35,6 +39,8 @@
 #include "costTypeList/CostTypeListController.h"
 #include "declareType/DeclareController.h"
 #include "archivesLevel/ArchivesLevelsController.h"
+#include "leaveReason/LeaveReasonController.h"
+#include "dismissReason/DismissReasonController.h"
 
 #include "awardLevel/AwardLevelController.h"
 #include "jobCategory/JobCategoryController.h"
@@ -83,6 +89,16 @@ void Router::createArchivesLevelsRouter() {
 	ROUTER_SIMPLE_BIND(ArchivesLevelsController);
 }
 
+void Router::createLeaveReasonRouter()
+{
+	ROUTER_SIMPLE_BIND(LeaveReasonController);
+}
+
+void Router::createDismissReasonRouter()
+{
+	ROUTER_SIMPLE_BIND(DismissReasonController);
+}
+
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
@@ -102,12 +118,6 @@ void Router::creatTestRouter()
 	// 绑定职业资格证书类型下拉列表控制器
 	ROUTER_SIMPLE_BIND(ProfCertsListController);
 	ROUTER_SIMPLE_BIND(CertTypeListController);
-}
-
-void Router::createRouter()
-{
-	ROUTER_SIMPLE_BIND(FileReservationController);
-	ROUTER_SIMPLE_BIND(FileStatusController);
 }
 
 void Router::createContractTypeRouter()

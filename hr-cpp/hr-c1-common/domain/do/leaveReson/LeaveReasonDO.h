@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: yuanxiang
- @Date: 2023/05/17 16:46:06
+ @Author: awei
+ @Date: 2023/05/21 21:36:32
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,17 +17,17 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "FileStatusController.h"
-
-PullListVO::Wrapper FileStatusController::execQueryFileStatus()
+#ifndef _LEAVEREASONDO_H_
+#define _LEAVEREASONDO_H_
+#include "../DoInclude.h"
+/**
+ * 离职原因下拉列表
+ * 负责人：远翔
+ */
+class LeaveReasonDO
 {
-	auto dto = PullListDTO::createShared();
-	auto borrowing = ItemDTO::createShared(1, ZH_WORDS_GETTER("fileStatus.borrowing"));
-	dto->pullList->push_back(borrowing);
-	auto returned = ItemDTO::createShared(2, ZH_WORDS_GETTER("fileStatus.returned"));
-	dto->pullList->push_back(returned);
-	auto vo = PullListVO::createShared();
-	vo->success(dto);
-	return vo;
-}
+	// 离职原因下拉列表
+	// 只提供GET方法
+	CC_SYNTHESIZE(string, leavereason, Leavereason);
+};
+#endif // !_LEAVEREASONDO_H_

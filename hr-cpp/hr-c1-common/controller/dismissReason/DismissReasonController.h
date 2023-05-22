@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: yuanxiang
- @Date: 2023/05/17 16:46:06
+ @Date: 2023/05/20 22:27:31
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,39 +17,37 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _FILESTATUSCONTROLLER_H_
-#define _FILESTATUSCONTROLLER_H_
+#ifndef _DISMISSREASONCONTROLLER_H_
+#define _DISMISSREASONCONTROLLER_H_
 
 #include "ApiHelper.h"
 #include "domain/vo/BaseJsonVO.h"
-#include "domain/dto/pullList/PullListDTO.h"
 #include "domain/vo/pullList/PullListVO.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
-using namespace oatpp;
-
 /**
- * 借阅状态下拉列表控制器
+ * 离职原因Controller
+ * 接收前端请求，查询离职原因并组装成列表返回
  * 负责人：远翔
  */
-
-class FileStatusController : public oatpp::web::server::api::ApiController
+class DismissReasonController : public oatpp::web::server::api::ApiController
 {
 	// 定义控制器访问入口
-	API_ACCESS_DECLARE(FileStatusController);
+	API_ACCESS_DECLARE(DismissReasonController);
 public: // 定义接口
-	ENDPOINT_INFO(queryFileStatus) {
-		info->summary = ZH_WORDS_GETTER("common.controller.fileStatus");
+	ENDPOINT_INFO(queryDismissReason) {
+		info->summary = ZH_WORDS_GETTER("common.controller.dismissReason");
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
 
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/file-status"), queryFileStatus) {
-		API_HANDLER_RESP_VO(execQueryFileStatus());
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/dismiss-reason"), queryDismissReason) {
+		API_HANDLER_RESP_VO(execQueryDismissReason());
 	}
 private: // 定义接口执行函数
-	PullListVO::Wrapper execQueryFileStatus();
+	PullListVO::Wrapper execQueryDismissReason();
 };
+
 #include OATPP_CODEGEN_END(ApiController)
 
-#endif // !_FILESTATUSCONTROLLER_H_
+#endif // !_DISMISSREASONCONTROLLER_H_

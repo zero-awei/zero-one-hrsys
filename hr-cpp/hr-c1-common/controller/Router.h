@@ -41,6 +41,7 @@ public:
 	// 呼叫初始化
 	void initRouter();
 
+
 private:
 
 #ifdef HTTP_SERVER_DEMO
@@ -90,6 +91,18 @@ private:
 	 */
 	void createAwardLevelRouter();
 	void createJobCategoryRouter();
+	
+	/**
+	 * 绑定离职原因下拉列表
+	 * 负责人：远翔
+	 */
+	void createLeaveReasonRouter();
+
+	/**
+	 * 绑定解聘原因下拉列表
+	 * 负责人：远翔
+	 */
+	void createDismissReasonRouter();
 };
 
 #endif // !_ROUTER_
