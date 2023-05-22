@@ -17,8 +17,8 @@ import lombok.Data;
 @ApiModel("下拉列表选项传输对象")
 @Data
 public class DropdownListOptionDTO {
-    @ApiModelProperty(value = "列表项编号", example = "1")
-    private Integer key;
+    @ApiModelProperty(value = "列表项编号", example = "10")
+    private String key;
     @ApiModelProperty(value = "列表项值", example = "身份证")
     private String value;
 }
