@@ -6,6 +6,7 @@ import com.zeroone.star.dashboard.service.IBisEmployeeanalysisService;
 import com.zeroone.star.dashboard.service.ISrforgService;
 import com.zeroone.star.project.dashboard.DashboardApis;
 import com.zeroone.star.project.dashboard.OrgDistributeApis;
+import com.zeroone.star.project.dto.common.ZzmmDTO;
 import com.zeroone.star.project.dto.dashboard.*;
 import com.zeroone.star.project.query.dashboard.EducationQuery;
 import com.zeroone.star.project.vo.JsonVO;
@@ -50,8 +51,9 @@ public class DashboardController implements DashboardApis, OrgDistributeApis {
     @ApiOperation(value = "学历分布")
     @GetMapping("query-education-distribution")
     @Override
-    public JsonVO<EducationQuery> queryEducationDistribution() {
-        return bisEducationService.getEducationDistribution();
+    public JsonVO<List<EducationQuery>> queryEducationDistribution() {
+        List<EducationQuery> educationDistribution = bisEducationService.getEducationDistribution();
+        return JsonVO.success(educationDistribution);
     }
 
     /**

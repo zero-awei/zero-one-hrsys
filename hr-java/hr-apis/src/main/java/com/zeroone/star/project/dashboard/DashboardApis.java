@@ -47,5 +47,5 @@ public interface DashboardApis {
      * @Author: Rqs
      * @Date: 2023/5/18 22:47
      */
-    JsonVO<EducationQuery> queryEducationDistribution();
+    JsonVO<List<EducationQuery>> queryEducationDistribution();
 }
