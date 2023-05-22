@@ -38,32 +38,11 @@ public: // 定义接口
 		//info->queryParams.add<String>("ZLH").description = ZH_WORDS_GETTER("patentInformation.field.ZLH");
 		//info->queryParams["ZLH"].addExample("default", String("patentInformation"));
 
-		//员工姓名
-		info->queryParams.add<String>("empname").description = ZH_WORDS_GETTER("patentInformation.person.empname");
-		info->queryParams["empname"].addExample("default", String("LiHua"));
+
 		//员工编号
 		info->queryParams.add<String>("empID").description = ZH_WORDS_GETTER("patentInformation.person.empID");
 		info->queryParams["empID"].addExample("default", String("1234"));
-		//证件号码
-		info->queryParams.add<String>("empidNumber").description = ZH_WORDS_GETTER("patentInformation.person.empidNumber");
-		info->queryParams["empidNumber"].addExample("default", String("12345"));
-		info->queryParams["empidNumber"].required = false;
-		//组织
-		info->queryParams.add<String>("emporg").description = ZH_WORDS_GETTER("patentInformation.person.emporg");
-		info->queryParams["emporg"].addExample("default", String("HuaWeiZhongBu"));
-		info->queryParams["emporg"].required = false;
-		//部门
-		info->queryParams.add<String>("empdep").description = ZH_WORDS_GETTER("patentInformation.person.empdep");
-		info->queryParams["empdep"].addExample("default", String("Development department"));
-		info->queryParams["empdepe"].required = false;
-		//员工状态
-		info->queryParams.add<String>("empstatus").description = ZH_WORDS_GETTER("patentInformation.person.empstatus");
-		info->queryParams["empstatus"].addExample("default", String("working"));
-		info->queryParams["empstatus"].required = false;
-		//在岗状态
-		info->queryParams.add<String>("emppostatus").description = ZH_WORDS_GETTER("patentInformation.person.emppostatus");
-		info->queryParams["emppostatus"].addExample("default", String("yes"));
-		info->queryParams["emppostatus"].required = false;
+
 	}
 	// 4 定义接口端点
 	ENDPOINT(API_M_GET, "/test", queryPatentinfo, QUERIES(QueryParams, qps)) {

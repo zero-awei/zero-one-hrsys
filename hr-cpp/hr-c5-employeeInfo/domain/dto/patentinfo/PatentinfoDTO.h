@@ -19,47 +19,102 @@ public:
 
     DTO_INIT(PatentinfoDTO, DTO);
 
-    // 专利号
+    //ZLH:专利号
     DTO_FIELD(String, ZLH);
     DTO_FIELD_INFO(ZLH) {
-        info->description = ZH_WORDS_GETTER("patentInformation.field.ZLH");
+        info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.ZLH");
     }
 
-    // 专利名称
-    DTO_FIELD(String, PIMPATENTNAME);
-    DTO_FIELD_INFO(PIMPATENTNAME) {
-        info->description = ZH_WORDS_GETTER("patentInformation.field.PIMPATENTNAME");
+    //UPDATEDATE : 更新时间
+    DTO_FIELD(String, UPDATEDATE);
+    DTO_FIELD_INFO(UPDATEDATE) {
+        info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.UPDATEDATE");
     }
 
-    // 专利获取时间
-    DTO_FIELD(String, ZLHQSJ);
-    DTO_FIELD_INFO(ZLHQSJ) {
-        info->description = ZH_WORDS_GETTER("patentInformation.field.ZLHQSJ");
-    }
-
-    // 专利批准国别
-    DTO_FIELD(String, ZLPZGB);
-    DTO_FIELD_INFO(ZLPZGB) {
-        info->description = ZH_WORDS_GETTER("patentInformation.field.ZLPZGB");
-    }
-
-    // 附件
-    DTO_FIELD(String, ENCLOLURE);
-    DTO_FIELD_INFO(ENCLOLURE) {
-        info->description = ZH_WORDS_GETTER("patentInformation.field.ENCLOLURE");
-    }
-
-    // 专利信息编码
+    //PIMPATENTID : 专利信息编码
     DTO_FIELD(String, PIMPATENTID);
     DTO_FIELD_INFO(PIMPATENTID) {
-        info->description = ZH_WORDS_GETTER("patentInformation.field.PIMPATENTID");
+        info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.PIMPATENTID");
     }
 
-    // 人员信息标识
+    //ZLHQSJ : 专利获取时间
+    DTO_FIELD(String, ZLHQSJ);
+    DTO_FIELD_INFO(ZLHQSJ) {
+        info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.ZLHQSJ");
+    }
+    
+    //PIMPATENTNAME : 专利名称
+    DTO_FIELD(String, PIMPATENTNAME);
+    DTO_FIELD_INFO(PIMPATENTNAME) {
+        info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.PIMPATENTNAME");
+    }
+
+    //UPDATEMAN : 更新人
+    DTO_FIELD(String, UPDATEMAN);
+    DTO_FIELD_INFO(UPDATEMAN) {
+        info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.UPDATEMAN");
+    }
+    
+    //CREATEMAN : 建立人
+    DTO_FIELD(String, CREATEMAN);
+    DTO_FIELD_INFO(CREATEMAN) {
+        info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.CREATEMAN");
+    }
+    
+    //CREATEDATE : 建立时间
+    DTO_FIELD(String, CREATEDATE);
+    DTO_FIELD_INFO(CREATEDATE) {
+        info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.CREATEDATE");
+    }
+    
+    //ZLPZGB : 专利批准国别
+    DTO_FIELD(String, ZLPZGB);
+    DTO_FIELD_INFO(ZLPZGB) {
+        info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.ZLPZGB");
+    }
+    
+    //PIMPERSONID : 人员信息标识
     DTO_FIELD(String, PIMPERSONID);
     DTO_FIELD_INFO(PIMPERSONID) {
-        info->description = ZH_WORDS_GETTER("patentInformation.field.PIMPERSONID");
+        info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.PIMPERSONID");
     }
+    
+    //JLSS : 记录所属
+    DTO_FIELD(String, JLSS);
+    DTO_FIELD_INFO(JLSS) {
+        info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.JLSS");
+    }
+    
+    //JLSPZT : 审批状态
+    DTO_FIELD(String, JLSPZT);
+    DTO_FIELD_INFO(JLSPZT) {
+        info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.JLSPZT");
+    }
+    
+    //JLGLBH : 记录管理编号
+    DTO_FIELD(String, JLGLBH);
+    DTO_FIELD_INFO(JLGLBH) {
+        info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.JLGLBH");
+    }
+    
+    //JLCZZ : 记录操作者
+    DTO_FIELD(String, JLCZZ);
+    DTO_FIELD_INFO(JLCZZ) {
+        info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.JLCZZ");
+    }
+    
+    //ENCLOLURE : 附件
+    DTO_FIELD(String, ENCLOLURE);
+    DTO_FIELD_INFO(ENCLOLURE) {
+        info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.ENCLOLURE");
+    }
+    
+    //REASON : 拒绝原因
+    DTO_FIELD(String, REASON);
+    DTO_FIELD_INFO(REASON) {
+        info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.REASON");
+    }
+
 };
 
 /**
