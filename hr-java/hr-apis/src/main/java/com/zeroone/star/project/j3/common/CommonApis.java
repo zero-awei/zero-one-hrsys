@@ -6,14 +6,13 @@ import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
 import com.zeroone.star.project.j3.query.common.DisciplineTypeQuery;
 import com.zeroone.star.project.j3.query.common.EducationTypeQuery;
 import com.zeroone.star.project.j3.query.common.OneConditionQuery;
+import com.zeroone.star.project.j3.query.common.SectorNameQuery;
 import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
-
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -36,22 +35,6 @@ public interface CommonApis {
     @ApiOperation("岗位名称下拉列表")
     JsonVO<List<DropdownListOptionDTO>> queryJobTitle();
 
-
-    /**
-     * 学习形式下拉列表
-     * sql:SELECT * FROM `t_srfcodeitem` WHERE CODELISTID = 'FC4B9F96-E6E4-4170-9587-9DB970C57AA3'
-     *
-     * @return Map<Integer, String> Integer: 代码标示符 String: 名称
-     */
-    JsonVO<Map<Integer, String>> LearningFormsDropdownList();
-
-    /**
-     * 学校性质下拉列表
-     * sql:SELECT * FROM `t_srfcodeitem` WHERE CODELISTID = 'FDA27067-9E4F-4DC1-9676-2D65375359A9'
-     *
-     * @return Map<Integer, String> Integer: 代码标示符 String: 名称
-     */
-    JsonVO<Map<Integer, String>> SchoolNatureDropdownList();
 	/**
 	 * 获取分配信息中的职务信息数据接口
 	 * @param oneConditionQuery 查询的字段名
@@ -94,13 +77,13 @@ public interface CommonApis {
  * @Date 20:49 2023/5/19
  */
 	JsonVO<List<DropdownListOptionDTO>> queryNameofAssociation();
-/**
- *  部门名称下拉列表
- * @return {@link JsonVO< List< DropdownListOptionDTO>>}
- * @Author H_lzu
- * @Date 20:49 2023/5/19
- */
-	JsonVO<List<DropdownListOptionDTO>> queryDepartmentName();
+
+	/**
+	 * 部门名称下拉列表
+	 * 库： t_orgSector
+	 * @return 部门名称下拉列表
+	 */
+	JsonVO<List<DropdownListOptionDTO>> querySectorName(SectorNameQuery sectorNameQuery);
 
 	/**
 	 * 学习形式下拉列表
@@ -120,6 +103,7 @@ public interface CommonApis {
 	 * @return 学校性质List
 	 */
 	JsonVO<List<DropdownListOptionDTO>> querySchoolNature();
+
 	/**
 	 * 分页查询某人的语言能力
 	 */

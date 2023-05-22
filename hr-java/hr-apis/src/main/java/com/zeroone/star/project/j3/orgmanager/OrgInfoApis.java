@@ -46,4 +46,11 @@ public interface OrgInfoApis {
      * @param response,ids
      */
     JsonVO<Boolean> exportOrgAddress(HttpServerResponse response, OrgAddressDto ids);
+	/**
+	 * 添加组织信息
+	 * @param orgInfoDTO 添加组织的内容
+	 * @return 是否添加成功
+	 */
+	JsonVO<Boolean> addOryData(OrgInfoDTO orgInfoDTO);
+
 }
