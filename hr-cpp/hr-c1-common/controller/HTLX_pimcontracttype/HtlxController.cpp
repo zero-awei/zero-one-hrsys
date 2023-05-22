@@ -1,4 +1,3 @@
-#include "stdafx.h"
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -17,14 +16,11 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+#include "stdafx.h"
 #include "HtlxController.h"
 
 //还有些注释没补
 
-Uint64JsonVO::Wrapper HtlxController::execModifyHtlx(const HtlxDTO::Wrapper& dto)
-{
-	// 定义一个JsonVO对象
-	auto jvo = Uint64JsonVO::createShared();
-	
-	return jvo;
+HtlxJsonVO::Wrapper HtlxController::execQueryHtlx() {
+	return HtlxJsonVO::Wrapper();
 }

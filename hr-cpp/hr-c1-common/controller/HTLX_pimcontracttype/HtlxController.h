@@ -21,9 +21,12 @@
 #define _HTLX_CONTROLLER_
 
 #include "domain/vo/BaseJsonVO.h"
-#include "domain/dto/HTLX_pimcontracttype/HtlxDTO.h"
-#include "domain/vo/HTLX_pimcontracttype/HtlxVO.h"
 #include "ApiHelper.h"
+#include "Macros.h"
+#include "ServerInfo.h"
+#include "domain/vo/HTLX_pimcontracttype/HtlxVO.h"
+#include "domain/dto/HTLX_pimcontracttype/HtlxDTO.h"
+
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 /*
@@ -34,21 +37,20 @@ class HtlxController : public oatpp::web::server::api::ApiController
 	// 定义控制器访问入口
 	API_ACCESS_DECLARE(HtlxController);
 public: // 定义接口
-	ENDPOINT_INFO(modifyHtlx) {
+	ENDPOINT_INFO(queryHtlx) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("htlx.pull-list.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(HtlxJsonVO);
 	}
-	ENDPOINT(API_M_PUT, "/htlx/pull-list", modifyHtlx, BODY_DTO(HtlxDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_GET, "/htlx/pull-list", queryHtlx) {
 		// 响应结果
-		API_HANDLER_RESP_VO(execModifyHtlx(dto));
+		API_HANDLER_RESP_VO(execQueryHtlx());
 	}
 	
 private: // 定义接口执行函数
-	Uint64JsonVO::Wrapper execModifyHtlx(const HtlxDTO::Wrapper& dto);
+	HtlxJsonVO::Wrapper execQueryHtlx();
 };
 
 #include OATPP_CODEGEN_END(ApiController)
-
 #endif // !_HTLX_CONTROLLER_
