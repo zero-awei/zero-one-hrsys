@@ -61,3 +61,22 @@ qulification:
   qulificationName: 执业资格名称
   rank: 级别
   practicingQulification: 执业资格
+  sex: 性别，如：男
+contractType:
+ get:
+  summary: 分页查询合同数据
+ field:
+  id: 员工编号
+  name: 员工姓名
+  department: 员工所属单位
+  stat: 员工状态
+  unitArrivalTime: 到单位时间
+  contractId: 合同编号
+  signingUnit: 合同签订单位
+  contract_category: 合同类别
+  contract_type: 合同类型
+  startDate: 起始日期
+  endDate: 结束日期
+  contractStatus: 合同状态
+  remainingDays: 合同剩余时间
+  expiryDate: 试用到期时间
