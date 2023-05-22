@@ -57,20 +57,6 @@ public:
 };
 
 /**
- * 组装下拉列表项到List
- * 负责人：Andrew
- */
-template <typename T>
-class ListDTO : public oatpp::DTO
-{
-	DTO_INIT(ListDTO, DTO);
-	DTO_FIELD_INFO(pullList) {
-		info->description = ZH_WORDS_GETTER("common.dto.list");
-	}
-	DTO_FIELD(List<T>, pullList) = {};
-};
-
-/**
  * 下拉列表DTO领域模型
  * 负责人：Andrew
  */
