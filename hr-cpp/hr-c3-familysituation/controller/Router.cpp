@@ -25,6 +25,7 @@
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
+#include "controller/familysituation/FamilysituationController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -36,6 +37,7 @@ router->addController(__CLASS__::createShared())
 #define ROUTER_SIMPLE_BIND(__CLASS__) \
 BIND_CONTROLLER(docEndpoints, router, __CLASS__)
 #endif
+
 
 Router::Router(Endpoints* docEndpoints, HttpRouter* router)
 {
@@ -50,7 +52,7 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-
+	ROUTER_SIMPLE_BIND(FamilysituationController);
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -60,7 +62,7 @@ void Router::createSampleRouter()
 	ROUTER_SIMPLE_BIND(SampleController);
 	// 绑定用户控制器
 	ROUTER_SIMPLE_BIND(UserController);
-	
+
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());
 }
