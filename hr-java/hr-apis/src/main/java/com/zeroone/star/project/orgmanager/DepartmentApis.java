@@ -5,6 +5,7 @@ import com.zeroone.star.project.dto.orgmanager.DepartmentDTO;
 import com.zeroone.star.project.dto.orgmanager.ExportDTO;
 import com.zeroone.star.project.query.orgmanager.DepartmentQuery;
 import com.zeroone.star.project.query.orgmanager.ExportAttendanceAddressQuery;
+import com.zeroone.star.project.query.orgmanager.ExportDepartmentsQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
 /**
@@ -23,7 +24,7 @@ public interface DepartmentApis {
      *
      * @return 导出文件下载地址
      */
-    JsonVO<ExportDTO> execExportDepartments();
+    JsonVO<ExportDTO> execExportDepartments(ExportDepartmentsQuery query);
 
     /**
      * 导出指定部门考勤地址信息

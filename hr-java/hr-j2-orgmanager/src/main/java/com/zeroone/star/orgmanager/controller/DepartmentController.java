@@ -6,6 +6,7 @@ import com.zeroone.star.project.dto.orgmanager.ExportDTO;
 import com.zeroone.star.project.orgmanager.DepartmentApis;
 import com.zeroone.star.project.query.orgmanager.DepartmentQuery;
 import com.zeroone.star.project.query.orgmanager.ExportAttendanceAddressQuery;
+import com.zeroone.star.project.query.orgmanager.ExportDepartmentsQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -30,7 +31,7 @@ public class DepartmentController implements DepartmentApis {
     @ApiOperation(value = "导出部门信息")
     @GetMapping("export-departments")
     @Override
-    public JsonVO<ExportDTO> execExportDepartments() {
+    public JsonVO<ExportDTO> execExportDepartments(ExportDepartmentsQuery query) {
         return null;
     }
 
