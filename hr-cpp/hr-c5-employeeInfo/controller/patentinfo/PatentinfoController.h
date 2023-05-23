@@ -151,7 +151,7 @@ private: // 定义接口执行函数
 	Uint64JsonVO::Wrapper execRemovePatent(const PatentinfoDTO::Wrapper& dto);
 
 	//查看指定员工专利信息（指定专利信息详情）
-	PatentinfoPageJsonVO::Wrapper execQueryPatentinfo(const PatentinfoQuery::Wrapper& query);
+	PatentinfoPageJsonVO::Wrapper execQueryPagePatentinfo(const PatentinfoQuery::Wrapper& query);
 
 	// 5 定义接口的执行函数
 	PatentinfoJsonVO::Wrapper execQueryPatentinfo(const PatentinfoQuery::Wrapper& query);
