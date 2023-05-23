@@ -54,9 +54,7 @@ patentInformation:
  put:
   summary: 修改一条专利信息
  select:
-<<<<<<< HEAD
   summary: 查看指定员工专利信息（指定专利信息详情）
-=======
   summary: 查看指定员工专利信息（指定专利信息详情）
  pimpatent:
   ZLH: 专利号
@@ -75,4 +73,3 @@ patentInformation:
   JLCZZ: 记录操作者
   ENCLOLURE: 附件
   REASON: 拒绝原因
->>>>>>> c5-basic-management-jiang

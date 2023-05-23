@@ -16,7 +16,6 @@ PatentinfoJsonVO::Wrapper PatentinfoController::execQueryPatentinfo(const Patent
 	return vo;
 }
 
-<<<<<<< HEAD
 PatentinfoPageJsonVO::Wrapper PatentinfoController::execQueryPagePatent(const PatentinfoQuery::Wrapper& query)
 {
 	// 创建响应对象
@@ -29,11 +28,7 @@ PatentinfoPageJsonVO::Wrapper PatentinfoController::execQueryPagePatent(const Pa
 	vo->success(pdto);
 	return vo;
 }
-=======
 
-
-
->>>>>>> c5-basic-management-jiang
 
 Uint64JsonVO::Wrapper PatentinfoController::execModifyPatentinfo(const PatentinfoDTO::Wrapper& dto)
 {
@@ -43,7 +38,6 @@ Uint64JsonVO::Wrapper PatentinfoController::execModifyPatentinfo(const Patentinf
 }
 
 
-<<<<<<< HEAD
 Uint64JsonVO::Wrapper PatentinfoController::execAddPatent(const PatentinfoDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
@@ -78,5 +72,4 @@ Uint64JsonVO::Wrapper PatentinfoController::execRemovePatent(const PatentinfoDTO
 	// 响应结果
 	return jvo;
 }
-=======
->>>>>>> c5-basic-management-jiang
+

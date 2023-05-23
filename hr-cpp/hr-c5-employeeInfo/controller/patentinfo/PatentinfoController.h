@@ -42,17 +42,13 @@ public: // 定义接口
 		// 定义分页查询参数描述
 		//API_DEF_ADD_PAGE_PARAMS();
 		// 添加其他查询参数
-<<<<<<< HEAD
 		//info->queryParams.add<String>("ZLH").description = ZH_WORDS_GETTER("patentInformation.field.ZLH");
 		//info->queryParams["ZLH"].addExample("default", String("patentInformation"));
-=======
 
 		//员工编号
 		info->queryParams.add<String>("PIMPATENTID").description = ZH_WORDS_GETTER("patentInformation.pimpatent.PIMPATENTID");
 		info->queryParams["PIMPATENTID"].addExample("default", String("1234"));
 		info->queryParams["PIMPATENTID"].required = true;
-
->>>>>>> c5-basic-management-jiang
 	}
 	// 4 定义接口端点
 	ENDPOINT(API_M_GET, "/employee-info/patentinfo", queryPatentinfo, QUERIES(QueryParams, qps)) {
@@ -117,8 +113,6 @@ public: // 定义接口
 		API_HANDLER_RESP_VO(execAddPatent(dto));
 	}
 
-
-<<<<<<< HEAD
 	// 3.1 定义删除接口描述
 	ENDPOINT_INFO(removePatent) {
 		// 定义接口标题
@@ -131,13 +125,6 @@ public: // 定义接口
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemovePatent(dto));
 	}
-=======
-
-
-
-
->>>>>>> c5-basic-management-jiang
-
 
 	// 3.1 定义修改接口描述
 	ENDPOINT_INFO(modifySample) {
@@ -153,9 +140,6 @@ public: // 定义接口
 	}
 
 
-
-
-<<<<<<< HEAD
 private: // 定义接口执行函数
 	//分页查看指定员工专利信息（分页查询列表）
 	PatentinfoPageJsonVO::Wrapper execQueryPagePatent(const PatentinfoQuery::Wrapper& query);
@@ -168,24 +152,12 @@ private: // 定义接口执行函数
 
 	//查看指定员工专利信息（指定专利信息详情）
 	PatentinfoPageJsonVO::Wrapper execQueryPatentinfo(const PatentinfoQuery::Wrapper& query);
-=======
-
-
-
-
-
-
-private: // 定义接口执行函数
-
-
 
 	// 5 定义接口的执行函数
 	PatentinfoJsonVO::Wrapper execQueryPatentinfo(const PatentinfoQuery::Wrapper& query);
->>>>>>> c5-basic-management-jiang
 
 	//修改指定员工专利信息（单条修改）
 	Uint64JsonVO::Wrapper execModifyPatentinfo(const PatentinfoDTO::Wrapper& dto);
-
 
 };
 
