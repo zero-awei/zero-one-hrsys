@@ -72,6 +72,13 @@ class ProjTagDTO : public oatpp::DTO
 	DTO_FIELD_INFO(ormorgid) {
 		info->description = ZH_WORDS_GETTER("projTag.field.ormorgid");
 	}
+public:
+	ProjTagDTO() {
+		ormxmbqid = "";
+	}
+	ProjTagDTO(string id) {
+		ormxmbqid = id;
+	}
 
 };
 class ProjTagPageDTO : public PageDTO<ProjTagDTO::Wrapper>
