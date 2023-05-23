@@ -23,7 +23,7 @@ uint64_t CertificateInformationDAO::count(const CertificateInformationPageQuery:
 list<CertificateInformationDO> CertificateInformationDAO::selectWithPage(const CertificateInformationPageQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT zgzsbh,pimvocationalname,zslx,zghqrq,zgsydw,fzyxq FROM `t_pimvocational`  ";
+	sql << "SELECT a.zgzsbh,a.pimvocationalname,b.name,a.zghqrq,a.zgsydw,a.fzyxq FROM `t_pimvocational` a,zo_credentialtype b where a.zslx=b.code  ";
 	CERTIFACATE_INFORMATION_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	CertificateInformationMapper mapper;
