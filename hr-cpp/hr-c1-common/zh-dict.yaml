@@ -71,8 +71,8 @@ common:
   armyLevelType: 军转级别下拉列表 
   fileStatus: 档案借阅状态
   fileReservation: 档案保管地
-  jobLevelType: 职称级别类型 
-  costType: 费用类别
+  jobLevelType: 职称级别类型下拉列表
+  costType: 费用类别下拉列表
   certTypeList: 证书类型下拉列表
   profCertsList: 职业资格证书类型下拉列表
   declareType: 申报类型下拉列表

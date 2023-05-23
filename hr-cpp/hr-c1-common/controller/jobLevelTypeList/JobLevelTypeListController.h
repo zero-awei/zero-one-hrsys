@@ -20,7 +20,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
 
-	ENDPOINT(API_M_GET, "/common/job-level-type-pull-list", queryJobLevelType) {
+	ENDPOINT(API_M_GET, "/pull-list/job-level-type", queryJobLevelType) {
 		API_HANDLER_RESP_VO(execQueryJobLevelType());
 	}
 private: // 定义接口执行函数
