@@ -3,7 +3,7 @@
 #define _ARCHIVES_LIST_VO_
 
 #include "../../GlobalInclude.h"
-#include "../../dto/archivesLevelsDto/archivesLevelsDTO.h"
+#include "../../dto/archivesLevels/ArchivesLevelsDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 

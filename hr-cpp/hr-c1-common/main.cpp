@@ -23,9 +23,9 @@
 #include "controller/Router.h"
 #include "controller/OtherComponent.hpp"
 #include "DbInit.h"
-#ifdef HTTP_SERVER_DEMO
-#include "uselib/jwt/TestToken.h"
-#endif
+//#ifdef HTTP_SERVER_DEMO
+//#include "uselib/jwt/TestToken.h"
+//#endif
 
 #ifdef USE_NACOS
 #include "NacosClient.h"
@@ -46,8 +46,8 @@ bool getStartArg(int argc, char* argv[]) {
 	std::string dbUsername = "root";
 	std::string dbPassword = "114514mysql";
 	std::string dbName = "test";
-	std::string dbHost = "8.130.89.148";
-	int dbPort = 3965;
+	std::string dbHost = "192.168.56.97";
+	int dbPort = 3306;
 	int dbMax = 25;
 #ifdef USE_NACOS
 	// Nacos配置参数
@@ -110,7 +110,6 @@ bool getStartArg(int argc, char* argv[]) {
 		// 更新索引
 		currIndex++;
 	}
-
 	// 记录服务器配置到内存中方便使用
 	ServerInfo::getInstance().setServerPort(serverPort);
 	ServerInfo::getInstance().setDbUsername(dbUsername);
