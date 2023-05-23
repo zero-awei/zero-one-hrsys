@@ -42,5 +42,6 @@
     <ClInclude Include="controller\Certificate\CertificateController.h" />
     <ClInclude Include="controller\archive\ArchiveController.h" />
     <ClInclude Include="controller\contract\ContractController.h" />
+    <ClInclude Include="domain\do\contractcategory\ContractCategoryDO.h" />
   </ItemGroup>
 </Project>

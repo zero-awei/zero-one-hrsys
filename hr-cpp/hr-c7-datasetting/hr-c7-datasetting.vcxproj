@@ -182,6 +182,7 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\archive\ArchiveDO.h" />
+    <ClInclude Include="domain\do\contractcategory\ContractCategoryDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\Title\TitleDO.h" />
     <ClInclude Include="domain\dto\certificate\CertificateDTO.h" />
