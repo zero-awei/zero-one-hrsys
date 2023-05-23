@@ -73,3 +73,33 @@ patentInformation:
   JLCZZ: 记录操作者
   ENCLOLURE: 附件
   REASON: 拒绝原因
+#pimpaper的中英词典
+pimpaper:
+ get:
+  summary: 查看指定员工论文信息(分页)
+ post:
+  summary: 新增指定员工论文信息
+ delete:
+  summary: 删除指定员工论文信息
+ field: 
+  pimpersonname: 员工姓名
+  ygbh: 员工编号
+  zjhm: 证件号码
+  zzdzs: 组织
+  ormorgsectorname: 部门
+  ygzt: 员工状态
+  zgzt: 在岗状态
+  pimpapername: 论文名称
+  cbs: 出版社
+  kwmc: 刊物名称
+  gwqs: 刊物期数
+  fbsj: 发表时间
+  grzlwzzzdpm: 个人在论文著作中的排名
+  fj: 附件
+example:
+ field:
+  pimpersonname: 李华
+  zzdzs: 四川公司
+  ormorgsectorname: 企业部
+  ygzt: 见习
+  zgzt: 在职
