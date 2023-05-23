@@ -57,12 +57,7 @@ public://定义接口
 		info->summary = ZH_WORDS_GETTER("certificate.post.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("certificate.field.id");
-		info->queryParams["id"].addExample("default", String("1"));
-		info->queryParams["id"].required = false;
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("certificate.field.certificateName");
-		info->queryParams["name"].addExample("default", String("shi gong yuan"));
-		info->queryParams["name"].required = false;
+		
 	}
 	// 定义新增接口处理
 	ENDPOINT(API_M_POST, "/Certificate/add", addCertificate, BODY_DTO(CertificateDTO::Wrapper, dto)) {
@@ -74,12 +69,10 @@ public://定义接口
 		info->summary = ZH_WORDS_GETTER("certificate.delete.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("certificate.field.certificateName");
-		info->queryParams["name"].addExample("default", String("shi gong yuan"));
-		info->queryParams["name"].required = false;
+		
 	}
 	// 定义批量删除接口处理
-	ENDPOINT(API_M_POST, "/Certificate/delete", delCertificate, BODY_DTO(CertificateDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/Certificate/delete", delCertificate, BODY_DTO(CertificateDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execDelCertificate(dto));
 	}
@@ -89,9 +82,7 @@ public://定义接口
 		info->summary = ZH_WORDS_GETTER("certificate.put.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("certificate.field.certificateName");
-		info->queryParams["name"].addExample("default", String("shi gong yuan"));
-		info->queryParams["name"].required = false;
+		
 	}
 	ENDPOINT(API_M_PUT, "/Certificate/modify", modifyCertificate, BODY_DTO(CertificateDTO::Wrapper, dto)) {
 		// 响应结果
