@@ -22,7 +22,6 @@
 
 #include "../../GlobalInclude.h"
 #include "../../dto/pullList/PullListDTO.h"
-#include <domain/vo/BaseJsonVO.h>
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
