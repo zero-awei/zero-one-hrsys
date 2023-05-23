@@ -37,10 +37,12 @@
 
 class EmployeeInfoController : public oatpp::web::server::api::ApiController
 {
-	// 定义控制器访问入口
 	API_ACCESS_DECLARE(EmployeeInfoController);
-public: // 定义接口
-	//查询指定员工信息
+public:
+	/* *
+	* 查询指定员工信息接口
+	* 执行人：Detachment
+	*/
 	ENDPOINT_INFO(employeeQuery) {
 		info->summary = ZH_WORDS_GETTER("employee.get.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
@@ -67,6 +69,10 @@ public: // 定义接口
 		API_DEF_ADD_QUERY_PARAMS(String, "phone", ZH_WORDS_GETTER("employee.field.phone"), "6666", false);
 	}
 	API_HANDLER_ENDPOINT_QUERY(API_M_GET, "/employee-info/employee-query", employeeQuery, EmployeeInfoQuery, execEmployeeQuery(query));
+	/* *
+	* 查询指定员工信息
+	* 执行人：Detachment
+	*/
 	ENDPOINT_INFO(employeePut) {
 		info->summary = ZH_WORDS_GETTER("employee.put.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
@@ -78,6 +84,10 @@ public: // 定义接口
 		API_DEF_ADD_QUERY_PARAMS(String, "state", ZH_WORDS_GETTER("employee.field.state"), "on", false);
 	};
 	API_HANDLER_ENDPOINT(API_M_PUT, "/employee-info/employeePut", employeePut, BODY_DTO(EmployeeInfoAddDTO::Wrapper, dto), execEmployeePut(dto));
+	/* *
+	* 修改指定员工员工信息接口
+	* 执行人：Detachment
+	*/
 	ENDPOINT_INFO(employeePost) {
 		info->summary = ZH_WORDS_GETTER("employee.post.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
@@ -108,15 +118,36 @@ public: // 定义接口
 		API_DEF_ADD_QUERY_PARAMS(String, "email", ZH_WORDS_GETTER("employee.field.email"), "666@666.com", false);
 	}
 	API_HANDLER_ENDPOINT(API_M_POST, "/employee-info/employeePost", employeePost,BODY_DTO(EmployeeInfoDTO::Wrapper,dto), execEmployeeModify(dto));
+	/* *
+	* 岗位列表接口
+	* 执行人：Detachment
+	*/
 	ENDPOINT_INFO(jobListQuery) {
 		info->summary = ZH_WORDS_GETTER("employee.get.summaryList");
+		API_DEF_ADD_QUERY_PARAMS(String, "jobName", ZH_WORDS_GETTER("employee.field.jobList"), u8"炒面岗", true);
 		API_DEF_ADD_PAGE_PARAMS();
 	}
 	API_HANDLER_ENDPOINT_QUERY(API_M_GET, "/employee-info/job-list-query", jobListQuery, JobListQuery, execJobListQuery(query));
 private: // 定义接口执行函数
+	/* *
+	* 查询指定员工员工信息执行接口
+	* 执行人：Detachment
+	*/
 	StringJsonVO::Wrapper execEmployeeQuery(const EmployeeInfoQuery::Wrapper& query);
+	/* *
+	* 修改指定员工员工信息执行接口
+	* 执行人：Detachment
+	*/
 	StringJsonVO::Wrapper execEmployeeModify(const EmployeeInfoDTO::Wrapper& dto);
+	/* *
+	* 增加员工信息执行接口
+	* 执行人：Detachment
+	*/
 	StringJsonVO::Wrapper execEmployeePut(const EmployeeInfoAddDTO::Wrapper& dto);
+	/* *
+	* 岗位列表查询执行接口
+	* 执行人：Detachment
+	*/
 	StringJsonVO::Wrapper execJobListQuery(const JobListQuery::Wrapper& query);
 };
 

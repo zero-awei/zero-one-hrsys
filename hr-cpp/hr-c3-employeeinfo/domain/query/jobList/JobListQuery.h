@@ -24,7 +24,10 @@
 #include "domain/query/PageQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
-
+/* *
+* 分页查询岗位列表
+* 执行人：Detachment
+*/
 class JobListQuery : public PageQuery
 {
 	DTO_INIT(JobListQuery, PageQuery);
