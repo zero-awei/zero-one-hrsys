@@ -106,6 +106,10 @@ const menus = reactive([
   {
     path: '/sample/Aside',
     text: '侧边栏'
+  },
+  {
+    path: '/sample/process',
+    text: '进度条'
   }
 ])
 </script>

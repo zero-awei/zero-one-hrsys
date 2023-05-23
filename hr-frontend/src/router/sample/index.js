@@ -14,11 +14,11 @@ const routes = [
       },
       {
         path: '/sample/sass',
-        component: () => import('@/views/sample/SassTest/SassSample.vue')
+        component: () => import('@/views/sample/sassTest/SassSample.vue')
       },
       {
         path: '/sample/communication',
-        component: () => import('@/views/sample/Communication/index.vue')
+        component: () => import('@/views/sample/communication/Index.vue')
       },
       {
         path: '/sample/Aside',
@@ -35,6 +35,10 @@ const routes = [
       {
         path: '/sample/maintable',
         component: () => import('@/views/sample/maintable/Maintable.vue')
+      },
+      {
+        path: '/sample/process',
+        component: () => import('@/views/sample/process/ProcessDemo.vue')
       }
     ]
   }
