@@ -65,7 +65,7 @@ public class LoginController implements LoginApis {
     @Resource
     CaptchaService captchaService;
     @Resource
-    BCryptPasswordEncoder bCryptPasswordEncoder;
+    PasswordEncoder passwordEncoder;
 
     @ApiOperation(value = "授权登录")
     @PostMapping("auth-login")
@@ -201,7 +201,7 @@ public class LoginController implements LoginApis {
         //3.获取旧密码
         String oldPassword = userService.getCurrentPassword(userName);
         //4.判断新旧密码是否一致
-        boolean matches = bCryptPasswordEncoder.matches(oldPassword, newPassword);
+        boolean matches = passwordEncoder.matches(oldPassword, newPassword);
         if (matches) {
             return JsonVO.fail("新旧密码不能一致！");
         }
