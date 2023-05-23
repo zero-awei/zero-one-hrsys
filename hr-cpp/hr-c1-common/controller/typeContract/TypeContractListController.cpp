@@ -1,8 +1,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: xubuxi
- @Date: 2023/05/19 21:31:12
+ @Author: Andrew211vibe
+ @Date: 2023/05/17 23:35:42
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,10 +17,19 @@
  limitations under the License.
 */
 #include "stdafx.h"
-#include "TypeContractController.h"
+#include "TypeContractListController.h"
 
-//还有些注释没补
+PullListVO::Wrapper TypeContractListController::execQueryContractType()
+{
+	auto dto = PullListDTO::createShared();
+	auto a = ItemDTO::createShared(1, "Yes");
+	dto->pullList->push_back(a);
+	auto b = ItemDTO::createShared(2, "No");
+	dto->pullList->push_back(b);
 
-TypeContractJsonVO::Wrapper TypeContractController::execQueryHtlx() {
-	return TypeContractJsonVO::Wrapper();
+	auto vo = PullListVO::createShared();
+	vo->success(dto);
+	// TODO: 调用service
+
+	return vo;
 }

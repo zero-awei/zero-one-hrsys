@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: xubuxi
- @Date: 2023/05/19 21:18:10
+ @Author: Andrew211vibe
+ @Date: 2023/05/17 23:35:42
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,40 +17,39 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _HTLX_CONTROLLER_
-#define _HTLX_CONTROLLER_
+#ifndef _CONTRACTTYPELISTCONTROLLER_H_
+#define _CONTRACTTYPELISTCONTROLLER_H_
 
 #include "domain/vo/BaseJsonVO.h"
 #include "ApiHelper.h"
 #include "Macros.h"
 #include "ServerInfo.h"
-#include "domain/vo/typeContract/TypeContractVO.h"
-#include "domain/dto/typeContract/TypeContractDTO.h"
-
+#include "domain/vo/pullList/PullListVO.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
-/*
-合同类别下拉列表控制器
-*/
-class TypeContractController : public oatpp::web::server::api::ApiController
+
+/**
+ * 合同类型下拉列表控制器
+ * 接收前端请求，查询合同类型并组装成列表返回
+ * 负责人：Andrew
+ */
+class TypeContractListController : public oatpp::web::server::api::ApiController
 {
 	// 定义控制器访问入口
-	API_ACCESS_DECLARE(TypeContractController);
+	API_ACCESS_DECLARE(TypeContractListController);
 public: // 定义接口
-	ENDPOINT_INFO(queryHtlx) {
-		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("htlx.pull-list.summary");
-		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(TypeContractJsonVO);
+	ENDPOINT_INFO(queryContractType) {
+		info->summary = ZH_WORDS_GETTER("common.controller.contractType");
+		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/type-contract"), queryHtlx) {
-		// 响应结果
-		API_HANDLER_RESP_VO(execQueryHtlx());
+
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/type-contract"), queryContractType) {
+		API_HANDLER_RESP_VO(execQueryContractType());
 	}
-	
 private: // 定义接口执行函数
-	TypeContractJsonVO::Wrapper execQueryHtlx();
+	PullListVO::Wrapper execQueryContractType();
 };
 
 #include OATPP_CODEGEN_END(ApiController)
-#endif // !_HTLX_CONTROLLER_
+
+#endif // !_CONTRACTTYPELISTCONTROLLER_H_
