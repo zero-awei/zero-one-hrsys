@@ -175,6 +175,7 @@
     <ClInclude Include="controller\archives\ArchivesController.h" />
     <ClInclude Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\patentinfo\PatentinfoController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.h" />
     <ClInclude Include="domain\do\archives\t_pimarchivesDO.h" />
