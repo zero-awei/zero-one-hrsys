@@ -131,13 +131,13 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\EmployeeInformation\EmployeeInformationController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="controller\employeeInfo\EmployeeInfoController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\organizationDepartmentTreeStructure\organizationDepartmentTreeStructure.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\EmployeeInformation\EmployeeInformationController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
