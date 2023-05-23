@@ -180,6 +180,8 @@
     <ClInclude Include="domain\dto\paperinfo\PaperDTO.h" />
     <ClInclude Include="domain\do\pimpaper\pimpaperDO.h" />
     <ClInclude Include="domain\dto\pimpaper\pimpaperDTO.h" />
+    <ClInclude Include="controller\wenhuaren\ArchivesController.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\archives\ArchivesQuery.h" />
     <ClInclude Include="domain\query\paperinfo\PaperQuery.h" />
@@ -187,6 +189,8 @@
     <ClInclude Include="domain\vo\paperinfo\PaperVO.h" />
     <ClInclude Include="domain\query\pimpaper\pimpaperQuery.h" />
     <ClInclude Include="domain\vo\pimpaper\pimpaperVO.h" />
+    <ClInclude Include="domain\query\archives\ArchivesQuery.h" />
+    <ClInclude Include="domain\vo\archives\ArchivesVo.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
@@ -197,6 +201,7 @@
     <ClCompile Include="controller\pimpaper\pimpaperController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="controller\wenhuaren\ArchivesController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -215,6 +220,9 @@
     <ProjectReference Include="..\lib-oatpp\lib-oatpp.vcxproj">
       <Project>{3fc26f19-d665-40bd-92f1-fc4be22a38ba}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
