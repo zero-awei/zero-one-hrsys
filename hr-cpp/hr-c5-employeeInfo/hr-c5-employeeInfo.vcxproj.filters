@@ -36,7 +36,7 @@
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\wenhuaren\ListPaging.h">
+    <ClInclude Include="controller\wenhuaren\ArchivesController.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\archives\ArchivesQuery.h">
@@ -59,8 +59,11 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\wenhuaren\ListPaging.cpp">
+    <ClCompile Include="controller\wenhuaren\ArchivesController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>
