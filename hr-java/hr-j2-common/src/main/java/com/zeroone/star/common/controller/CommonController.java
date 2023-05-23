@@ -59,7 +59,7 @@ public class CommonController implements CommonApis {
     @GetMapping("employee-status-list")
     @Override
     public JsonVO<List<StatusListDTO>> queryEmployeeStatus() {
-        return JsonVO.success(iPimpersonService.selectEmployeeStatus());
+        return JsonVO.success(iPimpersonService.listEmployeeStatus());
     }
 
     @ApiOperation(value = "部门类型下拉列表")

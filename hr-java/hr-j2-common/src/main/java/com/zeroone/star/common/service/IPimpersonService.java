@@ -16,5 +16,5 @@ import java.util.List;
  */
 public interface IPimpersonService extends IService<Pimperson> {
 
-    List<StatusListDTO> selectEmployeeStatus();
+    List<StatusListDTO> listEmployeeStatus();
 }
