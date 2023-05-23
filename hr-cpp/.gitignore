@@ -108,6 +108,9 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
+hr-c5-employeeInfo.vcxproj
+hr-c5-employeeInfo.vcxproj.filters
+hr-c5-employeeInfo.vcxproj.user
 
 # Chutzpah Test files
 _Chutzpah*
