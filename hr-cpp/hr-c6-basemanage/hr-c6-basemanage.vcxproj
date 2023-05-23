@@ -29,7 +29,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\include;</IncludePath>
-    <LibraryPath>D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\include;D:\vs studio\VC\Tools\MSVC\14.35.32215\atlmfc\include</IncludePath>
+    <LibraryPath>D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\lib\x86;D:\vs studio\VC\Tools\MSVC\14.35.32215\atlmfc\include;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -80,7 +80,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\include;F:\big program\zero-one-hrsys\hr-cpp\arch-demo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\include;F:\big program\zero-one-hrsys\hr-cpp\arch-demo;D:\vs studio\VC\Tools\MSVC\14.35.32215\atlmfc\include;D:\bigproject\c6\zero-one-hrsys\hr-cpp\arch-demo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
@@ -88,7 +88,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib\debug;..\lib-common\lib\debug;..\lib-mysql\lib\vs14\debug;D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib\debug;..\lib-common\lib\debug;..\lib-mysql\lib\vs14\debug;D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\lib\x86;D:\vs studio\VC\Tools\MSVC\14.35.32215\atlmfc\include;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -168,12 +168,11 @@
     <ClCompile Include="controller\ContractController\ContractController.cpp" />
     <ClCompile Include="controller\JobTitle\JobTitleController.cpp" />
     <ClCompile Include="controller\GoshController\TestController.cpp" />
-    <ClCompile Include="controller\Muggle\expense_ledger-Muggle.cpp" />
-    <ClCompile Include="controller\Muggle\labor_dispatch-Muggle.cpp" />
     <ClCompile Include="controller\LaborDispatch\LaborDispatchConstroller.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SelectController\retirement.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="controller\TerminationReminder\terminationReminder.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="dao\Sample\ContractDao.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -189,11 +188,10 @@
     <ClInclude Include="controller\ContractController\ContractController.h" />
     <ClInclude Include="controller\GoshController\TestController.h" />
     <ClInclude Include="controller\JobTitle\JobTitleController.h" />
-    <ClInclude Include="controller\Muggle\expense_ledger-Muggle.h" />
-    <ClInclude Include="controller\Muggle\labor_dispatch-Muggle.h" />
     <ClInclude Include="controller\LaborDispatch\LaborDispatchConstroller.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="controller\TerminationReminder\terminationReminder.h" />
     <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
     <ClInclude Include="domain\dto\JobTitleInfo\JobTitleInfoDTO.h" />
     <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h" />
@@ -207,8 +205,6 @@
     <ClInclude Include="domain\dto\ContractDTO\ContractDTO.h" />
     <ClInclude Include="domain\dto\ContractDTO\ContractDTO_.h" />
     <ClInclude Include="domain\dto\JobTitle\JobTitleDTO.h" />
-    <ClInclude Include="domain\dto\Muggle\expenseLedgerDTO.h" />
-    <ClInclude Include="domain\dto\Muggle\laborDispatchDTO.h" />
     <ClInclude Include="domain\dto\Gosh\ContractDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\ContractQuery.h" />
@@ -219,10 +215,7 @@
     <ClInclude Include="domain\vo\ContractVO.h" />
     <ClInclude Include="domain\vo\ContractVO\ContractVO.h" />
     <ClInclude Include="domain\vo\ContractVO\ContractVO_.h" />
-    <ClInclude Include="domain\query\Muggle\expenseLedgerQuery.h" />
-    <ClInclude Include="domain\query\Muggle\laborDispatchQuery.h" />
     <ClInclude Include="domain\vo\JobTitle\JobTitleJsonVO.h" />
-    <ClInclude Include="domain\vo\Muggle\laborDispatchJsonVO.h" />
     <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO.h" />
     <ClInclude Include="domain\dto\retirement\RetiremetDto.h" />
     <ClInclude Include="domain\query\LaborDispatch\LaborDispatchQuery.h" />
@@ -232,6 +225,20 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\sample\ContractService.h" />
+    <ClInclude Include="controller\muggle\ExpenseLedgerController.h" />
+    <ClInclude Include="controller\muggle\LaborDispatchController.h" />
+    <ClCompile Include="controller\muggle\ExpenseLedgerController.cpp" />
+    <ClCompile Include="controller\muggle\LaborDispatchController.cpp" />
+    <ClInclude Include="domain\do\muggle\LaborDispatchDO.h" />
+    <ClInclude Include="domain\dto\muggle\ExpenseLedgerDTO.h" />
+    <ClInclude Include="domain\dto\muggle\LaborDispatchDTO.h" />
+    <ClInclude Include="domain\vo\muggle\LaborDispatchJsonVO.h" />
+    <ClInclude Include="domain\query\muggle\ExpenseLedgerQuery.h" />
+    <ClInclude Include="domain\query\muggle\LaborDispatchQuery.h" />
+    <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
+    <ClInclude Include="service\muggle\LaborDispatchService.h" />
+    <ClInclude Include="dao\muggle\LaborDispatchDAO.h" />
+    <ClCompile Include="dao\muggle\LaborDispatchDAO.cpp" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

@@ -32,11 +32,11 @@
 #include "./ContractController/ContractController.h"
 #include "../uselib/ws/WSController.h"
 #endif
-#include "Muggle/labor_dispatch-Muggle.h"
-#include "Muggle/expense_ledger-Muggle.h"
+#include "muggle/LaborDispatchController.h"
+#include "muggle/ExpenseLedgerController.h"
 #include "LaborDispatch/LaborDispatchConstroller.h"
 #include "GoshController/TestController.h"
-
+#include "TerminationReminder/terminationReminder.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -72,6 +72,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(JobTitleController);
 	ROUTER_SIMPLE_BIND(GoshController);
 	ROUTER_SIMPLE_BIND(GoshController);
+	ROUTER_SIMPLE_BIND(TerminationReminderController);
 }
 void Router::createJobAndExpenseRouter()
 {
