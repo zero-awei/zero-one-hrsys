@@ -94,13 +94,13 @@ StringJsonVO::Wrapper UserController::executePostFile(const String& fileBody, co
 	FastDfsClient client("conf/client.conf", 3);
 #else
 	//定义客户端对象
-	FastDfsClient client("192.168.220.128");
+	FastDfsClient client("192.168.144.33");
 #endif
 	std::string fieldName = client.uploadFile(fileName);
 	std::cout << "upload fieldname is : " << fieldName << std::endl;
 	ss.str("");
 	ss.clear();
-	ss << "http://192.168.220.128:8888/" << fieldName;
+	ss << "http://192.168.144.33:8888/" << fieldName;
 	// 创建响应数据
 	auto vo = StringJsonVO::createShared();
 	vo->success(String(ss.str().c_str()));

@@ -31,6 +31,7 @@
  * 档案保管地下拉列表控制器
  * 负责人：远翔
  */
+
 class FileReservationController : public oatpp::web::server::api::ApiController
 {
 	// 定义控制器访问入口
@@ -41,7 +42,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
 
-	ENDPOINT(API_M_GET, "/file-reservation-pull-list", queryFileReservation) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/file-reservation"), queryFileReservation) {
 		API_HANDLER_RESP_VO(execQueryFileReservation());
 	}
 private: // 定义接口执行函数

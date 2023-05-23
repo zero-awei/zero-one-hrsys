@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -29,7 +29,7 @@
 #include "CharsetConvertHepler.h"
 #include "domain/vo/jobSet/ImportJobVO.h"
 
-// æ–‡ä»¶ä¸Šä¼ 
+// ÎÄ¼şÉÏ´«
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
 #include "oatpp/web/mime/multipart/FileProvider.hpp"
 #include "oatpp/web/mime/multipart/Reader.hpp"
@@ -42,24 +42,24 @@ namespace multipart = oatpp::web::mime::multipart;
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
 /**
- * å²—ä½è®¾ç½® - å¯¼å…¥å²—ä½
- * æ¥æ”¶å‰ç«¯è¯·æ±‚è§£ææ•°æ®è¡¨åã€æ–‡ä»¶æ ¼å¼ã€è¡¨æ ¼æ–‡ä»¶å¹¶ä¿å­˜åˆ°ä¸»æœº
- * ä½¿ç”¨è¡¨æ ¼æ–‡ä»¶ä¸­çš„æ•°æ®æ‰§è¡Œæ‰¹é‡æ–°å¢æ“ä½œï¼Œå¹¶è¿”å›è£…è½½æ–°å¢idçš„Listä¿¡æ¯
- * è´Ÿè´£äººï¼šAndrew
+ * ¸ÚÎ»ÉèÖÃ - µ¼Èë¸ÚÎ»
+ * ½ÓÊÕÇ°¶ËÇëÇó½âÎöÊı¾İ±íÃû¡¢ÎÄ¼ş¸ñÊ½¡¢±í¸ñÎÄ¼ş²¢±£´æµ½Ö÷»ú
+ * Ê¹ÓÃ±í¸ñÎÄ¼şÖĞµÄÊı¾İÖ´ĞĞÅúÁ¿ĞÂÔö²Ù×÷£¬²¢·µ»Ø×°ÔØĞÂÔöidµÄListĞÅÏ¢
+ * ¸ºÔğÈË£ºAndrew
  */
 class ImportJobController : public oatpp::web::server::api::ApiController
 {
-	// å®šä¹‰æ§åˆ¶å™¨è®¿é—®å…¥å£
+	// ¶¨Òå¿ØÖÆÆ÷·ÃÎÊÈë¿Ú
 	API_ACCESS_DECLARE(ImportJobController);
-public: // å®šä¹‰æ¥å£
+public: // ¶¨Òå½Ó¿Ú
 	ENDPOINT_INFO(importJob) {
-		// å®šä¹‰æ¥å£æ ‡é¢˜
+		// ¶¨Òå½Ó¿Ú±êÌâ
 		info->summary = ZH_WORDS_GETTER("jobSet.import.summary");
-		// å®šä¹‰é»˜è®¤æˆæƒå‚æ•°ï¼ˆå¯é€‰å®šä¹‰ï¼Œå¦‚æœå®šä¹‰äº†ï¼Œä¸‹é¢ENDPOINTé‡Œé¢éœ€è¦åŠ å…¥API_HANDLER_AUTH_PARAMEï¼‰
+		// ¶¨ÒåÄ¬ÈÏÊÚÈ¨²ÎÊı£¨¿ÉÑ¡¶¨Òå£¬Èç¹û¶¨ÒåÁË£¬ÏÂÃæENDPOINTÀïÃæĞèÒª¼ÓÈëAPI_HANDLER_AUTH_PARAME£©
 		//API_DEF_ADD_AUTH();
-		// å®šä¹‰å“åº”å‚æ•°æ ¼å¼
+		// ¶¨ÒåÏìÓ¦²ÎÊı¸ñÊ½
 		API_DEF_ADD_RSP_JSON_WRAPPER(ImportJobJsonVO);
-		// å®šä¹‰åˆ†é¡µå‚æ•°æè¿°
+		// ¶¨Òå·ÖÒ³²ÎÊıÃèÊö
 		info->queryParams.add<String>("fileType").description = ZH_WORDS_GETTER("jobSet.import.fileType");
 		info->queryParams["fileType"].addExample("default", String("xlsx"));
 		info->queryParams["fileType"].required = false;
@@ -71,32 +71,32 @@ public: // å®šä¹‰æ¥å£
 	}
 
 	ENDPOINT(API_M_POST, PATH_TO_JOBSET("/import-job"), importJob, /*API_HANDLER_AUTH_PARAME, */REQUEST(std::shared_ptr<IncomingRequest>, request)) {
-		/* åˆ›å»ºmultipartå®¹å™¨ */
+		/* ´´½¨multipartÈİÆ÷ */
 		auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
-		/* åˆ›å»ºmultipartè¯»å–å™¨ */
+		/* ´´½¨multipart¶ÁÈ¡Æ÷ */
 		multipart::Reader multipartReader(multipartContainer.get());
-		/* é…ç½®è¯»å–å™¨è¯»å–è¡¨å•å­—æ®µ */
+		/* ÅäÖÃ¶ÁÈ¡Æ÷¶ÁÈ¡±íµ¥×Ö¶Î */
 		multipartReader.setPartReader("fileType", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 		multipartReader.setPartReader("sheetName", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-		/* é…ç½®è¯»å–å™¨è¯»å–æ–‡ä»¶åˆ°æ–‡ä»¶ */
+		/* ÅäÖÃ¶ÁÈ¡Æ÷¶ÁÈ¡ÎÄ¼şµ½ÎÄ¼ş */
 		String filePath = "public/static/file/";
 		filePath->append(SimpleDateTimeFormat::format("%Y-%m-%d_%H-%M-%S_"));
 		filePath->append("JobSet.xlsx");
 		multipartReader.setPartReader("file", multipart::createFilePartReader(filePath));
 
-		/* è¯»å–è¯·æ±‚ä½“ä¸­çš„æ•°æ® */
+		/* ¶ÁÈ¡ÇëÇóÌåÖĞµÄÊı¾İ */
 		request->transferBody(&multipartReader);
 		if (multipartContainer->count() != 3)
 		{
-			/* æ‰“å°partæ•°é‡ */
+			/* ´òÓ¡partÊıÁ¿ */
 			OATPP_LOGD("Multipart", "parts_count=%d", multipartContainer->count());
 			return createResponse(Status::CODE_400, "error in params");
 		}
 
-		/* è·å–è¡¨å•æ•°æ® */
+		/* »ñÈ¡±íµ¥Êı¾İ */
 		auto type = multipartContainer->getNamedPart("fileType");
 		auto sheet = multipartContainer->getNamedPart("sheetName");
-		/* æ–­è¨€è¡¨å•æ•°æ®æ˜¯å¦æ­£ç¡® */
+		/* ¶ÏÑÔ±íµ¥Êı¾İÊÇ·ñÕıÈ· */
 		OATPP_ASSERT_HTTP(type, Status::CODE_400, "fileType is null");
 		OATPP_ASSERT_HTTP(sheet, Status::CODE_400, "sheetName is null");
 
@@ -107,18 +107,18 @@ public: // å®šä¹‰æ¥å£
 			return createResponse(Status::CODE_400, "error in params");
 		}
 
-		/* è·å–æ–‡ä»¶éƒ¨åˆ† */
+		/* »ñÈ¡ÎÄ¼ş²¿·Ö */
 		auto filePart = multipartContainer->getNamedPart("file");
-		/* æ–­è¨€æ–‡ä»¶æ˜¯å¦è·å–åˆ° */
+		/* ¶ÏÑÔÎÄ¼şÊÇ·ñ»ñÈ¡µ½ */
 		OATPP_ASSERT_HTTP(filePart, Status::CODE_400, "file upload error");
-		/* æ‰“å°æ–‡ä»¶åç§° */
+		/* ´òÓ¡ÎÄ¼şÃû³Æ */
 		OATPP_LOGD("Multipart", "file='%s'", filePart->getFilename()->c_str());
 
 		auto dto = ImportJobDTO::createShared(String(fileType), String(sheetName), filePath);
-		// å“åº”ç»“æœ
+		// ÏìÓ¦½á¹û
 		API_HANDLER_RESP_VO(execImportJob(dto/*, authObject->getPayload()*/));
 	}
-private: // å®šä¹‰æ¥å£æ‰§è¡Œå‡½æ•°
+private: // ¶¨Òå½Ó¿ÚÖ´ĞĞº¯Êı
 	ImportJobJsonVO::Wrapper execImportJob(const ImportJobDTO::Wrapper& dto/*, const PayloadDTO& payload*/);
 };
 
