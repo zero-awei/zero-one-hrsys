@@ -43,7 +43,7 @@ public: // 定义接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(TypeContractJsonVO);
 	}
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("type-contract"), queryHtlx) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/type-contract"), queryHtlx) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryHtlx());
 	}
