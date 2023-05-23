@@ -1,10 +1,7 @@
 package com.zeroone.star.dashboard.controller;
 
 
-import com.zeroone.star.dashboard.service.IBisEducationService;
-import com.zeroone.star.dashboard.service.IBisEmployeeanalysisService;
-import com.zeroone.star.dashboard.service.IBisProfessoranalysisService;
-import com.zeroone.star.dashboard.service.ISrforgService;
+import com.zeroone.star.dashboard.service.*;
 import com.zeroone.star.project.dashboard.DashboardApis;
 import com.zeroone.star.project.dashboard.OrgDistributeApis;
 import com.zeroone.star.project.dto.dashboard.*;
@@ -27,6 +24,8 @@ public class DashboardController implements DashboardApis, OrgDistributeApis {
     @Resource
     IBisProfessoranalysisService iBisProfessoranalysisService;
 
+    @Resource
+    IPimoutputService iPimoutputService;
     @GetMapping("pim-title-zcdj")
     @ApiOperation(value = "职称等级分布")
     @Override
@@ -38,7 +37,7 @@ public class DashboardController implements DashboardApis, OrgDistributeApis {
     @GetMapping("pim-output-yd")
     @Override
     public JsonVO<List<PimOutputDTO>> queryByMonth() {
-        return null;
+        return JsonVO.success(iPimoutputService.listPimOutput());
     }
 
     @ApiOperation(value = "获取机关和项目人员")
