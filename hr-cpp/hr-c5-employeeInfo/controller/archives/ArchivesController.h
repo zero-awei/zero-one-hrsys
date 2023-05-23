@@ -9,7 +9,7 @@
 #include "domain/vo/archives/ArchivesVO.h"
 
 /*
-	信息控制器
+	档案信息控制器
 */
 
 

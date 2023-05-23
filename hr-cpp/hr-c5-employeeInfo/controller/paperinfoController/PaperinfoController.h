@@ -43,14 +43,14 @@ public: // 定义接口
 	}
 
 	// 3.1 定义修改接口描述
-	ENDPOINT_INFO(modifySample) {
+	ENDPOINT_INFO(modifyPaperinfo) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("paperinfo.put.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/employee-info/modify-paperinfo", modifySample, BODY_DTO(PaperDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/employee-info/modify-paperinfo", modifyPaperinfo, BODY_DTO(PaperDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyPaperinfo(dto));
 	}

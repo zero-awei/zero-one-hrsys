@@ -71,7 +71,7 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\paperinfoController\paperinfoController.cpp">
+    <ClCompile Include="controller\paperinfoController\PaperinfoController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\archives\ArchivesController.cpp">

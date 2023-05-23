@@ -188,7 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\archives\ArchivesController.cpp" />
-    <ClCompile Include="controller\paperinfoController\paperinfoController.cpp" />
+    <ClCompile Include="controller\paperinfoController\PaperinfoController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
