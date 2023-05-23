@@ -8,5 +8,5 @@ CREATE TABLE `zo_credentialtype` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8mb4_0900_ai_ci COMMENT='证书类型';
 
 -- initiate some records for zo_credentialtype
-INSERT INTO `zo_credential` VALUES ('1', '执（职）业资格证书', '10', 1);
-INSERT INTO `zo_credential` VALUES ('2', '（岗位）技能证书', '5', 1);
+INSERT INTO `zo_credentialType` VALUES ('1', '执（职）业资格证书', '10', 1);
+INSERT INTO `zo_credentialType` VALUES ('2', '（岗位）技能证书', '5', 1);
