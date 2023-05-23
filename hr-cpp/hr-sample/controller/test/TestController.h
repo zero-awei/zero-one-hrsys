@@ -29,10 +29,10 @@
 /**
  * 测试控制器
  */
-class TestController : public oatpp::web::server::api::ApiController // 1
+class RetirementController : public oatpp::web::server::api::ApiController // 1
 {
 	// 2 定义控制器访问入口
-	API_ACCESS_DECLARE(TestController);
+	API_ACCESS_DECLARE(RetirementController);
 public: // 定义接口
 	// 3 定义接口描述
 	ENDPOINT_INFO(queryTest) {

@@ -46,7 +46,7 @@ public:
 		info->queryParams["corporateName"].addExample("default", String("PDD"));
 	}
 
-	ENDPOINT(API_M_GET, "/query-by-corporate-name", queryLaborDispatch,QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/contract-management/query-by-corporate-name", queryLaborDispatch,QUERIES(QueryParams, queryParams)) {
 		API_HANDLER_QUERY_PARAM(query, LaborDispatchMQuery, queryParams);
 		API_HANDLER_RESP_VO(execQueryLaborDispatch(query));
 	}
@@ -57,7 +57,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 
-	ENDPOINT(API_M_DEL, "/modify-labor-dispatch-corporate", modifyLaborDispatch, BODY_DTO(LaborDispatchMDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/contract-management/modify-labor-dispatch-corporate", modifyLaborDispatch, BODY_DTO(LaborDispatchMDTO::Wrapper, dto)) {
 		API_HANDLER_RESP_VO(execModifyLaborDispatch());
 	}
 private:

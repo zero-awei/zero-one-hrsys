@@ -12,24 +12,24 @@
 //修改合同所需参数
 #define UPDATECONTRACTINFO \
 info->queryParams.add<String>("PIMCONTRACTID").description = ZH_WORDS_GETTER("contract.PIMCONTRACTID");\
-info->queryParams["PIMCONTRACTID"].addExample("default", String("(:3[___]"));\
+info->queryParams["PIMCONTRACTID"].addExample("default", String("06CB7488-FCFB-41C3-8A9A-F4D35780F428"));\
 info->queryParams.add<String>("CREATEMAN").description = ZH_WORDS_GETTER("contract.CREATEMAN");\
-info->queryParams["CREATEMAN"].addExample("default", String("(:3[___]"));\
+info->queryParams["CREATEMAN"].addExample("default", String("xiaoming"));\
 info->queryParams["CREATEMAN"].required = false;\
 info->queryParams.add<String>("CREATEDATE").description = ZH_WORDS_GETTER("contract.CREATEDATE");\
-info->queryParams["CREATEDATE"].addExample("default", String("(:3[___]"));\
+info->queryParams["CREATEDATE"].addExample("default", String("2019-05-10 16:15:52"));\
 info->queryParams["CREATEDATE"].required = false;\
 info->queryParams.add<String>("UPDATEDATE").description = ZH_WORDS_GETTER("contract.UPDATEDATE");\
-info->queryParams["UPDATEDATE"].addExample("default", String("((:3[___]"));\
+info->queryParams["UPDATEDATE"].addExample("default", String("2020-05-10 16:15:52"));\
 info->queryParams["UPDATEDATE"].required = false;\
 info->queryParams.add<String>("PIMCONTRACTNAME").description = ZH_WORDS_GETTER("contract.PIMCONTRACTNAME");\
-info->queryParams["PIMCONTRACTNAME"].addExample("default", String("(:3[___]"));\
+info->queryParams["PIMCONTRACTNAME"].addExample("default", String("xiaoming"));\
 info->queryParams["PIMCONTRACTNAME"].required = false 
 
 //查询合同所需参数
 #define QUERYCONTRACTINFO \
 info->queryParams.add<String>("PIMCONTRACTID").description = ZH_WORDS_GETTER("contract.PIMCONTRACTID");\
-info->queryParams["PIMCONTRACTID"].addExample("default", String("(:3[___]"))
+info->queryParams["PIMCONTRACTID"].addExample("default", String("06CB7488-FCFB-41C3-8A9A-F4D35780F428"))
 
 
 using namespace oatpp;
@@ -55,7 +55,7 @@ public:
 		QUERYCONTRACTINFO;
 	}
 	// 3.1.2 定义接口端点
-	ENDPOINT(API_M_GET, "/query-contract-info", queryContract, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/contract-management/query-contract-info", queryContract, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, ContractQuery_, qps);
 		// 响应结果
@@ -73,7 +73,7 @@ public:
 	}
 
 	// 3.2.2 定义接口端点
-	ENDPOINT(API_M_PUT, "/update-contract-info", updateContract, BODY_DTO(ContractDTO_::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/contract-management/update-contract-info", updateContract, BODY_DTO(ContractDTO_::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execUpdateContract(dto));
 	}
@@ -90,7 +90,7 @@ public:
 	}
 	// 3.3.2 定义接口端点
 	// 定义文件上传端点处理
-	ENDPOINT(API_M_POST, "/upload-contract-info", uploadContract, BODY_STRING(String, body), QUERY(String, suffix)) {
+	ENDPOINT(API_M_POST, "/contract-management/upload-contract-info", uploadContract, BODY_STRING(String, body), QUERY(String, suffix)) {
 		// 执行文件保存逻辑
 		API_HANDLER_RESP_VO(execUploadContract(body, suffix));
 	}
@@ -109,7 +109,7 @@ public:
 		info->queryParams["sequence"].required = true;
 	}
 	// 3.4.2 定义接口端点
-	ENDPOINT(API_M_GET, "/download-contract-info", downloadContract, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/contract-management/download-contract-info", downloadContract, QUERIES(QueryParams, qps)) {
 		API_HANDLER_QUERY_PARAM(query, ContractDownloadQuery, qps);
 		API_HANDLER_RESP_VO(execDownloadContract(query));
 	}

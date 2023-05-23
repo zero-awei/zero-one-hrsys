@@ -49,7 +49,7 @@ public:
 		info->queryParams["contract_lx"].required = false;
 	}
 	//定义接口端点
-	ENDPOINT(API_M_GET, "/reminder-query-contract", queryLimit, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/contract-management/reminder-query-contract", queryLimit, QUERIES(QueryParams, qps)) {
 		//解析查询参参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, PageQuery, qps);
 		//响应结果
@@ -62,7 +62,7 @@ public:
 		//定义响应参数类型——链接
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
-	ENDPOINT(API_M_GET, "/reminder-export-contract", ExportContract, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/contract-management/reminder-export-contract", ExportContract, QUERIES(QueryParams, qps)) {
 		//解析查询参参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(export_contract, PageQuery, qps);
 		//响应结果

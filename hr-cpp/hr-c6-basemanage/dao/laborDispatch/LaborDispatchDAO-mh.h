@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: awei
- @Date: 2023/05/08 21:19:56
+ @Author: mengHuan
+ @Date: 2023/05/25 21:09:52
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,12 +17,21 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "TestController.h"
+#ifndef _LABORDISPATCHDAO_H_
+#define _LABORDISPATCHDAO_H_
 
-StringJsonVO::Wrapper RetirementController::execQueryTest(const PageQuery::Wrapper& query)
+#include "BaseDAO.h"
+#include "domain/query/LaborDispatch/LaborDispatchQuery.h"
+#include "domain/do/laborDispatch/LaborDispatchDO.h"
+
+class LaborDispatchDAO : public BaseDAO
 {
-	auto vo = StringJsonVO::createShared();
-	vo->success("test query success");
-	return vo;
-}
+public:
+	// 统计数据条数
+	uint64_t count_ld(const LaborDispatchQuery::Wrapper& query);
+	//分页查询数据
+	list<LaborDispatchDO> selectWrithPage_ld(const LaborDispatchQuery::Wrapper& query);
+	//插入数据
+	uint64_t insert_ld(const LaborDispatchDO& iobj);
+};
+#endif // !_LABORDISPATCHDAO_H_

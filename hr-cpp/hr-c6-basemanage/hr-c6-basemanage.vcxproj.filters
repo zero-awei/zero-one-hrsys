@@ -4,7 +4,7 @@
     <ClCompile Include="controller\GoshController\TestController.cpp" />
     <ClCompile Include="controller\LaborDispatch\LaborDispatchConstroller.cpp" />
     <ClCompile Include="controller\Router.cpp" />
-    <ClCompile Include="controller\SelectController\retirement.cpp" />
+    <ClCompile Include="controller\retirementController\retirement.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="dao\Sample\ContractDao.cpp" />
@@ -13,11 +13,14 @@
     <ClCompile Include="controller\JobTitle\JobTitleController.cpp" />
     <ClCompile Include="controller\ExpenseLedge\ExpenseLedgeController.cpp" />
     <ClCompile Include="controller\JobTitleInfo\JobTitleInfoController.cpp" />
-    <ClCompile Include="controller\Muggle\ExpenseLedgerController.cpp" />
+    <ClCompile Include="controller\TerminationReminder\terminationReminder.cpp" />
+    <ClCompile Include="controller\ContractManagement\Contractmanagement.cpp" />
+    <ClCompile Include="service\laborDispatch\LaborDispatchService-mh.cpp" />
+    <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mh.cpp" />
+    <ClCompile Include="controller\muggle\ExpenseLedgerController.cpp" />
     <ClCompile Include="controller\muggle\LaborDispatchController.cpp" />
     <ClCompile Include="dao\muggle\LaborDispatchDAO.cpp" />
     <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
-    <ClCompile Include="controller\TerminationReminder\terminationReminder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -40,18 +43,25 @@
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
-    <ClInclude Include="controller\Muggle\ExpenseLedgerController.h" />
-    <ClInclude Include="controller\Muggle\LaborDispatchController.h" />
-    <ClInclude Include="dao\muggle\LaborDispatchDAO.h" />
-    <ClInclude Include="domain\do\muggle\LaborDispatchDO.h" />
     <ClInclude Include="domain\dto\muggle\ExpenseLedgerDTO.h" />
     <ClInclude Include="domain\dto\muggle\LaborDispatchDTO.h" />
     <ClInclude Include="domain\vo\muggle\LaborDispatchJsonVO.h" />
-    <ClInclude Include="service\muggle\LaborDispatchService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="domain\query\muggle\expenseLedgerQuery.h" />
-    <ClInclude Include="domain\query\muggle\laborDispatchQuery.h" />
     <ClInclude Include="controller\TerminationReminder\terminationReminder.h" />
+    <ClInclude Include="domain\vo\RetirementVo\RetirementVo.h" />
+    <ClInclude Include="controller\ContractManagement\Contractmanagement.h" />
+    <ClInclude Include="domain\query\RetirementQuery\RetirementQuery.h" />
+    <ClInclude Include="service\laborDispatch\LaborDispatchService-mh.h" />
+    <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mh.h" />
+    <ClInclude Include="domain\do\laborDispatch\LaborDispatchDO.h" />
+    <ClInclude Include="dao\laborDispatch\LaborDispatchMapper-mh.h" />
+    <ClInclude Include="controller\muggle\ExpenseLedgerController.h" />
+    <ClInclude Include="domain\do\muggle\LaborDispatchDO.h" />
+    <ClInclude Include="controller\muggle\LaborDispatchController.h" />
+    <ClInclude Include="dao\muggle\LaborDispatchDAO.h" />
+    <ClInclude Include="domain\query\muggle\LaborDispatchQuery.h" />
+    <ClInclude Include="service\muggle\LaborDispatchService.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />
@@ -93,7 +103,7 @@
     <ClInclude Include="controller\GoshController\TestController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
-    <ClInclude Include="controller\SelectController\retirement.h" />
+    <ClInclude Include="controller\retirementController\retirement.h" />
     <ClInclude Include="dao\Sample\ContractDao.h" />
     <ClInclude Include="dao\Sample\ContractMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
@@ -119,8 +129,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="domain\dto\.keep" />
-    <None Include="zh-dict.yaml" />
-    <None Include="zh-dict.yaml.bak" />
     <None Include="conf\data-source.yaml" />
   </ItemGroup>
 </Project>
