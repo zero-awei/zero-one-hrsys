@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "pimpaperController.h"
 
-PimpaperPageJsonVO::Wrapper PimpaperController::execQueryPimpaper(const PimpaperQuery::Wrapper& query)
+PimpaperPageJsonVO::Wrapper PimpaperController::execQueryByName(const PimpaperQuery::Wrapper& query)
 {
 	// 创建响应对象
 	auto vo = PimpaperPageJsonVO::createShared();

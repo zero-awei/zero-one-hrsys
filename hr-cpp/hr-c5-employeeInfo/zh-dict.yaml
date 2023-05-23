@@ -52,3 +52,10 @@ pimpaper:
   fbsj: 发表时间
   grzlwzzzdpm: 个人在论文著作中的排名
   fj: 附件
+example:
+ field:
+  pimpersonname: 李华
+  zzdzs: 四川公司
+  ormorgsectorname: 企业部
+  ygzt: 见习
+  zgzt: 在职
