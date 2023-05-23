@@ -92,7 +92,7 @@ void Router::createJobSetRouter()
 	 * 负责人：Andrew
 	 */
 	ROUTER_SIMPLE_BIND(ImportJobController);
-
+}
 void Router::createProjTagRouter()
 {	/**
 	 * 查询指定岗位详情&删除岗位
@@ -106,10 +106,7 @@ void Router::createProjTagRouter()
 	 */
 	ROUTER_SIMPLE_BIND(JobOutputController);
 	ROUTER_SIMPLE_BIND(JobUpdateController);
-}
 
-void Router::createProjTagRouter()
-{
 	/**
 	 * 导出项目标签&更新项目标签
 	 * 负责人：Andrew
@@ -121,7 +118,6 @@ void Router::createProjTagRouter()
 	 * 负责人：远翔
 	 */
 	ROUTER_SIMPLE_BIND(ImportTagController);
-
 	ROUTER_SIMPLE_BIND(AddTagController);
 	/**
 	 * 分页查询项目标签&删除项目标签
