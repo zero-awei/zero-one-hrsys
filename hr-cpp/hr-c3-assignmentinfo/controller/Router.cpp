@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: awei
- @Date: 2022/12/03 14:58:34
+ @Author: ahao
+ @Date: 2023/5/22 14:58:43
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -19,12 +20,7 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-#include "assignController/QueryAssignController.h"
-#include "assignController/AddAssignInfoController.h"
-#include "assignController/DeleteAssignInfoController.h"
-#include "assignController/ModifyAssignInfoController.h"
-#include "assignController/ImportAssignInfoController.h"
-#include "assignController/QueryDetailAssignController.h"
+#include "assignController/AssignInfoController.h"
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
 #include "sample/SampleController.h"
@@ -55,12 +51,7 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-	ROUTER_SIMPLE_BIND(QueryAssignController);
-	ROUTER_SIMPLE_BIND(AddAssignInfoController);
-	ROUTER_SIMPLE_BIND(DeleteAssignInfoController);
-	ROUTER_SIMPLE_BIND(ModifyAssignInfoController);
-	ROUTER_SIMPLE_BIND(ImportAssignInfoController);
-	ROUTER_SIMPLE_BIND(QueryDetailAssignController);
+	ROUTER_SIMPLE_BIND(AssignInfoController);
 }
 
 #ifdef HTTP_SERVER_DEMO
