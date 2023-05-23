@@ -29,7 +29,7 @@ class EmployeeInformationDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("employee.field.age");
 	}
 	//±àºÅ
-	DTO_FIELD(UInt64, id);
+	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("employee.field.id");
 	}
