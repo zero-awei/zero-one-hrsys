@@ -83,3 +83,22 @@ contractType:
   contractStatus: 合同状态
   remainingDays: 合同剩余时间
   expiryDate: 试用到期时间
+contractCategory:
+  query-all:
+    summary: 分页查询合同类别列表
+  post:
+    summary: 新建合同类别
+  delete:
+    summary: 删除合同类别（支持批量删除）
+  import:
+    summary: 导入合同类别
+  export:
+    summary: 导出合同类别
+  put:
+    summary: 修改指定合同类别
+  field:
+    id: 编号
+    categoryName: 类别名称
+    description: 描述
+    createTime: 创建时间
+    ids: 编号列表
