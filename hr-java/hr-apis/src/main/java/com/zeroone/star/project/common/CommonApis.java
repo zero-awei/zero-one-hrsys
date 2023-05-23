@@ -75,7 +75,7 @@ public interface CommonApis {
      * @Author: Rqs
      * @Date: 2023/5/19 23:17
      */
-    JsonVO<List<ZzmmDTO>> queryZzmm();
+    JsonVO<List<ZzmmDTO>>  queryZzmm();
 
 
     /**
