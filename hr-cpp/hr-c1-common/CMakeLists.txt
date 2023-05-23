@@ -24,8 +24,6 @@ link_directories (${PROJECT_SOURCE_DIR}/lib-dy/lib64)
 # 将源代码添加到此项目的可执行文件
 file (GLOB_RECURSE SC_FILES ./*.cpp)
 
-
-
 # 编译可执行文件
 add_executable (${appName} ${SC_FILES})
 
@@ -73,7 +71,6 @@ if(USE_MONGO)
 endif()
 
 # 复制配置到调试时可执行文件所在的目录
-
 # RSA公钥证书
 file (COPY "public.pem" DESTINATION ${PROJECT_BINARY_DIR}/${appName})
 # FastDFS配置文件
@@ -91,7 +88,6 @@ if(IS_UBUNTU)
 endif()
 
 # 安装文件
-
 # 可执行文件
 install (TARGETS ${appName} RUNTIME DESTINATION ${appName})
 # RSA公钥证书

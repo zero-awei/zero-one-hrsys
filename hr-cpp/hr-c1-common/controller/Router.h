@@ -40,13 +40,64 @@ public:
 	Router(Endpoints* docEndpoints, HttpRouter* router);
 	// 呼叫初始化
 	void initRouter();
+
 private:
-	//本地测试
-	void creatTestRouter();
+
 #ifdef HTTP_SERVER_DEMO
 	// 创建演示路由
 	void createSampleRouter();
+
 #endif
+	/**
+	 * 绑定档案保管地和档案状态下拉列表
+	 * 负责人：远翔
+	 */
+	void createFileReservationRouter();
+	void createFileStatusRouter();
+	/**
+	 * 绑定证书类型和职业资格证书类型下拉列表
+	 * 负责人：米饭
+	 */
+	void creatTestRouter();
+
+	/**
+	 * 绑定合同类型&军转级别下拉列表路由
+	 * 负责人：Andrew
+	 */
+	void createContractTypeRouter();
+	void createArmyLevelTypeRouter();
+
+	/**
+	 * 绑定职称等级类型&费用类别下拉列表路由
+	 * 负责人：咫尺之书
+	 */
+	void createJobLevelTypeRouter();
+	void createCostTypeRouter();
+
+	/**
+	 * 档案室层级&申报类型下拉列表
+	 * 负责人：狗皮电耗子
+	 */
+	void createDeclareRouter();
+	void createArchivesLevelsRouter();
+
+	/**
+	 * 获奖等级&岗位类别下拉列表
+	 * 负责人：缘尘
+	 */
+	void createAwardLevelRouter();
+	void createJobCategoryRouter();
+	
+	/**
+	 * 绑定离职原因&解聘原因下拉列表
+	 * 负责人：远翔
+	 */
+	void createLeaveReasonRouter();
+	void createDismissReasonRouter();
+	//审阅状态下拉列表
+	// 负责人：凤雏
+	void createAuditStatusRouter();
+	
 };
 
 #endif // !_ROUTER_

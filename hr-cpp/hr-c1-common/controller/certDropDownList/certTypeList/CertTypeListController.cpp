@@ -20,7 +20,7 @@
 #include "CertTypeListController.h"
 //#include "../../service/sample/SampleService.h"
 
-PullListVO::Wrapper CertTypeListController::execQueryCertTypeList(const PayloadDTO& payload)
+PullListVO::Wrapper CertTypeListController::execQueryCertTypeList()
 {
 	auto vo = PullListVO::createShared();
 	auto dto = PullListDTO::createShared();

@@ -24,6 +24,10 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
+/**
+ * 下拉列表项
+ * 负责人：Andrew
+ */
 class ItemDTO : public oatpp::DTO
 {
 	DTO_INIT(ItemDTO, DTO);
@@ -42,7 +46,7 @@ public:
 	ItemDTO()
 	{
 		key = 1;
-		val = "否";
+		val = "null";
 	}
 
 	ItemDTO(Int32 k, String v)
@@ -52,6 +56,11 @@ public:
 	}
 };
 
+/**
+ * ListDTO领域模型
+ * 负责人：rice
+ * (之前用了)
+ */
 template <typename T>
 class ListDTO : public oatpp::DTO
 {
@@ -61,10 +70,17 @@ class ListDTO : public oatpp::DTO
 	}
 	DTO_FIELD(List<T>, pullList) = {};
 };
-
-class PullListDTO : public ListDTO<ItemDTO::Wrapper>
+/**
+ * 下拉列表DTO领域模型
+ * 负责人：Andrew
+ */
+class PullListDTO : public oatpp::DTO
 {
-	DTO_INIT(PullListDTO, ListDTO<ItemDTO::Wrapper>);
+	DTO_INIT(PullListDTO, DTO);
+	DTO_FIELD_INFO(pullList) {
+		info->description = ZH_WORDS_GETTER("common.dto.list");
+	}
+	DTO_FIELD(List<ItemDTO::Wrapper>, pullList) = {};
 };
 
 

@@ -19,14 +19,30 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-//测试
-#include "certDropDownList/profCertsList/ProfCertsListController.h"
-#include "certDropDownList/certTypeList/CertTypeListController.h"
+#include"auditstatusController.h/AuditstatusController.h"
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
+#include "HTLX_pimcontracttype/HtlxController.h"
 #endif
+
+//测试
+#include "certDropDownList/profCertsList/ProfCertsListController.h"
+#include "certDropDownList/certTypeList/CertTypeListController.h"
+#include "contractType/ContractTypeListController.h"
+#include "armyLevelType/ArmyLevelTypeController.h"
+#include "fileStatus/FileStatusController.h"
+#include "fileReservation/FileReservationController.h"
+#include "jobLevelTypeList/JobLevelTypeListController.h"
+#include "costTypeList/CostTypeListController.h"
+#include "declareType/DeclareController.h"
+#include "archivesLevel/ArchivesLevelsController.h"
+#include "leaveReason/LeaveReasonController.h"
+#include "dismissReason/DismissReasonController.h"
+#include "awardLevel/AwardLevelController.h"
+#include "jobCategory/JobCategoryController.h"
+#include "typeContract/TypeContractController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -47,23 +63,29 @@ Router::Router(Endpoints* docEndpoints, HttpRouter* router)
 
 void Router::initRouter()
 {
-	//本地测试
-	creatTestRouter();
 #ifdef HTTP_SERVER_DEMO
 	createSampleRouter();
+	
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-
+	createAwardLevelRouter();
+	createJobCategoryRouter();
+	createContractTypeRouter();
+	createArmyLevelTypeRouter();
+	creatTestRouter();
+	createJobLevelTypeRouter();
+	createCostTypeRouter();
+	createDeclareRouter();
+	createArchivesLevelsRouter();
+	createFileReservationRouter();
+	createFileStatusRouter();
+	createLeaveReasonRouter();
+	createDismissReasonRouter();
+	ROUTER_SIMPLE_BIND(TypeContractController);
+	createAuditStatusRouter();
 }
-//本地测试
-void Router::creatTestRouter()
-{
-	// 绑定职业资格证书类型下拉列表控制器
-	ROUTER_SIMPLE_BIND(ProfCertsListController);
-	ROUTER_SIMPLE_BIND(CertTypeListController);
 
-}
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
@@ -71,8 +93,78 @@ void Router::createSampleRouter()
 	ROUTER_SIMPLE_BIND(SampleController);
 	// 绑定用户控制器
 	ROUTER_SIMPLE_BIND(UserController);
-	
+
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());
 }
+
 #endif
+
+void Router::createDeclareRouter() {
+	ROUTER_SIMPLE_BIND(DeclareController);
+}
+
+void Router::createArchivesLevelsRouter() {
+	ROUTER_SIMPLE_BIND(ArchivesLevelsController);
+}
+
+void Router::createLeaveReasonRouter()
+{
+	ROUTER_SIMPLE_BIND(LeaveReasonController);
+}
+
+void Router::createDismissReasonRouter()
+{
+	ROUTER_SIMPLE_BIND(DismissReasonController);
+}
+
+void Router::createFileReservationRouter()
+{
+	ROUTER_SIMPLE_BIND(FileReservationController);
+}
+
+void Router::createFileStatusRouter()
+{
+	ROUTER_SIMPLE_BIND(FileStatusController);
+}
+
+void Router::creatTestRouter()
+{
+	// 绑定职业资格证书类型下拉列表控制器
+	ROUTER_SIMPLE_BIND(ProfCertsListController);
+	ROUTER_SIMPLE_BIND(CertTypeListController);
+}
+
+void Router::createContractTypeRouter()
+{
+	ROUTER_SIMPLE_BIND(ContractTypeListController);
+}
+
+void Router::createArmyLevelTypeRouter()
+{
+	ROUTER_SIMPLE_BIND(ArmyLevelTypeController);
+}
+
+void Router::createJobLevelTypeRouter()
+{
+	ROUTER_SIMPLE_BIND(JobLevelTypeListController);
+}
+
+void Router::createCostTypeRouter()
+{
+	ROUTER_SIMPLE_BIND(CostTypeListController);
+}
+
+void Router::createAwardLevelRouter()
+{
+	ROUTER_SIMPLE_BIND(AwardLevelController);
+}
+
+void Router::createJobCategoryRouter()
+{
+	ROUTER_SIMPLE_BIND(JobCategoryController);
+}
+void Router::createAuditStatusRouter()
+{
+	ROUTER_SIMPLE_BIND(AuditStatusController);
+}
