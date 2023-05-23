@@ -48,7 +48,7 @@
     <ClInclude Include="controller\archives\ArchivesController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\archives\ArchivesDO.h">
+    <ClInclude Include="domain\do\archives\t_pimarchivesDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\archivesCenter\ArchivesCenterQuery.h">
