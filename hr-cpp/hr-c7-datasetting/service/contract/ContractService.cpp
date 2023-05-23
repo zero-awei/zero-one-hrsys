@@ -24,11 +24,26 @@ ContractTypePageDTO::Wrapper ContractService::listAll(const ContractTypeQuery::W
 	// ½«DO×ª»»³ÉDTO
 	for (ContractDO sub : result)
 	{
-		auto dto = ContractDTO::createShared();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id, name, Name, unit, Unit, state, State, unitTime, UnitTime, contractID, ContractID, contractUnit, ContractUnit, contractCategory, ContractCategory, contractType, ContractType, startDate, StartDate, endDate, EndDate, contractStatus, ContractStatus, remaining, Remaining, trialExpiration, TrialExpiration);
+		auto dto = ContractTypeDTO::createShared();
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id, name, Name, department, Department, state, State, unitArrivalTime, UnitArrivalTime, contractId, ContractId, signingUnit, SigningUnit, contract_category, Contract_category, contract_type, Contract_type, startDate, StartDate, endDate, EndDate, contractStatus, ContractStatus, remainingDays, RemainingDays, expiryDate, ExpiryDate);
 		pages->addData(dto);
 
 	}
 	return pages;
+}
+
+uint64_t ContractService::saveData(const ContractTypeDTO::Wrapper& dto)
+{
+	throw std::logic_error("The method or operation is not implemented.");
+}
+
+bool ContractService::updateData(const ContractTypeDTO::Wrapper& dto)
+{
+	throw std::logic_error("The method or operation is not implemented.");
+}
+
+bool ContractService::removeData(uint64_t id)
+{
+	throw std::logic_error("The method or operation is not implemented.");
 }
 

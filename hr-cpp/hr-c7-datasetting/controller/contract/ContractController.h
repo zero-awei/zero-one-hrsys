@@ -35,11 +35,51 @@ public: // 定义接口
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, ContractTypeQuery, qps);
 		// 响应结果
-		API_HANDLER_RESP_VO(execQueryTest(query));
+		API_HANDLER_RESP_VO(execQueryContractType(query));
+	}
+	// 定义新增接口描述
+	ENDPOINT_INFO(addContractType) {
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("contractType.post.summary");
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(ContractTypeJsonVO);
+	}
+	// 定义新增接口处理
+	ENDPOINT(API_M_POST, "/contract", addContractType, BODY_DTO(ContractTypeDTO::Wrapper, dto)) {
+		// 响应结果
+		API_HANDLER_RESP_VO(execAddContractType(dto));
+	}
+	// 定义修改接口描述
+	ENDPOINT_INFO(modifyContractType) {
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("contractType.put.summary");
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(ContractTypeJsonVO);
+	}
+	// 定义修改接口处理
+	ENDPOINT(API_M_PUT, "/contract", modifyContractType, BODY_DTO(ContractTypeDTO::Wrapper, dto)) {
+		// 响应结果
+		API_HANDLER_RESP_VO(execModifyContractType(dto));
+	}
+	// 定义删除接口描述
+	ENDPOINT_INFO(removeContractType) {
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("contractType.delete.summary");
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(ContractTypeJsonVO);
+	}
+	// 3.2 定义删除接口处理
+	ENDPOINT(API_M_DEL, "/contract", removeContractType, BODY_DTO(ContractTypeDTO::Wrapper, dto)) {
+		// 响应结果
+		API_HANDLER_RESP_VO(execRemoveContractType(dto));
 	}
 private: // 定义接口执行函数
 	// 5 定义接口的执行函数
-	ContractTypePageJsonVO::Wrapper execQueryTest(const ContractTypeQuery::Wrapper& query);
+	//ContractTypePageJsonVO::Wrapper ContractController::execQueryContractType(const ContractTypeQuery::Wrapper & query)
+	ContractTypePageJsonVO::Wrapper execQueryContractType(const ContractTypeQuery::Wrapper& query);
+	Uint64JsonVO::Wrapper execAddContractType(const ContractTypeDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execModifyContractType(const ContractTypeDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execRemoveContractType(const ContractTypeDTO::Wrapper& dto);
 };
 
 #include OATPP_CODEGEN_END(ApiController) // 0
