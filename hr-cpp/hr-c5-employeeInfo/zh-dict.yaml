@@ -29,3 +29,30 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+
+archivesCenter:
+ get:
+  summary: 分页查询档案室数据
+ field:
+  SertalNo: 排序号
+  ArchivesCenterName: 档案室名称
+  CabinetNo: 柜号
+  BNumber: 编号
+archives:
+ post:
+  summary: 新增一条档案数据
+ delete:
+  summary: 删除一条档案数据
+ field:
+  archivesNo: 档案编号
+  managementUnits: 管理单位
+  DABGD: 档案保管地
+  archivesCenterName: 档案室
+  YGBH: 员工编号
+  PimPersonName: 员工姓名
+  ygzt: 员工状态
+  ORMORGName: 所属单位
+  DAZT: 档案状态
+specifiedArchives:
+ get:
+  summary: 查询指定档案数据
