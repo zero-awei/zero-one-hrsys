@@ -31,12 +31,24 @@ class LanguageDO
 	CC_SYNTHESIZE(string, attachment, Attachment);
 	//语种
 	CC_SYNTHESIZE(string, languageType, LanguageType);
-	//
+	//创建人
+	CC_SYNTHESIZE(string, createMan, CreateMan);
+	//更新人
+	CC_SYNTHESIZE(string, updateMan, UpdateMan);
+	//语言等级
+	CC_SYNTHESIZE(string, languageLevel, LanguageLevel);
+	//人员信息标识
+	CC_SYNTHESIZE(string, personID, PersonID);
+
 public:
 	LanguageDO() {
 		gainTime = "";
 		attachment = "";
 		languageType = "";
+		createMan = "";
+		updateMan = "";
+		languageLevel = "";
+		personID = "";
 	}
 };
 
