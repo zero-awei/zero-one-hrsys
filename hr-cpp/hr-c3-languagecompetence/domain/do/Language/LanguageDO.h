@@ -1,9 +1,9 @@
-#pragma once
+
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: jun
- @Date: 2023/05/21 1:24:39
+ @Date: 2023/05/23 20:34:46
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,26 +17,27 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _LANGUAGE_SERVICE_
-#define _LANGUAGE_SERVICE_
-#include <list>
-#include "domain/query/Language/LanguageQuery.h"
-#include "domain/dto/Language/LanguageDTO.h"
-#include "domain/dto/ImportLanguage/ImportLanguageDTO.h"
-
+#ifndef _LANGUAGEDO_H_
+#define _LANGUAGEDO_H_
+#include "../DoInclude.h"
 /**
- * 语言能力相关服务实现
+ * 语言能力DO模型
  */
-class LanguageService 
+class LanguageDO
 {
+	//外语等级获取时间
+	CC_SYNTHESIZE(string, gainTime, GainTime);
+	//附件
+	CC_SYNTHESIZE(string, attachment, Attachment);
+	//语种
+	CC_SYNTHESIZE(string, languageType, LanguageType);
+	//
 public:
-	// 分页查询所有数据
-	LanguagePageDTO::Wrapper listAll(const LanguageQuery::Wrapper& query);
-	// 保存数据
-	uint64_t saveData(const LanguageDTO::Wrapper& dto);
-	// 修改数据
-	bool updateData(const LanguageDTO::Wrapper& dto);
-	// 通过ID删除数据
-	bool removeData(uint64_t id);
+	LanguageDO() {
+		gainTime = "";
+		attachment = "";
+		languageType = "";
+	}
 };
-#endif // !_LANGUAGE_SERVICE_
+
+#endif // !_LANGUAGEDO_H_#pragma once

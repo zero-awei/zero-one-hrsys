@@ -2,7 +2,7 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: awei
+ @Author: jun
  @Date: 2023/05/17 19:31:17
 
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -30,36 +30,34 @@
 class LanguageDTO : public oatpp::DTO
 {
 	DTO_INIT(LanguageDTO, DTO);
-	//编号
-	DTO_FIELD(UInt64, id);
-	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("sample.field.id");
-	}
-	// 姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("sample.field.name");
-	}
-	// 年龄
-	/*DTO_FIELD(UInt32, age);
-	DTO_FIELD_INFO(age) {
-		info->description = ZH_WORDS_GETTER("sample.field.age");
-	}
-	// 性别
-	DTO_FIELD(String, sex);
-	DTO_FIELD_INFO(sex) {
-		info->description = ZH_WORDS_GETTER("sample.field.sex");
-	}*/
+	//外语等级获取时间
+	API_DTO_FIELD_DEFAULT(String, gainTime, u8"外语等级获取时间");
+	//授权
+	API_DTO_FIELD_DEFAULT(UInt32, enable, u8"授权");
+	//附件
+	API_DTO_FIELD_DEFAULT(String, attachment, u8"附件");
 	//语种
-	DTO_FIELD(String, languageType);
-	DTO_FIELD_INFO(languageType) {
-		info->description = ZH_WORDS_GETTER("user.language.type");
-	}
+	API_DTO_FIELD_DEFAULT(String, languageType, u8"语种");
+	//创建人
+	API_DTO_FIELD_DEFAULT(String, createMan, u8"创建人");
+	//更新人
+	API_DTO_FIELD_DEFAULT(String, updateMan, u8"更新人");
 	//语言等级
-	DTO_FIELD(String, languageLevel);
-	DTO_FIELD_INFO(languageLevel) {
-		info->description = ZH_WORDS_GETTER("user.language.level");
-	}
+	API_DTO_FIELD_DEFAULT(String, languageLevel, u8"语言等级");
+	//创建时间
+	API_DTO_FIELD_DEFAULT(String, createTime, u8"创建时间");
+	//人员信息标识
+	API_DTO_FIELD_DEFAULT(String, personID, u8"人员信息标识");
+	//姓名
+	API_DTO_FIELD_DEFAULT(String, name, u8"人员姓名");
+	//记录所属
+	API_DTO_FIELD_DEFAULT(String, jlss, u8"记录所属");
+	//记录管理编号
+	API_DTO_FIELD_DEFAULT(String, jlglbh, u8"记录管理编号");
+	//记录审批状态
+	API_DTO_FIELD_DEFAULT(String, jlspzt, u8"记录审批状态");
+	//记录操作者
+	API_DTO_FIELD_DEFAULT(String, jlczz, u8"记录操作者");
 };
 /**
  * 语言模块分页传输对象
