@@ -29,7 +29,71 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+orgmanage:
+ controller:
+  postQuery: 查询指定岗位详情
+  postDeleteOne: 删除一条岗位数据
+  postDeleteBatch: 删除多条岗位数据
+ dto:
+  xh: 排序标号
+  gwfl: 岗位分类
+  isConfidential: 是否保密岗
+  ormPostName: 岗位集名称
+  nx: 建议交流年限
+  bxjlnx: 必须交流年限
+  isKeyPostion: 是否关键岗位
+  postNature: 岗位性质
+  startStopSign: 启用标识
+  ormPostId: 岗位集标识
+  ormPostIds: 岗位集标识集
+  createMan: 建立人
+  updateDate: 更新时间
+  updateMan: 更新人
+  createDate: 建立时间
+  orgId: 内部组织机构标识
+  gwType: 岗位类型
+  isTemp: 是否临时数据
+  ormOrgId: 外部组织机构标识
+  ormOrgName: 组织机构名称
+ query:
+  queryPostName: 查询岗位名称
+  sortTypeAndMethod: 排序类别:排序方式,(asc/desc)
+
+#岗位设置-导入岗位
+jobSet:
+ import:
+  summary: 导入岗位
+  fileType: 文件类型(xlx/xlsx/csv)
+  sheetName: 数据表名
+  file: 待导入文件
+  id: 新增id
+
+#项目标签-导出岗位标签
 projTag:
+ export:
+  summary: 导出项目标签
+  rows: 导出数据条数(最大5000条)
+  sequence: 导出数据顺序(ASC/DESC)
+ import:
+  summary: 导入项目标签
+  fileType: 文件类型
+  sheetName: 文件名称
+  file: 文件名称
+ add:
+  summary: 新增项目标签
+ filed:
+  sortid: 排序号
+  orgname: 组织名称
+  projecttag: 项目标签
+  creater: 建立人
+  creattime: 建立时间
+  updater: 更新人
+  updatetime: 更新时间
+  id: 项目标签标识
+  tagName: 项目标签名
+  orgId: 组织ID
+ modify:
+  summary: 更新项目标签
  tagId: 项目标签ID
  tagIds: 批量项目标签ID
  deleteProjTag: 删除项目标签
@@ -39,3 +103,13 @@ projTag:
   page: 查询页码
   sort: 显示顺序
   controller: 分页查询项目标签列表
+
+ormanage:
+ dto:
+  uptime: 更新时间
+  createtime: 创建时间
+  id: 项目编号
+  name: 创建人
+  label: 项目标签
+  ormorgid: 项目ID
+  ormxbqid: 项目标签标识

@@ -23,9 +23,9 @@
 #include "controller/Router.h"
 #include "controller/OtherComponent.hpp"
 #include "DbInit.h"
-#ifdef HTTP_SERVER_DEMO
-#include "uselib/jwt/TestToken.h"
-#endif
+//#ifdef HTTP_SERVER_DEMO
+//#include "uselib/jwt/TestToken.h"
+//#endif
 
 #ifdef USE_NACOS
 #include "NacosClient.h"
@@ -38,14 +38,15 @@
  * 参数中数据需要满足一定的格式，如：sp=8090、sn=feign-cpp-sample
  * 前缀与真实值之间使用=分隔
  */
+
 bool getStartArg(int argc, char* argv[]) {
 	// 服务器端口
-	std::string serverPort = "8090";
+	std::string serverPort = "8091";
 	// 数据库连接信息
 	std::string dbUsername = "root";
-	std::string dbPassword = "123456";
+	std::string dbPassword = "114514mysql";
 	std::string dbName = "test";
-	std::string dbHost = "192.168.220.128";
+	std::string dbHost = "192.168.56.97";
 	int dbPort = 3306;
 	int dbMax = 25;
 #ifdef USE_NACOS
@@ -109,7 +110,6 @@ bool getStartArg(int argc, char* argv[]) {
 		// 更新索引
 		currIndex++;
 	}
-
 	// 记录服务器配置到内存中方便使用
 	ServerInfo::getInstance().setServerPort(serverPort);
 	ServerInfo::getInstance().setDbUsername(dbUsername);
