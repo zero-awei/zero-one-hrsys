@@ -54,4 +54,25 @@ patentInformation:
  put:
   summary: 修改一条专利信息
  select:
+<<<<<<< HEAD
   summary: 查看指定员工专利信息（指定专利信息详情）
+=======
+  summary: 查看指定员工专利信息（指定专利信息详情）
+ pimpatent:
+  ZLH: 专利号
+  UPDATEDATE: 更新时间
+  PIMPATENTID: 专利信息编码
+  ZLHQSJ: 专利获取时间
+  PIMPATENTNAME: 专利名称
+  UPDATEMAN: 更新人
+  CREATEMAN: 建立人
+  CREATEDATE: 建立时间
+  ZLPZGB: 专利批准国别
+  PIMPERSONID: 人员信息标识
+  JLSS: 记录所属
+  JLSPZT: 审批状态
+  JLGLBH: 记录管理编号
+  JLCZZ: 记录操作者
+  ENCLOLURE: 附件
+  REASON: 拒绝原因
+>>>>>>> c5-basic-management-jiang
