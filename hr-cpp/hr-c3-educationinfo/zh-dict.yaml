@@ -29,3 +29,59 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+gueryEducationPage: 分页查询指定姓名员工的教育信息
+queryEducationSingle: 单独查询指定姓名员工的教育信息
+addEducationSingle: 单条新增指定姓名员工的教育信息
+modifyEducationSingle: 单条修改指定姓名员工的教育信息
+removeEducation: 删除指定姓名员工的教育信息
+removeEducationNotSingle: 批量删除指定姓名员工的教育信息
+deleteId: 单条教育信息
+deleteIds: 多条教育信息
+EudacationImport:
+ id: 新增id
+importEducation: 
+ fileType: 文件类型(xlx/xlsx/csv)
+ sheetName: 数据表名字
+ file: 要导入的文件
+ summary: 单个文件上传教育信息
+t_pimperson: 
+  pimpersonname: 员工姓名
+  sort: 排序方式
+export:
+  summary: 导出全部教育信息
+  rows: 导出数据条数(最大5000条)
+  sequence: 导出数据顺序(ASC/DESC)
+education:
+  BZ: 备注
+  PIMEDUCATIONID: 教育信息标识
+  JYMC: 教育名称
+  SXZY: 所学专业
+  JSSJ: 毕业时间
+  CREATEMAN: 建立人
+  XLLX: 学习形式
+  XXXZ: 学校性质
+  PIMEDUCATIONNAME: 教育信息名称
+  BYYX: 毕业院校
+  UPDATEMAN: 更新人
+  QSSJ: 入学时间
+  UPDATEDATE: 更新时间
+  FJ: 其他附件
+  CREATEDATE: 建立时间
+  XL: 学历
+  PIMPERSONID: 人员信息标识
+  JLSS: 记录所属
+  JLGLBH: 记录管理编号
+  JLSPZT: 记录审批状态
+  JLCZZ: 记录操作者
+  ORMORGSECTORID: 部门标识
+  DEGREE: 学位
+  YGBH: 员工编号
+  CJGZSJ: 参加工作时间
+  TOZJDATE: 建筑系统工作时间
+  DZJBJSJ: 局工作时间
+  DBDWSJ: 本单位工作时间
+  REASON: 拒绝原因
+  XKML: 一级学科
+  BTZ: 毕业证
+  XWZ: 学位证
+  XLCX: 学历验证
