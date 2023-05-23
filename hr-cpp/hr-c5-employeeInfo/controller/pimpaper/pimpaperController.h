@@ -84,7 +84,7 @@ public:
 		info->queryParams["zgzt"].required = false;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/pimpaper", pimpaperQuery, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/employee-info/pimpaper", pimpaperQuery, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(query, PimpaperQuery, queryParams);
 		// 响应结果
@@ -99,7 +99,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/pimpaper", addPimpaper, BODY_DTO(PimpaperDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/employee-info/add-pimpaper", addPimpaper, BODY_DTO(PimpaperDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddPimpaper(dto));
 	}
@@ -112,7 +112,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/pimpaper", removePimpaper, BODY_DTO(PimpaperDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/employee-info/remove-pimpaper", removePimpaper, BODY_DTO(PimpaperDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemovePimpaper(dto));
 	}
