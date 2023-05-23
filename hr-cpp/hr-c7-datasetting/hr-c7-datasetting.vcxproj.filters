@@ -7,6 +7,7 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="controller\Certificate\CertificateController.cpp" />
     <ClCompile Include="controller\archive\archiveController.cpp" />
+    <ClCompile Include="controller\contract\ContractController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\OtherComponent.hpp" />
@@ -40,5 +41,6 @@
     <ClInclude Include="domain\vo\Title\TitleVO.h" />
     <ClInclude Include="controller\Certificate\CertificateController.h" />
     <ClInclude Include="controller\archive\ArchiveController.h" />
+    <ClInclude Include="controller\contract\ContractController.h" />
   </ItemGroup>
 </Project>
