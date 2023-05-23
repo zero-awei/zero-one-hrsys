@@ -64,7 +64,7 @@ private:
 	 * 绑定合同类型&军转级别下拉列表路由
 	 * 负责人：Andrew
 	 */
-	void createContractTypeRouter();
+	void createTypeContractRouter();
 	void createArmyLevelTypeRouter();
 
 	/**
