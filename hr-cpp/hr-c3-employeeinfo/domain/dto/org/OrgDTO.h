@@ -1,4 +1,6 @@
 #pragma once
+#ifndef _ORGDTO_
+#define _ORGDTO_
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
@@ -9,7 +11,7 @@
 class OrgDTO : public oatpp::DTO
 {
 	DTO_INIT(OrgDTO, DTO);
-    // 是否为根组织
+	// 根组织ID
 	DTO_FIELD(String, companyflag);
 	DTO_FIELD_INFO(companyflag) {
 		info->description = ZH_WORDS_GETTER("org.field.companyflag");

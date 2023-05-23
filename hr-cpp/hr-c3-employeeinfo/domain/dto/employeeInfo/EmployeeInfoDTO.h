@@ -29,7 +29,7 @@ class EmployeeInfoDTO : public oatpp::DTO
 {
 	DTO_INIT(EmployeeInfoDTO, DTO);
 	//员工编号
-	DTO_FIELD(UInt64, empid);
+	DTO_FIELD(String, empid);
 	DTO_FIELD_INFO(empid) {
 		info->description = ZH_WORDS_GETTER("employee.field.id");
 		info->required = true;
@@ -47,7 +47,7 @@ class EmployeeInfoDTO : public oatpp::DTO
 		info->required = true;
 	}
 	//证件号码
-	DTO_FIELD(Int32, idnum);
+	DTO_FIELD(String, idnum);
 	DTO_FIELD_INFO(idnum) {
 		info->description = ZH_WORDS_GETTER("employee.field.idnum");
 		info->required = true;
@@ -90,7 +90,7 @@ class EmployeeInfoDTO : public oatpp::DTO
 	// 通讯地址
 	API_DTO_FIELD_DEFAULT(String, comPlace, ZH_WORDS_GETTER("employee.field.comPlace"));
 	// 有独生子女证
-	API_DTO_FIELD_DEFAULT(Boolean, onlyCredit, ZH_WORDS_GETTER("employee.field.onlyCredit"));
+	API_DTO_FIELD_DEFAULT(String, onlyCredit, ZH_WORDS_GETTER("employee.field.onlyCredit"));
 	// 爱好特长
 	API_DTO_FIELD_DEFAULT(String, hobby, ZH_WORDS_GETTER("employee.field.hobby"));
 	// 健康状况
@@ -155,11 +155,6 @@ class EmployeeInfoDTO : public oatpp::DTO
 	DTO_FIELD_INFO(phone) {
 		info->description = ZH_WORDS_GETTER("employee.field.phone");
 		info->required = true;
-	}
-	//员工状态
-	DTO_FIELD(String, state);
-	DTO_FIELD_INFO(state) {
-		info->description = ZH_WORDS_GETTER("employee.field.state");
 	}
 };
 

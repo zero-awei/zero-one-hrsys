@@ -48,19 +48,19 @@
     <ClInclude Include="domain\query\jobList\JobListQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\EmployeeAssignInfoQuery\EmployeeAssignInfoQueryDTO.h">
+    <ClInclude Include="controller\employeeInfo\EmployeeInfoController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\ImportEmployeeAssignInfo\ImportEmployeeAssignInfoDTO.h">
+    <ClInclude Include="domain\dto\org\ImportDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\AddEmployeeAssignInfo\AddEmployeeAssignInfo.h">
+    <ClInclude Include="domain\dto\org\MemberDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\DeleteEmployeeAssignInfo\DeleteEmployeeAssignInfo.h">
+    <ClInclude Include="domain\dto\org\OrgDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\ModifyEmployeeAssignInfo\ModifyEmployeeAssignInfo.h">
+    <ClInclude Include="domain\dto\org\OrgSectorDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="controller\EmployeeInformation\EmployeeInformationController.h">

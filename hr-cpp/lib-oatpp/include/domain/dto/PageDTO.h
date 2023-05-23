@@ -32,7 +32,6 @@ class PageDTO : public oatpp::DTO
 {
 	// 初始化
 	DTO_INIT(PageDTO, DTO);
-
 	/**
 	 * 当前页码
 	 */

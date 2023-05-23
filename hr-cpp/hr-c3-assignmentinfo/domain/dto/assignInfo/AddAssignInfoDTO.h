@@ -8,9 +8,14 @@
 /**
  * 新增指定员工分配信息
  */
-class AddEmployeeAssignInfoDTO : public oatpp::DTO
+class AddAssignInfoDTO : public oatpp::DTO
 {
-	DTO_INIT(AddEmployeeAssignInfoDTO, DTO);
+	DTO_INIT(AddAssignInfoDTO, DTO);
+	//编号
+	DTO_FIELD(String, id);
+	DTO_FIELD_INFO(id) {
+		info->description = ZH_WORDS_GETTER("employee.field.id");
+	}
 	// 分配(主分配或次分配)
 	DTO_FIELD(String, assign);
 	DTO_FIELD_INFO(assign) {

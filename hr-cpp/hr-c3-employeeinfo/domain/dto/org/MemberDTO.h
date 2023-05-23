@@ -1,8 +1,6 @@
 #pragma once
-
-#ifndef _Member_DTO_
-#define _Member_DTO_
-
+#ifndef MEMBER_DTO
+#define MEMBER_DTO
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
@@ -37,6 +35,31 @@ class MemberDTO : public oatpp::DTO
 	DTO_FIELD(String, zw);
 	DTO_FIELD_INFO(zw) {
 		info->description = ZH_WORDS_GETTER("member.field.zw");
+	}
+	// 岗位
+	DTO_FIELD(String, gw);
+	DTO_FIELD_INFO(gw) {
+		info->description = ZH_WORDS_GETTER("member.field.gw");
+	}
+	// 证件号码
+	DTO_FIELD(String, zjhm);
+	DTO_FIELD_INFO(zjhm) {
+		info->description = ZH_WORDS_GETTER("member.field.zjhm");
+	}
+	// 出生日期
+	DTO_FIELD(String, csrq);
+	DTO_FIELD_INFO(csrq) {
+		info->description = ZH_WORDS_GETTER("member.field.csrq");
+	}
+	// 年纪
+	DTO_FIELD(String, nj);
+	DTO_FIELD_INFO(nj) {
+		info->description = ZH_WORDS_GETTER("member.field.nj");
+	}
+	// 联系电话
+	DTO_FIELD(String, lxdh);
+	DTO_FIELD_INFO(lxdh) {
+		info->description = ZH_WORDS_GETTER("member.field.lxdh");
 	}
 };
 

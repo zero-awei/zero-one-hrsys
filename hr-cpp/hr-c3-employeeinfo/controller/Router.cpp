@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
+#include "./employeeInfo/EmployeeInfoController.h"
 
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
@@ -53,6 +54,7 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
+	ROUTER_SIMPLE_BIND(EmployeeInfoController);
 	ROUTER_SIMPLE_BIND(EmployeeInformationController);
 	ROUTER_SIMPLE_BIND(organizationDepartmentTreeStructure);
 }

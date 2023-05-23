@@ -168,13 +168,10 @@
     <ClInclude Include="domain\dto\EmployeeInformationPageQuery\EmployeeInformationPageQueryDTO.h" />
     <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoAddDTO.h" />
     <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoDTO.h" />
-    <ClInclude Include="domain\dto\AddEmployeeAssignInfo\AddEmployeeAssignInfo.h" />
-    <ClInclude Include="domain\dto\DeleteEmployeeAssignInfo\DeleteEmployeeAssignInfo.h" />
-    <ClInclude Include="domain\dto\ImportEmployeeAssignInfo\ImportEmployeeAssignInfoDTO.h" />
-    <ClInclude Include="domain\dto\ModifyEmployeeAssignInfo\ModifyEmployeeAssignInfo.h" />
+    <ClInclude Include="domain\dto\org\ImportDTO.h" />
     <ClInclude Include="domain\dto\org\MemberDTO.h" />
+    <ClInclude Include="domain\dto\org\OrgDTO.h" />
     <ClInclude Include="domain\dto\org\OrgSectorDTO.h" />
-    <ClInclude Include="domain\query\EmployeeAssignInfoQuery\EmployeeAssignInfoQueryDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\EmployeeInformationPageQuery\EmployeeInformationPageQuery.h" />
     <ClInclude Include="domain\query\employeeInfo\EmployeeInfoQuery.h" />
@@ -191,7 +188,6 @@
     <ClInclude Include="domain\vo\org\OrgVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
-    <ClInclude Include="service\EmployeeInformation\EmployeeInformationService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

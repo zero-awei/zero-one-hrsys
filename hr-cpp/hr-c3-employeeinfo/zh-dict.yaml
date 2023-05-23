@@ -22,7 +22,7 @@ employee:
   id: 员工编号
   name: 员工姓名
   idType: 证件类型
-  idMum: 证件号码
+  idNum: 证件号码
   bitrhday: 出生日期
   age: 年龄
   sex: 性别
@@ -59,6 +59,23 @@ employee:
   post: 岗位
   start-time: 任职开始时间
   end-time: 任职结束时间
+ get:
+  summary: 查询指定员工员工信息
+  summaryList: 分页查询岗位信息
+ post:
+  summary: 修改指定员工员工信息
+ put:
+  summary: 增加指定员工员工信息
+ delete:
+  summary: 删除指定员工员工信息
+  assign: 分配
+  type: 类型
+  organize: 组织
+  depart: 部门
+  job: 职务
+  post: 岗位
+  start-time: 任职开始时间
+  end-time: 任职结束时间
 sample:
  get:
   summary: 分页查询示例数据
@@ -79,6 +96,9 @@ rootorg:
   page: 页码
   size: 页的记录数
   sort: 排序方式
+  query:
+    filter: 匹配名称
+    sort: 排序方式
 validorg:
  query:
   filter: 匹配名称
@@ -86,34 +106,62 @@ validorg:
   page: 页码
   size: 页的记录数
   sort: 排序方式
+  query:
+    filter: 匹配名称
+    porgid: 父组织id
+    sort: 排序方式
 sector:
  query:
   parentkey: 查询parent的id
   page: 页码
   size: 页的记录数
   sort: 排序方式
+  query:
+    parentdename: 查询parent类型
+    parentkey: 查询parent的id
+    sort: 排序方式
 member:
- query:
-  parentdename: 查询parent类型
-  parentkey: 查询parent的id
-  page: 页码
-  size: 页的记录数
- field:
-  summary: 新增员工信息
-  ygbh: 员工编号
-  pimpersonname: 个人名字
-  ormorgname: 组织名字
-  ormorgsectorname: 部门名字
-  zw: 职务
-  sex: 性别，如：男
+  query:
+    parentdename: 查询parent类型
+    parentkey: 查询parent的id
+    field:
+    ygbh: 员工编号
+    pimpersonname: 个人名字
+    ormorgname: 组织名字
+    ormorgsectorname: 部门名字
+    zw: 职务
+    gw: 岗位
+    zjhm: 证件号码
+    srq: 出生日期
+    nj: 年纪
+    lxdh: 联系电话
 org:
- field:
-  summary: 查询所有部门结构树信息 
-  root: 根组织
-  validorg: 有效组织
-  sector: 部门
-  companyflag: 是否为根组织
-  orgname: 组织名字 
-  orgid: 组织id
-  porgname: 父组织名字
-  porgid: 父组织id
+  field:
+    summary: 查询所有部门结构树信息 
+    root: 根组织
+    validorg: 有效组织
+    sector: 部门
+    companyflag: 是否为根组织
+    orgname: 组织名字 
+    orgid: 组织id
+    porgname: 父组织名字
+    porgid: 父组织id
+orgsector:
+  field:
+    orgsectorname: 部门名字
+    orgsectorid: 部门id 
+    orgname: 组织名字
+    orgid: 组织id
+    summary: 新增员工信息
+    ygbh: 员工编号
+    pimpersonname: 个人名字
+    ormorgname: 组织名字
+    ormorgsectorname: 部门名字
+    zw: 职务
+    sex: 性别，如：男
+  query:
+    parentdename: 查询parent类型
+    parentkey: 查询parent的id
+    page: 页码
+    size: 页的记录数
+    

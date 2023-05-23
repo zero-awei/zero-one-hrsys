@@ -24,7 +24,7 @@
 #include "ApiHelper.h"
 #include "domain/query/EmployeeInformationPageQuery/EmployeeInformationPageQuery.h"
 #include "domain/vo/EmployeeInformation/EmployeeInformationVO.h"
-#include "domain/dto/AddEmployeeAssignInfo/AddEmployeeAssignInfo.h"
+//#include "domain/dto/AddEmployeeAssignInfo/AddEmployeeAssignInfo.h"
 #include "domain/dto/EmployeeInformationPageQuery/EmployeeInformationPageQueryDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
