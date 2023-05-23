@@ -37,23 +37,23 @@ TestRocket::~TestRocket()
 
 void TestRocket::testRocket()
 {
-	// ´´½¨¿Í»§¶Ë
-	client = make_shared<RocketClient>("192.168.220.128:9876");
-	// ´´½¨·¢ËÍÏûÏ¢»Øµ÷
+	// åˆ›å»ºå®¢æˆ·ç«¯
+	client = make_shared<RocketClient>("192.168.217.136:9876");
+	// åˆ›å»ºå‘é€æ¶ˆæ¯å›è°ƒ
 	cb = make_shared<RocketClient::RSendCallback>([](SendStatus staus)
 		{
 			std::cout << "RSendCallback send status: " << staus << endl;
 		});
 	
-	// ²âÊÔ¿ªÆô¶©ÔÄ
+	// æµ‹è¯•å¼€å¯è®¢é˜…
 	client->subscribe("hello");
 	client->addListener(this);
-	// ¶¨ÒåÏûÏ¢¶ÔÏó
+	// å®šä¹‰æ¶ˆæ¯å¯¹è±¡
 	auto dto = SampleDTO::createShared();
 	dto->name = "cat";
 	dto->sex = "man";
 	dto->age = 10;
-	// ·¢ËÍÏûÏ¢
+	// å‘é€æ¶ˆæ¯
 	dto->id = 1;
 	RC_PUBLISH_OBJ_MSG_ASYNC(client, "hello", dto, cb.get());
 	dto->id = 2;
