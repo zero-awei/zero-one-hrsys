@@ -165,6 +165,7 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\employeeInfo\EmployeeInfoDO.h" />
     <ClInclude Include="domain\dto\EmployeeInformationPageQuery\EmployeeInformationPageQueryDTO.h" />
     <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoAddDTO.h" />
     <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoDTO.h" />

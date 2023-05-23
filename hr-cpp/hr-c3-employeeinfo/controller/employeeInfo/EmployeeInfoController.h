@@ -70,11 +70,11 @@ public:
 	}
 	API_HANDLER_ENDPOINT_QUERY(API_M_GET, "/employee-info/employee-query", employeeQuery, EmployeeInfoQuery, execEmployeeQuery(query));
 	/* *
-	* 查询指定员工信息
+	* 增加指定员工信息
 	* 执行人：Detachment
 	*/
-	ENDPOINT_INFO(employeePut) {
-		info->summary = ZH_WORDS_GETTER("employee.put.summary");
+	ENDPOINT_INFO(employeePost) {
+		info->summary = ZH_WORDS_GETTER("employee.post.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("employee.field.name"), "HHH", true);
 		API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("employee.field.id"), "666", true);
@@ -83,13 +83,13 @@ public:
 		API_DEF_ADD_QUERY_PARAMS(String, "phone", ZH_WORDS_GETTER("employee.field.phone"), "10086", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "state", ZH_WORDS_GETTER("employee.field.state"), "on", false);
 	};
-	API_HANDLER_ENDPOINT(API_M_PUT, "/employee-info/employeePut", employeePut, BODY_DTO(EmployeeInfoAddDTO::Wrapper, dto), execEmployeePut(dto));
+	API_HANDLER_ENDPOINT(API_M_POST, "/employee-info/employeePost", employeePost, BODY_DTO(EmployeeInfoAddDTO::Wrapper, dto), execEmployeePut(dto));
 	/* *
 	* 修改指定员工员工信息接口
 	* 执行人：Detachment
 	*/
-	ENDPOINT_INFO(employeePost) {
-		info->summary = ZH_WORDS_GETTER("employee.post.summary");
+	ENDPOINT_INFO(employeePut) {
+		info->summary = ZH_WORDS_GETTER("employee.put.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("employee.field.name"), u8"徐梓炎", true);
 		API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("employee.field.id"), "666", true);
@@ -117,7 +117,7 @@ public:
 		API_DEF_ADD_QUERY_PARAMS(String, "phone", ZH_WORDS_GETTER("employee.field.phone"), "6666", true);
 		API_DEF_ADD_QUERY_PARAMS(String, "email", ZH_WORDS_GETTER("employee.field.email"), "666@666.com", false);
 	}
-	API_HANDLER_ENDPOINT(API_M_POST, "/employee-info/employeePost", employeePost,BODY_DTO(EmployeeInfoDTO::Wrapper,dto), execEmployeeModify(dto));
+	API_HANDLER_ENDPOINT(API_M_PUT, "/employee-info/employeePut", employeePut,BODY_DTO(EmployeeInfoDTO::Wrapper,dto), execEmployeeModify(dto));
 	/* *
 	* 岗位列表接口
 	* 执行人：Detachment
