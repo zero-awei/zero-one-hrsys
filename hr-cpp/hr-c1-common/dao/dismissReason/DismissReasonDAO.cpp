@@ -6,7 +6,7 @@
 
 std::list<DismissReasonDO> DismissReasonDAO::queryDismissReasonList()
 {
-	string sql = "SELECT DISTINCT PCMREASONNAME FROM t_pcmreason";
+	string sql = "SELECT DISTINCT PCMREASONNAME, PX FROM t_pcmreason";
 	DismissReasonMapper mapper;
 	return sqlSession->executeQuery<DismissReasonDO, DismissReasonMapper>(sql, mapper);
 }

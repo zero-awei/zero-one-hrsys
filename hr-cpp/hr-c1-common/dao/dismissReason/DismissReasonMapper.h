@@ -32,6 +32,7 @@ public:
 	{
 		DismissReasonDO data;
 		data.setDismissreason(resultSet->getString(1));
+		data.setCode(resultSet->getInt(2));
 		return data;
 	}
 };
