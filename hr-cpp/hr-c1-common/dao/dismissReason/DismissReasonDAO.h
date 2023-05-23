@@ -1,7 +1,6 @@
 #pragma once
 /*
  Copyright Zero One Star. All rights reserved.
-
  @Author: yuanxiang
  @Date: 2023/05/23 11:30:22
 
@@ -17,20 +16,22 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+
 #ifndef _DISMISSREASONDAO_H_
 #define _DISMISSREASONDAO_H_
 #include "BaseDAO.h"
 #include "domain/do/dismissReason/DismissReasonDO.h"
 
+
 /**
  * 解聘原因DAO
  * 负责人：远翔
  */
-class DismissReasonDAO : public BaseDAO
-{
+class DismissReasonDAO : public BaseDAO{
 public:
 	// 查询列表
 	std::list<DismissReasonDO> queryDismissReasonList();
 };
+
 
 #endif // !_DISMISSREASONDAO_H_

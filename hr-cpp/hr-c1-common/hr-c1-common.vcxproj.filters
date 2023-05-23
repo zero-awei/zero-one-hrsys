@@ -8,7 +8,6 @@
     <ClCompile Include="controller\certDropDownList\certTypeList\CertTypeListController.cpp" />
     <ClCompile Include="controller\certDropDownList\profCertsList\ProfCertsListController.cpp" />
     <ClCompile Include="controller\armyLevelType\ArmyLevelTypeController.cpp" />
-    <ClCompile Include="controller\contractType\ContractTypeListController.cpp" />
     <ClCompile Include="controller\fileReservation\FileReservationController.cpp" />
     <ClCompile Include="controller\fileStatus\FileStatusController.cpp" />
     <ClCompile Include="controller\jobLevelTypeList\JobLevelTypeListController.cpp" />
@@ -19,19 +18,21 @@
     <ClCompile Include="controller\jobCategory\JobCategoryController.cpp" />
     <ClCompile Include="controller\dismissReason\DismissReasonController.cpp" />
     <ClCompile Include="controller\leaveReason\LeaveReasonController.cpp" />
-    <ClCompile Include="controller\typeContract\TypeContractController.cpp" />
     <ClCompile Include="controller\auditstatusController.h\AuditstatusController.cpp" />
+
     <ClCompile Include="service\dismissReason\DismissReasonService.cpp" />
     <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
     <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
     <ClCompile Include="service\leaveReason\LeaveReasonService.cpp" />
+    <ClCompile Include="controller\typeContract\TypeContractListController.cpp" />
+    <ClCompile Include="controller\contractType\ContractTypeController.cpp" />
+
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
     <ClInclude Include="controller\certDropDownList\certTypeList\CertTypeListController.h" />
     <ClInclude Include="controller\certDropDownList\profCertsList\ProfCertsListController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
-    <ClInclude Include="controller\contractType\ContractTypeListController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\certs\CertTypeDTO.h" />
@@ -65,17 +66,20 @@
     <ClInclude Include="domain\do\leaveReson\LeaveReasonDO.h" />
     <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
     <ClInclude Include="domain\do\certs\ProCertsDO.h" />
-    <ClInclude Include="controller\typeContract\TypeContractController.h" />
     <ClInclude Include="domain\do\typeContract\TypeContractDO.h" />
     <ClInclude Include="domain\dto\typeContract\TypeContractDTO.h" />
     <ClInclude Include="domain\vo\typeContract\TypeContractVO.h" />
     <ClInclude Include="controller\auditstatusController.h\AuditstatusController.h" />
+
     <ClInclude Include="service\dismissReason\DismissReasonService.h" />
     <ClInclude Include="dao\dismissReason\DismissReasonDAO.h" />
     <ClInclude Include="dao\dismissReason\DismissReasonMapper.h" />
     <ClInclude Include="dao\leaveReason\LeaveReasonDAO.h" />
     <ClInclude Include="dao\leaveReason\LeaveReasonMapper.h" />
     <ClInclude Include="service\leaveReason\LeaveReasonService.h" />
+    <ClInclude Include="controller\typeContract\TypeContractListController.h" />
+    <ClInclude Include="controller\contractType\ContractTypeController.h" />
+
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
