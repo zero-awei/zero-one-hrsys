@@ -29,8 +29,6 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
-<<<<<<< HEAD
-=======
 orgmanage:
  controller:
   postQuery: 查询指定岗位详情
@@ -115,4 +113,4 @@ ormanage:
   label: 项目标签
   ormorgid: 项目ID
   ormxbqid: 项目标签标识
->>>>>>> remotes/origin/c1
+

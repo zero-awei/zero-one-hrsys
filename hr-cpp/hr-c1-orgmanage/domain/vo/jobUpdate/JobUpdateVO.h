@@ -1,3 +1,6 @@
+//2023年5月21日
+//岗位更新信息
+//作者：狗皮电耗子
 #pragma once
 #ifndef _JOB_UPDATE_VO_
 #define _JOB_UPDATE_VO_

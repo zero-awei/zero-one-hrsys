@@ -32,7 +32,6 @@ sample:
 
 # 公共接口
 common:
-<<<<<<< HEAD
  get:
   archiveslevels: 档案层级
   list: 层级
@@ -43,8 +42,7 @@ declare:
  code: 值
  type: 类型
 
-  
-=======
+
  dto:
   pimQualMajorId: 执业资格专业编码
   pimQualMajorName: 执业资格
@@ -108,4 +106,4 @@ htlx:
  field:
    htlxname: 合同类别名称
    htlxList: 合同类别列表
->>>>>>> remotes/origin/c1
+
