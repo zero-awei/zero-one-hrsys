@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -24,15 +24,19 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
+/**
+ * 下拉列表项
+ * 负责人：Andrew
+ */
 class ItemDTO : public oatpp::DTO
 {
 	DTO_INIT(ItemDTO, DTO);
-	// �б������
+	// 列表项代号
 	DTO_FIELD_INFO(key) {
 		info->description = ZH_WORDS_GETTER("common.dto.code");
 	}
 	DTO_FIELD(UInt32, key);
-	// ��Ӧֵ
+	// 对应值
 	DTO_FIELD_INFO(val) {
 		info->description = ZH_WORDS_GETTER("common.dto.value");
 	}
@@ -42,7 +46,7 @@ public:
 	ItemDTO()
 	{
 		key = 1;
-		val = "��";
+		val = "null";
 	}
 
 	ItemDTO(Int32 k, String v)
@@ -52,19 +56,17 @@ public:
 	}
 };
 
-template <typename T>
-class ListDTO : public oatpp::DTO
+/**
+ * 下拉列表DTO领域模型
+ * 负责人：Andrew
+ */
+class PullListDTO : public oatpp::DTO
 {
-	DTO_INIT(ListDTO, DTO);
+	DTO_INIT(PullListDTO, DTO);
 	DTO_FIELD_INFO(pullList) {
 		info->description = ZH_WORDS_GETTER("common.dto.list");
 	}
-	DTO_FIELD(List<T>, pullList) = {};
-};
-
-class PullListDTO : public ListDTO<ItemDTO::Wrapper>
-{
-	DTO_INIT(PullListDTO, ListDTO<ItemDTO::Wrapper>);
+	DTO_FIELD(List<ItemDTO::Wrapper>, pullList) = {};
 };
 
 

@@ -20,7 +20,7 @@
 #ifndef _POSTDETAIL_DTO_
 #define _POSTDETAIL_DTO_
 #include "../../GlobalInclude.h"
-#include "../pullList/PullListDTO.h"
+
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
@@ -136,9 +136,9 @@ class PostDetailDTO : public oatpp::DTO
 /**
  * 岗位详情分页传输对象
  */
-class PostDetailPageDTO : public ListDTO<PostDetailDTO::Wrapper>
+class PostDetailPageDTO : public PageDTO<PostDetailDTO::Wrapper>
 {
-	DTO_INIT(PostDetailPageDTO, ListDTO<PostDetailDTO::Wrapper>);
+	DTO_INIT(PostDetailPageDTO, PageDTO<PostDetailDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)
