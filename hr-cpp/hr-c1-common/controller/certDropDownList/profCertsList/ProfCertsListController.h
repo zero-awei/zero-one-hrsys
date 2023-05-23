@@ -24,13 +24,6 @@
 #include "domain/query/certs/ProfCertsQuery.h"
 #include "domain/dto/certs/ProfCertsDTO.h"
 #include "domain/vo/certs/ProfCertsVO.h"
-#include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
-#include "oatpp/web/mime/multipart/FileProvider.hpp"
-#include "oatpp/web/mime/multipart/Reader.hpp"
-#include "oatpp/web/mime/multipart/PartList.hpp"
-
-using namespace oatpp;
-namespace multipart = oatpp::web::mime::multipart;
 
 
 // 0 定义API控制器使用宏

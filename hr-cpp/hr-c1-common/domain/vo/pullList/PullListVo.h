@@ -22,6 +22,7 @@
 
 #include "../../GlobalInclude.h"
 #include "../../dto/pullList/PullListDTO.h"
+#include <domain/vo/BaseJsonVO.h>
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
@@ -29,6 +30,7 @@ class PullListVO : public JsonVO<PullListDTO::Wrapper>
 {
 	DTO_INIT(PullListVO, JsonVO<PullListDTO::Wrapper>);
 };
+
 
 #include OATPP_CODEGEN_END(DTO)
 

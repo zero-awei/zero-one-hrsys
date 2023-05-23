@@ -41,7 +41,6 @@ public:
 	// 呼叫初始化
 	void initRouter();
 
-
 private:
 
 #ifdef HTTP_SERVER_DEMO
@@ -95,6 +94,10 @@ private:
 	 */
 	void createLeaveReasonRouter();
 	void createDismissReasonRouter();
+	//审阅状态下拉列表
+	// 负责人：凤雏
+	void createAuditStatusRouter();
+	
 };
 
 #endif // !_ROUTER_

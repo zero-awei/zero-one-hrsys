@@ -6,8 +6,8 @@
 #include "Macros.h"
 #include "ServerInfo.h"
 #include "domain/vo/BaseJsonVO.h"
-#include "../../domain/dto/jobUpdateDto/JobUpdateDTO.h"
-#include "../../domain/vo/JobUpdateVO/JobUpdateVO.h"
+#include "../../../domain/dto/jobUpdate/JobUpdateDTO.h"
+#include "../../../domain/vo/jobUpdate/JobUpdateVO.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
@@ -21,7 +21,7 @@ public:
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(JobUpdateJsonVO);
 	}
-	ENDPOINT(API_M_PUT, "/jobset", updatejobinfo, BODY_DTO(JobUpdateDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, PATH_TO_JOBSET("/update-job"), updatejobinfo, BODY_DTO(JobUpdateDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execUpdateJobinfo(dto));
 	}

@@ -6,8 +6,8 @@
 #include "ApiHelper.h"
 #include "Macros.h"
 #include "ServerInfo.h"
-#include "domain/dto/jobDownloadDto/JobDownloadDTO.h"
-#include "domain/vo/JobDownloadVO/JobDownloadVO.h"
+#include "domain/dto/jobDownload/JobDownloadDTO.h"
+#include "domain/vo/JobDownload/JobDownloadVO.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
@@ -19,7 +19,7 @@ public:
 		info->summary = ZH_WORDS_GETTER("job.downloadurl");
 		API_DEF_ADD_RSP_JSON_WRAPPER(JobDownloadJsonVO);
 	}
-	ENDPOINT(API_M_GET, "/joburl", downloadJobinfo) {
+	ENDPOINT(API_M_GET, PATH_TO_JOBSET("/export-job"), downloadJobinfo) {
 		// ÏìÓ¦½á¹û
 		API_HANDLER_RESP_VO(execDownloadJobinfo());
 		return createResponse(Status::CODE_202, "OK");
