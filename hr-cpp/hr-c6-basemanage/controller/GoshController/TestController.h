@@ -55,7 +55,7 @@ public:
 		API_DEF_ADD_PAGE_PARAMS();
 	}
 	 //3.2 定义查询合同接口端点
-	ENDPOINT(API_M_GET, "/query-contract", queryContract, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/contrac-management/query-contract", queryContract, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, ContractQuery, qps);		
 		// 响应结果
@@ -71,7 +71,7 @@ public:
 		API_DEF_ADD_PERSON_PARAMS();
 	}
 	//3.2 定义查询个人信息接口处理
-	ENDPOINT(API_M_GET, "/query-person", queryPerson, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/contrac-management/query-person", queryPerson, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, PersonQuery, qps);
 		// 响应结果
@@ -85,7 +85,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增合同接口处理
-	ENDPOINT(API_M_POST, "/add-contract", addContract, BODY_DTO(ContractDTO_gs::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/contrac-management/add-contract", addContract, BODY_DTO(ContractDTO_gs::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddContract(dto));
 	}
@@ -97,7 +97,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义删除合同接口处理
-	ENDPOINT(API_M_DEL, "/remove-contract", removeContract, BODY_DTO(ContractDTO_gs::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/contrac-management/remove-contract", removeContract, BODY_DTO(ContractDTO_gs::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveContract(dto));
 	}

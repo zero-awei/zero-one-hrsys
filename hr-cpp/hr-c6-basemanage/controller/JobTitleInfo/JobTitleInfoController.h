@@ -54,7 +54,7 @@ public:
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(ExportJobTitleJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("jobtitle_name").description = ZH_WORDS_GETTER("jobtitle.field.jobtitle_name");
 		info->queryParams["jobtitle_name"].addExample("default", String("statistician"));
@@ -83,7 +83,7 @@ public:
 private:
 	// 3.3 演示查询数据
 	JobTitleInfoJsonVO::Wrapper execQueryJobTitle(const JobTitleInfoDTO::Wrapper& query, const PayloadDTO& payload);
-	ExportJobTitleJsonVO::Wrapper execGetJobTitle(const JobTitleInfoDTO::Wrapper& query, const PayloadDTO& payload);
+	StringJsonVO::Wrapper execGetJobTitle(const JobTitleInfoDTO::Wrapper& query, const PayloadDTO& payload);
 	Uint64JsonVO::Wrapper execModifyJobTitle(const JobTitleInfoDTO::Wrapper& dto);
 };
 
