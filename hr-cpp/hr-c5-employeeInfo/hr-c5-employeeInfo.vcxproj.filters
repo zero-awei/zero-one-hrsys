@@ -51,6 +51,18 @@
     <ClInclude Include="domain\do\NotEmployeeInArchive\NotEmployeeInArchiveDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\dto\UpdateArchiveInfo\UpdateArchiveInfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\UpdateArchiveInfo\UpdateArchiveInfoDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\UpdateArchiveInfo\UpdateArchiveInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -66,6 +78,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

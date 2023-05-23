@@ -174,12 +174,16 @@
     <ClInclude Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\NotEmployeeInArchive\NotEmployeeInArchiveDO.h" />
+    <ClInclude Include="domain\do\UpdateArchiveInfo\UpdateArchiveInfoDO.h" />
     <ClInclude Include="domain\dto\NotEmployeeInArchive\NotEmployeeInArchiveDTO.h" />
+    <ClInclude Include="domain\dto\UpdateArchiveInfo\UpdateArchiveInfoDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\NotEmployeeInArchive\NotEmployeeInArchiveQuery.h" />
     <ClInclude Include="domain\vo\NotEmployeeInArchive\NotEmployeeInArchiveVO.h" />
+    <ClInclude Include="domain\vo\UpdateArchiveInfo\UpdateArchiveInfoVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
@@ -188,6 +192,7 @@
     <ClCompile Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
