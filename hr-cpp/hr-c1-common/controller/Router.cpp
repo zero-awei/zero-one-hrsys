@@ -30,7 +30,7 @@
 //测试
 #include "certDropDownList/profCertsList/ProfCertsListController.h"
 #include "certDropDownList/certTypeList/CertTypeListController.h"
-#include "contractType/ContractTypeListController.h"
+#include "contractType/ContractTypeController.h"
 #include "armyLevelType/ArmyLevelTypeController.h"
 #include "fileStatus/FileStatusController.h"
 #include "fileReservation/FileReservationController.h"
@@ -42,7 +42,7 @@
 #include "dismissReason/DismissReasonController.h"
 #include "awardLevel/AwardLevelController.h"
 #include "jobCategory/JobCategoryController.h"
-#include "typeContract/TypeContractController.h"
+#include "typeContract/TypeContractListController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -71,7 +71,7 @@ void Router::initRouter()
 	//#TIP :系统扩展路由定义，写在这个后面
 	createAwardLevelRouter();
 	createJobCategoryRouter();
-	createContractTypeRouter();
+	createTypeContractRouter();
 	createArmyLevelTypeRouter();
 	creatTestRouter();
 	createJobLevelTypeRouter();
@@ -82,8 +82,8 @@ void Router::initRouter()
 	createFileStatusRouter();
 	createLeaveReasonRouter();
 	createDismissReasonRouter();
-	ROUTER_SIMPLE_BIND(TypeContractController);
 	createAuditStatusRouter();
+	ROUTER_SIMPLE_BIND(ContractTypeController);
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -135,9 +135,9 @@ void Router::creatTestRouter()
 	ROUTER_SIMPLE_BIND(CertTypeListController);
 }
 
-void Router::createContractTypeRouter()
+void Router::createTypeContractRouter()
 {
-	ROUTER_SIMPLE_BIND(ContractTypeListController);
+	ROUTER_SIMPLE_BIND(TypeContractListController);
 }
 
 void Router::createArmyLevelTypeRouter()
