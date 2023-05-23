@@ -35,6 +35,8 @@ class LanguageQuery : public oatpp::DTO
 	API_DTO_FIELD_DEFAULT(String, languageAbilityID, u8"语言标识能力");
 	//外语等级获取时间
 	API_DTO_FIELD_DEFAULT(String, gainTime, u8"外语等级获取时间");
+	//授权
+	API_DTO_FIELD_DEFAULT(UInt32, enable, u8"授权");
 	//附件
 	API_DTO_FIELD_DEFAULT(String, attachment, u8"附件");
 	//语种
@@ -49,16 +51,16 @@ class LanguageQuery : public oatpp::DTO
 	API_DTO_FIELD_DEFAULT(String, createTime, u8"创建时间");
 	//人员信息标识
 	API_DTO_FIELD_DEFAULT(String, personID, u8"人员信息标识");
-	//编号
-	DTO_FIELD(UInt64, id);
-	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("sample.field.id");
-	}
 	//姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("sample.field.name");
-	}
+	API_DTO_FIELD_DEFAULT(String, name, u8"人员姓名");
+	//记录所属
+	API_DTO_FIELD_DEFAULT(String, jlss, u8"记录所属");
+	//记录管理编号
+	API_DTO_FIELD_DEFAULT(String, jlglbh, u8"记录管理编号");
+	//记录审批状态
+	API_DTO_FIELD_DEFAULT(String, jlspzt, u8"记录审批状态");
+	//记录操作者
+	API_DTO_FIELD_DEFAULT(String, jlczz, u8"记录操作者");
 };
 
 #include OATPP_CODEGEN_END(DTO)
