@@ -3,6 +3,7 @@ package com.zeroone.star.dashboard.controller;
 
 import com.zeroone.star.dashboard.service.IBisEducationService;
 import com.zeroone.star.dashboard.service.IBisEmployeeanalysisService;
+import com.zeroone.star.dashboard.service.IBisProfessoranalysisService;
 import com.zeroone.star.dashboard.service.ISrforgService;
 import com.zeroone.star.project.dashboard.DashboardApis;
 import com.zeroone.star.project.dashboard.OrgDistributeApis;
@@ -23,17 +24,20 @@ import java.util.List;
 @Api(tags = "系统首页")
 public class DashboardController implements DashboardApis, OrgDistributeApis {
 
+    @Resource
+    IBisProfessoranalysisService iBisProfessoranalysisService;
+
     @GetMapping("pim-title-zcdj")
     @ApiOperation(value = "职称等级分布")
     @Override
-    public JsonVO<PimTitleDTO> queryProfessionalRank() {
-        return null;
+    public JsonVO<List<PimTitleDTO>> queryProfessionalRank() {
+        return JsonVO.success(iBisProfessoranalysisService.listRank());
     }
 
     @ApiOperation(value = "月均产值")
     @GetMapping("pim-output-yd")
     @Override
-    public JsonVO<PimOutputDTO> queryByMonth() {
+    public JsonVO<List<PimOutputDTO>> queryByMonth() {
         return null;
     }
 

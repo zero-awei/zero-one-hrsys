@@ -31,14 +31,14 @@ public interface DashboardApis {
      *
      * @return
      */
-    JsonVO<PimTitleDTO> queryProfessionalRank();
+    JsonVO<List<PimTitleDTO>> queryProfessionalRank();
 
     /**
      * 月均产值
      *
      * @return
      */
-    JsonVO<PimOutputDTO> queryByMonth();
+    JsonVO<List<PimOutputDTO>> queryByMonth();
 
     /**
      * @Description: 查询学历分布
