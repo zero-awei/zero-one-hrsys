@@ -54,6 +54,13 @@ public class DashboardController implements DashboardApis, OrgDistributeApis {
         return bisEducationService.getEducationDistribution();
     }
 
+    @GetMapping("query-vocational")
+    @ApiOperation(value = "职业资格")
+    @Override
+    public JsonVO<List<PimVocationalDTO>> queryPimVocational() {
+        return null;
+    }
+
     /**
      * 描述：年龄分布
      * 创建者：C.C.

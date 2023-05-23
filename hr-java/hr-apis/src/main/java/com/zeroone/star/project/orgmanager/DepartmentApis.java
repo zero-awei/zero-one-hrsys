@@ -3,6 +3,7 @@ package com.zeroone.star.project.orgmanager;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.orgmanager.DepartmentDTO;
 import com.zeroone.star.project.dto.orgmanager.ExportDTO;
+import com.zeroone.star.project.dto.orm.OrmBmkqdzDTO;
 import com.zeroone.star.project.query.orgmanager.DepartmentQuery;
 import com.zeroone.star.project.query.orgmanager.ExportAttendanceAddressQuery;
 import com.zeroone.star.project.query.orgmanager.ExportDepartmentsQuery;
@@ -40,4 +41,9 @@ public interface DepartmentApis {
      * @return
      */
     JsonVO<PageDTO<DepartmentDTO>> queryAllDepartment(DepartmentQuery query);
+
+
+    JsonVO<String> modifyAttendanceAddress(OrmBmkqdzDTO ormBmkqdzDTO);
+
+
 }

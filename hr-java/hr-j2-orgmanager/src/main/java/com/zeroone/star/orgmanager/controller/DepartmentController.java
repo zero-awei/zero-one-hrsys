@@ -3,6 +3,7 @@ package com.zeroone.star.orgmanager.controller;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.orgmanager.DepartmentDTO;
 import com.zeroone.star.project.dto.orgmanager.ExportDTO;
+import com.zeroone.star.project.dto.orm.OrmBmkqdzDTO;
 import com.zeroone.star.project.orgmanager.DepartmentApis;
 import com.zeroone.star.project.query.orgmanager.DepartmentQuery;
 import com.zeroone.star.project.query.orgmanager.ExportAttendanceAddressQuery;
@@ -11,6 +12,7 @@ import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -46,6 +48,13 @@ public class DepartmentController implements DepartmentApis {
     @ApiOperation(value = "分页查询部门信息")
     @Override
     public JsonVO<PageDTO<DepartmentDTO>> queryAllDepartment(DepartmentQuery query) {
+        return null;
+    }
+
+    @ApiOperation(value = "更新部门考勤地址")
+    @PutMapping(value = "update-attendance-address")
+    @Override
+    public JsonVO<String> modifyAttendanceAddress(OrmBmkqdzDTO ormBmkqdzDTO) {
         return null;
     }
 

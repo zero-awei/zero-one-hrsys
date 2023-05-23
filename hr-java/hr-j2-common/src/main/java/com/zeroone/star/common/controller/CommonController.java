@@ -4,10 +4,7 @@ import com.zeroone.star.common.service.IOrmpostlibService;
 import com.zeroone.star.common.service.ZzmmService;
 import com.zeroone.star.project.common.CommonApis;
 import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
-import com.zeroone.star.project.dto.common.GwTypeDTO;
-import com.zeroone.star.project.dto.common.PostNatureDTO;
-import com.zeroone.star.project.dto.common.StatusListDTO;
+import com.zeroone.star.project.dto.common.*;
 import com.zeroone.star.project.query.common.ZzmmQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
@@ -119,4 +116,20 @@ public class CommonController implements CommonApis {
         List<PostNatureDTO> list = ormpostlibService.getPostNature();
         return JsonVO.success(list);
     }
+
+    @GetMapping("query-marital-status")
+    @ApiOperation(value = "婚姻状况下拉列表")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryMaritalStatus() {
+        return null;
+    }
+
+    @GetMapping("query-work-status")
+    @ApiOperation(value = "工作状态下拉列表")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryWorkStatus() {
+        return null;
+    }
+
+
 }

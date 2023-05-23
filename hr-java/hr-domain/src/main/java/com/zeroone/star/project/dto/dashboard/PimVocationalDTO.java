@@ -12,7 +12,7 @@ import lombok.Data;
  */
 @Data
 @ApiModel("职业资格对象")
-public class PimVocationalListDTO {
+public class PimVocationalDTO {
 
     @ApiModelProperty(value = "职业资格名",example = "软件设计师")
     private String qualificationName;

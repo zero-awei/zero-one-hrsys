@@ -1,11 +1,8 @@
 package com.zeroone.star.project.common;
 
 import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
-import com.zeroone.star.project.dto.common.StatusListDTO;
+import com.zeroone.star.project.dto.common.*;
 import com.zeroone.star.project.query.common.ZzmmQuery;
-import com.zeroone.star.project.dto.common.GwTypeDTO;
-import com.zeroone.star.project.dto.common.PostNatureDTO;
 import com.zeroone.star.project.vo.JsonVO;
 
 import java.util.List;
@@ -106,4 +103,19 @@ public interface CommonApis {
      * @date 2023/5/20 0:03
      */
     JsonVO<List<PostNatureDTO>> queryPostNature();
+
+
+    /**
+     * 婚姻状态下拉列表
+     * @return
+     */
+    JsonVO<List<DropdownListOptionDTO>> queryMaritalStatus();
+
+    /**
+     * 工作状态下拉列表
+     * @return
+     */
+    JsonVO<List<DropdownListOptionDTO>> queryWorkStatus();
+
+
 }
