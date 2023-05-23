@@ -212,6 +212,8 @@
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\sample\SampleController.h" />
     <ClInclude Include="domain\dto\user\MenuDTO.h" />
+    <ClInclude Include="domain\query\filestatus\FilestatusQuery.h" />
+    <ClInclude Include="domain\vo\filestatus\FilestatusVO.h" />
     <ClInclude Include="service\user\TreeMenuMapper.h" />
     <ClInclude Include="controller\user\UserController.h" />
     <ClInclude Include="dao\sample\SampleDAO.h" />
