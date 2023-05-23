@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: huilai
- @Date: 2023/05/22 14:35:21
+ @Date: 2023/05/22 16:24:07
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,12 +17,12 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _ADDWORKHISTORYDO_H_
-#define _ADDWORKHISTORYDO_H_
+#ifndef _WORKHISTORYINTODO_H_
+#define _WORKHISTORYINTODO_H_
 
+#include "../../GlobalInclude.h"
 
-
-class AddWorkHistoryDO
+class WorkHistoryIntoDO
 {
 	//1任职开始时间
 	CC_SYNTHESIZE(std::string, RZKSSJ, rZKSSJ);
@@ -54,21 +54,7 @@ class AddWorkHistoryDO
 	//10人员信息id
 	CC_SYNTHESIZE(std::string, PIMPERSONID, pIMPERSONID);
 
-public:
-	AddWorkHistoryDO() = default;
 
-	AddWorkHistoryDO(std::vector<std::string> vec)
-	{
-		int i = 0;
-		setrZKSSJ(vec[i++]);
-		setrZJSSJ(vec[i++]);
-		setoRMORGNAME(vec[i++]);
-		setoRMORGSECTORNAME(vec[i++]);
-		setoRMDUTYNAME(vec[i++]);
-		setoRMPOSTNAME(vec[i++]);
-		setcFPLX(vec[i++]);
-		seteXPERIENCE(vec[i++]);
-	}
 };
 
-#endif // !_ADDWORKHISTORYDO_H_
+#endif // !_WORKHISTORYINTODO_H_

@@ -205,6 +205,7 @@
     <ClInclude Include="domain\do\work-history\DelWorkHistoryDO.h" />
     <ClInclude Include="domain\do\work-history\WorkHistoryDO.h" />
     <ClInclude Include="domain\do\work-history\WorkHistoryFindPageDO.h" />
+    <ClInclude Include="domain\do\work-history\WorkHistoryIntoDO.h" />
     <ClInclude Include="domain\dto\archives\ArchivesDTO.h" />
     <ClInclude Include="domain\dto\certificate-information\CertificateInformationDTO.h" />
     <ClInclude Include="domain\dto\certificate-information\JobTitleInformationDTO.h" />
@@ -237,6 +238,7 @@
     <ClInclude Include="domain\query\scientific\ScientificQuery.h" />
     <ClInclude Include="domain\query\SciResult\SciResultQuery.h" />
     <ClInclude Include="domain\query\work-history\WorkHistoryExportQuery.h" />
+    <ClInclude Include="domain\query\work-history\WorkHistoryIntoQuery.h" />
     <ClInclude Include="domain\query\work-history\WorkHistoryPageQuery.h" />
     <ClInclude Include="domain\query\work-history\WorkHistoryQuery.h" />
     <ClInclude Include="domain\vo\archives\ArchivesVO.h" />

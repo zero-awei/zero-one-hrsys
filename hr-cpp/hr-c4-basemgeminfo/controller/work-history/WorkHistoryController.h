@@ -39,6 +39,7 @@
 #include "domain/dto/work-history/ModWorkHistoryDTO.h"
 #include "domain/vo/work-history/ModWorkHistoryVO.h"
 #include "domain/vo/work-history/WorkHistoryVO.h"
+#include "domain/dto/work-history/WorkHistoryIntoDTO.h"
 
 
 using namespace oatpp;
@@ -63,7 +64,7 @@ public: // 定义接口
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("workhistory.field.pimpersonid");
-		info->queryParams["pimpersonid"].addExample("default", String("6611212223"));
+		info->queryParams["pimpersonid"].addExample("default", String("1002"));
 		info->queryParams["pimpersonid"].required = false;
 	}
 	// 定义查询接口处理
@@ -107,11 +108,18 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON(StringJsonVO::Wrapper);
 		info->queryParams["suffix"].description = ZH_WORDS_GETTER("workhistory.file.suffix");
 		info->queryParams["suffix"].addExample("xlsx", String(".xlsx"));
+
+		// 定义其他表单参数描述
+		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("workhistory.field.pimpersonid");
+		info->queryParams["pimpersonid"].addExample("default", String("1002"));
+		info->queryParams["pimpersonid"].required = false;
+		
 	}
 	// 定义文件上传端点处理
-	ENDPOINT(API_M_POST, "/workhistory/file", postFile, BODY_STRING(String, body), QUERY(String, suffix)) {
+	ENDPOINT(API_M_POST, "/workhistory/file", postFile, BODY_STRING(String, body),QUERY(String, suffix), QUERY(String, pimpersonid)) {
+
 		// 执行文件保存逻辑
-		API_HANDLER_RESP_VO(execIntoWorkHistory(body, suffix));
+		API_HANDLER_RESP_VO(execIntoWorkHistory(body,suffix,pimpersonid));
 	}
 
 	//文件导出接口
@@ -123,7 +131,7 @@ public: // 定义接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 定义分页参数描述
-		API_DEF_ADD_PAGE_PARAMS();
+		//API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("workhistory.field.pimpersonid");
 		info->queryParams["pimpersonid"].addExample("default", String("6611212223"));
@@ -196,7 +204,7 @@ private:
 	Uint64JsonVO::Wrapper execDelWorkHistory(const DelWorkHistoryDTO::Wrapper& dto);
 
 	//定义导入执行函数
-	StringJsonVO::Wrapper execIntoWorkHistory(const String body, const String suffix);
+	StringJsonVO::Wrapper execIntoWorkHistory(const String&, const String&, const String&);
 
 	//定义导出执行函数
 	StringJsonVO::Wrapper execExportWorkHistory(const WorkHistoryExportQuery::Wrapper& query);

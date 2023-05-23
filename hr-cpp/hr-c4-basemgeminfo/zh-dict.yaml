@@ -47,6 +47,8 @@ workhistory:
   cfplx: 兼职主要类型
   experience: 是否主要经历
   enable: 是否主要经历
+  suffix: 导入文件后缀名
+  body: 导入文件主体
  put:
   summary: 单条修改工作履历数据
  export:

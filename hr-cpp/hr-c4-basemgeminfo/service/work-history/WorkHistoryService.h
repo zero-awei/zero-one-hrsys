@@ -18,6 +18,7 @@
 #include "domain/query/work-history/WorkHistoryQuery.h"
 #include "domain/dto/work-history/AddWorkHistoryDTO.h"
 #include "domain/dto/work-history/DelWorkHistoryDTO.h"
+#include "controller/work-history/WorkHistoryController.h"
 
 class WorkHistoryService
 {
@@ -33,6 +34,9 @@ public:
 	//删除数据(支持批量删除)
 	bool removeData(const DelWorkHistoryDTO::Wrapper& dto);
 
+
+	//执行导入（即批量增加数据）
+	uint64_t saveManyData(const String& fileBody, const String& suffix, const String& pimpersonid);
 
 
 

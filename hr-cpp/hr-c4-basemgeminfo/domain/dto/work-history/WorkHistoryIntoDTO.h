@@ -29,57 +29,69 @@ DTO_FIELD_INFO(field) { \
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class WorkHistoryDTO : public oatpp::DTO
+class WorkHistorysIntoDTO : public oatpp::DTO
 {
-	DTO_INIT(WorkHistoryDTO, DTO);
+	DTO_INIT(WorkHistorysIntoDTO, DTO);
 
 
-	//任职开始时间
-	DTO_FIELD(String, rzkssj);
-	DTO_FIELD_INFO(rzkssj) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.rzkssj");
-	}
+	////任职开始时间
+	//DTO_FIELD(String, rzkssj);
+	//DTO_FIELD_INFO(rzkssj) {
+	//	info->description = ZH_WORDS_GETTER("workhistory.field.rzkssj");
+	//}
 
 
-	//任职结束时间
-	DTO_FIELD(String, rzjssj);
-	DTO_FIELD_INFO(rzjssj) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.rzjssj");
-	}
+	////任职结束时间
+	//DTO_FIELD(String, rzjssj);
+	//DTO_FIELD_INFO(rzjssj) {
+	//	info->description = ZH_WORDS_GETTER("workhistory.field.rzjssj");
+	//}
 
-	//工作单位
-	DTO_FIELD(String, ormorgname);
-	DTO_FIELD_INFO(ormorgname) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.ormorgname");
-	}
+	////工作单位
+	//DTO_FIELD(String, ormorgname);
+	//DTO_FIELD_INFO(ormorgname) {
+	//	info->description = ZH_WORDS_GETTER("workhistory.field.ormorgname");
+	//}
 
-	//4部门
-	DTO_INIT_(String, ormorgsectorname, "workhistory.field.ormorgsectorname")
+	////4部门
+	//DTO_INIT_(String, ormorgsectorname, "workhistory.field.ormorgsectorname")
 
-	//5职务
-	DTO_INIT_(String, ormdutyname, "workhistory.field.ormdutyname")
+	////5职务
+	//DTO_INIT_(String, ormdutyname, "workhistory.field.ormdutyname")
 
-	//6岗位
-	DTO_INIT_(String, ormpostname, "workhistory.field.ormpostname")
+	////6岗位
+	//DTO_INIT_(String, ormpostname, "workhistory.field.ormpostname")
 
-	//7兼职借调类型
-	DTO_INIT_(String, cfplx, "workhistory.field.cfplx")
+	////7兼职借调类型
+	//DTO_INIT_(String, cfplx, "workhistory.field.cfplx")
 
-	//8是否主要经历
-	DTO_INIT_(UInt64, experience, "workhistory.field.experience")
+	////8是否主要经历
+	//DTO_INIT_(UInt64, experience, "workhistory.field.experience")
 
-	//8是否主要经历
-	DTO_INIT_(String, pimworkhistoryid, "workhistory.field.pimworkhistoryid")
+	////8是否主要经历
+	//DTO_INIT_(String, pimworkhistoryid, "workhistory.field.pimworkhistoryid")
+
+	//9人员信息id
+	DTO_INIT_(String, pimpersonid, "workhistory.field.pimpersonid")
+
+
+	//导入文件后缀名
+	DTO_INIT_(String, suffix, "workhistory.field.suffix")
+
+
+
+	//导出文件主体
+	DTO_INIT_(String, body, "workhistory.field.body")
 
 };
 
 
-class WorkHistoryIntoDTO : public oatpp::DTO
+/*class WorkHistoryIntoDTO : public oatpp::DTO
 {
 	DTO_INIT(WorkHistoryIntoDTO, DTO);
 
 	//批量增加list
-	DTO_FIELD(List<WorkHistoryDTO>, listworkhistory) = {};
+	DTO_FIELD(List<WorkHistorysDTO>, listworkhistory) = {};
 	DTO_FIELD_INFO(listworkhistory) {
 		info->description = ZH_WORDS_GETTER("workhistory.field.listworkhistory");
 	}
@@ -87,7 +99,7 @@ class WorkHistoryIntoDTO : public oatpp::DTO
 	//8人员信息id
 	DTO_INIT_(String, pimpersonid, "workhistory.field.pimpersonid")
 	
-};
+};*/
 
 #include OATPP_CODEGEN_END(DTO)
 

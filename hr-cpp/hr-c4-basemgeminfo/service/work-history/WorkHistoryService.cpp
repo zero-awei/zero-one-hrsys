@@ -2,6 +2,11 @@
 #include "WorkHistoryService.h"
 #include "dao/work-history/WorkHistoryDAO.h"
 #include "domain/do/work-history/DelWorkHistoryDO.h"
+#include "ExcelComponent.h"
+#include "CharsetConvertHepler.h"
+#include "domain/do/work-history/WorkHistoryIntoDO.h"
+#include "SnowFlake.h"
+#include "SimpleDateTimeFormat.h"
 
 WorkHistoryDTO::Wrapper WorkHistoryService::listDetail(const WorkHistoryQuery::Wrapper& query)
 {
@@ -96,4 +101,78 @@ bool WorkHistoryService::removeData(const DelWorkHistoryDTO::Wrapper& dto)
 		dao.deleteById(pimpersonid, *it);
 	}
 	return true;
+}
+
+uint64_t WorkHistoryService::saveManyData(const String& fileBody, const String& suffix, const String& pimpersonid)
+{
+	// 根据时间戳生成一个临时文件名称
+	std::stringstream ss;
+	ss << "public/static/Excel/";
+
+	// 计算时间戳
+	auto now = std::chrono::system_clock::now();
+	auto tm_t = std::chrono::system_clock::to_time_t(now);
+	ss << std::put_time(std::localtime(&tm_t), "%Y%m%d%H%M%S");
+	// 获取毫秒
+	auto tSeconds = std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch());
+	auto tMilli = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
+	auto ms = tMilli - tSeconds;
+	ss << std::setfill('0') << std::setw(3) << ms.count();
+	// 拼接后缀名
+	ss << suffix.getValue("");
+
+	// 临时文件名称
+	std::string fileName = ss.str();
+	// 保存文件到临时目录
+	fileBody.saveToFile(fileName.c_str());
+
+
+	// 保存到文件
+	ExcelComponent excel;
+
+	std::string sheetName = CharsetConvertHepler::ansiToUtf8("工作履历表");
+	// 从文件中读取
+	auto readData = excel.readIntoVector(fileName, sheetName);
+
+	WorkHistoryDAO dao;
+	
+	SnowFlake sf(0, 31);
+
+	bool tem = true;
+	for (auto row : readData)
+	{
+
+		//判断文件中是否有数据
+		for (int j = 0; j < row.size(); ++j)
+		{
+			if (row[j].empty())
+			{
+				return -1;
+			}
+			std::cout << CharsetConvertHepler::utf8ToAnsi(row[j]) << "   ";
+		}
+		
+		std::cout << endl;
+		if (tem)
+		{
+			tem = false;
+			continue;
+		}
+		AddWorkHistoryDO data(row);
+		//雪花算法生产履历id
+		data.setpIMWORKHISTORYID(to_string(sf.nextId()));
+
+		//判断是谁的工作履历
+		data.setpIMPERSONID(pimpersonid);
+
+		//更新时间
+		SimpleDateTimeFormat times;
+
+
+		//插入数据
+		dao.insert(data);
+
+	}
+
+	//执行添加逻辑
 }
