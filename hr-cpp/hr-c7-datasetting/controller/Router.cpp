@@ -56,6 +56,7 @@ void Router::initRouter()
 	// xxxxxxxxxx
 ROUTER_SIMPLE_BIND(CertificateController);
 ROUTER_SIMPLE_BIND(ArchiveController);
+ROUTER_SIMPLE_BIND(ContractController);
 }
 
 #ifdef HTTP_SERVER_DEMO
