@@ -177,7 +177,9 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\typeContract\TypeContractListController.h" />
+    <ClInclude Include="domain\do\archivesLevel\ArchivesLevelDO.h" />
     <ClInclude Include="domain\do\certs\ProCertsDO.h" />
+    <ClInclude Include="domain\do\declareType\DeclareTypeDO.h" />
     <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\typeContract\TypeContractDO.h" />
