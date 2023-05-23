@@ -174,14 +174,19 @@
     <ClInclude Include="controller\archives\ArchivesController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\paperinfoController\PaperinfoController.h" />
+    <ClInclude Include="controller\pimpaper\pimpaperController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\dto\archives\ArchivesDTO.h" />
     <ClInclude Include="domain\dto\paperinfo\PaperDTO.h" />
+    <ClInclude Include="domain\do\pimpaper\pimpaperDO.h" />
+    <ClInclude Include="domain\dto\pimpaper\pimpaperDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\archives\ArchivesQuery.h" />
     <ClInclude Include="domain\query\paperinfo\PaperQuery.h" />
     <ClInclude Include="domain\vo\archives\ArchivesVO.h" />
     <ClInclude Include="domain\vo\paperinfo\PaperVO.h" />
+    <ClInclude Include="domain\query\pimpaper\pimpaperQuery.h" />
+    <ClInclude Include="domain\vo\pimpaper\pimpaperVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
@@ -189,6 +194,7 @@
   <ItemGroup>
     <ClCompile Include="controller\archives\ArchivesController.cpp" />
     <ClCompile Include="controller\paperinfoController\PaperinfoController.cpp" />
+    <ClCompile Include="controller\pimpaper\pimpaperController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
