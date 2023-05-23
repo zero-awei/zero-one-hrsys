@@ -1,6 +1,7 @@
 employee:
  get:
   summary: 分页查询指定员工分配信息
+  detail: 查询制定员工详细分配信息
  post:
   summary: 新增指定员工分配信息
  put:
@@ -10,10 +11,10 @@ employee:
  field:
   id: 编号
   assign: 分配
-  type: 类型
+  etype: 类型
   organize: 组织
   depart: 部门
   job: 职务
   post: 岗位
-  start-time: 任职开始时间
-  end-time: 任职结束时间
+  startTime: 任职开始时间
+  endTime: 任职结束时间
