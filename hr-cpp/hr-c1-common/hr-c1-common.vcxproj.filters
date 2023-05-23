@@ -21,6 +21,7 @@
     <ClCompile Include="controller\leaveReason\LeaveReasonController.cpp" />
     <ClCompile Include="controller\typeContract\TypeContractController.cpp" />
     <ClCompile Include="controller\auditstatusController.h\AuditstatusController.cpp" />
+    <ClCompile Include="controller\evaluationTypesController.h\EvaluationTypesController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -66,6 +67,7 @@
     <ClInclude Include="domain\dto\typeContract\TypeContractDTO.h" />
     <ClInclude Include="domain\vo\typeContract\TypeContractVO.h" />
     <ClInclude Include="controller\auditstatusController.h\AuditstatusController.h" />
+    <ClInclude Include="controller\evaluationTypesController.h\EvaluationTypesController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

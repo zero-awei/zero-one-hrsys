@@ -168,6 +168,7 @@
     <ClInclude Include="controller\costTypeList\CostTypeListController.h" />
     <ClInclude Include="controller\declareType\DeclareController.h" />
     <ClInclude Include="controller\dismissReason\DismissReasonController.h" />
+    <ClInclude Include="controller\evaluationTypesController.h\EvaluationTypesController.h" />
     <ClInclude Include="controller\fileReservation\FileReservationController.h" />
     <ClInclude Include="controller\fileStatus\FileStatusController.h" />
     <ClInclude Include="controller\typeContract\TypeContractController.h" />
@@ -213,6 +214,7 @@
     <ClCompile Include="controller\costTypeList\CostTypeListController.cpp" />
     <ClCompile Include="controller\declareType\DeclareController.cpp" />
     <ClCompile Include="controller\dismissReason\DismissReasonController.cpp" />
+    <ClCompile Include="controller\evaluationTypesController.h\EvaluationTypesController.cpp" />
     <ClCompile Include="controller\fileReservation\FileReservationController.cpp" />
     <ClCompile Include="controller\fileStatus\FileStatusController.cpp" />
     <ClCompile Include="controller\typeContract\TypeContractController.cpp" />

@@ -48,7 +48,7 @@ public: // 定义接口
 		// 定义参数描述
 
 	}
-	ENDPOINT(API_M_POST, "/add-proj-tag", addTag, API_HANDLER_AUTH_PARAME, BODY_DTO(ProjTagDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, PATH_TO_PROJTAG("/add-proj-tag"), addTag, API_HANDLER_AUTH_PARAME, BODY_DTO(ProjTagDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddProjTag(dto, authObject->getPayload()));
 	}
