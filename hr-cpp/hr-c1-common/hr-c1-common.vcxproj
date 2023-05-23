@@ -177,6 +177,10 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\contractType\ContractTypeListController.h" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\dismissReason\DismissReasonDAO.h" />
+    <ClInclude Include="dao\dismissReason\DismissReasonMapper.h" />
+    <ClInclude Include="dao\leaveReason\LeaveReasonDAO.h" />
+    <ClInclude Include="dao\leaveReason\LeaveReasonMapper.h" />
     <ClInclude Include="domain\do\certs\ProCertsDO.h" />
     <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
@@ -200,6 +204,8 @@
     <ClInclude Include="domain\vo\pullList\PullListVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\dismissReason\DismissReasonService.h" />
+    <ClInclude Include="service\leaveReason\LeaveReasonService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -221,7 +227,11 @@
     <ClCompile Include="controller\leaveReason\LeaveReasonController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
+    <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\dismissReason\DismissReasonService.cpp" />
+    <ClCompile Include="service\leaveReason\LeaveReasonService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
