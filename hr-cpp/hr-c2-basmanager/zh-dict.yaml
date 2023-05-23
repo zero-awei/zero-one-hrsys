@@ -35,3 +35,8 @@ employee:
  field:
   employeeid: 员工编号
   employeename: 员工姓名
+certif:
+ delete:
+  summary: 删除一条示例数据
+ field:
+  id: 证书编号

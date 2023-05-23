@@ -182,6 +182,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="controller\CertificateManage\CertifDeleteController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\RosterOfPer\EmployeePageController.h" />
     <ClInclude Include="controller\Router.h" />
@@ -189,6 +190,7 @@
     <ClInclude Include="dao\RosterOfPer\EmployeePageMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\RosterOfPer\EmployeePageDO.h" />
+    <ClInclude Include="domain\dto\CertificateManage\RemoveCertifDTO.h" />
     <ClInclude Include="domain\dto\RosterOfPer\EmployeePageDTO.h" />
     <ClInclude Include="domain\query\RosterOfPer\EmployeePageQuery.h" />
     <ClInclude Include="domain\vo\RosterOfPer\EmployeePageVO.h" />
@@ -198,6 +200,7 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="controller\CertificateManage\CertifDeleteController.cpp" />
     <ClCompile Include="controller\RosterOfPer\EmployeePageController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />

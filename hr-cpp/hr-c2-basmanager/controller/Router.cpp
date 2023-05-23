@@ -21,7 +21,7 @@
 #include "ApiHelper.h"
 
 #include "RosterOfPer/EmployeePageController.h"
-
+#include "CertificateManage/CertifDeleteController.h"
 
 
 // 如果定义了关闭Swagger文档宏
@@ -46,6 +46,7 @@ void Router::initRouter()
 	createEmployeePageRouter();
 
 	//#TIP :系统扩展路由定义，写在这个后面
+	ROUTER_SIMPLE_BIND(CertifDeleteController);
 
 }
 
