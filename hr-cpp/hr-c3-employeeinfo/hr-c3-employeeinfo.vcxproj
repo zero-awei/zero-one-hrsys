@@ -35,20 +35,20 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -159,15 +159,41 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="controller\EmployeeInformation\EmployeeInformationController.h" />
+    <ClInclude Include="controller\employeeInfo\EmployeeInfoController.h" />
+    <ClInclude Include="controller\organizationDepartmentTreeStructure\organizationDepartmentTreeStructure.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\dto\EmployeeInformationPageQuery\EmployeeInformationPageQueryDTO.h" />
+    <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoAddDTO.h" />
+    <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoDTO.h" />
+    <ClInclude Include="domain\dto\org\ImportDTO.h" />
+    <ClInclude Include="domain\dto\org\MemberDTO.h" />
+    <ClInclude Include="domain\dto\org\OrgDTO.h" />
+    <ClInclude Include="domain\dto\org\OrgSectorDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\EmployeeInformationPageQuery\EmployeeInformationPageQuery.h" />
+    <ClInclude Include="domain\query\employeeInfo\EmployeeInfoQuery.h" />
+    <ClInclude Include="domain\query\jobList\JobListQuery.h" />
+    <ClInclude Include="domain\query\orgquery\ImportQuery.h" />
+    <ClInclude Include="domain\query\orgquery\MemberQuery.h" />
+    <ClInclude Include="domain\query\orgquery\RootOrgQuery.h" />
+    <ClInclude Include="domain\query\orgquery\SectorQuery.h" />
+    <ClInclude Include="domain\query\orgquery\ValidOrgQuery.h" />
+    <ClInclude Include="domain\vo\EmployeeInformation\EmployeeInformationVO.h" />
+    <ClInclude Include="domain\vo\org\ImportVO.h" />
+    <ClInclude Include="domain\vo\org\MemberVO.h" />
+    <ClInclude Include="domain\vo\org\OrgSectorVO.h" />
+    <ClInclude Include="domain\vo\org\OrgVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="controller\EmployeeInformation\EmployeeInformationController.cpp" />
+    <ClCompile Include="controller\employeeInfo\EmployeeInfoController.cpp" />
+    <ClCompile Include="controller\organizationDepartmentTreeStructure\organizationDepartmentTreeStructure.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />

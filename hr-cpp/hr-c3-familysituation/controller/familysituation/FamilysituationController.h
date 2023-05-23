@@ -25,7 +25,7 @@
 #include "domain/query/familysituation/FamilysituationQuery.h"
 #include "domain/dto/familysituation/FamilysituationDTO.h"
 #include "domain/dto/familysituation/ImportfamilysituationDTO.h"
-#include "domain/vo/familysituation/FamilysituationVO.h"
+//#include "domain/vo/familysituation/FamilysituationVO.h"
 
 // API助手
 #include "ApiHelper.h"
@@ -52,73 +52,73 @@ class FamilysituationController : public oatpp::web::server::api::ApiController
 	API_ACCESS_DECLARE(FamilysituationController);
 public: // 定义接口
 	// 定义查询描述
-	ENDPOINT_INFO(queryFamilysituation)
-	{
-		//定义标题
-		info->summary = ZH_WORDS_GETTER("familysituation.get.summary");
-		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(FamilySituationPageJsonVO);
-		// 定义分页参数描述
-		API_DEF_ADD_PAGE_PARAMS();
-	}
+	//ENDPOINT_INFO(queryFamilysituation)
+	//{
+	//	//定义标题
+	//	info->summary = ZH_WORDS_GETTER("familysituation.get.summary");
+	//	// 定义响应参数格式
+	//	API_DEF_ADD_RSP_JSON_WRAPPER(FamilySituationPageJsonVO);
+	//	// 定义分页参数描述
+	//	API_DEF_ADD_PAGE_PARAMS();
+	//}
 	// 定义查询接口处理
-	ENDPOINT(API_M_GET, "/query-by-Familysituation", queryFamilysituation, QUERIES(QueryParams, queryParams))
-	{
-		// 解析查询参数
-		API_HANDLER_QUERY_PARAM(familysituationQuery, FamilysituationQuery, queryParams);
-		// 响应结果
-		API_HANDLER_RESP_VO(execQueryByFamilysituation(familysituationQuery));
+	//ENDPOINT(API_M_GET, "/query-by-Familysituation", queryFamilysituation, QUERIES(QueryParams, queryParams))
+	//{
+	//	// 解析查询参数
+	//	API_HANDLER_QUERY_PARAM(familysituationQuery, FamilysituationQuery, queryParams);
+	//	// 响应结果
+	//	API_HANDLER_RESP_VO(execQueryByFamilysituation(familysituationQuery));
 
-	}
+	//}
 	// 定义查询指定家庭情况接口描述
-	ENDPOINT_INFO(queryOneFamilysituation)
-	{
-		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("familysituation.getone.summary");
-		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(FamilysituationJsonVO);
-		info->queryParams.add<UInt64>("id").description = "ID";
-		info->queryParams["id"].addExample("default", UInt64(1));
-		info->queryParams.add<String>("frelationship").description = ZH_WORDS_GETTER("familysituation.field.relationship");
-		info->queryParams["frelationship"].addExample("default", String(ZH_WORDS_GETTER("familysituation.description.dadson")));
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("familysituation.field.name");
-		info->queryParams["name"].addExample("default", String("Marvin"));
-		info->queryParams.add<String>("gender").description = ZH_WORDS_GETTER("familysituation.field.gender");
-		info->queryParams["gender"].addExample("default", String("Male"));
-		info->queryParams["gender"].required = false;
-		info->queryParams.add<UInt64>("age").description = ZH_WORDS_GETTER("familysituation.field.age");
-		info->queryParams["age"].addExample("default", UInt64(1));
-		info->queryParams["age"].required = false;
-		info->queryParams.add<String>("workplace").description = ZH_WORDS_GETTER("familysituation.field.workplace");
-		info->queryParams["workplace"].addExample("default", String("home"));
-		info->queryParams["workplace"].required = false;
-		info->queryParams.add<String>("job").description = ZH_WORDS_GETTER("familysituation.field.job");
-		info->queryParams["job"].addExample("default", String("teacher"));
-		info->queryParams["job"].required = false;
-		info->queryParams.add<String>("politicalstatus").description = ZH_WORDS_GETTER("familysituation.field.politicalstatus");
-		info->queryParams["politicalstatus"].addExample("default", String("xx"));
-		info->queryParams["politicalstatus"].required = false;
-		info->queryParams.add<String>("identification").description = ZH_WORDS_GETTER("familysituation.field.identification");
-		info->queryParams["identification"].addExample("default", String("46126132513251251X"));
-		info->queryParams["identification"].required = false;
-		info->queryParams.add<String>("dob").description = ZH_WORDS_GETTER("familysituation.field.dob");
-		info->queryParams["dob"].addExample("default", String("1998/06/25"));
-		info->queryParams["dob"].required = false;
-		info->queryParams.add<UInt8>("testament").description = ZH_WORDS_GETTER("familysituation.field.testament");
-		info->queryParams["testament"].addExample("default", UInt8(1));
-		info->queryParams["testament"].required = false;
-		info->queryParams.add<UInt8>("ice").description = ZH_WORDS_GETTER("familysituation.field.ice");
-		info->queryParams["ice"].addExample("default", UInt8(1));
-		info->queryParams["ice"].required = false;
-	}
+	//ENDPOINT_INFO(queryOneFamilysituation)
+	//{
+	//	// 定义接口标题
+	//	info->summary = ZH_WORDS_GETTER("familysituation.getone.summary");
+	//	// 定义响应参数格式
+	//	//API_DEF_ADD_RSP_JSON_WRAPPER(FamilysituationJsonVO);
+	//	info->queryParams.add<UInt64>("id").description = "ID";
+	//	info->queryParams["id"].addExample("default", UInt64(1));
+	//	info->queryParams.add<String>("frelationship").description = ZH_WORDS_GETTER("familysituation.field.relationship");
+	//	info->queryParams["frelationship"].addExample("default", String(ZH_WORDS_GETTER("familysituation.description.dadson")));
+	//	info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("familysituation.field.name");
+	//	info->queryParams["name"].addExample("default", String("Marvin"));
+	//	info->queryParams.add<String>("gender").description = ZH_WORDS_GETTER("familysituation.field.gender");
+	//	info->queryParams["gender"].addExample("default", String("Male"));
+	//	info->queryParams["gender"].required = false;
+	//	info->queryParams.add<UInt64>("age").description = ZH_WORDS_GETTER("familysituation.field.age");
+	//	info->queryParams["age"].addExample("default", UInt64(1));
+	//	info->queryParams["age"].required = false;
+	//	info->queryParams.add<String>("workplace").description = ZH_WORDS_GETTER("familysituation.field.workplace");
+	//	info->queryParams["workplace"].addExample("default", String("home"));
+	//	info->queryParams["workplace"].required = false;
+	//	info->queryParams.add<String>("job").description = ZH_WORDS_GETTER("familysituation.field.job");
+	//	info->queryParams["job"].addExample("default", String("teacher"));
+	//	info->queryParams["job"].required = false;
+	//	info->queryParams.add<String>("politicalstatus").description = ZH_WORDS_GETTER("familysituation.field.politicalstatus");
+	//	info->queryParams["politicalstatus"].addExample("default", String("xx"));
+	//	info->queryParams["politicalstatus"].required = false;
+	//	info->queryParams.add<String>("identification").description = ZH_WORDS_GETTER("familysituation.field.identification");
+	//	info->queryParams["identification"].addExample("default", String("46126132513251251X"));
+	//	info->queryParams["identification"].required = false;
+	//	info->queryParams.add<String>("dob").description = ZH_WORDS_GETTER("familysituation.field.dob");
+	//	info->queryParams["dob"].addExample("default", String("1998/06/25"));
+	//	info->queryParams["dob"].required = false;
+	//	info->queryParams.add<UInt8>("testament").description = ZH_WORDS_GETTER("familysituation.field.testament");
+	//	info->queryParams["testament"].addExample("default", UInt8(1));
+	//	info->queryParams["testament"].required = false;
+	//	info->queryParams.add<UInt8>("ice").description = ZH_WORDS_GETTER("familysituation.field.ice");
+	//	info->queryParams["ice"].addExample("default", UInt8(1));
+	//	info->queryParams["ice"].required = false;
+	//}
 	// 定义查询指定家庭情况接口处理
-	ENDPOINT(API_M_GET, "/queryOne-by-Familysituation", queryOneFamilysituation, QUERIES(QueryParams, queryParams))
-	{
-		// 解析查询参数
-		API_HANDLER_QUERY_PARAM(oneQuery, FamilysituationQuery, queryParams);
-		// 响应结果
-		API_HANDLER_RESP_VO(execOneQueryFamilysituation(oneQuery));
-	}
+	//ENDPOINT(API_M_GET, "/queryOne-by-Familysituation", queryOneFamilysituation, QUERIES(QueryParams, queryParams))
+	//{
+	//	// 解析查询参数
+	//	API_HANDLER_QUERY_PARAM(oneQuery, FamilysituationQuery, queryParams);
+	//	// 响应结果
+	//	API_HANDLER_RESP_VO(execOneQueryFamilysituation(oneQuery));
+	//}
 	// 定义添加家庭情况接口描述
 	ENDPOINT_INFO(addFamilysituation)
 	{
@@ -236,9 +236,9 @@ public: // 定义接口
 
 private: // 定义接口执行函数
 	// 查询数据响应
-	FamilySituationPageJsonVO::Wrapper execQueryByFamilysituation(const FamilysituationQuery::Wrapper& query);
+	//FamilySituationPageJsonVO::Wrapper execQueryByFamilysituation(const FamilysituationQuery::Wrapper& query);
 	// 指定查询数据响应
-	FamilysituationJsonVO::Wrapper execOneQueryFamilysituation(const FamilysituationQuery::Wrapper& query);
+	//FamilysituationJsonVO::Wrapper execOneQueryFamilysituation(const FamilysituationQuery::Wrapper& query);
 	// 添加数据响应
 	StringJsonVO::Wrapper execAddFamilysituation(const FamilysituationDTO::Wrapper& dto);
 	// 修改数据响应
