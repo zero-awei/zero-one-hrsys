@@ -180,6 +180,7 @@
     <ClInclude Include="controller\Certificate\CertificateController.h" />
     <ClInclude Include="controller\contract\ContractController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\Qualification\QualificationController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\archive\ArchiveDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
@@ -201,9 +202,9 @@
     <ClInclude Include="domain\dto\archive\ArchiveDTO.h" />
     <ClInclude Include="domain\query\archive\ArchiveQuery.h" />
     <ClInclude Include="domain\vo\archive\ArchiveVO.h" />
-    <ClInclude Include="domain\dto\Qualification\QulificationDTO.h" />
+    <ClInclude Include="domain\dto\Qualification\QualificationDTO.h" />
     <ClInclude Include="domain\query\Qualification\QualificationQuery.h" />
-    <ClInclude Include="domain\vo\Qulification\QulificationVO.h" />
+    <ClInclude Include="domain\vo\Qualification\QualificationVO.h" />
     <ClInclude Include="domain\vo\Title\TitleVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
@@ -213,6 +214,7 @@
     <ClCompile Include="controller\archive\archiveController.cpp" />
     <ClCompile Include="controller\Certificate\CertificateController.cpp" />
     <ClCompile Include="controller\contract\ContractController.cpp" />
+    <ClCompile Include="controller\Qualification\QualificationController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />

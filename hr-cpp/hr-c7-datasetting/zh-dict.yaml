@@ -72,3 +72,9 @@ contractCategory:
     description: 描述
     createTime: 创建时间
     ids: 编号列表
+Qualification:
+  filed:
+   qualificationName: 执业资格名称
+   rank: 级别
+   practicingQualification: 执业资格
+   profession: 专业
