@@ -1,6 +1,7 @@
 package com.zeroone.star.common.controller;
 
 import com.zeroone.star.common.service.IOrmpostlibService;
+import com.zeroone.star.common.service.IPimpersonService;
 import com.zeroone.star.common.service.ZzmmService;
 import com.zeroone.star.project.common.CommonApis;
 import com.zeroone.star.project.dto.PageDTO;
@@ -37,6 +38,9 @@ public class CommonController implements CommonApis {
     @Resource
     ZzmmService zzmmService;
 
+    @Resource
+    IPimpersonService iPimpersonService;
+
     @ApiOperation(value = "获取编制控制下拉列表")
     @GetMapping("query-staffing-control")
     @Override
@@ -54,8 +58,8 @@ public class CommonController implements CommonApis {
     @ApiOperation(value = "员工状态下拉列表")
     @GetMapping("employee-status-list")
     @Override
-    public JsonVO<PageDTO<StatusListDTO>> queryEmployeeStatus() {
-        return null;
+    public JsonVO<List<StatusListDTO>> queryEmployeeStatus() {
+        return JsonVO.success(iPimpersonService.selectEmployeeStatus());
     }
 
     @ApiOperation(value = "部门类型下拉列表")
