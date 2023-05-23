@@ -9,10 +9,10 @@ JobTitleInfoJsonVO::Wrapper JobTitleInfoController::execQueryJobTitle(const JobT
 	return jvo;
 }
 
-ExportJobTitleJsonVO::Wrapper JobTitleInfoController::execGetJobTitle(const JobTitleInfoDTO::Wrapper& query, const PayloadDTO& payload)
+StringJsonVO::Wrapper JobTitleInfoController::execGetJobTitle(const JobTitleInfoDTO::Wrapper& query, const PayloadDTO& payload)
 {
-	auto jvo = ExportJobTitleJsonVO::createShared();
-	Vector<JobTitleInfoDTO::Wrapper> result;
+	auto jvo = StringJsonVO::createShared();
+	String result;
 	jvo->success(result);
 	return jvo;
 }
