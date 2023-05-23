@@ -3,50 +3,40 @@
   <ItemGroup>
     <ClCompile Include="controller\projTag\addTagController\AddTagController.cpp" />
     <ClCompile Include="controller\projTag\importTagController\ImportTagController.cpp" />
-
     <ClCompile Include="controller\jobSet\postDeleteController\PostDeleteController.cpp" />
     <ClCompile Include="controller\jobSet\postQueryController\PostQueryController.cpp" />
-
     <ClCompile Include="controller\jobSet\importJobController\ImportJobController.cpp" />
     <ClCompile Include="controller\projTag\exportProjTagController\ExportProjTagController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp" />
-
-    <ClCompile Include="testlib\jwt\TestToken.cpp" />
-
     <ClCompile Include="controller\projTag\modifyProjTagController\ModifyProjTagController.cpp" />
     <ClCompile Include="uselib\jwt\TestToken.cpp" />
     <ClCompile Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.cpp" />
     <ClCompile Include="controller\projTag\deleteProjTag\DeleteProjTagController.cpp" />
     <ClCompile Include="controller\itemLabel\ItemLabelController.cpp" />
-
     <ClCompile Include="controller\jobSet\jobUpdate\JobUpdateController.cpp" />
     <ClCompile Include="controller\jobSet\jobOutput\JobOutputController.cpp" />
+    <ClCompile Include="service\projTag\ProjTagService.cpp" />
+    <ClCompile Include="dao\projTag\ProjTagDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
     <ClInclude Include="controller\projTag\importTagController\ImportTagController.h" />
-
     <ClInclude Include="controller\jobSet\postDeleteController\PostDeleteController.h" />
     <ClInclude Include="controller\jobSet\postQueryController\PostQueryController.h" />
-
     <ClInclude Include="controller\jobSet\importJobController\ImportJobController.h" />
     <ClInclude Include="controller\jobSet\JobController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\projTag\exportProjTagController\ExportProjTagController.h" />
-
     <ClInclude Include="controller\projTag\modifyProjTagController\ModifyProjTagController.h" />
-
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\postSet\PostDeleteDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDetailDTO.h" />
     <ClInclude Include="domain\dto\projTag\ImportTagDTO.h" />
     <ClInclude Include="domain\dto\projTag\ProjTagDTO.h" />
-
-	<ClInclude Include="domain\dto\pullList\PullListDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\postSet\PostDetailQuery.h" />
     <ClInclude Include="domain\vo\postSet\PostDetailVO.h" />
@@ -58,8 +48,7 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
-
-	<ClInclude Include="domain\do\sector\SectorDO.h" />
+    <ClInclude Include="domain\do\sector\SectorDO.h" />
     <ClInclude Include="domain\dto\projTag\ModifyTagDTO.h" />
     <ClInclude Include="uselib\jwt\TestToken.h" />
     <ClInclude Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.h" />
@@ -78,5 +67,7 @@
     <ClInclude Include="domain\dto\jobUpdate\JobUpdateDTO.h" />
     <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
     <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
+    <ClInclude Include="service\projTag\ProjTagService.h" />
+    <ClInclude Include="dao\projTag\ProjTagDAO.h" />
   </ItemGroup>
 </Project>

@@ -173,7 +173,9 @@
     <ClCompile Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\projTag\ProjTagDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\projTag\ProjTagService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -198,9 +200,9 @@
     <ClInclude Include="controller\projTag\modifyProjTagController\ModifyProjTagController.h" />
     <ClInclude Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.h" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\projTag\ProjTagDAO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-
-	<ClInclude Include="domain\do\sector\SectorDO.h" />
+    <ClInclude Include="domain\do\sector\SectorDO.h" />
     <ClInclude Include="domain\do\projTag\ProjTagDO.h" />
     <ClInclude Include="domain\dto\itemLabel\ItemLabelDTO.h" />
     <ClInclude Include="domain\dto\jobDownload\JobDownloadDTO.h" />
@@ -208,7 +210,6 @@
     <ClInclude Include="domain\dto\postSet\PostDeleteDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDetailDTO.h" />
     <ClInclude Include="domain\dto\projTag\DeleteProjTagDTO.h" />
-
     <ClInclude Include="domain\dto\projTag\ImportTagDTO.h" />
     <ClInclude Include="domain\dto\projTag\ModifyTagDTO.h" />
     <ClInclude Include="domain\dto\projTag\ProjTagDTO.h" />
@@ -228,6 +229,7 @@
     <ClInclude Include="domain\vo\projTag\ProjTagVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\projTag\ProjTagService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="uselib\jwt\TestToken.h" />
   </ItemGroup>
