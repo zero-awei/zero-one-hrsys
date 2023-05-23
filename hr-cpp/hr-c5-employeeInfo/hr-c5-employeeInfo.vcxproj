@@ -173,17 +173,26 @@
   <ItemGroup>
     <ClInclude Include="controller\archivesCenter\ArchivesCenterController.h" />
     <ClInclude Include="controller\archives\ArchivesController.h" />
+    <ClInclude Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.h" />
     <ClInclude Include="domain\do\archives\t_pimarchivesDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\NotEmployeeInArchive\NotEmployeeInArchiveDO.h" />
+    <ClInclude Include="domain\do\UpdateArchiveInfo\UpdateArchiveInfoDO.h" />
     <ClInclude Include="domain\dto\archivesCenter\ArchivesCenterDTO.h" />
     <ClInclude Include="domain\dto\archives\ArchivesDTO.h" />
+    <ClInclude Include="domain\dto\NotEmployeeInArchive\NotEmployeeInArchiveDTO.h" />
+    <ClInclude Include="domain\dto\UpdateArchiveInfo\UpdateArchiveInfoDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\archivesCenter\ArchivesCenterQuery.h" />
     <ClInclude Include="domain\query\archives\ArchivesQuery.h" />
+    <ClInclude Include="domain\query\NotEmployeeInArchive\NotEmployeeInArchiveQuery.h" />
     <ClInclude Include="domain\vo\archivesCenter\ArchivesCenterVO.h" />
     <ClInclude Include="domain\vo\archives\ArchivesVO.h" />
+    <ClInclude Include="domain\vo\NotEmployeeInArchive\NotEmployeeInArchiveVO.h" />
+    <ClInclude Include="domain\vo\UpdateArchiveInfo\UpdateArchiveInfoVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
@@ -191,6 +200,7 @@
   <ItemGroup>
     <ClCompile Include="controller\archivesCenter\ArchivesCenterController.cpp" />
     <ClCompile Include="controller\archives\ArchivesController.cpp" />
+    <ClCompile Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.cpp" />

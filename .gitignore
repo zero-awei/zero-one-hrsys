@@ -57,3 +57,7 @@ target
 
 # Visual Studio 2017 auto generated files
 Generated\ Files/
+
+hr-c5-employeeInfo.vcxproj
+hr-c5-employeeInfo.vcxproj.filters
+hr-c5-employeeInfo.vcxproj.user
