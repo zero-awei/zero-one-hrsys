@@ -1,4 +1,6 @@
 #pragma once
+#ifndef _IMPORTDTO_
+#define _IMPORTDTO_
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)

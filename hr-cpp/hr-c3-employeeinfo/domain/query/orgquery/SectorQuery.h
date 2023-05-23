@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef _SECTOR_QUERY_
+#define _SECTOR_QUERY_
+
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
 
@@ -8,26 +11,16 @@
 class SectorQuery : public PageQuery {
     DTO_INIT(SectorQuery, PageQuery);
 
+    // 查询Sector的parent是OrmOrg还是OrmOrgsector
+    API_DTO_FIELD_DEFAULT(String, parentdename, ZH_WORDS_GETTER("sectorquery.query.parentdename"));
     // 查询的parent id
-    DTO_FILED(String, parentkey)
-    DTO_FILED_INFO(parentkey) {
-        info->description = ZH_WORDS_GETTER("sectorquery.query.parentkey");
-    }
-    // 页码
-    DTO_FILED(UInt64, page);
-    DTO_FILED_INFO(page) {
-        info->description = ZH_WORDS_GETTER("sectorquery.query.page");
-    }
-    // 一页的记录数
-    DTO_FILED(UInt64, size);
-    DTO_FILED_INFO(size) {
-        info->description = ZH_WORDS_GETTER("sectorquery.query.size");
-    }
+    API_DTO_FIELD_DEFAULT(String, parentkey, ZH_WORDS_GETTER("sectorquery.query.parentkey"));
     // 排序方式
-    DTO_FILED(String, sort);
-    DTO_FILED_INFO(sort) {
-        info->description = ZH_WORDS_GETTER("sectorquery.query.sort");
-    }
+    DTO_FIELD(String, ssort);
+	DTO_FIELD_INFO(ssort) {
+		info->description = ZH_WORDS_GETTER("sectorquery.query.sort");
+	}
 };
 
 #include OATPP_CODEGEN_END(DTO)
+#endif // !_SECTOR_QUERY_

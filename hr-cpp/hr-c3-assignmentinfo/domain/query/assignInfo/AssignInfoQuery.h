@@ -14,7 +14,7 @@ class AssignInfoQuery : public PageQuery
 {
 	DTO_INIT(AssignInfoQuery, PageQuery);
 	//±àºÅ
-	DTO_FIELD(UInt64, id);
+	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("employee.field.id");
 	}

@@ -17,8 +17,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _EMPLOYEEINFOQUERY_H_
-#define _EMPLOYEEINFOQUERY_H_
+#ifndef _EMPLOYEE_INFO_QUERY_
+#define _EMPLOYEE_INFO_QUERY_
 
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
@@ -29,8 +29,8 @@ class EmployeeInfoQuery : public PageQuery
 {
 	DTO_INIT(EmployeeInfoQuery, PageQuery);
 	//员工编号
-	DTO_FIELD(UInt64, empid);
-	DTO_FIELD_INFO(empid) {
+	DTO_FIELD(String, id);
+	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("employee.field.id");
 	}
 	//员工姓名
@@ -39,18 +39,18 @@ class EmployeeInfoQuery : public PageQuery
 		info->description = ZH_WORDS_GETTER("employee.field.name");
 	}
 	//证件类型
-	DTO_FIELD(String, idtype);
-	DTO_FIELD_INFO(idtype) {
+	DTO_FIELD(String, idType);
+	DTO_FIELD_INFO(idType) {
 		info->description = ZH_WORDS_GETTER("employee.field.idtype");
 	}
 	//证件号码
-	DTO_FIELD(Int32, idnum);
-	DTO_FIELD_INFO(idnum) {
+	DTO_FIELD(String, idNum);
+	DTO_FIELD_INFO(idNum) {
 		info->description = ZH_WORDS_GETTER("employee.field.idnum");
 	}
 	//出生日期
-	DTO_FIELD(String, bthdate);
-	DTO_FIELD_INFO(bthdate) {
+	DTO_FIELD(String, birthday);
+	DTO_FIELD_INFO(birthday) {
 		info->description = ZH_WORDS_GETTER("employee.field.birthday");
 	}
 	// 年龄
@@ -133,13 +133,8 @@ class EmployeeInfoQuery : public PageQuery
 	DTO_FIELD_INFO(phone) {
 		info->description = ZH_WORDS_GETTER("employee.field.phone");
 	}
-	//员工状态
-	DTO_FIELD(String, state);
-	DTO_FIELD_INFO(state) {
-		info->description = ZH_WORDS_GETTER("employee.field.state");
-	}
 };
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif // !_EMPLOYEEINFOQUERY_H_
+#endif // !_EMPLOYEE_INFO_QUERY_

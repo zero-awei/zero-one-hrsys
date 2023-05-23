@@ -1,18 +1,19 @@
 #pragma once
-#ifndef _Add_Assign_Info_DTO_
-#define _Add_Assign_Info_DTO_
-#include "../../GlobalInclude.h"
+#ifndef _EMPLOYEE_ASSIGN_IF_QUERY_DTO_
+#define _EMPLOYEE_ASSIGN_IF_QUERY_DTO_
 
+
+#include "../../GlobalInclude.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 新增指定员工分配信息
+ * 修改指定员工分配信息
  */
-class AddAssignInfoDTO : public oatpp::DTO
+	class ModifyAssignInfoDTO : public oatpp::DTO
 {
-	DTO_INIT(AddAssignInfoDTO, DTO);
+	DTO_INIT(ModifyAssignInfoDTO, DTO);
 	//编号
-	DTO_FIELD(UInt64, id);
+	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("employee.field.id");
 	}
@@ -22,9 +23,9 @@ class AddAssignInfoDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("employee.field.assign");
 	}
 	// 类型
-	DTO_FIELD(String, Etype);
-	DTO_FIELD_INFO(Etype) {
-		info->description = ZH_WORDS_GETTER("employee.field.Etype");
+	DTO_FIELD(String, type);
+	DTO_FIELD_INFO(type) {
+		info->description = ZH_WORDS_GETTER("employee.field.type");
 	}
 	// 组织
 	DTO_FIELD(String, organize);
@@ -47,17 +48,15 @@ class AddAssignInfoDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("employee.field.post");
 	}
 	// 任职开始时间
-	DTO_FIELD(String, startTime);
-	DTO_FIELD_INFO(startTime) {
-		info->description = ZH_WORDS_GETTER("employee.field.startTime");
+	DTO_FIELD(String, start_time);
+	DTO_FIELD_INFO(start_time) {
+		info->description = ZH_WORDS_GETTER("employee.field.start-time");
 	}
 	// 任职结束时间
-	DTO_FIELD(String, endTime);
-	DTO_FIELD_INFO(endTime) {
-		info->description = ZH_WORDS_GETTER("employee.field.endTime");
+	DTO_FIELD(String, end_time);
+	DTO_FIELD_INFO(end_time) {
+		info->description = ZH_WORDS_GETTER("employee.field.end-time");
 	}
 };
-
-
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_Add_Assign_Info_DTO_
+#endif // !_EMPLOYEE_ASSIGN_IF_QUERY_DTO_

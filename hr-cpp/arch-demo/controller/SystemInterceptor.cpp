@@ -31,7 +31,7 @@ using namespace oatpp::web::protocol::http::outgoing;
 
 #ifndef CHECK_TOKEN
 // 开启凭证检查，解开下一行注释即可
-//#define CHECK_TOKEN
+#define CHECK_TOKEN
 #endif
 
 // 定义一个临时凭证
