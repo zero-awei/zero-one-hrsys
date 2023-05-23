@@ -17,5 +17,7 @@ public:
 	list<TemporaryStaffDO> selectWithPage(const TempStaffQuery::Wrapper& query);
 	// 通过姓名查询数据
 	list<TemporaryStaffDO> selectByName(const string& name);
+	// 通过编号查询数据
+	list<TemporaryStaffDO> selectById(const string& id);
 };
 #endif // !_TEMPORARYSTAFF_DAO_

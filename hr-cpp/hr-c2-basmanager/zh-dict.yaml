@@ -38,8 +38,8 @@ TempStaff:
   empStatus: 员工状态
   tempStatus: 挂职状态
   tempOrg: 挂职组织
-  tempDepat: 挂职部门
-  tempBeginTime: 挂职开始时间
+  tempDept: 挂职部门
+  tempStartTime: 挂职开始时间
   tempEndTime: 挂职结束时间
  get: 
   summary: 分页查询挂职员工数据
