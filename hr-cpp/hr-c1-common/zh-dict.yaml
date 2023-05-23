@@ -33,6 +33,10 @@ sample:
 # 公共接口
 common:
  dto:
+  certTypeId: 证书类型ID
+  certTypeName: 证书类型名称
+  certTypeCode: 证书类型代号
+  certTypeValidity: 证书类型是否有效 (0无效, 1有效)
   pimQualMajorId: 执业资格专业编码
   pimQualMajorName: 执业资格
   createMan: 建立人

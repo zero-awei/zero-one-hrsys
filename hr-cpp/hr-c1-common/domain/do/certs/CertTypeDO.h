@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: rice
- @Date: 2023/5/17 15:55:09
+ @Date: 2023/5/23 18:08:32
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,16 +17,31 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "CertTypeListController.h"
-//#include "../../service/sample/SampleService.h"
+#ifndef _CERTTYPE_DO_
+#define _CERTTYPE_DO_
+#include "../DoInclude.h"
 
-CertTypeListJsonVO::Wrapper CertTypeListController::execQueryCertTypeList()
+/**
+ * 证书类型下拉列表查询DO
+ */
+class CertTypeDO
 {
-	auto vo = CertTypeListJsonVO::createShared();
-	auto dto = CertTypeListDTO::createShared();
-	dto->rows->push_back(CertTypeDTO::createShared());
-	// TODO:调用service返回PullListDTO
-	vo->success(dto);
-	return vo;
-}
+	// 证书类型ID
+	CC_SYNTHESIZE(string, certTypeId, CertTypeId);
+	// 证书类型名称
+	CC_SYNTHESIZE(string, certTypeName, CertTypeName);
+	// 证书类型代号
+	CC_SYNTHESIZE(string, certTypeCode, CertTypeCode);
+	// 证书类型是否有效 (0无效, 1有效)
+	CC_SYNTHESIZE(bool, certTypeValidity, CertTypeValidity);
+
+public:
+	CertTypeDO() {
+		certTypeId = "";
+		certTypeName = "";
+		certTypeCode = "";
+		certTypeValidity = 1;
+	}
+};
+
+#endif // !_CERTTYPE_DO_

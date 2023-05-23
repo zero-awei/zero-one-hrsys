@@ -178,6 +178,7 @@
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\typeContract\TypeContractListController.h" />
     <ClInclude Include="domain\do\certs\ProCertsDO.h" />
+    <ClInclude Include="domain\do\certs\CertTypeDO.h" />
     <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\typeContract\TypeContractDO.h" />
@@ -186,6 +187,7 @@
     <ClInclude Include="domain\dto\awardLevel\AwardLevelDTO.h" />
     <ClInclude Include="domain\dto\certs\CertTypeDTO.h" />
     <ClInclude Include="domain\dto\certs\ProfCertsDTO.h" />
+    <ClInclude Include="domain\dto\certs\CertTypeDTO.h" />
     <ClInclude Include="domain\dto\declareType\DeclareTypeDTO.h" />
     <ClInclude Include="domain\dto\typeContract\TypeContractDTO.h" />
     <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
@@ -194,6 +196,7 @@
     <ClInclude Include="domain\vo\archivesList\ArchivesListVO.h" />
     <ClInclude Include="domain\vo\awardLevel\AwardLevelVO.h" />
     <ClInclude Include="domain\vo\certs\ProfCertsVO.h" />
+    <ClInclude Include="domain\vo\certs\CertTypeVO.h" />
     <ClInclude Include="domain\vo\certs\CertTypeVO.h" />
     <ClInclude Include="domain\vo\declareList\DeclareListVO.h" />
     <ClInclude Include="domain\vo\typeContract\TypeContractVO.h" />

@@ -66,6 +66,9 @@
     <ClInclude Include="controller\auditstatusController.h\AuditstatusController.h" />
     <ClInclude Include="controller\typeContract\TypeContractListController.h" />
     <ClInclude Include="controller\contractType\ContractTypeController.h" />
+    <ClInclude Include="domain\dto\certs\CertTypeDTO.h" />
+    <ClInclude Include="domain\vo\certs\CertTypeVO.h" />
+    <ClInclude Include="domain\do\certs\CertTypeDO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
