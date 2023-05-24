@@ -85,6 +85,7 @@ void Router::initRouter()
 	createDismissReasonRouter();
 	createAuditStatusRouter();
 	createEvalutionTypesRouter();
+	createContractStatusRouter();
 	// 合同类别接口
 	// 负责人：徐不洗
 	ROUTER_SIMPLE_BIND(ContractTypeController);
