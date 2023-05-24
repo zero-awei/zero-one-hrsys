@@ -166,12 +166,18 @@ contract:
     sequence: 导出数据顺序
 jobtitle:
  field:
+  employee_id: 员工编号
+  certificate_id: 证书编号
   employee_name: 员工姓名
   org_name: 组织名称
   jobtitle_name: 职称名称
   get_time: 获取日期
   professional_cate: 专业类别
+  professional_name: 专业名称
   professor_grades: 职称等级
+  issuing_authority: 签发机构
+  judging_unit: 评审单位
+  b_highest_professional_title: 是否最高职称
  get: 
   summary: 查询指定职称详情
  export:

@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "laborDispatchService.h"
 #include "../../dao/muggle/LaborDispatchDAO.h"
+#include "domain/dto/Muggle/LaborDispatchDTO.h"
 
 LaborDispatchMDTO::Wrapper LaborDispatchMService::ListData(const LaborDispatchMQuery::Wrapper& query)
 {

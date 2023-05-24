@@ -42,7 +42,7 @@ public:
 		info->queryParams["expenseCategory"].addExample("default", String("PDD"));
 		info->queryParams["expenseCategory"].required = false;
 	}
-	ENDPOINT(API_M_GET, "/query-by-expense-category", queryExpenseLedger,QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/contract-management/query-by-expense-category", queryExpenseLedger,QUERIES(QueryParams, queryParams)) {
 		API_HANDLER_QUERY_PARAM(query, ExpenseLedgerPageMQuery, queryParams);
 		API_HANDLER_RESP_VO(execQueryExpenseLedger());
 	}
@@ -52,7 +52,7 @@ public:
 		info->summary = ZH_WORDS_GETTER("expenseledger_mug.post.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	ENDPOINT(API_M_POST, "/add-expense-category", addExpenseLedger, BODY_DTO(ExpenseLedgerMDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/contract-management/add-expense-category", addExpenseLedger, BODY_DTO(ExpenseLedgerMDTO::Wrapper, dto)) {
 		API_HANDLER_RESP_VO(execAddExpenseLedger());
 	}
 	
@@ -61,7 +61,7 @@ public:
 		info->summary = ZH_WORDS_GETTER("expenseledger_mug.delete.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	ENDPOINT(API_M_DEL, "/delete-by-expense-category", deleteExpenseLedger, BODY_DTO(ExpenseLedgerMDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/contract-management/delete-by-expense-category", deleteExpenseLedger, BODY_DTO(ExpenseLedgerMDTO::Wrapper, dto)) {
 		API_HANDLER_RESP_VO(execDeleteExpenseLedger());
 	}
 private:

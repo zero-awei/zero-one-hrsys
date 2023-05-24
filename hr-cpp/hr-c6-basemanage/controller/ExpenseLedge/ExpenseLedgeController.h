@@ -40,7 +40,7 @@ public:
 		info->queryParams["expense_name"].required = true;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/query-expense", queryExpense, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/retirement-management/query-expense", queryExpense, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, ExpenseLedgeDTO, queryParams);
 		// 响应结果
@@ -61,7 +61,7 @@ public:
 		info->queryParams["expense_name"].required = true;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/export-expense", getExpense, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/retirement-management/export-expense", getExpense, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, ExpenseLedgeDTO, queryParams);
 		// 响应结果
@@ -76,7 +76,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/modify-expense", modifyExpense, BODY_DTO(ExpenseLedgeDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/retirement-management/modify-expense", modifyExpense, BODY_DTO(ExpenseLedgeDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyExpense(dto));
 	}
