@@ -8,31 +8,31 @@
 */
 class TemporaryStaffDO {
 	//员工编号
-	CC_SYNTHESIZE(string, id, Id);
+	CC_SYNTHESIZE(string, ygbh, ygbh);
 	//员工姓名
-	CC_SYNTHESIZE(string, name, Name);
+	CC_SYNTHESIZE(string, pimPersonName, pimPersonName);
 	//员工状态
-	CC_SYNTHESIZE(string, empStatus, EmpStatus);
+	CC_SYNTHESIZE(string, ygzt, ygzt);
 	//挂职状态
-	CC_SYNTHESIZE(string, tempStatus, TempStatus);
+	CC_SYNTHESIZE(string, gzzt, gzzt);
 	//挂职组织
-	CC_SYNTHESIZE(string, tempOrg, TempOrg);
+	CC_SYNTHESIZE(string, gzzz, gzzz);
 	//挂职部门
-	CC_SYNTHESIZE(string, tempDept, TempDept);
+	CC_SYNTHESIZE(string, gzbm, gzbm);
 	//挂职开始时间
-	CC_SYNTHESIZE(string, tempStartTime, TempStartTime);
+	CC_SYNTHESIZE(string, gzkssj, gzkssj);
 	//挂职结束时间
-	CC_SYNTHESIZE(string, tempEndTime, TempEndTime);
+	CC_SYNTHESIZE(string, gzjssj, gzjssj);
 public:
 	TemporaryStaffDO() {
-		id = "0";
-		name = "";
-		empStatus = "在职";
-		tempStatus = "挂职进";
-		tempOrg = "";
-		tempDept = "";
-		tempStartTime = "";
-		tempEndTime = "";
+		ygbh = "0";
+		pimPersonName = "";
+		ygzt = "在职";
+		gzzt = "挂职进";
+		gzzz = "";
+		gzbm = "";
+		gzkssj = "";
+		gzjssj = "";
 	}
 };
 

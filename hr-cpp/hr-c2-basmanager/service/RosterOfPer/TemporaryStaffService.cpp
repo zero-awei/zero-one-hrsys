@@ -28,9 +28,9 @@ TemporaryStaffPageDTO::Wrapper TemporaryStaffService::listAll(const TempStaffQue
 		// 		dto->name = sub.getName();
 		// 		dto->sex = sub.getSex();
 		// 		dto->age = sub.getAge();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id, name, Name, empStatus, 
-			EmpStatus,tempStatus, TempStatus, tempOrg, TempOrg, 
-			tempDept, TempDept, tempStartTime, TempStartTime,tempEndTime, TempEndTime);
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, ygbh, name, pimPersonName, empStatus,
+			ygzt,tempStatus, gzzt, tempOrg, gzzz,
+			tempDept, gzbm, tempStartTime, gzkssj,tempEndTime, gzjssj);
 		pages->addData(dto);
 
 	}

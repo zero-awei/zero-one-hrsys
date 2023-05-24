@@ -13,14 +13,14 @@ public:
 	TemporaryStaffDO mapper(ResultSet* resultSet) const override
 	{
 		TemporaryStaffDO data;
-		data.setId(resultSet->getString(1));
-		data.setName(resultSet->getString(2));
-		data.setEmpStatus(resultSet->getString(3));
-		data.setTempStatus(resultSet->getString(4));
-		data.setTempOrg(resultSet->getString(5));
-		data.setTempDept(resultSet->getString(6));
-		data.setTempStartTime(resultSet->getString(7));
-		data.setTempEndTime(resultSet->getString(8));
+		data.setygbh(resultSet->getString(1));
+		data.setpimPersonName(resultSet->getString(2));
+		data.setygzt(resultSet->getString(3));
+		data.setgzzt(resultSet->getString(4));
+		data.setgzzz(resultSet->getString(5));
+		data.setgzbm(resultSet->getString(6));
+		data.setgzkssj(resultSet->getString(7));
+		data.setgzjssj(resultSet->getString(8));
 		return data;
 	}
 };
