@@ -41,12 +41,6 @@ certificate:
  field:
   id: 排序号
   certificateName:	证书名称
-qulification:
- filed:
-  qulificationName: 执业资格名称
-  rank: 级别
-  practicingQulification: 执业资格
-  sex: 性别，如：男
 contractType:
  get:
   summary: 分页查询合同数据
@@ -104,4 +98,19 @@ archive:
   archiveName: 档案室名称
   cabinetNum: 柜数  
   layerNum: 层数
-  numID: 编号
+  numID: 编号    
+  ids: 编号列表
+Qualification:
+ get:
+  summary: 分页查询证书数据
+ post:
+  summary: 新增证书类型
+ put:
+  summary: 修改证书类型
+ delete: 
+  summary: 删除证书类型
+ filed:
+  qualificationName: 执业资格名称
+  rank: 级别
+  practicingQualification: 执业资格
+  profession: 专业
