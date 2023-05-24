@@ -55,7 +55,6 @@ patentInformation:
   summary: 修改一条专利信息
  select:
   summary: 查看指定员工专利信息（指定专利信息详情）
-  summary: 查看指定员工专利信息（指定专利信息详情）
  pimpatent:
   ZLH: 专利号
   UPDATEDATE: 更新时间
@@ -87,20 +86,6 @@ paperinfo:
   summary: 分页查询论文信息
  put:
   summary: 修改一条论文信息
-archives:
- get:
-  summary: 分页查询档案信息
- field:
-  archivesNo: 档案编号
-  managementUnits: 管理单位
-  DABGD: 档案保管地
-  archivesCenterName: 档案室
-  DAZT: 档案状态
-  YGBH: 员工编号
-  PimPersonName: 员工姓名
-  ygzt: 员工状态
-  ORMORGName: 所属单位
-  sex: 性别，如：男
 #pimpaper的中英词典
 pimpaper:
  get:
@@ -179,6 +164,8 @@ archivesCenter:
   CabinetNo: 柜号
   BNumber: 编号
 archives:
+ get:
+  summary: 分页查询档案信息
  post:
   summary: 新增一条档案数据
  delete:
@@ -196,7 +183,8 @@ archives:
 specifiedArchives:
  get:
   summary: 查询指定档案数据
-  zgzt: 在职  sex: 性别，如：男
+ field:
+  zgzt: 在职
   units: 管理单位
   pos: 档案保管地
   office: 档案室

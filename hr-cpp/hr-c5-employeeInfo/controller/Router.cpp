@@ -35,7 +35,7 @@
 #include"NotEmployeeInArchive/NotEmployeeInArchiveController.h"
 #include"UpdateArchiveInfo/UpdateArchiveInfoController.h"
 
-#include "wenhuaren/ArchivesController.h"
+#include "archives/ArchivesController.h"
 #include "pimpaper/pimpaperController.h"
 
 // 如果定义了关闭Swagger文档宏

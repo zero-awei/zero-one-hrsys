@@ -114,13 +114,40 @@
     <ClInclude Include="domain\vo\pimpaper\pimpaperVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\wenhuaren\ArchivesController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\query\archives\ArchivesQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\vo\archives\ArchivesVo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\DoInclude.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\paperinfoController\PaperinfoController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\paperinfo\t_pimpaperDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\Blacklist\BlacklistDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\paperinfo\PaperDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\Blacklist\BlacklistQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\paperinfo\PaperQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\Blacklist\BlacklistVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\BlacklistEmployee\BlacklistEmployeeVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\paperinfo\PaperVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -155,7 +182,7 @@
     <ClCompile Include="controller\pimpaper\pimpaperController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\wenhuaren\ArchivesController.cpp">
+    <ClCompile Include="controller\paperinfoController\PaperinfoController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
