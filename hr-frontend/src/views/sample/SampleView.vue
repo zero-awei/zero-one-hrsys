@@ -91,6 +91,7 @@ const menus = reactive([
     path: '/sample/communication',
     text: '兄弟组件通信'
   },
+  
   {
     path: '/sample/feedback',
     text: '消息反馈演示'

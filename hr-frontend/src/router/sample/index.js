@@ -20,6 +20,7 @@ const routes = [
         path: '/sample/communication',
         component: () => import('@/views/sample/Communication/index.vue')
       },
+      
       {
         path:'/sample/feedback',
         component:()=>import('@/views/sample/feedbackTest/Feedback.vue')

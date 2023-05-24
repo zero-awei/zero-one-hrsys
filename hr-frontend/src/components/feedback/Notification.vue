@@ -45,6 +45,7 @@ onBeforeUnmount(() => {
   mitt.off('showSuccess','showWarn','showError')
 })
 </script>
+
 <style>
 .el-notification__group{
   position:static !important;

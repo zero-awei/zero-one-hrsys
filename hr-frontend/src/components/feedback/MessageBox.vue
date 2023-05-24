@@ -42,6 +42,7 @@ onBeforeUnmount(() => {
   mitt.off('changeInfo')
 })
 </script>
+
 <style>
 .el-message--success{
   position: absolute !important;

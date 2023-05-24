@@ -72,6 +72,7 @@ let messageTwo = reactive({
   error,
   warn
 })
+
 const changeValue = () => {
   messageTwo.success = '保存成功'
   mitt.emit('showSuccess', messageTwo.success)
