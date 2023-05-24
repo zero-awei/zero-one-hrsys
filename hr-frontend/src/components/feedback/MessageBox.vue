@@ -3,31 +3,31 @@
 </template>
 
 <script setup>
-import 'element-plus/dist/index.css'
-const mitt = getCurrentInstance().appContext.config.globalProperties.$bus;
+// import 'element-plus/dist/index.css'
+const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
 
-let success=ref('')
-let error= ref('')
+let success = ref('')
+let error = ref('')
 const showMsg = (message) => {
-  success.value =message.messageSuccess
-  error.value=message.messageError
+  success.value = message.messageSuccess
+  error.value = message.messageError
   ElMessageBox.confirm(message.messageInfo, '警告', {
     confirmButtonText: '确定',
     cancelButtonText: '取消',
-    type:'warning',
+    type: 'warning'
   })
-    .then(()=>{
+    .then(() => {
       ElMessage({
         title: '成功',
         type: 'success',
-        message: success.value,
+        message: success.value
       })
     })
-    .catch(function(){
+    .catch(function () {
       ElMessage({
         title: '出错',
         type: 'info',
-        message:error.value ,
+        message: error.value
       })
     })
 }
@@ -44,13 +44,13 @@ onBeforeUnmount(() => {
 </script>
 
 <style>
-.el-message--success{
+.el-message--success {
   position: absolute !important;
-  left:90%;
+  left: 90%;
 }
 
-.el-message--info{
+.el-message--info {
   position: absolute !important;
-  left:90%; 
+  left: 90%;
 }
 </style>

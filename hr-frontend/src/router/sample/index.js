@@ -14,7 +14,7 @@ const routes = [
       },
       {
         path: '/sample/sass',
-        component: () => import('@/views/sample/SassTest/SassSample.vue')
+        component: () => import('@/views/sample/sassTest/SassSample.vue')
       },
       {
         path: '/sample/communication',
@@ -22,7 +22,7 @@ const routes = [
       },
       {
         path: '/sample/tablehead',
-        component: () => import('@/views/sample/TableHead/TableHead.vue')
+        component: () => import('@/views/sample/tableHead/TableHead.vue')
       },
       {
         path: '/sample/Aside',

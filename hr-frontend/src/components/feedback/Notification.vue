@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import 'element-plus/dist/index.css'
+// import 'element-plus/dist/index.css'
 const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
 
 // 组件初次在页面渲染完毕后,触发后执行的函数
