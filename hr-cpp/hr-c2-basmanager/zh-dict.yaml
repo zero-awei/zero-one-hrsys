@@ -53,8 +53,8 @@ EmpInfo:
 
 formeremployees: 
  get:
-  summary: 分页查询离职员工数据-chumengx
-  out: 导出离职员工数据
+  summary: 人员花名册-离职员工-分页查询离职员工数据-chumengxian
+  out: 人员花名册-离职员工-导出离职员工数据-chumengxian
  field:
   id: 编号
   age: 年龄
@@ -69,8 +69,8 @@ formeremployees:
   outbenye: 导出本页离职员工数据
   outall: 导出全部离职员工数据
 certificate: 
- update:  更新证书信息
- get: 查询指定证书详细信息
+ update:  证书管理-证书信息-查询指定证书详情-chumengxian
+ get: 证书管理-证书信息-更新指定证书-chumengxian
 cermanage:
  get:
   summary: 分页查询示例数据

@@ -1,22 +1,8 @@
 #pragma once
-/*
- Copyright Zero One Star. All rights reserved.
 
- @Author: awei
- @Date: 2022/10/25 0:27:04
+// 
+// 实现证书查询指定证书详情更新指定证书操作
 
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-	  https://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
 #ifndef __UPDATECERTIFIDATE_CONTROLLER_
 #define __UPDATECERTIFIDATE_CONTROLLER_
 
@@ -61,7 +47,7 @@ public:
 		//info->queryParams["name"].required = false;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/Certificater/update", updateCertificate, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/update-Certificater", updateCertificate, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, updateCertificateQuery, queryParams);
 		// 响应结果
@@ -87,7 +73,7 @@ public:
 		//info->queryParams["outall"].required = false;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/Certificater/get", getCertificateInfo, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/get-Certificater", getCertificateInfo, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, updateCertificateQuery, queryParams);
 		// 响应结果
