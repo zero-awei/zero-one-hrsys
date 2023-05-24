@@ -64,8 +64,11 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
+
+
 	createJobSetRouter();
 	createProjTagRouter();
+
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -81,6 +84,7 @@ void Router::createSampleRouter()
 }
 #endif
 
+
 void Router::createJobSetRouter()
 {
 	/**
@@ -88,7 +92,9 @@ void Router::createJobSetRouter()
 	 * 负责人：Andrew
 	 */
 	ROUTER_SIMPLE_BIND(ImportJobController);
-	/**
+}
+void Router::createProjTagRouter()
+{	/**
 	 * 查询指定岗位详情&删除岗位
 	 * 负责人：米饭
 	 */
@@ -100,10 +106,7 @@ void Router::createJobSetRouter()
 	 */
 	ROUTER_SIMPLE_BIND(JobOutputController);
 	ROUTER_SIMPLE_BIND(JobUpdateController);
-}
 
-void Router::createProjTagRouter()
-{
 	/**
 	 * 导出项目标签&更新项目标签
 	 * 负责人：Andrew
