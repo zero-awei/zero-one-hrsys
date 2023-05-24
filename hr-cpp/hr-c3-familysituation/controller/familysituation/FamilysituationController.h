@@ -25,7 +25,7 @@
 #include "domain/query/familysituation/FamilysituationQuery.h"
 #include "domain/dto/familysituation/FamilysituationDTO.h"
 #include "domain/dto/familysituation/ImportfamilysituationDTO.h"
-//#include "domain/vo/familysituation/FamilysituationVO.h"
+#include "domain/vo/familysituation/FamilysituationVO.h"
 
 // API助手
 #include "ApiHelper.h"
@@ -249,6 +249,8 @@ private: // 定义接口执行函数
 	StringJsonVO::Wrapper executeImportFamilysituation(const String& fileBody, const String& suffix);
 	// 导出数据响应
 	StringJsonVO::Wrapper execExportFamilysituation(const String& url);
+	FamilySituationPageJsonVO::Wrapper execQueryByFamilysituation(const FamilysituationQuery::Wrapper& query);
+	FamilysituationJsonVO::Wrapper execOneQueryFamilysituation(const FamilysituationQuery::Wrapper& query);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
