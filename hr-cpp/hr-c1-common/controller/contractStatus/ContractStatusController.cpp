@@ -21,5 +21,12 @@
 
 PullListVO::Wrapper ConstractStatusController::execQueryContractStatus()
 {
+	auto vo = PullListVO::createShared();
 
+	auto dto = PullListDTO::createShared();
+	dto->pullList->push_back(ItemDTO::createShared(1, "Yes"));
+	dto->pullList->push_back(ItemDTO::createShared(2, "NO"));
+
+	vo->success(dto);
+	return vo;
 }

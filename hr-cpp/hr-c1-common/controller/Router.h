@@ -66,6 +66,7 @@ private:
 	 */
 	void createTypeContractRouter();
 	void createArmyLevelTypeRouter();
+	void createContractStatusRouter();
 
 	/**
 	 * 绑定职称等级类型&费用类别下拉列表路由
