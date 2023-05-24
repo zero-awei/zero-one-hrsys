@@ -68,7 +68,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(LaborDispatchMController);
 	ROUTER_SIMPLE_BIND(ExpenseLedgerMController);
 	ROUTER_SIMPLE_BIND(LaborDispatchConstroller);
-	ROUTER_SIMPLE_BIND(TestController);
+	ROUTER_SIMPLE_BIND(RetirementController);
 	ROUTER_SIMPLE_BIND(JobTitleController);
 	ROUTER_SIMPLE_BIND(GoshController);
 	ROUTER_SIMPLE_BIND(GoshController);
