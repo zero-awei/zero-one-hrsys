@@ -28,4 +28,6 @@ public class RoleQuery extends PageQuery {
     @ApiModelProperty(value = "关键词", example = "ADMIN")
     private String keyWord;
 
+    @ApiModelProperty(value = "是否启用", example = "1")
+    private Integer isEnable;
 }
