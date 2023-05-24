@@ -2,6 +2,10 @@
 #include "LanguageCompetenceController.h"
 #include "../../service/Language/LanguageService.h"
 
+/**
+ * 实现语言能力增删查改模块
+ * 负责人：君
+ */
 StringJsonVO::Wrapper LanguageCompetenceController::execQueryLanguage(const LanguagePageQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	//// 定义一个Service

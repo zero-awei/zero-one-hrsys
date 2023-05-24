@@ -27,25 +27,26 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 语言指定导入对象
+ * 语言能力文件导入DTO
+ * 负责人：君
  */
 class ImportLanguageDTO : public PageDTO<LanguageDTO::Wrapper>
 {
 	DTO_INIT(ImportLanguageDTO, DTO);
-	//文件路径
-	DTO_FIELD(String, url);
-	DTO_FIELD_INFO(url) {
-		info->description = "URL";
+	//文件类型
+	DTO_FIELD(String, fileType);
+	DTO_FIELD_INFO(fileType) {
+		info->description = ZH_WORDS_GETTER("language.post.fileType");
 	}
 	// 编号
-	DTO_FIELD(UInt64, id);
-	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("sample.field.id");
+	DTO_FIELD(String, sheetName);
+	DTO_FIELD_INFO(sheetName) {
+		info->description = ZH_WORDS_GETTER("language.post.sheetName");
 	}
 	// 姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("sample.field.name");
+	DTO_FIELD(String, file);
+	DTO_FIELD_INFO(file) {
+		info->description = ZH_WORDS_GETTER("language.post.path");
 	}
 };
 

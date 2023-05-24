@@ -26,6 +26,7 @@
 
 /**
  * 语言能力相关服务实现
+ * 负责人：君
  */
 class LanguageService 
 {

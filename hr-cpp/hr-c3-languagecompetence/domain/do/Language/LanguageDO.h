@@ -22,6 +22,7 @@
 #include "../DoInclude.h"
 /**
  * 语言能力DO模型
+ * 负责人：君
  */
 class LanguageDO
 {
@@ -41,6 +42,7 @@ class LanguageDO
 	CC_SYNTHESIZE(string, personID, PersonID);
 
 public:
+	//初始化
 	LanguageDO() {
 		gainTime = "";
 		attachment = "";
