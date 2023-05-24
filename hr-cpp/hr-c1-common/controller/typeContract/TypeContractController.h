@@ -39,7 +39,7 @@ class TypeContractController : public oatpp::web::server::api::ApiController
 public: // 定义接口
 	ENDPOINT_INFO(queryHtlx) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("htlx.pull-list.summary");
+		info->summary = ZH_WORDS_GETTER("common.controller.typecontract");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(TypeContractJsonVO);
 	}

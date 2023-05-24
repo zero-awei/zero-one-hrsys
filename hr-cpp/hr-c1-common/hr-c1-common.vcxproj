@@ -177,6 +177,7 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\contractType\ContractTypeListController.h" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="domain\do\awardLevels\ArchivesLevelsDO.h" />
     <ClInclude Include="domain\do\certs\ProCertsDO.h" />
     <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />

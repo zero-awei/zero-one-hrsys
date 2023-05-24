@@ -31,7 +31,7 @@ class TypeContractDTO : public oatpp::DTO
 	// 合同类别名称
 	DTO_FIELD(String, htlxname);
 	DTO_FIELD_INFO(htlxname) {
-		info->description = ZH_WORDS_GETTER("htlx.field.htlxname");
+		info->description = ZH_WORDS_GETTER("common.dto.htlxname");
 	}
 };
 
@@ -41,7 +41,7 @@ class TypeContractListDTO : public oatpp::DTO
 	// 合同类别名称
 	DTO_FIELD(List<TypeContractDTO::Wrapper>, htlxList) = {};
 	DTO_FIELD_INFO(htlxList) {
-		info->description = ZH_WORDS_GETTER("htlx.field.htlxList");
+		info->description = ZH_WORDS_GETTER("common.dto.htlxList");
 	}
 };
 

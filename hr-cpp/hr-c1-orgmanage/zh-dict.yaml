@@ -114,6 +114,7 @@ ormanage:
   ormorgid: 项目ID
   ormxbqid: 项目标签标识
 
+#分页查询编制列表
 orgbz:
  pagequery:
   controller: 分页查询编制列表
