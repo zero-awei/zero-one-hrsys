@@ -222,6 +222,7 @@
     <ClInclude Include="domain\vo\LaborDispatch\LaborDispatchVO.h" />
     <ClInclude Include="domain\query\Gosh\ContractQuery.h" />
     <ClInclude Include="domain\vo\Gosh\ContractVO.h" />
+    <ClInclude Include="domain\vo\RetirementVo\RetirementVo.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\sample\ContractService.h" />

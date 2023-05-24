@@ -1,10 +1,15 @@
 #include "stdafx.h"
 #include "retirement.h"
 
-StringJsonVO::Wrapper TestController::execQueryTest(const PageQuery::Wrapper & query)
+
+StringJsonVO::Wrapper RetirementController::execQueryTest(const PageQuery::Wrapper & query)
 {
+	/*auto Dto = RetirementDTO::createShared();
+	auto Jvo = RetirementQueryPageJsonVO::createShared();
+	Jvo->success(Dto);
+	return Jvo;*/
 	auto vo = StringJsonVO::createShared();
-	vo->success("test qurey success");
+	vo->success("test qurey1 success");
 	return vo;
 }
 /*
@@ -40,7 +45,7 @@ Uint64JsonVO::Wrapper TestController::execAddSample(const SampleDTO::Wrapper& dt
 }
 */
 
-Uint64JsonVO::Wrapper TestController::execAddSample1(const RetirementDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper RetirementController::execAddSample1(const RetirementDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
@@ -48,7 +53,7 @@ Uint64JsonVO::Wrapper TestController::execAddSample1(const RetirementDTO::Wrappe
 	return jvo;
 }
 
-Uint64JsonVO::Wrapper TestController::execModifySample(const RetirementDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper RetirementController::execModifySample(const RetirementDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
@@ -56,7 +61,7 @@ Uint64JsonVO::Wrapper TestController::execModifySample(const RetirementDTO::Wrap
 	return jvo;
 }
 
-Uint64JsonVO::Wrapper TestController::execRemoveSample(const RetirementDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper RetirementController::execRemoveSample(const RetirementDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();

@@ -52,6 +52,7 @@
     <ClInclude Include="domain\query\muggle\expenseLedgerQuery.h" />
     <ClInclude Include="domain\query\muggle\laborDispatchQuery.h" />
     <ClInclude Include="controller\TerminationReminder\terminationReminder.h" />
+    <ClInclude Include="domain\vo\RetirementVo\RetirementVo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />
