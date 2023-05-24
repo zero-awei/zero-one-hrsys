@@ -73,6 +73,34 @@ patentInformation:
   JLCZZ: 记录操作者
   ENCLOLURE: 附件
   REASON: 拒绝原因
+paperinfo:
+ field:
+  fbsj: 发表时间
+  cbs: 出版社
+  kwqs: 刊物期数
+  fj: 附件
+  grzlwzzzdpm: 个人在论文著作中的排名
+  kwmc: 刊物名称
+  pimpapername: 论文名称
+  pimpersonid: 员工编号
+ get:
+  summary: 分页查询论文信息
+ put:
+  summary: 修改一条论文信息
+archives:
+ get:
+  summary: 分页查询档案信息
+ field:
+  archivesNo: 档案编号
+  managementUnits: 管理单位
+  DABGD: 档案保管地
+  archivesCenterName: 档案室
+  DAZT: 档案状态
+  YGBH: 员工编号
+  PimPersonName: 员工姓名
+  ygzt: 员工状态
+  ORMORGName: 所属单位
+  sex: 性别，如：男
 #pimpaper的中英词典
 pimpaper:
  get:
@@ -168,3 +196,12 @@ archives:
 specifiedArchives:
  get:
   summary: 查询指定档案数据
+  zgzt: 在职  sex: 性别，如：男
+  units: 管理单位
+  pos: 档案保管地
+  office: 档案室
+  degree: 档案学历，如高中结业
+  date_birth: 档案出生日期 
+  date_time: 档案入党时间
+  date_work: 档案参加工作时间
+  status: 档案状态

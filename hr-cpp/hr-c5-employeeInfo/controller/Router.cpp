@@ -20,6 +20,8 @@
 #include "Router.h"
 #include "ApiHelper.h"
 #include "patentinfo/PatentinfoController.h"
+#include "paperinfoController/PaperinfoController.h"
+#include "archives/ArchivesController.h"
 
 #include "archives/ArchivesController.h"
 #include "archivesCenter/ArchivesCenterController.h"
@@ -33,6 +35,7 @@
 #include"NotEmployeeInArchive/NotEmployeeInArchiveController.h"
 #include"UpdateArchiveInfo/UpdateArchiveInfoController.h"
 
+#include "wenhuaren/ArchivesController.h"
 #include "pimpaper/pimpaperController.h"
 
 // 如果定义了关闭Swagger文档宏
@@ -61,12 +64,15 @@ void Router::initRouter()
 	//#TIP :系统扩展路由定义，写在这个后面
 
 	ROUTER_SIMPLE_BIND(PatentinfoController);
+	ROUTER_SIMPLE_BIND(PaperinfoController);
+	ROUTER_SIMPLE_BIND(ArchivesController);
 	ROUTER_SIMPLE_BIND(PimpaperController);
 
 	ROUTER_SIMPLE_BIND(NotEmployeeInArchiveController);
 	ROUTER_SIMPLE_BIND(UpdateArchiveInfoController);
 	ROUTER_SIMPLE_BIND(ArchivesController);
 	ROUTER_SIMPLE_BIND(ArchivesCenterController);
+	ROUTER_SIMPLE_BIND(ArchivesController);
 }
 
 #ifdef HTTP_SERVER_DEMO

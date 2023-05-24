@@ -57,7 +57,7 @@ public:
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("sample.field.name");
 		info->queryParams["name"].addExample("default", String("li ming"));
-		info->queryParams["name"].required = false;
+		info->queryParams["name"].required = false;// 是否必须参数
 		info->queryParams.add<String>("sex").description = ZH_WORDS_GETTER("sample.field.sex");
 		info->queryParams["sex"].addExample("default", String("N"));
 		info->queryParams["sex"].required = false;

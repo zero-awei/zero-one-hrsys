@@ -21,9 +21,6 @@
     <ClInclude Include="controller\Router.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\DoInclude.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\GlobalInclude.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -117,6 +114,15 @@
     <ClInclude Include="domain\vo\pimpaper\pimpaperVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\wenhuaren\ArchivesController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\archives\ArchivesQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\archives\ArchivesVo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -149,5 +155,11 @@
     <ClCompile Include="controller\pimpaper\pimpaperController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="controller\wenhuaren\ArchivesController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>
