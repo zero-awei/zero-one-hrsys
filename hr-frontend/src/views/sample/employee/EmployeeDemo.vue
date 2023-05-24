@@ -3,7 +3,6 @@
 </template>
 
 <script setup>
-//@ts-ignore
 import Employees from '@/components/employees/Employees.vue'
 import { reactive, provide } from 'vue'
 
@@ -73,7 +72,19 @@ const userData = reactive({
     }
   ],
   //补充信息
-  additionalInfo: {},
+  additionalInfo: {
+    householdRegistrationType: '非农业户口',
+    domicile: '北京市',
+    birthplace: '北京市西城区',
+    healthCondition: '良好',
+    hobbies: '听音乐',
+    BloodType: 'AB',
+    isOnlyChild: '是',
+    mailingAddress: '北京市',
+    entryChannel: '军人安置',
+    employeeStatus: '见习',
+    blacklisted: ''
+  },
   //奖惩信息
   reandpuInfo: [
     {

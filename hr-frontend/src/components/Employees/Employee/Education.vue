@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%">
+  <div class="educationInfo">
     <div class="head">教育背景</div>
     <el-table
       :data="educationInfo"
@@ -78,14 +78,17 @@ import { inject } from 'vue'
 const userData: any = inject('userData')
 let { educationInfo } = userData
 </script>
-<style>
+<style scoped>
+.educationInfo {
+  padding: 12px 0 10px 16px;
+}
 .head {
-  margin: 8px;
+  padding: 0 10px 10px 10px;
   color: #000;
   height: 50px;
   line-height: 50px;
   font-size: 16px;
   font-weight: 600;
-  border-bottom: 1px solid #ebeef5;
+  border-bottom: 1px solid #d8dae0;
 }
 </style>

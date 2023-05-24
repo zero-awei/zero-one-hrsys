@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%">
+  <div class="workRecord">
     <div class="head">工作履历</div>
     <el-table
       :data="userData.workRecord"
@@ -50,14 +50,17 @@ interface User {
   grade: string
 }
 </script>
-<style>
+<style scoped>
+.workRecord {
+  padding: 12px 0 10px 16px;
+}
 .head {
-  margin: 8px;
+  padding: 0 10px 10px 10px;
   color: #000;
   height: 50px;
   line-height: 50px;
   font-size: 16px;
   font-weight: 600;
-  border-bottom: 1px solid #ebeef5;
+  border-bottom: 1px solid #d8dae0;
 }
 </style>
