@@ -4,6 +4,7 @@ employee:
   detail: 查询制定员工详细分配信息
  post:
   summary: 新增指定员工分配信息
+  upload: 导入指定员工分配信息
  put:
   summary: 修改指定员工分配信息
  delete:
