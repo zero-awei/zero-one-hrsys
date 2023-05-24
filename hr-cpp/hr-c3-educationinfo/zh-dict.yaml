@@ -52,12 +52,12 @@ employee:
   firstDegree: 是否第一学历
   highestEducationDegree: 最高学历
   sex: 性别，如：男
-gueryEducationPage: 分页查询指定姓名员工的教育信息
-queryEducationSingle: 单独查询指定姓名员工的教育信息
-addEducationSingle: 单条新增指定姓名员工的教育信息
-modifyEducationSingle: 单条修改指定姓名员工的教育信息
-removeEducation: 删除指定姓名员工的教育信息
-removeEducationNotSingle: 批量删除指定姓名员工的教育信息
+gueryEducationPage: 分页查询指定员工的教育信息
+queryEducationSingle: 单独查询指定员工的教育信息
+addEducationSingle: 单条新增指定员工的教育信息
+modifyEducationSingle: 单条修改指定员工的教育信息
+removeEducation: 删除指定员工的教育信息
+removeEducationNotSingle: 批量删除指定员工的教育信息
 deleteId: 单条教育信息
 deleteIds: 多条教育信息
 EudacationImport:

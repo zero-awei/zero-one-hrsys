@@ -14,6 +14,7 @@ EducationPageJsonVO::Wrapper EducationController::execQueryEducationPage(const E
 EducationSingleJsonVO::Wrapper EducationController::execQueryEducationSingle(const EducationSingleQuery::Wrapper& query, const PayloadDTO& payload)
 //StringJsonVO::Wrapper EducationController::execQueryEducationSingle(const EducationSingleQuery::Wrapper& query, const PayloadDTO& payload, const PayloadDTO& payload)
 {
+	
 	auto vo = EducationSingleJsonVO::createShared();
 	return vo;
 }
@@ -22,12 +23,30 @@ Uint64JsonVO::Wrapper EducationController::execAddEducationSingle(const Educatio
 //StringJsonVO::Wrapper EducationController::execAddEducationSingle(const EducationSingleDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto vo = Uint64JsonVO::createShared();
+	
+	// 参数校验
+	if (!dto->PIMEDUCATIONID)
+	{	
+		vo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return vo;
+	}
+
+	
+
 	return vo;
 }
 
 Uint64JsonVO::Wrapper EducationController::execModifyEducationSingle(const EducationSingleDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto vo = Uint64JsonVO::createShared();
+
+	// 参数校验
+	if (!dto->PIMEDUCATIONID)
+	{
+		vo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return vo;
+	}
+
 	return vo;
 }
 
@@ -35,10 +54,11 @@ Uint64JsonVO::Wrapper EducationController::execRemoveEducation(const EducationDe
 //StringJsonVO::Wrapper EducationController::execRemoveEducation(const EducationDeleteSingleDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto vo = Uint64JsonVO::createShared();
-	/*if (!dto->deleteId) {
+	// 参数校验
+	if (!dto->deleteId) {
 		vo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return vo;
-	}*/
+	}
 	return vo;
 	//return Uint64JsonVO::Wrapper();
 }
@@ -47,11 +67,12 @@ Uint64JsonVO::Wrapper EducationController::execRemoveEducationNotSingle(const Ed
 //StringJsonVO::Wrapper EducationController::execRemoveEducationNotSingle(const EducationDeleteNotSingleDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto vo = Uint64JsonVO::createShared();
-	return vo;
-	/*if (!dto->deleteIds) {
+	if (!dto->deleteIds) {
 		vo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return vo;
-	}*/
+	}
+	return vo;
+	
 }
 
 #define RTN(__VO__, __MSG__) __VO__->setStatus(__MSG__); \
