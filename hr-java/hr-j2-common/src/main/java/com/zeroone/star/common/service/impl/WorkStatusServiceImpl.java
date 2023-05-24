@@ -1,9 +1,11 @@
 package com.zeroone.star.common.service.impl;
 
+import com.zeroone.star.common.mapper.WorkStatusMapper;
 import com.zeroone.star.common.service.WorkStatusService;
 import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -15,10 +17,11 @@ import java.util.List;
 @Service
 public class WorkStatusServiceImpl implements WorkStatusService {
 
-
+    @Resource
+    private WorkStatusMapper workStatusMapper;
 
     @Override
     public List<DropdownListOptionDTO> listWorkStatus() {
-        return null;
+        return workStatusMapper.selectWorkStatus();
     }
 }

@@ -1,6 +1,8 @@
 package com.zeroone.star.common.controller;
 
 import com.zeroone.star.common.service.IOrmpostlibService;
+import com.zeroone.star.common.service.MaritalStatusService;
+import com.zeroone.star.common.service.WorkStatusService;
 import com.zeroone.star.common.service.ZzmmService;
 import com.zeroone.star.project.common.CommonApis;
 import com.zeroone.star.project.dto.PageDTO;
@@ -117,18 +119,26 @@ public class CommonController implements CommonApis {
         return JsonVO.success(list);
     }
 
+    @Resource
+    private WorkStatusService workStatusService;
+
+    @Resource
+    private MaritalStatusService maritalStatusService;
+
     @GetMapping("query-marital-status")
     @ApiOperation(value = "婚姻状况下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryMaritalStatus() {
-        return null;
+        List<DropdownListOptionDTO> dtoList = maritalStatusService.listMaritalStatus();
+        return JsonVO.success(dtoList);
     }
 
     @GetMapping("query-work-status")
     @ApiOperation(value = "工作状态下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryWorkStatus() {
-        return null;
+        List<DropdownListOptionDTO> dtoList = workStatusService.listWorkStatus();
+        return JsonVO.success(dtoList);
     }
 
 
