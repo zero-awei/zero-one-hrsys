@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-// const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
+const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
 // 给B发消息
 let val = ref('hello B')
 const toB = () => {

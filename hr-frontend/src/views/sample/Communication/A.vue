@@ -1,21 +1,20 @@
 <template>
-  <div class="hr-btn" @click="callA">B组件</div>
+  <div class="hr-btn" @click="toB">A组件</div>
 </template>
 
 <script setup>
 const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
-const fn = (val) => {
-  console.log(`output->B`, val)
+// 给B发消息
+let val = ref('hello B')
+const toB = () => {
+  mitt.emit('callB', val.value)
 }
 
 // 绑定触发函数
-mitt.on('callB', fn)
-
-// 给A发消息
-const data = ref('hello A')
-const callA = () => {
-  mitt.emit('callA', data.value)
+const fn = (val) => {
+  console.log(`output->A`, val)
 }
+mitt.on('callA', fn)
 </script>
 
 <style lang="scss" scoped>
@@ -24,6 +23,6 @@ const callA = () => {
   // height: 20px;
   padding: 5px 10px;
   text-align: center;
-  background-color: #27ae60;
+  background-color: #e67e22;
 }
 </style>

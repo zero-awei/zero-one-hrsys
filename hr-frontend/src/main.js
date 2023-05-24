@@ -6,6 +6,7 @@ import * as echarts from 'echarts'
 import App from './App.vue'
 import router from './router'
 import 'element-plus/theme-chalk/src/message.scss'
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import './assets/main.css'
 import ECharts from './components/echarts/ECharts.vue'
 // import ECharts from './components/echarts/echart-with-color.vue'
@@ -27,6 +28,11 @@ installHttp(router)
 import installElIcon from './plugins/el-icon'
 installElIcon(app)
 
-// // 全局事件总线
-// import mitt from 'mitt'
-// app.config.globalProperties.$bus = mitt()
+
+// 全局事件总线
+import mitt from 'mitt'
+app.config.globalProperties.$bus = mitt()
+
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}

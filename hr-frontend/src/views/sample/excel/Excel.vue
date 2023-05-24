@@ -33,10 +33,10 @@ function exportFile() {
 </script>
 
 <style scoped>
-.el-table{
+.el-table {
   width: 100%;
 }
-.el-button{
+.el-button {
   margin-top: 5px;
 }
 </style>
