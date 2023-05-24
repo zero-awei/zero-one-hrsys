@@ -117,3 +117,16 @@ ormanage:
   ormorgid: 项目ID
   ormxbqid: 项目标签标识
 
+job:
+ set:
+  update: 更新岗位信息
+  index: 排序
+  jobname: 岗位名称
+  jotype: 岗位类型（是否党内）
+  sugyear: 建议年限
+  nesyear: 必要年限
+  isSecret: 是否保密
+  isStandard: 是否标准工时
+  isKeywork: 是否关键岗位
+  isId: 是否启用标识
+ downloadurl: 下载地址
