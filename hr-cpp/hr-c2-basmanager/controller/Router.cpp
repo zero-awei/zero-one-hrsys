@@ -46,7 +46,6 @@
 router->addController(__CLASS__::createShared())
 #else
 
-
 // 简化绑定控制器宏定义 
 #define ROUTER_SIMPLE_BIND(__CLASS__) \
 BIND_CONTROLLER(docEndpoints, router, __CLASS__)
