@@ -29,6 +29,7 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+
 orgmanage:
  controller:
   postQuery: 查询指定岗位详情
@@ -70,6 +71,26 @@ jobSet:
 
 #项目标签-导出岗位标签
 projTag:
+ orgList:
+  summary: 分页查询组织列表
+  order: 排序 (DESC/ASC)
+  id: 组织id
+  name: 组织名称
+  createTime: 建立时间
+  updateTime: 更新时间
+  creator: 创建人
+  updater: 更新人
+  orgCode: 组织编码
+  shortName: 组织简称
+  orderId: 组织排序编号
+  orgType: 组织类型
+  typeName: 组织类型释义
+  ouid: 组织所属OU的组织ID
+  region: 所属区域
+  standard: 补贴标准
+  upOrgId: 上级组织ID
+  upDepartId: 上级别部门ID
+  job: 岗位
  export:
   summary: 导出项目标签
   rows: 导出数据条数(最大5000条)
@@ -82,16 +103,14 @@ projTag:
  add:
   summary: 新增项目标签
  filed:
-  sortid: 排序号
-  orgname: 组织名称
-  projecttag: 项目标签
-  creater: 建立人
-  creattime: 建立时间
-  updater: 更新人
+  ormxmbqid: 项目标签标识
+  createman: 建立人
+  ormxmbqname: 项目标签
+  updateman: 更新人
+  createtime: 建立时间
   updatetime: 更新时间
-  id: 项目标签标识
-  tagName: 项目标签名
-  orgId: 组织ID
+  xh: 序号
+  ormorgid: 组织ID
  modify:
   summary: 更新项目标签
  tagId: 项目标签ID
@@ -113,3 +132,21 @@ ormanage:
   label: 项目标签
   ormorgid: 项目ID
   ormxbqid: 项目标签标识
+
+job:
+ set:
+  update: 更新岗位信息
+  index: 排序
+  jobname: 岗位名称
+  jotype: 岗位类型（是否党内）
+  sugyear: 建议年限
+  nesyear: 必要年限
+  isSecret: 是否保密
+  isStandard: 是否标准工时
+  isKeywork: 是否关键岗位
+  isId: 是否启用标识
+ downloadurl: 下载地址
+
+orgbz:
+ pageQuery:
+  controller: 分页查询编制列表

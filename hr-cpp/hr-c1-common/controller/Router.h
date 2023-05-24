@@ -66,6 +66,7 @@ private:
 	 */
 	void createTypeContractRouter();
 	void createArmyLevelTypeRouter();
+	void createContractStatusRouter();
 
 	/**
 	 * 绑定职称等级类型&费用类别下拉列表路由
@@ -94,10 +95,10 @@ private:
 	 */
 	void createLeaveReasonRouter();
 	void createDismissReasonRouter();
-	//审阅状态下拉列表
+	//审阅状态下拉列表&评价类型下拉列表
 	// 负责人：凤雏
 	void createAuditStatusRouter();
-	
+	void createEvalutionTypesRouter();
 };
 
 #endif // !_ROUTER_

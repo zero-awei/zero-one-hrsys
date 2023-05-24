@@ -10,7 +10,10 @@
 using namespace oatpp;
 
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
-
+/**
+ * 新增审阅状态控制器Controller接口：
+ * 负责人：fengchu
+ */
 class AuditStatusController : public oatpp::web::server::api::ApiController
 {
 	// 定义控制器访问入口
@@ -23,7 +26,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
 		
-	ENDPOINT(API_M_GET, "/audit-status-pull-list", queryAuditStatus) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/audit-status"), queryAuditStatus) {
 		API_HANDLER_RESP_VO(execQueryAuditStatus());
 	}
 

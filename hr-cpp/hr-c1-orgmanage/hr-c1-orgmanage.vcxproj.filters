@@ -18,9 +18,13 @@
     <ClCompile Include="controller\itemLabel\ItemLabelController.cpp" />
     <ClCompile Include="controller\jobSet\jobUpdate\JobUpdateController.cpp" />
     <ClCompile Include="controller\jobSet\jobOutput\JobOutputController.cpp" />
+    <ClCompile Include="service\projTag\ProjTagService.cpp" />
+    <ClCompile Include="dao\projTag\ProjTagDAO.cpp" />
+    <ClCompile Include="controller\orgbz\PageQueryBzController.cpp" />
+    <ClCompile Include="controller\projTag\queryOrgList\QueryOrgListController.cpp" />
+    <ClCompile Include="service\jobSet\postDeleteService\PostDeleteService.cpp" />
     <ClCompile Include="service\jobSet\postQueryService\PostQueryService.cpp" />
     <ClCompile Include="dao\jobSet\postQueryDAO\PostQueryDAO.cpp" />
-    <ClCompile Include="service\jobSet\postDeleteService\PostDeleteService.cpp" />
     <ClCompile Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +54,7 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="domain\do\sector\SectorDO.h" />
     <ClInclude Include="domain\dto\projTag\ModifyTagDTO.h" />
     <ClInclude Include="uselib\jwt\TestToken.h" />
     <ClInclude Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.h" />
@@ -68,12 +73,20 @@
     <ClInclude Include="domain\dto\jobUpdate\JobUpdateDTO.h" />
     <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
     <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
+    <ClInclude Include="service\projTag\ProjTagService.h" />
+    <ClInclude Include="dao\projTag\ProjTagDAO.h" />
+    <ClInclude Include="controller\orgbz\PageQueryBzController.h" />
+    <ClInclude Include="domain\query\orgbz\PageBzQuery.h" />
+    <ClInclude Include="controller\projTag\queryOrgList\QueryOrgListController.h" />
+    <ClInclude Include="domain\dto\projTag\OrgListDTO.h" />
+    <ClInclude Include="domain\query\projTag\OrgListQuery.h" />
+    <ClInclude Include="domain\vo\projTag\OrgListVO.h" />
+    <ClInclude Include="service\jobSet\postDeleteService\PostDeleteService.h" />
     <ClInclude Include="service\jobSet\postQueryService\PostQueryService.h" />
     <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryDAO.h" />
-    <ClInclude Include="domain\do\postSet\PostDetailDO.h" />
     <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryMapper.h" />
-    <ClInclude Include="service\jobSet\postDeleteService\PostDeleteService.h" />
     <ClInclude Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.h" />
+    <ClInclude Include="domain\do\postSet\PostDetailDO.h" />
     <ClInclude Include="domain\vo\postSet\PostDeleteBatchVO.h" />
   </ItemGroup>
 </Project>

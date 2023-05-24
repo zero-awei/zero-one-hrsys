@@ -31,36 +31,55 @@ class ProjTagDTO : public oatpp::DTO
 {
 	DTO_INIT(ProjTagDTO, DTO);
 	
-	// 组合名称
-	DTO_FIELD(String, orgname);
-	DTO_FIELD_INFO(orgname) {
-		info->description = ZH_WORDS_GETTER("projTag.field.orgname");
+	// 项目标签标识
+	DTO_FIELD(String, ormxmbqid);
+	DTO_FIELD_INFO(ormxmbqid) {
+		info->description = ZH_WORDS_GETTER("projTag.field.ormxmbqid");
 	}
-	// 项目标签
-	DTO_FIELD(String, projecttag);
-	DTO_FIELD_INFO(projecttag) {
-		info->description = ZH_WORDS_GETTER("projTag.field.projecttag");
-	}
+	
 	// 建立人
-	DTO_FIELD(String, creater);
-	DTO_FIELD_INFO(creater) {
-		info->description = ZH_WORDS_GETTER("projTag.field.creater");
+	DTO_FIELD(String, createman);
+	DTO_FIELD_INFO(createman) {
+		info->description = ZH_WORDS_GETTER("projTag.field.createman");
 	}
-	// 建立时间
-	DTO_FIELD(String, creattime);
-	DTO_FIELD_INFO(creattime) {
-		info->description = ZH_WORDS_GETTER("projTag.field.creattime");
+
+	// 项目标签
+	DTO_FIELD(String, ormxmbqname);
+	DTO_FIELD_INFO(ormxmbqname) {
+		info->description = ZH_WORDS_GETTER("projTag.field.ormxmbqname");
 	}
+
 	// 更新人
-	DTO_FIELD(String, updater);
-	DTO_FIELD_INFO(updater) {
-		info->description = ZH_WORDS_GETTER("projTag.field.updater");
+	DTO_FIELD(String, updateman);
+	DTO_FIELD_INFO(updateman) {
+		info->description = ZH_WORDS_GETTER("projTag.field.updateman");
 	}
+
+	// 建立时间
+	DTO_FIELD(String, createdate);
+	DTO_FIELD_INFO(createdate) {
+		info->description = ZH_WORDS_GETTER("projTag.field.createtime");
+	}
+
 	// 更新时间
-	DTO_FIELD(String, updatetime);
-	DTO_FIELD_INFO(updatetime) {
+	DTO_FIELD(String, updatedate);
+	DTO_FIELD_INFO(updatedate) {
 		info->description = ZH_WORDS_GETTER("projTag.field.updatetime");
 	}
+
+	// 组织id
+	DTO_FIELD(String, ormorgid);
+	DTO_FIELD_INFO(ormorgid) {
+		info->description = ZH_WORDS_GETTER("projTag.field.ormorgid");
+	}
+public:
+	ProjTagDTO() {
+		ormxmbqid = "";
+	}
+	ProjTagDTO(string id) {
+		ormxmbqid = id;
+	}
+
 };
 class ProjTagPageDTO : public PageDTO<ProjTagDTO::Wrapper>
 {

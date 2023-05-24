@@ -1,3 +1,6 @@
+//2023年5月21日
+//导出岗位信息
+//作者：狗屁电耗子
 #pragma once
 #ifndef _JOB_DOWNLOAD_VO_
 #define _JOB_DOWNLOAD_VO_

@@ -43,7 +43,7 @@ bool getStartArg(int argc, char* argv[]) {
 	std::string serverPort = "8091";
 	// 数据库连接信息
 	std::string dbUsername = "root";
-	std::string dbPassword = "114514mysql";
+	std::string dbPassword = "123456";
 	std::string dbName = "test";
 	std::string dbHost = "192.168.56.97";
 	int dbPort = 3306;

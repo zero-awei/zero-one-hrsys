@@ -18,17 +18,22 @@
 */
 #include "stdafx.h"
 #include "ArmyLevelTypeController.h"
+#include "service/armyLevelType/ArmyLevelTypeService.h"
 
 PullListVO::Wrapper ArmyLevelTypeController::execQueryArmyLevelType()
 {
 	auto vo = PullListVO::createShared();
-	auto dto = PullListDTO::createShared();
+
+	// 示例返回
+	/*auto dto = PullListDTO::createShared();
 	dto->pullList->push_back(ItemDTO::createShared(1, u8"正营职"));
 	dto->pullList->push_back(ItemDTO::createShared(2, u8"正排职"));
 	dto->pullList->push_back(ItemDTO::createShared(3, u8"副团职"));
-	dto->pullList->push_back(ItemDTO::createShared(4, u8"副连职"));
+	dto->pullList->push_back(ItemDTO::createShared(4, u8"副连职"));*/
 
 	// TODO:调用service返回PullListDTO
+	ArmyLevelTypeService service;
+	auto dto = service.listAll();
 
 	vo->success(dto);
 	return vo;

@@ -3,7 +3,6 @@
 #define _PAGEQUERYVO_H_
 
 #include "../../GlobalInclude.h"
-// #include "../../dto/pageQuery/PageQueryDTO.h"
 #include "../../query/projTag/PageProjTagQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
