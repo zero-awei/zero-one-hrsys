@@ -165,6 +165,7 @@
     <ClInclude Include="controller\awardLevel\AwardLevelController.h" />
     <ClInclude Include="controller\certDropDownList\certTypeList\CertTypeListController.h" />
     <ClInclude Include="controller\certDropDownList\profCertsList\ProfCertsListController.h" />
+    <ClInclude Include="controller\contractStatus\ContractStatusController.h" />
     <ClInclude Include="controller\contractType\ContractTypeController.h" />
     <ClInclude Include="controller\costTypeList\CostTypeListController.h" />
     <ClInclude Include="controller\declareType\DeclareController.h" />
@@ -226,6 +227,7 @@
     <ClCompile Include="controller\certDropDownList\certTypeList\CertTypeListController.cpp" />
     <ClCompile Include="controller\certDropDownList\profCertsList\ProfCertsListController.cpp" />
     <ClCompile Include="controller\armyLevelType\ArmyLevelTypeController.cpp" />
+    <ClCompile Include="controller\contractStatus\ContractStatusController.cpp" />
     <ClCompile Include="controller\contractType\ContractTypeController.cpp" />
     <ClCompile Include="controller\costTypeList\CostTypeListController.cpp" />
     <ClCompile Include="controller\declareType\DeclareController.cpp" />

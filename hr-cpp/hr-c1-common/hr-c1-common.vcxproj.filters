@@ -29,6 +29,7 @@
     <ClCompile Include="controller\evaluationTypesController.h\EvaluationTypesController.cpp" />
     <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
     <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
+    <ClCompile Include="controller\contractStatus\ContractStatusController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -91,6 +92,7 @@
     <ClInclude Include="domain\do\certs\CertTypeDO.h" />
     <ClInclude Include="domain\do\pimType\PimTypeDO.h" />
     <ClInclude Include="domain\do\pimArchives\PimArchivesDO.h" />
+    <ClInclude Include="controller\contractStatus\ContractStatusController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
