@@ -48,7 +48,13 @@ class FormerEmployeesDO
 	CC_SYNTHESIZE(string, jtlxr, jtlxr);
 	// 家庭联系人电话
 	CC_SYNTHESIZE(string, jtlxrdh, jtlxrdh);
-	
+
+	// 以下为非前端显示字段
+	// t_pcmydlzmx主键：异动离职明细标识
+	CC_SYNTHESIZE(string, pcmydlzmxId, pcmydlzmxId);
+	// FOREIGN KEY t_pimperson 人员信息标识
+	CC_SYNTHESIZE(string, lzmtrId, lzmtrId);
+
 public:
 	FormerEmployeesDO() {}
 };

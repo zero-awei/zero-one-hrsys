@@ -37,7 +37,12 @@ class CertificateDO
 	// 失效日期
 	CC_SYNTHESIZE(string, sxrq, sxrq);
 	// 证书剩余日期 表内没有
-
+	//////////////////////////////////////////////////////////////
+	// 以下为非前端显示字段
+	// 人员信息标识 FOREIGN KEY (`PIMPERSONID`) REFERENCES `t_pimperson` (`PIMPERSONID`),
+	CC_SYNTHESIZE(string, pimPersonID, pimPersonID);
+	// 组织标识 FOREIGN KEY (`ORMORGID`) REFERENCES `t_srforg` (`ORGID`),
+	CC_SYNTHESIZE(string, ORMORGID, ORMORGID);
 public:
 	CertificateDO() {	}
 };
