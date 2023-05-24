@@ -121,6 +121,8 @@ sector:
     parentkey: 查询parent的id
     sort: 排序方式
 member:
+  field:
+    summary: 
   query:
     parentdename: 查询parent类型
     parentkey: 查询parent的id
