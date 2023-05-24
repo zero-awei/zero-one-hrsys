@@ -39,7 +39,8 @@
 #include "projTag/addTagController/AddTagController.h"
 #include "projTag/modifyProjTagController/ModifyProjTagController.h"
 #include "itemLabel/ItemLabelController.h"
-
+//编制查询
+#include "orgbz/PageQueryBzController.h"
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -68,7 +69,7 @@ void Router::initRouter()
 
 	createJobSetRouter();
 	createProjTagRouter();
-
+	createBzRouter();
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -130,4 +131,12 @@ void Router::createProjTagRouter()
 	 * 负责人：缘尘
 	 */
 	ROUTER_SIMPLE_BIND(ItemLabelController);
+}
+void Router::createBzRouter()
+{
+	/**
+	 * 编制查询
+	 * 负责人：xubuxi
+	 */
+	ROUTER_SIMPLE_BIND(PageQueryBzController);
 }

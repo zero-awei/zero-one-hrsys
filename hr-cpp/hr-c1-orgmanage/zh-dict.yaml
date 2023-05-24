@@ -29,6 +29,7 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+
 orgmanage:
  controller:
   postQuery: 查询指定岗位详情

@@ -51,6 +51,8 @@ private:
 	void createJobSetRouter();
 	// 项目标签路由绑定
 	void createProjTagRouter();
+	// 创建编制查询路由绑定
+	void createBzRouter();
 };
 
 #endif // !_ROUTER_

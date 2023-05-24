@@ -162,6 +162,7 @@
     <ClCompile Include="controller\itemLabel\ItemLabelController.cpp" />
     <ClCompile Include="controller\jobSet\jobOutput\JobOutputController.cpp" />
     <ClCompile Include="controller\jobSet\jobUpdate\JobUpdateController.cpp" />
+    <ClCompile Include="controller\orgbz\PageQueryBzController.cpp" />
     <ClCompile Include="controller\projTag\addTagController\AddTagController.cpp" />
     <ClCompile Include="controller\projTag\deleteProjTag\DeleteProjTagController.cpp" />
     <ClCompile Include="controller\projTag\importTagController\ImportTagController.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="controller\itemLabel\ItemLabelController.h" />
     <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
     <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
+    <ClInclude Include="controller\orgbz\PageQueryBzController.h" />
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
     <ClInclude Include="controller\projTag\deleteProjTag\DeleteProjTagController.h" />
     <ClInclude Include="controller\projTag\importTagController\ImportTagController.h" />
@@ -215,6 +217,7 @@
     <ClInclude Include="domain\dto\projTag\ProjTagDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\itemlabel\ItemlabelQuery.h" />
+    <ClInclude Include="domain\query\orgbz\PageBzQuery.h" />
     <ClInclude Include="domain\query\postSet\PostDetailQuery.h" />
     <ClInclude Include="domain\query\projTag\PageProjTagQuery.h" />
     <ClInclude Include="domain\vo\itemLabel\ItemLabelVO.h" />
