@@ -39,13 +39,13 @@ public: // 定义接口
 		info->summary = ZH_WORDS_GETTER("orgbz.pagequery.controller");
 		API_DEF_ADD_AUTH();
 		API_DEF_ADD_RSP_JSON_WRAPPER(PageQueryVO);
-		info->queryParams.add<UInt8>("size").description = ZH_WORDS_GETTER("orgbz.pageQuery.size");
+		info->queryParams.add<UInt8>("size").description = ZH_WORDS_GETTER("orgbz.pagequery.size");
 		info->queryParams["size"].addExample("default", UInt8(20));
 		info->queryParams["size"].required = true;
-		info->queryParams.add<UInt8>("page").description = ZH_WORDS_GETTER("orgbz.pageQuery.page");
+		info->queryParams.add<UInt8>("page").description = ZH_WORDS_GETTER("orgbz.pagequery.page");
 		info->queryParams["page"].addExample("default", UInt8(1));
 		info->queryParams["page"].required = true;
-		info->queryParams.add<String>("sort").description = ZH_WORDS_GETTER("orgbz.pageQuery.sort");
+		info->queryParams.add<String>("sort").description = ZH_WORDS_GETTER("orgbz.pagequery.sort");
 		info->queryParams["sort"].addExample("default", String("xh,ASC"));
 		info->queryParams["sort"].required = true;
 	}

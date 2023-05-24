@@ -113,3 +113,10 @@ ormanage:
   label: 项目标签
   ormorgid: 项目ID
   ormxbqid: 项目标签标识
+
+orgbz:
+ pagequery:
+  controller: 分页查询编制列表
+  size: 每页显示条数
+  page: 查询页码
+  sort: 显示顺序
