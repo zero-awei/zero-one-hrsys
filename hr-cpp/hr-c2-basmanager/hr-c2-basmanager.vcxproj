@@ -183,8 +183,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\CertificateManage\CertificateTypeController.h" />
+    <ClInclude Include="controller\CertificateManage\CheckCerListController.h" />
+    <ClInclude Include="controller\CertificateManage\CreateNewCerController.h" />
     <ClInclude Include="controller\CertificateManage\EmployeeInfoController.h" />
     <ClInclude Include="controller\CertificateManage\UpdateCertificateController.h" />
+    <ClInclude Include="controller\RosterOfPer\CheckRetiresListController.h" />
+    <ClInclude Include="controller\RosterOfPer\ExportRetireesController.h" />
     <ClInclude Include="controller\RosterOfPer\FormerEmployeesController.h" />
     <ClInclude Include="controller\RosterOfPer\RraineeController.h" />
     <ClInclude Include="controller\RosterOfPer\TemporaryStaffController.h" />
@@ -222,8 +226,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\CertificateManage\CertificateTypeController.cpp" />
+    <ClCompile Include="controller\CertificateManage\CheckCerListController.cpp" />
+    <ClCompile Include="controller\CertificateManage\CreateNewCerController.cpp" />
     <ClCompile Include="controller\CertificateManage\EmployeeInfoController.cpp" />
     <ClCompile Include="controller\CertificateManage\UpdateCertificateController.cpp" />
+    <ClCompile Include="controller\RosterOfPer\CheckRetiresListController.cpp" />
+    <ClCompile Include="controller\RosterOfPer\ExportRetireesController.cpp" />
     <ClCompile Include="controller\RosterOfPer\FormerEmployeesController.cpp" />
     <ClCompile Include="controller\RosterOfPer\RraineeController.cpp" />
     <ClCompile Include="controller\RosterOfPer\TemporaryStaffController.cpp" />
