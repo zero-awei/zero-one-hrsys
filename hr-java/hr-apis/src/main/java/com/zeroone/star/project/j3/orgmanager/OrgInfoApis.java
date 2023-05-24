@@ -3,6 +3,7 @@ package com.zeroone.star.project.j3.orgmanager;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sample.SampleDTO;
 import com.zeroone.star.project.j3.dto.DeleteDTO;
+import com.zeroone.star.project.j3.dto.orgmanager.ModifyOrgAddressDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
 import cn.hutool.http.server.HttpServerResponse;
 import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
@@ -12,6 +13,7 @@ import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
 /**
  * <p>
  * 描述：组织地址接口
@@ -33,6 +35,16 @@ public interface OrgInfoApis {
      * @return 是否修改成功
      */
     JsonVO<Boolean> modifyOrgInfo(OrgInfoDTO orgInfoDTO);
+
+    /**
+     * @Title: modifyOrgAddress
+     * @Description: 更新指定组织地址信息（导入的地址也通过这个接口更新）
+     * @Author: wh
+     * @DateTime: 2023/5/22 16:24
+     * @param modifyOrgAddressDTOs 需要更新的组织id和地址DTO集合
+     * @return com.zeroone.star.project.vo.JsonVO<java.lang.Boolean>
+     */
+    JsonVO<Boolean> modifyOrgAddress(List<ModifyOrgAddressDTO> modifyOrgAddressDTOs);
 
     /**
      * 批量删除组织信息

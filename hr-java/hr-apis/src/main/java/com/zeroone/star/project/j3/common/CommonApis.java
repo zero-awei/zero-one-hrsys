@@ -4,10 +4,7 @@ import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
 import com.zeroone.star.project.j3.dto.RelationshipDTO;
 import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
-import com.zeroone.star.project.j3.query.common.DisciplineTypeQuery;
-import com.zeroone.star.project.j3.query.common.EducationTypeQuery;
-import com.zeroone.star.project.j3.query.common.OneConditionQuery;
-import com.zeroone.star.project.j3.query.common.SectorNameQuery;
+import com.zeroone.star.project.j3.query.common.*;
 import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.ApiOperation;
@@ -28,21 +25,19 @@ import java.util.List;
  */
 public interface CommonApis {
 
-    @GetMapping("query-start-position-title")
-    @ApiOperation("职务名称下拉列表")
-    JsonVO<List<DropdownListOptionDTO>> queryPositionTitle();
-
-    @GetMapping("query-start-job-title")
-    @ApiOperation("岗位名称下拉列表")
-    JsonVO<List<DropdownListOptionDTO>> queryJobTitle();
-
     /**
-     * 获取分配信息中的职务信息数据接口
-     *
-     * @param oneConditionQuery 查询的字段名
+     * 获取分配信息中的职务名称下拉列表数据
+     * @param
      * @return 查询结果
      */
-    JsonVO<List<String>> queryOneColumn(OneConditionQuery oneConditionQuery);
+    JsonVO<List<DropdownListOptionDTO>> queryPositionTitle(PositionTitleDropdownListQuery query);
+
+    /**
+     * 获取分配信息中的岗位名称下拉列表数据
+     * @param
+     * @return 查询结果
+     */
+    JsonVO<List<DropdownListOptionDTO>> queryJobTitle(JobTitleDropdownListQuery query);
 
     /**
      * @return {@link JsonVO< List< DropdownListOptionDTO>>}

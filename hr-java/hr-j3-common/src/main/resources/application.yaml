@@ -1,5 +1,5 @@
 server:
-  port: ${sp.sample}
+  port: ${sp.local-dev}
 spring:
   application:
-    name: ${sn.sample}
+    name: ${sn.local-dev}

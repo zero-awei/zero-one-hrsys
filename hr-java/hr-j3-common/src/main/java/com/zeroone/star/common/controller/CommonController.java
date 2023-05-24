@@ -4,10 +4,7 @@ import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.common.CommonApis;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
 import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
-import com.zeroone.star.project.j3.query.common.DisciplineTypeQuery;
-import com.zeroone.star.project.j3.query.common.EducationTypeQuery;
-import com.zeroone.star.project.j3.query.common.OneConditionQuery;
-import com.zeroone.star.project.j3.query.common.SectorNameQuery;
+import com.zeroone.star.project.j3.query.common.*;
 import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
@@ -35,23 +32,18 @@ import java.util.List;
 @RequestMapping("common")
 @Api(tags = "通用接口")
 public class CommonController implements CommonApis {
-    @Override
-    public JsonVO<List<String>> queryOneColumn(OneConditionQuery oneConditionQuery) {
-        return null;
-    }
-
 
     @GetMapping("query-start-position-title")
     @ApiOperation("职务名称下拉列表")
     @Override
-    public JsonVO<List<DropdownListOptionDTO>> queryPositionTitle() {
+    public JsonVO<List<DropdownListOptionDTO>> queryPositionTitle(PositionTitleDropdownListQuery query) {
         return null;
     }
 
     @GetMapping("query-start-job-title")
     @ApiOperation("岗位名称下拉列表")
     @Override
-    public JsonVO<List<DropdownListOptionDTO>> queryJobTitle() {
+    public JsonVO<List<DropdownListOptionDTO>> queryJobTitle(JobTitleDropdownListQuery query) {
         return null;
     }
 

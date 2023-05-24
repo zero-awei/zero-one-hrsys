@@ -1,13 +1,19 @@
 package com.zeroone.star.orgmanager.controller;
 
+import com.zeroone.star.project.dto.PageDTO;
+import com.zeroone.star.project.dto.sample.SampleDTO;
 import com.zeroone.star.project.j3.dto.DeleteDTO;
+import com.zeroone.star.project.j3.dto.orgmanager.ModifyOrgAddressDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
 import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.j3.orgmanager.OrgInfoApis;
+import com.zeroone.star.project.j3.query.OrgQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * <p>
@@ -32,10 +38,17 @@ public class OrgInfoController implements OrgInfoApis {
         return null;
     }
 
-    @PostMapping("modify-org-info")
+    @PutMapping("modify-org-info")
     @ApiOperation("修改组织信息")
     @Override
-    public JsonVO<Boolean> modifyOrgInfo(@RequestBody OrgInfoDTO orgInfoDTO) {
+    public JsonVO<Boolean> modifyOrgInfo(@ModelAttribute OrgInfoDTO orgInfoDTO) {
+        return null;
+    }
+
+    @PutMapping("modify-org-address")
+    @ApiOperation("修改组织地址信息（导入的地址也通过这个接口更新）")
+    @Override
+    public JsonVO<Boolean> modifyOrgAddress(@RequestBody List<ModifyOrgAddressDTO> modifyOrgAddressDTOs) {
         return null;
     }
 
@@ -65,5 +78,10 @@ public class OrgInfoController implements OrgInfoApis {
     @Override
     public JsonVO<Boolean> addOryData(@RequestBody OrgInfoDTO orgInfoDTO) {
         return JsonVO.success(true);
+    }
+
+    @Override
+    public JsonVO<PageDTO<SampleDTO>> queryAllOrg(OrgQuery condition) {
+        return null;
     }
 }
