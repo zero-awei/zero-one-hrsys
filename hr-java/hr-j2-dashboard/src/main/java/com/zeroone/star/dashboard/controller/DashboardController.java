@@ -3,6 +3,7 @@ package com.zeroone.star.dashboard.controller;
 
 import com.zeroone.star.dashboard.service.IBisEducationService;
 import com.zeroone.star.dashboard.service.IBisEmployeeanalysisService;
+import com.zeroone.star.dashboard.service.IBisRegisterTService;
 import com.zeroone.star.dashboard.service.ISrforgService;
 import com.zeroone.star.project.dashboard.DashboardApis;
 import com.zeroone.star.project.dashboard.OrgDistributeApis;
@@ -54,11 +55,15 @@ public class DashboardController implements DashboardApis, OrgDistributeApis {
         return bisEducationService.getEducationDistribution();
     }
 
+    @Resource
+    private IBisRegisterTService bisRegisterTService;
+
     @GetMapping("query-vocational")
     @ApiOperation(value = "职业资格")
     @Override
-    public JsonVO<List<PimVocationalDTO>> queryPimVocational() {
-        return null;
+    public JsonVO<List<PimVocationalDTO>> queryVocational() {
+        List<PimVocationalDTO> dtoList = bisRegisterTService.listVocational();
+        return JsonVO.success(dtoList);
     }
 
     /**

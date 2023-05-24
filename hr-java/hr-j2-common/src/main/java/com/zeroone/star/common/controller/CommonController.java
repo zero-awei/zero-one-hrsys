@@ -1,8 +1,10 @@
 package com.zeroone.star.common.controller;
 
 import com.zeroone.star.common.service.IOrmpostlibService;
-import com.zeroone.star.common.service.MaritalStatusService;
-import com.zeroone.star.common.service.WorkStatusService;
+import com.zeroone.star.common.service.IZoMaritalStatusService;
+import com.zeroone.star.common.service.IZoWorkStatusService;
+import com.zeroone.star.common.service.IZoMaritalStatusService;
+import com.zeroone.star.common.service.IZoWorkStatusService;
 import com.zeroone.star.common.service.ZzmmService;
 import com.zeroone.star.project.common.CommonApis;
 import com.zeroone.star.project.dto.PageDTO;
@@ -120,10 +122,10 @@ public class CommonController implements CommonApis {
     }
 
     @Resource
-    private WorkStatusService workStatusService;
+    private IZoWorkStatusService workStatusService;
 
     @Resource
-    private MaritalStatusService maritalStatusService;
+    private IZoMaritalStatusService maritalStatusService;
 
     @GetMapping("query-marital-status")
     @ApiOperation(value = "婚姻状况下拉列表")

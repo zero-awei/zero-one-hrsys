@@ -55,5 +55,5 @@ public interface DashboardApis {
      * 查询职业资格
      * @return
      */
-    JsonVO<List<PimVocationalDTO>> queryPimVocational();
+    JsonVO<List<PimVocationalDTO>> queryVocational();
 }
