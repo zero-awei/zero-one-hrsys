@@ -26,32 +26,36 @@
  */
 class CommonRosterOfPerDO
 {
-	//员工编号
-	CC_SYNTHESIZE(string, YGBH, YGBH);
+	// 离职信息ID，主键，供其他表做外键
+	CC_SYNTHESIZE(uint64_t, leavingAnalysis_ID, leavingAnalysis_ID);
+	// 员工基本信息表ID,同员工ID
+	CC_SYNTHESIZE(uint64_t, pimperSonName, pimperSonName);
 	//员工姓名
-	CC_SYNTHESIZE(string, PIMPERSONNAME, PIMPERSONNAME);
+	CC_SYNTHESIZE(string, name, name);
 	// 性别
-	CC_SYNTHESIZE(string, sex, Sex);
+	CC_SYNTHESIZE(string, sex, sex);
 	// 年龄
-	CC_SYNTHESIZE(string, NJ, NJ);
+	CC_SYNTHESIZE(string, nj, nj);
+	//员工编号、工号
+	CC_SYNTHESIZE(string, ygbh, ygbh);
 	// 组织
-	CC_SYNTHESIZE(string, ORGANIZATION_NAME, ORGANIZATION_NAME);
+	CC_SYNTHESIZE(string, organizationName, organizationName);
 	// 部门
-	CC_SYNTHESIZE(string, BM, BM);
+	CC_SYNTHESIZE(string, bm, bm);
 	// 职务
-	CC_SYNTHESIZE(string, RANK, RANK);
+	CC_SYNTHESIZE(string, rank, rank);
 	// 岗位
-	CC_SYNTHESIZE(string, GW, GW);
+	CC_SYNTHESIZE(string, gw, gw);
 	//手机号码
-	CC_SYNTHESIZE(string, LXDH, LXDH);
+	CC_SYNTHESIZE(string, lxdh, lxdh);
 	// 家庭联系人
-	CC_SYNTHESIZE(string, JTLXR, JTLXR);
+	CC_SYNTHESIZE(string, jtlxr, jtlxr);
 	// 家庭联系人电话
-	CC_SYNTHESIZE(string, JTLXRDH, JTLXRDH);
+	CC_SYNTHESIZE(string, jtlxrdh, jtlxrdh);
 	
 public:
 	CommonRosterOfPerDO() {
-
+		
 	}
 };
 
