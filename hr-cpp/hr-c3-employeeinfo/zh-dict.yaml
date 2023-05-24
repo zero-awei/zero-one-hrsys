@@ -116,10 +116,7 @@ sector:
   page: 页码
   size: 页的记录数
   sort: 排序方式
-  query:
-    parentdename: 查询parent类型
-    parentkey: 查询parent的id
-    sort: 排序方式
+  parentdename: 查询parent类型
 member:
   query:
     parentdename: 查询parent类型

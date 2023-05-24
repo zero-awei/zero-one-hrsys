@@ -35,6 +35,13 @@ public: // 定义接口
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON(MemberJsonVO::Wrapper);
+		// 定义其他表单参数描述
+        // 搜索匹配
+		info->queryParams.add<String>("fillter").description = ZH_WORDS_GETTER("rootorg.query.filter");
+		info->queryParams["fillter"].addExample("default", String("fillter"));
+		//排序方式
+		info->queryParams.add<String>("ssort").description = ZH_WORDS_GETTER("rootorg.query.sort");
+		info->queryParams["ssort"].addExample("default", String("ssort"));
 	
 	}
 	//定义查询根组织信息接口端点处理
@@ -53,7 +60,16 @@ public: // 定义接口
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON(MemberJsonVO::Wrapper);
-
+		// 定义其他表单参数描述
+		// 搜索匹配
+		info->queryParams.add<String>("fillter").description = ZH_WORDS_GETTER("validorg.query.filter");
+		info->queryParams["fillter"].addExample("default", String("fillter"));
+		//父组织id
+		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("validorg.query.porgid");
+		info->queryParams["id"].addExample("default", String("10001"));
+		//排序方式
+		info->queryParams.add<String>("ssort").description = ZH_WORDS_GETTER("validorg.query.sort");
+		info->queryParams["ssort"].addExample("default", String("ssort"));
 	}
 	//定义查询有效组织信息接口端点处理
 	ENDPOINT(API_M_GET, "/organizationDepartmentTreeStructure/valid-org-query", validOrgQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
@@ -71,7 +87,16 @@ public: // 定义接口
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON(OrgSectorVO::Wrapper);
-
+		// 定义其他表单参数描述
+		// 查询Sector的parent是OrmOrg还是OrmOrgsector
+		info->queryParams.add<String>("parentdename").description = ZH_WORDS_GETTER("sector.query.sort");
+		info->queryParams["parentdename"].addExample("default", String("OrmOrg"));
+		//上级部门id
+		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("sector.query.parentkey");
+		info->queryParams["id"].addExample("default", String("10001"));
+		//排序方式
+		info->queryParams.add<String>("ssort").description = ZH_WORDS_GETTER("sector.query.sort");
+		info->queryParams["ssort"].addExample("default", String("ssort"));
 	}
 	//定义查询部门信息接口端点处理
 	ENDPOINT(API_M_GET, "/organizationDepartmentTreeStructure/sector-org-query", secotrOrgQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
