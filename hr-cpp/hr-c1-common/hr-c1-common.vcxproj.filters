@@ -89,6 +89,8 @@
     <ClInclude Include="domain\do\declareType\DeclareTypeDO.h" />
     <ClInclude Include="domain\do\archivesLevel\ArchivesLevelDO.h" />
     <ClInclude Include="domain\do\certs\CertTypeDO.h" />
+    <ClInclude Include="domain\do\pimType\PimTypeDO.h" />
+    <ClInclude Include="domain\do\pimArchives\PimArchivesDO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
