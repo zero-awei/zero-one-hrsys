@@ -36,13 +36,11 @@ common:
   archiveslevels: 档案层级
   list: 层级
   declare: 申报类型
-archives:
- levels: 层级
-declare:
- code: 值
- type: 类型
-
-
+ archives:
+  levels: 层级
+ declare:
+  code: 值
+  type: 类型
  dto:
   certTypeId: 证书类型ID
   certTypeName: 证书类型名称
@@ -95,6 +93,8 @@ declare:
   JobCategory: 工作岗位
   leaveReason: 离职理由
   dismissReason: 解聘理由
+  evaluationTypes: 评价类型 
+  auditStatus: 审阅状态
 
 fileReservation:
  localbase: 局总部

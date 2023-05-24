@@ -43,7 +43,7 @@
 #include "awardLevel/AwardLevelController.h"
 #include "jobCategory/JobCategoryController.h"
 #include "typeContract/TypeContractListController.h"
-
+#include"evaluationTypesController.h/EvaluationTypesController.h"
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -84,6 +84,7 @@ void Router::initRouter()
 	createDismissReasonRouter();
 	createAuditStatusRouter();
 	ROUTER_SIMPLE_BIND(ContractTypeController);
+	createEvalutionTypesRouter();
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -167,4 +168,9 @@ void Router::createJobCategoryRouter()
 void Router::createAuditStatusRouter()
 {
 	ROUTER_SIMPLE_BIND(AuditStatusController);
+}
+
+void  Router::createEvalutionTypesRouter()
+{
+	ROUTER_SIMPLE_BIND(EvaluationTypesController);
 }
