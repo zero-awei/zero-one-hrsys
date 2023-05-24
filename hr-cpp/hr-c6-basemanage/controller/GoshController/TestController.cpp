@@ -14,14 +14,7 @@ StringJsonVO::Wrapper GoshController::execQueryContract(const ContractQuery::Wra
 StringJsonVO::Wrapper GoshController::execQueryPerson(const PersonQuery::Wrapper& query)
 {
 	auto vo = StringJsonVO::createShared();
-	if (!query->PersonName)
-	{
-		return vo;
-	}
-	else 
-	{
-		vo->success("person information get success");
-	}
+	vo->success("person information get success");
 	return vo;
 }
 //演示新增合同数据
@@ -29,19 +22,19 @@ Uint64JsonVO::Wrapper GoshController::execAddContract(const ContractDTO_gs::Wrap
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
-	// 参数校验
-	// 非空校验
-	//if (!dto->age || !dto->name || !dto->sex)
-	//{
-	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-	//	return jvo;
-	//}
-	//// 有效值校验
-	//if (dto->age < 0 || dto->name->empty() || dto->sex->empty())
-	//{
-	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-	//	return jvo;
-	//}
+	 //参数校验
+	 //非空校验
+	if (!dto->id||dto->name->empty()||dto->type->empty()||dto->variety->empty()||dto->date->empty()||dto->condition->empty())
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	// 有效值校验
+	/*if (dto->age < 0 || dto->name->empty() || dto->sex->empty())
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}*/
 	return jvo;
 
 	//// 定义一个Service
@@ -63,12 +56,12 @@ Uint64JsonVO::Wrapper GoshController::execRemoveContract(const ContractDTO_gs::W
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
-	//// 参数校验
-	//if (!dto->id || dto->id <= 0)
-	//{
-	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-	//	return jvo;
-	//}
+	// 参数校验
+	if (!dto->id)
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
 	//// 定义一个Service
 	//SampleService service;
 	//// 执行数据删除
