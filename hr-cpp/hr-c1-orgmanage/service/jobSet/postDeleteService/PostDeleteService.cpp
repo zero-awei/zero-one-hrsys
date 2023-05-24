@@ -1,9 +1,8 @@
-#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: rice
- @Date: 2023/5/24 15:08:56
+ @Date: 2023/5/24 15:50:11
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,23 +16,25 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _POSTQUERY_SERVICE_
-#define _POSTQUERY_SERVICE_
-#include <list>
-#include "domain/vo/postSet/PostDetailVO.h"
-#include "domain/query/postSet/PostDetailQuery.h"
-#include "domain/dto/postSet/PostDetailDTO.h"
+#include "stdafx.h"
+#include "PostDeleteService.h"
+#include "../../../dao/jobSet/postDeleteDAO/PostDeleteDAO.h"
 
-/**
- * 岗位设置 - 查询指定岗位详情Service
- * 负责人 : rice
- */
-class PostQueryService
+bool PostDeleteService::removeData(string id)
 {
-public:
-	// 分页查询所有数据
-	PostDetailPageDTO::Wrapper listAll(const PostDetailQuery::Wrapper& query);
-};
+	PostDeleteDAO postDeleteDAO;
+	return postDeleteDAO.deleteById(id) == 1;
+}
 
-#endif // !_POSTQUERY_SERVICE_
-
+bool PostDeleteService::removeBatchData(const PostDeleteBatchDTO::Wrapper& postDeleteBatchDTO)
+{
+	PostDeleteDAO postDeleteDAO;
+	bool isSuccess = true;
+	for (const auto& item : *postDeleteBatchDTO->ormPostIds) {
+		if (postDeleteDAO.deleteById(item->c_str()) != 1)
+		{
+			isSuccess = false;
+		}
+	}
+	return isSuccess;
+}

@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: rice
- @Date: 2023/5/24 15:08:56
+ @Date: 2023/5/24 16:54:22
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,23 +17,20 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _POSTQUERY_SERVICE_
-#define _POSTQUERY_SERVICE_
-#include <list>
-#include "domain/vo/postSet/PostDetailVO.h"
-#include "domain/query/postSet/PostDetailQuery.h"
-#include "domain/dto/postSet/PostDetailDTO.h"
+#ifndef _POSTDELETEBATCH_VO_
+#define _POSTDELETEBATCH_VO_
+
+#include "../../GlobalInclude.h"
+#include "../../dto/postSet/PostDeleteDTO.h"
+
+#include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 岗位设置 - 查询指定岗位详情Service
- * 负责人 : rice
+ * 删除多个岗位VO
  */
-class PostQueryService
-{
-public:
-	// 分页查询所有数据
-	PostDetailPageDTO::Wrapper listAll(const PostDetailQuery::Wrapper& query);
+class PostDeleteBatchJsonVO : public JsonVO<PostDeleteBatchDTO::Wrapper> {
+	DTO_INIT(PostDeleteBatchJsonVO, JsonVO<PostDeleteBatchDTO::Wrapper>);
 };
 
-#endif // !_POSTQUERY_SERVICE_
-
+#include OATPP_CODEGEN_END(DTO)
+#endif // !_POSTDELETEBATCH_VO_

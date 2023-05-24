@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: rice
- @Date: 2023/5/24 15:08:56
+ @Date: 2023/5/24 15:24:41
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,23 +17,19 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _POSTQUERY_SERVICE_
-#define _POSTQUERY_SERVICE_
-#include <list>
-#include "domain/vo/postSet/PostDetailVO.h"
-#include "domain/query/postSet/PostDetailQuery.h"
-#include "domain/dto/postSet/PostDetailDTO.h"
+#ifndef _POSTDELETE_DAO_
+#define _POSTDELETE_DAO_
+#include "BaseDAO.h"
+#include "../../../domain/do/postSet/PostDetailDO.h"
+#include "../../../domain/query/postSet/PostDetailQuery.h"
 
 /**
- * 岗位设置 - 查询指定岗位详情Service
+ * 岗位设置 - 删除岗位DAO
  * 负责人 : rice
  */
-class PostQueryService
+class PostDeleteDAO : public BaseDAO
 {
 public:
-	// 分页查询所有数据
-	PostDetailPageDTO::Wrapper listAll(const PostDetailQuery::Wrapper& query);
+	int deleteById(string id);
 };
-
-#endif // !_POSTQUERY_SERVICE_
-
+#endif // !_POSTDELETE_DAO_
