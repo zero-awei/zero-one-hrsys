@@ -36,8 +36,7 @@ class PageQueryBzController : public oatpp::web::server::api::ApiController
 	API_ACCESS_DECLARE(PageQueryBzController);
 public: // 定义接口
 	ENDPOINT_INFO(pageQueryBz) {
-		info->summary = ZH_WORDS_GETTER("orgbz.pagequery.controller");
-		API_DEF_ADD_AUTH();
+		info->summary = ZH_WORDS_GETTER("orgbz.pageQuery.controller");
 		API_DEF_ADD_RSP_JSON_WRAPPER(PageQueryVO);
 		info->queryParams.add<UInt8>("size").description = ZH_WORDS_GETTER("orgbz.pageQuery.size");
 		info->queryParams["size"].addExample("default", UInt8(20));
@@ -49,7 +48,7 @@ public: // 定义接口
 		info->queryParams["sort"].addExample("default", String("xh,ASC"));
 		info->queryParams["sort"].required = true;
 	}
-	ENDPOINT(API_M_GET, PATH_TO_STAFFING("/query-bz"), pageQueryBz, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, PATH_TO_STAFFING("/query-bz"), pageQueryBz, QUERIES(QueryParams, qps)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(query, PageBzQuery, qps);
 		// 响应结果

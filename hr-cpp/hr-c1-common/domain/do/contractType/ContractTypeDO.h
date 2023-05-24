@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: yuanchen
- @Date: 2023/05/13 19:55:40
+ @Date: 2023/05/23 21:46:57
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,22 +17,18 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _AWARDLEVELVO_H_
-#define _AWARDLEVELVO_H_
+#ifndef _CONSTRACTTYPEDO_H_
+#define _CONSTRACTTYPEDO_H_
 
-#include "../../GlobalInclude.h"
-#include "../../dto/awardLevel/AwardLevelDTO.h"
-
-#include OATPP_CODEGEN_BEGIN(DTO)
-
+#include "../DoInclude.h"
 /**
- * 获奖等级JsonVO
+ * 合同类型下拉列表
+ * 负责人：yuanchen
  */
-class AwardLevelPageJsonVO : public JsonVO<AwardLevelPageDTO::Wrapper>
+class ContractTypeDO
 {
-	DTO_INIT(AwardLevelPageJsonVO, JsonVO<AwardLevelPageDTO::Wrapper>);
+	// 合同类型下拉列表--合同类型
+	CC_SYNTHESIZE(string, ContractType, ContractType);
 };
 
-#include OATPP_CODEGEN_END(DTO)
-
-#endif // !_TESTVO_H_
+#endif // !_DISMISSREASONDO_H_

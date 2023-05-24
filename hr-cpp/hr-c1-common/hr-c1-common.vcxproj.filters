@@ -93,6 +93,8 @@
     <ClInclude Include="domain\do\pimType\PimTypeDO.h" />
     <ClInclude Include="domain\do\pimArchives\PimArchivesDO.h" />
     <ClInclude Include="controller\contractStatus\ContractStatusController.h" />
+    <ClInclude Include="domain\do\armyLevelType\ArmyLevelTypeDO.h" />
+    <ClInclude Include="domain\do\contractType\ContractTypeDO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
