@@ -72,24 +72,24 @@ public: // 定义接口
 		// 专利号
 		info->queryParams.add<String>("ZLH").description = ZH_WORDS_GETTER("patentInformation.field.ZLH");
 		info->queryParams["ZLH"].addExample("default", String("123456789"));
-		// 专利名称
-		info->queryParams.add<String>("PIMPATENTNAME").description = ZH_WORDS_GETTER("patentInformation.field.PIMPATENTNAME");
-		info->queryParams["PIMPATENTNAME"].addExample("default", String("zxxx-xxxx"));
-		// 专利获取时间
-		info->queryParams.add<String>("ZLHQSJ").description = ZH_WORDS_GETTER("patentInformation.field.ZLHQSJ");
-		info->queryParams["ZLHQSJ"].addExample("default", String("zxxx-xxxx-xxxx-xxxx"));
-		// 专利批准国别
-		info->queryParams.add<String>("ZLPZGB").description = ZH_WORDS_GETTER("patentInformation.field.ZLPZGB");
-		info->queryParams["ZLPZGB"].addExample("default", String("2000-01-01"));
-		// 附件
-		info->queryParams.add<String>("ENCLOLURE").description = ZH_WORDS_GETTER("patentInformation.field.ENCLOLURE");
-		info->queryParams["ENCLOLURE"].addExample("default", String("fj-name"));
-		// 专利信息编码
-		info->queryParams.add<String>("PIMPATENTID").description = ZH_WORDS_GETTER("patentInformation.field.PIMPATENTID");
-		info->queryParams["PIMPATENTID"].addExample("default", String("1234-xxxx-xxxx-1234"));
-		// 人员信息标识
-		info->queryParams.add<String>("PIMPERSONID").description = ZH_WORDS_GETTER("patentInformation.field.PIMPERSONID");
-		info->queryParams["PIMPERSONID"].addExample("default", String("1234-1234-1234-1234"));
+		//// 专利名称
+		//info->queryParams.add<String>("PIMPATENTNAME").description = ZH_WORDS_GETTER("patentInformation.field.PIMPATENTNAME");
+		//info->queryParams["PIMPATENTNAME"].addExample("default", String("zxxx-xxxx"));
+		//// 专利获取时间
+		//info->queryParams.add<String>("ZLHQSJ").description = ZH_WORDS_GETTER("patentInformation.field.ZLHQSJ");
+		//info->queryParams["ZLHQSJ"].addExample("default", String("zxxx-xxxx-xxxx-xxxx"));
+		//// 专利批准国别
+		//info->queryParams.add<String>("ZLPZGB").description = ZH_WORDS_GETTER("patentInformation.field.ZLPZGB");
+		//info->queryParams["ZLPZGB"].addExample("default", String("2000-01-01"));
+		//// 附件
+		//info->queryParams.add<String>("ENCLOLURE").description = ZH_WORDS_GETTER("patentInformation.field.ENCLOLURE");
+		//info->queryParams["ENCLOLURE"].addExample("default", String("fj-name"));
+		//// 专利信息编码
+		//info->queryParams.add<String>("PIMPATENTID").description = ZH_WORDS_GETTER("patentInformation.field.PIMPATENTID");
+		//info->queryParams["PIMPATENTID"].addExample("default", String("1234-xxxx-xxxx-1234"));
+		//// 人员信息标识
+		//info->queryParams.add<String>("PIMPERSONID").description = ZH_WORDS_GETTER("patentInformation.field.PIMPERSONID");
+		//info->queryParams["PIMPERSONID"].addExample("default", String("1234-1234-1234-1234"));
 	}
 
 	// 3.2 定义查询接口处理
