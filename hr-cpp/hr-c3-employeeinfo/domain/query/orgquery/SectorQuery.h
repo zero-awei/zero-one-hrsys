@@ -16,8 +16,8 @@ class SectorQuery : public PageQuery {
     // 查询的parent id
     API_DTO_FIELD_DEFAULT(String, parentkey, ZH_WORDS_GETTER("sector.query.parentkey"));
     // 排序方式
-    DTO_FIELD(String, ssort);
-	DTO_FIELD_INFO(ssort) {
+    DTO_FIELD(String, sort);
+	DTO_FIELD_INFO(sort) {
 		info->description = ZH_WORDS_GETTER("sector.query.sort");
 	}
 };

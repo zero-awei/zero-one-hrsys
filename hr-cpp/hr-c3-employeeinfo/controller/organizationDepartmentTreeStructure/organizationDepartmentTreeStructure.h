@@ -1,5 +1,22 @@
 #pragma once
+/*
+ Copyright Zero One Star. All rights reserved.
 
+ @Author: guyier
+ @Date: 2023/05/24 15:14:27
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+	  https://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 
 #ifndef _ORGNAIZATION_DEPARTMENT_TREE_STRUCTURE_
 #define _ORGNAIZATION_DEPARTMENT_TREE_STRUCTURE_
@@ -37,15 +54,15 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON(MemberJsonVO::Wrapper);
 		// 定义其他表单参数描述
         // 搜索匹配
-		info->queryParams.add<String>("fillter").description = ZH_WORDS_GETTER("rootorg.query.filter");
-		info->queryParams["fillter"].addExample("default", String("fillter"));
+		info->queryParams.add<String>("filter").description = ZH_WORDS_GETTER("rootorg.query.filter");
+		info->queryParams["filter"].addExample("default", String("filter"));
 		//排序方式
-		info->queryParams.add<String>("ssort").description = ZH_WORDS_GETTER("rootorg.query.sort");
-		info->queryParams["ssort"].addExample("default", String("ssort"));
+		info->queryParams.add<String>("sort").description = ZH_WORDS_GETTER("rootorg.query.sort");
+		info->queryParams["sort"].addExample("default", String("sort"));
 	
 	}
 	//定义查询根组织信息接口端点处理
-	ENDPOINT(API_M_GET, "/organizationDepartmentTreeStructure/root-org-query", rootOrgQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/org-tree/root-org-query", rootOrgQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(rootQuery,RootOrgQuery, queryParams);
 		// 响应结果
@@ -68,11 +85,11 @@ public: // 定义接口
 		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("validorg.query.porgid");
 		info->queryParams["id"].addExample("default", String("10001"));
 		//排序方式
-		info->queryParams.add<String>("ssort").description = ZH_WORDS_GETTER("validorg.query.sort");
-		info->queryParams["ssort"].addExample("default", String("ssort"));
+		info->queryParams.add<String>("sort").description = ZH_WORDS_GETTER("validorg.query.sort");
+		info->queryParams["sort"].addExample("default", String("sort"));
 	}
 	//定义查询有效组织信息接口端点处理
-	ENDPOINT(API_M_GET, "/organizationDepartmentTreeStructure/valid-org-query", validOrgQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/org-tree/valid-org-query", validOrgQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(validOrg, ValidOrgQuery, queryParams);
 		// 响应结果
@@ -95,11 +112,11 @@ public: // 定义接口
 		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("sector.query.parentkey");
 		info->queryParams["id"].addExample("default", String("10001"));
 		//排序方式
-		info->queryParams.add<String>("ssort").description = ZH_WORDS_GETTER("sector.query.sort");
-		info->queryParams["ssort"].addExample("default", String("ssort"));
+		info->queryParams.add<String>("sort").description = ZH_WORDS_GETTER("sector.query.sort");
+		info->queryParams["sort"].addExample("default", String("sort"));
 	}
 	//定义查询部门信息接口端点处理
-	ENDPOINT(API_M_GET, "/organizationDepartmentTreeStructure/sector-org-query", secotrOrgQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/org-tree/sector-org-query", secotrOrgQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(sectorOrg, SectorQuery, queryParams);
 		// 响应结果

@@ -59,9 +59,9 @@ class EmployeeInformationDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("employee.field.idMum");
 	}
 	//出生日期
-	DTO_FIELD(String, bitrhday);
-	DTO_FIELD_INFO(bitrhday) {
-		info->description = ZH_WORDS_GETTER("employee.field.bitrhday");
+	DTO_FIELD(String, birthday);
+	DTO_FIELD_INFO(birthday) {
+		info->description = ZH_WORDS_GETTER("employee.field.birthday");
 	}
 	//手机号码
 	DTO_FIELD(String, phone);

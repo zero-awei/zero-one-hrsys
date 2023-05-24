@@ -27,6 +27,15 @@
 //#include "domain/dto/AddEmployeeAssignInfo/AddEmployeeAssignInfo.h"
 #include "domain/dto/EmployeeInformationPageQuery/EmployeeInformationPageQueryDTO.h"
 
+#include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
+#include "oatpp/web/mime/multipart/FileProvider.hpp"
+#include "oatpp/web/mime/multipart/Reader.hpp"
+#include "oatpp/web/mime/multipart/PartList.hpp"
+
+using namespace oatpp;
+namespace multipart = oatpp::web::mime::multipart;
+
+//定义API控制器使用宏
 #include OATPP_CODEGEN_BEGIN(ApiController)
 /*
 员工信息控制器
@@ -73,9 +82,9 @@ public: // 定义接口
 		info->queryParams["idMum"].addExample("default", String("2665643635********"));
 		info->queryParams["idMum"].required = false;
 		//出生日期
-		info->queryParams.add<String>("bitrhday").description = ZH_WORDS_GETTER("employee.field.bitrhday");
-		info->queryParams["bitrhday"].addExample("default", String("20000-00-00"));
-		info->queryParams["bitrhday"].required = false;
+		info->queryParams.add<String>("birthday").description = ZH_WORDS_GETTER("employee.field.birthday");
+		info->queryParams["birthday"].addExample("default", String("20000-00-00"));
+		info->queryParams["birthday"].required = false;
 		// 年龄
 		info->queryParams.add<UInt32>("age").description = ZH_WORDS_GETTER("employee.field.age");
 		info->queryParams["age"].addExample("default", UInt32(20));
@@ -91,7 +100,7 @@ public: // 定义接口
 		
 	}
 	//定义分页查询员工列表接口端点处理
-	ENDPOINT(API_M_GET, "/EmployeeInformation/page-query", PageQueryInfo, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/emp-info/page-query", PageQueryInfo, QUERIES(QueryParams, queryParams)) {
 		//解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, EmployeeInformationPageQuery, queryParams);
 		//响应结果
@@ -136,9 +145,9 @@ public: // 定义接口
 		info->queryParams["idMum"].addExample("default", String("2665643635********"));
 		info->queryParams["idMum"].required = false;
 		//出生日期
-		info->queryParams.add<String>("bitrhday").description = ZH_WORDS_GETTER("employee.field.bitrhday");
-		info->queryParams["bitrhday"].addExample("default", String("20000-00-00"));
-		info->queryParams["bitrhday"].required = false;
+		info->queryParams.add<String>("birthday").description = ZH_WORDS_GETTER("employee.field.birthday");
+		info->queryParams["birthday"].addExample("default", String("20000-00-00"));
+		info->queryParams["birthday"].required = false;
 		// 年龄
 		info->queryParams.add<UInt32>("age").description = ZH_WORDS_GETTER("employee.field.age");
 		info->queryParams["age"].addExample("default", UInt32(20));
@@ -153,7 +162,7 @@ public: // 定义接口
 		info->queryParams["state"].required = false;
 	}
 	//定义导入员工信息接口端点处理
-	ENDPOINT(API_M_POST, "/EmployeeInformation/import-info", importEmployeeInfo, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_POST, "/emp-info/import-info", importEmployeeInfo, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(importInfo, EmployeeInformationPageQuery, queryParams);
 		// 响应结果
@@ -198,9 +207,9 @@ public: // 定义接口
 		info->queryParams["idMum"].addExample("default", String("2665643635********"));
 		info->queryParams["idMum"].required = false;
 		//出生日期
-		info->queryParams.add<String>("bitrhday").description = ZH_WORDS_GETTER("employee.field.bitrhday");
-		info->queryParams["bitrhday"].addExample("default", String("20000-00-00"));
-		info->queryParams["bitrhday"].required = false;
+		info->queryParams.add<String>("birthday").description = ZH_WORDS_GETTER("employee.field.birthday");
+		info->queryParams["birthday"].addExample("default", String("20000-00-00"));
+		info->queryParams["birthday"].required = false;
 		// 年龄
 		info->queryParams.add<UInt32>("age").description = ZH_WORDS_GETTER("employee.field.age");
 		info->queryParams["age"].addExample("default", UInt32(20));
@@ -215,7 +224,7 @@ public: // 定义接口
 		info->queryParams["state"].required = false;
 	}
 	//定义导出员工信息(导出本页在前端完成)接口端点处理
-	ENDPOINT(API_M_GET, "/EmployeeInformation/export-info", exportEmployeeInfo, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams,queryParams)) {
+	ENDPOINT(API_M_GET, "/emp-info/export-info", exportEmployeeInfo, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams,queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(exportInfo, EmployeeInformationPageQuery,queryParams);
 		// 响应结果
@@ -225,7 +234,7 @@ public: // 定义接口
 	//定义新增员工信息接口端点描述	
 	ENDPOINT_INFO(addEmployee) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("sample.post.summary");
+		info->summary = ZH_WORDS_GETTER("orgsector.field.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 		// 定义其他表单参数描述
@@ -256,9 +265,9 @@ public: // 定义接口
 		info->queryParams["idMum"].addExample("default", String("2665643635********"));
 		info->queryParams["idMum"].required = false;
 		//出生日期
-		info->queryParams.add<String>("bitrhday").description = ZH_WORDS_GETTER("employee.field.bitrhday");
-		info->queryParams["bitrhday"].addExample("default", String("20000-00-00"));
-		info->queryParams["bitrhday"].required = false;
+		info->queryParams.add<String>("birthday").description = ZH_WORDS_GETTER("employee.field.birthday");
+		info->queryParams["birthday"].addExample("default", String("20000-00-00"));
+		info->queryParams["birthday"].required = false;
 		// 年龄
 		info->queryParams.add<UInt32>("age").description = ZH_WORDS_GETTER("employee.field.age");
 		info->queryParams["age"].addExample("default", UInt32(20));
@@ -273,7 +282,7 @@ public: // 定义接口
 		info->queryParams["state"].required = false;
 	}
 	//定义新增员工信息接口端点处理
-	ENDPOINT(API_M_POST, "/EmployeeInformation/add-new-info", addEmployee, BODY_DTO(EmployeeInformationDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/emp-info/add-new-info", addEmployee, BODY_DTO(EmployeeInformationDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddEmployee(dto));
 	}

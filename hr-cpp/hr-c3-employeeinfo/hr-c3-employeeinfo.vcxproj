@@ -165,7 +165,11 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\EmployeeInformationPage\EmployeeInformationPageDO.h" />
     <ClInclude Include="domain\do\employeeInfo\EmployeeInfoDO.h" />
+    <ClInclude Include="domain\do\Org\RootOrgDO.h" />
+    <ClInclude Include="domain\do\Org\SectorDO.h" />
+    <ClInclude Include="domain\do\Org\ValidOrgDO.h" />
     <ClInclude Include="domain\dto\EmployeeInformationPageQuery\EmployeeInformationPageQueryDTO.h" />
     <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoAddDTO.h" />
     <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoDTO.h" />

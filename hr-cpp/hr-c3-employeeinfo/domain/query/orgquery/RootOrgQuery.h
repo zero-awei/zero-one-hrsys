@@ -13,7 +13,7 @@ class RootOrgQuery : public PageQuery {
     DTO_INIT(RootOrgQuery, PageQuery);
 
     // ËÑË÷Æ¥Åä
-	API_DTO_FIELD_DEFAULT(String, fiilter, ZH_WORDS_GETTER("rootorg.query.filter"));
+	API_DTO_FIELD_DEFAULT(String, filter, ZH_WORDS_GETTER("rootorg.query.filter"));
     // ÅÅÐò·½Ê½
 	DTO_FIELD(String, ssort);
 	DTO_FIELD_INFO(ssort) {

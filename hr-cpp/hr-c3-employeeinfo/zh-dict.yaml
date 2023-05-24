@@ -23,7 +23,7 @@ employee:
   name: 员工姓名
   idType: 证件类型
   idNum: 证件号码
-  bitrhday: 出生日期
+  birthday: 出生日期
   age: 年龄
   sex: 性别
   blood: 血型
