@@ -18,31 +18,51 @@
 */
 #include "stdafx.h"
 #include "PostDeleteController.h"
-//#include "../../service/sample/SampleService.h"
+#include "../../../service/jobSet/postDeleteService/PostDeleteService.h"
 
-Uint64JsonVO::Wrapper PostDeleteController::execDeleteByOrmPostId(const PostDeleteDTO::Wrapper& postDeleteDTO, const PayloadDTO& payload)
+StringJsonVO::Wrapper PostDeleteController::execDeleteByOrmPostId(const PostDeleteDTO::Wrapper& postDeleteDTO, const PayloadDTO& payload)
 {
+
 	// 定义返回数据对象
-	auto jvo = Uint64JsonVO::createShared();
+	auto jvo = StringJsonVO::createShared();
 	// 参数校验
 	if (!postDeleteDTO->ormPostId)
 	{
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		jvo->init(String(""), RS_PARAMS_INVALID);
 		return jvo;
 	}
+	PostDeleteService postDeleteService;
 
+	// 执行数据删除
+	if (postDeleteService.removeData(postDeleteDTO->ormPostId)) {
+		jvo->success(postDeleteDTO->ormPostId);
+	}
+	else
+	{
+		jvo->fail(postDeleteDTO->ormPostId);
+	}
 	return jvo;
 }
 
-Uint64JsonVO::Wrapper PostDeleteController::exeDeleteBatchByOrmPostId(const PostDeleteBatchDTO::Wrapper& postDeleteBatchDTO, const PayloadDTO& payload)
+PostDeleteBatchJsonVO::Wrapper PostDeleteController::exeDeleteBatchByOrmPostId(const PostDeleteBatchDTO::Wrapper& postDeleteBatchDTO, const PayloadDTO& payload)
 {
 	// 定义返回数据对象
-	auto jvo = Uint64JsonVO::createShared();
+	auto jvo = PostDeleteBatchJsonVO::createShared();
 	// 参数校验
 	if (!postDeleteBatchDTO->ormPostIds)
 	{
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		jvo->init(postDeleteBatchDTO, RS_PARAMS_INVALID);
 		return jvo;
 	}
-	return Uint64JsonVO::Wrapper();
+	PostDeleteService postDeleteService;
+
+	// 执行数据删除
+	if (postDeleteService.removeBatchData(postDeleteBatchDTO)) {
+		jvo->success(postDeleteBatchDTO);
+	}
+	else
+	{
+		jvo->fail(postDeleteBatchDTO);
+	}
+	return jvo;
 }

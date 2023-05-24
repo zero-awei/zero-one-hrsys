@@ -18,11 +18,20 @@
 */
 #include "stdafx.h"
 #include "PostQueryController.h"
-//#include "../../service/sample/SampleService.h"
+#include "../../../service/jobSet/postQueryService/PostQueryService.h"
 
 PostDetailPageJsonVO::Wrapper PostQueryController::execQueryByQuerySort(const PostDetailQuery::Wrapper& postDetailQuery)
 {
-	// 定义返回数据对象
+	PostQueryService postQueryService;
+	// 查询数据
+	auto result = postQueryService.listAll(postDetailQuery);
+	// 响应结果
 	auto jvo = PostDetailPageJsonVO::createShared();
+	if (result->rows->size() <= 0) {
+		jvo->fail(result);
+	}
+	else {
+		jvo->success(result);
+	}
 	return jvo;
 }

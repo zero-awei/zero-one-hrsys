@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: Andrew211vibe
- @Date: 2023/05/24 17:58:45
+ @Author: rice
+ @Date: 2023/5/24 15:24:41
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,20 +17,22 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "QueryOrgListController.h"
+#ifndef _POSTQUERY_DAO_
+#define _POSTQUERY_DAO_
+#include "BaseDAO.h"
+#include "../../../domain/do/postSet/PostDetailDO.h"
+#include "../../../domain/query/postSet/PostDetailQuery.h"
 
-OrgListVO::Wrapper QueryOrgListController::execQueryOrgList(const OrgListQuery::Wrapper& query)
+/**
+ * 岗位设置 - 查询指定岗位详情DAO
+ * 负责人 : rice
+ */
+class PostQueryDAO : public BaseDAO
 {
-	auto vo = OrgListVO::createShared();
-
-	auto dto = OrgListPageDTO::createShared();
-	for (int i = 0; i < 3; i++)
-	{
-		auto item = OrgListDTO::createShared();
-		dto->rows->push_back(item);
-	}
-
-	vo->success(dto);
-	return vo;
-}
+public:
+	// 统计数据条数
+	uint64_t count(const PostDetailQuery::Wrapper& query);
+	// 分页查询数据
+	list<PostDetailDO> selectWithPage(const PostDetailQuery::Wrapper& query);
+};
+#endif // !_POSTQUERY_DAO_

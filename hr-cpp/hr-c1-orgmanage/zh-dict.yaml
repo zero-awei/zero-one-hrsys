@@ -74,7 +74,23 @@ projTag:
  orgList:
   summary: 分页查询组织列表
   order: 排序 (DESC/ASC)
-
+  id: 组织id
+  name: 组织名称
+  createTime: 建立时间
+  updateTime: 更新时间
+  creator: 创建人
+  updater: 更新人
+  orgCode: 组织编码
+  shortName: 组织简称
+  orderId: 组织排序编号
+  orgType: 组织类型
+  typeName: 组织类型释义
+  ouid: 组织所属OU的组织ID
+  region: 所属区域
+  standard: 补贴标准
+  upOrgId: 上级组织ID
+  upDepartId: 上级别部门ID
+  job: 岗位
  export:
   summary: 导出项目标签
   rows: 导出数据条数(最大5000条)

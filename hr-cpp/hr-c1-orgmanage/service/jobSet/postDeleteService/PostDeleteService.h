@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: Andrew211vibe
- @Date: 2023/05/24 17:58:45
+ @Author: rice
+ @Date: 2023/5/24 15:58:56
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,20 +17,21 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "QueryOrgListController.h"
+#ifndef _POSTDELETE_SERVICE_
+#define _POSTDELETE_SERVICE_
+#include <list>
+#include "domain/dto/postSet/PostDeleteDTO.h"
 
-OrgListVO::Wrapper QueryOrgListController::execQueryOrgList(const OrgListQuery::Wrapper& query)
+/**
+ * 岗位设置 - 删除岗位Service
+ * 负责人 : rice
+ */
+class PostDeleteService
 {
-	auto vo = OrgListVO::createShared();
+public:
+	bool removeData(string id);
+	bool removeBatchData(const PostDeleteBatchDTO::Wrapper& postDeleteBatchDTO);
+};
 
-	auto dto = OrgListPageDTO::createShared();
-	for (int i = 0; i < 3; i++)
-	{
-		auto item = OrgListDTO::createShared();
-		dto->rows->push_back(item);
-	}
+#endif // !_POSTDELETE_SERVICE_
 
-	vo->success(dto);
-	return vo;
-}

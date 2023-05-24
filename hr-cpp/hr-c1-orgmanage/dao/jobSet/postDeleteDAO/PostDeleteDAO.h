@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: Andrew211vibe
- @Date: 2023/05/24 17:58:45
+ @Author: rice
+ @Date: 2023/5/24 15:24:41
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,20 +17,19 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "QueryOrgListController.h"
+#ifndef _POSTDELETE_DAO_
+#define _POSTDELETE_DAO_
+#include "BaseDAO.h"
+#include "../../../domain/do/postSet/PostDetailDO.h"
+#include "../../../domain/query/postSet/PostDetailQuery.h"
 
-OrgListVO::Wrapper QueryOrgListController::execQueryOrgList(const OrgListQuery::Wrapper& query)
+/**
+ * 岗位设置 - 删除岗位DAO
+ * 负责人 : rice
+ */
+class PostDeleteDAO : public BaseDAO
 {
-	auto vo = OrgListVO::createShared();
-
-	auto dto = OrgListPageDTO::createShared();
-	for (int i = 0; i < 3; i++)
-	{
-		auto item = OrgListDTO::createShared();
-		dto->rows->push_back(item);
-	}
-
-	vo->success(dto);
-	return vo;
-}
+public:
+	int deleteById(string id);
+};
+#endif // !_POSTDELETE_DAO_

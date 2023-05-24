@@ -26,7 +26,7 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 分页查询指定岗位详情
+ * 岗位设置 - 查询指定岗位详情Query
  */
 class PostDetailQuery : public PageQuery
 {
