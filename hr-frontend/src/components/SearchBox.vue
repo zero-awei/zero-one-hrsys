@@ -1,0 +1,65 @@
+<template>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link
+    href="https://cdn.bootcss.com/font-awesome/5.8.0/css/all.css"
+    rel="stylesheet"
+  />
+  <!-- 引用外来网站的“搜索图标”，不再使用url -->
+  <div class="search-container">
+    <input class="search-input" type="text" placeholder="姓名，员工职位" />
+    <a class="search-icon" href="#">
+      <i class="fas fa-search"></i>
+    </a>
+  </div>
+</template>
+
+<script setup>
+const searchInput = document.querySelector('.search-input')
+const searchIcon = document.querySelector('.search-icon')
+
+searchIcon.addEventListener('click', () => {
+  const searchText = searchInput.value.trim()
+  filterData(searchText)
+})
+
+function filterData(searchText) {
+  // 这里是筛选逻辑
+  console.log(`正在搜索：${searchText}`)
+  // 在这里根据搜索内容对数据进行筛选，并执行相应的操作
+}
+</script>
+
+<style lang="scss" scoped>
+.search-container {
+  display: flex;
+  float: right;
+  align-items: center;
+  width: 300px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 0 10px;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+}
+
+.search-icon {
+  color: gray;
+  float: right;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+</style>

@@ -114,6 +114,14 @@ const menus = reactive([
   {
     path: '/sample/process',
     text: '进度条'
+  },
+  {
+    path: '/sample/qualification',
+    text: '资格图表数据'
+  },
+  {
+    path: '/sample/search',
+    text: '搜索框'
   }
 ])
 </script>

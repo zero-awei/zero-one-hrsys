@@ -43,6 +43,15 @@ const routes = [
       {
         path: '/sample/edit',
         component: () => import('@/views/sample/edit/Edit.vue')
+      },
+      {
+        path: '/sample/qualification',
+        component: () =>
+          import('@/views/sample/qualification/Qualification.vue')
+      },
+      {
+        path: '/sample/search',
+        component: () => import('@/views/sample/search/Search.vue')
       }
     ]
   }
