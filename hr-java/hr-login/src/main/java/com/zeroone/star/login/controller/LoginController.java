@@ -23,7 +23,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,6 +53,7 @@ import static com.zeroone.star.project.vo.JsonVO.fail;
 @Api(tags = "login")
 @Slf4j
 public class LoginController implements LoginApis {
+
     @Resource
     OauthService oAuthService;
     @Resource
@@ -62,6 +64,8 @@ public class LoginController implements LoginApis {
     RedisUtils redisUtils;
     @Resource
     CaptchaService captchaService;
+    @Resource
+    PasswordEncoder passwordEncoder;
 
     @ApiOperation(value = "授权登录")
     @PostMapping("auth-login")
@@ -164,6 +168,8 @@ public class LoginController implements LoginApis {
     @Override
     public JsonVO<String> logout() {
         //TODO:登出逻辑，需要配合登录逻辑实现
+        //1.获取当前用户token
+        //2.删除当前用户token
         return null;
     }
 
@@ -188,20 +194,25 @@ public class LoginController implements LoginApis {
     @PostMapping("update-password")
     @Override
     public JsonVO<String> updatePassword(LoginDTO loginDTO) {
-        //1.获取当前用户密码 currentPassword
-        String username = userHolder.getCurrentUser().getUsername();
-        String currentPassword = userService.getCurrentPassword(username);
-        //2.获取用户输入的新密码 newPassword
+        //1.获取新密码
         String newPassword = loginDTO.getPassword();
-        if (currentPassword.equals(newPassword)) {
-            //新密码与旧密码一致，失败
-            return fail("原密码和新密码不能一致");
+        //2.获取用户名
+        String userName = loginDTO.getUsername();
+        //3.获取旧密码
+        String oldPassword = userService.getCurrentPassword(userName);
+        //4.判断新旧密码是否一致
+        boolean matches = passwordEncoder.matches(oldPassword, newPassword);
+        if (matches) {
+            return JsonVO.fail("新旧密码不能一致！");
         }
-        //3.更新数据库中的密码
-        Boolean isSuccess = userService.updatePassword(username, newPassword);
-        if (isSuccess == true) {
-            return JsonVO.success("修改成功");
+        //5.修改密码
+        Boolean isSuccess = userService.updatePassword(userName, oldPassword);
+        //6.返回结果
+        if (!isSuccess) {
+            //更新失败
+            return JsonVO.fail("密码修改失败");
         }
-        return fail("修改失败");
+        return JsonVO.success("密码修改成功");
+
     }
 }
