@@ -141,8 +141,20 @@ public interface CommonApis {
      * @Date 21:27 2023/5/19
      */
     JsonVO<List<DropdownListOptionDTO>> queryRelationship();
-
-
+/**
+ *  入职渠道下拉列表
+ * @return {@link JsonVO< List< DropdownListOptionDTO>>}
+ * @Author H_lzu
+ * @Date 17:27 2023/5/24
+ */
+    JsonVO<List<DropdownListOptionDTO>> queryEntryChannel();
+/**
+ *  分配方式下拉列表
+ * @return {@link JsonVO< List< DropdownListOptionDTO>>}
+ * @Author H_lzu
+ * @Date 17:28 2023/5/24
+ */
+    JsonVO<List<DropdownListOptionDTO>> queryAllocation();
 
 
 }

@@ -102,7 +102,8 @@ public class CommonController implements CommonApis {
     @ApiOperation("分页查询某人的语言能力")
     @Override
     public JsonVO<PageDTO<List<LanguageAbilityDTO>>> queryLanguageAbilityList(LanguageAbilityQuery personId) {
-        return null;}
+        return null;
+    }
 
     @GetMapping("query-learning-forms")
     @ApiOperation("学习形式下拉列表")
@@ -117,6 +118,7 @@ public class CommonController implements CommonApis {
     public JsonVO<List<DropdownListOptionDTO>> querySchoolNature() {
         return null;
     }
+
     @GetMapping("list-common-discipline")
     @ApiOperation("获取学科下拉列表")
     @Override
@@ -135,6 +137,20 @@ public class CommonController implements CommonApis {
     @ApiOperation("与本人关系列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryRelationship() {
+        return null;
+    }
+
+    @GetMapping("query-entry-channel")
+    @ApiOperation("入职渠道下拉列表")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryEntryChannel() {
+        return null;
+    }
+
+    @GetMapping("query-allocation")
+    @ApiOperation(("分配方式下拉列表"))
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryAllocation() {
         return null;
     }
 }
