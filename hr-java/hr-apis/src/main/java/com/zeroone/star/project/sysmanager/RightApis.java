@@ -2,9 +2,11 @@ package com.zeroone.star.project.sysmanager;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.rightmanagement.RightDTO;
+import com.zeroone.star.project.query.sysmanager.comment.CommentQuery;
 import com.zeroone.star.project.query.sysmanager.rightmanager.RightQuery;
 import com.zeroone.star.project.vo.JsonVO;
-import com.zeroone.star.project.vo.ResultStatus;
+
+import javax.validation.constraints.NotBlank;
 
 /**
  * 权限接口
@@ -26,7 +28,7 @@ public interface RightApis {
      * @param query 模糊查询条件
      * @return JsonVO<PageDTO < RightsDTO>>
      */
-    JsonVO<PageDTO<RightDTO>> queryAll(String query);
+    JsonVO<PageDTO<RightDTO>> queryAll(CommentQuery query);
 
     /**
      * 添加权限
@@ -47,8 +49,15 @@ public interface RightApis {
     /**
      * 删除权限
      *
-     * @param dto 删除权限
+     * @param id 删除权限
      * @return 结果状态
      */
-    JsonVO<Boolean> removeRight(RightDTO dto);
+    JsonVO<Boolean> removeRight(@NotBlank(message = "id 不能为空")String id);
+
+    /**
+     * 修改状态
+     * @param id ID
+     * @return 修改结果
+     */
+    JsonVO<Boolean> modifyStatus(@NotBlank(message = "id 不能为空") String id);
 }

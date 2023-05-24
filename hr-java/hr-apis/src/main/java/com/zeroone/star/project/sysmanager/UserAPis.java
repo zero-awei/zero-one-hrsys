@@ -3,7 +3,8 @@ package com.zeroone.star.project.sysmanager;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.usermanager.UserDTO;
 import com.zeroone.star.project.query.PageQuery;
-import com.zeroone.star.project.query.sysmanager.usermanager.PageQueryById;
+import com.zeroone.star.project.query.sysmanager.comment.CommentQuery;
+import com.zeroone.star.project.query.sysmanager.usermanager.UserQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
 import javax.validation.constraints.NotBlank;
@@ -18,15 +19,14 @@ public interface UserAPis {
      * @param condition 分页条件
      * @return 查询结果
      */
-    JsonVO<PageDTO<UserDTO>> listAllUsers(PageQuery condition);
+    JsonVO<PageDTO<UserDTO>> listAllUsers(UserQuery condition);
 
     /**
-     * id查询用户
-     * @param userQuery 分页条件和ID
-     * @return 查询结果
+     * 查询用户
+     * @param query 查询条件
+     * @return 模糊查询
      */
-    JsonVO<PageDTO<UserDTO>> queryUser(PageQueryById userQuery);
-
+    JsonVO<PageDTO<UserDTO>> queryUser(CommentQuery query);
 
     /**
      * 新增用户

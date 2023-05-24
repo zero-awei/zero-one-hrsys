@@ -2,6 +2,7 @@ package com.zeroone.star.sysmanager.controller;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.menumanager.MenuDTO;
+import com.zeroone.star.project.query.sysmanager.comment.CommentQuery;
 import com.zeroone.star.project.sysmanager.MenuApis;
 import com.zeroone.star.project.query.sysmanager.menumanager.MenuQuery;
 import com.zeroone.star.project.vo.JsonVO;
@@ -46,14 +47,21 @@ public class MenuController implements MenuApis {
     @ApiOperation(value = "删除菜单")
     @DeleteMapping("/remove-right")
     @Override
-    public JsonVO<Boolean> removeMenu(MenuDTO dto) {
+    public JsonVO<Boolean> removeMenu(String id) {
         return null;
     }
 
     @ApiOperation(value = "模糊查询")
     @GetMapping("/query-like")
     @Override
-    public JsonVO<PageDTO<MenuDTO>> queryLike(MenuQuery query) {
+    public JsonVO<PageDTO<MenuDTO>> queryLike(CommentQuery query) {
+        return null;
+    }
+
+    @ApiOperation(value = "修改状态")
+    @PostMapping("/modify-status")
+    @Override
+    public JsonVO<Boolean> modifyStatus(String id) {
         return null;
     }
 }

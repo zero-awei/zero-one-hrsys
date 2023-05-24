@@ -2,8 +2,8 @@ package com.zeroone.star.sysmanager.controller;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.usermanager.UserDTO;
-import com.zeroone.star.project.query.PageQuery;
-import com.zeroone.star.project.query.sysmanager.usermanager.PageQueryById;
+import com.zeroone.star.project.query.sysmanager.comment.CommentQuery;
+import com.zeroone.star.project.query.sysmanager.usermanager.UserQuery;
 import com.zeroone.star.project.sysmanager.UserAPis;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
@@ -24,45 +24,46 @@ import org.springframework.web.bind.annotation.*;
 public class UserController implements UserAPis {
 
     @ApiOperation(value = "分页查询所有用户")
-    @GetMapping("query_all")
+    @GetMapping("/query_all")
     @Override
-    public JsonVO<PageDTO<UserDTO>> listAllUsers(PageQuery condition) {
+    public JsonVO<PageDTO<UserDTO>> listAllUsers(UserQuery condition) {
         return null;
     }
 
     @ApiOperation(value = "编号模糊查询用户")
-    @GetMapping("query_user")
+    @GetMapping("/query_user")
     @Override
-    public JsonVO<PageDTO<UserDTO>> queryUser(PageQueryById userQuery) {
+    public JsonVO<PageDTO<UserDTO>> queryUser(CommentQuery query) {
         return null;
     }
 
     @ApiOperation(value = "添加用户")
-    @PostMapping("add")
+    @PostMapping("/add")
     @Override
     public JsonVO<Boolean> addUser(UserDTO dto) {
         return null;
     }
 
     @ApiOperation(value = "删除用户")
-    @DeleteMapping("delete")
+    @DeleteMapping("/delete")
     @Override
     public JsonVO<Boolean> deleteUser(@RequestParam String id) {
         return null;
     }
 
     @ApiOperation(value = "修改用户")
-    @PutMapping("modify")
+    @PutMapping("/modify")
     @Override
     public JsonVO<Boolean> modifyUser(UserDTO dto) {
         return null;
     }
 
     @ApiOperation(value = "修改状态")
-    @PutMapping("modifyStatus")
+    @PutMapping("/modifyStatus")
     @Override
     public JsonVO<Boolean> modifyStatus(@RequestParam String id) {
         return null;
     }
+
 }
 

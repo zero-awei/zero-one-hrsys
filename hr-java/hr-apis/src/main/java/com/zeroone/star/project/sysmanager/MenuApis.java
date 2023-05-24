@@ -2,10 +2,11 @@ package com.zeroone.star.project.sysmanager;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.menumanager.MenuDTO;
-import com.zeroone.star.project.dto.sysmanager.rightmanagement.RightDTO;
+import com.zeroone.star.project.query.sysmanager.comment.CommentQuery;
 import com.zeroone.star.project.query.sysmanager.menumanager.MenuQuery;
 import com.zeroone.star.project.vo.JsonVO;
-import com.zeroone.star.project.vo.ResultStatus;
+
+import javax.validation.constraints.NotBlank;
 
 
 /**
@@ -44,15 +45,22 @@ public interface MenuApis {
     /**
      * 删除菜单
      *
-     * @param dto 删除菜单
+     * @param id 删除菜单
      * @return 结果状态
      */
-    JsonVO<Boolean> removeMenu(MenuDTO dto);
+    JsonVO<Boolean> removeMenu(@NotBlank(message = "id 不能为空")String id);
 
     /**
      * 描述：模糊查询
      * @param query 查询条件
      * @return 查询结果
      */
-    JsonVO<PageDTO<MenuDTO>> queryLike(MenuQuery query);
+    JsonVO<PageDTO<MenuDTO>> queryLike(CommentQuery query);
+
+    /**
+     * 修改状态
+     * @param id ID
+     * @return 修改结果
+     */
+    JsonVO<Boolean> modifyStatus(@NotBlank(message = "id 不能为空") String id);
 }

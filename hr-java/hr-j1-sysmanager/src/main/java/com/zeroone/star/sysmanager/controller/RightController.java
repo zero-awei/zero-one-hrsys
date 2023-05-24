@@ -2,6 +2,7 @@ package com.zeroone.star.sysmanager.controller;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.rightmanagement.RightDTO;
+import com.zeroone.star.project.query.sysmanager.comment.CommentQuery;
 import com.zeroone.star.project.query.sysmanager.rightmanager.RightQuery;
 import com.zeroone.star.project.sysmanager.RightApis;
 import com.zeroone.star.project.vo.JsonVO;
@@ -38,7 +39,7 @@ public class RightController implements RightApis {
     @ApiOperation(value = "模糊查询列表")
     @GetMapping("/query-like")
     @Override
-    public JsonVO<PageDTO<RightDTO>> queryAll(String query) {
+    public JsonVO<PageDTO<RightDTO>> queryAll(CommentQuery query) {
         return null;
     }
 
@@ -59,7 +60,14 @@ public class RightController implements RightApis {
     @ApiOperation(value = "删除权限")
     @DeleteMapping ("/remove-right")
     @Override
-    public JsonVO<Boolean> removeRight(RightDTO dto) {
+    public JsonVO<Boolean> removeRight(String id) {
+        return null;
+    }
+
+    @ApiOperation(value = "修改状态")
+    @PostMapping("/modify-status")
+    @Override
+    public JsonVO<Boolean> modifyStatus(String id) {
         return null;
     }
 

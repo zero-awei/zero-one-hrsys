@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 描述：权限显示数据对象
+ * 描述：权限查询数据对象
  * </p>
  * <p>版权：&copy;01星球</p>
  * <p>地址：01星球总部</p>
@@ -21,9 +21,6 @@ import lombok.EqualsAndHashCode;
 @ApiModel("权限分页查询")
 public class RightQuery extends PageQuery {
 
-    @ApiModelProperty(value = "唯一编号",example = "1")
-    private String id;
-
     @ApiModelProperty(value = "权限名称",example = "增加权限")
     private String name;
 
@@ -32,9 +29,6 @@ public class RightQuery extends PageQuery {
 
     @ApiModelProperty(value = "显示级别", example = "1")
     private Integer priority;
-
-    @ApiModelProperty(value = "父权限名称", example = "根权限")
-    private String parentRightName;
 
     @ApiModelProperty(value = "层次", example = "1")
     private Integer level;
