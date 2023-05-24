@@ -22,7 +22,7 @@
 
 #include "../DoInclude.h"
 
-/* 法人主体数据库实体 */
+/* 法人主体维护数据库实体 */
 
 class t_ormsignorgDO
 {
