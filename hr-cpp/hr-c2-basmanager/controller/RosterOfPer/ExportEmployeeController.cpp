@@ -21,19 +21,19 @@ Uint64JsonVO::Wrapper ExportEmployeeController::execAddExportEmployee(const Expo
 	return jvo;
 }
 
-Uint64JsonVO::Wrapper ExportEmployeeController::execModifyExportEmployee(const ExportEmployeeDTO::Wrapper& dto)
-{
-	//// 定义返回数据对象
-	auto jvo = Uint64JsonVO::createShared();
-	return jvo;
-}
-
-Uint64JsonVO::Wrapper ExportEmployeeController::execRemoveExportEmployee(const ExportEmployeeDTO::Wrapper& dto)
-{
-	//// 定义返回数据对象
-	auto jvo = Uint64JsonVO::createShared();
-	return jvo;
-}
+//Uint64JsonVO::Wrapper ExportEmployeeController::execModifyExportEmployee(const ExportEmployeeDTO::Wrapper& dto)
+//{
+//	//// 定义返回数据对象
+//	auto jvo = Uint64JsonVO::createShared();
+//	return jvo;
+//}
+//
+//Uint64JsonVO::Wrapper ExportEmployeeController::execRemoveExportEmployee(const ExportEmployeeDTO::Wrapper& dto)
+//{
+//	//// 定义返回数据对象
+//	auto jvo = Uint64JsonVO::createShared();
+//	return jvo;
+//}
 
 //BooleanJsonVO::Wrapper ExportEmployeeController::execImportLEM(const ExportEmployeeDTO::Wrapper& dto)
 //{

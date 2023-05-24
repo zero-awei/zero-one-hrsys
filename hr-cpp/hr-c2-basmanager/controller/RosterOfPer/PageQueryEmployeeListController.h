@@ -26,7 +26,7 @@ public:
 	// 3.1 定义查询接口描述
 	ENDPOINT_INFO(queryPageQueryEmployeeList) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("sample.get.summary");
+		info->summary = ZH_WORDS_GETTER("RosterOfPer.query.summary");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
@@ -42,7 +42,7 @@ public:
 		info->queryParams["sex"].required = false;*/
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/PageQueryEmployeeList-query", queryPageQueryEmployeeList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/query - PageQueryEmployeeList", queryPageQueryEmployeeList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, PageQueryEmployeeListQuery, queryParams);
 		// 响应结果

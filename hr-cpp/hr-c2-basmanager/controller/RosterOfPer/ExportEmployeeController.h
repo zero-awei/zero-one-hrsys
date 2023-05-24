@@ -26,48 +26,21 @@ class ExportEmployeeController : public oatpp::web::server::api::ApiController {
 	API_ACCESS_DECLARE(ExportEmployeeController); // 2 定义控制器访问入口
 public:
 
-	//  3.1 定义增加接口描述
+	//  3.1 定义增加接口描述  (待改 ！！)
 	ENDPOINT_INFO(addExportEmployee) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("LegalEntitySet.post.summary");
+		info->summary = ZH_WORDS_GETTER("RosterOfPer.export.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/ExportEmployee-add", addExportEmployee, BODY_DTO(ExportEmployeeDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/export - ExportEmployee", addExportEmployee, BODY_DTO(ExportEmployeeDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddExportEmployee(dto));
 	}
 
 
-	// 3.1 定义修改接口描述
-	ENDPOINT_INFO(modifyExportEmployee) {
-		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("LegalEntitySet.put.summary");
-		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-	}
-	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/ExportEmployee-modify", modifyExportEmployee, BODY_DTO(ExportEmployeeDTO::Wrapper, dto)) {
-		// 响应结果
-		API_HANDLER_RESP_VO(execModifyExportEmployee(dto));
-	}
-
-
-	// 3.1 定义删除接口描述
-	ENDPOINT_INFO(removeExportEmployee) {
-		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("LegalEntitySet.delete.summary");
-		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-	}
-	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/ExportEmployee-delete", removeExportEmployee, BODY_DTO(ExportEmployeeDTO::Wrapper, dto)) {
-		// 响应结果
-		API_HANDLER_RESP_VO(execRemoveExportEmployee(dto));
-	}
-
-
+	
 	//// 文件导入
 	//ENDPOINT_INFO(importLEM) {
 	//	// 定义接口标题
@@ -119,9 +92,9 @@ private:
 	//// 3.3 演示新增数据
 	Uint64JsonVO::Wrapper execAddExportEmployee(const ExportEmployeeDTO::Wrapper& dto);
 	//// 3.3 演示修改数据
-	Uint64JsonVO::Wrapper execModifyExportEmployee(const ExportEmployeeDTO::Wrapper& dto);
+	//Uint64JsonVO::Wrapper execModifyExportEmployee(const ExportEmployeeDTO::Wrapper& dto);
 	// //3.3 演示删除数据
-	Uint64JsonVO::Wrapper execRemoveExportEmployee(const ExportEmployeeDTO::Wrapper& dto);
+	//Uint64JsonVO::Wrapper execRemoveExportEmployee(const ExportEmployeeDTO::Wrapper& dto);
 	// 导入数据 
 	//BooleanJsonVO::Wrapper execImportLEM(const ExportEmployeeDTO::Wrapper& dto);
 	//// 导出数据

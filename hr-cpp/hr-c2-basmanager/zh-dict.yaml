@@ -71,3 +71,12 @@ formeremployees:
 certificate: 
  update:  更新证书信息
  get: 查询指定证书详细信息
+
+
+RosterOfPer:
+ query:
+  summary: 分页查询见习员工列表 - cpt
+ export:
+  summary: 导出见习员工 - cpt
+ field:
+  
