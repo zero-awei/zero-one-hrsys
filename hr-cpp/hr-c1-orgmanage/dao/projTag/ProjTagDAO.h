@@ -21,6 +21,7 @@
 #define _PROJTAGDAO_H_
 #include "BaseDAO.h"
 #include "domain/do/projTag/ProjTagDO.h"
+
 class ProjTagDAO : public BaseDAO
 {
 public:

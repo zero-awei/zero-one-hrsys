@@ -183,8 +183,10 @@
     <ClInclude Include="dao\dismissReason\DismissReasonMapper.h" />
     <ClInclude Include="dao\leaveReason\LeaveReasonDAO.h" />
     <ClInclude Include="dao\leaveReason\LeaveReasonMapper.h" />
+    <ClInclude Include="domain\do\archivesLevel\ArchivesLevelDO.h" />
     <ClInclude Include="domain\do\certs\ProCertsDO.h" />
     <ClInclude Include="domain\do\costTypeList\CostType.h" />
+    <ClInclude Include="domain\do\declareType\DeclareTypeDO.h" />
     <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\jobLevelTypeList\JobLevelTypeDO.h" />
