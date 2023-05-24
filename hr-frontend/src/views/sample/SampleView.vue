@@ -7,19 +7,15 @@
       <el-aside>
         <div class="menu-wrap">
           <el-scrollbar max-height="95vh">
-            <el-menu
-              default-active="0"
-              active-text-color="#409EFF"
-              text-color="#fff"
-              background-color="#545c64"
-              unique-opened
-              router
-            >
-              <el-menu-item
-                v-for="(menu, index) in menus"
-                :key="index"
-                :index="menu.path"
-              >
+            <el-menu default-active="0"
+                     active-text-color="#409EFF"
+                     text-color="#fff"
+                     background-color="#545c64"
+                     unique-opened
+                     router>
+              <el-menu-item v-for="(menu, index) in menus"
+                            :key="index"
+                            :index="menu.path">
                 <el-icon>
                   <icon-menu />
                 </el-icon>
@@ -122,6 +118,10 @@ const menus = reactive([
   {
     path: '/sample/search',
     text: '搜索框'
+  },
+  {
+    path: '/sample/tablehead',
+    text: '表头演示'
   }
 ])
 </script>

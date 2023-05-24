@@ -21,6 +21,10 @@ const routes = [
         component: () => import('@/views/sample/communication/Index.vue')
       },
       {
+        path: '/sample/tablehead',
+        component: () => import('@/views/sample/TableHead/TableHead.vue')
+      },
+      {
         path: '/sample/Aside',
         component: () => import('@/views/sample/aside/Aside.vue')
       },
