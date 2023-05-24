@@ -2,7 +2,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: rice
- @Date: 2023/5/17 18:44:41
+ @Date: 2023/5/24 15:50:11
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,21 +17,24 @@
  limitations under the License.
 */
 #include "stdafx.h"
-#include "PostQueryController.h"
-#include "../../../service/jobSet/postQueryService/PostQueryService.h"
+#include "PostDeleteService.h"
+#include "../../../dao/jobSet/postDeleteDAO/PostDeleteDAO.h"
 
-PostDetailPageJsonVO::Wrapper PostQueryController::execQueryByQuerySort(const PostDetailQuery::Wrapper& postDetailQuery)
+bool PostDeleteService::removeData(string id)
 {
-	PostQueryService postQueryService;
-	// 查询数据
-	auto result = postQueryService.listAll(postDetailQuery);
-	// 响应结果
-	auto jvo = PostDetailPageJsonVO::createShared();
-	if (result->rows->size() <= 0) {
-		jvo->fail(result);
+	PostDeleteDAO postDeleteDAO;
+	return postDeleteDAO.deleteById(id) == 1;
+}
+
+bool PostDeleteService::removeBatchData(const PostDeleteBatchDTO::Wrapper& postDeleteBatchDTO)
+{
+	PostDeleteDAO postDeleteDAO;
+	bool isSuccess = true;
+	for (const auto& item : *postDeleteBatchDTO->ormPostIds) {
+		if (postDeleteDAO.deleteById(item->c_str()) != 1)
+		{
+			isSuccess = false;
+		}
 	}
-	else {
-		jvo->success(result);
-	}
-	return jvo;
+	return isSuccess;
 }

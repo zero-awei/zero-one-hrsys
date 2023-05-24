@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: rice
- @Date: 2023/5/17 18:44:41
+ @Date: 2023/5/24 15:58:56
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,22 +17,21 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "PostQueryController.h"
-#include "../../../service/jobSet/postQueryService/PostQueryService.h"
+#ifndef _POSTDELETE_SERVICE_
+#define _POSTDELETE_SERVICE_
+#include <list>
+#include "domain/dto/postSet/PostDeleteDTO.h"
 
-PostDetailPageJsonVO::Wrapper PostQueryController::execQueryByQuerySort(const PostDetailQuery::Wrapper& postDetailQuery)
+/**
+ * 岗位设置 - 删除岗位Service
+ * 负责人 : rice
+ */
+class PostDeleteService
 {
-	PostQueryService postQueryService;
-	// 查询数据
-	auto result = postQueryService.listAll(postDetailQuery);
-	// 响应结果
-	auto jvo = PostDetailPageJsonVO::createShared();
-	if (result->rows->size() <= 0) {
-		jvo->fail(result);
-	}
-	else {
-		jvo->success(result);
-	}
-	return jvo;
-}
+public:
+	bool removeData(string id);
+	bool removeBatchData(const PostDeleteBatchDTO::Wrapper& postDeleteBatchDTO);
+};
+
+#endif // !_POSTDELETE_SERVICE_
+
