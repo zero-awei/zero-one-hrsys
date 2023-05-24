@@ -1,11 +1,11 @@
 #include "stdafx.h"
-#include "PageQueryEmployeeListController.h"
+#include "RraineeController.h"
 
-PageQueryEmployeeListPageJsonVO::Wrapper PageQueryEmployeeListController::execPageQueryEmployeeList(const PageQueryEmployeeListQuery::Wrapper& query, const PayloadDTO& payload) {
-	return PageQueryEmployeeListPageJsonVO::Wrapper();
+RraineePageJsonVO::Wrapper RraineeController::execRraineeQuery(const RraineeQuery::Wrapper& query, const PayloadDTO& payload){
+	return RraineePageJsonVO::Wrapper();
 }
 
-//Uint64JsonVO::Wrapper PageQueryEmployeeListController::execAddPageQueryEmployeeList(const PageQueryEmployeeListDTO::Wrapper& dto) {
+//Uint64JsonVO::Wrapper Rrainee::execAddRrainee(const RraineeDTO::Wrapper& dto) {
 //	// 定义返回数据对象
 //	auto jvo = Uint64JsonVO::createShared();
 //	// 参数校验
@@ -23,7 +23,7 @@ PageQueryEmployeeListPageJsonVO::Wrapper PageQueryEmployeeListController::execPa
 //	}
 //
 //	// 定义一个Service
-//	PageQueryEmployeeListService service;
+//	RraineeService service;
 //	// 执行数据新增
 //	uint64_t id = service.saveData(dto);
 //	if (id > 0) {
@@ -37,7 +37,7 @@ PageQueryEmployeeListPageJsonVO::Wrapper PageQueryEmployeeListController::execPa
 //	return jvo;
 //}
 //
-//Uint64JsonVO::Wrapper PageQueryEmployeeListController::execModifyPageQueryEmployeeList(const PageQueryEmployeeListDTO::Wrapper& dto) {
+//Uint64JsonVO::Wrapper Rrainee::execModifyRrainee(const RraineeDTO::Wrapper& dto) {
 //	// 定义返回数据对象
 //	auto jvo = Uint64JsonVO::createShared();
 //	// 参数校验
@@ -47,7 +47,7 @@ PageQueryEmployeeListPageJsonVO::Wrapper PageQueryEmployeeListController::execPa
 //		return jvo;
 //	}
 //	// 定义一个Service
-//	PageQueryEmployeeListService service;
+//	RraineeService service;
 //	// 执行数据修改
 //	if (service.updateData(dto)) {
 //		jvo->success(dto->id);
@@ -60,7 +60,7 @@ PageQueryEmployeeListPageJsonVO::Wrapper PageQueryEmployeeListController::execPa
 //	return jvo;
 //}
 //
-//Uint64JsonVO::Wrapper PageQueryEmployeeListController::execRemovePageQueryEmployeeList(const PageQueryEmployeeListDTO::Wrapper& dto) {
+//Uint64JsonVO::Wrapper Rrainee::execRemoveRrainee(const RraineeDTO::Wrapper& dto) {
 //	// 定义返回数据对象
 //	auto jvo = Uint64JsonVO::createShared();
 //	// 参数校验
@@ -70,7 +70,7 @@ PageQueryEmployeeListPageJsonVO::Wrapper PageQueryEmployeeListController::execPa
 //		return jvo;
 //	}
 //	// 定义一个Service
-//	PageQueryEmployeeListService service;
+//	RraineeService service;
 //	// 执行数据删除
 //	if (service.removeData(dto->id.getValue(0))) {
 //		jvo->success(dto->id);

@@ -1,54 +1,58 @@
 #pragma once
-#ifndef _EXPORTEMPLOYEE_CONTROLLER_
-#define _EXPORTEMPLOYEE_CONTROLLER_
+#ifndef _PAGEQUERYEMPLOYEELIST_CONTROLLER_
+#define _PAGEQUERYEMPLOYEELIST_CONTROLLER_
 
 #include "domain/vo/BaseJsonVO.h"
-#include "domain/do/RosterOfPer/ExportEmployeeDO.h"
-#include "domain/dto/RosterOfPer/ExportEmployeeDTO.h"
-#include "domain/vo/RosterOfPer/ExportEmployeeVO.h"
+#include "domain/do/RosterOfPer/RraineeDO.h"
+#include "domain/dto/RosterOfPer/RraineeDTO.h"
+#include "domain/vo/RosterOfPer/RraineeVO.h"
+#include "domain/query/RosterOfPer/RraineeQuery.h"
 
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
 #include "oatpp/web/mime/multipart/FileProvider.hpp"
 #include "oatpp/web/mime/multipart/Reader.hpp"
 #include "oatpp/web/mime/multipart/PartList.hpp"
-#include "ApiHelper.h"
-#include "ExcelComponent.h"
+
+/**
+ *  基础管理 —— 人员花名册 —— 见习员工  ——Cpt
+ */
 
 using namespace oatpp;
 
+#include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
-#include OATPP_CODEGEN_BEGIN(ApiController)  
 namespace multipart = oatpp::web::mime::multipart;
 
-
-class ExportEmployeeController : public oatpp::web::server::api::ApiController {
-	
-	API_ACCESS_DECLARE(ExportEmployeeController); // 2 定义控制器访问入口
+class RraineeController : public oatpp::web::server::api::ApiController {
+	API_ACCESS_DECLARE(RraineeController); // 2 定义控制器访问入口
 public:
 
-	//  3.1 定义增加接口描述  (待改 ！！)
-	ENDPOINT_INFO(addExportEmployee) {
+	// 3.1 定义查询接口描述
+	ENDPOINT_INFO(queryRrainee) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("RosterOfPer.export.summary");
+		info->summary = ZH_WORDS_GETTER("RosterOfPer.query.summary");
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(RraineePageJsonVO);
+		// 定义分页参数描述
+		API_DEF_ADD_PAGE_PARAMS();
+		// 定义其他表单参数描述
+		/*info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("sample.field.name");
+		info->queryParams["name"].addExample("default", String("li ming"));
+		info->queryParams["name"].required = false;
+		info->queryParams.add<String>("sex").description = ZH_WORDS_GETTER("sample.field.sex");
+		info->queryParams["sex"].addExample("default", String("N"));
+		info->queryParams["sex"].required = false;*/
 	}
-	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/export - ExportEmployee", addExportEmployee, BODY_DTO(ExportEmployeeDTO::Wrapper, dto)) {
+	// 3.2 定义查询接口处理
+	ENDPOINT(API_M_GET, "/query - Rrainee", queryRrainee, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+		// 解析查询参数
+		API_HANDLER_QUERY_PARAM(userQuery, RraineeQuery, queryParams);
 		// 响应结果
-		API_HANDLER_RESP_VO(execAddExportEmployee(dto));
-	}
-	//// 文件导入
-	//ENDPOINT_INFO(importLEM) {
-	//	// 定义接口标题
-	//	info->summary = ZH_WORDS_GETTER("LegalEntitySet.import.summary");
-	//	// 定义响应参数格式
-	//	API_DEF_ADD_RSP_JSON_WRAPPER(BooleanJsonVO);
-	//}
-	//ENDPOINT(API_M_POST, "/ImportLEM", importLEM, BODY_DTO(ExportEmployeeDTO::Wrapper, dto)) {
-	//	// 响应结果
-	//	API_HANDLER_RESP_VO(execImportLEM(dto));
-	//}
+		API_HANDLER_RESP_VO(execRraineeQuery(userQuery, authObject->getPayload()));
+	} 
+
 
 	// 文件导出
 	//ENDPOINT_INFO(exportLEM) {
@@ -84,19 +88,10 @@ public:
 	//}
 
 
-private: 
-	//// 3.3 演示新增数据
-	Uint64JsonVO::Wrapper execAddExportEmployee(const ExportEmployeeDTO::Wrapper& dto);
-	//// 3.3 演示修改数据
-	//Uint64JsonVO::Wrapper execModifyExportEmployee(const ExportEmployeeDTO::Wrapper& dto);
-	// //3.3 演示删除数据
-	//Uint64JsonVO::Wrapper execRemoveExportEmployee(const ExportEmployeeDTO::Wrapper& dto);
-	// 导入数据 
-	//BooleanJsonVO::Wrapper execImportLEM(const ExportEmployeeDTO::Wrapper& dto);
-	//// 导出数据
-	//BooleanJsonVO::Wrapper execExportLEM(const ExportEmployeeDTO::Wrapper& dto);
+private:
+	//3.3 演示分页查询数据
+	RraineePageJsonVO::Wrapper execRraineeQuery(const RraineeQuery::Wrapper& query, const PayloadDTO& payload);
 };
 
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
-
-#endif // _EXPORTEMPLOYEE_CONTROLLER_
+#endif // _PAGEQUERYEMPLOYEELIST_CONTROLLER_

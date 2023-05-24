@@ -32,8 +32,7 @@
 #include "controller/RosterOfPer/ExportEmployeeController.h"
 #include "uselib/ws/WSController.h"
 #endif
-#include "controller/RosterOfPer/ExportEmployeeController.h"
-#include "controller/RosterOfPer/PageQueryEmployeeListController.h"
+#include "controller/RosterOfPer/RraineeController.h"
 
 //测试controller引入头文件
 #include "controller/RosterOfPer/TemporaryStaffController.h"
@@ -65,17 +64,17 @@ void Router::initRouter()
 	createSampleRouter();
 #endif 
 	//#TIP :系统扩展路由定义，写在这个后面
-	ROUTER_SIMPLE_BIND(FormerEmployeesController);
-	ROUTER_SIMPLE_BIND(UpdateCertificateController);	ROUTER_SIMPLE_BIND(ExportEmployeeController);
-	ROUTER_SIMPLE_BIND(PageQueryEmployeeListController);
-	ROUTER_SIMPLE_BIND(TempStaffController);//挂职人员swagger效果测试
-	ROUTER_SIMPLE_BIND(EmployeeInfoController);//人员信息查询swagger效果测试
-	ROUTER_SIMPLE_BIND(CertificateTypeController); //证书类型查询swagger效果测试
+	//ROUTER_SIMPLE_BIND(FormerEmployeesController);
+	//ROUTER_SIMPLE_BIND(UpdateCertificateController);	
+	//ROUTER_SIMPLE_BIND(RraineeController);  // 见习员工 swagger效果测试
+	//ROUTER_SIMPLE_BIND(TempStaffController);//挂职人员swagger效果测试
+	//ROUTER_SIMPLE_BIND(EmployeeInfoController);//人员信息查询swagger效果测试
+	//ROUTER_SIMPLE_BIND(CertificateTypeController); //证书类型查询swagger效果测试
 
-	ROUTER_SIMPLE_BIND(CheckCerListController);
-	ROUTER_SIMPLE_BIND(CreateNewCerController);
-	ROUTER_SIMPLE_BIND(CheckRetiresListController);
-	ROUTER_SIMPLE_BIND(ExportRetireesController);
+	//ROUTER_SIMPLE_BIND(CheckCerListController);
+	//ROUTER_SIMPLE_BIND(CreateNewCerController);
+	//ROUTER_SIMPLE_BIND(CheckRetiresListController);
+	//ROUTER_SIMPLE_BIND(ExportRetireesController);
 }
 
 #ifdef HTTP_SERVER_DEMO

@@ -82,7 +82,7 @@ RosterOfPer:
  field:
 cermanage:
  get:
-  summary: 分页查询示例数据
+  summary: 分页查询示例数据 
   checklist: 分页查询证书列表
  post:
   summary: 新增一条示例数据

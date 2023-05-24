@@ -1,15 +1,15 @@
 #pragma once
-#ifndef _PAGEQUERYRMPLOYEELISTQUERY_DTO_
-#define _PAGEQUERYRMPLOYEELISTQUERY_DTO_
+#ifndef _RRAINEE_DTO_
+#define _RRAINEE_DTO_
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- *  基础管理 —— 人员花名册 —— 见习员工 —— 分页查询员工列表 PageQueryEmployeeList  (分页 )示例传输对象
+ *  基础管理 —— 人员花名册 —— 见习员工  ——Cpt
  */
-class ExportEmployeeDTO : public oatpp::DTO {
-	DTO_INIT(ExportEmployeeDTO, DTO);
+class RraineeDTO : public oatpp::DTO {
+	DTO_INIT(RraineeDTO, DTO);
 	// 编号
 	DTO_FIELD(UInt64, id);
 	DTO_FIELD_INFO(id) {
@@ -35,10 +35,9 @@ class ExportEmployeeDTO : public oatpp::DTO {
 /**
  * 示例分页传输对象
  */
-class ExportEmployeePageDTO : public PageDTO<ExportEmployeeDTO::Wrapper>
-{
-	DTO_INIT(ExportEmployeePageDTO, PageDTO<ExportEmployeeDTO::Wrapper>);
+class RraineePageDTO: public PageDTO<RraineeDTO::Wrapper> {
+	DTO_INIT(RraineePageDTO, PageDTO<RraineeDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_PAGEQUERYRMPLOYEELISTQUERY_DTO_
+#endif // !_RRAINEE_DTO_
