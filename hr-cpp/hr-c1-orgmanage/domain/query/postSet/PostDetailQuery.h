@@ -32,13 +32,13 @@ class PostDetailQuery : public PageQuery
 {
 	DTO_INIT(PostDetailQuery, PageQuery);
 	// 查询岗位名称
-	DTO_FIELD(String, query);
-	DTO_FIELD_INFO(query) {
+	DTO_FIELD(String, queryPostName);
+	DTO_FIELD_INFO(queryPostName) {
 		info->description = ZH_WORDS_GETTER("orgmanage.query.queryPostName");
 	}
 	// 排序类别:排序方式,(asc/desc)
-	DTO_FIELD(String, sort);
-	DTO_FIELD_INFO(sort) {
+	DTO_FIELD(String, sortTypeAndMethod);
+	DTO_FIELD_INFO(sortTypeAndMethod) {
 		info->description = ZH_WORDS_GETTER("orgmanage.query.sortTypeAndMethod");
 	}
 };
