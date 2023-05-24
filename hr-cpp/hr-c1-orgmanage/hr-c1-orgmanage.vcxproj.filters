@@ -16,10 +16,11 @@
     <ClCompile Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.cpp" />
     <ClCompile Include="controller\projTag\deleteProjTag\DeleteProjTagController.cpp" />
     <ClCompile Include="controller\itemLabel\ItemLabelController.cpp" />
-    <ClCompile Include="controller\jobSet\jobUpdate\JobUpdateController.cpp" />
-    <ClCompile Include="controller\jobSet\jobOutput\JobOutputController.cpp" />
+    <ClCompile Include="controller\jobSet\jobUpdate1\JobUpdateController.cpp" />
+    <ClCompile Include="controller\jobSet\jobOutput1\JobOutputController.cpp" />
     <ClCompile Include="service\projTag\ProjTagService.cpp" />
     <ClCompile Include="dao\projTag\ProjTagDAO.cpp" />
+    <ClCompile Include="controller\orgbz\PageQueryBzController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -65,9 +66,11 @@
     <ClInclude Include="domain\vo\jobDownload\JobDownloadVO.h" />
     <ClInclude Include="domain\dto\jobDownload\JobDownloadDTO.h" />
     <ClInclude Include="domain\dto\jobUpdate\JobUpdateDTO.h" />
-    <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
-    <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
+    <ClInclude Include="controller\jobSet\jobUpdate1\JobUpdateController.h" />
+    <ClInclude Include="controller\jobSet\jobOutput1\JobOutputController.h" />
     <ClInclude Include="service\projTag\ProjTagService.h" />
     <ClInclude Include="dao\projTag\ProjTagDAO.h" />
+    <ClInclude Include="controller\orgbz\PageQueryBzController.h" />
+    <ClInclude Include="domain\query\orgbz\PageBzQuery.h" />
   </ItemGroup>
 </Project>

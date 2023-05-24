@@ -160,8 +160,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="controller\itemLabel\ItemLabelController.cpp" />
-    <ClCompile Include="controller\jobSet\jobOutput\JobOutputController.cpp" />
-    <ClCompile Include="controller\jobSet\jobUpdate\JobUpdateController.cpp" />
+    <ClCompile Include="controller\jobSet\jobOutput1\JobOutputController.cpp" />
+    <ClCompile Include="controller\jobSet\jobUpdate1\JobUpdateController.cpp" />
     <ClCompile Include="controller\orgbz\PageQueryBzController.cpp" />
     <ClCompile Include="controller\projTag\addTagController\AddTagController.cpp" />
     <ClCompile Include="controller\projTag\deleteProjTag\DeleteProjTagController.cpp" />
@@ -187,8 +187,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\itemLabel\ItemLabelController.h" />
-    <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
-    <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
+    <ClInclude Include="controller\jobSet\jobOutput1\JobOutputController.h" />
+    <ClInclude Include="controller\jobSet\jobUpdate1\JobUpdateController.h" />
     <ClInclude Include="controller\orgbz\PageQueryBzController.h" />
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
     <ClInclude Include="controller\projTag\deleteProjTag\DeleteProjTagController.h" />
