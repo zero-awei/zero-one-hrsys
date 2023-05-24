@@ -123,5 +123,11 @@ const menus = reactive([
     path: '/sample/tablehead',
     text: '表头演示'
   }
+  },
+  
+  {
+    path: '/sample/feedback',
+    text: '消息反馈演示'
+  },
 ])
 </script>
