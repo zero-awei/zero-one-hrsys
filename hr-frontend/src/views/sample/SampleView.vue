@@ -131,6 +131,10 @@ const menus = reactive([
   {
     path: '/sample/feedback',
     text: '消息反馈演示'
+  },
+  {
+    path: '/sample/employees',
+    text: '人员信息'
   }
 ])
 </script>
