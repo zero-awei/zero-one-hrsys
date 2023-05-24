@@ -18,6 +18,8 @@
     <ClCompile Include="controller\itemLabel\ItemLabelController.cpp" />
     <ClCompile Include="controller\jobSet\jobUpdate\JobUpdateController.cpp" />
     <ClCompile Include="controller\jobSet\jobOutput\JobOutputController.cpp" />
+    <ClCompile Include="service\jobSet\postQueryService\PostQueryService.cpp" />
+    <ClCompile Include="dao\jobSet\postQueryDAO\PostQueryDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -64,5 +66,9 @@
     <ClInclude Include="domain\dto\jobUpdate\JobUpdateDTO.h" />
     <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
     <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
+    <ClInclude Include="service\jobSet\postQueryService\PostQueryService.h" />
+    <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryDAO.h" />
+    <ClInclude Include="domain\do\postSet\PostDetailDO.h" />
+    <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryMapper.h" />
   </ItemGroup>
 </Project>
