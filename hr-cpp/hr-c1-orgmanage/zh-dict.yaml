@@ -146,3 +146,7 @@ job:
   isKeywork: 是否关键岗位
   isId: 是否启用标识
  downloadurl: 下载地址
+
+orgbz:
+ pageQuery:
+  controller: 分页查询编制列表
