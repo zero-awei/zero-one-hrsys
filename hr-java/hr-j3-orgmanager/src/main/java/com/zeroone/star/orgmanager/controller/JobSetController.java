@@ -35,7 +35,7 @@ import java.util.List;
 @RestController
 @RequestMapping("jobset")
 @Api(tags = "职务设置")
-public class JobsSetController implements JobSetApis {
+public class JobSetController implements JobSetApis {
     @Resource
     private FastDfsClientComponent fastDfsClientComponent;
 
@@ -98,6 +98,11 @@ public class JobsSetController implements JobSetApis {
     @ApiOperation("批量新增组织信息(支持批量)")
     @Override
     public JsonVO<Boolean> AddPosition(@RequestBody AddPositionDTO addPositionDTO) {
+        return null;
+    }
+
+    @Override
+    public JsonVO<ExportDTO> exportAllOrgs() {
         return null;
     }
 }

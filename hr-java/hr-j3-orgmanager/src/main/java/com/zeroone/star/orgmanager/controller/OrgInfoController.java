@@ -2,7 +2,6 @@ package com.zeroone.star.orgmanager.controller;
 
 import com.zeroone.star.project.j3.dto.DeleteDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
-import cn.hutool.http.server.HttpServerResponse;
 import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.j3.orgmanager.OrgInfoApis;
 import com.zeroone.star.project.vo.JsonVO;
@@ -26,8 +25,10 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "组织信息管理")
 public class OrgInfoController implements OrgInfoApis {
 
+    @DeleteMapping("remove-org-address")
+    @ApiOperation("删除组织地址")
     @Override
-    public JsonVO<Integer> deleteDepAddress(OrgAddressDto orgAddressDto) {
+    public JsonVO<Boolean> deleteDepAddress(@RequestBody OrgAddressDto orgAddressDto) {
         return null;
     }
 
@@ -55,7 +56,7 @@ public class OrgInfoController implements OrgInfoApis {
     @GetMapping("export-org-address")
     @ApiOperation("导出指定组织地址信息")
     @Override
-    public JsonVO<Boolean> exportOrgAddress(HttpServerResponse response,OrgAddressDto orgAddressDto) {
+    public JsonVO<Boolean> exportOrgAddress(OrgAddressDto orgAddressDto) {
         return null;
     }
 
