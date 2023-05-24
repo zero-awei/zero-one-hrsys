@@ -11,6 +11,6 @@ import lombok.EqualsAndHashCode;
 @Data
 @ApiModel("区(县)名称状态查询")
 public class DistrictNameStatusListQuery extends PageQuery {
-    @ApiModelProperty(name = "姓名",example = "Bob")
-    private  String name;
+    @ApiModelProperty(name = "所属城市ID", example = "111")
+    private String cityId;
 }

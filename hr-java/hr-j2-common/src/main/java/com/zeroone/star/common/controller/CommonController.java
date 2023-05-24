@@ -9,6 +9,7 @@ import com.zeroone.star.project.dto.common.GwTypeDTO;
 import com.zeroone.star.project.dto.common.PostNatureDTO;
 import com.zeroone.star.project.dto.common.StatusListDTO;
 import com.zeroone.star.project.query.common.ZzmmQuery;
+import com.zeroone.star.project.query.district_namestatuslist.DistrictNameStatusListQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -45,9 +46,9 @@ public class CommonController implements CommonApis {
     }
 
     @ApiOperation(value = "获取证件类型下拉列表")
-    @GetMapping("query-certificate-type")
+    @GetMapping("query-document-type")
     @Override
-    public JsonVO<List<DropdownListOptionDTO>> queryCertificateType() {
+    public JsonVO<List<DropdownListOptionDTO>> queryDocumentType() {
         return null;
     }
 
@@ -118,5 +119,33 @@ public class CommonController implements CommonApis {
     public JsonVO<List<PostNatureDTO>> queryPostNature() {
         List<PostNatureDTO> list = ormpostlibService.getPostNature();
         return JsonVO.success(list);
+    }
+
+    @ApiOperation(value = "获取民族类型下拉列表")
+    @GetMapping("query-ethnic-type")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryEthnicType() {
+        return null;
+    }
+
+    @ApiOperation(value = "获取户口类型下拉列表")
+    @GetMapping("query-household-registration")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryHouseholdRegistrationType() {
+        return null;
+    }
+
+    @ApiOperation(value = "获取城市名称下拉列表")
+    @GetMapping("query-city-name")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryCityName() {
+        return null;
+    }
+
+    @ApiOperation(value = "获取区县下拉列表")
+    @GetMapping("query-district-name")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryDistrictName(DistrictNameStatusListQuery query) {
+        return null;
     }
 }

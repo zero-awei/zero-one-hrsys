@@ -6,6 +6,7 @@ import com.zeroone.star.project.dto.common.StatusListDTO;
 import com.zeroone.star.project.query.common.ZzmmQuery;
 import com.zeroone.star.project.dto.common.GwTypeDTO;
 import com.zeroone.star.project.dto.common.PostNatureDTO;
+import com.zeroone.star.project.query.district_namestatuslist.DistrictNameStatusListQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
 import java.util.List;
@@ -34,7 +35,7 @@ public interface CommonApis {
      *
      * @return 查询结果
      */
-    JsonVO<List<DropdownListOptionDTO>> queryCertificateType();
+    JsonVO<List<DropdownListOptionDTO>> queryDocumentType();
 
     /**
      * 查询员工状态信息
@@ -106,4 +107,34 @@ public interface CommonApis {
      * @date 2023/5/20 0:03
      */
     JsonVO<List<PostNatureDTO>> queryPostNature();
+
+
+    /**
+     * 获取民族类型下拉列表
+     *
+     * @return 查询结果
+     */
+    JsonVO<List<DropdownListOptionDTO>> queryEthnicType();
+
+
+    /**
+     * 获取户口类型下拉列表
+     *
+     * @return 查询结果
+     */
+    JsonVO<List<DropdownListOptionDTO>> queryHouseholdRegistrationType();
+
+    /**
+     * 获取城市名称类型下拉列表
+     *
+     * @return 查询结果
+     */
+    JsonVO<List<DropdownListOptionDTO>> queryCityName();
+
+    /**
+     * 获取区县名称类型下拉列表
+     *
+     * @return 查询结果
+     */
+    JsonVO<List<DropdownListOptionDTO>> queryDistrictName(DistrictNameStatusListQuery query);
 }
