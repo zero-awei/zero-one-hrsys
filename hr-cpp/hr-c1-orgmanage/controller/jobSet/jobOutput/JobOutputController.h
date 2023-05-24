@@ -1,3 +1,6 @@
+//2023年5月21日
+//岗位导出信息
+//作者：狗皮电耗子
 #pragma once
 #ifndef _JOB_OUTPUT_CONTROLLER_
 #define _JOB_OUTPUT_CONTROLLER_
