@@ -188,6 +188,7 @@
     <ClCompile Include="controller\LegalEntitySet\UpdateLegalerSetingMessageController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="domain\query\LegalEntitySet\LegalerNamePullDownListQuery.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
