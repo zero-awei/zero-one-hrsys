@@ -1,8 +1,8 @@
 package com.zeroone.star.orgmanager.service;
 
-import com.zeroone.star.orgmanager.entity.Ormorginfo;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.zeroone.star.project.dto.orgmanager.DeptInfoDTO;
+import com.zeroone.star.orgmanager.entity.Orgsector;
+import com.zeroone.star.project.dto.orgmanager.OrgsectorDTO;
 import com.zeroone.star.project.vo.orgmanager.DeptKqdzVO;
 import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
 import com.zeroone.star.project.query.orgmanager.KqdzQuery;
@@ -20,9 +20,9 @@ import java.util.List;
  * @author rqs
  * @since 2023-05-19
  */
-public interface IOrmService extends IService<Ormorginfo> {
+public interface IOrmService extends IService<Orgsector> {
     @PostMapping("/save-dept")
-    JsonVO<String> saveDept(DeptInfoDTO deptInfoDTO);
+    String saveDept(OrgsectorDTO orgsectorDTO);
 
     @PostMapping("/update-dept-by-id")
     JsonVO<String> updateDept(ModifyDeptInfoDTO modifyDeptInfoDTO);

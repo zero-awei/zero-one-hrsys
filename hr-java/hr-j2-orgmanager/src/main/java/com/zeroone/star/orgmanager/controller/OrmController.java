@@ -2,8 +2,7 @@ package com.zeroone.star.orgmanager.controller;
 
 
 import com.zeroone.star.orgmanager.service.IOrmService;
-import com.zeroone.star.project.dto.orgmanager.DeptInfoDTO;
-import com.zeroone.star.project.vo.login.MenuTreeVO;
+import com.zeroone.star.project.dto.orgmanager.OrgsectorDTO;
 import com.zeroone.star.project.vo.orgmanager.DeptKqdzVO;
 import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
 import com.zeroone.star.project.orgmanager.OrgmanagerApis;
@@ -39,8 +38,9 @@ public class OrmController implements OrgmanagerApis {
     @ApiOperation(value = "新增部门")
     @PostMapping("add-dept")
     @Override
-    public JsonVO<String> addDept(DeptInfoDTO deptInfoDTO) {
-        return ormorginfoService.saveDept(deptInfoDTO);
+    public JsonVO<String> addDept(OrgsectorDTO orgsectorDTO) {
+        String result = ormorginfoService.saveDept(orgsectorDTO);
+        return JsonVO.success(result) ;
     }
 
     @ApiOperation(value = "修改指定部门信息")

@@ -1,8 +1,11 @@
 package com.zeroone.star.orgmanager.mapper;
 
-import com.zeroone.star.orgmanager.entity.Ormorginfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zeroone.star.orgmanager.entity.Orgsector;
+import com.zeroone.star.project.dto.orgmanager.OrgsectorDTO;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * <p>
@@ -13,6 +16,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2023-05-19
  */
 @Mapper
-public interface OrmMapper extends BaseMapper<Ormorginfo> {
+public interface OrmMapper extends BaseMapper<Orgsector> {
 
 }

@@ -1,6 +1,6 @@
 package com.zeroone.star.project.orgmanager;
 
-import com.zeroone.star.project.dto.orgmanager.DeptInfoDTO;
+import com.zeroone.star.project.dto.orgmanager.OrgsectorDTO;
 import com.zeroone.star.project.vo.orgmanager.DeptKqdzVO;
 import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
 import com.zeroone.star.project.query.orgmanager.KqdzQuery;
@@ -22,7 +22,7 @@ public interface OrgmanagerApis {
      * @Author: Rqs
      * @Date: 2023/5/19 23:43
      */
-    JsonVO<String> addDept(DeptInfoDTO deptInfoDTO);
+    JsonVO<String> addDept(OrgsectorDTO orgsectorDTO);
     /**
      * @Description: 修改指定部门信息
      * @params: [modifyDeptInfoDTO]
