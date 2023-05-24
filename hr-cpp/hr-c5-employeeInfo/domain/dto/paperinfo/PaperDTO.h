@@ -10,6 +10,11 @@
  */
 class PaperDTO : public oatpp::DTO
 {
+public:
+	PaperDTO() {}
+	PaperDTO(String pimpersonid, String cbs, String fbsj,
+		String kwqs, String fj, Int32 grzlwzzzdpm, String kwmc) : pimpersonid(pimpersonid), 
+		cbs(cbs), fbsj(fbsj), kwqs(kwqs), fj(fj), grzlwzzzdpm(grzlwzzzdpm), kwmc(kwmc){}
 	DTO_INIT(PaperDTO, DTO);
 	// ³ö°æÉç
 	DTO_FIELD(String, cbs);

@@ -40,7 +40,7 @@ Uint64JsonVO::Wrapper ArchivesController::execRemoveArchivesInfo(const ArchivesD
 	return jvo;
 }
 
-ArchivesPageJsonVO::Wrapper ArchivesController::execQueryArchivesinfo(const PageQuery::Wrapper& query)
+ArchivesPageJsonVO::Wrapper ArchivesController::execQueryArchivesinfo(const ArchivesQuery::Wrapper& query)
 {
 	// 创建响应对象
 	auto vo = ArchivesPageJsonVO::createShared();

@@ -180,6 +180,7 @@ archives:
   ygzt: 员工状态
   ORMORGName: 所属单位
   DAZT: 档案状态
+  dajyzt: 档案借阅状态
 specifiedArchives:
  get:
   summary: 查询指定档案数据

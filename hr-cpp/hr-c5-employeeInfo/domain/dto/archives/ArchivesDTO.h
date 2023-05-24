@@ -10,6 +10,8 @@
  */
 class ArchivesDTO : public oatpp::DTO
 {
+public:
+	ArchivesDTO() {}
 	DTO_INIT(ArchivesDTO, DTO);
 
 	// µµ°¸±àºÅ£¬
