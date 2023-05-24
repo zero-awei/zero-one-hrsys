@@ -18,7 +18,7 @@ class ContractCategoryController : public oatpp::web::server::api::ApiController
 
 public:
     ENDPOINT_INFO(queryContractCategory) {
-        info->summary = ZH_WORDS_GETTER("contractCategory.get.summary");
+        info->summary = ZH_WORDS_GETTER("contractCategory.query-all.summary");
         API_DEF_ADD_RSP_JSON_WRAPPER(ContractCategoryPageJsonVO);
         API_DEF_ADD_PAGE_PARAMS();
         info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("sample.field.name");

@@ -188,6 +188,7 @@
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\Title\TitleDO.h" />
     <ClInclude Include="domain\dto\certificate\CertificateDTO.h" />
+    <ClInclude Include="domain\dto\contractcategory\ContractCategoryDTO.h" />
     <ClInclude Include="domain\dto\contracttype\ContractTypeCreateDTO.h" />
     <ClInclude Include="domain\dto\contracttype\ContractTypeDeleteDTO.h" />
     <ClInclude Include="domain\dto\contracttype\ContractTypeDTO.h" />
@@ -195,9 +196,11 @@
     <ClInclude Include="domain\dto\contracttype\ContractTypeUpdateDTO.h" />
     <ClInclude Include="domain\dto\Title\TitleDTO.h" />
     <ClInclude Include="domain\query\certificate\CertificateQuery.h" />
+    <ClInclude Include="domain\query\contractcategory\ContractCategoryQuery.h" />
     <ClInclude Include="domain\query\contracttype\ContractTypeQuery.h" />
     <ClInclude Include="domain\query\Title\TitleQuery.h" />
     <ClInclude Include="domain\vo\certificate\CertificateVO.h" />
+    <ClInclude Include="domain\vo\ContractCategory\ContractCategoryVO.h" />
     <ClInclude Include="domain\vo\contracttype\ContractTypeExportVO.h" />
     <ClInclude Include="domain\vo\contracttype\ContractTypeUpdateResultVO.h" />
     <ClInclude Include="domain\vo\contracttype\ContractTypeVO.h" />

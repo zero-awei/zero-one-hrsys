@@ -47,5 +47,8 @@
     <ClInclude Include="domain\dto\Qualification\QualificationDTO.h" />
     <ClInclude Include="domain\vo\Qualification\QualificationVO.h" />
     <ClInclude Include="controller\ContractCategory\ContractCategoryController.h" />
+    <ClInclude Include="domain\dto\contractcategory\ContractCategoryDTO.h" />
+    <ClInclude Include="domain\query\contractcategory\ContractCategoryQuery.h" />
+    <ClInclude Include="domain\vo\ContractCategory\ContractCategoryVO.h" />
   </ItemGroup>
 </Project>

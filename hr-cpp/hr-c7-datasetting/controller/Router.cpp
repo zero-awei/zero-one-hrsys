@@ -29,6 +29,7 @@
 #include"Certificate/CertificateController.h"
 #include "archive/ArchiveController.h"
 #include "Qualification/QualificationController.h"
+#include "ContractCategory/ContractCategoryController.h"
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -59,6 +60,7 @@ ROUTER_SIMPLE_BIND(CertificateController);
 ROUTER_SIMPLE_BIND(ArchiveController);
 ROUTER_SIMPLE_BIND(ContractController);
 ROUTER_SIMPLE_BIND(QualificationController);
+ROUTER_SIMPLE_BIND(ContractCategoryController);
 }
 
 #ifdef HTTP_SERVER_DEMO
