@@ -23,6 +23,8 @@
 #include "domain/vo/BaseJsonVO.h"
 #include "domain/dto/pullList/PullListDTO.h"
 #include "domain/vo/pullList/PullListVO.h"
+#include "domain/dto/certs/CertTypeDTO.h"
+#include "domain/vo/certs/CertTypeVO.h"
 
 // 0 定义API控制器使用宏
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
@@ -43,7 +45,7 @@ public:
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("common.controller.certTypeList");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(CertTypeListJsonVO);
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/cert-type"), queryCertTypeList) {
@@ -51,7 +53,7 @@ public:
 		API_HANDLER_RESP_VO(execQueryCertTypeList());
 	}
 private:
-	PullListVO::Wrapper execQueryCertTypeList();
+	CertTypeListJsonVO::Wrapper execQueryCertTypeList();
 };
 
 // 0 取消API控制器使用宏

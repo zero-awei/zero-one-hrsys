@@ -88,6 +88,7 @@
     <ClInclude Include="dao\dismissReason\DismissReasonMapper.h" />
     <ClInclude Include="domain\do\declareType\DeclareTypeDO.h" />
     <ClInclude Include="domain\do\archivesLevel\ArchivesLevelDO.h" />
+    <ClInclude Include="domain\do\certs\CertTypeDO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
