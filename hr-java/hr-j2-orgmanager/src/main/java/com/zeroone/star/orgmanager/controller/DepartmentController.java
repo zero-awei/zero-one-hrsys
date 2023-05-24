@@ -1,5 +1,6 @@
 package com.zeroone.star.orgmanager.controller;
 
+import com.zeroone.star.orgmanager.service.ITOrmbmkqdzService;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.orgmanager.DepartmentDTO;
 import com.zeroone.star.project.dto.orgmanager.ExportDTO;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * <p>
@@ -51,11 +54,14 @@ public class DepartmentController implements DepartmentApis {
         return null;
     }
 
+    @Resource
+    private ITOrmbmkqdzService ormbmkqdzService;
+
     @ApiOperation(value = "更新部门考勤地址")
     @PutMapping(value = "update-attendance-address")
     @Override
     public JsonVO<String> modifyAttendanceAddress(OrmBmkqdzDTO ormBmkqdzDTO) {
-        return null;
+        return ormbmkqdzService.updateAttendanceAddress(ormBmkqdzDTO);
     }
 
 

@@ -54,7 +54,6 @@ public class OrmController implements OrgmanagerApis {
     @GetMapping("query-bm-kqdz-by-id")
     @Override
     public JsonVO<List<DeptKqdzVO>> queryBmKqdzById(KqdzQuery kqdzQuery) {
-
         List<DeptKqdzVO> deptKqdz = ormorginfoService.listBmKqdz(kqdzQuery);
         return JsonVO.success(deptKqdz);
     }
