@@ -21,7 +21,6 @@
     <ClCompile Include="service\projTag\ProjTagService.cpp" />
     <ClCompile Include="dao\projTag\ProjTagDAO.cpp" />
     <ClCompile Include="controller\orgbz\PageQueryBzController.cpp" />
-    <ClCompile Include="controller\projTag\queryOrgList\QueryOrgListController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -73,9 +72,5 @@
     <ClInclude Include="dao\projTag\ProjTagDAO.h" />
     <ClInclude Include="controller\orgbz\PageQueryBzController.h" />
     <ClInclude Include="domain\query\orgbz\PageBzQuery.h" />
-    <ClInclude Include="controller\projTag\queryOrgList\QueryOrgListController.h" />
-    <ClInclude Include="domain\query\projTag\OrgListQuery.h" />
-    <ClInclude Include="domain\vo\projTag\OrgListVO.h" />
-    <ClInclude Include="domain\dto\projTag\OrgListDTO.h" />
   </ItemGroup>
 </Project>
