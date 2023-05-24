@@ -4,7 +4,7 @@
     <ClCompile Include="controller\GoshController\TestController.cpp" />
     <ClCompile Include="controller\LaborDispatch\LaborDispatchConstroller.cpp" />
     <ClCompile Include="controller\Router.cpp" />
-    <ClCompile Include="controller\SelectController\retirement.cpp" />
+    <ClCompile Include="controller\retirementController\retirement.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="dao\Sample\ContractDao.cpp" />
@@ -18,6 +18,7 @@
     <ClCompile Include="dao\muggle\LaborDispatchDAO.cpp" />
     <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
     <ClCompile Include="controller\TerminationReminder\terminationReminder.cpp" />
+    <ClCompile Include="controller\ContractManagement\Contractmanagement.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -53,6 +54,8 @@
     <ClInclude Include="domain\query\muggle\laborDispatchQuery.h" />
     <ClInclude Include="controller\TerminationReminder\terminationReminder.h" />
     <ClInclude Include="domain\vo\RetirementVo\RetirementVo.h" />
+    <ClInclude Include="controller\ContractManagement\Contractmanagement.h" />
+    <ClInclude Include="domain\query\RetirementQuery\RetirementQuery.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />
@@ -94,7 +97,7 @@
     <ClInclude Include="controller\GoshController\TestController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
-    <ClInclude Include="controller\SelectController\retirement.h" />
+    <ClInclude Include="controller\retirementController\retirement.h" />
     <ClInclude Include="dao\Sample\ContractDao.h" />
     <ClInclude Include="dao\Sample\ContractMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />

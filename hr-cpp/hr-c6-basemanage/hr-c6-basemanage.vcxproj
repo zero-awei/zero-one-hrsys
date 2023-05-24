@@ -163,6 +163,7 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="controller\ContractManagement\Contractmanagement.cpp" />
     <ClCompile Include="controller\ExpenseLedge\ExpenseLedgeController.cpp" />
     <ClCompile Include="controller\JobTitleInfo\JobTitleInfoController.cpp" />
     <ClCompile Include="controller\ContractController\ContractController.cpp" />
@@ -170,7 +171,7 @@
     <ClCompile Include="controller\GoshController\TestController.cpp" />
     <ClCompile Include="controller\LaborDispatch\LaborDispatchConstroller.cpp" />
     <ClCompile Include="controller\Router.cpp" />
-    <ClCompile Include="controller\SelectController\retirement.cpp" />
+    <ClCompile Include="controller\retirementController\retirement.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\TerminationReminder\terminationReminder.cpp" />
     <ClCompile Include="main.cpp" />
@@ -183,6 +184,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="controller\ContractManagement\Contractmanagement.h" />
     <ClInclude Include="controller\ExpenseLedge\ExpenseLedgeController.h" />
     <ClInclude Include="controller\JobTitleInfo\JobTitleInfoController.h" />
     <ClInclude Include="controller\ContractController\ContractController.h" />
@@ -194,9 +196,10 @@
     <ClInclude Include="controller\TerminationReminder\terminationReminder.h" />
     <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
     <ClInclude Include="domain\dto\JobTitleInfo\JobTitleInfoDTO.h" />
+    <ClInclude Include="domain\query\RetirementQuery\RetirementQuery.h" />
     <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h" />
     <ClInclude Include="domain\vo\JobTitleInfo\JobTitleInfoVO.h" />
-    <ClInclude Include="controller\SelectController\retirement.h" />
+    <ClInclude Include="controller\retirementController\retirement.h" />
     <ClInclude Include="dao\Sample\ContractDao.h" />
     <ClInclude Include="dao\Sample\ContractMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />

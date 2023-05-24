@@ -10,7 +10,7 @@ JTQueryPageJsonVO::Wrapper JobTitleController::execQueryPage(const PageQuery::Wr
 	return Jvo;
 }
 
-JTQueryPageJsonVO::Wrapper JobTitleController::execQueryPageSB(const JobTitleQuery::Wrapper& query)
+JTQueryPageJsonVO::Wrapper JobTitleController::execQueryPageSB(const RetirementQuery::Wrapper& query)
 {
 	auto Dto = JobTitlePageDTO::createShared();
 	auto Jvo = JTQueryPageJsonVO::createShared();
