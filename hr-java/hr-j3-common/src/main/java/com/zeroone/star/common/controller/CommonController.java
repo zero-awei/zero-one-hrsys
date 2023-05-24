@@ -9,10 +9,7 @@ import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -111,21 +108,22 @@ public class CommonController implements CommonApis {
         return null;
     }
 
-    @GetMapping("list-common-discipline")
+    @GetMapping("query-common-discipline")
     @ApiOperation("获取学科下拉列表")
     @Override
     public JsonVO<List<String>> listDisciplineType(DisciplineTypeQuery discipline) {
         return null;
     }
 
-    @GetMapping("list-common-education")
+    @GetMapping("query-common-education")
     @ApiOperation("获取学历下拉列表")
     @Override
     public JsonVO<List<String>> listEducationType(EducationTypeQuery education) {
         return null;
     }
 
-    @PostMapping("Relationship")
+
+    @GetMapping("query-relationship")
     @ApiOperation("与本人关系列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryRelationship() {
@@ -143,6 +141,11 @@ public class CommonController implements CommonApis {
     @ApiOperation(("分配方式下拉列表"))
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryAllocation() {
+        return null;
+    }
+@GetMapping("query-language-type")
+@ApiOperation("语种类型下拉列表")
+    public JsonVO<List<DropdownListOptionDTO>> queryLanguageType() {
         return null;
     }
 }

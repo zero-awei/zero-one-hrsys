@@ -151,5 +151,11 @@ public interface CommonApis {
  */
     JsonVO<List<DropdownListOptionDTO>> queryAllocation();
 
-
+/**
+ *  语种类型下拉列表
+ * @return {@link JsonVO< List< DropdownListOptionDTO>>}
+ * @Author H_lzu
+ * @Date 22:09 2023/5/24
+ */
+    JsonVO<List<DropdownListOptionDTO>> queryLanguageType();
 }

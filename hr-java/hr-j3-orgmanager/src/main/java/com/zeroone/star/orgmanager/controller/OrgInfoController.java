@@ -74,7 +74,7 @@ public class OrgInfoController implements OrgInfoApis {
     }
 
     @PutMapping("add-org-info")
-    @ApiOperation("添加组织")
+    @ApiOperation("添加组织00")
     @Override
     public JsonVO<Boolean> addOryData(@RequestBody OrgInfoDTO orgInfoDTO) {
         return JsonVO.success(true);
