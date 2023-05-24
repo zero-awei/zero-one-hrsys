@@ -184,6 +184,7 @@
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\NotEmployeeInArchive\NotEmployeeInArchiveDO.h" />
     <ClInclude Include="domain\do\paperinfo\t_pimpaperDO.h" />
+    <ClInclude Include="domain\do\patentinfo\t_pimpatentDO.h" />
     <ClInclude Include="domain\do\pimpaper\pimpaperDO.h" />
     <ClInclude Include="domain\do\UpdateArchiveInfo\UpdateArchiveInfoDO.h" />
     <ClInclude Include="domain\dto\archivesCenter\ArchivesCenterDTO.h" />
