@@ -57,6 +57,12 @@ class PimarmycadresPageQuery : public PageQuery
 	DTO_FIELD_INFO(occurtime) {
 		info->description = ZH_WORDS_GETTER("pimarmycadres.field.occurtime");
 	}
+	
+	// ¸½¼þÂ·¾¶
+	DTO_FIELD(String, annexPath);
+	DTO_FIELD_INFO(annexPath) {
+		info->description = ZH_WORDS_GETTER("pimarmycadres.field.annexPath");
+	}
 
 	
 };

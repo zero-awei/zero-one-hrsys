@@ -69,6 +69,7 @@ public:
 		// 响应结果
 		API_HANDLER_RESP_VO(execQuerySample(userQuery, authObject->getPayload()));
 	}
+
 	// 3.1 定义新增接口描述
 	ENDPOINT_INFO(addSample) {
 		// 定义接口标题
@@ -81,6 +82,7 @@ public:
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddSample(dto));
 	}
+
 	// 3.1 定义修改接口描述
 	ENDPOINT_INFO(modifySample) {
 		// 定义接口标题
@@ -93,6 +95,7 @@ public:
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifySample(dto));
 	}
+
 	// 3.1 定义删除接口描述
 	ENDPOINT_INFO(removeSample) {
 		// 定义接口标题

@@ -53,6 +53,7 @@ public:
 		// 响应结果
 		API_HANDLER_RESP_VO(executeQueryAll(userQuery));
 	}
+	
 	// 定义文件上传端点描述
 	ENDPOINT_INFO(postFile) {
 		info->summary = ZH_WORDS_GETTER("user.file.summary");

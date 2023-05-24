@@ -200,6 +200,7 @@
     <ClInclude Include="domain\do\contract\ContractDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\military\MilitaryDO.h" />
+    <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresDO.h" />
     <ClInclude Include="domain\do\scientific\Scientific.h" />
     <ClInclude Include="domain\do\work-history\WorkHistoryDO.h" />
     <ClInclude Include="domain\do\work-history\WorkHistoryFindPageDO.h" />

@@ -282,6 +282,9 @@
     <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresPageQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

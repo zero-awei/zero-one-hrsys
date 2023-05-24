@@ -47,7 +47,7 @@ class PimarmycadresController : public oatpp::web::server::api::ApiController
 	API_ACCESS_DECLARE(PimarmycadresController);
 public: // 定义接口
 	//  定义查询接口描述
-	ENDPOINT_INFO(queryWorkHistory) {
+	ENDPOINT_INFO(queryPimarmycadres) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("pimarmycadres.get.summary");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
@@ -62,7 +62,7 @@ public: // 定义接口
 		info->queryParams["pimid"].required = false;
 	}
 	// 定义查询接口处理
-	ENDPOINT(API_M_GET, "/Pimarmycadres/select", queryWorkHistory, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/Pimarmycadres/select", queryPimarmycadres, QUERIES(QueryParams, qps)) {
 		//解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, PimarmycadresPageQuery, qps);
 		// 响应结果
@@ -83,14 +83,14 @@ public: // 定义接口
 	}
 
 	// 定义批量删除接口描述
-	ENDPOINT_INFO(delWorkHistory) {
+	ENDPOINT_INFO(delPimarmycadres) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("pimarmycadres.delete.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 定义批量删除接口处理
-	ENDPOINT(API_M_POST, "/Pimarmycadres/delete", delWorkHistory, BODY_DTO(DelPimarmycadresDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/Pimarmycadres/delete", delPimarmycadres, BODY_DTO(DelPimarmycadresDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execDelPimarmycadres(dto));
 	}
@@ -109,29 +109,7 @@ public: // 定义接口
 		API_HANDLER_RESP_VO(execIntoPimarmycadres(body, suffix));
 	}
 
-	//文件导出接口
-	/*ENDPOINT_INFO(exportPimarmycadres) {
-		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("pimarmycadres.export.summary");
-		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
-		//API_DEF_ADD_AUTH();
-		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-		// 定义分页参数描述
-		API_DEF_ADD_PAGE_PARAMS();
-		// 定义其他表单参数描述//
-		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("workhistory.field.pimpersonid");
-		info->queryParams["pimpersonid"].addExample("default", String("6611212223"));
-		info->queryParams["pimpersonid"].required = false;
-	}*/
 
-	// 定义查询接口处理
-	//ENDPOINT(API_M_GET, "/pimarmycadres/export", exportPimarmycadres, QUERIES(QueryParams, qps)) {
-		//解析导出参数（解析成领域模型对象）
-		//API_HANDLER_QUERY_PARAM(query, WorkHistoryExportQuery, qps);
-		// 响应结果
-		//API_HANDLER_RESP_VO(execExportWorkHistory(query));
-	//}
 
 
 private:
