@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: rice
- @Date: 2023/5/17 18:36:29
+ @Author: Andrew211vibe
+ @Date: 2023/05/24 18:22:04
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,31 +17,39 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _POSTDETAIL_QUERY_
-#define _POSTDETAIL_QUERY_
+#ifndef _ORGLISTQUERY_H_
+#define _ORGLISTQUERY_H_
 
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/**
- * 岗位设置 - 查询指定岗位详情Query
- */
-class PostDetailQuery : public PageQuery
+class OrgListQuery : public PageQuery
 {
-	DTO_INIT(PostDetailQuery, PageQuery);
-	// 查询岗位名称
-	DTO_FIELD(String, query);
-	DTO_FIELD_INFO(query) {
-		info->description = ZH_WORDS_GETTER("orgmanage.query.queryPostName");
+	DTO_INIT(OrgListQuery, PageQuery);
+	// 查询排序
+	DTO_FIELD(String, order);
+	DTO_FIELD_INFO(order) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.order");
 	}
-	// 排序类别:排序方式,(asc/desc)
-	DTO_FIELD(String, sort);
-	DTO_FIELD_INFO(sort) {
-		info->description = ZH_WORDS_GETTER("orgmanage.query.sortTypeAndMethod");
+	// 组织ID
+	DTO_FIELD(String, id);
+	DTO_FIELD_INFO(id) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.id");
+	}
+	// 组织名称
+	DTO_FIELD(String, name);
+	DTO_FIELD_INFO(name) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.name");
+	}
+	// 组织简称
+	DTO_FIELD(String, shortName);
+	DTO_FIELD_INFO(shortName) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.shortName");
 	}
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_POSTDETAIL_QUERY_
+
+#endif // !_ORGLISTQUERY_H_

@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: rice
- @Date: 2023/5/17 18:44:41
+ @Date: 2023/5/24 15:08:56
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,22 +17,23 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "PostQueryController.h"
-#include "../../../service/jobSet/postQueryService/PostQueryService.h"
+#ifndef _POSTQUERY_SERVICE_
+#define _POSTQUERY_SERVICE_
+#include <list>
+#include "domain/vo/postSet/PostDetailVO.h"
+#include "domain/query/postSet/PostDetailQuery.h"
+#include "domain/dto/postSet/PostDetailDTO.h"
 
-PostDetailPageJsonVO::Wrapper PostQueryController::execQueryByQuerySort(const PostDetailQuery::Wrapper& postDetailQuery)
+/**
+ * 岗位设置 - 查询指定岗位详情Service
+ * 负责人 : rice
+ */
+class PostQueryService
 {
-	PostQueryService postQueryService;
-	// 查询数据
-	auto result = postQueryService.listAll(postDetailQuery);
-	// 响应结果
-	auto jvo = PostDetailPageJsonVO::createShared();
-	if (result->rows->size() <= 0) {
-		jvo->fail(result);
-	}
-	else {
-		jvo->success(result);
-	}
-	return jvo;
-}
+public:
+	// 分页查询所有数据
+	PostDetailPageDTO::Wrapper listAll(const PostDetailQuery::Wrapper& query);
+};
+
+#endif // !_POSTQUERY_SERVICE_
+

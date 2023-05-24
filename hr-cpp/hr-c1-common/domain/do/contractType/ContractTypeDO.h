@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: rice
- @Date: 2023/5/17 18:44:41
+ @Author: yuanchen
+ @Date: 2023/05/23 21:46:57
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,22 +17,18 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "PostQueryController.h"
-#include "../../../service/jobSet/postQueryService/PostQueryService.h"
+#ifndef _CONSTRACTTYPEDO_H_
+#define _CONSTRACTTYPEDO_H_
 
-PostDetailPageJsonVO::Wrapper PostQueryController::execQueryByQuerySort(const PostDetailQuery::Wrapper& postDetailQuery)
+#include "../DoInclude.h"
+/**
+ * 合同类型下拉列表
+ * 负责人：yuanchen
+ */
+class ContractTypeDO
 {
-	PostQueryService postQueryService;
-	// 查询数据
-	auto result = postQueryService.listAll(postDetailQuery);
-	// 响应结果
-	auto jvo = PostDetailPageJsonVO::createShared();
-	if (result->rows->size() <= 0) {
-		jvo->fail(result);
-	}
-	else {
-		jvo->success(result);
-	}
-	return jvo;
-}
+	// 合同类型下拉列表--合同类型
+	CC_SYNTHESIZE(string, ContractType, ContractType);
+};
+
+#endif // !_DISMISSREASONDO_H_

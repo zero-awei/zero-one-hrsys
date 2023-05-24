@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: rice
- @Date: 2023/5/17 18:44:41
+ @Author: Andrew211vibe
+ @Date: 2023/05/24 19:35:39
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,22 +17,23 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "PostQueryController.h"
-#include "../../../service/jobSet/postQueryService/PostQueryService.h"
+#ifndef _ORGLISTVO_H_
+#define _ORGLISTVO_H_
 
-PostDetailPageJsonVO::Wrapper PostQueryController::execQueryByQuerySort(const PostDetailQuery::Wrapper& postDetailQuery)
+#include "../../GlobalInclude.h"
+#include "../../dto/projTag/OrgListDTO.h"
+
+#include OATPP_CODEGEN_BEGIN(DTO)
+
+/**
+ * 组织列表VO领域模型
+ * 负责人：Andrew
+ */
+class OrgListVO : public JsonVO<OrgListPageDTO::Wrapper>
 {
-	PostQueryService postQueryService;
-	// 查询数据
-	auto result = postQueryService.listAll(postDetailQuery);
-	// 响应结果
-	auto jvo = PostDetailPageJsonVO::createShared();
-	if (result->rows->size() <= 0) {
-		jvo->fail(result);
-	}
-	else {
-		jvo->success(result);
-	}
-	return jvo;
-}
+	DTO_INIT(OrgListVO, JsonVO<OrgListPageDTO::Wrapper>);
+};
+
+#include OATPP_CODEGEN_END(DTO)
+
+#endif // !_ORGLISTVO_H_

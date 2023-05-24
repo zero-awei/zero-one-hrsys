@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: rice
- @Date: 2023/5/17 18:44:41
+ @Date: 2023/5/24 16:54:22
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,22 +17,20 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "PostQueryController.h"
-#include "../../../service/jobSet/postQueryService/PostQueryService.h"
+#ifndef _POSTDELETEBATCH_VO_
+#define _POSTDELETEBATCH_VO_
 
-PostDetailPageJsonVO::Wrapper PostQueryController::execQueryByQuerySort(const PostDetailQuery::Wrapper& postDetailQuery)
-{
-	PostQueryService postQueryService;
-	// 查询数据
-	auto result = postQueryService.listAll(postDetailQuery);
-	// 响应结果
-	auto jvo = PostDetailPageJsonVO::createShared();
-	if (result->rows->size() <= 0) {
-		jvo->fail(result);
-	}
-	else {
-		jvo->success(result);
-	}
-	return jvo;
-}
+#include "../../GlobalInclude.h"
+#include "../../dto/postSet/PostDeleteDTO.h"
+
+#include OATPP_CODEGEN_BEGIN(DTO)
+
+/**
+ * 删除多个岗位VO
+ */
+class PostDeleteBatchJsonVO : public JsonVO<PostDeleteBatchDTO::Wrapper> {
+	DTO_INIT(PostDeleteBatchJsonVO, JsonVO<PostDeleteBatchDTO::Wrapper>);
+};
+
+#include OATPP_CODEGEN_END(DTO)
+#endif // !_POSTDELETEBATCH_VO_

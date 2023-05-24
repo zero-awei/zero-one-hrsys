@@ -1,8 +1,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: rice
- @Date: 2023/5/17 18:44:41
+ @Author: Andrew211vibe
+ @Date: 2023/05/24 17:58:45
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,21 +17,19 @@
  limitations under the License.
 */
 #include "stdafx.h"
-#include "PostQueryController.h"
-#include "../../../service/jobSet/postQueryService/PostQueryService.h"
+#include "QueryOrgListController.h"
 
-PostDetailPageJsonVO::Wrapper PostQueryController::execQueryByQuerySort(const PostDetailQuery::Wrapper& postDetailQuery)
+OrgListVO::Wrapper QueryOrgListController::execQueryOrgList(const OrgListQuery::Wrapper& query)
 {
-	PostQueryService postQueryService;
-	// 查询数据
-	auto result = postQueryService.listAll(postDetailQuery);
-	// 响应结果
-	auto jvo = PostDetailPageJsonVO::createShared();
-	if (result->rows->size() <= 0) {
-		jvo->fail(result);
+	auto vo = OrgListVO::createShared();
+
+	auto dto = OrgListPageDTO::createShared();
+	for (int i = 0; i < 3; i++)
+	{
+		auto item = OrgListDTO::createShared();
+		dto->rows->push_back(item);
 	}
-	else {
-		jvo->success(result);
-	}
-	return jvo;
+
+	vo->success(dto);
+	return vo;
 }
