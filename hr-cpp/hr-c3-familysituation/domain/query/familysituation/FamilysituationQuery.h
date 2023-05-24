@@ -32,9 +32,8 @@
 class FamilysituationQuery : public PageQuery
 {
 	DTO_INIT(FamilysituationQuery, PageQuery);
-	//编号
-	API_DTO_FIELD_DEFAULT(UInt64, id, "ID");
-
+	//员工编号
+	API_DTO_FIELD_DEFAULT(String, id, "ID");
 	//关系
 	API_DTO_FIELD_DEFAULT(String, frelationship, ZH_WORDS_GETTER("familysituation.field.relationship"));
 	//姓名
