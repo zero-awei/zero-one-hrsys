@@ -14,11 +14,11 @@ const routes = [
       },
       {
         path: '/sample/sass',
-        component: () => import('@/views/sample/sassTest/SassSample.vue')
+        component: () => import('@/views/sample/SassTest/SassSample.vue')
       },
       {
         path: '/sample/communication',
-        component: () => import('@/views/sample/communication/Index.vue')
+        component: () => import('@/views/sample/Communication/index.vue')
       },
       {
         path: '/sample/tablehead',

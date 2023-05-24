@@ -1,32 +1,28 @@
 <template>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link
-    href="https://cdn.bootcss.com/font-awesome/5.8.0/css/all.css"
-    rel="stylesheet"
-  />
-  <!-- 引用外来网站的“搜索图标”，不再使用url -->
   <div class="search-container">
-    <input class="search-input" type="text" placeholder="姓名，员工职位" />
-    <a class="search-icon" href="#">
-      <i class="fas fa-search"></i>
-    </a>
+    <input
+      class="search-input"
+      type="text"
+      placeholder="姓名，员工职位"
+      v-model="val"
+    />
+    <el-icon :size="20" color="#ccc" @click="filterData"><Search /></el-icon>
   </div>
 </template>
 
 <script setup>
-const searchInput = document.querySelector('.search-input')
-const searchIcon = document.querySelector('.search-icon')
-
-searchIcon.addEventListener('click', () => {
-  const searchText = searchInput.value.trim()
-  filterData(searchText)
+const props = defineProps({
+  filter: {
+    type: Function,
+    default: () => {}
+  }
 })
 
-function filterData(searchText) {
+let val = ref('')
+
+function filterData() {
   // 这里是筛选逻辑
-  console.log(`正在搜索：${searchText}`)
+  props.filter(val.value.trim())
   // 在这里根据搜索内容对数据进行筛选，并执行相应的操作
 }
 </script>
@@ -34,7 +30,6 @@ function filterData(searchText) {
 <style lang="scss" scoped>
 .search-container {
   display: flex;
-  float: right;
   align-items: center;
   width: 300px;
   height: 40px;
