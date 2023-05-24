@@ -84,6 +84,10 @@ const menus = reactive([
     text: '打印演示'
   },
   {
+    path: '/sample/edit',
+    text: '信息编辑页'
+  },
+  {
     path: '/sample/sass',
     text: 'sass演示'
   },

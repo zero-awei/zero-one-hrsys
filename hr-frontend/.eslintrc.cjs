@@ -23,4 +23,7 @@ module.exports = {
         'vue/setup-compiler-macros': true,
         'node': true,
     },
+    globals: {
+        NodeJS: 'readonly'
+    }
 }

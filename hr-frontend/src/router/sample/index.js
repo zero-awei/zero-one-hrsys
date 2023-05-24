@@ -39,6 +39,10 @@ const routes = [
       {
         path: '/sample/process',
         component: () => import('@/views/sample/process/ProcessDemo.vue')
+      },
+      {
+        path: '/sample/edit',
+        component: () => import('@/views/sample/edit/Edit.vue')
       }
     ]
   }
