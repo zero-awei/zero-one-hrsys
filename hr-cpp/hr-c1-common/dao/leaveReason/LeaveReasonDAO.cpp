@@ -1,9 +1,8 @@
-#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: Andrew211vibe
- @Date: 2023/05/17 22:56:57
+ @Author: yuanxiang
+ @Date: 2023/05/23 15:50:51
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,20 +16,13 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _PULLLISTVO_H_
-#define _PULLLISTVO_H_
+#include "stdafx.h"
+#include "LeaveReasonDAO.h"
+#include "dao/leaveReason/LeaveReasonMapper.h"
 
-#include "../../GlobalInclude.h"
-#include "../../dto/pullList/PullListDTO.h"
-
-#include OATPP_CODEGEN_BEGIN(DTO)
-
-class PullListVO : public JsonVO<PullListDTO::Wrapper>
+std::list<LeaveReasonDO> LeaveReasonDAO::queryLeaveReasonList()
 {
-	DTO_INIT(PullListVO, JsonVO<PullListDTO::Wrapper>);
-};
-
-
-#include OATPP_CODEGEN_END(DTO)
-
-#endif // !_PULLLISTVO_H_
+	string sql = "SELECT DISTINCT PCMREASONNAME, PX FROM t_pcmreason";
+	LeaveReasonMapper mapper;
+	return sqlSession->executeQuery<LeaveReasonDO, LeaveReasonMapper>(sql, mapper);
+}

@@ -1,9 +1,8 @@
 #pragma once
 /*
  Copyright Zero One Star. All rights reserved.
-
- @Author: Andrew211vibe
- @Date: 2023/05/23 23:42:52
+ @Author: yuanxiang
+ @Date: 2023/05/23 11:30:22
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,16 +16,22 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _ARMYLEVELTYPEDAO_H_
-#define _ARMYLEVELTYPEDAO_H_
 
+#ifndef _DISMISSREASONDAO_H_
+#define _DISMISSREASONDAO_H_
 #include "BaseDAO.h"
+#include "domain/do/dismissReason/DismissReasonDO.h"
 
-class ArmyLevelTypeDAO : public BaseDAO
-{
+
+/**
+ * 解聘原因DAO
+ * 负责人：远翔
+ */
+class DismissReasonDAO : public BaseDAO{
 public:
-	// 查询数据
-	//list<ArmyLevelTypeDO> selectWithPage();
+	// 查询列表
+	std::list<DismissReasonDO> queryDismissReasonList();
 };
 
-#endif // !_ARMYLEVELTYPEDAO_H_
+
+#endif // !_DISMISSREASONDAO_H_

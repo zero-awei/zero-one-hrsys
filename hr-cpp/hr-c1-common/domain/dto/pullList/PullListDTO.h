@@ -35,7 +35,7 @@ class ItemDTO : public oatpp::DTO
 	DTO_FIELD_INFO(key) {
 		info->description = ZH_WORDS_GETTER("common.dto.code");
 	}
-	DTO_FIELD(String, key);
+	DTO_FIELD(UInt32, key);
 	// 对应值
 	DTO_FIELD_INFO(val) {
 		info->description = ZH_WORDS_GETTER("common.dto.value");
@@ -49,7 +49,7 @@ public:
 		val = "null";
 	}
 
-	ItemDTO(Int32 k, String v)
+	ItemDTO(UInt32 k, String v)
 	{
 		key = k;
 		val = v;

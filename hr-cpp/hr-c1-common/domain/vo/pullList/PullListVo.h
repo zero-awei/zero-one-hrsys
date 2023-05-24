@@ -25,6 +25,10 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
+/**
+ * 下拉列表VO领域模型
+ * 负责人：Andrew
+ */
 class PullListVO : public JsonVO<PullListDTO::Wrapper>
 {
 	DTO_INIT(PullListVO, JsonVO<PullListDTO::Wrapper>);

@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "ArmyLevelTypeDAO.h"
 
-std::list<ArmyLevelTypeDO> ArmyLevelTypeDAO::selectWithPage()
-{
-	
-}
+//std::list<ArmyLevelTypeDO> ArmyLevelTypeDAO::selectWithPage()
+//{
+//	
+//}

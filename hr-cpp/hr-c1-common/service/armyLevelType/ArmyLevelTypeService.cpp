@@ -41,7 +41,10 @@ PullListDTO::Wrapper ArmyLevelTypeService::listAll()
 	else
 	{
 		for (auto item : hash)
-			dto->pullList->push_back(ItemDTO::createShared(item.first, item.second));
+		{
+			int code = atoi(item.first.c_str());
+			dto->pullList->push_back(ItemDTO::createShared(code, item.second));
+		}
 	}
 	return dto;
 }

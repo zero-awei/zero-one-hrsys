@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: Andrew211vibe
- @Date: 2023/05/23 23:42:52
+ @Author: yuanxiang
+ @Date: 2023/05/23 11:03:40
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,16 +17,20 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _ARMYLEVELTYPEDAO_H_
-#define _ARMYLEVELTYPEDAO_H_
+#ifndef _DISMISSREASONSERVICE_H_
+#define _DISMISSREASONSERVICE_H_
+#include "domain/do/dismissReason/DismissReasonDO.h"
+#include "domain/dto/pullList/PullListDTO.h"
 
-#include "BaseDAO.h"
-
-class ArmyLevelTypeDAO : public BaseDAO
+/**
+ * 解聘原因下拉列表Service
+ * 负责人：远翔
+ */
+class DismissReasonService
 {
 public:
-	// 查询数据
-	//list<ArmyLevelTypeDO> selectWithPage();
+	// 查询下拉列表数据
+	PullListDTO::Wrapper listAll();
 };
 
-#endif // !_ARMYLEVELTYPEDAO_H_
+#endif // !_DISMISSREASONSERVICE_H_

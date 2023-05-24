@@ -49,12 +49,12 @@ std::unordered_map<std::string, std::string> UseLibRedis::queryRedis(const strin
 		return 1;
 	});*/
 
-	std::unordered_map<std::string, std::string> m;
+	std::unordered_map<std::string, std::string> hash;
 	rc.execute<int>([&](Redis* redis) {
-		redis->hgetall(key, std::inserter(m, m.begin()));
+		redis->hgetall(key, std::inserter(hash, hash.begin()));
 		return 1;
 	});
-	return m;
+	return hash;
 }
 
 void UseLibRedis::updateRedis(const std::unordered_map<std::string, std::string> &m)
