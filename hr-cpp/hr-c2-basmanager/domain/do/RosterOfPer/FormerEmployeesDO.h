@@ -26,30 +26,28 @@
  */
 class FormerEmployeesDO
 {
-	// 离职信息ID，主键，供其他表做外键
-	CC_SYNTHESIZE(uint64_t, LEAVINGANALYSIS_ID, LEAVINGANALYSIS_ID);
 	// 员工基本信息表ID,同员工ID
-	CC_SYNTHESIZE(uint64_t, PIMPERSONNAME, PIMPERSONNAME);
+	CC_SYNTHESIZE(uint64_t, ygbh, ygbh);
 	// 姓名
-	CC_SYNTHESIZE(string, EMPLOYEENAME, EMPLOYEENAME);
+	CC_SYNTHESIZE(string, pimperSonName, pimperSonName);
 	// 性别
-	CC_SYNTHESIZE(string, XB, XB);
+	CC_SYNTHESIZE(string, sex, sex);
 	// 手机号码
-	CC_SYNTHESIZE(string, LXDH, LXDH);
+	CC_SYNTHESIZE(string, lxdh, lxdh);
 	// 出生日期
-	CC_SYNTHESIZE(int, CSRQ, CSRQ);
+	CC_SYNTHESIZE(string, csrq, csrq);
 	// 组织
-	CC_SYNTHESIZE(string, ORGANIZATION_NAME, ORGANIZATION_NAME);
+	CC_SYNTHESIZE(string, organizationName, organizationName);
 	// 部门
-	CC_SYNTHESIZE(string, BM, BM);
+	CC_SYNTHESIZE(string, bm, bm);
 	// 职级
-	CC_SYNTHESIZE(string, RANK, RANK);
+	CC_SYNTHESIZE(string, rank, rank);
 	// 通讯地址
-	CC_SYNTHESIZE(string, POSTALADDRESS, POSTALADDRESS);
+	CC_SYNTHESIZE(string, postalAddress, postalAddress);
 	// 家庭联系人
-	CC_SYNTHESIZE(string, JTLXR, JTLXR);
+	CC_SYNTHESIZE(string, jtlxr, jtlxr);
 	// 家庭联系人电话
-	CC_SYNTHESIZE(string, JTLXRDH, JTLXRDH);
+	CC_SYNTHESIZE(string, jtlxrdh, jtlxrdh);
 	
 public:
 	FormerEmployeesDO() {}
