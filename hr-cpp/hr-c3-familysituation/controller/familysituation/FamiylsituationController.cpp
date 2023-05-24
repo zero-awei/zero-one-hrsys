@@ -23,7 +23,20 @@ FamilysituationJsonVO::Wrapper FamilysituationController::execOneQueryFamilysitu
 StringJsonVO::Wrapper FamilysituationController::execAddFamilysituation(const FamilysituationDTO::Wrapper& dto)
 {
 	auto vo = StringJsonVO::createShared();
-	vo->success("add success");
+	// 参数校验
+	// 非空校验
+	if (!dto->frelationship || !dto->name)
+	{
+		vo->init(String(""), RS_PARAMS_INVALID);
+		return vo;
+	}
+	// 有效值校验
+	if (dto->frelationship->empty() || dto->name->empty())
+	{
+		vo->init(String(""), RS_PARAMS_INVALID);
+		return vo;
+	}
+	vo->success(dto->name);
 	return vo;
 }
 
@@ -31,6 +44,12 @@ StringJsonVO::Wrapper FamilysituationController::execAddFamilysituation(const Fa
 StringJsonVO::Wrapper FamilysituationController::execModifyFamilysituation(const FamilysituationDTO::Wrapper& dto)
 {
 	auto vo = StringJsonVO::createShared();
+	// 有效值校验
+	if (dto->frelationship->empty() || dto->name->empty())
+	{
+		vo->init(String(""), RS_PARAMS_INVALID);
+		return vo;
+	}
 	vo->success(dto->name);
 	return vo;
 }
@@ -39,6 +58,12 @@ StringJsonVO::Wrapper FamilysituationController::execModifyFamilysituation(const
 StringJsonVO::Wrapper FamilysituationController::execRemoveFamilysituation(const FamilysituationDTO::Wrapper& dto)
 {
 	auto vo = StringJsonVO::createShared();
+	// 有效值校验
+	if (dto->frelationship->empty() || dto->name->empty())
+	{
+		vo->init(String(""), RS_PARAMS_INVALID);
+		return vo;
+	}
 	vo->success(dto->name);
 	return vo;
 }
