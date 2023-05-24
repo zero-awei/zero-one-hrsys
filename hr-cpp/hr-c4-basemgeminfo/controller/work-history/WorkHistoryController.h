@@ -134,7 +134,7 @@ public: // 定义接口
 		//API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("workhistory.field.pimpersonid");
-		info->queryParams["pimpersonid"].addExample("default", String("6611212223"));
+		info->queryParams["pimpersonid"].addExample("default", String("1002"));
 		info->queryParams["pimpersonid"].required = false;
 	}
 	// 定义导出接口处理

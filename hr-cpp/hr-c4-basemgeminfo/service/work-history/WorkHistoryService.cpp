@@ -7,6 +7,7 @@
 #include "domain/do/work-history/WorkHistoryIntoDO.h"
 #include "SnowFlake.h"
 #include "SimpleDateTimeFormat.h"
+#include "FastDfsClient.h"
 
 WorkHistoryDTO::Wrapper WorkHistoryService::listDetail(const WorkHistoryQuery::Wrapper& query)
 {
@@ -175,4 +176,96 @@ uint64_t WorkHistoryService::saveManyData(const String& fileBody, const String& 
 	}
 
 	//执行添加逻辑
+}
+
+std::string WorkHistoryService::exportData(const WorkHistoryExportQuery::Wrapper& query)
+{
+
+	// 创建测试数据(实际是把数据库的数据放进来)
+
+
+	WorkHistoryDAO dao;
+	auto listData = dao.selectAllData(query);
+	std::vector<std::vector<std::string>> datas;
+	//构建表头
+	std::vector<std::string> rowHead;
+	rowHead.push_back(CharsetConvertHepler::ansiToUtf8("任职开始时间"));
+	rowHead.push_back(CharsetConvertHepler::ansiToUtf8("任职结束时间"));
+	rowHead.push_back(CharsetConvertHepler::ansiToUtf8("工作单位"));
+	rowHead.push_back(CharsetConvertHepler::ansiToUtf8("部门"));
+	rowHead.push_back(CharsetConvertHepler::ansiToUtf8("职务"));
+	rowHead.push_back(CharsetConvertHepler::ansiToUtf8("岗位"));
+	rowHead.push_back(CharsetConvertHepler::ansiToUtf8("兼职借调类型"));
+	rowHead.push_back(CharsetConvertHepler::ansiToUtf8("是否主要经历"));
+	datas.push_back(rowHead);
+
+
+	//插入数据到Excel中
+	for (auto row : listData)
+	{
+		std::vector<std::string> vecStr(row.WorkHistoryToVector());
+		datas.push_back(vecStr);
+	}
+
+	std::stringstream ss;
+	ss << "public/static/Excel/";
+
+	// 计算时间戳
+	auto now = std::chrono::system_clock::now();
+	auto tm_t = std::chrono::system_clock::to_time_t(now);
+	ss << std::put_time(std::localtime(&tm_t), "%Y%m%d%H%M%S");
+	// 获取毫秒
+	auto tSeconds = std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch());
+	auto tMilli = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
+	auto ms = tMilli - tSeconds;
+	ss << std::setfill('0') << std::setw(3) << ms.count();
+	// 拼接后缀名
+	ss << ".xlsx";
+
+	std::string fileName = ss.str();
+	// 注意：因为xlnt不能存储非utf8编码的字符，所以中文字需要转换编码
+	std::string sheetName = CharsetConvertHepler::ansiToUtf8("工作履历表");
+
+	// 保存到文件
+	ExcelComponent excel;
+	excel.writeVectorToFile(fileName, sheetName, datas);
+
+	//测试是否有数据
+	// 从文件中读取
+	//auto readData = excel.readIntoVector(fileName, sheetName);
+	//for (auto row : readData)
+	//{
+	//	//判断文件中是否有数据
+	//	for (int j = 0; j < row.size(); ++j)
+	//	{
+	//		cout << CharsetConvertHepler::utf8ToAnsi(row[j]) << "   ";
+	//	}
+	//	cout << endl;
+	//}
+
+	// 文件名称
+	//std::string fileName = ss.str();
+	// 保存文件到目录
+	//String fileBody;
+	//fileBody.saveToFile(fileName.c_str());
+
+
+	// 测试上传到FastDFS文件服务器
+#ifdef LINUX
+	//定义客户端对象
+	FastDfsClient client("conf/client.conf", 3);
+#else
+	//定义客户端对象
+	FastDfsClient client("192.168.80.129");
+#endif
+	std::string fieldName = client.uploadFile(fileName);
+	std::cout << "upload fieldname is : " << fieldName << std::endl;
+	ss.str("");
+	ss.clear();
+	ss << "http://192.168.80.129:8888/" << fieldName;
+
+
+	cout << ss.str() << endl;
+
+	return ss.str();
 }

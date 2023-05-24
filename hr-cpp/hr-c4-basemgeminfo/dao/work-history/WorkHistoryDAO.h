@@ -28,6 +28,7 @@
 #include "../../domain/do/work-history/WorkHistoryDO.h"
 #include "../../domain/query/work-history/WorkHistoryQuery.h"
 #include "domain/do/work-history/AddWorkHistoryDO.h"
+#include "domain/query/work-history/WorkHistoryExportQuery.h"
 
 class WorkHistoryDAO : public BaseDAO
 {
@@ -45,7 +46,8 @@ public:
 	int deleteById(std::string pimpersonid, std::string pimworkhistoryid);
 
 
-
+	//查询数据，把查询的数据填入Excel中
+	list<WorkHistoryFindDO> selectAllData(const WorkHistoryExportQuery::Wrapper& query);
 
 
 

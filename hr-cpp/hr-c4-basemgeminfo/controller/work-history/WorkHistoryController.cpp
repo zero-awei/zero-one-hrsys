@@ -98,7 +98,7 @@ StringJsonVO::Wrapper WorkHistoryController::execIntoWorkHistory(const String& b
 	auto jvo = StringJsonVO::createShared();
 	if (!pimpersonid || !body || !suffix)
 	{
-		jvo->fail("导入失败");
+		jvo->fail("导入失败,文件为空");
 	}
 	if (pimpersonid->empty() || body->empty() ||suffix->empty())
 	{
@@ -113,86 +113,17 @@ StringJsonVO::Wrapper WorkHistoryController::execIntoWorkHistory(const String& b
 StringJsonVO::Wrapper WorkHistoryController::execExportWorkHistory(const WorkHistoryExportQuery::Wrapper& query)
 {
 	auto vo = StringJsonVO::createShared();
+	WorkHistoryService service;
 
-	// 创建测试数据(实际是把数据库的数据放进来)
-	vector<vector<std::string>> data;
-	stringstream ss1;
-	for (int i = 1; i <= 10; i++)
-	{
-		vector<std::string> row;
-		for (int j = 1; j <= 5; j++)
-		{
-			ss1.clear();
-			// 注意：因为xlnt不能存储非utf8编码的字符，所以中文字需要转换编码
-			ss1
-				<< CharsetConvertHepler::ansiToUtf8("单元格坐标：(") << i
-				<< CharsetConvertHepler::ansiToUtf8(",") << j << ")";
-			row.push_back(ss1.str());
-			ss1.str("");
-		}
-		data.push_back(row);
-	}
-
-	std::stringstream ss;
-	ss << "public/static/Excel/";
-
-	// 计算时间戳
-	auto now = std::chrono::system_clock::now();
-	auto tm_t = std::chrono::system_clock::to_time_t(now);
-	ss << std::put_time(std::localtime(&tm_t), "%Y%m%d%H%M%S");
-	// 获取毫秒
-	auto tSeconds = std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch());
-	auto tMilli = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
-	auto ms = tMilli - tSeconds;
-	ss << std::setfill('0') << std::setw(3) << ms.count();
-	// 拼接后缀名
-	ss << ".csv";
-
-	std::string fileName = ss.str();
-	// 注意：因为xlnt不能存储非utf8编码的字符，所以中文字需要转换编码
-	std::string sheetName = CharsetConvertHepler::ansiToUtf8("工作履历表");
-
-	// 保存到文件
-	ExcelComponent excel;
-	excel.writeVectorToFile(fileName, sheetName, data);
-
-	//测试是否有数据
-	// 从文件中读取
-	auto readData = excel.readIntoVector(fileName, sheetName);
-	for (auto row : readData)
-	{
-		//判断文件中是否有数据
-		for (int j = 0; j < row.size(); ++j)
-		{
-			cout << CharsetConvertHepler::utf8ToAnsi(row[j]) << "   ";
-		}
-		cout << endl;
-	}
-
-	// 文件名称
-	//std::string fileName = ss.str();
-	// 保存文件到目录
-	//String fileBody;
-	//fileBody.saveToFile(fileName.c_str());
-
+	std::string filaName= service.exportData(query);
 	
-	// 测试上传到FastDFS文件服务器
-#ifdef LINUX
-	//定义客户端对象
-	FastDfsClient client("conf/client.conf", 3);
-#else
-	//定义客户端对象
-	FastDfsClient client("192.168.80.129");
-#endif
-	std::string fieldName = client.uploadFile(fileName);
-	std::cout << "upload fieldname is : " << fieldName << std::endl;
-	ss.str("");
-	ss.clear();
-	ss << "http://192.168.80.129:8888/" << fieldName;
+	if (filaName.empty())
+	{
+		vo->fail("导出失败");
+	}
 
+	vo->success(filaName);
 
-	cout << ss.str() << endl;
-	vo->success(u8"导出成功");
 	return vo;
 }
 

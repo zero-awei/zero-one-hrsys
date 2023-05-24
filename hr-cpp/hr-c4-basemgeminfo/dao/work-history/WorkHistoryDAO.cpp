@@ -96,6 +96,25 @@ int WorkHistoryDAO::deleteById(std::string pimpersonid, std::string pimworkhisto
 	return sqlSession->executeUpdate(sql, "%s%s", pimpersonid, pimworkhistoryid);
 }
 
+std::list<WorkHistoryFindDO> WorkHistoryDAO::selectAllData(const WorkHistoryExportQuery::Wrapper& query)
+{
+	stringstream sql;
+	sql << "select RZKSSJ, RZJSSJ, ORMORGNAME, ORMORGSECTORNAME, \
+		ORMDUTYNAME, ORMPOSTNAME, CFPLX, EXPERIENCE, PIMWORKHISTORYID, PIMPERSONID from `t_pimworkhistory`";
+	SAMPLE_TERAM_PARSE(query, sql);
+	WorkHistoryPageMapper mapper;
+	std::string sqlStr = sql.str();
+	return sqlSession->executeQuery<WorkHistoryFindDO, WorkHistoryPageMapper>(sqlStr, mapper, params);
+}
+
+
+
+
+
+
+
+
+
 list<WorkHistoryDO> WorkHistoryDAO::selectDetail(const WorkHistoryQuery::Wrapper& query)
 {
 	stringstream sql;

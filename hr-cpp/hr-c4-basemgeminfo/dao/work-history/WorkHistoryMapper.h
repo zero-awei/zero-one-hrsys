@@ -37,7 +37,7 @@ public:
 		data.setrZKSSJ(resultSet->getString(1));
 		data.setrZJSSJ(resultSet->getString(2));
 		data.setoRMORGNAME(resultSet->getString(3));
-		data.setoRMORGNAME(resultSet->getString(4));
+		data.setoRMORGSECTORNAME(resultSet->getString(4));
 		data.setoRMDUTYNAME(resultSet->getString(5));
 		data.setoRMPOSTNAME(resultSet->getString(6));
 		data.setcFPLX(resultSet->getString(7));

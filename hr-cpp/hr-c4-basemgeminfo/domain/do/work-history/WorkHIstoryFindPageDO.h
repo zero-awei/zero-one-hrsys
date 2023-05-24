@@ -55,6 +55,16 @@ class WorkHistoryFindDO
 	//10人员信息id
 	CC_SYNTHESIZE(std::string, PIMPERSONID, pIMPERSONID);
 
+public:
+	std::vector<std::string> WorkHistoryToVector()
+	{
+		std::vector<std::string> vecStr{ this->getrZKSSJ(), this->getrZJSSJ(),\
+			this->getoRMORGNAME(), this->getoRMORGSECTORNAME(),this->getoRMDUTYNAME(),\
+			this->getoRMPOSTNAME(), this->getcFPLX(), to_string(this->geteXPERIENCE()) };
+
+		return vecStr;
+	}
+
 };
 
 #endif // !_WORKHISTORYFINDPAGEDO_H_
