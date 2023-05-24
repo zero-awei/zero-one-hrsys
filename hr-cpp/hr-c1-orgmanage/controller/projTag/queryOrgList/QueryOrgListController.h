@@ -25,6 +25,7 @@
 #include "ServerInfo.h"
 #include "ApiHelper.h"
 #include "domain/query/projTag/OrgListQuery.h"
+#include "domain/vo/projTag/OrgListVO.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
@@ -40,9 +41,13 @@ class QueryOrgListController : public oatpp::web::server::api::ApiController
 public: // 定义接口
 	ENDPOINT_INFO(queryOrgList) {
 		info->summary = ZH_WORDS_GETTER("projTag.orgList.summary");
-		API_DEF_ADD_RSP_JSON_WRAPPER();
+		API_DEF_ADD_RSP_JSON_WRAPPER(OrgListVO);
 		API_DEF_ADD_PAGE_PARAMS();
-
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		API_DEF_ADD_QUERY_PARAMS(String, "order", ZH_WORDS_GETTER("projTag.orgList.order"), "ASC", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("projTag.orgList.id"), "tag114514", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("projTag.orgList.name"), "test tag", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "shortName", ZH_WORDS_GETTER("projTag.orgList.shortName"), "org114514", false);
 	}
 
 	ENDPOINT(API_M_GET, PATH_TO_PROJTAG("/query-org-page"), queryOrgList, QUERIES(QueryParams,qps)) {
@@ -50,7 +55,7 @@ public: // 定义接口
 		API_HANDLER_RESP_VO(execQueryOrgList(query));
 	}
 private: // 定义接口执行函数
-	void execQueryOrgList(const OrgListQuery::Wrapper &query);
+	OrgListVO::Wrapper execQueryOrgList(const OrgListQuery::Wrapper &query);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

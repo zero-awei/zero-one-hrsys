@@ -38,6 +38,16 @@ class OrgListQuery : public PageQuery
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("projTag.orgList.id");
 	}
+	// 组织名称
+	DTO_FIELD(String, name);
+	DTO_FIELD_INFO(name) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.name");
+	}
+	// 组织简称
+	DTO_FIELD(String, shortName);
+	DTO_FIELD_INFO(shortName) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.shortName");
+	}
 };
 
 #include OATPP_CODEGEN_END(DTO)

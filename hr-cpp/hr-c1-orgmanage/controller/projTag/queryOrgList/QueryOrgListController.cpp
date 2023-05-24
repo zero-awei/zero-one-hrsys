@@ -19,3 +19,17 @@
 #include "stdafx.h"
 #include "QueryOrgListController.h"
 
+OrgListVO::Wrapper QueryOrgListController::execQueryOrgList(const OrgListQuery::Wrapper& query)
+{
+	auto vo = OrgListVO::createShared();
+
+	auto dto = OrgListPageDTO::createShared();
+	for (int i = 0; i < 3; i++)
+	{
+		auto item = OrgListDTO::createShared();
+		dto->rows->push_back(item);
+	}
+
+	vo->success(dto);
+	return vo;
+}

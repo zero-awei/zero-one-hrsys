@@ -25,6 +25,10 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
+/**
+ * 组织列表VO领域模型
+ * 负责人：Andrew
+ */
 class OrgListVO : public JsonVO<OrgListPageDTO::Wrapper>
 {
 	DTO_INIT(OrgListVO, JsonVO<OrgListPageDTO::Wrapper>);
