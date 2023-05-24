@@ -177,6 +177,7 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\typeContract\TypeContractListController.h" />
+    <ClInclude Include="dao\armyLevelType\ArmyLevelTypeDAO.h" />
     <ClInclude Include="domain\do\certs\ProCertsDO.h" />
     <ClInclude Include="domain\do\costTypeList\CostType.h" />
     <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
@@ -202,7 +203,9 @@
     <ClInclude Include="domain\vo\pullList\PullListVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\armyLevelType\ArmyLevelTypeService.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\pullListRedis\UseLibRedis.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\archivesLevel\ArchivesLevelsController.cpp" />
@@ -223,13 +226,16 @@
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\typeContract\TypeContractListController.cpp" />
+    <ClCompile Include="dao\armyLevelType\ArmyLevelTypeDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\armyLevelType\ArmyLevelTypeService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="uselib\pullListRedis\UseLibRedis.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\lib-common\lib-common.vcxproj">

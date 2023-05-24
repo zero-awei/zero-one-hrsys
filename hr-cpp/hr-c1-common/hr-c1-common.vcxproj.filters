@@ -21,6 +21,9 @@
     <ClCompile Include="controller\auditstatusController.h\AuditstatusController.cpp" />
     <ClCompile Include="controller\typeContract\TypeContractListController.cpp" />
     <ClCompile Include="controller\contractType\ContractTypeController.cpp" />
+    <ClCompile Include="service\armyLevelType\ArmyLevelTypeService.cpp" />
+    <ClCompile Include="uselib\pullListRedis\UseLibRedis.cpp" />
+    <ClCompile Include="dao\armyLevelType\ArmyLevelTypeDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -68,6 +71,9 @@
     <ClInclude Include="controller\contractType\ContractTypeController.h" />
     <ClInclude Include="domain\do\jobLevelTypeList\JobLevelTypeDO.h" />
     <ClInclude Include="domain\do\costTypeList\CostType.h" />
+    <ClInclude Include="service\armyLevelType\ArmyLevelTypeService.h" />
+    <ClInclude Include="uselib\pullListRedis\UseLibRedis.h" />
+    <ClInclude Include="dao\armyLevelType\ArmyLevelTypeDAO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
