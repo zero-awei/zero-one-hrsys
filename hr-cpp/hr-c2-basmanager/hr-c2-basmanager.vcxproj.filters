@@ -192,6 +192,9 @@
     <ClInclude Include="domain\do\RosterOfPer\CommonRosterOfPerDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\do\RosterOfPer\ProbationaryEmployeeDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
