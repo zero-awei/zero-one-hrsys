@@ -1,8 +1,10 @@
-package com.zeroone.star.project.j3.dto;
+package com.zeroone.star.project.j3.dto.orgmager;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * <p>
@@ -18,6 +20,7 @@ import lombok.Data;
 @Data
 @ApiModel("组织地址传输对象")
 public class OrgAddressDto {
-    @ApiModelProperty(value = "组织ID", example = "1")
-    private Long orgId;
+    @ApiModelProperty(value = "组织id列表", example = "[\"aaa\",\"bbb\"]")
+    private List<String> ids;
+
 }

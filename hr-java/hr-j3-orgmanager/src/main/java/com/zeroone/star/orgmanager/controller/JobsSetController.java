@@ -3,21 +3,20 @@ package com.zeroone.star.orgmanager.controller;
 import com.zeroone.star.project.components.fastdfs.FastDfsClientComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
 import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.j3.dto.AllJobsDTO;
+import com.zeroone.star.project.j3.dto.AddPositionDTO;
+import com.zeroone.star.project.j3.dto.DeletePositionDTO;
 import com.zeroone.star.project.j3.dto.ExportDTO;
+import com.zeroone.star.project.j3.dto.JobDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.JobTitleDTO;
 import com.zeroone.star.project.j3.orgmanager.JobSetApis;
+import com.zeroone.star.project.j3.query.JobByNameQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -36,18 +35,20 @@ import java.util.List;
 @RestController
 @RequestMapping("jobset")
 @Api(tags = "职务设置")
-public class JobsSetController implements JobSetApis  {
+public class JobsSetController implements JobSetApis {
     @Resource
     private FastDfsClientComponent fastDfsClientComponent;
 
     @Value("${fastdfs.nginx-servers}")
     private String fileServerUrl;
+
     @GetMapping("expor-all-jobs")
     @ApiOperation("导出所有职务")
     @Override
     public JsonVO<ExportDTO> exportAllJobs() {
         return null;
     }
+
     @SneakyThrows
     @PostMapping("import-jobs")
     @ApiOperation("导入职务")
@@ -65,9 +66,6 @@ public class JobsSetController implements JobSetApis  {
         // 返回下载地址
         return JsonVO.success(fastDfsClientComponent.fetchUrl(fastDfsFileInfo, "http://" + fileServerUrl, true));
     }
-
-
-
     @GetMapping("queryJobList")
     @ApiOperation("查询职务")
     @Override
@@ -78,9 +76,29 @@ public class JobsSetController implements JobSetApis  {
     @PutMapping("modify-jobTitles")
     @ApiOperation("更新若干职务信息")
     @Override
-    public void modifyJobTitle(List<JobTitleDTO> ids) {
-        return;
+    public JsonVO<Boolean> modifyJobTitle(List<JobTitleDTO> ids) {
+        return JsonVO.success(true);
     }
 
-
+    @GetMapping("query-by-name")
+    @ApiOperation("通过名称查找职位详情")
+    @Override
+    public JsonVO<PageDTO<JobDTO>> queryJobByName(JobByNameQuery condition) {
+        //测试接收数据
+        System.out.println(condition.getName());
+        return null;
+    }
+    @DeleteMapping("delete-position")
+    @ApiOperation("删除组织信息(支持批量)")
+    @Override
+    public JsonVO<Boolean> DeletePosition(@RequestBody DeletePositionDTO deletePositionDTO) {
+        return null;
+    }
+    @PostMapping ("add-position")
+    @ApiOperation("批量新增组织信息(支持批量)")
+    @Override
+    public JsonVO<Boolean> AddPosition(@RequestBody AddPositionDTO addPositionDTO) {
+        return null;
+    }
 }
+

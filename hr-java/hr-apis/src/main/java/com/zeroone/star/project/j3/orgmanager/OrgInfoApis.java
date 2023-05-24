@@ -1,8 +1,9 @@
 package com.zeroone.star.project.j3.orgmanager;
 
 import com.zeroone.star.project.j3.dto.DeleteDTO;
-import com.zeroone.star.project.j3.dto.OrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
+import cn.hutool.http.server.HttpServerResponse;
+import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.vo.JsonVO;
 
 /**
@@ -17,19 +18,15 @@ import com.zeroone.star.project.vo.JsonVO;
  */
 public interface OrgInfoApis {
 
-    /**
-     * 删除组织地址接口
-     * @param orgAddressDto
-     * @return 删除行数
-     */
-    JsonVO<Integer> deleteDepAddress(OrgAddressDto orgAddressDto);
-	 /**
+	JsonVO<Integer> deleteDepAddress(OrgAddressDto orgAddressDto);
+
+	/**
 	  * 修改组织信息数据
 	  *
 	  * @param orgInfoDTO 修改数据内容
-	  * @return 修改成功影响行数
+	  * @return 是否修改成功
 	  */
-	 JsonVO<Long> modifyOrgInfo(OrgInfoDTO orgInfoDTO);
+	 JsonVO<Boolean> modifyOrgInfo(OrgInfoDTO orgInfoDTO);
 
 	/**
 	 * 批量删除组织信息
@@ -37,5 +34,23 @@ public interface OrgInfoApis {
 	 * @return 删除结果
 	 */
 	JsonVO<Boolean> removeOrgData(DeleteDTO ids);
+
+    /**
+     * 删除组织地址接口
+     * @param ids
+     */
+    JsonVO<Boolean> deleteOrgAddress(OrgAddressDto ids);
+
+    /**
+     * 导出组织地址接口
+     * @param response,ids
+     */
+    JsonVO<Boolean> exportOrgAddress(HttpServerResponse response, OrgAddressDto ids);
+	/**
+	 * 添加组织信息
+	 * @param orgInfoDTO 添加组织的内容
+	 * @return 是否添加成功
+	 */
+	JsonVO<Boolean> addOryData(OrgInfoDTO orgInfoDTO);
 
 }

@@ -1,11 +1,17 @@
 package com.zeroone.star.project.j3.orgmanager;
 
 import com.zeroone.star.project.dto.PageDTO;
+import com.zeroone.star.project.dto.PageDTO;
+import com.zeroone.star.project.j3.dto.*;
+
 import com.zeroone.star.project.dto.sample.SampleDTO;
-import com.zeroone.star.project.j3.dto.AllJobsDTO;
-import com.zeroone.star.project.j3.dto.ExportDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.JobTitleDTO;
+import com.zeroone.star.project.j3.query.JobByNameQuery;
 import com.zeroone.star.project.vo.JsonVO;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -46,15 +52,35 @@ public interface JobSetApis {
 
     /**
      * 查询职务列表
+     *
      * @return
      */
     public JsonVO<PageDTO<JobTitleDTO>> queryJobTitleList();
 
     /**
      * 修改所选若干个职务
-     * @param ids
+     *
+     * @param jobTitleDTOList
+     * @return
      */
-    public void modifyJobTitle(List<JobTitleDTO> ids);
+    public JsonVO<Boolean> modifyJobTitle(List<JobTitleDTO> jobTitleDTOList);
 
 
+    /**
+     * 通过名称查询指定职务详情
+     * 表 t_ormduty
+     *
+     * @param condition 搜索框关键字＋页面分页信息
+     * @return 搜索出的 PageDTO<JobDTO>
+     */
+    JsonVO<PageDTO<JobDTO>> queryJobByName(JobByNameQuery condition);
+
+
+    @DeleteMapping("delete-position")
+    @ApiOperation("删除组织信息(支持批量)")
+    JsonVO<Boolean> DeletePosition(@RequestBody DeletePositionDTO deletePositionDTO);
+
+    @PostMapping("add-position")
+    @ApiOperation("批量新增组织信息(支持批量)")
+    JsonVO<Boolean> AddPosition(@RequestBody AddPositionDTO addPositionDTO);
 }
