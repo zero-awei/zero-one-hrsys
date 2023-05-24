@@ -21,6 +21,11 @@
 #include "ApiHelper.h"
 #include "RosterOfPer/FormerEmployeesController.h"
 #include "CertificateManage/UpdateCertificateController.h"
+//pine
+#include "controller/CertificateManage/CheckCerListController.h"
+#include "controller/CertificateManage/CreateNewCerController.h"
+#include "controller/RosterOfPer/CheckRetiresListController.h"
+#include "controller/RosterOfPer/ExportRetireesController.h"
 
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
@@ -66,6 +71,11 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(TempStaffController);//挂职人员swagger效果测试
 	ROUTER_SIMPLE_BIND(EmployeeInfoController);//人员信息查询swagger效果测试
 	ROUTER_SIMPLE_BIND(CertificateTypeController); //证书类型查询swagger效果测试
+
+	ROUTER_SIMPLE_BIND(CheckCerListController);
+	ROUTER_SIMPLE_BIND(CreateNewCerController);
+	ROUTER_SIMPLE_BIND(CheckRetiresListController);
+	ROUTER_SIMPLE_BIND(ExportRetireesController);
 }
 
 #ifdef HTTP_SERVER_DEMO

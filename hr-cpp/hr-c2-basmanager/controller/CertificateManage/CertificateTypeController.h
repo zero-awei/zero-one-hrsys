@@ -1,6 +1,7 @@
 #pragma once
 /**
 *人员信息查询功能点，搜索框使用
+* 
 */
 
 #ifndef _CERTIFICATETYPE_CONTROLLER_

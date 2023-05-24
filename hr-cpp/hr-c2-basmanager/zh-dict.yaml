@@ -53,7 +53,7 @@ EmpInfo:
 
 formeremployees: 
  get:
-  summary: 分页查询离职员工数据
+  summary: 分页查询离职员工数据-chumengx
   out: 导出离职员工数据
  field:
   id: 编号
@@ -73,10 +73,43 @@ certificate:
  get: 查询指定证书详细信息
 
 
+
 RosterOfPer:
  query:
   summary: 分页查询见习员工列表 - cpt
  export:
   summary: 导出见习员工 - cpt
  field:
-  
+cermanage:
+ get:
+  summary: 分页查询示例数据
+  checklist: 分页查询证书列表
+ post:
+  summary: 新增一条示例数据
+  addcer: 新增一条证书信息
+ put:
+  summary: 修改一条示例数据
+ delete:
+  summary: 删除一条示例数据
+ field:
+  id: 编号
+  age: 年龄
+  name: 姓名
+  sex: 性别，如：男
+rosterofper:
+ get:
+  summary: 分页查询示例数据
+  checklist: 分页查询退休员工列表
+  outinfo: 导出离退员工信息
+ post:
+  summary: 新增一条示例数据
+  addcer: 新增一条证书信息
+ put:
+  summary: 修改一条示例数据
+ delete:
+  summary: 删除一条示例数据
+ field:
+  id: 编号
+  age: 年龄
+  name: 姓名
+  sex: 性别，如：男

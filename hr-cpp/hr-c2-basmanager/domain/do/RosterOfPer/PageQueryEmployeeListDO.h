@@ -15,6 +15,7 @@ class PageQueryEmployeeListDO{
 	CC_SYNTHESIZE(string, sex, Sex);
 	// ƒÍ¡‰
 	CC_SYNTHESIZE(int, age, Age);
+
 public:
 	PageQueryEmployeeListDO() {
 		id = 0;
