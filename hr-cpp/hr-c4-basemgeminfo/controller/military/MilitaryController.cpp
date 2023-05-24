@@ -19,8 +19,17 @@ MilitaryJsonVO::Wrapper MilitaryController::execQueryMilitary(const MilitaryDeta
 	return jvo;
 }
 
-StringJsonVO::Wrapper MilitaryController::execModifyMilitary(const MilitaryDTO::Wrapper& dto)
+StringJsonVO::Wrapper MilitaryController::execModifyMilitary(const MilitaryDTO::Wrapper& dto, const PayloadDTO& payload)
 {
+	//获取修改人id
+	dto->UPDATEMAN = payload.getId();
+	//获取当前时间
+	time_t timep;
+	time(&timep);
+	char tmp[256];
+	strftime(tmp, sizeof(tmp), "%Y-%m-%d %H:%M:%S", localtime(&timep));
+	//更改更新时间
+	dto->UPDATEDATE = tmp;
 	// 定义返回数据对象
 	auto jvo = StringJsonVO::createShared();
 	// 参数校验
