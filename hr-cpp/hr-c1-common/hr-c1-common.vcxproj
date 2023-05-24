@@ -221,6 +221,8 @@
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\typeContract\TypeContractListController.cpp" />
+    <ClCompile Include="domain\do\armyLevelType\ArmyLevelTypeDO.h" />
+    <ClCompile Include="domain\do\contractType\ContractTypeDO.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

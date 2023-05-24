@@ -21,6 +21,8 @@
     <ClCompile Include="controller\auditstatusController.h\AuditstatusController.cpp" />
     <ClCompile Include="controller\typeContract\TypeContractListController.cpp" />
     <ClCompile Include="controller\contractType\ContractTypeController.cpp" />
+    <ClCompile Include="domain\do\armyLevelType\ArmyLevelTypeDO.h" />
+    <ClCompile Include="domain\do\contractType\ContractTypeDO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
