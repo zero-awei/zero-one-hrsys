@@ -27,7 +27,7 @@
  * 对应数据表：t_pimexpaccount
  * 负责人：Andrew
  */
-class CostTypeVO
+class CostTypeDO
 {
 	// 费用类别代码
 	CC_SYNTHESIZE(int, code, Code);
