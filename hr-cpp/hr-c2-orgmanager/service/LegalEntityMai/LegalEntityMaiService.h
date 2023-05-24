@@ -26,18 +26,18 @@
 class LegalEntityMaiService
 {
 public:
-	// 分页查询所有数据
-	LegalEntityMaiPageDTO::Wrapper listAll(const LegalEntityMaiQuery::Wrapper& query);
-	// 修改数据
-	bool updateData(const LegalEntityMaiDTO::Wrapper& dto);
-	// 增加数据
-	bool addData(const LegalEntityMaiDTO::Wrapper& dto);
-	// 通过ID删除数据
-	bool removeData(string id);
-	// 导入文件
-	bool importFile();
-	// 导出文件
-	bool exportFile();
+	//// 分页查询所有数据
+	//LegalEntityMaiPageDTO::Wrapper listAll(const LegalEntityMaiQuery::Wrapper& query);
+	//// 修改数据
+	//bool updateData(const LegalEntityMaiDTO::Wrapper& dto);
+	//// 增加数据
+	//bool addData(const LegalEntityMaiDTO::Wrapper& dto);
+	//// 通过ID删除数据
+	//bool removeData(string id);
+	//// 导入文件
+	//bool importFile();
+	//// 导出文件
+	//bool exportFile();
 };
 
 #endif // !_LEGALENTITYMAISERVICE_H_
