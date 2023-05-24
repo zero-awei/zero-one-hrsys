@@ -109,6 +109,11 @@ class ProfCertsDTO : public oatpp::DTO
 	DTO_FIELD_INFO(gwzs) {
 		info->description = ZH_WORDS_GETTER("common.dto.gwzs");
 	}
+	// 岗位（技能）证书
+	DTO_FIELD(String, pimQualTypeName);
+	DTO_FIELD_INFO(pimQualTypeName) {
+		info->description = ZH_WORDS_GETTER("common.dto.pimQualTypeName");
+	}
 
 };
 

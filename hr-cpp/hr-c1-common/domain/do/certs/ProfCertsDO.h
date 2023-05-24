@@ -17,14 +17,14 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _PROCERTS_DO_
-#define _PROCERTS_DO_
+#ifndef _PROFCERTS_DO_
+#define _PROFCERTS_DO_
 #include "../DoInclude.h"
 
 /**
  * 执(职)业资格证书下拉列表查询DO
  */
-class ProCertsDO
+class ProfCertsDO
 {
 	// 执业资格专业编码
 	CC_SYNTHESIZE(string, pimQualMajorId, PimQualMajorId);
@@ -58,9 +58,11 @@ class ProCertsDO
 	CC_SYNTHESIZE(string, gwType, GwType);
 	// 岗位类型
 	CC_SYNTHESIZE(string, gwzs, Gwzs);
+	// 岗位（技能）证书
+	CC_SYNTHESIZE(string, pimQualTypeName, PimQualTypeName);
 
 public:
-	ProCertsDO() {
+	ProfCertsDO() {
 		pimQualMajorId = "";
 		pimQualMajorName = "";
 		createMan = "";
@@ -77,7 +79,8 @@ public:
 		gwlx = "";
 		gwType = "";
 		gwzs = "";
+		pimQualTypeName = "";
 	}
 };
 
-#endif // !_PROCERTS_DO_
+#endif // !_PROFCERTS_DO_

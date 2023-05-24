@@ -23,6 +23,8 @@
     <ClCompile Include="controller\contractType\ContractTypeController.cpp" />
     <ClCompile Include="service\certs\certTypeService\CertTypeService.cpp" />
     <ClCompile Include="dao\certs\certTypeDAO\CertTypeDAO.cpp" />
+    <ClCompile Include="service\certs\profCertsService\ProfCertsService.cpp" />
+    <ClCompile Include="dao\certs\profCertsDAO\ProfCertsDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -61,7 +63,7 @@
     <ClInclude Include="controller\leaveReason\LeaveReasonController.h" />
     <ClInclude Include="domain\do\leaveReson\LeaveReasonDO.h" />
     <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
-    <ClInclude Include="domain\do\certs\ProCertsDO.h" />
+    <ClInclude Include="domain\do\certs\ProfCertsDO.h" />
     <ClInclude Include="domain\do\typeContract\TypeContractDO.h" />
     <ClInclude Include="domain\dto\typeContract\TypeContractDTO.h" />
     <ClInclude Include="domain\vo\typeContract\TypeContractVO.h" />
@@ -74,6 +76,9 @@
     <ClInclude Include="service\certs\certTypeService\CertTypeService.h" />
     <ClInclude Include="dao\certs\certTypeDAO\CertTypeDAO.h" />
     <ClInclude Include="dao\certs\certTypeDAO\CertTypeMapper.h" />
+    <ClInclude Include="service\certs\profCertsService\ProfCertsService.h" />
+    <ClInclude Include="dao\certs\profCertsDAO\ProfCertsDAO.h" />
+    <ClInclude Include="dao\certs\profCertsDAO\ProfCertsMapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

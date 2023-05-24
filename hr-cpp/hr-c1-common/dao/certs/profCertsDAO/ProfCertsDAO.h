@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: rice
- @Date: 2023/5/17 8:30:04
+ @Date: 2023/5/24 14:35:49
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,20 +17,19 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "profCertsListController.h"
-#include "../../../service/certs/profCertsService/ProfCertsService.h"
-
-ProfCertsListJsonVO::Wrapper ProfCertsListController::execQueryProfCertsList(const ProfCertsQuery::Wrapper& query)
-{	
-	auto vo = ProfCertsListJsonVO::createShared();
-	ProfCertsService profCertsService;
-	auto dto = profCertsService.listAll(query);
-	if (dto->rows->size() <= 0) {
-		vo->fail(dto);
-	}
-	else {
-		vo->success(dto);
-	}
-	return vo;
-}
+#ifndef _PROFCERTS_DAO_
+#define _PROFCERTS_DAO_
+#include "BaseDAO.h"
+#include "../../../domain/do/certs/ProfCertsDO.h"
+#include "../../../domain/query/certs/ProfCertsQuery.h"
+/**
+ * 职业资格证书类型下拉列表DAO
+ * 负责人 : rice
+ */
+class ProfCertsDAO : public BaseDAO
+{
+public:
+	list<ProfCertsDO> selectWithPage(const ProfCertsQuery::Wrapper& query);
+	uint64_t count(const ProfCertsQuery::Wrapper& query);
+};
+#endif // !_PROFCERTS_DAO_

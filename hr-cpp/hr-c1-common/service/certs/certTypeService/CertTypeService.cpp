@@ -28,10 +28,10 @@ CertTypeListDTO::Wrapper CertTypeService::listAll()
 
 	list<CertTypeDO> result = certTypeDAO.selectAll();
 	// ½«DO×ª»»³ÉDTO
-	for (CertTypeDO sub : result)
+	for (CertTypeDO certTypeDO : result)
 	{
 		auto certTypeDTO = CertTypeDTO::createShared();
-		ZO_STAR_DOMAIN_DO_TO_DTO(certTypeDTO, sub, certTypeId, CertTypeId, certTypeName, CertTypeName, certTypeCode, CertTypeCode, certTypeValidity, CertTypeValidity)
+		ZO_STAR_DOMAIN_DO_TO_DTO(certTypeDTO, certTypeDO, certTypeId, CertTypeId, certTypeName, CertTypeName, certTypeCode, CertTypeCode, certTypeValidity, CertTypeValidity)
 		certTypeListDTO->addData(certTypeDTO);
 	}
 	return certTypeListDTO;
