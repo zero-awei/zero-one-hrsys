@@ -24,7 +24,10 @@
 #include "ApiHelper.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
-//修改具体员工信息
+/* *
+* 修改指定员工信息DTO
+* 执行人：Detachment
+*/
 class EmployeeInfoDTO : public oatpp::DTO
 {
 	DTO_INIT(EmployeeInfoDTO, DTO);

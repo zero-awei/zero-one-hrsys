@@ -1,63 +1,33 @@
 #pragma once
-#ifndef _IDelete_Assign_Info_DTO_
-#define _IDelete_Assign_Info_DTO_
-#include "../../GlobalInclude.h"
+/*
+ Copyright Zero One Star. All rights reserved.
 
-#include OATPP_CODEGEN_BEGIN(DTO)
+ @Author: ahao
+ @Date: 2023/5/22 14:58:43
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+	  https://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+#ifndef _Delete_Assign_Info_DTO_
+#define _Delete_Assign_Info_DTO_
+#include "AddAssignInfoDTO.h"
 
 /**
  * 删除指定员工分配信息
  */
-class DeleteAssignInfoDTO : public oatpp::DTO//PageDTO<DeleteAssignInfoDTO::Wrapper>
+class DeleteAssignInfoDTO :public AddAssignInfoDTO
 {
-	DTO_INIT(DeleteAssignInfoDTO, DTO); //PageDTO<DeleteAssignInfoDTO::Wrapper>);
-	//编号
-	DTO_FIELD(String, id);
-	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("employee.field.id");
-	}
-	// 分配(主分配或次分配)
-	DTO_FIELD(String, assign);
-	DTO_FIELD_INFO(assign) {
-		info->description = ZH_WORDS_GETTER("employee.field.assign");
-	}
-	// 类型
-	DTO_FIELD(String, type);
-	DTO_FIELD_INFO(type) {
-		info->description = ZH_WORDS_GETTER("employee.field.type");
-	}
-	// 组织
-	DTO_FIELD(String, organize);
-	DTO_FIELD_INFO(organize) {
-		info->description = ZH_WORDS_GETTER("employee.field.organize");
-	}
-	// 部门
-	DTO_FIELD(String, depart);
-	DTO_FIELD_INFO(depart) {
-		info->description = ZH_WORDS_GETTER("employee.field.depart");
-	}
-	// 职务
-	DTO_FIELD(String, job);
-	DTO_FIELD_INFO(job) {
-		info->description = ZH_WORDS_GETTER("employee.field.job");
-	}
-	// 岗位
-	DTO_FIELD(String, post);
-	DTO_FIELD_INFO(post) {
-		info->description = ZH_WORDS_GETTER("employee.field.post");
-	}
-	// 任职开始时间
-	DTO_FIELD(String, start_time);
-	DTO_FIELD_INFO(start_time) {
-		info->description = ZH_WORDS_GETTER("employee.field.start-time");
-	}
-	// 任职结束时间
-	DTO_FIELD(String, end_time);
-	DTO_FIELD_INFO(end_time) {
-		info->description = ZH_WORDS_GETTER("employee.field.end-time");
-	}
+	
 };
 
 
-#include OATPP_CODEGEN_END(DTO)
 #endif // !_Delete_Assign_Info_DTO_

@@ -27,25 +27,10 @@
     <ClCompile Include="controller\SystemInterceptor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\assignController\QueryAssignController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="service\assignInfo\AssignInfoQueryService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\assignController\AddAssignInfoController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\assignController\DeleteAssignInfoController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\assignController\ModifyAssignInfoController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\assignController\ImportAssignInfoController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\assignController\QueryDetailController.cpp">
+    <ClCompile Include="controller\assignController\AssignInfoController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -72,9 +57,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\dto\AssignInfo\ImportAssignInfoDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\AssignController\QueryAssignController.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\vo\assignInfo\AddAssignInfoVO.h">
@@ -107,25 +89,13 @@
     <ClInclude Include="service\assignInfo\AssignInfoQueryService.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\assignController\AddAssignInfoController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\assignController\DeleteAssignInfoController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\assignController\ModifyAssignInfoController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\assignController\ImportAssignInfoController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\query\assignInfo\AssignInfoQueryDetail.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\vo\assignInfo\AssignInfoQueryDetailVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\assignController\QueryDetailAssignController.h">
+    <ClInclude Include="controller\assignController\AssignInfoController.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
