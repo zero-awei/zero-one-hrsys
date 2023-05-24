@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _SAMPLE_VO_
-#define _SAMPLE_VO_
+#ifndef _ARCHIVES_VO_H_
+#define _ARCHIVES_VO_H_
 
 #include "../../GlobalInclude.h"
 #include "../../dto/archives/ArchivesDTO.h"
@@ -24,4 +24,4 @@ class ArchivesPageJsonVO : public JsonVO<ArchivesPageDTO::Wrapper> {
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif // !_SAMPLE_VO_
+#endif // !_ARCHIVES_VO_H_
