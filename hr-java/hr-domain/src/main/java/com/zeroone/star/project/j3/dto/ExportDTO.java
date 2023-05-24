@@ -15,7 +15,7 @@ import lombok.Data;
  * @version 1.0.0
  * @date 2023/5/19 16:41
  */
-@ApiModel("导出所有职务的文件url")
+@ApiModel("导出所有职务/组织的文件url")
 @Data
 public class ExportDTO {
     @ApiModelProperty(value = "文件下载地址",example = "http://sssss")

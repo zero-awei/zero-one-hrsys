@@ -3,7 +3,6 @@ package com.zeroone.star.common.controller;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.common.CommonApis;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
-import com.zeroone.star.project.j3.dto.RelationshipDTO;
 import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
 import com.zeroone.star.project.j3.query.common.DisciplineTypeQuery;
 import com.zeroone.star.project.j3.query.common.EducationTypeQuery;
@@ -135,7 +134,7 @@ public class CommonController implements CommonApis {
     @PostMapping("Relationship")
     @ApiOperation("与本人关系列表")
     @Override
-    public JsonVO<List<RelationshipDTO>> queryRelationship() {
+    public JsonVO<List<DropdownListOptionDTO>> queryRelationship() {
         return null;
     }
 }

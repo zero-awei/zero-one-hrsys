@@ -83,4 +83,11 @@ public interface JobSetApis {
     @PostMapping("add-position")
     @ApiOperation("批量新增组织信息(支持批量)")
     JsonVO<Boolean> AddPosition(@RequestBody AddPositionDTO addPositionDTO);
+/**
+ *  导出组织（导出本页在前端完成）
+ * @return {@link com.zeroone.star.project.vo.JsonVO<com.zeroone.star.project.j3.dto.ExportDTO>}
+ * @Author H_lzu
+ * @Date 16:27 2023/5/24
+ */
+    JsonVO<ExportDTO> exportAllOrgs();
 }

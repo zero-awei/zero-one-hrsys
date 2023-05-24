@@ -5,6 +5,8 @@ import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
 import cn.hutool.http.server.HttpServerResponse;
 import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.vo.JsonVO;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * <p>
@@ -18,7 +20,7 @@ import com.zeroone.star.project.vo.JsonVO;
  */
 public interface OrgInfoApis {
 
-	JsonVO<Integer> deleteDepAddress(OrgAddressDto orgAddressDto);
+	JsonVO<Boolean> deleteDepAddress(OrgAddressDto orgAddressDto);
 
 	/**
 	  * 修改组织信息数据
@@ -43,9 +45,12 @@ public interface OrgInfoApis {
 
     /**
      * 导出组织地址接口
-     * @param response,ids
+     * @param ids,ids
      */
-    JsonVO<Boolean> exportOrgAddress(HttpServerResponse response, OrgAddressDto ids);
+    JsonVO<Boolean> exportOrgAddress(OrgAddressDto ids);
+
+
+
 	/**
 	 * 添加组织信息
 	 * @param orgInfoDTO 添加组织的内容
