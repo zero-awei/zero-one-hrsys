@@ -4,7 +4,7 @@
 #include <sstream>
 
 //定义条件解析宏，减少重复代码
-#define CONTRACT_CATEGORY_TERAM_PARSE(query, sql) \
+#define CONTRACT_CATEGORY_TERM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
 if (query->name) { \
@@ -19,8 +19,8 @@ if (query->description) { \
 uint64_t ContractCategoryDAO::count(const ContractCategoryQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM contract_Category";
-	CONTRACT_CATEGORY_TERAM_PARSE(query, sql);
+	sql << "SELECT COUNT(*) FROM contract_category";
+	CONTRACT_CATEGORY_TERM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
 }
@@ -28,8 +28,8 @@ uint64_t ContractCategoryDAO::count(const ContractCategoryQuery::Wrapper& query)
 std::list<ContractCategoryDO> ContractCategoryDAO::selectWithPage(const ContractCategoryQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT * FROM contract_Category";
-	CONTRACT_Category_TERAM_PARSE(query, sql);
+	sql << "SELECT * FROM contract_category";
+	CONTRACT_CATEGORY_TERM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	ContractCategoryMapper mapper;
 	string sqlStr = sql.str();

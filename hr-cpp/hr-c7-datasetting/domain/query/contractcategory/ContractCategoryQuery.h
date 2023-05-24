@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _CONTRACT_CATEGORY_QUERY_
-#define _CONTRACT_CATEGORY_QUERY_
+#ifndef _CONTRACTCATEGORYQUERY_H_
+#define _CONTRACTCATEGORYQUERY_H_
 
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
@@ -13,22 +13,16 @@
 class ContractCategoryQuery : public PageQuery
 {
 	DTO_INIT(ContractCategoryQuery, PageQuery);
-	// 类别名称
-	DTO_FIELD(String, categoryName);
-	DTO_FIELD_INFO(categoryName) {
-		info->description = ZH_WORDS_GETTER("contractCategory.field.categoryName");
+
+	// 合同类别名称
+	DTO_FIELD(String, name);
+	DTO_FIELD_INFO(name) {
+		info->description = ZH_WORDS_GETTER("contractCategory.field.name");
 	}
-	// 当前页码
-	DTO_FIELD(UInt32, pageNum);
-	DTO_FIELD_INFO(pageNum) {
-		info->description = ZH_WORDS_GETTER("contractCategory.field.pageNum");
-	}
-	// 每页显示的条数
-	DTO_FIELD(UInt32, pageSize);
-	DTO_FIELD_INFO(pageSize) {
-		info->description = ZH_WORDS_GETTER("contractCategory.field.pageSize");
-	}
+
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_
+
+#endif // !_CONTRACTCATEGORYQUERY_H_
+

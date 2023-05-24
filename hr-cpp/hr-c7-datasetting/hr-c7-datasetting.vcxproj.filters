@@ -8,6 +8,8 @@
     <ClCompile Include="controller\Certificate\CertificateController.cpp" />
     <ClCompile Include="controller\archive\archiveController.cpp" />
     <ClCompile Include="controller\contract\ContractController.cpp" />
+    <ClCompile Include="controller\Qualification\QualificationController.cpp" />
+    <ClCompile Include="controller\ContractCategory\ContractCategoryController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\OtherComponent.hpp" />
@@ -29,9 +31,7 @@
     <ClInclude Include="domain\dto\archive\ArchiveDTO.h" />
     <ClInclude Include="domain\query\archive\ArchiveQuery.h" />
     <ClInclude Include="domain\vo\archive\ArchiveVO.h" />
-    <ClInclude Include="domain\dto\Qualification\QulificationDTO.h" />
     <ClInclude Include="domain\query\Qualification\QualificationQuery.h" />
-    <ClInclude Include="domain\vo\Qulification\QulificationVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
@@ -43,5 +43,9 @@
     <ClInclude Include="controller\archive\ArchiveController.h" />
     <ClInclude Include="controller\contract\ContractController.h" />
     <ClInclude Include="domain\do\contractcategory\ContractCategoryDO.h" />
+    <ClInclude Include="controller\Qualification\QualificationController.h" />
+    <ClInclude Include="domain\dto\Qualification\QualificationDTO.h" />
+    <ClInclude Include="domain\vo\Qualification\QualificationVO.h" />
+    <ClInclude Include="controller\ContractCategory\ContractCategoryController.h" />
   </ItemGroup>
 </Project>

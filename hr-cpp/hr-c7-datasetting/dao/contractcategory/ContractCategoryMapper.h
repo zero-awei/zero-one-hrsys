@@ -8,7 +8,7 @@
 /**
  * 合同类型表字段匹配映射
  */
-class ContractMapper : public Mapper<ContractCategoryDO>
+class ContractCategoryMapper : public Mapper<ContractCategoryDO>
 {
 public:
     ContractCategoryDO mapper(ResultSet* resultSet) const override
@@ -20,4 +20,4 @@ public:
     }
 };
 
-#endif // 
+#endif // _CONTRACT_CATEGORY_MAPPER_

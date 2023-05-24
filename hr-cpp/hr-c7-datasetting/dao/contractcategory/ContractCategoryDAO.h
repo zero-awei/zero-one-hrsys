@@ -14,6 +14,6 @@ public:
     // 统计数据条数
     uint64_t count(const ContractCategoryQuery::Wrapper& query);
     // 分页查询数据
-    list<ContractCategoryDO> selectWithPage(const ContractCategoryQuery::Wrapper& query);
+    std::list<ContractCategoryDO> selectWithPage(const ContractCategoryQuery::Wrapper& query);
 };
-#endif //
+#endif // _CONTRACT_CATEGORY_DAO_
