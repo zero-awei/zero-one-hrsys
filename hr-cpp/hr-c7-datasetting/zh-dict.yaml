@@ -30,6 +30,14 @@ sample:
   name: 姓名
   sex: 性别，如：男
 certificate:
+ get:
+  summary: 分页查询证书数据
+ post:
+  summary: 新增证书类型
+ put:
+  summary: 修改证书类型
+ delete: 
+  summary: 删除证书类型
  field:
   id: 排序号
   certificateName:	证书名称
@@ -82,3 +90,18 @@ contractCategory:
     description: 描述
     createTime: 创建时间
     ids: 编号列表
+archive:
+ get:
+  summary: 分页查询档案室
+ post:
+  summary: 新增档案室数据
+ put:
+  summary: 修改档案室数据
+ delete:
+  summary: 删除档案室数据
+ field:
+  sortID: 排序号
+  archiveName: 档案室名称
+  cabinetNum: 柜数  
+  layerNum: 层数
+  numID: 编号
