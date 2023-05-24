@@ -188,7 +188,6 @@
     <ClCompile Include="controller\LegalEntitySet\UpdateLegalerSetingMessageController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
-    <ClCompile Include="domain\query\LegalEntitySet\LegalerNamePullDownListQuery.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -214,6 +213,8 @@
     <ClInclude Include="domain\dto\LegalEntitySet\LegalerNamePullDownListDTO.h" />
     <ClInclude Include="domain\dto\LegalEntitySet\UpdateLegalerSetingMessageDTO.h" />
     <ClInclude Include="domain\query\LegalEntityMai\LegalEntityMaiQuery.h" />
+    <ClInclude Include="domain\query\LegalEntitySet\ExportLegalerSetingQuery.h" />
+    <ClInclude Include="domain\query\LegalEntitySet\LegalerNamePullDownListQuery.h" />
     <ClInclude Include="domain\vo\LegalEntityMai\LegalEntityMaiVO.h" />
     <ClInclude Include="domain\vo\LegalEntitySet\ExportLegalerSetingVO.h" />
     <ClInclude Include="domain\vo\LegalEntitySet\LegalerNamePullDownListVO.h" />
@@ -221,6 +222,9 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="zh-dict.yaml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
