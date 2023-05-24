@@ -70,7 +70,7 @@ public:
 		info->queryParams["id"].addExample("default", String("114514"));
 		info->queryParams["id"].required = true;
 	}
-	ENDPOINT(API_M_GET, "/query-assignInfo", assignQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/query-assign-info", assignQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, AssignInfoQuery, queryParams);
 		// 响应结果
@@ -84,7 +84,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/add-assignInfo", addAssignInfo, BODY_DTO(AddAssignInfoDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/add-assign-info", addAssignInfo, BODY_DTO(AddAssignInfoDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddAssignInfo(dto));
 	}
@@ -96,7 +96,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/delete-assignInfo", deleteAssignInfo, BODY_DTO(DeleteAssignInfoDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/delete-assign-info", deleteAssignInfo, BODY_DTO(DeleteAssignInfoDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execDeleteAssignInfo(dto));
 	}
@@ -108,7 +108,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/modify-assignInfo", modifyAssignInfo, BODY_DTO(ModifyAssignInfoDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/modify-assign-info", modifyAssignInfo, BODY_DTO(ModifyAssignInfoDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyAssignInfo(dto));
 	}
@@ -117,7 +117,7 @@ public:
 		info->summary = ZH_WORDS_GETTER("employee.post.upload");
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-		ENDPOINT(API_M_POST, "/upload-assignInfo", importAssignInfo, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
+		ENDPOINT(API_M_POST, "/upload-assign-info", importAssignInfo, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
 			/* 创建multipart容器 */
 			auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
 			/* 创建multipart读取器 */
@@ -195,7 +195,7 @@ public:
 		info->queryParams["id"].required = true;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/query-assignInfoDetail", assignQueryDetail, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/query-assign-info-detail", assignQueryDetail, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, AssignInfoQueryDetail, queryParams);
 		// 响应结果

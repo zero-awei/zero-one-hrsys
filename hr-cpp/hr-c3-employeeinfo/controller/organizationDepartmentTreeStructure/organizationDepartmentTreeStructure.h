@@ -38,7 +38,7 @@ public: // 定义接口
 	
 	}
 	//定义查询根组织信息接口端点处理
-	ENDPOINT(API_M_GET, "/organizationDepartmentTreeStructure/root-org-query", rootOrgQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/organization-department-tree-structure/root-org-query", rootOrgQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(rootQuery,RootOrgQuery, queryParams);
 		// 响应结果
@@ -56,7 +56,7 @@ public: // 定义接口
 
 	}
 	//定义查询有效组织信息接口端点处理
-	ENDPOINT(API_M_GET, "/organizationDepartmentTreeStructure/valid-org-query", validOrgQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/organization-department-tree-structure/valid-org-query", validOrgQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(validOrg, ValidOrgQuery, queryParams);
 		// 响应结果
@@ -74,7 +74,7 @@ public: // 定义接口
 
 	}
 	//定义查询部门信息接口端点处理
-	ENDPOINT(API_M_GET, "/organizationDepartmentTreeStructure/sector-org-query", secotrOrgQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/organization-department-tree-structure/sector-org-query", secotrOrgQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(sectorOrg, SectorQuery, queryParams);
 		// 响应结果

@@ -95,7 +95,7 @@ public: // 定义接口
 		info->queryParams["ice"].required = false;
  	}
  	// 定义查询接口处理
- 	ENDPOINT(API_M_GET, "/query-by-Familysituation", queryFamilysituation, QUERIES(QueryParams, queryParams))
+ 	ENDPOINT(API_M_GET, "/query-by-family-situation", queryFamilysituation, QUERIES(QueryParams, queryParams))
  	{
  		// 解析查询参数
  		API_HANDLER_QUERY_PARAM(familysituationQuery, FamilysituationQuery, queryParams);
@@ -146,7 +146,7 @@ public: // 定义接口
  		info->queryParams["ice"].required = false;
  	}
  	// 定义查询指定家庭情况接口处理
- 	ENDPOINT(API_M_GET, "/queryOne-by-Familysituation", queryOneFamilysituation, QUERIES(QueryParams, queryParams))
+ 	ENDPOINT(API_M_GET, "/queryOne-by-family-situation", queryOneFamilysituation, QUERIES(QueryParams, queryParams))
  	{
  		// 解析查询参数
  		API_HANDLER_QUERY_PARAM(oneQuery, FamilysituationQuery, queryParams);
@@ -193,7 +193,7 @@ public: // 定义接口
 		info->queryParams["ice"].required = false;
 	}
 	// 定义添加接口处理
-	ENDPOINT(API_M_POST, "/add-by-Familysituation", addFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
+	ENDPOINT(API_M_POST, "/add-by-family-situation", addFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
 	{
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddFamilysituation(dto));
@@ -238,7 +238,7 @@ public: // 定义接口
 		info->queryParams["ice"].required = false;
 	}
 	// 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/modify-by-Familysituation", modifyFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
+	ENDPOINT(API_M_PUT, "/modify-by-family-situation", modifyFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
 	{
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyFamilysituation(dto));
@@ -283,7 +283,7 @@ public: // 定义接口
 		info->queryParams["ice"].required = false;
 	}
 	// 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/remove-by-Familysituation", removeFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
+	ENDPOINT(API_M_DEL, "/remove-by-family-situation", removeFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
 	{
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveFamilysituation(dto));
@@ -297,7 +297,7 @@ public: // 定义接口
 		info->queryParams["suffix"].addExample("xlsx", String(".xlsx"));
 	}
 	// 定义导入接口处理
-	ENDPOINT(API_M_POST, "/import-by-Familysituation", importFile, BODY_STRING(String, body), QUERY(String, suffix))
+	ENDPOINT(API_M_POST, "/import-by-family-situation", importFile, BODY_STRING(String, body), QUERY(String, suffix))
 	{
 		// 执行文件保存和解析逻辑
 		API_HANDLER_RESP_VO(executeImportFamilysituation(body, suffix));
@@ -355,7 +355,7 @@ public: // 定义接口
 		info->queryParams["url"].addExample("xlsx", String(".xlsx"));
 	}
 	// 定义导出接口处理
-	ENDPOINT(API_M_GET, "/export-by-Familysituation", exportFamilysituation, QUERY(String, url))
+	ENDPOINT(API_M_GET, "/export-by-family-situation", exportFamilysituation, QUERY(String, url))
 	{
 		// 响应结果
 		API_HANDLER_RESP_VO(execExportFamilysituation(url));
@@ -376,8 +376,6 @@ private: // 定义接口执行函数
 	StringJsonVO::Wrapper executeImportFamilysituation(const String& fileBody, const String& suffix);
 	// 导出数据响应
 	StringJsonVO::Wrapper execExportFamilysituation(const String& url);
-	FamilySituationPageJsonVO::Wrapper execQueryByFamilysituation(const FamilysituationQuery::Wrapper& query);
-	FamilysituationJsonVO::Wrapper execOneQueryFamilysituation(const FamilysituationQuery::Wrapper& query);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

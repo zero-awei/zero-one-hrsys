@@ -58,7 +58,7 @@ public: // 接口
 		info->queryParams["sort"].required = false;
 	}
 	// 功能1 分页查询指定姓名员工的教育信息：接口处理
-	ENDPOINT(API_M_GET, "/education/guery-Education-Page", gueryEducationPage, API_HANDLER_AUTH_PARAME,  QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/education/guery-education-page", gueryEducationPage, API_HANDLER_AUTH_PARAME,  QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(educationQuery, EducationPageQuery, queryParams);
 		// 响应结果
@@ -79,7 +79,7 @@ public: // 接口
 		info->queryParams["pimpersonname"].addExample("default", String("ChenJun"));
 	}
 	// 功能2 单独查询指定姓名员工的教育信息：接口处理
-	ENDPOINT(API_M_GET, "/education/query-Education-Single", queryEducationSingle, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/education/query-education-single", queryEducationSingle, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(educationSingle, EducationSingleQuery, queryParams);
 		// 响应结果
@@ -97,7 +97,7 @@ public: // 接口
 		//API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	// 功能3 单条新增指定姓名员工的教育信息：接口处理
-	ENDPOINT(API_M_POST, "/education/add-Education-Single", addEducationSingle, API_HANDLER_AUTH_PARAME, BODY_DTO(EducationSingleDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/education/add-education-single", addEducationSingle, API_HANDLER_AUTH_PARAME, BODY_DTO(EducationSingleDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddEducationSingle(dto, authObject->getPayload()));
 	}
@@ -113,7 +113,7 @@ public: // 接口
 		//API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	// 功能4 修改指定姓名员工的教育信息：接口处理
-	ENDPOINT(API_M_PUT, "/education/modify-Education-Single", modifyEducationSingle, API_HANDLER_AUTH_PARAME, BODY_DTO(EducationSingleDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/education/modify-education-single", modifyEducationSingle, API_HANDLER_AUTH_PARAME, BODY_DTO(EducationSingleDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyEducationSingle(dto, authObject->getPayload()));
 	}
@@ -134,7 +134,7 @@ public: // 接口
 	}
 	// 功能5 删除指定姓名员工的教育信息：接口处理
 	//ENDPOINT(API_M_DEL, "/education/remove-Education-Single", removeEducation, API_HANDLER_AUTH_PARAME,PATH(String, deleteId)) {
-	ENDPOINT(API_M_DEL, "/education/remove-Education-Single", removeEducation, API_HANDLER_AUTH_PARAME,BODY_DTO(EducationDeleteSingleDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/education/remove-education-single", removeEducation, API_HANDLER_AUTH_PARAME,BODY_DTO(EducationDeleteSingleDTO::Wrapper, dto)) {
 		//auto dto = EducationDeleteSingleDTO::createShared();
 		//dto->deleteId = deleteId;
 		//// 响应结果
@@ -155,7 +155,7 @@ public: // 接口
 	}
 	//// 功能6 批量删除指定姓名员工的教育信息：接口处理
 	//ENDPOINT(API_M_DEL, "/education/remove-Education-Not-Single", removeEducationNotSingle, API_HANDLER_AUTH_PARAME, BODY_STRING(String, jsonPayload)) {
-	ENDPOINT(API_M_DEL, "/education/remove-Education-Not-Single", removeEducationNotSingle, API_HANDLER_AUTH_PARAME, BODY_DTO(EducationDeleteNotSingleDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/education/remove-education-not-single", removeEducationNotSingle, API_HANDLER_AUTH_PARAME, BODY_DTO(EducationDeleteNotSingleDTO::Wrapper, dto)) {
 		//const std::shared_ptr<ObjectMapper>& objectMapper = oatpp::parser::json::mapping::ObjectMapper::createShared();
 		// 解析查询参数
 		//auto dto = EducationDeleteNotSingleDTO::createShared();
@@ -191,7 +191,7 @@ public: // 接口
 		info->queryParams["file"].required = true;
 	}
 	// 功能7 单个文件上传教育信息：接口处理
-	ENDPOINT(API_M_POST, "/education/upload-Education", importEducation, API_HANDLER_AUTH_PARAME,REQUEST(std::shared_ptr<IncomingRequest>, request)) {
+	ENDPOINT(API_M_POST, "/education/upload-education", importEducation, API_HANDLER_AUTH_PARAME,REQUEST(std::shared_ptr<IncomingRequest>, request)) {
 		/* 创建multipart容器 */
 		auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
 		/* 创建multipart读取器 */
@@ -265,7 +265,7 @@ public: // 接口
 		info->queryParams["sequence"].required = true;
 	}
 	//功能8 导出教育信息文件 接口处理
-	ENDPOINT(API_M_GET, "/education/export-Eudaction", exportEducation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/education/export-education", exportEducation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
 		API_HANDLER_QUERY_PARAM(query, EducationExportQuery, qps);
 		API_HANDLER_RESP_VO(execExportEducation(query, authObject->getPayload()));
 	}
