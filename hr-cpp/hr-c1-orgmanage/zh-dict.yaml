@@ -71,6 +71,10 @@ jobSet:
 
 #项目标签-导出岗位标签
 projTag:
+ orgList:
+  summary: 分页查询组织列表
+  order: 排序 (DESC/ASC)
+
  export:
   summary: 导出项目标签
   rows: 导出数据条数(最大5000条)

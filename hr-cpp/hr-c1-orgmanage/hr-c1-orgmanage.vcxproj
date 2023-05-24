@@ -172,6 +172,7 @@
     <ClCompile Include="controller\jobSet\importJobController\ImportJobController.cpp" />
     <ClCompile Include="controller\projTag\exportProjTagController\ExportProjTagController.cpp" />
     <ClCompile Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.cpp" />
+    <ClCompile Include="controller\projTag\queryOrgList\QueryOrgListController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="dao\projTag\ProjTagDAO.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="controller\projTag\exportProjTagController\ExportProjTagController.h" />
     <ClInclude Include="controller\projTag\modifyProjTagController\ModifyProjTagController.h" />
     <ClInclude Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.h" />
+    <ClInclude Include="controller\projTag\queryOrgList\QueryOrgListController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="dao\projTag\ProjTagDAO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
@@ -214,11 +216,13 @@
     <ClInclude Include="domain\dto\projTag\DeleteProjTagDTO.h" />
     <ClInclude Include="domain\dto\projTag\ImportTagDTO.h" />
     <ClInclude Include="domain\dto\projTag\ModifyTagDTO.h" />
+    <ClInclude Include="domain\dto\projTag\OrgListDTO.h" />
     <ClInclude Include="domain\dto\projTag\ProjTagDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\itemlabel\ItemlabelQuery.h" />
     <ClInclude Include="domain\query\orgbz\PageBzQuery.h" />
     <ClInclude Include="domain\query\postSet\PostDetailQuery.h" />
+    <ClInclude Include="domain\query\projTag\OrgListQuery.h" />
     <ClInclude Include="domain\query\projTag\PageProjTagQuery.h" />
     <ClInclude Include="domain\vo\itemLabel\ItemLabelVO.h" />
     <ClInclude Include="domain\vo\jobDownload\JobDownloadVO.h" />
@@ -229,6 +233,7 @@
     <ClInclude Include="domain\query\projTag\ExportProjTagQuery.h" />
     <ClInclude Include="domain\vo\jobSet\ImportJobVO.h" />
     <ClInclude Include="domain\vo\projTag\ImportTagVO.h" />
+    <ClInclude Include="domain\vo\projTag\OrgListVO.h" />
     <ClInclude Include="domain\vo\projTag\ProjTagVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
