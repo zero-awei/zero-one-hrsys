@@ -51,7 +51,7 @@ public: // 定义接口
 		info->queryParams["PIMPATENTID"].required = true;
 	}
 	// 4 定义接口端点
-	ENDPOINT(API_M_GET, "/employee-info/patentinfo", queryPatentinfo, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/employee-info/query-by-PIMPATENTID", queryPatentinfo, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, PatentinfoQuery, qps);
 		// 响应结果
