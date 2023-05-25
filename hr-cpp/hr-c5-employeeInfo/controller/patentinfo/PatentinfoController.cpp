@@ -12,7 +12,7 @@ PatentinfoJsonVO::Wrapper PatentinfoController::execQueryPatentinfo(const Patent
 	//pdto->addData(PatentDTO::createShared(1, "zs"));
 	//pdto->addData(PatentDTO::createShared(2, "ls"));
 	// ÏìÓ¦½á¹û
-	vo->success({});
+	// vo->success({});
 	return vo;
 }
 

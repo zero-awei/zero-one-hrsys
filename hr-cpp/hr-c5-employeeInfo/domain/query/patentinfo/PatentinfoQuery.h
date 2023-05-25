@@ -12,15 +12,9 @@
 /**
  * 专利信息查询对象
  */
-class PatentinfoQuery : public DTO
+class PatentinfoQuery : public PageQuery
 {
-	DTO_INIT(PatentinfoQuery, DTO);
-
-	// 人员信息标识
-	DTO_FIELD(String, PIMPERSONID);
-	DTO_FIELD_INFO(PIMPERSONID) {
-		info->description = ZH_WORDS_GETTER("patentInformation.field.PIMPERSONID");
-	}
+	DTO_INIT(PatentinfoQuery, PageQuery);
 
 	// 专利信息编码
 	DTO_FIELD(String, PIMPATENTID);
