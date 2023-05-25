@@ -1,3 +1,8 @@
+//2023年5月21日
+//完成更新岗位信息DTO
+//作者：狗皮电耗子
+
+
 #pragma once
 #ifndef _JOB_UPDATE_DTO_
 #define _JOB_UPDATE_DTO_

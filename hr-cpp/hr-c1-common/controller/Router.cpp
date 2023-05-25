@@ -19,15 +19,14 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-#include"auditstatusController.h/AuditstatusController.h"
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
-#include "HTLX_pimcontracttype/HtlxController.h"
 #endif
 
 //测试
+#include"auditstatusController.h/AuditstatusController.h"
 #include "certDropDownList/profCertsList/ProfCertsListController.h"
 #include "certDropDownList/certTypeList/CertTypeListController.h"
 #include "contractType/ContractTypeController.h"
@@ -43,6 +42,8 @@
 #include "awardLevel/AwardLevelController.h"
 #include "jobCategory/JobCategoryController.h"
 #include "typeContract/TypeContractListController.h"
+#include"evaluationTypesController.h/EvaluationTypesController.h"
+#include "contractStatus/ContractStatusController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -83,6 +84,10 @@ void Router::initRouter()
 	createLeaveReasonRouter();
 	createDismissReasonRouter();
 	createAuditStatusRouter();
+	createEvalutionTypesRouter();
+	createContractStatusRouter();
+	// 合同类别接口
+	// 负责人：徐不洗
 	ROUTER_SIMPLE_BIND(ContractTypeController);
 }
 
@@ -145,6 +150,11 @@ void Router::createArmyLevelTypeRouter()
 	ROUTER_SIMPLE_BIND(ArmyLevelTypeController);
 }
 
+void Router::createContractStatusRouter()
+{
+	ROUTER_SIMPLE_BIND(ConstractStatusController);
+}
+
 void Router::createJobLevelTypeRouter()
 {
 	ROUTER_SIMPLE_BIND(JobLevelTypeListController);
@@ -167,4 +177,9 @@ void Router::createJobCategoryRouter()
 void Router::createAuditStatusRouter()
 {
 	ROUTER_SIMPLE_BIND(AuditStatusController);
+}
+
+void  Router::createEvalutionTypesRouter()
+{
+	ROUTER_SIMPLE_BIND(EvaluationTypesController);
 }

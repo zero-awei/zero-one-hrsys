@@ -49,7 +49,7 @@ public:
 		val = "null";
 	}
 
-	ItemDTO(Int32 k, String v)
+	ItemDTO(UInt32 k, String v)
 	{
 		key = k;
 		val = v;
