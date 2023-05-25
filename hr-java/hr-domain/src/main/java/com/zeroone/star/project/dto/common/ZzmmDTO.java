@@ -14,7 +14,7 @@ import lombok.Data;
 @Data
 public class ZzmmDTO {
 //    @ApiModelProperty(value = "政治面貌编号",example = "1")
-//    private String zzmmid;
+//    private Integer id;
     @ApiModelProperty(value = "政治面貌名称",example = "中共党员")
     private String name;
 }

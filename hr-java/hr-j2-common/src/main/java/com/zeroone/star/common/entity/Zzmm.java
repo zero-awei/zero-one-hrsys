@@ -23,7 +23,7 @@ public class Zzmm implements Serializable {
     /**
      * 政治面貌ID
      */
-    private String id;
+    private Integer id;
 
     /**
      * 政治面貌名称

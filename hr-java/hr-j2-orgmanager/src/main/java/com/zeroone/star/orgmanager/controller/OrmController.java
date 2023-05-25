@@ -10,6 +10,7 @@ import com.zeroone.star.project.query.orgmanager.KqdzQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -30,6 +32,7 @@ import java.util.List;
 @RestController
 @RequestMapping("org-manager")
 @Api(tags = "组织管理")
+@Validated
 public class OrmController implements OrgmanagerApis {
 
     @Resource
@@ -38,7 +41,7 @@ public class OrmController implements OrgmanagerApis {
     @ApiOperation(value = "新增部门")
     @PostMapping("add-dept")
     @Override
-    public JsonVO<String> addDept(OrgsectorDTO orgsectorDTO) {
+    public JsonVO<String> addDept(@Valid OrgsectorDTO orgsectorDTO) {
         String result = ormorginfoService.saveDept(orgsectorDTO);
         return JsonVO.success(result) ;
     }
