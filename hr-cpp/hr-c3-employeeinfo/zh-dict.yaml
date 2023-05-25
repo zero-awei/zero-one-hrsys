@@ -122,7 +122,7 @@ sector:
     sort: 排序方式
 member:
   field:
-    summary: 
+    summary: 新增员工信息
   query:
     parentdename: 查询parent类型
     parentkey: 查询parent的id
