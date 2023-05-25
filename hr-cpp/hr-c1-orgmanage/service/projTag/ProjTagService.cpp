@@ -49,5 +49,6 @@ OrgListPageDTO::Wrapper ProjTagService::listOrgList(const OrgListQuery::Wrapper&
 	dto->pageSize = query->pageSize;
 
 	// 获取查询总条数
-	OrgListDAO dao;
+
+	return dto;
 }

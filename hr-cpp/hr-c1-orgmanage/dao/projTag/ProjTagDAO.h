@@ -37,7 +37,7 @@ public:
 	 * 项目标签 - 分页查询组织列表DAO实现
 	 * 负责人：Andrew
 	 */
-	std::list<OrgListDO::Wrapper> insert(const ProjTagDO& iObj);
+	//std::list<OrgListDO::Wrapper> insert(const ProjTagDO& iObj);
 };
 
 #endif // !_PROJTAGDAO_H_

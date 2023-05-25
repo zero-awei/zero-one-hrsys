@@ -31,8 +31,8 @@
 class OrgListDTO : public oatpp::DTO
 {
 	DTO_INIT(OrgListDTO, DTO);
-	// ÇøÓò²¹Ìù
-	DTO_FIELD(String, regionSubsidy);
+	// ×éÖ¯ID
+	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("projTag.orgList.id");
 	}
