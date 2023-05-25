@@ -21,61 +21,37 @@
 #define _CERTIFICATE_DO_
 #include "../DoInclude.h"
 
-//两个文件同名，发生冲突，暂时合并在一起了
 class CertificateDO
 {
-/**
- * 离职员工数据库实体类--pine
- */
-	// 编号
-	CC_SYNTHESIZE(uint64_t, id, Id);
+	/**
+	 * 证书管理数据库实体类
+	 */
+	 // 员工基本信息表ID,同员工ID
+	CC_SYNTHESIZE(uint64_t, ygbh, Ygbh);
 	// 姓名
-	CC_SYNTHESIZE(string, name, Name);
-	// 性别
-	CC_SYNTHESIZE(string, sex, Sex);
-	// 年龄
-	CC_SYNTHESIZE(string, age, Age);
-	// 组织
-	CC_SYNTHESIZE(string, organization, Organization);
-	// 部门
-	CC_SYNTHESIZE(string, department, Department);
-	// 职级
-	CC_SYNTHESIZE(string, rank, Rank);
-	// 通讯地址
-	CC_SYNTHESIZE(string, mail_address, Mail_address);
-	// 家庭联系人
-	CC_SYNTHESIZE(string, family_contact, Family_contact);
-	// 家庭联系人电话
-	CC_SYNTHESIZE(string, family_contact_number, Family_contact_nuimber);
-/**
- * 证书管理数据库实体类
- */
-// 员工基本信息表ID,同员工ID
-	CC_SYNTHESIZE(uint64_t, ygbh, ygbh);
-	// 姓名
-	CC_SYNTHESIZE(string, pimperSonName, pimperSonName);
+	CC_SYNTHESIZE(string, pimperSonName, PimperSonName);
 	// 员工状态 
-	CC_SYNTHESIZE(string, ygzt, ygzt);
+	CC_SYNTHESIZE(string, ygzt, Ygzt);
 	// 组织   t_srforg 需要连表操作获取组织名称
-	CC_SYNTHESIZE(string, organizationName, organizationName);
+	CC_SYNTHESIZE(string, organizationName, OrganizationName);
 	// 证书编号
-	CC_SYNTHESIZE(string, zgzsbh, zgzsbh);
+	CC_SYNTHESIZE(string, zgzsbh, Zgzsbh);
 	// 一建配套B证编号
-	CC_SYNTHESIZE(string, bcardNumber, bcardNumber);
+	CC_SYNTHESIZE(string, bcardNumber, BcardNumber);
 	// 证书名称
-	CC_SYNTHESIZE(string, pimVocationalName, pimVocationalName);
+	CC_SYNTHESIZE(string, pimVocationalName, PimVocationalName);
 	// 证书类型
-	CC_SYNTHESIZE(string, zslx, zslx);
+	CC_SYNTHESIZE(string, zslx, Zslx);
 	// 签发日期
-	CC_SYNTHESIZE(string, zghqrq, zghqrq);
+	CC_SYNTHESIZE(string, zghqrq, Zghqrq);
 	// 签发机构
-	CC_SYNTHESIZE(string, zgsydw, zgsydw);
+	CC_SYNTHESIZE(string, zgsydw, Zgsydw);
 	// 注册单位
-	CC_SYNTHESIZE(string, zcdw, zcdw);
+	CC_SYNTHESIZE(string, zcdw, Zcdw);
 	// 发证有效期
-	CC_SYNTHESIZE(string, fzyxq, fzyxq);
+	CC_SYNTHESIZE(string, fzyxq, Fzyxq);
 	// 失效日期
-	CC_SYNTHESIZE(string, sxrq, sxrq);
+	CC_SYNTHESIZE(string, sxrq, Sxrq);
 	// 证书剩余日期 表内没有
 	//////////////////////////////////////////////////////////////
 	// 以下为非前端显示字段
@@ -87,16 +63,19 @@ class CertificateDO
 
 public:
 	CertificateDO() {
-		id = 0;
-		name = "";
-		sex = "";
-		age = -1;
-		organization = "";
-		department = "";
-		rank = "";
-		mail_address = "";
-		family_contact = "";
-		family_contact_number = "";
+		ygbh = 0;
+		pimperSonName = "";
+		ygzt = "";
+		organizationName = "";
+		zgzsbh = "";
+		bcardNumber = "";
+		pimVocationalName = "";
+		zslx = "";
+		zghqrq = "";
+		zgsydw = "";
+		zcdw = -1;
+		fzyxq = "";
+		sxrq = "";
 	}
 };
 
