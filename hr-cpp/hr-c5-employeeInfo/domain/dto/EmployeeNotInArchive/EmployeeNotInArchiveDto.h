@@ -65,12 +65,47 @@ class EmployeeNotInArchiveDto : public oatpp::DTO
 	}
 };
 
+
+class ArchiveOutDto : public oatpp::DTO
+{
+	DTO_INIT(ArchiveOutDto, DTO);
+	// 员工编号
+	DTO_FIELD(UInt32, emloyeenumber);
+	DTO_FIELD_INFO(emloyeenumber) {
+		info->description = ZH_WORDS_GETTER("EmployeeNotInArchive.field.emloyeenumber");
+	}
+	// 员工姓名
+	DTO_FIELD(String, PimPersonName);
+	DTO_FIELD_INFO(PimPersonName) {
+		info->description = ZH_WORDS_GETTER("EmployeeNotInArchive.field.PimPersonName");
+	}
+	// 调出单位
+	DTO_FIELD(String, outunit);
+	DTO_FIELD_INFO(outunit) {
+		info->description = ZH_WORDS_GETTER("EmployeeNotInArchive.field.outunit");
+	}
+	// 调入单位
+	DTO_FIELD(String, inunit);
+	DTO_FIELD_INFO(inunit) {
+		info->description = ZH_WORDS_GETTER("EmployeeNotInArchive.field.inunit");
+	}
+	// 调动时间
+	DTO_FIELD(String, time);
+	DTO_FIELD_INFO(time) {
+		info->description = ZH_WORDS_GETTER("EmployeeNotInArchive.field.time");
+	}
+};
 /**
  * 示例分页传输对象
  */
 class EmployeeNotInArchivePageDTO : public PageDTO<EmployeeNotInArchiveDto::Wrapper>
 {
 	DTO_INIT(EmployeeNotInArchivePageDTO, PageDTO<EmployeeNotInArchiveDto::Wrapper>);
+};
+
+class ArchiveOutDTO : public PageDTO<ArchiveOutDto::Wrapper>
+{
+	DTO_INIT(ArchiveOutDTO, PageDTO<ArchiveOutDto::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

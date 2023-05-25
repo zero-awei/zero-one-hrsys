@@ -21,7 +21,17 @@ class EmployeeNotInArchiveQuery : public PageQuery
 	}
 
 };
+class ArchiveOutQuery : public PageQuery
+{
+	DTO_INIT(ArchiveOutQuery, PageQuery);
 
+	// 归档地变更记录
+	DTO_FIELD(String, ArchiveOut);
+	DTO_FIELD_INFO(ArchiveOut) {
+		info->description = ZH_WORDS_GETTER("EmployeeNotInArchive.field.ArchiveOut");
+	}
+
+};
 
 
 #include OATPP_CODEGEN_END(DTO)

@@ -37,16 +37,40 @@ public: // 定义接口
 		info->queryParams["PimPersonName"].addExample("default", String("Name"));
 	}
 	// 4 定义接口端点
-	ENDPOINT(API_M_GET, "/employeenotInarchive", EmployeeNotInArchive, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/employeenotInarchive/query-employeenotInarchive", EmployeeNotInArchive, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, EmployeeNotInArchiveQuery, qps);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryTest(query));
 	}
+
+
+	//  定义接口描述
+	ENDPOINT_INFO(ArchiveRollout) {
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("EmployeeNotInArchive.get.rollout");
+		// 定义响应参数类型
+		API_DEF_ADD_RSP_JSON_WRAPPER(ArchiveOutPageJsonVO);
+		// 定义分页查询参数描述
+		API_DEF_ADD_PAGE_PARAMS();
+		//员工姓名
+		info->queryParams.add<String>("ArchiveOut").description = ZH_WORDS_GETTER("EmployeeNotInArchive.field.ArchiveOut");
+		info->queryParams["ArchiveOut"].addExample("default", String("ArchiveOut"));
+	}
+	// 定义接口端点
+	ENDPOINT(API_M_GET, "/ArchiveOut/query-rchiveOut", ArchiveRollout, QUERIES(QueryParams, qps)) {
+		// 解析查询参数（解析成领域模型对象）
+		API_HANDLER_QUERY_PARAM(query2, ArchiveOutQuery, qps);
+		// 响应结果
+		API_HANDLER_RESP_VO(QueryTest(query2));
+	}
 private: // 定义接口执行函数
 	// 5 定义接口的执行函数
 	EmployeeNotInArchivePageJsonVO::Wrapper execQueryTest(const EmployeeNotInArchiveQuery::Wrapper& query);
+	ArchiveOutPageJsonVO::Wrapper QueryTest(const ArchiveOutQuery::Wrapper& query);
 };
+
+
 
 #include OATPP_CODEGEN_END(ApiController) // 0
 

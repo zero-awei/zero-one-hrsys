@@ -209,3 +209,7 @@ EmployeeNotInArchive:
   unit: 所属单位
   state: 员工状态
   use: 操作列
+  ArchiveOut: 归档地变更记录
+  outunit: 调出单位
+  inunit: 调入单位
+  time: 调动时间

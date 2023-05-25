@@ -24,6 +24,9 @@ class EmployeeNotInArchivePageJsonVO : public JsonVO <String>
 	DTO_INIT(EmployeeNotInArchivePageJsonVO, JsonVO<String>);
 };
 
+class ArchiveOutPageJsonVO : public JsonVO<String> {
+	DTO_INIT(ArchiveOutPageJsonVO, JsonVO<String>);
+};
 #include OATPP_CODEGEN_END(DTO)
 
 #endif // !_ARCHIVES_VO_

@@ -7,3 +7,10 @@ EmployeeNotInArchivePageJsonVO::Wrapper EmployeeNotInArchiveController::execQuer
 	vo->success("test query success");
 	return vo;
 }
+
+ArchiveOutPageJsonVO::Wrapper EmployeeNotInArchiveController::QueryTest(const ArchiveOutQuery::Wrapper& query)
+{
+	auto v = ArchiveOutPageJsonVO::createShared();
+	v->success("test query success");
+	return v;
+}
