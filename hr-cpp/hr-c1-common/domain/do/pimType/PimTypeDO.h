@@ -15,7 +15,7 @@ class PimTypeDO
 	CC_SYNTHESIZE(string, updaterName, UpdaterName);
 	CC_SYNTHESIZE(string, updateDate, UpdateDate);
 	CC_SYNTHESIZE(string, typeCode, TypeCode);
-	CC_SYNTHESIZE(string, type, Type);
+	CC_SYNTHESIZE(string, type, pimType);
 	CC_SYNTHESIZE(string, ormorgID, OrmorgID);
 public:
 	PimTypeDO() {
