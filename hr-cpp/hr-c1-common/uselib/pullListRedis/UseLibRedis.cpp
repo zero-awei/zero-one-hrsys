@@ -85,3 +85,32 @@ void UseLibRedis::updateRedis(const std::unordered_map<std::string, std::string>
 		return 1;
 	});
 }
+
+void UseLibRedis::updateRedisWithTable(const std::unordered_map<std::string, std::string>& m, std::string tablename)
+{
+	//获取配置
+	NacosClient nacosClient(ServerInfo::getInstance().getNacosAddr(), ServerInfo::getInstance().getNacosNs());
+#ifdef LINUX
+	YAML::Node node = nacosClient.getConfig("data-source.yaml");
+#else
+	YAML::Node node = nacosClient.getConfig("./conf/data-source.yaml");
+#endif
+
+	//获取redis相关配置
+	YamlHelper yaml;
+	string host = yaml.getString(&node, "spring.redis.host");
+	string port = yaml.getString(&node, "spring.redis.port");
+	string password = yaml.getString(&node, "spring.redis.password");
+
+	//创建RedisClient对象
+	RedisClient rc(host, atoi(port.c_str()), password);
+
+	//新增值
+	/*rc.execute<long long>([&](Redis* redis) {
+		return redis->rpush("list", vec.begin(), vec.end());
+	});*/
+	rc.execute<int>([&](Redis* redis) {
+		redis->hmset(tablename, m.begin(), m.end());
+		return 1;
+		});
+}
