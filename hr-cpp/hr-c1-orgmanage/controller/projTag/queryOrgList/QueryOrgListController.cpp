@@ -18,18 +18,24 @@
 */
 #include "stdafx.h"
 #include "QueryOrgListController.h"
+#include "service/projTag/ProjTagService.h"
 
 OrgListVO::Wrapper QueryOrgListController::execQueryOrgList(const OrgListQuery::Wrapper& query)
 {
+	// 创建返回对象
 	auto vo = OrgListVO::createShared();
 
-	auto dto = OrgListPageDTO::createShared();
+	// 样例生成
+	/*auto dto = OrgListPageDTO::createShared();
 	for (int i = 0; i < 3; i++)
 	{
 		auto item = OrgListDTO::createShared();
 		dto->rows->push_back(item);
-	}
+	}*/
 
+	// 调用service
+	ProjTagService service;
+	auto dto = service.listOrgList(query);
 	vo->success(dto);
 	return vo;
 }

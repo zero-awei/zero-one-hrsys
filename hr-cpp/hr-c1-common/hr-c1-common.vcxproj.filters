@@ -105,6 +105,7 @@
     <ClInclude Include="controller\contractStatus\ContractStatusController.h" />
     <ClInclude Include="domain\do\armyLevelType\ArmyLevelTypeDO.h" />
     <ClInclude Include="domain\do\contractType\ContractTypeDO.h" />
+    <ClInclude Include="dao\armyLevelType\ArmyLevelMapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

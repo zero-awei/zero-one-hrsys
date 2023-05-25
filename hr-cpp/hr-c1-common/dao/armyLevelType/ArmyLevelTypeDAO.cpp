@@ -18,8 +18,24 @@
 */
 #include "stdafx.h"
 #include "ArmyLevelTypeDAO.h"
+#include "ArmyLevelMapper.h"
 
-//std::list<ArmyLevelTypeDO> ArmyLevelTypeDAO::selectWithPage()
-//{
-//	
-//}
+std::list<ArmyLevelTypeDO> ArmyLevelTypeDAO::listAll()
+{
+	/*string str = "SELECT `LEVELTYPE` FROM `t_pimarmycadres` GROUP BY `LEVELTYPE`";
+	ArmyLevelMapper mapper;
+	return sqlSession->executeQuery<ArmyLevelTypeDO, ArmyLevelMapper>(str, mapper);*/
+
+	list<ArmyLevelTypeDO> res;
+	for (auto item : armyLevel)
+	{
+		ArmyLevelTypeDO tmp(item.first, item.second);
+		res.push_back(tmp);
+	}
+	return res;
+}
+
+unordered_map<string, string> ArmyLevelTypeDAO::getMapList()
+{
+	return armyLevel;
+}

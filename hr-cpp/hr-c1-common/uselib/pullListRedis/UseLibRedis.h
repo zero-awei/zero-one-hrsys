@@ -30,6 +30,6 @@ public:
 	// Redis ²éÑ¯
 	static std::unordered_map<std::string, std::string> queryRedis(const string &key);
 	// Redis ĞÂÔö
-	static void updateRedis(const std::unordered_map<std::string, std::string>& m);
+	static void updateRedis(const std::string &key, const std::unordered_map<std::string, std::string>& m);
 };
 #endif // _TESTREDIS_H_
