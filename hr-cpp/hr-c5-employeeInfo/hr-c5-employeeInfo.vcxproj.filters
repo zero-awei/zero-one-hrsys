@@ -150,6 +150,12 @@
     <ClInclude Include="domain\vo\paperinfo\PaperVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\vo\EmployeeNotInArchive\EmployeeNotInArchiveVo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\EmployeeNotInArchive\EmployeeNotInArchiveController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -183,6 +189,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\paperinfoController\PaperinfoController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\EmployeeNotInArchive\EmployeeNotInArchiveController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

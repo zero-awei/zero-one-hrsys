@@ -22,8 +22,8 @@
 #include "patentinfo/PatentinfoController.h"
 #include "paperinfoController/PaperinfoController.h"
 #include "archives/ArchivesController.h"
-
 #include "archives/ArchivesController.h"
+#include "EmployeeNotInArchive/EmployeeNotInArchiveController.h"
 #include "archivesCenter/ArchivesCenterController.h"
 
 
@@ -67,7 +67,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(PaperinfoController);
 	ROUTER_SIMPLE_BIND(ArchivesController);
 	ROUTER_SIMPLE_BIND(PimpaperController);
-
+	ROUTER_SIMPLE_BIND(EmployeeNotInArchiveController);
 	ROUTER_SIMPLE_BIND(NotEmployeeInArchiveController);
 	ROUTER_SIMPLE_BIND(UpdateArchiveInfoController);
 	ROUTER_SIMPLE_BIND(ArchivesController);
