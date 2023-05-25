@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: yuanxiang
- @Date: 2023/05/23 17:06:40
+ @Author: Andrew211vibe
+ @Date: 2023/05/25 19:24:18
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,27 +17,25 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _PROJTAGDAO_H_
-#define _PROJTAGDAO_H_
-#include "BaseDAO.h"
-#include "domain/do/projTag/ProjTagDO.h"
+#ifndef _ARMYLEVELMAPPER_H_
+#define _ARMYLEVELMAPPER_H_
+
+#include "Mapper.h"
+#include "domain/do/armyLevelType/ArmyLevelTypeDO.h"
 
 /**
- * 项目标签DAO实现
+ * 军转级别下拉列表数据库字段匹配映射
+ * 负责人：Andrew
  */
-class ProjTagDAO : public BaseDAO
+class ArmyLevelMapper : public Mapper<ArmyLevelTypeDO>
 {
 public:
-	/**
-	 * 项目标签 - 新增项目标签DAO实现
-	 * 负责人：远翔
-	 */
-	uint64_t insert(const ProjTagDO& iObj);
-	/**
-	 * 项目标签 - 分页查询组织列表DAO实现
-	 * 负责人：Andrew
-	 */
-	//std::list<OrgListDO::Wrapper> insert(const ProjTagDO& iObj);
+	ArmyLevelTypeDO mapper(ResultSet *result) const override
+	{
+		ArmyLevelTypeDO data;
+		data.setArmyLevelType(result->getString(1));
+		return data;
+	}
 };
 
-#endif // !_PROJTAGDAO_H_
+#endif // !_ARMYLEVELMAPPER_H_

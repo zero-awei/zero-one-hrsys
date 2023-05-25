@@ -20,6 +20,8 @@
 #ifndef _PROJTAGSERVICE_H_
 #define _PROJTAGSERVICE_H_
 #include "domain/dto/projTag/ProjTagDTO.h"
+#include "domain/dto/projTag/OrgListDTO.h"
+#include "domain/query/projTag/OrgListQuery.h"
 
 /**
  * 项目标签Service
@@ -29,6 +31,11 @@ class ProjTagService
 {
 public:
 	uint64_t saveData(const ProjTagDTO::Wrapper& dto);
+	/**
+	 * 分页查询组织列表
+	 * 负责人：Andrew
+	 */
+	OrgListPageDTO::Wrapper listOrgList(const OrgListQuery::Wrapper &query);
 };
 
 #endif // !_PROJTAGSERVICE_H_

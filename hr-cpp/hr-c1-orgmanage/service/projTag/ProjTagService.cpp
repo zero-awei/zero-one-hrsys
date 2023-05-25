@@ -20,6 +20,7 @@
 #include "ProjTagService.h"
 #include "domain/do/projTag/ProjTagDO.h"
 #include "dao/projTag/ProjTagDAO.h"
+
 uint64_t ProjTagService::saveData(const ProjTagDTO::Wrapper& dto)
 {
 	// 组装DO数据
@@ -38,4 +39,16 @@ uint64_t ProjTagService::saveData(const ProjTagDTO::Wrapper& dto)
 	ProjTagDAO dao;
 	return dao.insert(data);
 
+}
+
+OrgListPageDTO::Wrapper ProjTagService::listOrgList(const OrgListQuery::Wrapper& query)
+{
+	// 构建返回对象
+	auto dto = OrgListPageDTO::createShared();
+	dto->pageIndex = query->pageIndex;
+	dto->pageSize = query->pageSize;
+
+	// 获取查询总条数
+
+	return dto;
 }

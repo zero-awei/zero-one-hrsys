@@ -26,15 +26,15 @@ class PageBzQuery : public oatpp::DTO
 {
 	DTO_INIT(PageBzQuery, DTO);
 	DTO_FIELD_INFO(size) {
-		info->description = ZH_WORDS_GETTER("orgbz.pageQuery.size");
+		info->description = ZH_WORDS_GETTER("orgbz.pagequery.size");
 	}
 	DTO_FIELD(UInt8, size);
 	DTO_FIELD_INFO(page) {
-		info->description = ZH_WORDS_GETTER("orgbz.pageQuery.page");
+		info->description = ZH_WORDS_GETTER("orgbz.pagequery.page");
 	}
 	DTO_FIELD(UInt8, page);
 	DTO_FIELD_INFO(sort) {
-		info->description = ZH_WORDS_GETTER("orgbz.pageQuery.sort");
+		info->description = ZH_WORDS_GETTER("orgbz.pagequery.sort");
 	}
 	DTO_FIELD(String, sort);
 };

@@ -47,8 +47,8 @@ class OrgListDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("projTag.orgList.createTime");
 	}
 	// 建立人
-	DTO_FIELD(String, creator);
-	DTO_FIELD_INFO(creator) {
+	DTO_FIELD(String, createby);
+	DTO_FIELD_INFO(createby) {
 		info->description = ZH_WORDS_GETTER("projTag.orgList.creator");
 	}
 	// 更新时间
@@ -122,7 +122,7 @@ public:
 	{
 		id = "123";
 		name = "test";
-		creator = "admin";
+		createby = "admin";
 		updater = "admin";
 		createTime = "2000-01-01 00:00:00";
 		updateTime = "2000-01-01 00:00:00";

@@ -147,6 +147,10 @@ job:
   isId: 是否启用标识
  downloadurl: 下载地址
 
+#分页查询编制列表
 orgbz:
- pageQuery:
+ pagequery:
   controller: 分页查询编制列表
+  size: 每页显示条数
+  page: 查询页码
+  sort: 显示顺序
