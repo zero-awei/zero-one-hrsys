@@ -58,6 +58,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(ExportLegalerSetingController);
 	ROUTER_SIMPLE_BIND(LegalerNamePullDownListController);
 	ROUTER_SIMPLE_BIND(UpdateLegalerSetingMessageController);
+	ROUTER_SIMPLE_BIND(LegalEntityMaiController);
 
 }
 
