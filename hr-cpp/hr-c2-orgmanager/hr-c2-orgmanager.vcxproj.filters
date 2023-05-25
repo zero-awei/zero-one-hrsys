@@ -39,6 +39,9 @@
     <ClCompile Include="controller\LegalEntitySet\UpdateLegalerSetingMessageController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="service\LegalEntityMai\LegalEntityMaiService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
@@ -114,6 +117,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\LegalEntitySet\ExportLegalerSetingQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\LegalEntityMai\LegalEntityMaiService.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,9 +1,18 @@
 #include "stdafx.h"
 #include "LegalEntityMaiController.h"
+#include "service/LegalEntityMai/LegalEntityMaiService.h"
 
 
-LegalEntityMaiPageJsonVO::Wrapper LegalEntityMaiController::execQueryLEM(const LegalEntityMaiQuery::Wrapper& legalEntityMaiQuery)
+LegalEntityMaiPageJsonVO::Wrapper LegalEntityMaiController::execQueryLEM(const LegalEntityMaiQuery::Wrapper& query)
 {
+	//// 定义一个Service
+	//LegalEntityMaiService service;
+	//// 查询数据
+	//auto result = service.listAll(query);
+	//// 响应结果
+	//auto jvo = LegalEntityMaiPageJsonVO::createShared();
+	//jvo->success(result);
+	//return jvo;
 	// 定义一个JsonVO对象
 	auto vo = LegalEntityMaiPageJsonVO::createShared();
 	// 定义一个分页对象
@@ -17,6 +26,12 @@ LegalEntityMaiPageJsonVO::Wrapper LegalEntityMaiController::execQueryLEM(const L
 
 Uint64JsonVO::Wrapper LegalEntityMaiController::execUpdateLEM(const LegalEntityMaiDTO::Wrapper& dto)
 {
+	//// 定义返回数据对象
+	//auto jvo = Uint64JsonVO::createShared();
+	//// 参数校验
+	//if (dto->ORMSIGNORGID == "") {
+
+	//}
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
 	// 响应结果
@@ -44,7 +59,7 @@ BooleanJsonVO::Wrapper LegalEntityMaiController::execImportLEM(const LegalEntity
 	return BooleanJsonVO::createShared();
 }
 
-BooleanJsonVO::Wrapper LegalEntityMaiController::execExportLEM(const LegalEntityMaiQuery::Wrapper& legalEntityMaiQuery)
+BooleanJsonVO::Wrapper LegalEntityMaiController::execExportLEM(const LegalEntityMaiQuery::Wrapper& query)
 {
 	return BooleanJsonVO::createShared();
 }

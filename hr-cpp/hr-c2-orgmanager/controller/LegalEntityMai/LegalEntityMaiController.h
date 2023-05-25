@@ -160,7 +160,7 @@ public: // 定义接口
 	
 private: // 定义接口执行函数
 	// 分页查询数据
-	LegalEntityMaiPageJsonVO::Wrapper execQueryLEM(const LegalEntityMaiQuery::Wrapper& legalEntityMaiQuery);
+	LegalEntityMaiPageJsonVO::Wrapper execQueryLEM(const LegalEntityMaiQuery::Wrapper& query);
 	// 更新数据
 	Uint64JsonVO::Wrapper execUpdateLEM(const LegalEntityMaiDTO::Wrapper& dto);
 	// 新增数据
@@ -170,7 +170,7 @@ private: // 定义接口执行函数
 	// 导入数据
 	BooleanJsonVO::Wrapper execImportLEM(const LegalEntityMaiDTO::Wrapper& dto);
 	// 导出数据
-	BooleanJsonVO::Wrapper execExportLEM(const LegalEntityMaiQuery::Wrapper& legalEntityMaiQuery);
+	BooleanJsonVO::Wrapper execExportLEM(const LegalEntityMaiQuery::Wrapper& query);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
