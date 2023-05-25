@@ -214,6 +214,7 @@
     <ClInclude Include="dao\projTag\ProjTagDAO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\postSet\PostDetailDO.h" />
+    <ClInclude Include="domain\do\projTag\OrgListDO.h" />
     <ClInclude Include="domain\do\sector\SectorDO.h" />
     <ClInclude Include="domain\do\projTag\ProjTagDO.h" />
     <ClInclude Include="domain\dto\itemLabel\ItemLabelDTO.h" />

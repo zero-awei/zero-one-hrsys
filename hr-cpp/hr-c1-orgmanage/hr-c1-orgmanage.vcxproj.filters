@@ -88,5 +88,6 @@
     <ClInclude Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.h" />
     <ClInclude Include="domain\do\postSet\PostDetailDO.h" />
     <ClInclude Include="domain\vo\postSet\PostDeleteBatchVO.h" />
+    <ClInclude Include="domain\do\projTag\OrgListDO.h" />
   </ItemGroup>
 </Project>
