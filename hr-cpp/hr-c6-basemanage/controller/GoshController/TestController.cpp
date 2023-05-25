@@ -1,5 +1,5 @@
 #include "stdafx.h"//cpp文件第一件事导入预编译标头
-#include "controller/GoshController/GoshController.h"
+#include "controller/GoshController/TestController.h"
 //#include "service/sample/ContractService.h"
 
 //演示查询合同信息
@@ -24,11 +24,11 @@ Uint64JsonVO::Wrapper GoshController::execAddContract(const ContractDTO_gs::Wrap
 	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
 	// 非空校验
-	//if (!dto->age || !dto->name || !dto->sex)
-	//{
-	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-	//	return jvo;
-	//}
+	if (!dto->id || dto->name->empty() || dto->type->empty() || dto->variety->empty() || dto->date->empty() || dto->condition->empty())
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
 	//// 有效值校验
 	//if (dto->age < 0 || dto->name->empty() || dto->sex->empty())
 	//{
@@ -57,11 +57,11 @@ Uint64JsonVO::Wrapper GoshController::execRemoveContract(const ContractDTO_gs::W
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
 	//// 参数校验
-	//if (!dto->id || dto->id <= 0)
-	//{
-	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-	//	return jvo;
-	//}
+	if (!dto->id)
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
 	//// 定义一个Service
 	//SampleService service;
 	//// 执行数据删除

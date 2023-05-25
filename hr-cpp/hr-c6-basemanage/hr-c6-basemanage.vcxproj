@@ -159,7 +159,7 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="controller\GoshController\GoshController.cpp" />
+    <ClCompile Include="controller\GoshController\TestController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="main.cpp" />
@@ -172,7 +172,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="controller\GoshController\GoshController.h" />
+    <ClInclude Include="controller\GoshController\TestController.h" />
     <ClInclude Include="controller\test\TestController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />

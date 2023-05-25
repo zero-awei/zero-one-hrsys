@@ -27,7 +27,7 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\GoshController\GoshController.cpp">
+    <ClCompile Include="controller\GoshController\TestController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="service\Gosh\GoshService.cpp">
@@ -89,7 +89,7 @@
     <ClInclude Include="domain\vo\Gosh\ContractVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\GoshController\GoshController.h">
+    <ClInclude Include="controller\GoshController\TestController.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="service\Gosh\GoshService.h">
