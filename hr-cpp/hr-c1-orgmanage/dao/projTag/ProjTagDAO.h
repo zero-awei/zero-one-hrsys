@@ -22,10 +22,22 @@
 #include "BaseDAO.h"
 #include "domain/do/projTag/ProjTagDO.h"
 
+/**
+ * 项目标签DAO实现
+ */
 class ProjTagDAO : public BaseDAO
 {
 public:
+	/**
+	 * 项目标签 - 新增项目标签DAO实现
+	 * 负责人：远翔
+	 */
 	uint64_t insert(const ProjTagDO& iObj);
+	/**
+	 * 项目标签 - 分页查询组织列表DAO实现
+	 * 负责人：Andrew
+	 */
+	std::list<OrgListDO::Wrapper> insert(const ProjTagDO& iObj);
 };
 
 #endif // !_PROJTAGDAO_H_
