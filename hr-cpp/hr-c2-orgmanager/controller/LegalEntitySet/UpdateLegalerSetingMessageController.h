@@ -29,7 +29,7 @@ public:
 		info->queryParams["name"].addExample("default", String("li ming"));
 	}
 	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/update-LegalEntitySet", modifyUpdateLegalerSetingMessage, BODY_DTO(UpdateLegalerSetingMessageDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/org/update-LegalEntitySet", modifyUpdateLegalerSetingMessage, BODY_DTO(UpdateLegalerSetingMessageDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyUpdateLegalerSetingMessage(dto));
 	}
