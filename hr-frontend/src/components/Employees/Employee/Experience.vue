@@ -53,6 +53,7 @@ interface User {
 <style scoped>
 .workRecord {
   padding: 12px 0 10px 16px;
+  z-index: 0;
 }
 .head {
   padding: 0 10px 10px 10px;

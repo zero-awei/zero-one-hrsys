@@ -4,6 +4,7 @@ import Experience from './Employee/Experience.vue'
 import Employee from './Employee/Employee.vue'
 import RewardsAndPunishment from './Employee/RewardsAndPunishment.vue'
 import Additional from './Employee/Additional.vue'
+import Edit from '@/components/edit/Edit.vue'
 </script>
 
 <template>
@@ -11,10 +12,7 @@ import Additional from './Employee/Additional.vue'
     <div class="title">
       <div class="titleInfo">员工信息</div>
       <div class="edit">
-        <el-icon :size="size" :color="color" class="icon">
-          <Edit />
-        </el-icon>
-        <span>编辑</span>
+        <Edit />
       </div>
     </div>
     <div class="info">

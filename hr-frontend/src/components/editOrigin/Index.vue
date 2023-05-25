@@ -1,6 +1,9 @@
 <template>
-  <el-button type="default" style="margin-left: 16px" @click="drawer = true">
-    编辑
+  <el-button type="default" @click="drawer = true">
+    <el-icon :size="size" :color="color" class="icon">
+      <Edit />
+    </el-icon>
+    <span>编辑</span>
   </el-button>
 
   <el-drawer
@@ -10,6 +13,7 @@
     :before-close="handleClose"
     class="el-drawer"
     size="71%"
+    z-index="10"
   >
     <div class="d1">
       <span>员工信息</span>
@@ -50,7 +54,11 @@
           </EditPrimary>
           <EditDate label2="出生日期"></EditDate>
           <EditPrimary label1="年龄"></EditPrimary>
-          <EditOptions label3="性别"></EditOptions>
+          <EditOptions label3="性别">
+            <template v-slot:t3-a>
+              <span style="margin-right: 10px; line-height: 31px">性别</span>
+            </template>
+          </EditOptions>
           <EditOptions label3="血型">
             <template v-slot:t3-a>
               <span style="margin-right: 10px; line-height: 31px">血型</span>
@@ -175,9 +183,13 @@ import EditImage from './EditImage.vue'
 import EditOptions from './EditOptions.vue'
 import EditDate from './EditDate.vue'
 import EditAutocomplete from './EditAutocomplete.vue'
+import { inject } from 'vue'
 
 const drawer = ref(false)
 const direction = ref('rtl')
+
+const userData = inject('userData')
+let { basicInfo, additionalInfo } = userData
 </script>
 
 <style lang="scss" scoped>
