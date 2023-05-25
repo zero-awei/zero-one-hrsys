@@ -1,9 +1,16 @@
 #include "stdafx.h"
 #include "TemporaryStaffController.h"
-
+#include "./service/RosterOfPer/TemporaryStaffService.h"
 TemporaryStaffPageJsonVO::Wrapper TempStaffController::execQueryTempstaff(const TempStaffQuery::Wrapper& query, const PayloadDTO& payload)
 {
-	return TemporaryStaffPageJsonVO::Wrapper();
+	// 定义一个Service
+	TemporaryStaffService service;
+	// 查询数据
+	auto result = service.listAll(query);
+	// 响应结果
+	auto jvo = TemporaryStaffPageJsonVO::createShared();
+	jvo->success(result);
+	return jvo;
 }
 
 StringJsonVO::Wrapper TempStaffController::execExportTempstaff(const TempStaffQuery::Wrapper& query, const PayloadDTO& payload)

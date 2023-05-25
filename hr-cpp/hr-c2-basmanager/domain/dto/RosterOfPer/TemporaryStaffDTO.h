@@ -37,14 +37,14 @@ public:
 		info->description = ZH_WORDS_GETTER("TempStaff.field.tempOrg");
 	}
 	//挂职部门
-	DTO_FIELD(String, tempDepat);
-	DTO_FIELD_INFO(tempDepat) {
-		info->description = ZH_WORDS_GETTER("TempStaff.field.tempDepat");
+	DTO_FIELD(String, tempDept);
+	DTO_FIELD_INFO(tempDept) {
+		info->description = ZH_WORDS_GETTER("TempStaff.field.tempDept");
 	}
 	//挂职开始时间
-	DTO_FIELD(String, tempBeginTime);
-	DTO_FIELD_INFO(tempBeginTime) {
-		info->description = ZH_WORDS_GETTER("TempStaff.field.tempBeginTime");
+	DTO_FIELD(String, tempStartTime);
+	DTO_FIELD_INFO(tempStartTime) {
+		info->description = ZH_WORDS_GETTER("TempStaff.field.tempStartTime");
 	}
 	//挂职结束时间
 	DTO_FIELD(String, tempEndTime);

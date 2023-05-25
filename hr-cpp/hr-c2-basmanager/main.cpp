@@ -40,12 +40,10 @@
  */
 bool getStartArg(int argc, char* argv[]) {
 	// 服务器端口
-	std::string serverPort = "8080";
+	std::string serverPort = "8090";
 	// 数据库连接信息
 	std::string dbUsername = "root";
-	std::string dbPassword = "111111";
-	std::string dbName = "cptdb";
-	std::string dbHost = "127.0.0.1";
+	std::string dbHost = "192.168.176.131";
 	int dbPort = 3306;
 	int dbMax = 25;
 #ifdef USE_NACOS
