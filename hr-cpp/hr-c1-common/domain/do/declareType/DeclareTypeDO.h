@@ -9,8 +9,10 @@
  */
 class DeclareTypeDO
 {
-	// 申报类型下拉列表
-	CC_SYNTHESIZE(string, declaretype, Declaretype);
+	// 代码项名称
+	CC_SYNTHESIZE(string, declareType, DeclareType);
+	// 代码项值
+	CC_SYNTHESIZE(int, code, Code);
 };
 
 #endif // !_DECLARETYPEDO_H_
