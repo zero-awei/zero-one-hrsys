@@ -16,5 +16,5 @@ import java.util.List;
  * @since 2023-05-25
  */
 public interface DtService extends IService<Dt> {
-    List<DropdownListOptionDTO> listDt();
+   List<DropdownListOptionDTO> listDt();
 }
