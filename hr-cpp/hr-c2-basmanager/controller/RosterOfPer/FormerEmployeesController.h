@@ -41,7 +41,7 @@ class FormerEmployeesController : public oatpp::web::server::api::ApiController 
 	API_ACCESS_DECLARE(FormerEmployeesController);
 	// 3 定义接口
 public:
-	// 3.1 定义查询接口描述
+	// 3.1 定义查询接口描述 询问所有离职员工数据
 	ENDPOINT_INFO(queryFormerEmployees) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("formeremployees.get.summary");
