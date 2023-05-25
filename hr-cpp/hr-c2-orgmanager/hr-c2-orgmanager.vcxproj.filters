@@ -62,7 +62,7 @@
     <ClInclude Include="controller\LegalEntityMai\LegalEntityMaiController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\LegalEntityMai\t_ormsignorgDO.h">
+    <ClInclude Include="domain\do\LegalEntityMai\ormsignorgDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDTO.h">

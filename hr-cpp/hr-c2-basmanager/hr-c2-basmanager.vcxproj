@@ -199,7 +199,8 @@
     <ClInclude Include="domain\do\CertificateManage\EmployeeInfoDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\RosterOfPer\RraineeDO.h" />
-    <ClInclude Include="domain\do\RosterOfPer\FormerEmployeesDO.h" />
+    <ClInclude Include="domain\do\RosterOfPer\ProbationaryEmployeeDO.h" />
+    <ClInclude Include="domain\do\RosterOfPer\ExportEmployeeDO.h" />    <ClInclude Include="domain\do\RosterOfPer\FormerEmployeesDO.h" />
     <ClInclude Include="domain\do\RosterOfPer\TemporaryStaffDO.h" />
     <ClInclude Include="domain\dto\CertificateManage\CertificateInfoDTO.h" />
     <ClInclude Include="domain\dto\CertificateManage\CertificateTypeDTO.h" />
