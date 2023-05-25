@@ -46,12 +46,31 @@ public:
 		info->queryParams["sex"].required = false;*/
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/query - Rrainee", queryRrainee, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/query-RraineePageQueryEmployeeList", queryRrainee, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, RraineeQuery, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execRraineeQuery(userQuery, authObject->getPayload()));
 	} 
+
+	ENDPOINT_INFO(exportRrainee) {
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("RosterOfPer.export.summary");
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(RraineePageJsonVO);
+		// 定义分页参数描述
+		API_DEF_ADD_PAGE_PARAMS();
+		// 定义其他表单参数描述
+	}
+	// 3.2 定义查询接口处理
+	ENDPOINT(API_M_GET, "/export-RraineeExportEmployee", exportRrainee, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+		// 解析查询参数
+		API_HANDLER_QUERY_PARAM(userQuery, RraineeQuery, queryParams);
+		// 响应结果
+		API_HANDLER_RESP_VO(execRraineeExport(userQuery, authObject->getPayload()));
+	}
 
 
 	// 文件导出
@@ -91,6 +110,7 @@ public:
 private:
 	//3.3 演示分页查询数据
 	RraineePageJsonVO::Wrapper execRraineeQuery(const RraineeQuery::Wrapper& query, const PayloadDTO& payload);
+	RraineePageJsonVO::Wrapper execRraineeExport(const RraineeQuery::Wrapper& query, const PayloadDTO& payload);
 };
 
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen

@@ -25,7 +25,6 @@ class ExportEmployeeDO {
 	CC_SYNTHESIZE(string, ksrq, ksrq); 
 	// 见习到期时间
 	CC_SYNTHESIZE(string, jsrq, jsrq);  
-	
 public:
 	ExportEmployeeDO() {
 	
