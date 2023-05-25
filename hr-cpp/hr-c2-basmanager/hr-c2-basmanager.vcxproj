@@ -194,9 +194,10 @@
     <ClInclude Include="controller\RosterOfPer\TemporaryStaffController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
-    <ClInclude Include="domain\do\CertificateManage\CertificateDO.h" />
     <ClInclude Include="dao\RosterOfPer\TemporaryStaffDAO.h" />
-    <ClInclude Include="dao\RosterOfPer\TemporaryStaffMapper.h" />    <ClInclude Include="domain\do\CertificateManage\CertificateTypeDO.h" />
+    <ClInclude Include="dao\RosterOfPer\TemporaryStaffMapper.h" />
+    <ClInclude Include="domain\do\CertificateManage\CertificateDO.h" />
+    <ClInclude Include="domain\do\CertificateManage\CertificateTypeDO.h" />
     <ClInclude Include="domain\do\CertificateManage\EmployeeInfoDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\RosterOfPer\CommonRosterOfPerDO.h" />
@@ -210,8 +211,6 @@
     <ClInclude Include="domain\do\RosterOfPer\TemporaryStaffDO.h" />
     <ClInclude Include="domain\dto\CertificateManage\CertificateInfoDTO.h" />
     <ClInclude Include="domain\dto\CertificateManage\CertificateTypeDTO.h" />
-    <ClInclude Include="domain\do\RosterOfPer\RetiredEmployeesDO.h" />
-    <ClInclude Include="domain\do\RosterOfPer\SecondedPersonnelDO.h" />
     <ClInclude Include="domain\dto\CertificateManage\CheckCerListDTO.h" />
     <ClInclude Include="domain\dto\CertificateManage\CreateNewCerDTO.h" />
     <ClInclude Include="domain\dto\CertificateManage\EmployeeInfoDTO.h" />
@@ -220,6 +219,7 @@
     <ClInclude Include="domain\dto\RosterOfPer\FormerEmployeesDTO.h" />
     <ClInclude Include="domain\dto\RosterOfPer\RraineeDTO.h" />
     <ClInclude Include="domain\dto\RosterOfPer\TemporaryStaffDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\CertificateManage\CertificateTypeQuery.h" />
     <ClInclude Include="domain\query\CertificateManage\CheckCerListQuery.h" />
     <ClInclude Include="domain\query\CertificateManage\CreateNewCerQuery.h" />

@@ -119,6 +119,9 @@
     <ClInclude Include="domain\query\LegalEntitySet\ExportLegalerSetingQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\GlobalInclude.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="service\LegalEntityMai\LegalEntityMaiService.h">
       <Filter>头文件</Filter>
     </ClInclude>

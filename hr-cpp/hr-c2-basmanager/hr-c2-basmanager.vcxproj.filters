@@ -192,10 +192,16 @@
     <ClInclude Include="domain\vo\RosterOfPer\ExportRetireesVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\RosterOfPer\SecondedPersonnelDO.h">
+    <ClInclude Include="dao\RosterOfPer\TemporaryStaffDAO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\RosterOfPer\RetiredEmployeesDO.h">
+    <ClInclude Include="dao\RosterOfPer\TemporaryStaffMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\GlobalInclude.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\RosterOfPer\TemporaryStaffService.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -243,6 +249,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\CertificateManage\CreateNewCerController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\RosterOfPer\TemporaryStaffDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\RosterOfPer\TemporaryStaffService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

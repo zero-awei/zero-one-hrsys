@@ -213,6 +213,7 @@
     <ClInclude Include="domain\dto\LegalEntitySet\ExportLegalerSetingDTO.h" />
     <ClInclude Include="domain\dto\LegalEntitySet\LegalerNamePullDownListDTO.h" />
     <ClInclude Include="domain\dto\LegalEntitySet\UpdateLegalerSetingMessageDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\LegalEntityMai\LegalEntityMaiQuery.h" />
     <ClInclude Include="domain\query\LegalEntitySet\ExportLegalerSetingQuery.h" />
     <ClInclude Include="domain\query\LegalEntitySet\LegalerNamePullDownListQuery.h" />
