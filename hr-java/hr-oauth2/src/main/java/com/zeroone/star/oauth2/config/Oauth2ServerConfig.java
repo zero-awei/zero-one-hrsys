@@ -99,6 +99,11 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
                 .refreshTokenValiditySeconds(3600 * 24 * 7);
     }
 
+    /***
+     * 使用密码模式所需配置
+     * @param endpoints
+     * @throws Exception
+     */
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         //定义JWT内置增强内容
