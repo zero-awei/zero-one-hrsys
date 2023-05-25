@@ -17,6 +17,7 @@
  limitations under the License.
 */
 #include "stdafx.h"
+#include "Macros.h"
 #include "ArmyLevelTypeService.h"
 #include "uselib/pullListRedis/UseLibRedis.h"
 #include "dao/armyLevelType/ArmyLevelTypeDAO.h"
@@ -36,6 +37,17 @@ PullListDTO::Wrapper ArmyLevelTypeService::listAll()
 	{
 		// TODO: 调用dao查询数据库
 		ArmyLevelTypeDAO dao;
+		auto res = dao.listAll();
+		
+		// 组装成DTO返回
+		for (auto item : res)
+		{
+			string code = item.getCode();
+			dto->pullList->push_back(ItemDTO::createShared(atoi(code.c_str()), item.getArmyLevelType()));
+		}
+
+		// TODO: 将获取的数据更新到Redis缓存
+		UseLibRedis::updateRedis("army-level-type", dao.getMapList());
 	}
 	// 否则组装缓存数据到DTO
 	else

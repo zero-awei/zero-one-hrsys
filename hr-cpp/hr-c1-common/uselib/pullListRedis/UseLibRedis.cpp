@@ -57,7 +57,7 @@ std::unordered_map<std::string, std::string> UseLibRedis::queryRedis(const strin
 	return hash;
 }
 
-void UseLibRedis::updateRedis(const std::unordered_map<std::string, std::string> &m)
+void UseLibRedis::updateRedis(const std::string &key, const std::unordered_map<std::string, std::string> &m)
 {
 	//ªÒ»°≈‰÷√
 	NacosClient nacosClient(ServerInfo::getInstance().getNacosAddr(), ServerInfo::getInstance().getNacosNs());
@@ -81,7 +81,7 @@ void UseLibRedis::updateRedis(const std::unordered_map<std::string, std::string>
 		return redis->rpush("list", vec.begin(), vec.end());
 	});*/
 	rc.execute<int>([&](Redis* redis) {
-		redis->hmset("hash", m.begin(), m.end());
+		redis->hmset(key, m.begin(), m.end());
 		return 1;
 	});
 }

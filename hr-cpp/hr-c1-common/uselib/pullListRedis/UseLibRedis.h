@@ -29,9 +29,11 @@ class UseLibRedis
 public:
 	// Redis 查询
 	static std::unordered_map<std::string, std::string> queryRedis(const string &key);
-	// Redis 新增
-	static void updateRedis(const std::unordered_map<std::string, std::string>& m);
+
 	// Redis 针对特定表(tablename)新增
 	static void updateRedisWithTable(const std::unordered_map<std::string, std::string>& m, std::string tablename);
+
+	static void updateRedis(const std::string &key, const std::unordered_map<std::string, std::string>& m);
+
 };
 #endif // _TESTREDIS_H_
