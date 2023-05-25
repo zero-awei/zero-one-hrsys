@@ -22,7 +22,7 @@
 #include "../DoInclude.h"
 
 /*
- 离退休员工DO--（人员花名册）--pine
+ 借调员工DO--（人员花名册）--pine
  (对应数据库表t_pcmydjdmx：异动借调明细 与 t_pcmydmx：异动明细)
  */
 class SecondedPersonnelDO

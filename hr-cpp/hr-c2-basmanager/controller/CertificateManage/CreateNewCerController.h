@@ -19,7 +19,7 @@ namespace multipart = oatpp::web::mime::multipart;
 #include OATPP_CODEGEN_BEGIN(ApiController) 
 
 /**
- * 新建证书控制器
+新建证书--(证书管理-新建证书)--pine
  */
 class CreateNewCerController : public oatpp::web::server::api::ApiController // 1 继承控制器
 {
@@ -35,7 +35,7 @@ public://  定义接口（定义接口描述与接口端点）
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/query-createNewCer", addNewCer, BODY_DTO(CreateNewCerDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/bas/add-CreateNewCer", addNewCer, BODY_DTO(CreateNewCerDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddNewCer(dto));
 	}

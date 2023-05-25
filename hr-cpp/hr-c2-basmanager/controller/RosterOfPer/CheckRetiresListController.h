@@ -20,7 +20,7 @@ namespace multipart = oatpp::web::mime::multipart;
 #include OATPP_CODEGEN_BEGIN(ApiController) 
 
 /**
- * 查询退休员工列表控制器
+ * 人员花名册-（离退休员工-分页查询员工列表）--pine
  */
 class CheckRetiresListController : public oatpp::web::server::api::ApiController // 1 继承控制器
 {
@@ -47,7 +47,7 @@ public://  定义接口（定义接口描述与接口端点）
 		info->queryParams["sex"].required = false;
 	}
 	//4 定义新增接口处理
-	ENDPOINT(API_M_GET, "/query-CheckRetiresList", queryCheckRetiresList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/bas/query-CheckRetiresList", queryCheckRetiresList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		API_HANDLER_QUERY_PARAM(query, CheckRetiresListQuery, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryCheckRetiresList(query));
