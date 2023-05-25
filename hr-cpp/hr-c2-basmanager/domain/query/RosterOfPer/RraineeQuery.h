@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _PAGEQUERYEMPLOYEELIST_QUERY_
-#define _PAGEQUERYEMPLOYEELIST_QUERY_
+#ifndef _RRAINEE_QUERY_
+#define _RRAINEE_QUERY_
 
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
@@ -8,11 +8,11 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 示例分页查询对象
+ *  基础管理 —— 人员花名册 —— 见习员工   ——Cpt
  */
-class PageQueryEmployeeListQuery: public PageQuery
+class RraineeQuery: public PageQuery
 {
-	DTO_INIT(PageQueryEmployeeListQuery, PageQuery);
+	DTO_INIT(RraineeQuery, PageQuery);
 	// 姓名
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
@@ -31,4 +31,4 @@ class PageQueryEmployeeListQuery: public PageQuery
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_SAMPLE_QUERY_
+#endif // !_RRAINEE_QUERY_

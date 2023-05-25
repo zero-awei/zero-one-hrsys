@@ -53,3 +53,30 @@ LegalEntityMai:
   short: 简称
  sample:
   name: 东北公司
+
+
+LegalEntitySet:
+ query:
+  summary1: 分页查询组织列表 
+  summary2: 分页查询法人主体列表 
+  summary3: 法人主体名称下拉列表 - cpt
+  summary4: 分页查询法人设置列表 
+ put:
+  summary: 更新指定法人主体设置信息 - cpt
+ post:
+  summary: 新增法人主体设置（支持批量新增）
+ delete:
+  summary: 删除法人主体设置（支持批量删除）
+ import:
+  summary: 导入法人主体设置  
+ export:
+  summary: 导出法人主体设置 (导出页面在前端完成)  - cpt
+ field:
+  id: 法人主体标识
+  updateman: 更新人
+  createman: 建立人
+  createdate: 建立时间
+  name: 法人主体名称
+  updatedate: 更新时间
+  orgcode: 组织编号
+  short: 简称

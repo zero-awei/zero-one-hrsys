@@ -3,15 +3,19 @@
 #define _PAGEQUERYEMPLOYEELIST_CONTROLLER_
 
 #include "domain/vo/BaseJsonVO.h"
-#include "domain/do/RosterOfPer/PageQueryEmployeeListDO.h"
-#include "domain/dto/RosterOfPer/PageQueryEmployeeListDTO.h"
-#include "domain/vo/RosterOfPer/PageQueryEmployeeListVO.h"
-#include "domain/query/RosterOfPer/PageQueryEmployeeListQuery.h"
+#include "domain/do/RosterOfPer/RraineeDO.h"
+#include "domain/dto/RosterOfPer/RraineeDTO.h"
+#include "domain/vo/RosterOfPer/RraineeVO.h"
+#include "domain/query/RosterOfPer/RraineeQuery.h"
 
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
 #include "oatpp/web/mime/multipart/FileProvider.hpp"
 #include "oatpp/web/mime/multipart/Reader.hpp"
 #include "oatpp/web/mime/multipart/PartList.hpp"
+
+/**
+ *  基础管理 —— 人员花名册 —— 见习员工  ——Cpt
+ */
 
 using namespace oatpp;
 
@@ -19,18 +23,18 @@ using namespace oatpp;
 
 namespace multipart = oatpp::web::mime::multipart;
 
-class PageQueryEmployeeListController : public oatpp::web::server::api::ApiController {
-	API_ACCESS_DECLARE(PageQueryEmployeeListController); // 2 定义控制器访问入口
+class RraineeController : public oatpp::web::server::api::ApiController {
+	API_ACCESS_DECLARE(RraineeController); // 2 定义控制器访问入口
 public:
 
 	// 3.1 定义查询接口描述
-	ENDPOINT_INFO(queryPageQueryEmployeeList) {
+	ENDPOINT_INFO(queryRrainee) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("sample.get.summary");
+		info->summary = ZH_WORDS_GETTER("RosterOfPer.query.summary");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(PageQueryEmployeeListPageJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(RraineePageJsonVO);
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
@@ -42,64 +46,12 @@ public:
 		info->queryParams["sex"].required = false;*/
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/PageQueryEmployeeList-query", queryPageQueryEmployeeList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/query - Rrainee", queryRrainee, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
-		API_HANDLER_QUERY_PARAM(userQuery, PageQueryEmployeeListQuery, queryParams);
+		API_HANDLER_QUERY_PARAM(userQuery, RraineeQuery, queryParams);
 		// 响应结果
-		API_HANDLER_RESP_VO(execPageQueryEmployeeList(userQuery, authObject->getPayload()));
+		API_HANDLER_RESP_VO(execRraineeQuery(userQuery, authObject->getPayload()));
 	} 
-
-	//// 3.1 定义增加接口描述
-	//ENDPOINT_INFO(addPageQueryEmployeeList) {
-	//	// 定义接口标题
-	//	info->summary = ZH_WORDS_GETTER("LegalEntitySet.post.summary");
-	//	// 定义响应参数格式
-	//	API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-	//}
-	//// 3.2 定义新增接口处理
-	//ENDPOINT(API_M_POST, "/PageQueryEmployeeList", addPageQueryEmployeeList, BODY_DTO(PageQueryEmployeeListDTO::Wrapper, dto)) {
-	//	// 响应结果
-	//	API_HANDLER_RESP_VO(execAddPageQueryEmployeeList(dto));
-	//}
-	
-	//// 3.1 定义修改接口描述
-	//ENDPOINT_INFO(modifyPageQueryEmployeeList) {
-	//	// 定义接口标题
-	//	info->summary = ZH_WORDS_GETTER("LegalEntitySet.put.summary");
-	//	// 定义响应参数格式
-	//	API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-	//}
-	//// 3.2 定义修改接口处理
-	//ENDPOINT(API_M_PUT, "/PageQueryEmployeeList", modifyPageQueryEmployeeList, BODY_DTO(PageQueryEmployeeListDTO::Wrapper, dto)) {
-	//	// 响应结果
-	//	API_HANDLER_RESP_VO(execModifyPageQueryEmployeeList(dto));
-	//}
-
-	//// 3.1 定义删除接口描述
-	//ENDPOINT_INFO(removePageQueryEmployeeList) {
-		//	// 定义接口标题
-		//	info->summary = ZH_WORDS_GETTER("LegalEntitySet.delete.summary" );
-		//	// 定义响应参数格式
-		//	API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-		//}
-		//// 3.2 定义删除接口处理
-		//ENDPOINT(API_M_DEL, "/PageQueryEmployeeList", removePageQueryEmployeeList, BODY_DTO(PageQueryEmployeeListDTO::Wrapper, dto)) {
-		//	// 响应结果
-		//	API_HANDLER_RESP_VO(execRemovePageQueryEmployeeList(dto));
-		//}
-
-
-	//	// 定义接口标题
-	//	info->summary = ZH_WORDS_GETTER("LegalEntitySet.import.summary");
-	//	// 定义响应参数格式
-	//	API_DEF_ADD_RSP_JSON_WRAPPER(BooleanJsonVO);
-	//}
-	//ENDPOINT(API_M_POST, "/ImportLEM", importLEM, BODY_DTO(PageQueryEmployeeListDTO::Wrapper, dto)) {
-	//	// 响应结果
-	//	API_HANDLER_RESP_VO(execImportLEM(dto));
-	//}
-	//// 文件导入
-	//ENDPOINT_INFO(importLEM) {
 
 
 	// 文件导出
@@ -138,13 +90,7 @@ public:
 
 private:
 	//3.3 演示分页查询数据
-	PageQueryEmployeeListPageJsonVO::Wrapper execPageQueryEmployeeList(const PageQueryEmployeeListQuery::Wrapper& query, const PayloadDTO& payload);
-	// 3.3 演示新增数据
-	//Uint64JsonVO::Wrapper execAddPageQueryEmployeeList(const PageQueryEmployeeListDTO::Wrapper& dto);
-	//// 3.3 演示修改数据
-	//Uint64JsonVO::Wrapper execModifyPageQueryEmployeeList(const PageQueryEmployeeListDTO::Wrapper& dto);
-	// //3.3 演示删除数据
-	//Uint64JsonVO::Wrapper execRemovePageQueryEmployeeList(const PageQueryEmployeeListDTO::Wrapper& dto);
+	RraineePageJsonVO::Wrapper execRraineeQuery(const RraineeQuery::Wrapper& query, const PayloadDTO& payload);
 };
 
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen

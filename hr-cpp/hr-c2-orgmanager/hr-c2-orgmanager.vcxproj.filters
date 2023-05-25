@@ -92,15 +92,6 @@
     <ClInclude Include="domain\dto\LegalEntitySet\UpdateLegalerSetingMessageDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\LegalEntitySet\ExportLegalerSetingVO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\LegalEntitySet\LegalerNamePullDownListVO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\LegalEntitySet\UpdateLegalerSetingMessageVO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="controller\LegalEntitySet\ExportLegalerSetingController.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -110,5 +101,23 @@
     <ClInclude Include="controller\LegalEntitySet\UpdateLegalerSetingMessageController.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\query\LegalEntitySet\LegalerNamePullDownListQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\LegalEntitySet\LegalerNamePullDownListVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\LegalEntitySet\ExportLegalerSetingVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\LegalEntitySet\UpdateLegalerSetingMessageVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\LegalEntitySet\ExportLegalerSetingQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="zh-dict.yaml" />
   </ItemGroup>
 </Project>

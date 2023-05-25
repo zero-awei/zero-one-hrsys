@@ -78,34 +78,19 @@
     <ClInclude Include="domain\do\CertificateManage\CertificateTypeDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\RosterOfPer\ExportEmployeeController.h">
+    <ClInclude Include="controller\RosterOfPer\RraineeController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\RosterOfPer\PageQueryEmployeeListController.h">
+    <ClInclude Include="domain\do\RosterOfPer\RraineeDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\RosterOfPer\ExportEmployeeDO.h">
+    <ClInclude Include="domain\dto\RosterOfPer\RraineeDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\RosterOfPer\PageQueryEmployeeListDO.h">
+    <ClInclude Include="domain\query\RosterOfPer\RraineeQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\RosterOfPer\ExportEmployeeDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\RosterOfPer\PageQueryEmployeeListDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\query\RosterOfPer\PageQueryEmployeeListQuery.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\RosterOfPer\ExportEmployeeVO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\RosterOfPer\PageQueryEmployeeListVO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\ExportEmployeeVO.h">
+    <ClInclude Include="domain\vo\RosterOfPer\RraineeVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="controller\CertificateManage\UpdateCertificateController.h">
@@ -141,55 +126,16 @@
     <ClInclude Include="service\RosterOfPer\FormerEmployeesService.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\CertificateManage\CheckCerListController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="controller\CertificateManage\CreateNewCerController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="controller\RosterOfPer\CheckRetiresListController.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="controller\RosterOfPer\ExportRetireesController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\CertificateManage\CheckCerListDTO.h">
+    <ClInclude Include="controller\CertificateManage\CheckCerListController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\CertificateManage\CreateNewCerDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\RosterOfPer\CheckRetiresListDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\RosterOfPer\ExportRetireesDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\query\CertificateManage\CheckCerListQuery.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\query\CertificateManage\CreateNewCerQuery.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\query\RosterOfPer\CheckRetiresListQuery.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\query\RosterOfPer\ExportRetireesQuery.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\CertificateManage\CheckCerListVO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\CertificateManage\CreateNewCerVO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\RosterOfPer\CheckRetiresListVO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\RosterOfPer\ExportRetireesVO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\do\RosterOfPer\CommonRosterOfPerDO.h">
+    <ClInclude Include="controller\CertificateManage\CreateNewCerController.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -215,10 +161,7 @@
     <ClCompile Include="controller\CertificateManage\CertificateTypeController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\RosterOfPer\ExportEmployeeController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\RosterOfPer\PageQueryEmployeeListController.cpp">
+    <ClCompile Include="controller\RosterOfPer\RraineeController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\CertificateManage\UpdateCertificateController.cpp">
@@ -230,16 +173,16 @@
     <ClCompile Include="service\RosterOfPer\FormerEmployeesService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\CertificateManage\CheckCerListController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="controller\CertificateManage\CreateNewCerController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="controller\RosterOfPer\CheckRetiresListController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\RosterOfPer\ExportRetireesController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\CertificateManage\CheckCerListController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\CertificateManage\CreateNewCerController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

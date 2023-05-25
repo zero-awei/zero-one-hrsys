@@ -71,9 +71,18 @@ formeremployees:
 certificate: 
  update:  证书管理-证书信息-查询指定证书详情-chumengxian
  get: 证书管理-证书信息-更新指定证书-chumengxian
+
+
+
+RosterOfPer:
+ query:
+  summary: 分页查询见习员工列表 - cpt
+ export:
+  summary: 导出见习员工 - cpt
+ field:
 cermanage:
  get:
-  summary: 分页查询示例数据
+  summary: 分页查询示例数据 
   checklist: 分页查询证书列表
  post:
   summary: 新增一条示例数据
