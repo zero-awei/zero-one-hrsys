@@ -27,11 +27,38 @@ StringJsonVO::Wrapper EmployeeInfoController::execEmployeeQuery(const EmployeeIn
 }
 StringJsonVO::Wrapper EmployeeInfoController::execEmployeeModify(const EmployeeInfoDTO::Wrapper& dto) {
 	auto vo = StringJsonVO::createShared();
+	auto jvo = Uint64JsonVO::createShared();
+	if (!dto->age || !dto->name || !dto->sex)
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	if (dto->age < 0 || dto->name->empty() || dto->sex->empty())
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
 	vo->success("Employee information modify success");
 	return vo;
 }
 StringJsonVO::Wrapper EmployeeInfoController:: execEmployeePut(const EmployeeInfoAddDTO::Wrapper& dto){
 	auto vo = StringJsonVO::createShared();
+	auto jvo = Uint64JsonVO::createShared();
+	if (!dto->empid || !dto->name || !dto->idType || !dto->idNum)
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	if (dto->idType!=nullptr&&(dto->idType!="10"|| dto->idType != "20"|| dto->idType != "30"))
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	if(dto->phoneNum.get()->length() != 11 || dto->state!="10"||dto->state!="20"||dto->state!="30")
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
 	vo->success("Job list information query success");
 	return vo;
 }

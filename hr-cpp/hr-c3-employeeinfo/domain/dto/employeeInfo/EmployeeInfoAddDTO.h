@@ -41,7 +41,7 @@ class EmployeeInfoAddDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("employee.field.name");
 	}
 	//证件类型
-	DTO_FIELD(String, idType) = {};
+	DTO_FIELD(String, idType);
 	DTO_FIELD_INFO(idType) {
 		info->description = ZH_WORDS_GETTER("employee.field.idtype");
 	}
