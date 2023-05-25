@@ -11,7 +11,6 @@ EmployeeInformationPageJsonVO::Wrapper EmployeeInformationController::execEmploy
 	//auto result = service.listAll(query);
 	// 响应结果
 	auto jvo = EmployeeInformationPageJsonVO::createShared();
- 	//jvo->success(result);
 	return jvo;
 
 }
@@ -48,13 +47,13 @@ Uint64JsonVO::Wrapper EmployeeInformationController::execAddEmployee(const Emplo
 	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
 	// 非空校验
-	if (!dto->age || !dto->name || !dto->sex)
+	if (!dto->id || !dto->name)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 	// 有效值校验
-	if (dto->age < 0 || dto->name->empty() || dto->sex->empty())
+	if (dto->id->empty() || dto->name->empty())
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;

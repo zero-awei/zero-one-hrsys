@@ -23,7 +23,7 @@ employee:
   name: 员工姓名
   idType: 证件类型
   idNum: 证件号码
-  bitrhday: 出生日期
+  birthday: 出生日期
   age: 年龄
   sex: 性别
   blood: 血型
@@ -116,10 +116,7 @@ sector:
   page: 页码
   size: 页的记录数
   sort: 排序方式
-  query:
-    parentdename: 查询parent类型
-    parentkey: 查询parent的id
-    sort: 排序方式
+  parentdename: 查询parent类型
 member:
   field:
     summary: 

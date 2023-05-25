@@ -117,6 +117,18 @@
     <ClInclude Include="domain\do\employeeInfo\EmployeeInfoDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\do\EmployeeInformationPage\EmployeeInformationPageDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Org\RootOrgDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Org\SectorDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Org\ValidOrgDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
