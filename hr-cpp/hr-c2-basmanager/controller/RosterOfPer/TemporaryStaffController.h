@@ -1,7 +1,7 @@
 #pragma once
 /**
-* 挂职人员功能点
-*/
+ * 挂职人员信息查询--(人员花名册-挂职人员-分页查询员工列表)--weixiaoman
+ */
 
 #ifndef _TEMPORARYSTAFFCONTROLLER_H_
 #define _TEMPORARYSTAFFCONTROLLER_H_
@@ -49,7 +49,7 @@ public:
 		info->queryParams["id"].required = false;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/query-tempstaff", queryTempStaff, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/bas/query-tempstaff", queryTempStaff, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, TempStaffQuery, queryParams);
 		// 响应结果
@@ -73,7 +73,7 @@ public:
 		info->queryParams["id"].required = false;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/export-tempstaff", queryExportTempStaff, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/bas/get-tempstaff", queryExportTempStaff, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, TempStaffQuery, queryParams);
 		// 响应结果

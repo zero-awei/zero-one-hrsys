@@ -1,7 +1,7 @@
 #pragma once
 /**
-*人员信息查询功能点，搜索框使用
-*/
+ * 证书类型查询功能点，搜索框使用--(证书管理-证书类型)--weixiaoman
+ */
 
 #ifndef _CERTIFICATETYPE_CONTROLLER_
 #define _CERTIFICATETYPE_CONTROLLER_
@@ -48,7 +48,7 @@ public:
 		////info->queryParams["name"].required = false;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/query-CertificateType", queryCertificateType, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/bas/query-CertificateType", queryCertificateType, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, CertificateTypeQuery, queryParams);
 		// 响应结果

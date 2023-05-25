@@ -4,7 +4,7 @@
 #include "../DoInclude.h"
 
 /**
-* 挂职人员数据库实体类
+* 挂职人员数据库实体类--(人员花名册-挂职人员-分页查询员工列表)--weixiaoman
 */
 class TemporaryStaffDO {
 	//员工编号

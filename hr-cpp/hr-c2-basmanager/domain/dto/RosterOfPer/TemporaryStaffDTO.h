@@ -6,7 +6,7 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 /**
- * 挂职人员传输对象
+ * 挂职人员传输对象--(人员花名册-挂职人员-分页查询员工列表)--weixiaoman
  */
 class TemporaryStaffDTO : public oatpp::DTO {
 public:

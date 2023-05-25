@@ -55,9 +55,9 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-	ROUTER_SIMPLE_BIND(TempStaffController);//挂职人员swagger效果测试
-	ROUTER_SIMPLE_BIND(EmployeeInfoController);//人员信息查询swagger效果测试
-	ROUTER_SIMPLE_BIND(CertificateTypeController); //证书类型查询swagger效果测试
+	ROUTER_SIMPLE_BIND(TempStaffController);//(人员花名册-挂职人员-分页查询员工列表)--weixiaoman
+	ROUTER_SIMPLE_BIND(EmployeeInfoController);//(证书管理-分页查询员工列表)--weixiaoman
+	ROUTER_SIMPLE_BIND(CertificateTypeController); //(证书管理-分页查询证书类型列表)--weixiaoman
 }
 
 #ifdef HTTP_SERVER_DEMO

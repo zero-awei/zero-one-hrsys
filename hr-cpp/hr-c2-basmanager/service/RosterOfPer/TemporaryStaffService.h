@@ -5,6 +5,10 @@
 #include "domain/vo/RosterOfPer/TemporaryStaffVO.h"
 #include "domain/dto/RosterOfPer/TemporaryStaffDTO.h"
 #include "domain/query/RosterOfPer/TemporaryStaffQuery.h"
+/**
+* 挂职人员service--(人员花名册-挂职人员-分页查询员工列表)--weixiaoman
+*/
+
 class TemporaryStaffService {
 public:
 	TemporaryStaffPageDTO::Wrapper listAll(const TempStaffQuery::Wrapper& query);
