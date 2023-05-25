@@ -18,31 +18,37 @@
 */
 #include "stdafx.h"
 #include "LaborDispatchConstroller.h"
+#include "service/laborDispatch/LaborDispatchService-mh.h"
 
 
 
-StringJsonVO::Wrapper LaborDispatchConstroller::executeQueryAll(const PageQuery::Wrapper& query)
+LaborDispatchPageJsonVO::Wrapper LaborDispatchConstroller::executeQueryAll_ld(const LaborDispatchQuery::Wrapper& query)
 {
-	auto vo = StringJsonVO::createShared();
-	vo->success("export success");
-	return vo;
+	//定义一个Service
+	LaborDispatchService service;
+	//查询数据
+	auto result = service.listAll_ld(query);
+	//响应结果
+	auto jvo = LaborDispatchPageJsonVO::createShared();
+	jvo->success(result);
+	return jvo;
 }
 
-Uint64JsonVO::Wrapper LaborDispatchConstroller::execAddLaborDispatch(const LaborDispatchDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper LaborDispatchConstroller::execAddLaborDispatch_ld(const LaborDispatchDTO::Wrapper& dto)
 {
 	auto vo =Uint64JsonVO::createShared();
 	vo->init(UInt64(1), RS_SUCCESS);
 	return vo;
 }
 
-Uint64JsonVO::Wrapper LaborDispatchConstroller::execRemoveLaborDispatch(const LaborDispatchDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper LaborDispatchConstroller::execRemoveLaborDispatch_ld(const LaborDispatchDTO::Wrapper& dto)
 {
 	auto vo = Uint64JsonVO::createShared();
 	vo->init(UInt64(1), RS_SUCCESS);
 	return vo;
 }
 
-StringJsonVO::Wrapper LaborDispatchConstroller::execExportLaborDispatch(const LaborDispatchDTO::Wrapper& dto)
+StringJsonVO::Wrapper LaborDispatchConstroller::execExportLaborDispatch_ld(const LaborDispatchDTO::Wrapper& dto)
 {
 	auto vo = StringJsonVO::createShared();
 	vo->success("export success");
