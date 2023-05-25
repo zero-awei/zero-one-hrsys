@@ -35,10 +35,11 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(CertificateInformationPageJsonVO);
 		// 定义分页查询参数描述
 		API_DEF_ADD_PAGE_PARAMS();
-		// 添加其他查询参数
-		info->queryParams.add<String>("pimvocationalname").description = ZH_WORDS_GETTER("certificateinformation.field.pimvocationalname");
-		info->queryParams["pimvocationalname"].addExample("default", String(" "));
-		info->queryParams["pimvocationalname"].required = false;
+		// 添加其他查询参数 
+
+		info->queryParams.add<String>("ygbh").description = ZH_WORDS_GETTER("certificateinformation.field.ygbh");
+		info->queryParams["ygbh"].addExample("default", String("6611212223"));
+		info->queryParams["ygbh"].required = false;
 		
 		
 	}

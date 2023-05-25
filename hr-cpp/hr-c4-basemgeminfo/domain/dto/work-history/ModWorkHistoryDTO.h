@@ -9,6 +9,7 @@
 class ModWorkHistoryDTO : public oatpp::DTO
 {
 	DTO_INIT(ModWorkHistoryDTO, DTO);
+	//员工id
 	DTO_FIELD(String, pimpersonid);
 	DTO_FIELD_INFO(pimpersonid) {
 		info->description = ZH_WORDS_GETTER("workhistory.field.pimpersionid");
@@ -28,6 +29,11 @@ class ModWorkHistoryDTO : public oatpp::DTO
 	DTO_FIELD(String, ormorgname);
 	DTO_FIELD_INFO(ormorgname) {
 		info->description = ZH_WORDS_GETTER("ormorgname");
+	}
+	//ormorgsectorname: 部门
+	DTO_FIELD(String, ormorgsectorname);
+	DTO_FIELD_INFO(ormorgsectorname) {
+		info->description = ZH_WORDS_GETTER("ormorgsectorname");
 	}
 	// ormdutyname: 职务
 	DTO_FIELD(String, ormdutyname);

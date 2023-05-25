@@ -12,7 +12,11 @@
 class JobTitleInformationPageQuery : public PageQuery
 {
 	DTO_INIT(JobTitleInformationPageQuery, PageQuery);
-	
+	//员工编号:employeeid
+	DTO_FIELD(String, employeeid);
+	DTO_FIELD_INFO(employeeid) {
+		info->description = ZH_WORDS_GETTER("sample.field.employeeid");
+	}
 	// 职称名称
 	DTO_FIELD(String, professoranalysis_name);
 	DTO_FIELD_INFO(professoranalysis_name) {

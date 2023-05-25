@@ -6,9 +6,9 @@
 #define JOBTITLE_INFORMATION_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
-if (query->professoranalysis_name) { \
+if (query->employeeid) { \
 	sql << " AND `PIMPERSONNAME`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->professoranalysis_name.getValue("")); \
+	SQLPARAMS_PUSH(params, "s", std::string, query->employeeid.getValue("")); \
 }
 //统计职称的记录数
 uint64_t JobTitleInformationDAO::count(const JobTitleInformationPageQuery::Wrapper& query)

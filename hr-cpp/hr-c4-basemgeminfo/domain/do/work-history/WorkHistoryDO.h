@@ -5,10 +5,11 @@
 
 class WorkHistoryDO
 {
-
+	CC_SYNTHESIZE(string, pimpersionid,Pimpersionid);
 	CC_SYNTHESIZE(string, rzkssj, Rzkssj);
 	CC_SYNTHESIZE(string, rzjssj, Rzjssj);
 	CC_SYNTHESIZE(string, ormorgname, Ormorgname);
+	CC_SYNTHESIZE(string, ormorgsectorname, Ormorgsectorname);
 	CC_SYNTHESIZE(string, ormdutyname, Ormdutyname);
 	CC_SYNTHESIZE(string, ormpostname, Ormpostname);
 	CC_SYNTHESIZE(string, cfplx, Cfplx);

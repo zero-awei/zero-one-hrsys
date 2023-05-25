@@ -38,9 +38,9 @@ public:
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
 		// 添加其他查询参数
-		info->queryParams.add<String>("professoranalysis_name").description = ZH_WORDS_GETTER("jobtitleinformation.field.professoranalysis_name");
-		info->queryParams["professoranalysis_name"].addExample("default", String(" "));
-		info->queryParams["professoranalysis_name"].required = false;
+		info->queryParams.add<String>("employeeid").description = ZH_WORDS_GETTER("jobtitleinformation.field.employeeid");
+		info->queryParams["employeeid"].addExample("default", String("6611212223"));
+		info->queryParams["employeeid"].required = false;
 		
 	}
 	// 3.2 定义查询接口处理

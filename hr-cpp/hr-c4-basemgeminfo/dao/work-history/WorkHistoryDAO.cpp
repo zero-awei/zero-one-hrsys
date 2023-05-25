@@ -81,7 +81,7 @@ uint64_t WorkHistoryDAO::count(const WorkHistoryPageQuery::Wrapper& query)
 list<WorkHistoryDO> WorkHistoryDAO::selectDetail(const WorkHistoryQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT * FROM `t_pimdistirbution` ";
+	sql << "select rzkssj,rzjssj,ormorgname,ormorgsectorname,ormdutyname,ormpostname,cfplx,experience,enable from t_pimdistirbution ";
 	SqlParams params;
 	SQLPARAMS_PUSH(params, "s", std::string, query->ormorgname.getValue(""));
 	WorkHistoryMapper mapper;

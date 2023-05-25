@@ -34,6 +34,7 @@ public:
 	WorkHistoryFindDO mapper(ResultSet* resultSet) const override
 	{
 		WorkHistoryFindDO data;
+		
 		data.setrZKSSJ(resultSet->getString(1));
 		data.setrZJSSJ(resultSet->getString(2));
 		data.setoRMORGNAME(resultSet->getString(3));
@@ -44,6 +45,7 @@ public:
 		data.seteXPERIENCE(resultSet->getInt(8));
 		data.setpIMWORKHISTORYID(resultSet->getString(9));
 		data.setpIMPERSONID(resultSet->getString(10));
+		data.setoRMORGSECTORNAME(resultSet->getString(11));
 		return data;
 	}
 };

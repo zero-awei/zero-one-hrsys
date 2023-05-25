@@ -6,9 +6,9 @@
 #define CERTIFACATE_INFORMATION_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
-if (query->pimvocationalname) { \
+if (query->ygbh) { \
 	sql << " AND `PIMPERSONNAME`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->pimvocationalname.getValue("")); \
+	SQLPARAMS_PUSH(params, "s", std::string, query->ygbh.getValue("")); \
 }
 //统计证书的记录数
 uint64_t CertificateInformationDAO::count(const CertificateInformationPageQuery::Wrapper& query)
@@ -23,7 +23,7 @@ uint64_t CertificateInformationDAO::count(const CertificateInformationPageQuery:
 list<CertificateInformationDO> CertificateInformationDAO::selectWithPage(const CertificateInformationPageQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT a.zgzsbh,a.pimvocationalname,b.name,a.zghqrq,a.zgsydw,a.fzyxq FROM `t_pimvocational` a,zo_credentialtype b where a.zslx=b.code  ";
+	sql << "SELECT a.zgzsbh,a.pimvocationalname,b.name,a.zghqrq,a.zgsydw,a.fzyxq FROM t_pimvocational a,zo_credentialtype b where a.zslx=b.code  ";
 	CERTIFACATE_INFORMATION_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	CertificateInformationMapper mapper;
