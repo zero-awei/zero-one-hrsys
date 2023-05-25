@@ -17,16 +17,16 @@ public:
 	CertificateDO mapper(ResultSet* resultSet) const override
 	{
 		CertificateDO data;
-		data.setId(resultSet->getUInt64(1));
-		data.setName(resultSet->getString(2));
-		data.setSex(resultSet->getString(3));
-		data.setAge(resultSet->getString(4));
-		data.setOrganization(resultSet->getString(5));
-		data.setDepartment(resultSet->getString(6));
-		data.setRank(resultSet->getString(7));
-		data.setMail_address(resultSet->getString(8));
-		data.setFamily_contact(resultSet->getString(9));
-		data.setFamily_contact_nuimber(resultSet->getString(10));
+		//data.setId(resultSet->getUInt64(1));
+		//data.setName(resultSet->getString(2));
+		//data.setSex(resultSet->getString(3));
+		//data.setAge(resultSet->getString(4));
+		//data.setOrganization(resultSet->getString(5));
+		//data.setDepartment(resultSet->getString(6));
+		//data.setRank(resultSet->getString(7));
+		//data.setMail_address(resultSet->getString(8));
+		//data.setFamily_contact(resultSet->getString(9));
+		//data.setFamily_contact_nuimber(resultSet->getString(10));
 		return data;
 	}
 };
