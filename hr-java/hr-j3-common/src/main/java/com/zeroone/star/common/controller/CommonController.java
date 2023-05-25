@@ -4,15 +4,12 @@ import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.common.CommonApis;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
 import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
-import com.zeroone.star.project.j3.query.common.OneConditionQuery;
-import com.zeroone.star.project.j3.query.common.SectorNameQuery;
+import com.zeroone.star.project.j3.query.common.*;
 import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,23 +29,18 @@ import java.util.List;
 @RequestMapping("common")
 @Api(tags = "通用接口")
 public class CommonController implements CommonApis {
-    @Override
-    public JsonVO<List<String>> queryOneColumn(OneConditionQuery oneConditionQuery) {
-        return null;
-    }
-
 
     @GetMapping("query-start-position-title")
     @ApiOperation("职务名称下拉列表")
     @Override
-    public JsonVO<List<DropdownListOptionDTO>> queryPositionTitle() {
+    public JsonVO<List<DropdownListOptionDTO>> queryPositionTitle(PositionTitleDropdownListQuery query) {
         return null;
     }
 
     @GetMapping("query-start-job-title")
     @ApiOperation("岗位名称下拉列表")
     @Override
-    public JsonVO<List<DropdownListOptionDTO>> queryJobTitle() {
+    public JsonVO<List<DropdownListOptionDTO>> queryJobTitle(JobTitleDropdownListQuery query) {
         return null;
     }
 
@@ -99,7 +91,8 @@ public class CommonController implements CommonApis {
     @ApiOperation("分页查询某人的语言能力")
     @Override
     public JsonVO<PageDTO<List<LanguageAbilityDTO>>> queryLanguageAbilityList(LanguageAbilityQuery personId) {
-        return null;}
+        return null;
+    }
 
     @GetMapping("query-learning-forms")
     @ApiOperation("学习形式下拉列表")
@@ -112,6 +105,47 @@ public class CommonController implements CommonApis {
     @ApiOperation("学校性质下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> querySchoolNature() {
+        return null;
+    }
+
+    @GetMapping("query-common-discipline")
+    @ApiOperation("获取学科下拉列表")
+    @Override
+    public JsonVO<List<String>> listDisciplineType(DisciplineTypeQuery discipline) {
+        return null;
+    }
+
+    @GetMapping("query-common-education")
+    @ApiOperation("获取学历下拉列表")
+    @Override
+    public JsonVO<List<String>> listEducationType(EducationTypeQuery education) {
+        return null;
+    }
+
+
+    @GetMapping("query-relationship")
+    @ApiOperation("与本人关系列表")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryRelationship() {
+        return null;
+    }
+
+    @GetMapping("query-entry-channel")
+    @ApiOperation("入职渠道下拉列表")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryEntryChannel() {
+        return null;
+    }
+
+    @GetMapping("query-allocation")
+    @ApiOperation(("分配方式下拉列表"))
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryAllocation() {
+        return null;
+    }
+@GetMapping("query-language-type")
+@ApiOperation("语种类型下拉列表")
+    public JsonVO<List<DropdownListOptionDTO>> queryLanguageType() {
         return null;
     }
 }

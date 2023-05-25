@@ -23,6 +23,6 @@ import javax.validation.constraints.NotBlank;
 @ApiModel("查询单个字段")
 public class EducationTypeQuery {
     @NotBlank(message = "查询字段名不能为空")
-    @ApiModelProperty(value = "查询单个字段", example = "education(学历)")
-    private  String condition;
+    @ApiModelProperty(value = "查询单个字段(学历)", example = "education")
+    private  String education;
 }

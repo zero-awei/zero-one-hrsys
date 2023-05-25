@@ -2,7 +2,8 @@ package com.zeroone.star.project.j3.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,11 +14,11 @@ import lombok.Data;
  *
  * @author H
  * @version 1.0.0
- * @date 2023/5/19 16:41
+ * @date 2023/5/22 16:35
  */
-@ApiModel("导出所有职务/组织的文件url")
-@Data
-public class ExportDTO {
-    @ApiModelProperty(value = "文件下载地址",example = "http://sssss")
-    private String url;
+@ApiModel("与本人关系")
+public class RelationshipDTO {
+
+    @ApiModelProperty(value = "关系类型" , example = "[\"父子\",\"母子\"]")
+    private List<String> Relationship;
 }

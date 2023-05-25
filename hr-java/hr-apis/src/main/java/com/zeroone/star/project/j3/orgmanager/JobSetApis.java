@@ -2,14 +2,16 @@ package com.zeroone.star.project.j3.orgmanager;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.j3.dto.JobDTO;
+import com.zeroone.star.project.j3.dto.*;
 
 import com.zeroone.star.project.dto.sample.SampleDTO;
-import com.zeroone.star.project.j3.dto.AllJobsDTO;
-import com.zeroone.star.project.j3.dto.ExportDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.JobTitleDTO;
 import com.zeroone.star.project.j3.query.JobByNameQuery;
 import com.zeroone.star.project.vo.JsonVO;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -72,4 +74,20 @@ public interface JobSetApis {
      * @return 搜索出的 PageDTO<JobDTO>
      */
     JsonVO<PageDTO<JobDTO>> queryJobByName(JobByNameQuery condition);
+
+
+    @DeleteMapping("delete-position")
+    @ApiOperation("删除组织信息(支持批量)")
+    JsonVO<Boolean> DeletePosition(@RequestBody DeletePositionDTO deletePositionDTO);
+
+    @PostMapping("add-position")
+    @ApiOperation("批量新增组织信息(支持批量)")
+    JsonVO<Boolean> AddPosition(@RequestBody AddPositionDTO addPositionDTO);
+/**
+ *  导出组织（导出本页在前端完成）
+ * @return {@link com.zeroone.star.project.vo.JsonVO<com.zeroone.star.project.j3.dto.ExportDTO>}
+ * @Author H_lzu
+ * @Date 16:27 2023/5/24
+ */
+    JsonVO<ExportDTO> exportAllOrgs();
 }
