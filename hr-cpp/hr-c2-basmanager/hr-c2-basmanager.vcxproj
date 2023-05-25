@@ -188,6 +188,9 @@
     <ClInclude Include="controller\RosterOfPer\CheckRetiresListController.h" />
     <ClInclude Include="controller\RosterOfPer\ExportRetireesController.h" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\CertificateManage\CheckCerListDAO.h" />
+    <ClInclude Include="dao\CertificateManage\CheckCerListMapper.h" />
+    <ClInclude Include="domain\do\CertificateManage\CertificateDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\RosterOfPer\RetiredEmployeesDO.h" />
     <ClInclude Include="domain\do\RosterOfPer\SecondedPersonnelDO.h" />
@@ -215,6 +218,7 @@
     <ClCompile Include="controller\RosterOfPer\ExportRetireesController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\CertificateManage\CheckCerListDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

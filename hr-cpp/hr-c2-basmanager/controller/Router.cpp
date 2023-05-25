@@ -37,10 +37,10 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-	ROUTER_SIMPLE_BIND(CheckCerListController);
-	ROUTER_SIMPLE_BIND(CreateNewCerController);
-	ROUTER_SIMPLE_BIND(CheckRetiresListController);
-	ROUTER_SIMPLE_BIND(ExportRetireesController);
+	ROUTER_SIMPLE_BIND(CheckCerListController);//分页查询证书列表--(证书管理-分页查询证书列表)--pine
+	ROUTER_SIMPLE_BIND(CreateNewCerController);//新建证书--(证书管理-新建证书)--pine
+	ROUTER_SIMPLE_BIND(CheckRetiresListController);//人员花名册-（离退休员工-分页查询员工列表）--pine
+	ROUTER_SIMPLE_BIND(ExportRetireesController); //人员花名册 - （离退休员工 - 导出员工）--pine
 }
 
 #ifdef HTTP_SERVER_DEMO

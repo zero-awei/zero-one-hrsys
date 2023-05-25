@@ -90,6 +90,15 @@
     <ClInclude Include="domain\do\RosterOfPer\RetiredEmployeesDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="dao\CertificateManage\CheckCerListDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\CertificateManage\CheckCerListMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\CertificateManage\CertificateDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -114,6 +123,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\SystemInterceptor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\CertificateManage\CheckCerListDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
