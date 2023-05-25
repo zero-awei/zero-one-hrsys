@@ -1,5 +1,6 @@
 package com.zeroone.star.common.controller;
 
+import com.zeroone.star.common.service.IDocumentTypeService;
 import com.zeroone.star.common.service.IOrmpostlibService;
 import com.zeroone.star.common.service.ZzmmService;
 import com.zeroone.star.project.common.CommonApis;
@@ -45,11 +46,14 @@ public class CommonController implements CommonApis {
         return null;
     }
 
+    @Resource
+    private IDocumentTypeService documentTypeService;
+
     @ApiOperation(value = "获取证件类型下拉列表")
     @GetMapping("query-document-type")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryDocumentType() {
-        return null;
+        return JsonVO.success(documentTypeService.listDocumentType());
     }
 
     @ApiOperation(value = "员工状态下拉列表")
