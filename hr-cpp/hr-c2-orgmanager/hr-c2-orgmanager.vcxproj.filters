@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
+    <ClCompile Include="controller\LegalEntityMai\LegalEntityMaiController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\Router.cpp">
@@ -27,27 +24,39 @@
     <ClCompile Include="controller\SystemInterceptor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\LegalEntityMai\LegalEntityMaiController.cpp">
+    <ClCompile Include="uselib\excel\TestExcel.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\LegalEntitySet\ExportLegalerSetingController.cpp">
+    <ClCompile Include="uselib\fastdfs\TestFastDfs.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\LegalEntitySet\LegalerNamePullDownListController.cpp">
+    <ClCompile Include="uselib\jwt\TestToken.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\LegalEntitySet\UpdateLegalerSetingMessageController.cpp">
+    <ClCompile Include="uselib\mongo\TestMongo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\mysql\TestDb.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\redis\TestRedis.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\ws\WSInstanceListener.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\ws\WSListener.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Macros.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ServerInfo.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
+    <ClInclude Include="controller\LegalEntityMai\LegalEntityMaiController.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="controller\OtherComponent.hpp">
@@ -59,12 +68,6 @@
     <ClInclude Include="domain\do\DoInclude.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\LegalEntityMai\LegalEntityMaiController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\do\LegalEntityMai\ormsignorgDO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -74,40 +77,61 @@
     <ClInclude Include="domain\vo\LegalEntityMai\LegalEntityMaiVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\LegalEntitySet\ExportLegalerSetingDO.h">
+    <ClInclude Include="domain\GlobalInclude.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\LegalEntitySet\LegalerNamePullDownListDO.h">
+    <ClInclude Include="uselib\excel\TestExcel.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\LegalEntitySet\UpdateLegalerSetingMessageDO.h">
+    <ClInclude Include="uselib\fastdfs\TestFastDfs.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\LegalEntitySet\ExportLegalerSetingDTO.h">
+    <ClInclude Include="uselib\jwt\TestToken.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\LegalEntitySet\LegalerNamePullDownListDTO.h">
+    <ClInclude Include="uselib\mongo\TestMongo.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\LegalEntitySet\UpdateLegalerSetingMessageDTO.h">
+    <ClInclude Include="uselib\mysql\LibTest.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\LegalEntitySet\ExportLegalerSetingVO.h">
+    <ClInclude Include="uselib\mysql\TestDb.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\LegalEntitySet\LegalerNamePullDownListVO.h">
+    <ClInclude Include="uselib\redis\TestRedis.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\LegalEntitySet\UpdateLegalerSetingMessageVO.h">
+    <ClInclude Include="uselib\rocketmq\TestRocket.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\LegalEntitySet\ExportLegalerSetingController.h">
+    <ClInclude Include="uselib\ws\WSController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\LegalEntitySet\LegalerNamePullDownListController.h">
+    <ClInclude Include="uselib\ws\WSInstanceListener.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\LegalEntitySet\UpdateLegalerSetingMessageController.h">
+    <ClInclude Include="uselib\ws\WSListener.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Macros.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\LegalEntityMai\OrmsignorgDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\LegalEntityMai\LegalEntityMaiService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\LegalEntityMai\LegalEntityMaiDAO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

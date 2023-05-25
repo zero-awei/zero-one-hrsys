@@ -68,7 +68,7 @@ public: // 定义接口
 		info->queryParams["ORGCODE"].addExample("default", String("104"));
 	}
 	// 定义查询法人主体信息接口处理
-	ENDPOINT(API_M_GET, "/QueryLEM", queryLEM, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/org/query-LEM", queryLEM, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(legalEntityMaiQuery, LegalEntityMaiQuery, queryParams);
 		// 响应结果
@@ -83,7 +83,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 定义更新法人主体信息接口处理
-	ENDPOINT(API_M_PUT, "/UpdateLEM", updateLEM, BODY_DTO(LegalEntityMaiDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/org/update-LEM", updateLEM, BODY_DTO(LegalEntityMaiDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execUpdateLEM(dto));
 	}
@@ -95,7 +95,7 @@ public: // 定义接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	ENDPOINT(API_M_POST, "/AddLEM", addLEM, BODY_DTO(LegalEntityMaiDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/org/add-LEM", addLEM, BODY_DTO(LegalEntityMaiDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddLEM(dto));
 	}
@@ -107,7 +107,7 @@ public: // 定义接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	ENDPOINT(API_M_DEL, "/RemoveLEM", removeLEM, BODY_DTO(LegalEntityMaiDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/org/remove-LEM", removeLEM, BODY_DTO(LegalEntityMaiDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveLEM(dto));
 	}
@@ -120,7 +120,7 @@ public: // 定义接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(BooleanJsonVO);
 	}
-	ENDPOINT(API_M_POST, "/ImportLEM", importLEM, BODY_DTO(LegalEntityMaiDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/org/import-LEM", importLEM, BODY_DTO(LegalEntityMaiDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execImportLEM(dto));
 	}
@@ -151,7 +151,7 @@ public: // 定义接口
 		info->queryParams.add<String>("ORGCODE").description = ZH_WORDS_GETTER("LegalEntityMai.field.orgcode");
 		info->queryParams["ORGCODE"].addExample("default", String("104"));
 	}
-	ENDPOINT(API_M_GET, "/ExportLEM", exportLEM, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/org/export-LEM", exportLEM, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(legalEntityMaiQuery, LegalEntityMaiQuery, queryParams);
 		// 响应结果

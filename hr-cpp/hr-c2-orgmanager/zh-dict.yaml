@@ -31,17 +31,17 @@ sample:
   sex: 性别，如：男
 LegalEntityMai:
  query:
-  summary: 分页查询法人主体列表
+  summary: （法人主体维护-分页查询法人主体列表）--TripleGold
  put:
-  summary: 更新指定法人主体信息
+  summary: （法人主体维护-更新指定法人主体信息）--TripleGold
  post:
-  summary: 新增法人主体（支持批量新增）
+  summary: （法人主体维护-新增法人主体（支持批量新增））--TripleGold
  delete:
-  summary: 删除法人主体（支持批量删除）
+  summary: （法人主体维护-删除法人主体（支持批量删除））--TripleGold
  import:
-  summary: 导入法人主体
+  summary: （法人主体维护-导入法人主体）--TripleGold
  export:
-  summary: 导出法人主体
+  summary: （法人主体维护-导出法人主体）--TripleGold
  field:
   id: 法人主体标识
   updateman: 更新人
