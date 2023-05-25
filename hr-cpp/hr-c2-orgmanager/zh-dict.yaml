@@ -59,10 +59,10 @@ LegalEntitySet:
  query:
   summary1: 分页查询组织列表 
   summary2: 分页查询法人主体列表 
-  summary3: 法人主体名称下拉列表 - cpt
+  summary3: (数据设置——法人主体设置——法人主体名称下拉列表) -- cpt
   summary4: 分页查询法人设置列表 
  put:
-  summary: 更新指定法人主体设置信息 - cpt
+  summary: （数据设置——法人主体设置——更新指定法人设置信息) --cpt
  post:
   summary: 新增法人主体设置（支持批量新增）
  delete:
@@ -70,7 +70,7 @@ LegalEntitySet:
  import:
   summary: 导入法人主体设置  
  export:
-  summary: 导出法人主体设置 (导出页面在前端完成)  - cpt
+  summary: （数据设置——法人主体设置——导出法人主体设置 (导出页面在前端完成) ）--cpt
  field:
   id: 法人主体标识
   updateman: 更新人

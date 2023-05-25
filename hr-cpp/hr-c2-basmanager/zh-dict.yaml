@@ -76,9 +76,9 @@ certificate:
 
 RosterOfPer:
  query:
-  summary: 分页查询见习员工列表 - cpt
+  summary: (人员花名册——见习员工——分页查询员工列表) --cpt
  export:
-  summary: 导出见习员工 - cpt
+  summary: (人员花名册——见习员工——导出见习员工）--cpt
  field:
 cermanage:
  get:

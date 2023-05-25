@@ -5,6 +5,10 @@ RraineePageJsonVO::Wrapper RraineeController::execRraineeQuery(const RraineeQuer
 	return RraineePageJsonVO::Wrapper();
 }
 
+RraineePageJsonVO::Wrapper RraineeController::execRraineeExport(const RraineeQuery::Wrapper& query, const PayloadDTO& payload) {
+	return RraineePageJsonVO::Wrapper();
+}
+
 //Uint64JsonVO::Wrapper Rrainee::execAddRrainee(const RraineeDTO::Wrapper& dto) {
 //	// 定义返回数据对象
 //	auto jvo = Uint64JsonVO::createShared();

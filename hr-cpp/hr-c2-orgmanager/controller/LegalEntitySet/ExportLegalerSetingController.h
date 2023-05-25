@@ -33,7 +33,7 @@ public:
 		// 定义其他表单参数描述
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/query-ExportLegalerSeting", queryExportLegalerSeting, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/org/export-LegalerSeting", queryExportLegalerSeting, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, ExportLegalerSetingQuery, queryParams);
 		// 响应结果
