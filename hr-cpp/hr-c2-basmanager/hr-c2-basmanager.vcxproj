@@ -209,6 +209,8 @@
     <ClInclude Include="domain\do\RosterOfPer\TemporaryStaffDO.h" />
     <ClInclude Include="domain\dto\CertificateManage\CertificateInfoDTO.h" />
     <ClInclude Include="domain\dto\CertificateManage\CertificateTypeDTO.h" />
+    <ClInclude Include="domain\do\RosterOfPer\RetiredEmployeesDO.h" />
+    <ClInclude Include="domain\do\RosterOfPer\SecondedPersonnelDO.h" />
     <ClInclude Include="domain\dto\CertificateManage\CheckCerListDTO.h" />
     <ClInclude Include="domain\dto\CertificateManage\CreateNewCerDTO.h" />
     <ClInclude Include="domain\dto\CertificateManage\EmployeeInfoDTO.h" />

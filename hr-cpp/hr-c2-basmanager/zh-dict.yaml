@@ -83,10 +83,10 @@ RosterOfPer:
 cermanage:
  get:
   summary: 分页查询示例数据 
-  checklist: 分页查询证书列表
+  checklist: （证书管理-分页查询证书列表）--pine
  post:
   summary: 新增一条示例数据
-  addcer: 新增一条证书信息
+  addcer: （证书管理-新增一条证书信息）--pine
  put:
   summary: 修改一条示例数据
  delete:
@@ -99,8 +99,8 @@ cermanage:
 rosterofper:
  get:
   summary: 分页查询示例数据
-  checklist: 分页查询退休员工列表
-  outinfo: 导出离退员工信息
+  checklist: （人员花名册-分页查询退休员工列表）--pine
+  outinfo: （人员花名册-导出离退员工信息）--pine
  post:
   summary: 新增一条示例数据
   addcer: 新增一条证书信息
