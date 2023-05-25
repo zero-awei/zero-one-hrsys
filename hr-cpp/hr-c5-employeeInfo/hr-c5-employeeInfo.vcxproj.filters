@@ -150,6 +150,9 @@
     <ClInclude Include="domain\vo\paperinfo\PaperVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\do\patentinfo\t_pimpatentDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
