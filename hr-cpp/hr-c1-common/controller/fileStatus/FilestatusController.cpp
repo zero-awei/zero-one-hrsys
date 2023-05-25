@@ -22,7 +22,7 @@ PullListVO::Wrapper FileStatusController::execQueryFileStatus()
 			fileStatusList.insert(std::make_pair(std::to_string(*subptr->get()->key), *subptr->get()->val));
 		}
 		// 加入缓存
-		redisExm.updateRedisWithTable(fileStatusList, tableName);
+		redisExm.updateRedis(tableName, fileStatusList);
 	}
 	else { // 缓存有数据
 		fileStatusList = redisExm.queryRedis(tableName);

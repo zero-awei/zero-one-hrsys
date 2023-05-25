@@ -21,7 +21,7 @@ PullListVO::Wrapper LeaveReasonController::execQueryLeaveReason()
 		for (auto subptr = dto->pullList->begin(); subptr != dto->pullList->end(); subptr++) {
 			leaveReasonList.insert(std::make_pair(std::to_string(*subptr->get()->key), *subptr->get()->val));
 		}
-		redisExm.updateRedisWithTable(leaveReasonList, tableName);
+		redisExm.updateRedis(tableName, leaveReasonList);
 	}
 	else // »º´æÓÐÊý¾Ý
 	{

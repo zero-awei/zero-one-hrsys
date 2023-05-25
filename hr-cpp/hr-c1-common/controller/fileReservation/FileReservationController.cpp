@@ -24,7 +24,7 @@ PullListVO::Wrapper FileReservationController::execQueryFileReservation()
 		for (auto subptr = dto->pullList->begin(); subptr != dto->pullList->end(); subptr++) {
 			fileReservationList.insert(std::make_pair(std::to_string(*subptr->get()->key), *subptr->get()->val));
 		}
-		redisExm.updateRedisWithTable(fileReservationList, tableName);
+		redisExm.updateRedis(tableName, fileReservationList);
 	}
 	else // »º´æÓÐÊý¾Ý
 	{

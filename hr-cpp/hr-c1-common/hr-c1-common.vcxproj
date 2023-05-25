@@ -194,6 +194,8 @@
     <ClInclude Include="domain\do\declareType\DeclareTypeDO.h" />
     <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\fileReservation\FileReservationDO.h" />
+    <ClInclude Include="domain\do\fileStatus\FileStatusDO.h" />
     <ClInclude Include="domain\do\jobLevelTypeList\JobLevelTypeDO.h" />
     <ClInclude Include="domain\do\pimArchives\PimArchivesDO.h" />
     <ClInclude Include="domain\do\pimType\PimTypeDO.h" />
