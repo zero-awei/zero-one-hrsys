@@ -178,6 +178,7 @@
     <ClInclude Include="controller\military\MilitaryController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Pimarmycadres\PimarmycadresController.h" />
+    <ClInclude Include="controller\rewardandpunish\RewardAndPunishController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\scientific\ScientificController.h" />
     <ClInclude Include="controller\SciResult\SciResultController.h" />
@@ -192,6 +193,8 @@
     <ClInclude Include="dao\contract\ContractMapper.h" />
     <ClInclude Include="dao\military\MilitaryDAO.h" />
     <ClInclude Include="dao\military\MilitaryMapper.h" />
+    <ClInclude Include="dao\rewardandpunish\RewardAndPunishDAO.h" />
+    <ClInclude Include="dao\rewardandpunish\RewardAndPunishMapper.h" />
     <ClInclude Include="dao\work-history\WorkHistoryDAO.h" />
     <ClInclude Include="dao\work-history\WorkHistoryMapper.h" />
     <ClInclude Include="domain\do\archives\ArchivesDO.h" />
@@ -200,6 +203,7 @@
     <ClInclude Include="domain\do\contract\ContractDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\military\MilitaryDO.h" />
+    <ClInclude Include="domain\do\rewardandpunish\RewardAndPunishDO.h" />
     <ClInclude Include="domain\do\scientific\Scientific.h" />
     <ClInclude Include="domain\do\work-history\WorkHistoryDO.h" />
     <ClInclude Include="domain\do\work-history\WorkHistoryFindPageDO.h" />
@@ -213,6 +217,7 @@
     <ClInclude Include="domain\dto\Pimarmycadres\DelPimarmycadresDTO.h" />
     <ClInclude Include="domain\dto\Pimarmycadres\PimarmycadresFindDTO.h" />
     <ClInclude Include="domain\dto\Pimarmycadres\PimarmycadresIntoDTO.h" />
+    <ClInclude Include="domain\dto\rewardandpunish\RewardAndPunishDTO.h" />
     <ClInclude Include="domain\dto\scientific\ScientificDTO.h" />
     <ClInclude Include="domain\dto\SciResult\AddSciResultDTO.h" />
     <ClInclude Include="domain\dto\SciResult\DelSciResultDTO.h" />
@@ -232,6 +237,7 @@
     <ClInclude Include="domain\query\contract\ContractQuery.h" />
     <ClInclude Include="domain\query\military\MilitaryQuery.h" />
     <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresPageQuery.h" />
+    <ClInclude Include="domain\query\rewardandpunish\RewardAndPunishQuery.h" />
     <ClInclude Include="domain\query\scientific\ScientificQuery.h" />
     <ClInclude Include="domain\query\SciResult\SciResultQuery.h" />
     <ClInclude Include="domain\query\work-history\WorkHistoryExportQuery.h" />
@@ -242,6 +248,7 @@
     <ClInclude Include="domain\vo\certificate-information\JobTitleInformationVO.h" />
     <ClInclude Include="domain\vo\contract\ContractVO.h" />
     <ClInclude Include="domain\vo\military\MilitaryVO.h" />
+    <ClInclude Include="domain\vo\rewardandpunish\RewardAndPunishVO.h" />
     <ClInclude Include="domain\vo\scientific\ScientificVO.h" />
     <ClInclude Include="domain\vo\SciResult\SciResultVo.h" />
     <ClInclude Include="domain\vo\work-history\ModWorkHistoryVO.h" />
@@ -268,6 +275,7 @@
     <ClCompile Include="controller\jobtitle-information\JobTitleInformationController.cpp" />
     <ClCompile Include="controller\military\MilitaryController.cpp" />
     <ClCompile Include="controller\Pimarmycadres\PimarmycadresController.cpp" />
+    <ClCompile Include="controller\rewardandpunish\RewardAndPunishController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\scientific\ScientficController.cpp" />
     <ClCompile Include="controller\SciResult\SciResultController.cpp" />
@@ -278,6 +286,7 @@
     <ClCompile Include="dao\certificate-information\jobtitle-information\JobTitleInformationDAO.cpp" />
     <ClCompile Include="dao\contract\ContractDAO.cpp" />
     <ClCompile Include="dao\military\MilitaryDAO.cpp" />
+    <ClCompile Include="dao\rewardandpunish\RewardAndPunishDAO.cpp" />
     <ClCompile Include="dao\work-history\WorkHistoryDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\Archives\ArchivesService.cpp" />

@@ -282,6 +282,27 @@
     <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresPageQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\rewardandpunish\RewardAndPunishController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\rewardandpunish\RewardAndPunishDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\rewardandpunish\RewardAndPunishVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\rewardandpunish\RewardAndPunishQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\rewardandpunish\RewardAndPunishDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\rewardandpunish\RewardAndPunishMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\rewardandpunish\RewardAndPunishDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -363,6 +384,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\Pimarmycadres\PimarmycadresController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\rewardandpunish\RewardAndPunishController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\rewardandpunish\RewardAndPunishDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

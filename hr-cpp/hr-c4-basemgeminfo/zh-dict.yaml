@@ -230,4 +230,35 @@ pimarmycadres:
   suffix: 文件后缀
  post:
   summary: 新增一条数据
- 
+rewardandpunish:
+ get:
+  summary: 查看指定员工奖惩记录（指定奖惩信息详情）
+ put:
+  summary: 修改指定员工奖惩信息
+ download:
+  summary: 导出指定员工奖惩信息
+ createdate: 建立时间
+ updatedate: 更新时间
+ pimrewardpunishmentname: 奖惩名称
+ updateman: 更新人
+ createman: 建立人
+ fj: 附件
+ lx: 奖惩分类
+ csrq: 产生日期
+ pimrewardpunishmentid: 奖励惩罚标识
+ pimpersonid: 人员信息标识
+ jcjb: 奖惩级别
+ jclx: 奖励级别
+ jlsj: 奖惩时间
+ cfsj: 惩罚时间
+ jcje: 奖惩金额
+ jcsj: 奖惩事件
+ bz: 备注
+ cflx: 惩罚类型
+ jlss: 记录所属
+ jlglbh: 记录管理编号
+ jlspzt: 记录审批状态
+ jlczz: 记录操作者
+ yxqjsrq: 影响期结束日期
+ department: 授予单位
+ reason: 拒绝原因
