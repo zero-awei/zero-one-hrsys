@@ -24,23 +24,39 @@
 
 class OrgListDO
 {
+	// 区域补贴
 	CC_SYNTHESIZE(string, regionSubsidy, RegionSubsidy);
+	// 公司根组织ID
 	CC_SYNTHESIZE(string, flag, Flag);
 	// 对应OU
 	CC_SYNTHESIZE(string, correspondou, Correspondou);
+	// 建立人
 	CC_SYNTHESIZE(string, createby, Createby);
+	// 更新人
 	CC_SYNTHESIZE(string, updater, Updater);
+	// 更新时间
 	CC_SYNTHESIZE(string, updateTime, UpdateTime);
+	// 建立时间
 	CC_SYNTHESIZE(string, createTime, CreateTime);
+	// ERP组织ID
 	CC_SYNTHESIZE(string, erpOrgId, ErpOrgId);
+	// 所属区域
 	CC_SYNTHESIZE(string, belongRegion, BelongRegion);
+	// 组织性质
 	CC_SYNTHESIZE(string, legalEntity, LegalEntity);
+	// 级别编码
 	CC_SYNTHESIZE(string, levelCode, LevelCode);
+	// 组织编号
 	CC_SYNTHESIZE(string, orgCode, OrgCode);
+	// 组织机构标识
 	CC_SYNTHESIZE(string, orgId, OrgId);
+	// 组织机构名称
 	CC_SYNTHESIZE(string, orgName, OrgName);
+	// 组织机构
 	CC_SYNTHESIZE(string, porgId, PorgId);
+	// 简称
 	CC_SYNTHESIZE(string, shortname, Shortname);
+	// 所属OU
 	CC_SYNTHESIZE(string, belongou, belongou);
 	// 启停标识
 	CC_SYNTHESIZE(string, sign, Sign);
