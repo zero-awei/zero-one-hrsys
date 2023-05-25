@@ -29,6 +29,20 @@ class ArmyLevelTypeDO
 {
 	// 军转级别下拉列表--军转级别
 	CC_SYNTHESIZE(string, armyLevelType, ArmyLevelType);
+	// 军转级别代码
+	CC_SYNTHESIZE(string, code, Code);
+public:
+	ArmyLevelTypeDO()
+	{
+		code = "";
+		armyLevelType = "";
+	}
+
+	ArmyLevelTypeDO(string code_, string level_)
+	{
+		code = code_;
+		armyLevelType = level_;
+	}
 };
 
 #endif // !_DISMISSREASONDO_H_
