@@ -147,6 +147,9 @@
     <ClInclude Include="domain\do\RosterOfPer\SecondedPersonnelDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\do\RosterOfPer\RosterPersonDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
