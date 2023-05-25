@@ -179,6 +179,7 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\typeContract\TypeContractListController.h" />
+    <ClInclude Include="dao\armyLevelType\ArmyLevelMapper.h" />
     <ClInclude Include="dao\armyLevelType\ArmyLevelTypeDAO.h" />
     <ClInclude Include="dao\dismissReason\DismissReasonDAO.h" />
     <ClInclude Include="dao\dismissReason\DismissReasonMapper.h" />
