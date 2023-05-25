@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: Andrew211vibe
- @Date: 2023/05/23 23:42:52
+ @Date: 2023/05/25 19:24:18
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,26 +17,25 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "ArmyLevelTypeDAO.h"
-#include "ArmyLevelMapper.h"
+#ifndef _ARMYLEVELMAPPER_H_
+#define _ARMYLEVELMAPPER_H_
 
-std::list<ArmyLevelTypeDO> ArmyLevelTypeDAO::listAll()
+#include "Mapper.h"
+#include "domain/do/armyLevelType/ArmyLevelTypeDO.h"
+
+/**
+ * 军转级别下拉列表数据库字段匹配映射
+ * 负责人：Andrew
+ */
+class ArmyLevelMapper : public Mapper<ArmyLevelTypeDO>
 {
-	/*string str = "SELECT `LEVELTYPE` FROM `t_pimarmycadres` GROUP BY `LEVELTYPE`";
-	ArmyLevelMapper mapper;
-	return sqlSession->executeQuery<ArmyLevelTypeDO, ArmyLevelMapper>(str, mapper);*/
-
-	list<ArmyLevelTypeDO> res;
-	for (auto item : armyLevel)
+public:
+	ArmyLevelTypeDO mapper(ResultSet *result) const override
 	{
-		ArmyLevelTypeDO tmp(item.first, item.second);
-		res.push_back(tmp);
+		ArmyLevelTypeDO data;
+		data.setArmyLevelType(result->getString(1));
+		return data;
 	}
-	return res;
-}
+};
 
-unordered_map<string, string> ArmyLevelTypeDAO::getMapList()
-{
-	return armyLevel;
-}
+#endif // !_ARMYLEVELMAPPER_H_
