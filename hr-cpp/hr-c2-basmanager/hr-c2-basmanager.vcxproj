@@ -183,11 +183,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\CertificateManage\CertifDeleteController.h" />
+    <ClInclude Include="controller\CertificateManage\ExportCertifController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\RosterOfPer\EmployeePageController.h" />
+    <ClInclude Include="controller\RosterOfPer\ExportEmployeeController.h" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\CertificateManage\ExportCertifDAO.h" />
+    <ClInclude Include="dao\CertificateManage\ExportCertifMapper.h" />
     <ClInclude Include="dao\RosterOfPer\EmployeePageDAO.h" />
     <ClInclude Include="dao\RosterOfPer\EmployeePageMapper.h" />
+    <ClInclude Include="dao\RosterOfPer\ExportEmployeeDAO.h" />
+    <ClInclude Include="dao\RosterOfPer\ExportEmployeeMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\RosterOfPer\EmployeePageDO.h" />
     <ClInclude Include="domain\dto\CertificateManage\RemoveCertifDTO.h" />
@@ -201,10 +207,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\CertificateManage\CertifDeleteController.cpp" />
+    <ClCompile Include="controller\CertificateManage\ExportCertifController.cpp" />
     <ClCompile Include="controller\RosterOfPer\EmployeePageController.cpp" />
+    <ClCompile Include="controller\RosterOfPer\ExportEmployeeController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\CertificateManage\ExportCertifDAO.cpp" />
     <ClCompile Include="dao\RosterOfPer\EmployeePageDAO.cpp" />
+    <ClCompile Include="dao\RosterOfPer\ExportEmployeeDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\RosterOfPer\EmployeePageService.cpp" />
     <ClCompile Include="stdafx.cpp">

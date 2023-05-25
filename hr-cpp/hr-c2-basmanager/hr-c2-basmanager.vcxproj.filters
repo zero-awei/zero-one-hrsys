@@ -63,6 +63,24 @@
     <ClInclude Include="domain\dto\CertificateManage\RemoveCertifDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\RosterOfPer\ExportEmployeeController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\CertificateManage\ExportCertifController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\RosterOfPer\ExportEmployeeDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\RosterOfPer\ExportEmployeeMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\CertificateManage\ExportCertifDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\CertificateManage\ExportCertifMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -87,6 +105,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\CertificateManage\CertifDeleteController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\RosterOfPer\ExportEmployeeController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\CertificateManage\ExportCertifController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\RosterOfPer\ExportEmployeeDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\CertificateManage\ExportCertifDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

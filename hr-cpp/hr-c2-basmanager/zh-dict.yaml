@@ -31,12 +31,12 @@ sample:
   sex: 性别，如：男
 employee:
  get:
-  summary: 分页查询员工数据
+  summary: （人员花名册-人员花名册-分页查询员工数据）--洛洛
  field:
   employeeid: 员工编号
   employeename: 员工姓名
 certif:
  delete:
-  summary: 删除一条示例数据
+  summary: （证书管理-删除证书）--洛洛
  field:
   id: 证书编号

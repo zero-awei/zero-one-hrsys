@@ -48,7 +48,7 @@ public:
 	// 定义删除接口描述
 	API_DEF_ENDPOINT_INFO(ZH_WORDS_GETTER("certif.delete.summary"), removeCertif, Uint64JsonVO);
 	// 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/remove-certif", removeCertif, BODY_DTO(RemoveCertifDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/bas/remove-certif", removeCertif, BODY_DTO(RemoveCertifDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveCertif(dto));
 	}
