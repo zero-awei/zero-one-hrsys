@@ -189,6 +189,8 @@
     <ClInclude Include="controller\RosterOfPer\ExportRetireesController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\RosterOfPer\RetiredEmployeesDO.h" />
+    <ClInclude Include="domain\do\RosterOfPer\SecondedPersonnelDO.h" />
     <ClInclude Include="domain\dto\CertificateManage\CheckCerListDTO.h" />
     <ClInclude Include="domain\dto\CertificateManage\CreateNewCerDTO.h" />
     <ClInclude Include="domain\dto\RosterOfPer\CheckRetiresListDTO.h" />

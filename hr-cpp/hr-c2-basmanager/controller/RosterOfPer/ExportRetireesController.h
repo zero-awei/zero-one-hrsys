@@ -48,7 +48,7 @@ public://  定义接口（定义接口描述与接口端点）
 		info->queryParams["sex"].required = false;
 	}
 	//4 定义新增接口处理
-	ENDPOINT(API_M_GET, "/ExportRetirees", queryExportRetirees, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/query-ExportRetirees", queryExportRetirees, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		API_HANDLER_QUERY_PARAM(query, ExportRetireesQuery, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryExportRetirees(query));
