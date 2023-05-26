@@ -24,12 +24,12 @@
 LaborDispatchMDTO::Wrapper LaborDispatchMService::ListData(const LaborDispatchMQuery::Wrapper& query)
 {
 	auto reply = LaborDispatchMDTO::createShared();
-	LaborDispatchMDAO dao;
-	auto result = dao.selectByCorporateName(query);
-	reply->corporateName = result.getCorporateName();
-	reply->corporateAddress = result.getCorporateAddress();
-	reply->corporateContact = result.getCorporateContact();
-	reply->corporateNumber = result.getCorporateNumber();
+// 	LaborDispatchMDAO dao;
+// 	auto result = dao.selectByCorporateName(query);
+// 	reply->corporateName = result.getCorporateName();
+// 	reply->corporateAddress = result.getCorporateAddress();
+// 	reply->corporateContact = result.getCorporateContact();
+// 	reply->corporateNumber = result.getCorporateNumber();
 	//reply->corporateAddress = "cosmic";
 	//reply->corporateContact = "muggle";
 	//reply->corporateName = "zerone";

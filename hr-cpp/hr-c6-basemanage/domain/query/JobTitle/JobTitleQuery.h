@@ -14,8 +14,8 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 
-class JobTitleQuery :public PageQuery {
-	DTO_INIT(JobTitleQuery, PageQuery);
+class RetirementQuery :public PageQuery {
+	DTO_INIT(RetirementQuery, PageQuery);
 	// 查询的第一个参数，职称编号
 	DTO_FIELD(UInt64, id);
 	DTO_FIELD_INFO(id) {

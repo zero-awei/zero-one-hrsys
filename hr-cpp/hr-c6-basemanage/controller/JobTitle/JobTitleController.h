@@ -49,7 +49,7 @@ public:
 		// 无其他参数描述---返回职称信息表中所有数据
 	}
 	// 职称查询(分页查询)接口
-	ENDPOINT(API_M_GET, "/query-jobtitle", queryJobTitle, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/title-management/query-jobtitle", queryJobTitle, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数 , 将解析的查询参数给queryPage
 		API_HANDLER_QUERY_PARAM(queryPage, PageQuery, queryParams);
 		// 响应结果
@@ -73,9 +73,9 @@ public:
 		info->queryParams["name"].required = false;
 	}
 	// 职称查询(分页查询)接口
-	ENDPOINT(API_M_GET, "/query-jobtitle-searchbox", queryJobTitleSB, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/title-management/query-jobtitle-searchbox", queryJobTitleSB, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数 , 将解析的查询参数给queryPage
-		API_HANDLER_QUERY_PARAM(queryPage, JobTitleQuery, queryParams);
+		API_HANDLER_QUERY_PARAM(queryPage, RetirementQuery, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryPageSB(queryPage));
 	}
@@ -92,7 +92,7 @@ public:
 		info->queryParams["id"].required = false;
 	}
 	// 删除职称接口
-	ENDPOINT(API_M_DEL, "/remove-jobtitle", removeJobTitle, BODY_DTO(JobTitleDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/title-management/remove-jobtitle", removeJobTitle, BODY_DTO(JobTitleDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveJobTitle(dto));
 	}
@@ -104,14 +104,14 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 新增职称接口
-	ENDPOINT(API_M_POST, "/add-jobtitle", addJobTitle, BODY_DTO(JobTitleDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/title-management/add-jobtitle", addJobTitle, BODY_DTO(JobTitleDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddJobTitle(dto));
 
 	}
 private:
 	JTQueryPageJsonVO::Wrapper execQueryPage(const PageQuery::Wrapper& query);
-	JTQueryPageJsonVO::Wrapper execQueryPageSB(const JobTitleQuery::Wrapper& query);
+	JTQueryPageJsonVO::Wrapper execQueryPageSB(const RetirementQuery::Wrapper& query);
 	Uint64JsonVO::Wrapper execRemoveJobTitle(const JobTitleDTO::Wrapper& dto);
 	Uint64JsonVO::Wrapper execAddJobTitle(const JobTitleDTO::Wrapper& dto);
 };
