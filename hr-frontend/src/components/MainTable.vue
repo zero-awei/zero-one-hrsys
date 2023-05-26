@@ -51,7 +51,7 @@ const handleSelectionChange = (val) => {
 // 双击事件预留函数
 const handleClick = (val) => {
   // 双击可以拿到改行的val值
-  //console.log(val)
+  // console.log(val)
 }
 //用户数据类型定义
 interface User {
