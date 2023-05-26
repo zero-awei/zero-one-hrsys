@@ -21,6 +21,8 @@
     <ClCompile Include="controller\leaveReason\LeaveReasonController.cpp" />
     <ClCompile Include="controller\typeContract\TypeContractController.cpp" />
     <ClCompile Include="controller\auditstatusController.h\AuditstatusController.cpp" />
+    <ClCompile Include="dao\ArchivesLevelsDAO\ArchivesLevelsDAO.cpp" />
+    <ClCompile Include="dao\DeclareTypeDAO\DeclareTypeDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -68,6 +70,8 @@
     <ClInclude Include="controller\auditstatusController.h\AuditstatusController.h" />
     <ClInclude Include="domain\do\pimType\PimTypeDO.h" />
     <ClInclude Include="domain\do\pimArchives\PimArchivesDO.h" />
+    <ClInclude Include="dao\ArchivesLevelsDAO\ArchivesLevelsDAO.h" />
+    <ClInclude Include="dao\DeclareTypeDAO\DeclareTypeDAO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
