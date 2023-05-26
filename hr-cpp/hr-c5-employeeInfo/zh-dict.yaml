@@ -213,3 +213,14 @@ EmployeeNotInArchive:
   outunit: 调出单位
   inunit: 调入单位
   time: 调动时间
+blacklist:
+ field:
+  ygbh: 员工编号
+  ygxm: 员工姓名
+  zjhm: 证件号码
+  zz: 组织
+  ygzt: 员工状态
+  sflrhmd: 是否列入黑名单
+  hmdyy: 黑名单原因
+ get:
+  summary: 查看黑名单员工列表(分页)
