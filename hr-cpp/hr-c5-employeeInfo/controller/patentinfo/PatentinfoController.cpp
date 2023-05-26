@@ -1,18 +1,17 @@
 #include "stdafx.h"
 #include "PatentinfoController.h"
+#include "../../service/patentinfo/PatentinfoService.h"
 
 PatentinfoJsonVO::Wrapper PatentinfoController::execQueryPatentinfo(const PatentinfoQuery::Wrapper& query)
 {
-	// 创建响应对象
+
+	// 定义一个Service
+	PatentinfoService service;
+	// 查询数据
+	auto result = service.listAll(query);
+	//创建响应对象
 	auto vo = PatentinfoJsonVO::createShared();
-	// 创建分页对象
-	//auto pdto = PatentinfoPageDTO::createShared();
-	//pdto->addData(PatentinfoDTO::createShared(/*oatpp::data::mapping::type::DTO::String(1), "专利1名称"*/));
-	//pdto->addData(PatentinfoDTO::createShared(/*oatpp::data::mapping::type::DTO::String(2), "专利2名称"*/));
-	//pdto->addData(PatentDTO::createShared(1, "zs"));
-	//pdto->addData(PatentDTO::createShared(2, "ls"));
-	// 响应结果
-	// vo->success({});
+	vo->success(result);
 	return vo;
 }
 
@@ -44,13 +43,13 @@ Uint64JsonVO::Wrapper PatentinfoController::execAddPatent(const PatentinfoDTO::W
 	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
 	// 非空校验
-	if (!dto->PIMPERSONID)
+	if (!dto->pimpersonid)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 	// 有效值校验
-	if (dto->PIMPERSONID->empty())
+	if (dto->pimpersonid->empty())
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
@@ -64,7 +63,7 @@ Uint64JsonVO::Wrapper PatentinfoController::execRemovePatent(const PatentinfoDTO
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
-	if (!dto->PIMPERSONID->empty())
+	if (!dto->pimpersonid->empty())
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;

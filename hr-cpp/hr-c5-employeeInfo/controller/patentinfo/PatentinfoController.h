@@ -46,12 +46,12 @@ public: // 定义接口
 		//info->queryParams["ZLH"].addExample("default", String("patentInformation"));
 
 		//员工编号
-		info->queryParams.add<String>("PIMPATENTID").description = ZH_WORDS_GETTER("patentInformation.pimpatent.PIMPATENTID");
-		info->queryParams["PIMPATENTID"].addExample("default", String("123456789"));
-		info->queryParams["PIMPATENTID"].required = true;
+		info->queryParams.add<String>("pimpatentid").description = ZH_WORDS_GETTER("patentInformation.pimpatent.PIMPATENTID");
+		info->queryParams["pimpatentid"].addExample("default", String("123456789"));
+		info->queryParams["pimpatentid"].required = true;
 	}
 	// 4 定义接口端点
-	ENDPOINT(API_M_GET, "/employee-info/query-by-PIMPATENTID", queryPatentinfo, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/employee-info/query-by-pimpatentid", queryPatentinfo, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, PatentinfoQuery, qps);
 		// 响应结果
@@ -134,9 +134,7 @@ private: // 定义接口执行函数
 	Uint64JsonVO::Wrapper execRemovePatent(const PatentinfoDTO::Wrapper& dto);
 
 	//查看指定员工专利信息（指定专利信息详情）
-	PatentinfoPageJsonVO::Wrapper execQueryPagePatentinfo(const PatentinfoQuery::Wrapper& query);
 
-	// 5 定义接口的执行函数
 	PatentinfoJsonVO::Wrapper execQueryPatentinfo(const PatentinfoQuery::Wrapper& query);
 
 	//修改指定员工专利信息（单条修改）

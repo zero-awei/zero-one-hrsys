@@ -153,6 +153,15 @@
     <ClInclude Include="domain\do\patentinfo\t_pimpatentDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="service\patentinfo\PatentinfoService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\patentinfo\PatentinfoDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\patentinfo\PatentinfoMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -186,6 +195,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\paperinfoController\PaperinfoController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\patentinfo\PatentinfoService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\patentinfo\PatentinfoDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -180,6 +180,8 @@
     <ClInclude Include="controller\pimpaper\pimpaperController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.h" />
+    <ClInclude Include="dao\patentinfo\PatentinfoDAO.h" />
+    <ClInclude Include="dao\patentinfo\PatentinfoMapper.h" />
     <ClInclude Include="domain\do\archives\t_pimarchivesDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\NotEmployeeInArchive\NotEmployeeInArchiveDO.h" />
@@ -214,6 +216,7 @@
     <ClInclude Include="domain\vo\UpdateArchiveInfo\UpdateArchiveInfoVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\patentinfo\PatentinfoService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -226,7 +229,9 @@
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.cpp" />
+    <ClCompile Include="dao\patentinfo\PatentinfoDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\patentinfo\PatentinfoService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
