@@ -3,9 +3,7 @@
 </template>
 
 <script setup>
-import Edit from '@/components/edit/Index.vue'
+import Edit from '@/components/edit/Edit.vue'
 </script>
 
-<style lang='scss' scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -62,8 +62,9 @@
   border: 0;
 }
 .el-main {
-  padding: 20px;
+  padding-top: 12px;
   background-color: #edecec;
+  height: 95vh;
 }
 </style>
 
@@ -131,6 +132,10 @@ const menus = reactive([
   {
     path: '/sample/feedback',
     text: '消息反馈演示'
+  },
+  {
+    path: '/sample/employees',
+    text: '人员信息'
   }
 ])
 </script>

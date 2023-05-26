@@ -3,9 +3,7 @@
 </template>
 
 <script setup>
-  import Aside from '@/components/aside/Aside.vue'
+import Aside from '@/components/aside/Aside.vue'
 </script>
 
-<style>
-
-</style>
+<style></style>

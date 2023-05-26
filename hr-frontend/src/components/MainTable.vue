@@ -6,6 +6,8 @@
       max-height="calc(95vh - 40px)"
       :data="tableData"
       style="width: 100%"
+      @selection-change="handleSelectionChange"
+      @row-dblclick="handleClick"
       :default-sort="{ prop: 'id', order: 'ascending' }"
     >
       <el-table-column type="selection" />
@@ -17,13 +19,20 @@
         :prop="item.prop"
         width="150"
         sortable
+        @dbclick=""
       />
     </el-table>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { PropType } from 'vue'
+import { PropType, ref } from 'vue'
+import { ElTable } from 'element-plus'
+// 表单实体
+const multipleTableRef = ref<InstanceType<typeof ElTable>>()
+//多选获得数据存取变量
+const multipleSelection = ref<User[]>([])
+
 const props = defineProps({
   xmlData: {
     type: Array as PropType<TableCell[]>,
@@ -33,7 +42,17 @@ const props = defineProps({
     type: Array as PropType<User[]>
   }
 })
-
+// 处理多选事件
+const handleSelectionChange = (val) => {
+  multipleSelection.value = val
+  // 拿到数据
+  // console.log(multipleSelection.value)
+}
+// 双击事件预留函数
+const handleClick = (val) => {
+  // 双击可以拿到改行的val值
+  // console.log(val)
+}
 //用户数据类型定义
 interface User {
   //自定义数据
@@ -62,6 +81,7 @@ interface TableCell {
     background-color: white;
     @include modifier(cell) {
       max-height: 30px;
+      cursor: pointer;
     }
   }
 }
