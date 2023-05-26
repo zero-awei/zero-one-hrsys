@@ -1,5 +1,7 @@
 #pragma once
-
+/**
+ * (人员花名册-挂职人员-分页查询员工列表)--weixiaoman
+ */
 #ifndef _TEMPORARYSTAFF_VO_
 #define _TEMPORARYSTAFF_VO_
 

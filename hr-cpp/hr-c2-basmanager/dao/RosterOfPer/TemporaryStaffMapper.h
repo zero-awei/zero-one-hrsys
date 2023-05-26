@@ -5,7 +5,7 @@
 #include "Mapper.h"
 #include "../../domain/do/RosterOfPer/TemporaryStaffDO.h"
 /**
- * 挂职人员表字段匹配映射
+ * 挂职人员表字段匹配映射--(人员花名册-挂职人员-分页查询员工列表)--weixiaoman
  */
 class TempStaffMapper :public Mapper<TemporaryStaffDO>
 {

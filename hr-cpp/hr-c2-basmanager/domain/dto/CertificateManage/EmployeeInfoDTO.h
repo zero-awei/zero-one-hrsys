@@ -1,14 +1,11 @@
 #pragma once
-/**
-*  人员信息查询，输入搜索框使用
-*/
 #ifndef _EMPLOYEEINFO_DTO_
 #define _EMPLOYEEINFO_DTO_
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 /**
-* 人员信息查询传输对象
+*  人员信息查询，输入搜索框使用--(证书管理-分页查询员工信息列表)--weixiaoman
 */
 class EmployeeInfoDTO : public oatpp::DTO
 {

@@ -2,6 +2,9 @@
 #include "TemporaryStaffDAO.h"
 #include "TemporaryStaffMapper.h"
 #include <sstream>
+/**
+ * 挂职人员数据库操作实现--(人员花名册-挂职人员-分页查询员工列表)--weixiaoman
+ */
 
 //定义条件解析宏
 #define TEMPSTAFF_TERAM_PARSE(query,sql)\
