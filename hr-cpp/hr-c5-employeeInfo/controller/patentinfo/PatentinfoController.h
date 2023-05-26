@@ -46,7 +46,7 @@ public: // 定义接口
 		//info->queryParams["ZLH"].addExample("default", String("patentInformation"));
 
 		//员工编号
-		info->queryParams.add<String>("pimpatentid").description = ZH_WORDS_GETTER("patentInformation.pimpatent.PIMPATENTID");
+		info->queryParams.add<String>("pimpatentid").description = ZH_WORDS_GETTER("patentInformation.pimpatent.pimpatentid");
 		info->queryParams["pimpatentid"].addExample("default", String("123456789"));
 		info->queryParams["pimpatentid"].required = true;
 	}

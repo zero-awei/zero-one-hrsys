@@ -56,22 +56,22 @@ patentInformation:
  select:
   summary: 查看指定员工专利信息（指定专利信息详情）
  pimpatent:
-  ZLH: 专利号
-  UPDATEDATE: 更新时间
-  PIMPATENTID: 专利信息编码
-  ZLHQSJ: 专利获取时间
-  PIMPATENTNAME: 专利名称
-  UPDATEMAN: 更新人
-  CREATEMAN: 建立人
-  CREATEDATE: 建立时间
-  ZLPZGB: 专利批准国别
-  PIMPERSONID: 人员信息标识
-  JLSS: 记录所属
-  JLSPZT: 审批状态
-  JLGLBH: 记录管理编号
-  JLCZZ: 记录操作者
-  ENCLOLURE: 附件
-  REASON: 拒绝原因
+  zlh: 专利号
+  updatedate: 更新时间
+  pimpatentid: 专利信息编码
+  zlhqsj: 专利获取时间
+  pimpatentname: 专利名称
+  updateman: 更新人
+  createman: 建立人
+  createdate: 建立时间
+  zlpzgb: 专利批准国别
+  pimpersonid: 人员信息标识
+  jlss: 记录所属
+  jlspzt: 审批状态
+  jlglbh: 记录管理编号
+  jlczz: 记录操作者
+  enclolure: 附件
+  reason: 拒绝原因
 paperinfo:
  field:
   fbsj: 发表时间
