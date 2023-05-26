@@ -181,6 +181,11 @@
     <ClInclude Include="controller\contract\ContractController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="controller\Title\TitleController.h" />
+    <ClInclude Include="dao\contract\ContractDAO.h" />
+    <ClInclude Include="dao\contract\ContractMapper.h" />
+    <ClInclude Include="dao\Title\TitleDAO.h" />
+    <ClInclude Include="dao\Title\TitleMapper.h" />
     <ClInclude Include="domain\do\archive\ArchiveDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\Title\TitleDO.h" />
@@ -191,6 +196,7 @@
     <ClInclude Include="domain\dto\contracttype\ContractTypeImportDTO.h" />
     <ClInclude Include="domain\dto\contracttype\ContractTypeUpdateDTO.h" />
     <ClInclude Include="domain\dto\Title\TitleDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\certificate\CertificateQuery.h" />
     <ClInclude Include="domain\query\contracttype\ContractTypeQuery.h" />
     <ClInclude Include="domain\query\Title\TitleQuery.h" />
@@ -207,6 +213,7 @@
     <ClInclude Include="domain\vo\Title\TitleVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\Title\TitleService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -215,13 +222,30 @@
     <ClCompile Include="controller\contract\ContractController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="controller\Title\TitleController.cpp" />
+    <ClCompile Include="dao\contract\ContractDAO.cpp" />
+    <ClCompile Include="dao\Title\TitleDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\Title\TitleService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="conf\data-source.yaml" />
+    <None Include="dao\.keep" />
+    <None Include="domain\query\.keep" />
+    <None Include="domain\vo\.keep" />
+    <None Include="public.pem" />
+    <None Include="README.md" />
+    <None Include="service\.keep" />
+    <None Include="zh-dict.yaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

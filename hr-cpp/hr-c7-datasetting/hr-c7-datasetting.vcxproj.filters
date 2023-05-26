@@ -6,8 +6,12 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="controller\Certificate\CertificateController.cpp" />
-    <ClCompile Include="controller\archive\archiveController.cpp" />
     <ClCompile Include="controller\contract\ContractController.cpp" />
+    <ClCompile Include="controller\Title\TitleController.cpp" />
+    <ClCompile Include="dao\Title\TitleDAO.cpp" />
+    <ClCompile Include="service\Title\TitleService.cpp" />
+    <ClCompile Include="dao\contract\ContractDAO.cpp" />
+    <ClCompile Include="controller\archive\archiveController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\OtherComponent.hpp" />
@@ -40,7 +44,27 @@
     <ClInclude Include="domain\query\Title\TitleQuery.h" />
     <ClInclude Include="domain\vo\Title\TitleVO.h" />
     <ClInclude Include="controller\Certificate\CertificateController.h" />
-    <ClInclude Include="controller\archive\ArchiveController.h" />
     <ClInclude Include="controller\contract\ContractController.h" />
+    <ClInclude Include="controller\Title\TitleController.h" />
+    <ClInclude Include="dao\Title\TitleDAO.h" />
+    <ClInclude Include="dao\Title\TitleMapper.h" />
+    <ClInclude Include="service\Title\TitleService.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="dao\contract\ContractMapper.h" />
+    <ClInclude Include="dao\contract\ContractDAO.h" />
+    <ClInclude Include="controller\archive\ArchiveController.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="service\.keep" />
+    <None Include="dao\.keep" />
+    <None Include="zh-dict.yaml" />
+    <None Include="public.pem" />
+    <None Include="conf\data-source.yaml" />
+    <None Include="domain\vo\.keep" />
+    <None Include="domain\query\.keep" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
   </ItemGroup>
 </Project>
