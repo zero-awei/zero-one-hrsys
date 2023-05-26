@@ -20,11 +20,13 @@ public class Right {
 
     private String name;
 
+    @TableField("link_url")
     private String linkUrl;
 
     private Integer priority;
 
-    private String parentPowerId;
+    @TableField("parent_right_id")
+    private String parentRightId;
 
     private Integer level;
 
@@ -33,5 +35,6 @@ public class Right {
     /**
      * 1: Enable 0: Not Enable
      */
+    @TableField("is_enable")
     private Integer isEnable;
 }
