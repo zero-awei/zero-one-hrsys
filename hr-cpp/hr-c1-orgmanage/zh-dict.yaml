@@ -136,7 +136,7 @@ ormanage:
   createtime: 创建时间
   id: 项目编号
   name: 创建人
-  label: 项目标签
+  label: 查询指定项目标签详情
   ormorgid: 项目ID
   ormxbqid: 项目标签标识
 
@@ -152,7 +152,7 @@ job:
   isStandard: 是否标准工时
   isKeywork: 是否关键岗位
   isId: 是否启用标识
- downloadurl: 下载地址
+ downloadurl: 岗位设置导出
 
 #分页查询编制列表
 orgbz:

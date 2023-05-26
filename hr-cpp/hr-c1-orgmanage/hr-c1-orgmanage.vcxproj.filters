@@ -33,7 +33,6 @@
     <ClInclude Include="controller\jobSet\postDeleteController\PostDeleteController.h" />
     <ClInclude Include="controller\jobSet\postQueryController\PostQueryController.h" />
     <ClInclude Include="controller\jobSet\importJobController\ImportJobController.h" />
-    <ClInclude Include="controller\jobSet\JobController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\projTag\exportProjTagController\ExportProjTagController.h" />
     <ClInclude Include="controller\projTag\modifyProjTagController\ModifyProjTagController.h" />
@@ -71,8 +70,6 @@
     <ClInclude Include="domain\vo\jobDownload\JobDownloadVO.h" />
     <ClInclude Include="domain\dto\jobDownload\JobDownloadDTO.h" />
     <ClInclude Include="domain\dto\jobUpdate\JobUpdateDTO.h" />
-    <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
-    <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
     <ClInclude Include="service\projTag\ProjTagService.h" />
     <ClInclude Include="dao\projTag\ProjTagDAO.h" />
     <ClInclude Include="controller\orgbz\PageQueryBzController.h" />
@@ -90,5 +87,7 @@
     <ClInclude Include="domain\vo\postSet\PostDeleteBatchVO.h" />
     <ClInclude Include="domain\do\projTag\OrgListDO.h" />
     <ClInclude Include="dao\projTag\OrgListMapper.h" />
+    <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
+    <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
   </ItemGroup>
 </Project>
