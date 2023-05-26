@@ -49,13 +49,27 @@ public:
 		val = "null";
 	}
 
-	ItemDTO(Int32 k, String v)
+	ItemDTO(UInt32 k, String v)
 	{
 		key = k;
 		val = v;
 	}
 };
 
+/**
+ * ListDTO领域模型
+ * 负责人：rice
+ * (之前用了)
+ */
+template <typename T>
+class ListDTO : public oatpp::DTO
+{
+	DTO_INIT(ListDTO, DTO);
+	DTO_FIELD_INFO(pullList) {
+		info->description = ZH_WORDS_GETTER("common.dto.list");
+	}
+	DTO_FIELD(List<T>, pullList) = {};
+};
 /**
  * 下拉列表DTO领域模型
  * 负责人：Andrew

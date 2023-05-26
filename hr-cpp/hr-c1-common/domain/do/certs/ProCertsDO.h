@@ -22,7 +22,8 @@
 #include "../DoInclude.h"
 
 /**
- * 示例数据库实体类
+ * 执(职)业资格证书下拉列表查询DO
+ * 负责人：米饭
  */
 class ProCertsDO
 {

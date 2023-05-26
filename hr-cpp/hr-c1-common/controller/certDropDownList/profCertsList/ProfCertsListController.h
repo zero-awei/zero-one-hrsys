@@ -50,7 +50,7 @@ public:
 		API_DEF_ADD_PAGE_PARAMS();
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/prof-certs"), queryProfCertsList, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/query-prof-certs"), queryProfCertsList, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(profCertsQuery, ProfCertsQuery, queryParams);
 		// 响应结果

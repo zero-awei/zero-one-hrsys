@@ -29,6 +29,9 @@ class DismissReasonDO
 {
 	// 解聘原因下拉列表
 	CC_SYNTHESIZE(string, dismissreason, Dismissreason);
+
+	// 原因Code
+	CC_SYNTHESIZE(int, code, Code);
 };
 
 #endif // !_DISMISSREASONDO_H_
