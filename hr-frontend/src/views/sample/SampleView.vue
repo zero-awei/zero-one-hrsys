@@ -69,7 +69,7 @@
 
 <script setup>
 import { reactive } from 'vue'
-// 演示菜单数据，添加新的演示在这里不从数据即可 path代表路由地址 text代表提示文本
+// 演示菜单数据，添加新的演示在这里补充数据即可 path代表路由地址 text代表提示文本
 const menus = reactive([
   {
     path: '/sample',
@@ -84,6 +84,10 @@ const menus = reactive([
     text: '打印演示'
   },
   {
+    path: '/sample/edit',
+    text: '信息编辑页'
+  },
+  {
     path: '/sample/sass',
     text: 'sass演示'
   },
@@ -92,8 +96,41 @@ const menus = reactive([
     text: '兄弟组件通信'
   },
   {
+    path: '/sample/pagination',
+    text: '分页'
+  },
+  {
+    path: '/sample/echarts',
+    text: 'Echarts演示'
+  },
+  {
+    path: '/sample/maintable',
+    text: '表格主体测试页面'
+  },
+  {
+    path: '/sample/Aside',
+    text: '侧边栏'
+  },
+  {
+    path: '/sample/process',
+    text: '进度条'
+  },
+  {
+    path: '/sample/qualification',
+    text: '资格图表数据'
+  },
+  {
+    path: '/sample/search',
+    text: '搜索框'
+  },
+  {
     path: '/sample/tablehead',
     text: '表头演示'
+  },
+
+  {
+    path: '/sample/feedback',
+    text: '消息反馈演示'
   }
 ])
 </script>

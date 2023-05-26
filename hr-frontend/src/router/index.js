@@ -45,42 +45,42 @@ const router = createRouter({
 })
 
 // 添加一个路由的全局前置守卫
-router.beforeEach(async function (to, from, next) {
-  // 判断是否是登录页面
-  if (
-    to.name === 'Login' ||
-    to.name === 'NotFound' ||
-    to.name === 'Forbidden' ||
-    to.name === 'Error' ||
-    // TODO[TEST_CODE]: 放行示例模块访问
-    to.path.indexOf('sample') !== -1
-  ) {
-    next()
-    return
-  }
-  // 判断本地是否记录token值
-  let store = userStore()
-  let token = store.getToken
-  // 如果有token
-  if (token) {
-    // 判断是否已经加载数据
-    let isLoaded = store.isLoaded
-    // 如果没有加载
-    if (!isLoaded) {
-      // 加载用户信息
-      await store.loadUser()
-      // 加载菜单资源
-      await store.loadMenus()
-      // 设置加载完毕
-      store.setLoaded(true)
-    }
-    next()
-  }
-  // 如果没有token值，直接进入登录
-  else {
-    next({ name: 'Login' })
-    ElMessage.warning('在未登录时，禁止访问其他页面！')
-  }
-})
+// router.beforeEach(async function (to, from, next) {
+//   // 判断是否是登录页面
+//   if (
+//     to.name === 'Login' ||
+//     to.name === 'NotFound' ||
+//     to.name === 'Forbidden' ||
+//     to.name === 'Error' ||
+//     // TODO[TEST_CODE]: 放行示例模块访问
+//     to.path.indexOf('sample') !== -1
+//   ) {
+//     next()
+//     return
+//   }
+//   // 判断本地是否记录token值
+//   let store = userStore()
+//   let token = store.getToken
+//   // 如果有token
+//   if (token) {
+//     // 判断是否已经加载数据
+//     let isLoaded = store.isLoaded
+//     // 如果没有加载
+//     if (!isLoaded) {
+//       // 加载用户信息
+//       await store.loadUser()
+//       // 加载菜单资源
+//       await store.loadMenus()
+//       // 设置加载完毕
+//       store.setLoaded(true)
+//     }
+//     next()
+//   }
+//   // 如果没有token值，直接进入登录
+//   else {
+//     next({ name: 'Login' })
+//     ElMessage.warning('在未登录时，禁止访问其他页面！')
+//   }
+// })
 
 export default router
