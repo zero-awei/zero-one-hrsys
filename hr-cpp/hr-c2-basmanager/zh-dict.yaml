@@ -114,3 +114,18 @@ rosterofper:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+employee:
+ get:
+  summary: （人员花名册-人员花名册-分页查询员工数据）--洛洛
+ field:
+  employeeid: 员工编号
+  employeename: 员工姓名
+ export:
+  summary: （人员花名册-人员花名册-导出员工（导出本页在前端完成））--洛洛
+certif:
+ delete:
+  summary: （证书管理-证书信息-删除证书）--洛洛
+ field:
+  id: 证书编号
+ export:
+  summary: （证书管理-证书信息-导出证书）--洛洛

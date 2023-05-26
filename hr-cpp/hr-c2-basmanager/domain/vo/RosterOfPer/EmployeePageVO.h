@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
- @Date: 2022/12/03 14:58:43
+ @Date: 2022/10/25 11:34:14
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,31 +17,21 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _ROUTER_
-#define _ROUTER_
-#include "oatpp/web/server/api/Endpoint.hpp"
-#include "oatpp/web/server/HttpRouter.hpp"
-using namespace oatpp::web::server;
-using namespace oatpp::web::server::api;
+#ifndef _EMPLOYEE_PAGE_VO_
+#define _EMPLOYEE_PAGE_VO_
+
+#include "../../GlobalInclude.h"
+#include "../../dto/RosterOfPer/EmployeePageDTO.h"
+
+#include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 前端访问服务器路由绑定，用于定义前端访问后端接口和访问路径绑定
- * swagger文档访问示例地址：http://localhost:8090/swagger/ui
+ * 示例分页显示JsonVO，用于响应给客户端的Json对象
  */
-class Router
-{
-private:
-	// 文档访问端点
-	Endpoints* docEndpoints;
-	// 路由对象
-	HttpRouter* router;
-public:
-	// 构造初始化
-	Router(Endpoints* docEndpoints, HttpRouter* router);
-	// 呼叫初始化
-	void initRouter();
-private:
-
+class EmployeePageJsonVO : public JsonVO<EmployeePageDTO::Wrapper> {
+	DTO_INIT(EmployeePageJsonVO, JsonVO<EmployeePageDTO::Wrapper>);
 };
 
-#endif // !_ROUTER_
+#include OATPP_CODEGEN_END(DTO)
+
+#endif // !_EMPLOYEE_PAGE_VO_

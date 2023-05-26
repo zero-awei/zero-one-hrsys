@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: awei
- @Date: 2022/12/03 14:58:43
+ @Author: luoluo
+ @Date: 2022/10/25 11:52:32
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,31 +17,26 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _ROUTER_
-#define _ROUTER_
-#include "oatpp/web/server/api/Endpoint.hpp"
-#include "oatpp/web/server/HttpRouter.hpp"
-using namespace oatpp::web::server;
-using namespace oatpp::web::server::api;
+#ifndef _EMPLOYEE_PAGE_DO_
+#define _EMPLOYEE_PAGE_DO_
+#include "../DoInclude.h"
 
 /**
- * 前端访问服务器路由绑定，用于定义前端访问后端接口和访问路径绑定
- * swagger文档访问示例地址：http://localhost:8090/swagger/ui
+ * 示例数据库实体类
  */
-class Router
+class EmployeePageDO
 {
-private:
-	// 文档访问端点
-	Endpoints* docEndpoints;
-	// 路由对象
-	HttpRouter* router;
-public:
-	// 构造初始化
-	Router(Endpoints* docEndpoints, HttpRouter* router);
-	// 呼叫初始化
-	void initRouter();
-private:
 
+	// 员工姓名
+	CC_SYNTHESIZE(string, EMPLOYEENAME, EMPLOYEENAME);
+	// 员工编号
+	CC_SYNTHESIZE(string, EMPLOYEEID, EMPLOYEEID);
+
+public:
+	EmployeePageDO() {
+//		EMPLOYEEID = "";
+		EMPLOYEENAME = "崔志政";
+	}
 };
 
-#endif // !_ROUTER_
+#endif // !_SAMPLE_DO_
