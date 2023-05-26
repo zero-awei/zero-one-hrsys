@@ -8,20 +8,20 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- *按员工编号或员工姓名查询
+ *鎸夊憳宸ョ紪鍙锋垨鍛樺伐濮撳悕鏌ヨ
  */
 class BlacklistQuery : public PageQuery {
 	DTO_INIT(BlacklistQuery, PageQuery);
-	//员工编号
+	//鍛樺伐缂栧彿
 	DTO_FIELD(String, ygbh);
 	DTO_FIELD_INFO(ygbh) {
-		info->description = ZH_WORDS_GETTER("patentInformation.field.ygbh");
+		info->description = ZH_WORDS_GETTER("blacklist.field.ygbh");
 	}
 	
-	//员工姓名
+	//鍛樺伐濮撳悕
 	DTO_FIELD(String, ygxm);
 	DTO_FIELD_INFO(ygxm) {
-		info->description = ZH_WORDS_GETTER("patentInformation.field.ygxm");
+		info->description = ZH_WORDS_GETTER("blacklist.field.ygxm");
 	}
 
 };
