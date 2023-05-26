@@ -33,20 +33,20 @@ class OrgListQuery : public PageQuery
 	DTO_FIELD_INFO(order) {
 		info->description = ZH_WORDS_GETTER("projTag.orgList.order");
 	}
-	// 组织ID
-	DTO_FIELD(String, id);
-	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("projTag.orgList.id");
+	// 组织编号
+	DTO_FIELD(String, orgCode);
+	DTO_FIELD_INFO(orgCode) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.orgCode");
 	}
-	// 组织名称
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("projTag.orgList.name");
+	// 组织机构名称
+	DTO_FIELD(String, orgName);
+	DTO_FIELD_INFO(orgName) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.orgName");
 	}
-	// 组织简称
-	DTO_FIELD(String, shortName);
-	DTO_FIELD_INFO(shortName) {
-		info->description = ZH_WORDS_GETTER("projTag.orgList.shortName");
+	// 简称
+	DTO_FIELD(String, shortname);
+	DTO_FIELD_INFO(shortname) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.shortname");
 	}
 };
 

@@ -57,7 +57,7 @@ class OrgListDO
 	// 简称
 	CC_SYNTHESIZE(string, shortname, Shortname);
 	// 所属OU
-	CC_SYNTHESIZE(string, belongou, belongou);
+	CC_SYNTHESIZE(string, belongou, Belongou);
 	// 启停标识
 	CC_SYNTHESIZE(string, sign, Sign);
 	// 组织地址编码

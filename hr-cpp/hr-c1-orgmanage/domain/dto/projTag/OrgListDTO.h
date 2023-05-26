@@ -136,7 +136,7 @@ class OrgListDTO : public oatpp::DTO
 	DTO_FIELD_INFO(orgCreateTime) {
 		info->description = ZH_WORDS_GETTER("projTag.orgList.orgCreateTime");
 	}
-	// 组织显示时间
+	// 组织显示名称
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
 		info->description = ZH_WORDS_GETTER("projTag.orgList.name");
