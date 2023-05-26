@@ -29,8 +29,8 @@ public class RightDTO {
     @ApiModelProperty(value = "显示级别", example = "1")
     private Integer priority;
 
-    @ApiModelProperty(value = "父权限名称", example = "根权限")
-    private String parentRightName;
+    @ApiModelProperty(value = "父权限 id", example = "0")
+    private String parentRightId;
 
     @ApiModelProperty(value = "层次", example = "1")
     private Integer level;

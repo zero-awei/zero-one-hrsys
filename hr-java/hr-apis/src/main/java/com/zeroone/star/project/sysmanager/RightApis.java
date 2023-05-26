@@ -28,7 +28,7 @@ public interface RightApis {
      * @param query 模糊查询条件
      * @return JsonVO<PageDTO < RightsDTO>>
      */
-    JsonVO<PageDTO<RightDTO>> queryAll(CommentQuery query);
+    JsonVO<PageDTO<RightDTO>> queryLike(CommentQuery query);
 
     /**
      * 添加权限
