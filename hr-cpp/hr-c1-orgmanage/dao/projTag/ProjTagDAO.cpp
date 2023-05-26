@@ -78,3 +78,11 @@ std::list<OrgListDO> ProjTagDAO::selectOrgList(const OrgListQuery::Wrapper& quer
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<OrgListDO, OrgListMapper>(sqlStr, mapper, params);
 }
+
+bool ProjTagDAO::updateProjTag(const ProjTagDO& data)
+{
+	string sql = "UPDATE `t_ormxmbq` SET `UPDATEDATE` = ?, `UPDATEMAN` = ?, \
+		`ORMXMBQNAME` = ?, `ORMORGID` = ? WHERE `ORMXMBQID` = ?";
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s", data.getUpdateTime(), data.getUpdater(), \
+		data.getTagName(), data.getOrgId(), data.getId());
+}

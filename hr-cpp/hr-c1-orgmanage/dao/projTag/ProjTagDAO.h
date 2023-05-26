@@ -47,6 +47,12 @@ public:
 	 * 负责人：Andrew
 	 */
 	uint64_t count(const OrgListQuery::Wrapper& query);
+	/**
+	 * 项目标签 - 修改项目标签DAO实现
+	 * 功能：更新指定项目标签唯一标识更新项目标签数据
+	 * 负责人：Andrew
+	 */
+	bool updateProjTag(const ProjTagDO& data);
 };
 
 #endif // !_PROJTAGDAO_H_
