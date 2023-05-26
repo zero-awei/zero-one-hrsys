@@ -9,44 +9,44 @@
 
 class BlacklistDTO : public oatpp::DTO {
 	DTO_INIT(BlacklistDTO, DTO);
-	//Ô±¹¤±àºÅ
+	//å‘˜å·¥ç¼–å·
 	DTO_FIELD(String, ygbh);
 	DTO_FIELD_INFO(ygbh) {
-		info->description = ZH_WORDS_GETTER("archive.dto.ygbh");
+		info->description = ZH_WORDS_GETTER("blacklist.field.ygbh");
 	}
-    //Ô±¹¤ÐÕÃû
+    //å‘˜å·¥å§“å
 	DTO_FIELD(String, ygxm);
 	DTO_FIELD_INFO(ygxm) {
-		info->description = ZH_WORDS_GETTER("archive.dto.ygxm");
+		info->description = ZH_WORDS_GETTER("blacklist.field.ygxm");
 	}
-	//Ö¤¼þºÅÂë
+	//è¯ä»¶å·ç 
 	DTO_FIELD(String, zjhm);
 	DTO_FIELD_INFO(zjhm) {
-		info->description = ZH_WORDS_GETTER("archive.dto.zjhm");
+		info->description = ZH_WORDS_GETTER("blacklist.field.zjhm");
 	}
-	//×éÖ¯
+	//ç»„ç»‡
 	DTO_FIELD(String, zz);
 	DTO_FIELD_INFO(zz) {
-		info->description = ZH_WORDS_GETTER("archive.dto.zz");
+		info->description = ZH_WORDS_GETTER("blacklist.field.zz");
 	}
-	//Ô±¹¤×´Ì¬
+	//å‘˜å·¥çŠ¶æ€
 	DTO_FIELD(String, ygzt);
 	DTO_FIELD_INFO(ygzt) {
-		info->description = ZH_WORDS_GETTER("archive.dto.ygzt");
+		info->description = ZH_WORDS_GETTER("blacklist.field.ygzt");
 	}
-	//ÊÇ·ñÁÐÈëºÚÃûµ¥
+	//æ˜¯å¦åˆ—å…¥é»‘åå•
 	DTO_FIELD(String, sflrhmd);
 	DTO_FIELD_INFO(sflrhmd) {
-		info->description = ZH_WORDS_GETTER("archive.dto.sflrhmd");
+		info->description = ZH_WORDS_GETTER("blacklist.field.sflrhmd");
 	}
-	//ºÚÃûµ¥Ô­Òò
+	//é»‘åå•åŽŸå› 
 	DTO_FIELD(String, hmdyy);
 	DTO_FIELD_INFO(hmdyy) {
-		info->description = ZH_WORDS_GETTER("archive.dto.hmdyy");
+		info->description = ZH_WORDS_GETTER("blacklist.field.hmdyy");
 	}
 };
 
-class BlacklistPageDTO : public PageDTO<BlacklistPageDTO::Wrapper>
+class BlacklistPageDTO : public PageDTO<BlacklistDTO::Wrapper>
 {
 	DTO_INIT(BlacklistPageDTO, PageDTO<BlacklistDTO::Wrapper>);
 };
