@@ -113,4 +113,19 @@ Qualification:
   qualificationName: 执业资格名称
   rank: 级别
   practicingQualification: 执业资格
-  profession: 专业
+  profession: 专业    
+  ids: 编号列表
+Title:
+ get:
+  summary: 分页查询职称数据
+ post:
+  summary: 新增职称类型
+ put:
+  summary: 修改职称类型
+ delete:
+  summary: 删除职称类型
+ field:
+  id: 编号
+  age: 年龄
+  name: 姓名
+  sex: 性别，如：男

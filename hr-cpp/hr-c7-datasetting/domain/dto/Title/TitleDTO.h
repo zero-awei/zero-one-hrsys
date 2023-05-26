@@ -10,12 +10,19 @@
  */
 class TitleDTO : public oatpp::DTO
 {
+
 	DTO_INIT(TitleDTO, DTO);
-	
-	//排序号
-	API_DTO_FIELD_DEFAULT(String, titleId, ZH_WORDS_GETTER("title.field.id"));
-	//岗位证书
-	API_DTO_FIELD_DEFAULT(String, titleName, ZH_WORDS_GETTER("title.field.titleName"));
+
+	//员工编号
+	DTO_FIELD(String, id);
+	DTO_FIELD_INFO(id) {
+		info->description = ZH_WORDS_GETTER("title.field.id");
+	}
+	//员工姓名
+	DTO_FIELD(String, name);
+	DTO_FIELD_INFO(name) {
+		info->description = ZH_WORDS_GETTER("title.field.name");
+	}
 };
 
 /**
