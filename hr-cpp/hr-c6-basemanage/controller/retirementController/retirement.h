@@ -61,7 +61,7 @@ public:
 		API_HANDLER_RESP_VO(execQueryTest(query));
 	}
 
-
+	/*
 	// 3.1 定义新增接口描述
 	ENDPOINT_INFO(addTest) {
 		// 定义接口标题
@@ -101,16 +101,18 @@ public:
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveSample(dto));
 	}
+	*/
 private:
 	//定义接口的执行函数
 	StringJsonVO::Wrapper execQueryTest(const PageQuery::Wrapper& query);
 
+	/*
 	Uint64JsonVO::Wrapper execAddSample1(const RetirementDTO::Wrapper& dto);
 
 	Uint64JsonVO::Wrapper execModifySample(const RetirementDTO::Wrapper& dto);
 	// 3.3 演示删除数据
 	Uint64JsonVO::Wrapper execRemoveSample(const RetirementDTO::Wrapper& dto);
-
+	*/
 };
 
 // 0 取消API控制器使用宏

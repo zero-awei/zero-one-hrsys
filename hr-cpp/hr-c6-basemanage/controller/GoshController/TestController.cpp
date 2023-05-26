@@ -14,7 +14,14 @@ StringJsonVO::Wrapper GoshController::execQueryContract(const ContractQuery::Wra
 StringJsonVO::Wrapper GoshController::execQueryPerson(const PersonQuery::Wrapper& query)
 {
 	auto vo = StringJsonVO::createShared();
-	vo->success("person information get success");
+	if (!query->PersonName)
+	{
+		return vo;
+	}
+	else 
+	{
+		vo->success("person information get success");
+	}
 	return vo;
 }
 //演示新增合同数据

@@ -24,9 +24,9 @@
 #include "ExpenseLedge/ExpenseLedgeController.h"
 #include "./ContractController/ContractController.h"
 #include "../uselib/ws/WSController.h"
-#include "SelectController/retirement.h"
+#include "./retirementController/retirement.h"
 #include "./JobTitle/JobTitleController.h"
-
+#include "./ContractManagement/Contractmanagement.h"
 
 #ifdef HTTP_SERVER_DEMO
 #include "./ContractController/ContractController.h"
@@ -73,6 +73,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(GoshController);
 	ROUTER_SIMPLE_BIND(GoshController);
 	ROUTER_SIMPLE_BIND(TerminationReminderController);
+	ROUTER_SIMPLE_BIND(ContractmanageController);
 }
 void Router::createJobAndExpenseRouter()
 {

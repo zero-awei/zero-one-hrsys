@@ -75,7 +75,7 @@ public:
 	// 职称查询(分页查询)接口
 	ENDPOINT(API_M_GET, "/title-management/query-jobtitle-searchbox", queryJobTitleSB, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数 , 将解析的查询参数给queryPage
-		API_HANDLER_QUERY_PARAM(queryPage, JobTitleQuery, queryParams);
+		API_HANDLER_QUERY_PARAM(queryPage, RetirementQuery, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryPageSB(queryPage));
 	}
@@ -111,7 +111,7 @@ public:
 	}
 private:
 	JTQueryPageJsonVO::Wrapper execQueryPage(const PageQuery::Wrapper& query);
-	JTQueryPageJsonVO::Wrapper execQueryPageSB(const JobTitleQuery::Wrapper& query);
+	JTQueryPageJsonVO::Wrapper execQueryPageSB(const RetirementQuery::Wrapper& query);
 	Uint64JsonVO::Wrapper execRemoveJobTitle(const JobTitleDTO::Wrapper& dto);
 	Uint64JsonVO::Wrapper execAddJobTitle(const JobTitleDTO::Wrapper& dto);
 };

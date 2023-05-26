@@ -41,10 +41,21 @@ ldcompany:
  export:
   summary: 导出劳务遣派公司信息
  field:
-  id: 编号
-  age: 年龄
-  name: 姓名
-  sex: 性别，如：男
+  PIMLABOURCAMPANYNAME: 劳务派遣公司管理名称
+  PIMLABOURCAMPANYID: 劳务派遣公司管理标识
+  CREATEDATE: 建立时间
+  CREATEMAN: 建立人
+  UPDATEMAN: 更新人
+  JYFW: 经营范围 
+  LXDZ: 联系地址
+  LXR: 联系人
+  LXFS: 联系方式
+  GSJJ: 公司简介
+  PIMPERSONID: 人员信息标识
+  ORMORGID: 组织标识
+  LEGALPEROSN: 法人
+  REGCAPITAL: 注册本金
+  UPDATEDATE: 更新时间
 contract_gs:
  get:
   summary: 分页查询合同信息
@@ -119,12 +130,22 @@ person:
 retirement_gan:
  get:
   summary: 分页查询离退休列表
+  summary1: 分页查询合同管理列表
  post:
   summary: 新增离退休列表
  delete:
   summary: 删除离退休列表
  update:
   summary: 更新离退休列表
+ 
+ query:
+  name: 员工姓名
+  number: 员工编号
+  idcard: 证件号码
+  department: 部门
+  organization: 组织
+
+
 contract:
   upload: 导入合同
   download: 导出合同
