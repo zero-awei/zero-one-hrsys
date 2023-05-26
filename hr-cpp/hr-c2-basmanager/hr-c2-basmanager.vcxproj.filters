@@ -285,6 +285,15 @@
     <ClInclude Include="service\RosterOfPer\ExportEmployeeService.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="dao\CertificateManage\EmployeeInfoDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\CertificateManage\EmployeeInfoMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\CertificateManage\EmployeeInfoService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -366,6 +375,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="service\RosterOfPer\ExportEmployeeService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\CertificateManage\EmployeeInfoDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\CertificateManage\EmployeeInfoService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
