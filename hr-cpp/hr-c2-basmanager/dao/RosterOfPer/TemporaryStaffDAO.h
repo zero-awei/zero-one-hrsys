@@ -6,7 +6,7 @@
 #include "../../domain/query/RosterOfPer/TemporaryStaffQuery.h"
 
 /**
- * 挂职人员数据库操作实现
+ * 挂职人员数据库操作实现--(人员花名册-挂职人员-分页查询员工列表)--weixiaoman
  */
 class TemporaryStaffDAO : public BaseDAO
 {

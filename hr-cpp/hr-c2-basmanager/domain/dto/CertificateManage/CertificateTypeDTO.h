@@ -1,14 +1,11 @@
 #pragma once
-/**
-*  人员信息查询，输入搜索框使用
-*/
 #ifndef _CERTIFICATETYPE_DTO_
 #define _CERTIFICATETYPE_DTO_
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 /**
-* 证书类型查询传输对象
+* 证书类型查询传输对象--(证书管理-查询证书类型列表)--weixiaoman
 */
 class CertificateTypeDTO : public oatpp::DTO
 {

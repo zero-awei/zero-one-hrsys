@@ -70,14 +70,9 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(FormerEmployeesController);
 	ROUTER_SIMPLE_BIND(UpdateCertificateController);	
 	ROUTER_SIMPLE_BIND(RraineeController);  // 见习员工 swagger效果测试
-	ROUTER_SIMPLE_BIND(TempStaffController);//挂职人员swagger效果测试
-	ROUTER_SIMPLE_BIND(EmployeeInfoController);//人员信息查询swagger效果测试
-	ROUTER_SIMPLE_BIND(CertificateTypeController); //证书类型查询swagger效果测试
-	ROUTER_SIMPLE_BIND(CheckCerListController);
-	ROUTER_SIMPLE_BIND(CreateNewCerController);
-	ROUTER_SIMPLE_BIND(CheckRetiresListController);
-	ROUTER_SIMPLE_BIND(ExportRetireesController);
-
+	ROUTER_SIMPLE_BIND(TempStaffController);//(人员花名册-挂职人员-分页查询员工列表)--weixiaoman
+	ROUTER_SIMPLE_BIND(EmployeeInfoController);//(证书管理-分页查询员工列表)--weixiaoman
+	ROUTER_SIMPLE_BIND(CertificateTypeController); //(证书管理-分页查询证书类型列表)--weixiaoman
 }
 
 #ifdef HTTP_SERVER_DEMO

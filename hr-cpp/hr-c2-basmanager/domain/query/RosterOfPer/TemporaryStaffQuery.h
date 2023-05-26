@@ -8,7 +8,7 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 挂职人员分页查询对象
+ * 挂职人员分页查询对象--(人员花名册-挂职人员-分页查询员工列表)--weixiaoman
  */
 class TempStaffQuery : public PageQuery
 {

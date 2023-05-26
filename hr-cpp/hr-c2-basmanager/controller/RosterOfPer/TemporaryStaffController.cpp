@@ -1,3 +1,6 @@
+/**
+ * 挂职人员信息查询--(人员花名册-挂职人员-分页查询员工列表)--weixiaoman
+ */
 #include "stdafx.h"
 #include "TemporaryStaffController.h"
 #include "./service/RosterOfPer/TemporaryStaffService.h"
