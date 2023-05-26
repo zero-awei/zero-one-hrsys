@@ -8,7 +8,6 @@
     <ClCompile Include="controller\certDropDownList\certTypeList\CertTypeListController.cpp" />
     <ClCompile Include="controller\certDropDownList\profCertsList\ProfCertsListController.cpp" />
     <ClCompile Include="controller\armyLevelType\ArmyLevelTypeController.cpp" />
-    <ClCompile Include="controller\contractType\ContractTypeListController.cpp" />
     <ClCompile Include="controller\fileReservation\FileReservationController.cpp" />
     <ClCompile Include="controller\fileStatus\FileStatusController.cpp" />
     <ClCompile Include="controller\jobLevelTypeList\JobLevelTypeListController.cpp" />
@@ -19,17 +18,29 @@
     <ClCompile Include="controller\jobCategory\JobCategoryController.cpp" />
     <ClCompile Include="controller\dismissReason\DismissReasonController.cpp" />
     <ClCompile Include="controller\leaveReason\LeaveReasonController.cpp" />
-    <ClCompile Include="controller\typeContract\TypeContractController.cpp" />
     <ClCompile Include="controller\auditstatusController.h\AuditstatusController.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="dao\ArchivesLevelsDAO\ArchivesLevelsDAO.cpp" />
     <ClCompile Include="dao\DeclareTypeDAO\DeclareTypeDAO.cpp" />
+=======
+    <ClCompile Include="controller\typeContract\TypeContractListController.cpp" />
+    <ClCompile Include="controller\contractType\ContractTypeController.cpp" />
+    <ClCompile Include="service\armyLevelType\ArmyLevelTypeService.cpp" />
+    <ClCompile Include="uselib\pullListRedis\UseLibRedis.cpp" />
+    <ClCompile Include="dao\armyLevelType\ArmyLevelTypeDAO.cpp" />
+    <ClCompile Include="service\leaveReason\LeaveReasonService.cpp" />
+    <ClCompile Include="service\dismissReason\DismissReasonService.cpp" />
+    <ClCompile Include="controller\evaluationTypesController.h\EvaluationTypesController.cpp" />
+    <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
+    <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
+    <ClCompile Include="controller\contractStatus\ContractStatusController.cpp" />
+>>>>>>> remotes/origin/c1
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
     <ClInclude Include="controller\certDropDownList\certTypeList\CertTypeListController.h" />
     <ClInclude Include="controller\certDropDownList\profCertsList\ProfCertsListController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
-    <ClInclude Include="controller\contractType\ContractTypeListController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\certs\CertTypeDTO.h" />
@@ -63,15 +74,38 @@
     <ClInclude Include="domain\do\leaveReson\LeaveReasonDO.h" />
     <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
     <ClInclude Include="domain\do\certs\ProCertsDO.h" />
-    <ClInclude Include="controller\typeContract\TypeContractController.h" />
     <ClInclude Include="domain\do\typeContract\TypeContractDO.h" />
     <ClInclude Include="domain\dto\typeContract\TypeContractDTO.h" />
     <ClInclude Include="domain\vo\typeContract\TypeContractVO.h" />
     <ClInclude Include="controller\auditstatusController.h\AuditstatusController.h" />
+    <ClInclude Include="controller\typeContract\TypeContractListController.h" />
+    <ClInclude Include="controller\contractType\ContractTypeController.h" />
+    <ClInclude Include="domain\do\jobLevelTypeList\JobLevelTypeDO.h" />
+    <ClInclude Include="domain\do\costTypeList\CostType.h" />
+    <ClInclude Include="service\armyLevelType\ArmyLevelTypeService.h" />
+    <ClInclude Include="uselib\pullListRedis\UseLibRedis.h" />
+    <ClInclude Include="dao\armyLevelType\ArmyLevelTypeDAO.h" />
+    <ClInclude Include="service\leaveReason\LeaveReasonService.h" />
+    <ClInclude Include="service\dismissReason\DismissReasonService.h" />
+    <ClInclude Include="controller\evaluationTypesController.h\EvaluationTypesController.h" />
+    <ClInclude Include="dao\leaveReason\LeaveReasonDAO.h" />
+    <ClInclude Include="dao\leaveReason\LeaveReasonMapper.h" />
+    <ClInclude Include="dao\dismissReason\DismissReasonDAO.h" />
+    <ClInclude Include="dao\dismissReason\DismissReasonMapper.h" />
+    <ClInclude Include="domain\do\declareType\DeclareTypeDO.h" />
+    <ClInclude Include="domain\do\archivesLevel\ArchivesLevelDO.h" />
+    <ClInclude Include="domain\do\certs\CertTypeDO.h" />
     <ClInclude Include="domain\do\pimType\PimTypeDO.h" />
     <ClInclude Include="domain\do\pimArchives\PimArchivesDO.h" />
+<<<<<<< HEAD
     <ClInclude Include="dao\ArchivesLevelsDAO\ArchivesLevelsDAO.h" />
     <ClInclude Include="dao\DeclareTypeDAO\DeclareTypeDAO.h" />
+=======
+    <ClInclude Include="controller\contractStatus\ContractStatusController.h" />
+    <ClInclude Include="domain\do\armyLevelType\ArmyLevelTypeDO.h" />
+    <ClInclude Include="domain\do\contractType\ContractTypeDO.h" />
+    <ClInclude Include="dao\armyLevelType\ArmyLevelMapper.h" />
+>>>>>>> remotes/origin/c1
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

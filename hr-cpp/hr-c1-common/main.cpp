@@ -40,14 +40,20 @@
  */
 
 bool getStartArg(int argc, char* argv[]) {
+<<<<<<< HEAD
 	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½
 	std::string serverPort = "8091";
 	// ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+=======
+	// ·þÎñÆ÷¶Ë¿Ú
+	std::string serverPort = "8090";
+	// Êý¾Ý¿âÁ¬½ÓÐÅÏ¢
+>>>>>>> remotes/origin/c1
 	std::string dbUsername = "root";
-	std::string dbPassword = "114514mysql";
+	std::string dbPassword = "123456";
 	std::string dbName = "test";
-	std::string dbHost = "8.130.89.148";
-	int dbPort = 3965;
+	std::string dbHost = "127.0.0.1";
+	int dbPort = 3306;
 	int dbMax = 25;
 #ifdef USE_NACOS
 	// Nacosï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½

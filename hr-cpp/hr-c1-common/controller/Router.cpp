@@ -19,18 +19,17 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-#include"auditstatusController.h/AuditstatusController.h"
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
-#include "HTLX_pimcontracttype/HtlxController.h"
 #endif
 
 //测试
+#include"auditstatusController.h/AuditstatusController.h"
 #include "certDropDownList/profCertsList/ProfCertsListController.h"
 #include "certDropDownList/certTypeList/CertTypeListController.h"
-#include "contractType/ContractTypeListController.h"
+#include "contractType/ContractTypeController.h"
 #include "armyLevelType/ArmyLevelTypeController.h"
 #include "fileStatus/FileStatusController.h"
 #include "fileReservation/FileReservationController.h"
@@ -42,7 +41,9 @@
 #include "dismissReason/DismissReasonController.h"
 #include "awardLevel/AwardLevelController.h"
 #include "jobCategory/JobCategoryController.h"
-#include "typeContract/TypeContractController.h"
+#include "typeContract/TypeContractListController.h"
+#include"evaluationTypesController.h/EvaluationTypesController.h"
+#include "contractStatus/ContractStatusController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -71,7 +72,7 @@ void Router::initRouter()
 	//#TIP :系统扩展路由定义，写在这个后面
 	createAwardLevelRouter();
 	createJobCategoryRouter();
-	createContractTypeRouter();
+	createTypeContractRouter();
 	createArmyLevelTypeRouter();
 	creatTestRouter();
 	createJobLevelTypeRouter();
@@ -82,8 +83,12 @@ void Router::initRouter()
 	createFileStatusRouter();
 	createLeaveReasonRouter();
 	createDismissReasonRouter();
-	ROUTER_SIMPLE_BIND(TypeContractController);
 	createAuditStatusRouter();
+	createEvalutionTypesRouter();
+	createContractStatusRouter();
+	// 合同类别接口
+	// 负责人：徐不洗
+	ROUTER_SIMPLE_BIND(ContractTypeController);
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -135,14 +140,19 @@ void Router::creatTestRouter()
 	ROUTER_SIMPLE_BIND(CertTypeListController);
 }
 
-void Router::createContractTypeRouter()
+void Router::createTypeContractRouter()
 {
-	ROUTER_SIMPLE_BIND(ContractTypeListController);
+	ROUTER_SIMPLE_BIND(TypeContractListController);
 }
 
 void Router::createArmyLevelTypeRouter()
 {
 	ROUTER_SIMPLE_BIND(ArmyLevelTypeController);
+}
+
+void Router::createContractStatusRouter()
+{
+	ROUTER_SIMPLE_BIND(ConstractStatusController);
 }
 
 void Router::createJobLevelTypeRouter()
@@ -167,4 +177,9 @@ void Router::createJobCategoryRouter()
 void Router::createAuditStatusRouter()
 {
 	ROUTER_SIMPLE_BIND(AuditStatusController);
+}
+
+void  Router::createEvalutionTypesRouter()
+{
+	ROUTER_SIMPLE_BIND(EvaluationTypesController);
 }

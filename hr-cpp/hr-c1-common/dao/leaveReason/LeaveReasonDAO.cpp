@@ -1,8 +1,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: xubuxi
- @Date: 2023/05/19 21:31:12
+ @Author: yuanxiang
+ @Date: 2023/05/23 15:50:51
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,10 +17,12 @@
  limitations under the License.
 */
 #include "stdafx.h"
-#include "TypeContractController.h"
+#include "LeaveReasonDAO.h"
+#include "dao/leaveReason/LeaveReasonMapper.h"
 
-//还有些注释没补
-
-TypeContractJsonVO::Wrapper TypeContractController::execQueryHtlx() {
-	return TypeContractJsonVO::Wrapper();
+std::list<LeaveReasonDO> LeaveReasonDAO::queryLeaveReasonList()
+{
+	string sql = "SELECT DISTINCT PCMREASONNAME, PX FROM t_pcmreason";
+	LeaveReasonMapper mapper;
+	return sqlSession->executeQuery<LeaveReasonDO, LeaveReasonMapper>(sql, mapper);
 }

@@ -165,23 +165,41 @@
     <ClInclude Include="controller\awardLevel\AwardLevelController.h" />
     <ClInclude Include="controller\certDropDownList\certTypeList\CertTypeListController.h" />
     <ClInclude Include="controller\certDropDownList\profCertsList\ProfCertsListController.h" />
+    <ClInclude Include="controller\contractStatus\ContractStatusController.h" />
+    <ClInclude Include="controller\contractType\ContractTypeController.h" />
     <ClInclude Include="controller\costTypeList\CostTypeListController.h" />
     <ClInclude Include="controller\declareType\DeclareController.h" />
     <ClInclude Include="controller\dismissReason\DismissReasonController.h" />
+    <ClInclude Include="controller\evaluationTypesController.h\EvaluationTypesController.h" />
     <ClInclude Include="controller\fileReservation\FileReservationController.h" />
     <ClInclude Include="controller\fileStatus\FileStatusController.h" />
-    <ClInclude Include="controller\typeContract\TypeContractController.h" />
     <ClInclude Include="controller\jobCategory\JobCategoryController.h" />
     <ClInclude Include="controller\jobLevelTypeList\JobLevelTypeListController.h" />
     <ClInclude Include="controller\leaveReason\LeaveReasonController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
-    <ClInclude Include="controller\contractType\ContractTypeListController.h" />
     <ClInclude Include="controller\Router.h" />
+<<<<<<< HEAD
     <ClInclude Include="dao\ArchivesLevelsDAO\ArchivesLevelsDAO.h" />
     <ClInclude Include="dao\DeclareTypeDAO\DeclareTypeDAO.h" />
+=======
+    <ClInclude Include="controller\typeContract\TypeContractListController.h" />
+    <ClInclude Include="dao\armyLevelType\ArmyLevelMapper.h" />
+    <ClInclude Include="dao\armyLevelType\ArmyLevelTypeDAO.h" />
+    <ClInclude Include="dao\dismissReason\DismissReasonDAO.h" />
+    <ClInclude Include="dao\dismissReason\DismissReasonMapper.h" />
+    <ClInclude Include="dao\leaveReason\LeaveReasonDAO.h" />
+    <ClInclude Include="dao\leaveReason\LeaveReasonMapper.h" />
+    <ClInclude Include="domain\do\archivesLevel\ArchivesLevelDO.h" />
+    <ClInclude Include="domain\do\armyLevelType\ArmyLevelTypeDO.h" />
+    <ClInclude Include="domain\do\certs\CertTypeDO.h" />
+>>>>>>> remotes/origin/c1
     <ClInclude Include="domain\do\certs\ProCertsDO.h" />
+    <ClInclude Include="domain\do\contractType\ContractTypeDO.h" />
+    <ClInclude Include="domain\do\costTypeList\CostType.h" />
+    <ClInclude Include="domain\do\declareType\DeclareTypeDO.h" />
     <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\jobLevelTypeList\JobLevelTypeDO.h" />
     <ClInclude Include="domain\do\pimArchives\PimArchivesDO.h" />
     <ClInclude Include="domain\do\pimType\PimTypeDO.h" />
     <ClInclude Include="domain\do\typeContract\TypeContractDO.h" />
@@ -204,7 +222,11 @@
     <ClInclude Include="domain\vo\pullList\PullListVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\armyLevelType\ArmyLevelTypeService.h" />
+    <ClInclude Include="service\dismissReason\DismissReasonService.h" />
+    <ClInclude Include="service\leaveReason\LeaveReasonService.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\pullListRedis\UseLibRedis.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\archivesLevel\ArchivesLevelsController.cpp" />
@@ -213,27 +235,39 @@
     <ClCompile Include="controller\certDropDownList\certTypeList\CertTypeListController.cpp" />
     <ClCompile Include="controller\certDropDownList\profCertsList\ProfCertsListController.cpp" />
     <ClCompile Include="controller\armyLevelType\ArmyLevelTypeController.cpp" />
-    <ClCompile Include="controller\contractType\ContractTypeListController.cpp" />
+    <ClCompile Include="controller\contractStatus\ContractStatusController.cpp" />
+    <ClCompile Include="controller\contractType\ContractTypeController.cpp" />
     <ClCompile Include="controller\costTypeList\CostTypeListController.cpp" />
     <ClCompile Include="controller\declareType\DeclareController.cpp" />
     <ClCompile Include="controller\dismissReason\DismissReasonController.cpp" />
+    <ClCompile Include="controller\evaluationTypesController.h\EvaluationTypesController.cpp" />
     <ClCompile Include="controller\fileReservation\FileReservationController.cpp" />
     <ClCompile Include="controller\fileStatus\FileStatusController.cpp" />
-    <ClCompile Include="controller\typeContract\TypeContractController.cpp" />
     <ClCompile Include="controller\jobCategory\JobCategoryController.cpp" />
     <ClCompile Include="controller\jobLevelTypeList\JobLevelTypeListController.cpp" />
     <ClCompile Include="controller\leaveReason\LeaveReasonController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="dao\ArchivesLevelsDAO\ArchivesLevelsDAO.cpp" />
     <ClCompile Include="dao\DeclareTypeDAO\DeclareTypeDAO.cpp" />
+=======
+    <ClCompile Include="controller\typeContract\TypeContractListController.cpp" />
+    <ClCompile Include="dao\armyLevelType\ArmyLevelTypeDAO.cpp" />
+    <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
+    <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
+>>>>>>> remotes/origin/c1
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\armyLevelType\ArmyLevelTypeService.cpp" />
+    <ClCompile Include="service\dismissReason\DismissReasonService.cpp" />
+    <ClCompile Include="service\leaveReason\LeaveReasonService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="uselib\pullListRedis\UseLibRedis.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\lib-common\lib-common.vcxproj">

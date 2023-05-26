@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: Andrew211vibe
- @Date: 2023/05/17 23:35:42
+ @Author: rice
+ @Date: 2023/5/24 15:58:56
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,20 +17,21 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "ContractTypeListController.h"
+#ifndef _POSTDELETE_SERVICE_
+#define _POSTDELETE_SERVICE_
+#include <list>
+#include "domain/dto/postSet/PostDeleteDTO.h"
 
-PullListVO::Wrapper ContractTypeListController::execQueryContractType()
+/**
+ * 岗位设置 - 删除岗位Service
+ * 负责人 : rice
+ */
+class PostDeleteService
 {
-	auto dto = PullListDTO::createShared();
-	auto a = ItemDTO::createShared(1, "Yes");
-	dto->pullList->push_back(a);
-	auto b = ItemDTO::createShared(2, "No");
-	dto->pullList->push_back(b);
+public:
+	bool removeData(string id);
+	bool removeBatchData(const PostDeleteBatchDTO::Wrapper& postDeleteBatchDTO);
+};
 
-	auto vo = PullListVO::createShared();
-	vo->success(dto);
-	// TODO: 调用service
+#endif // !_POSTDELETE_SERVICE_
 
-	return vo;
-}
