@@ -16,8 +16,8 @@
           :class="[{ elactive: isActive === index }, 'hr-menuitem_layout']"
         >
           <el-icon>
-            <User />
-            <!-- <component :is="icon" /> -->
+            <!-- <User /> -->
+            <component :is="icon" />
           </el-icon>
           <span>{{ mes }}</span>
         </el-menu-item>
@@ -47,6 +47,8 @@ const data = reactive([
   '军转干部',
   '学术成果'
 ])
+
+let icon = ref('Plus')
 const handleOpen = (key, keyPath) => {
   console.log(key, keyPath)
 }

@@ -109,7 +109,7 @@ const menus = reactive([
     text: '表格主体测试页面'
   },
   {
-    path: '/sample/Aside',
+    path: '/sample/aside',
     text: '侧边栏'
   },
   {
