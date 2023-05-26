@@ -31,9 +31,21 @@
 class CostTypeDO
 {
 	// 费用类别代码
-	CC_SYNTHESIZE(int, code, Code);
+	CC_SYNTHESIZE(string, code, Code);
 	// 费用类别名
 	CC_SYNTHESIZE(string, costType, CostType);
+public:
+	CostTypeDO()
+	{
+		code = "";
+		costType = "";
+	}
+
+	CostTypeDO(string code_, string level_)
+	{
+		code = code_;
+		costType = level_;
+	}
 };
 
 

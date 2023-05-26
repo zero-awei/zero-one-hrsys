@@ -30,6 +30,10 @@
     <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
     <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
     <ClCompile Include="controller\contractStatus\ContractStatusController.cpp" />
+    <ClCompile Include="service\jobLevelTypeList\JobLevelTypeListService.cpp" />
+    <ClCompile Include="dao\jobLevelTypeList\JobLevelTypeListDAO.cpp" />
+    <ClCompile Include="service\costTypeList\CostTypeListService.cpp" />
+    <ClCompile Include="dao\costTypeList\CostTypeListDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -96,6 +100,12 @@
     <ClInclude Include="domain\do\armyLevelType\ArmyLevelTypeDO.h" />
     <ClInclude Include="domain\do\contractType\ContractTypeDO.h" />
     <ClInclude Include="dao\armyLevelType\ArmyLevelMapper.h" />
+    <ClInclude Include="service\jobLevelTypeList\JobLevelTypeListService.h" />
+    <ClInclude Include="dao\jobLevelTypeList\JobLevelTypeListDAO.h" />
+    <ClInclude Include="dao\jobLevelTypeList\JobLevelMapper.h" />
+    <ClInclude Include="service\costTypeList\CostTypeListService.h" />
+    <ClInclude Include="dao\costTypeList\CostTypeListDAO.h" />
+    <ClInclude Include="dao\costTypeList\CostTypeMapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
