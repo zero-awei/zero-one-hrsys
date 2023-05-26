@@ -187,6 +187,10 @@
     <ClInclude Include="domain\do\NotEmployeeInArchive\NotEmployeeInArchiveDO.h" />
     <ClInclude Include="domain\do\paperinfo\t_pimpaperDO.h" />
     <ClInclude Include="domain\do\pimpaper\pimpaperDO.h" />
+    <ClInclude Include="domain\do\t_archivescenter\t_archivescenterDO.h" />
+    <ClInclude Include="domain\do\t_pimarchives\t_pimarchivesDO.h" />
+    <ClInclude Include="domain\do\t_pimperson\t_pimpersonDO.h" />
+    <ClInclude Include="domain\do\t_srforg\t_srforgDO.h" />
     <ClInclude Include="domain\do\UpdateArchiveInfo\UpdateArchiveInfoDO.h" />
     <ClInclude Include="domain\dto\archivesCenter\ArchivesCenterDTO.h" />
     <ClInclude Include="domain\dto\archives\ArchivesDTO.h" />

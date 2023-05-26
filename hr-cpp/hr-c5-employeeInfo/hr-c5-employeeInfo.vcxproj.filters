@@ -156,6 +156,18 @@
     <ClInclude Include="controller\EmployeeNotInArchive\EmployeeNotInArchiveController.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\do\t_archivescenter\t_archivescenterDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\t_pimarchives\t_pimarchivesDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\t_pimperson\t_pimpersonDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\t_srforg\t_srforgDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
