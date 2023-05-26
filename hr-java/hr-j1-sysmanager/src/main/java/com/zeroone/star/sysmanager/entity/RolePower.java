@@ -3,7 +3,7 @@ package com.zeroone.star.sysmanager.entity;
 import lombok.Data;
 
 @Data
-public class RoleMenu {
+public class RolePower {
     private String roleId;
-    private String menuId;
+    private String powerId;
 }
