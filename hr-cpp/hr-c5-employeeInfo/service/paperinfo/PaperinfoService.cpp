@@ -29,7 +29,6 @@ PaperDTO::Wrapper PaperinfoService::listAll(const PaperQuery::Wrapper& query)
 		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, fbsj, Fbsj, cbs, Cbs, kwqs, Kwqs,
 			fj, Fj, grzlwzzzdpm, Grzlwzzzdpm, kwmc, Kwmc, pimpapername, Pimpapername);
 			pages->addData(dto);
-
 	}
 	return pages;
 }

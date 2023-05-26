@@ -18,6 +18,14 @@ Uint64JsonVO::Wrapper PaperinfoController::execModifyPaperinfo(const PaperDTO::W
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
+	return jvo;
+}
+
+
+Uint64JsonVO::Wrapper PaperinfoController::execAddPaperinfo(const PaperDTO::Wrapper& dto)
+{
+	// 定义返回数据对象
+	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
 	// 非空校验
 	if (!dto->fbsj || !dto->cbs || !dto->kwqs || !dto->fj
@@ -48,14 +56,7 @@ Uint64JsonVO::Wrapper PaperinfoController::execModifyPaperinfo(const PaperDTO::W
 	}
 	//响应结果
 	return jvo;
-}
 
-
-Uint64JsonVO::Wrapper PaperinfoController::execAddPaperinfo(const PaperDTO::Wrapper& dto)
-{
-	// 定义返回数据对象
-	auto jvo = Uint64JsonVO::createShared();
-	return jvo;
 }
 
 Uint64JsonVO::Wrapper PaperinfoController::execRemovePaperinfo(const PaperDTO::Wrapper& dto)
