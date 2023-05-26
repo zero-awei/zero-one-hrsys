@@ -29,7 +29,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -72,6 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>E:\Visual Studio Community\VC\Tools\MSVC\14.35.32215\atlmfc\include;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -96,7 +97,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib\debug;..\lib-common\lib\debug;..\lib-mysql\lib\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib\debug;..\lib-common\lib\debug;..\lib-mysql\lib\vs14\debug;E:\Visual Studio Community\VC\Tools\MSVC\14.35.32215\atlmfc\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;yaml-cppd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -173,6 +174,7 @@
   <ItemGroup>
     <ClInclude Include="controller\archivesCenter\ArchivesCenterController.h" />
     <ClInclude Include="controller\archives\ArchivesController.h" />
+    <ClInclude Include="controller\EmployeeNotInArchive\EmployeeNotInArchiveController.h" />
     <ClInclude Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\paperinfoController\PaperinfoController.h" />
@@ -206,6 +208,7 @@
     <ClInclude Include="domain\vo\archives\ArchivesVO.h" />
     <ClInclude Include="domain\vo\BlacklistEmployee\BlacklistEmployeeVO.h" />
     <ClInclude Include="domain\vo\Blacklist\BlacklistVO.h" />
+    <ClInclude Include="domain\vo\EmployeeNotInArchive\EmployeeNotInArchiveVo.h" />
     <ClInclude Include="domain\vo\NotEmployeeInArchive\NotEmployeeInArchiveVO.h" />
     <ClInclude Include="domain\vo\paperinfo\PaperVO.h" />
     <ClInclude Include="domain\vo\patentinfo\PatentinfoVO.h" />
@@ -218,6 +221,7 @@
   <ItemGroup>
     <ClCompile Include="controller\archivesCenter\ArchivesCenterController.cpp" />
     <ClCompile Include="controller\archives\ArchivesController.cpp" />
+    <ClCompile Include="controller\EmployeeNotInArchive\EmployeeNotInArchiveController.cpp" />
     <ClCompile Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.cpp" />
     <ClCompile Include="controller\paperinfoController\PaperinfoController.cpp" />
     <ClCompile Include="controller\patentinfo\PatentinfoController.cpp" />

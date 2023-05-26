@@ -193,3 +193,23 @@ specifiedArchives:
   date_time: 档案入党时间
   date_work: 档案参加工作时间
   status: 档案状态
+
+EmployeeNotInArchive:
+ get:
+  summary: 分页查询员工不在档案提醒
+  rollout: 档案转出
+ field:
+  PimPersonName: 员工姓名
+  nummber: 档案编号
+  gunit: 管理单位
+  pos: 档案保管地
+  office: 档案室
+  status: 档案状态
+  emloyeenumber: 员工编号
+  unit: 所属单位
+  state: 员工状态
+  use: 操作列
+  ArchiveOut: 归档地变更记录
+  outunit: 调出单位
+  inunit: 调入单位
+  time: 调动时间
