@@ -129,6 +129,15 @@
     <ClInclude Include="domain\do\Org\ValidOrgDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="service\EmployeeInformation\EmployeeInformationServicer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\EmployeeInformation\EmployeeInformationDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\EmployeeInformation\EmployeeInformationMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -150,6 +159,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\EmployeeInformation\EmployeeInformationController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\EmployeeInformation\EmployeeInformationServicer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\EmployeeInformation\EmployeeInformationDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

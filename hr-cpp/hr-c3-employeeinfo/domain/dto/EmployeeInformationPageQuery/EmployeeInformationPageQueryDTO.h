@@ -18,11 +18,11 @@ class EmployeeInformationDTO : public oatpp::DTO
 	DTO_FIELD_INFO(name) {
 		info->description = ZH_WORDS_GETTER("employee.field.name");
 	}
-	// 性别
-	DTO_FIELD(String, sex);
-	DTO_FIELD_INFO(sex) {
-		info->description = ZH_WORDS_GETTER("employee.field.sex");
-	}
+	//// 性别
+	//DTO_FIELD(String, sex);
+	//DTO_FIELD_INFO(sex) {
+	//	info->description = ZH_WORDS_GETTER("employee.field.sex");
+	//}
 	// 年龄
 	DTO_FIELD(UInt32, age);
 	DTO_FIELD_INFO(age) {
