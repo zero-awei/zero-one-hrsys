@@ -1,11 +1,15 @@
 package com.zeroone.star.sysmanager.controller;
 
 import com.zeroone.star.project.dto.sysmanager.rolemanager.RoleDTO;
+import com.zeroone.star.project.dto.sysmanager.rolemenumanager.RoleMenuDTO;
+import com.zeroone.star.project.dto.sysmanager.rolepowermanager.RolePowerDTO;
 import com.zeroone.star.project.sysmanager.RoleApis;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 /**
  * <p>
@@ -49,28 +53,28 @@ public class RoleController implements RoleApis {
     @GetMapping("/assign-menus")
     @ApiOperation(value = "角色分配菜单")
     @Override
-    public JsonVO<Boolean> assignMenus(String roleId,String menuId) {
+    public JsonVO<Boolean> assignMenus(RoleMenuDTO dto) {
         return null;
     }
 
     @DeleteMapping("/delete-menus")
     @ApiOperation(value = "角色删除菜单")
     @Override
-    public JsonVO<Boolean> deleteMenus(String roleId,String menuId) {
+    public JsonVO<Boolean> deleteMenus(RoleMenuDTO dto) {
         return null;
     }
 
     @GetMapping("/assign-permissions")
     @ApiOperation(value = "角色分配权限")
     @Override
-    public JsonVO<Boolean> assignPermissions(String roleId,String powerId) {
+    public JsonVO<Boolean> assignPermissions(RolePowerDTO dto) {
         return null;
     }
 
     @DeleteMapping("/delete-permissions")
     @ApiOperation(value = "角色删除权限")
     @Override
-    public JsonVO<Boolean> deletePermissions(String roleId,String powerId) {
+    public JsonVO<Boolean> deletePermissions(RolePowerDTO dto) {
         return null;
     }
 
