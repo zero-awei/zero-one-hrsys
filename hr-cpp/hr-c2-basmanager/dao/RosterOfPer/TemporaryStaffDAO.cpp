@@ -11,11 +11,11 @@
 SqlParams params; \
 sql<<" WHERE 1=1"; \
 if(query->id){ \
-	sql << " AND `YGBH`=?"; \
+	sql << " AND `YGBH`LIKE CONCAT('%',?,'%')"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
 } \
 if (query->name) { \
-	sql << " AND `PIMPERSONNAME`=?"; \
+	sql << " AND `PIMPERSONNAME` LIKE CONCAT('%',?,'%')"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); \
 } 
 

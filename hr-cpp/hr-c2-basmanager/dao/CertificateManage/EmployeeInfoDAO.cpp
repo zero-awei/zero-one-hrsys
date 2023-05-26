@@ -11,7 +11,7 @@
 SqlParams params; \
 sql<<" WHERE 1=1"; \
 if (query->name) { \
-	sql << " AND `PIMPERSONNAME`=?"; \
+	sql << " AND `PIMPERSONNAME` LIKE CONCAT('%',?,'%')"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); \
 } 
 
