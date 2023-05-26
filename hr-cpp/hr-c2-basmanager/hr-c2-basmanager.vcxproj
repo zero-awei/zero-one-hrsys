@@ -196,13 +196,22 @@
     <ClInclude Include="dao\RosterOfPer\ExportEmployeeMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\RosterOfPer\EmployeePageDO.h" />
+    <ClInclude Include="domain\dto\CertificateManage\ExportCertifDTO.h" />
     <ClInclude Include="domain\dto\CertificateManage\RemoveCertifDTO.h" />
     <ClInclude Include="domain\dto\RosterOfPer\EmployeePageDTO.h" />
+    <ClInclude Include="domain\dto\RosterOfPer\ExportEmployeeDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\CertificateManage\ExportCertifQuery.h" />
     <ClInclude Include="domain\query\RosterOfPer\EmployeePageQuery.h" />
+    <ClInclude Include="domain\query\RosterOfPer\ExportEmployeeQuery.h" />
+    <ClInclude Include="domain\vo\CertificateManage\ExportCertifJsonVO.h" />
     <ClInclude Include="domain\vo\RosterOfPer\EmployeePageVO.h" />
+    <ClInclude Include="domain\vo\RosterOfPer\ExportEmployeeJsonVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\CertificateManage\ExportCertifService.h" />
     <ClInclude Include="service\RosterOfPer\EmployeePageService.h" />
+    <ClInclude Include="service\RosterOfPer\ExportEmployeeService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +226,7 @@
     <ClCompile Include="dao\RosterOfPer\ExportEmployeeDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\RosterOfPer\EmployeePageService.cpp" />
+    <ClCompile Include="service\RosterOfPer\ExportEmployeeService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

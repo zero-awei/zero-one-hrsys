@@ -22,6 +22,8 @@
 
 #include "RosterOfPer/EmployeePageController.h"
 #include "CertificateManage/CertifDeleteController.h"
+#include "CertificateManage/ExportCertifController.h"
+#include "RosterOfPer/ExportEmployeeController.h"
 
 
 // 如果定义了关闭Swagger文档宏
@@ -43,18 +45,13 @@ Router::Router(Endpoints* docEndpoints, HttpRouter* router)
 
 void Router::initRouter()
 {
-	createEmployeePageRouter();
 
 	//#TIP :系统扩展路由定义，写在这个后面
-	ROUTER_SIMPLE_BIND(CertifDeleteController);
-
+	ROUTER_SIMPLE_BIND(EmployeePageController); //（人员花名册 - 人员花名册 - 分页查询员工数据）--洛洛
+	ROUTER_SIMPLE_BIND(CertifDeleteController); //（证书管理 - 证书信息 - 删除证书）--洛洛
+	ROUTER_SIMPLE_BIND(ExportCertifController); //（证书管理 - 证书信息 - 导出证书）--洛洛
+	ROUTER_SIMPLE_BIND(ExportEmployeeController);//（人员花名册 - 人员花名册 - 导出员工（导出本页在前端完成））--洛洛
+	
 }
 
-
-void Router::createEmployeePageRouter()
-{
-	// 绑定分页查询员工控制器
-	ROUTER_SIMPLE_BIND(EmployeePageController);
-
-}
 
