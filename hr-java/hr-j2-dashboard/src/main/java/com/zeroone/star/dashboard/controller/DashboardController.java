@@ -41,7 +41,7 @@ public class DashboardController implements DashboardApis, OrgDistributeApis {
     @GetMapping("query-agency-project-staff")
     @Override
     public JsonVO<List<AgencyProjectStaffDTO>> queryAgencyProjectStaff() {
-        return null;
+        return JsonVO.success(bisEmployeeanalysisService.listAgencyProjectStaff());
     }
 
     @Resource

@@ -2,6 +2,7 @@ package com.zeroone.star.dashboard.service;
 
 import com.zeroone.star.dashboard.entity.BisEmployeeanalysis;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zeroone.star.project.dto.dashboard.AgencyProjectStaffDTO;
 import com.zeroone.star.project.dto.dashboard.OrgEmployeeCountDTO;
 
 import java.util.List;
@@ -23,4 +24,6 @@ public interface IBisEmployeeanalysisService extends IService<BisEmployeeanalysi
      * @date 2023/5/22 1:18
      */
     List<OrgEmployeeCountDTO> getOrgCount();
+
+    List<AgencyProjectStaffDTO> listAgencyProjectStaff();
 }

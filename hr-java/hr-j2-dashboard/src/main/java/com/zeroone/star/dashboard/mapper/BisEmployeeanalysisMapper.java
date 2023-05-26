@@ -2,6 +2,7 @@ package com.zeroone.star.dashboard.mapper;
 
 import com.zeroone.star.dashboard.entity.BisEmployeeanalysis;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zeroone.star.project.dto.dashboard.AgencyProjectStaffDTO;
 import com.zeroone.star.project.dto.dashboard.OrgEmployeeCountDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -28,4 +29,7 @@ public interface BisEmployeeanalysisMapper extends BaseMapper<BisEmployeeanalysi
     @Select("select count(a.EMPLOYEENAME) from bis_employeeanalysis_t a " +
             "inner join t_srforg b on a.ORGANIZATION_ID = b.ORGID group by b.ORGID;")
     List<OrgEmployeeCountDTO> selectOrgEmployeeCount();
+
+    @Select("SELECT ormtype, count(1) AS countnum FROM BIS_EMPLOYEEANALYSIS_T GROUP BY ormtype")
+    List<AgencyProjectStaffDTO> selectAgencyProjectStaff();
 }
