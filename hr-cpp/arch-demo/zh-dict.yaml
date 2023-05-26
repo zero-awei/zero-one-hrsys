@@ -29,3 +29,18 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+archive:
+ get:
+  summary: 分页查询示例数据
+ post:
+  summary: 新增一条示例数据
+ put:
+  summary: 修改一条示例数据
+ delete:
+  summary: 删除一条示例数据
+ field:
+ sortID: 排序号
+ archiveName: 档案室名称
+ cabinetNum: 柜数  
+ layerNum: 层数
+ numID: 编号
