@@ -1,4 +1,4 @@
-/*
+﻿/*
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
@@ -32,23 +32,14 @@
 #include "YamlHelper.h"
 #endif
 
-/**
- * ������������
- * ע�⣺
- * ������������Ҫ����һ���ĸ�ʽ���磺sp=8090��sn=feign-cpp-sample
- * ǰ׺����ʵֵ֮��ʹ��=�ָ�
- */
-
 bool getStartArg(int argc, char* argv[]) {
-<<<<<<< HEAD
-	// �������˿�
+
 	std::string serverPort = "8091";
-	// ���ݿ�������Ϣ
-=======
-	// �������˿�
+
+	// 服务器端口
 	std::string serverPort = "8090";
-	// ���ݿ�������Ϣ
->>>>>>> remotes/origin/c1
+	// 数据库连接信息
+
 	std::string dbUsername = "root";
 	std::string dbPassword = "123456";
 	std::string dbName = "test";
@@ -56,28 +47,24 @@ bool getStartArg(int argc, char* argv[]) {
 	int dbPort = 3306;
 	int dbMax = 25;
 #ifdef USE_NACOS
-	// Nacos���ò���
+
 	std::string nacosAddr = "192.168.220.128:8848";
 	std::string nacosNs = "4833404f-4b82-462e-889a-3c508160c6b4";
 	std::string serviceName = "feign-cpp-sample";
 	std::string regIp = "192.168.220.128";
 #endif
 
-	// ��ʼ����
 	int currIndex = 1;
 	bool isSetDb = false;
 	while (currIndex < argc)
 	{
-		// ����ַ���
+
 		auto args = StringUtil::split(argv[currIndex], "=");
-		// �жϲ����Ƿ�Ϸ�
 		if (args.size() != 2)
 		{
 			cout << "arg: " << argv[currIndex] << ", format error." << endl;
 			exit(1);
 		}
-
-		// ���ݲ���ǰ׺�Բ�ͬ���Ը�ֵ
 		std::string prefix = args[0];
 		std::string val = args[1];
 		if (prefix == "sp") serverPort = val;
@@ -113,10 +100,10 @@ bool getStartArg(int argc, char* argv[]) {
 		else if (prefix == "sn") serviceName = val;
 		else if (prefix == "ip") regIp = val;
 #endif
-		// ��������
+
 		currIndex++;
 	}
-	// ��¼���������õ��ڴ��з���ʹ��
+
 	ServerInfo::getInstance().setServerPort(serverPort);
 	ServerInfo::getInstance().setDbUsername(dbUsername);
 	ServerInfo::getInstance().setDbPassword(dbPassword);
@@ -135,19 +122,18 @@ bool getStartArg(int argc, char* argv[]) {
 
 int main(int argc, char* argv[]) {
 #ifdef HTTP_SERVER_DEMO
-	// �������� JWT Token
 	TestToken::generateToken();
 #endif
 
-	// ������������ʼ��
+
 	bool isSetDb = getStartArg(argc, argv);
 
 #ifdef USE_NACOS
-	// ����Nacos�ͻ��˶���
+
 	NacosClient nacosClient(
 		ServerInfo::getInstance().getNacosAddr(),
 		ServerInfo::getInstance().getNacosNs());
-	// ��Nacos���������л�ȡ���ݿ�����
+
 	if (!isSetDb)
 	{
 #ifdef LINUX
@@ -161,12 +147,12 @@ int main(int argc, char* argv[]) {
 			int dbPort = 0;
 			std::string dbHost = "";
 			std::string dbName = "";
-			// �������ݿ������ַ���
+
 			yaml.parseDbConnUrl(dbUrl, &dbHost, &dbPort, &dbName);
-			// ��ȡ���ݿ��û���������
+
 			std::string dbUsername = yaml.getString(&node, "spring.datasource.username");
 			std::string dbPassword = yaml.getString(&node, "spring.datasource.password");
-			// �����޸Ļ����е�����
+
 			ServerInfo::getInstance().setDbUsername(dbUsername);
 			ServerInfo::getInstance().setDbPassword(dbPassword);
 			ServerInfo::getInstance().setDbName(dbName);
@@ -174,14 +160,12 @@ int main(int argc, char* argv[]) {
 			ServerInfo::getInstance().setDbPort(dbPort);
 		}
 	}
-	// ע�����
 	nacosClient.registerInstance(
 		ServerInfo::getInstance().getRegIp(),
 		atoi(ServerInfo::getInstance().getServerPort().c_str()),
 		ServerInfo::getInstance().getServiceName());
 #endif
 
-	// ��ʼ���ݿ�����
 	bool initConnPool = DbInit::initDbPool(DBConfig(
 		ServerInfo::getInstance().getDbUsername(),
 		ServerInfo::getInstance().getDbPassword(),
@@ -191,7 +175,6 @@ int main(int argc, char* argv[]) {
 		ServerInfo::getInstance().getDbMax()));
 	if (!initConnPool) return -1;
 
-	// ����HTTP������
 	HttpServer::startServer(ServerInfo::getInstance().getServerPort(),
 		[=](Endpoints* doc, HttpRouter* router) {
 			Router(doc, router).initRouter();
@@ -200,11 +183,11 @@ int main(int argc, char* argv[]) {
 			*o = std::make_shared<OtherComponent>();
 		});
 
-	// �ͷ����ݿ�����
+
 	DbInit::releasePool();
 
 #ifdef USE_NACOS
-	// ��ע�����
+
 	nacosClient.deregisterInstance(
 		ServerInfo::getInstance().getRegIp(),
 		atoi(ServerInfo::getInstance().getServerPort().c_str()),

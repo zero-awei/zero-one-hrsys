@@ -179,6 +179,7 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\typeContract\TypeContractListController.h" />
+    <ClInclude Include="dao\archivesLevel\ArchivesLevelsDAO.h" />
     <ClInclude Include="dao\armyLevelType\ArmyLevelMapper.h" />
     <ClInclude Include="dao\armyLevelType\ArmyLevelTypeDAO.h" />
     <ClInclude Include="dao\dismissReason\DismissReasonDAO.h" />
@@ -188,7 +189,6 @@
     <ClInclude Include="domain\do\archivesLevel\ArchivesLevelDO.h" />
     <ClInclude Include="domain\do\armyLevelType\ArmyLevelTypeDO.h" />
     <ClInclude Include="domain\do\certs\CertTypeDO.h" />
->>>>>>> remotes/origin/c1
     <ClInclude Include="domain\do\certs\ProCertsDO.h" />
     <ClInclude Include="domain\do\contractType\ContractTypeDO.h" />
     <ClInclude Include="domain\do\costTypeList\CostType.h" />
@@ -244,8 +244,8 @@
     <ClCompile Include="controller\leaveReason\LeaveReasonController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
-
     <ClCompile Include="controller\typeContract\TypeContractListController.cpp" />
+    <ClCompile Include="dao\archivesLevel\ArchivesLevelsDAO.cpp" />
     <ClCompile Include="dao\armyLevelType\ArmyLevelTypeDAO.cpp" />
     <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
     <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
