@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: Andrew211vibe
- @Date: 2023/05/17 22:56:57
+ @Author: yuanxiang
+ @Date: 2023/05/25 21:30:26
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,20 +17,21 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _PULLLISTVO_H_
-#define _PULLLISTVO_H_
+#ifndef _FILESTATUSDO_H_
+#define _FILESTATUSDO_H_
+#include "../DoInclude.h"
 
-#include "../../GlobalInclude.h"
-#include "../../dto/pullList/PullListDTO.h"
+/**
+ * 档案借阅状态DO
+ * 负责人：远翔
+ */
 
-#include OATPP_CODEGEN_BEGIN(DTO)
-
-class PullListVO : public JsonVO<PullListDTO::Wrapper>
+class FileStatusDO
 {
-	DTO_INIT(PullListVO, JsonVO<PullListDTO::Wrapper>);
+	// 代码项名称
+	CC_SYNTHESIZE(string, fileStatus, FileStatus);
+	// 代码项值
+	CC_SYNTHESIZE(int, code, Code);
 };
 
-
-#include OATPP_CODEGEN_END(DTO)
-
-#endif // !_PULLLISTVO_H_
+#endif // !_FILESTATUSDO_H_
