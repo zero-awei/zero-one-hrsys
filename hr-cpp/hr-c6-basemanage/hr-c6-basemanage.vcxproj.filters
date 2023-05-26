@@ -36,6 +36,14 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="controller\GoshController\TestController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\Gosh\GoshService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>    <ClCompile Include="dao\Gosh\GoshDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\OtherComponent.hpp" />
@@ -97,7 +105,24 @@
     <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
     <ClInclude Include="domain\dto\JobTitleInfo\JobTitleInfoDTO.h" />
     <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h" />
-    <ClInclude Include="domain\vo\JobTitleInfo\JobTitleInfoVO.h" />
+    <ClInclude Include="domain\vo\JobTitleInfo\JobTitleInfoVO.h" />    <ClInclude Include="domain\vo\Gosh\ContractVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\GoshController\TestController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\Gosh\GoshService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\Gosh\GoshDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Gosh\ContractDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\Gosh\GoshMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\LaborDispatch\LaborDispatchConstroller.h" />

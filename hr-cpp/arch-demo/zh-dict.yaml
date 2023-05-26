@@ -32,5 +32,5 @@ contract:
  post:
   summary: 新增一条合同信息
  field:
- name: 员工姓名
- id: 合同编号
+  name: 员工姓名
+  id: 合同编号

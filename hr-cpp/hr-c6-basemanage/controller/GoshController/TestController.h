@@ -17,12 +17,11 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _TESTCONTROLLER_H_
-#define _TESTCONTROLLER_H_
+#ifndef _GOSHCONTROLLER_H_
+#define _GOSHCONTROLLER_H_
 
 #include "domain/vo/BaseJsonVO.h"
 #include "domain/query/Gosh/ContractQuery.h"
-#include "domain/query/Gosh/PersonQuery.h"
 #include "domain/dto/Gosh/ContractDTO.h"
 #include "domain/vo/Gosh/ContractVO.h"
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
@@ -49,33 +48,38 @@ public:
 	ENDPOINT_INFO(queryContract) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("contract_gs.get.summary");
-		// 定义响应参数类型
-		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();		// 定义响应参数类型
+		API_DEF_ADD_RSP_JSON_WRAPPER(ContractPageJsonVO);
 		// 定义分页查询参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 	}
 	 //3.2 定义查询合同接口端点
-	ENDPOINT(API_M_GET, "/contrac-management/query-contract", queryContract, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/query-contract", queryContract, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, ContractQuery, qps);		
 		// 响应结果
-		API_HANDLER_RESP_VO(execQueryContract(query));
+		API_HANDLER_RESP_VO(execQueryContract(query, authObject->getPayload()));
 	}
 	//3.1 定义查询个人信息接口描述
 	ENDPOINT_INFO(queryPerson) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("person.get.summary");
+		info->summary = ZH_WORDS_GETTER("person_gosh.get.summary");
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
 		// 定义响应参数类型
-		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(ContractPageJsonVO);
 		// 定义分页查询参数描述
-		API_DEF_ADD_PERSON_PARAMS();
+		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("contract_gs.field.name");
+		info->queryParams["name"].addExample("default", String("li ming"));
+		info->queryParams["name"].required = false;
 	}
 	//3.2 定义查询个人信息接口处理
-	ENDPOINT(API_M_GET, "/contrac-management/query-person", queryPerson, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/query-person", queryPerson, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
-		API_HANDLER_QUERY_PARAM(query, PersonQuery, qps);
+		API_HANDLER_QUERY_PARAM(query, ContractQuery, qps);
 		// 响应结果
-		API_HANDLER_RESP_VO(execQueryPerson(query));
+		API_HANDLER_RESP_VO(execQueryPerson(query, authObject->getPayload()));
 	}
 	// 3.1 定义新增合同接口描述
 	ENDPOINT_INFO(addContract) {
@@ -85,7 +89,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增合同接口处理
-	ENDPOINT(API_M_POST, "/contrac-management/add-contract", addContract, BODY_DTO(ContractDTO_gs::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/add-contract", addContract, BODY_DTO(ContractDTO_gs::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddContract(dto));
 	}
@@ -97,7 +101,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义删除合同接口处理
-	ENDPOINT(API_M_DEL, "/contrac-management/remove-contract", removeContract, BODY_DTO(ContractDTO_gs::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/remove-contract", removeContract, BODY_DTO(ContractDTO_gs_delete::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveContract(dto));
 	}
@@ -105,13 +109,13 @@ public:
 private: // 定义接口执行函数
 
 	// 3.3 演示查询合同信息
-	StringJsonVO::Wrapper execQueryContract(const ContractQuery::Wrapper& query);
+	ContractPageJsonVO::Wrapper execQueryContract(const ContractQuery::Wrapper& query, const PayloadDTO& payload);
 	// 3.3 演示查询个人信息
-	StringJsonVO::Wrapper execQueryPerson(const PersonQuery::Wrapper& query);
+	ContractPageJsonVO::Wrapper execQueryPerson(const ContractQuery::Wrapper& query, const PayloadDTO& payload);
 	// 3.3 演示新增合同数据
 	Uint64JsonVO::Wrapper execAddContract(const ContractDTO_gs::Wrapper& dto);
 	// 3.3 演示删除合同数据
-	Uint64JsonVO::Wrapper execRemoveContract(const ContractDTO_gs::Wrapper& dto);
+	Uint64JsonVO::Wrapper execRemoveContract(const ContractDTO_gs_delete::Wrapper& dto);
 };
 
 

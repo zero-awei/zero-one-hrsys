@@ -18,6 +18,7 @@
 */
 #include "stdafx.h"
 #include "Router.h"
+#include "controller/GoshController/TestController.h"
 
 #include "GoshController/TestController.h"
 #include "JobTitleInfo/JobTitleInfoController.h"
@@ -59,11 +60,10 @@ void Router::initRouter()
 {
 #ifdef HTTP_SERVER_DEMO
 	createSampleRouter();
+	createJobAndExpenseRouter();
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-	createJobAndExpenseRouter();
-
 	ROUTER_SIMPLE_BIND(ContractController);
 	ROUTER_SIMPLE_BIND(LaborDispatchMController);
 	ROUTER_SIMPLE_BIND(ExpenseLedgerMController);
@@ -74,7 +74,9 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(GoshController);
 	ROUTER_SIMPLE_BIND(TerminationReminderController);
 	ROUTER_SIMPLE_BIND(ContractmanageController);
-}
+}	
+
+
 void Router::createJobAndExpenseRouter()
 {
 	ROUTER_SIMPLE_BIND(JobTitleInfoController);
