@@ -43,8 +43,8 @@
 	std::string serverPort = "8090";
 	// 数据库连接信息
 	std::string dbUsername = "root";
-	std::string dbPassword = "root";
-	//std::string dbPassword = "123456";
+	//std::string dbPassword = "root";
+	std::string dbPassword = "123456";
 	//std::string dbName = "test";
 	std::string dbName = "test";
 	//std::string dbName = "01xinqiu";
