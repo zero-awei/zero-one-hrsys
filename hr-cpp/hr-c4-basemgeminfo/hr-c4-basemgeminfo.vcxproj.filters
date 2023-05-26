@@ -294,6 +294,12 @@
     <ClInclude Include="domain\query\work-history\WorkHistoryIntoQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="uselib\rocketmq\TestRocket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\work-history\WorkHistoryMqDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -375,6 +381,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\Pimarmycadres\PimarmycadresController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\rocketmq\TestRocket.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

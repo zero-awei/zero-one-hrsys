@@ -40,6 +40,7 @@
 #include "domain/vo/work-history/ModWorkHistoryVO.h"
 #include "domain/vo/work-history/WorkHistoryVO.h"
 #include "domain/dto/work-history/WorkHistoryIntoDTO.h"
+#include "uselib/rocketmq/TestRocket.h"
 
 
 using namespace oatpp;
@@ -47,10 +48,13 @@ namespace multipart = oatpp::web::mime::multipart;
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
+
+
 class WorkHistoryController : public oatpp::web::server::api::ApiController
 {
 	// 定义控制器访问入口
 	API_ACCESS_DECLARE(WorkHistoryController);
+	//void init(){   }
 public: // 定义接口
 	//  定义查询接口描述
 	ENDPOINT_INFO(queryPageWorkHistory) {

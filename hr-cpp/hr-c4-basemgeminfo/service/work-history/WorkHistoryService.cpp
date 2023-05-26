@@ -104,36 +104,25 @@ bool WorkHistoryService::removeData(const DelWorkHistoryDTO::Wrapper& dto)
 	return true;
 }
 
-uint64_t WorkHistoryService::saveManyData(const String& fileBody, const String& suffix, const String& pimpersonid)
+uint64_t WorkHistoryService::saveManyData(const std::string fileName, const String& pimpersonid)
 {
-	// 根据时间戳生成一个临时文件名称
-	std::stringstream ss;
-	ss << "public/static/Excel/";
 
-	// 计算时间戳
-	auto now = std::chrono::system_clock::now();
-	auto tm_t = std::chrono::system_clock::to_time_t(now);
-	ss << std::put_time(std::localtime(&tm_t), "%Y%m%d%H%M%S");
-	// 获取毫秒
-	auto tSeconds = std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch());
-	auto tMilli = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
-	auto ms = tMilli - tSeconds;
-	ss << std::setfill('0') << std::setw(3) << ms.count();
-	// 拼接后缀名
-	ss << suffix.getValue("");
+	FastDfsClient client("192.168.80.129");
 
-	// 临时文件名称
-	std::string fileName = ss.str();
-	// 保存文件到临时目录
-	fileBody.saveToFile(fileName.c_str());
-
+	string name;
+	if (!fileName.empty())
+	{
+		std::string path = "public/static/Excel/";
+		name = client.downloadFile(fileName, &path);
+		std::cout << "download savepath is : " << name << std::endl;
+	}
 
 	// 保存到文件
 	ExcelComponent excel;
 
 	std::string sheetName = CharsetConvertHepler::ansiToUtf8("工作履历表");
 	// 从文件中读取
-	auto readData = excel.readIntoVector(fileName, sheetName);
+	auto readData = excel.readIntoVector(name, sheetName);
 
 	WorkHistoryDAO dao;
 	
@@ -175,7 +164,6 @@ uint64_t WorkHistoryService::saveManyData(const String& fileBody, const String& 
 
 	}
 
-	//执行添加逻辑
 }
 
 std::string WorkHistoryService::exportData(const WorkHistoryExportQuery::Wrapper& query)
@@ -250,7 +238,7 @@ std::string WorkHistoryService::exportData(const WorkHistoryExportQuery::Wrapper
 	//fileBody.saveToFile(fileName.c_str());
 
 
-	// 测试上传到FastDFS文件服务器
+	// 上传到FastDFS文件服务器
 #ifdef LINUX
 	//定义客户端对象
 	FastDfsClient client("conf/client.conf", 3);

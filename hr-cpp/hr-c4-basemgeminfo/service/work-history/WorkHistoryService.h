@@ -36,7 +36,7 @@ public:
 
 
 	//执行导入（即批量增加数据）
-	uint64_t saveManyData(const String& fileBody, const String& suffix, const String& pimpersonid);
+	uint64_t saveManyData(const std::string fileName, const String& pimpersonid);
 
 	//执行导出（即把数据放入Excel表中，返回fastdfs链接）
 	std::string exportData(const WorkHistoryExportQuery::Wrapper& query);

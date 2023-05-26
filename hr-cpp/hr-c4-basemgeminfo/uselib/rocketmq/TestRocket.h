@@ -21,19 +21,25 @@
 #define _TESTROCKET_H_
 #include "RocketClient.h"
 #include <memory>
+#include "oatpp/core/Types.hpp"
+#include "Macros.h"
 
+
+using namespace oatpp;
 /**
- * ≤‚ ‘RocketMQ
+ * µº»ÎRocketMQ
  */
 class TestRocket : public RocketClient::RConsumerListener
 {
 private:
 	std::shared_ptr<RocketClient> client;
 	std::shared_ptr<RocketClient::RSendCallback> cb;
+	void init();
+	DECLARE_INSTANCE(TestRocket);
 public:
-	TestRocket();
+	//TestRocket();
 	~TestRocket();
-	void testRocket();
+	void testRocket(const String& fileName, const String& pimpersonid);
 	void receiveMessage(std::string payload) override;
 };
 #endif // _TESTROCKET_H_

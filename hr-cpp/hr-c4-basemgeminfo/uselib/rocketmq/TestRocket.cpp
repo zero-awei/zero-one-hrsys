@@ -18,14 +18,22 @@
 */
 #include "stdafx.h"
 #include "TestRocket.h"
-#include "domain/dto/sample/SampleDTO.h"
 #include <iostream>
+#include "domain/dto/work-history/WorkHistoryMqDTO.h"
+#include "service/work-history/WorkHistoryService.h"
 
-TestRocket::TestRocket()
+
+
+void TestRocket::init()
 {
 	this->client = nullptr;
 	this->cb = nullptr;
 }
+
+//TestRocket::TestRocket()
+//{
+//	
+//}
 
 TestRocket::~TestRocket()
 {
@@ -35,10 +43,10 @@ TestRocket::~TestRocket()
 	}
 }
 
-void TestRocket::testRocket()
+void TestRocket::testRocket(const String& fileName, const String& pimpersonid)
 {
 	// 创建客户端
-	client = make_shared<RocketClient>("192.168.220.128:9876");
+	client = make_shared<RocketClient>("192.168.80.129:9876");
 	// 创建发送消息回调
 	cb = make_shared<RocketClient::RSendCallback>([](SendStatus staus)
 		{
@@ -46,29 +54,34 @@ void TestRocket::testRocket()
 		});
 	
 	// 测试开启订阅
-	client->subscribe("hello");
+	client->subscribe("into");
 	client->addListener(this);
-	// 定义消息对象
-	auto dto = SampleDTO::createShared();
-	dto->name = "cat";
-	dto->sex = "man";
-	dto->age = 10;
-	// 发送消息
-	dto->id = 1;
-	RC_PUBLISH_OBJ_MSG_ASYNC(client, "hello", dto, cb.get());
-	dto->id = 2;
-	RC_PUBLISH_OBJ_MSG_ASYNC(client, "hello", dto, nullptr);
-	dto->id = 3;
-	RC_PUBLISH_OBJ_MSG_SYNC(res1, client, "hello", dto);
-	std::cout << "sync send result: " << res1 << endl;
+	//// 定义消息对象
+	auto dto = WorkHistoryMqDTO::createShared();
+	dto->body = fileName;
+	dto->pimpersonid = pimpersonid;
+	//auto dto = SampleDTO::createShared();
+	//dto->name = "cat";
+	//dto->sex = "man";
+	//dto->age = 10;
+	//// 发送消息
+	//dto->id = 1;
+	//RC_PUBLISH_OBJ_MSG_ASYNC(client, "hello", dto, null);
+	//dto->id = 2;
+	RC_PUBLISH_OBJ_MSG_ASYNC(client, "into", dto, NULL);
+	//dto->id = 3;
+	/*RC_PUBLISH_OBJ_MSG_SYNC(res1, client, "into", dto);
+	std::cout << "sync send result: " << res1 << endl;*/
 }
 
 void TestRocket::receiveMessage(std::string payload)
 {
-	RC_RECEIVER_MSG_CONVERT(dto, SampleDTO, payload);
-	std::cout << "receiveMessage: " << dto->id.getValue(-1)
-		<< "-" << dto->name.getValue("")
-		<< "-" << dto->sex.getValue("")
-		<< "-" << dto->age.getValue(0)
-		<< endl;
+	RC_RECEIVER_MSG_CONVERT(dto, WorkHistoryMqDTO, payload);
+	///*std::cout << "receiveMessage: " << dto->id.getValue(-1)
+	//	<< "-" << dto->name.getValue("")
+	//	<< "-" << dto->sex.getValue("")
+	//	<< "-" << dto->age.getValue(0)
+	//	<< endl;*/
+	WorkHistoryService service;
+	service.saveManyData(dto->body,  dto->pimpersonid);
 }

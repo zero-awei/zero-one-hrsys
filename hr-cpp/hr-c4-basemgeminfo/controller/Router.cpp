@@ -77,6 +77,7 @@ void Router::initRouter()
 	// °ó¶¨MilitaryController
 	ROUTER_SIMPLE_BIND(MilitaryController);
 
+
 }
 
 
