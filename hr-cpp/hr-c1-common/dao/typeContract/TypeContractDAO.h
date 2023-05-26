@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: yuanxiang
- @Date: 2023/05/23 17:01:55
+ @Author: Andrew211vibe
+ @Date: 2023/05/26 22:37:53
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,28 +17,20 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _PROJTAGSERVICE_H_
-#define _PROJTAGSERVICE_H_
-#include "domain/dto/projTag/ProjTagDTO.h"
-#include "domain/dto/projTag/OrgListDTO.h"
-#include "domain/query/projTag/OrgListQuery.h"
+#ifndef _TYPECONTRACTDAO_H_
+#define _TYPECONTRACTDAO_H_
+
+#include "BaseDAO.h"
+#include "domain/do/typeContract/TypeContractDO.h"
 
 /**
- * 项目标签Service
+ * 合同类型下拉列表DAO实现
+ * 负责人：Andrew
  */
-class ProjTagService
+class TypeContractDAO : public BaseDAO
 {
 public:
-	/**
-	 * 新增项目标签
-	 * 负责人：远翔
-	 */
-	uint64_t saveData(const ProjTagDTO::Wrapper& dto);
-	/**
-	 * 分页查询组织列表
-	 * 负责人：Andrew
-	 */
-	OrgListPageDTO::Wrapper listOrgList(const OrgListQuery::Wrapper &query);
+	std::list<TypeContractDO> selectAll();
 };
 
-#endif // !_PROJTAGSERVICE_H_
+#endif // !_TYPECONTRACTDAO_H_
