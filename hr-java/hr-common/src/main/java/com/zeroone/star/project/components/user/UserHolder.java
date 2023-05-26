@@ -27,6 +27,7 @@ public class UserHolder {
 
     /**
      * 从请求头中获取用户信息
+     *
      * @return 用户信息
      * @throws Exception 解析失败抛出异常
      */
@@ -40,7 +41,7 @@ public class UserHolder {
         HttpServletRequest request = servletRequestAttributes.getRequest();
         String userStr = request.getHeader("user");
         //不是通过网关过来的，那么执行解析验证JWT
-        if(userStr == null){
+        if (userStr == null) {
             //从token中解析用户信息并设置到Header中去
             String realToken = request.getHeader("Authorization").replace("Bearer ", "");
             userStr = jwtComponent.defaultRsaVerify(realToken);
@@ -52,5 +53,21 @@ public class UserHolder {
                 .isEnabled(Convert.toByte(1))
                 .roles(Convert.toList(String.class, userJsonObject.get("authorities")))
                 .build();
+    }
+
+    /**
+     * 获取当前用户的token
+     *
+     * @return token
+     */
+    public String getCurrentUserToken() {
+        //从Header中获取用户信息
+        ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        if (servletRequestAttributes == null) {
+            return null;
+        }
+        HttpServletRequest request = servletRequestAttributes.getRequest();
+        return request.getHeader("Authorization").replace("Bearer ", "");
+
     }
 }

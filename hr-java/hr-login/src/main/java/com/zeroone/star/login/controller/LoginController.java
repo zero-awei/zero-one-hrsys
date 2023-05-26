@@ -166,11 +166,18 @@ public class LoginController implements LoginApis {
     @ApiOperation(value = "退出登录")
     @GetMapping("logout")
     @Override
-    public JsonVO<String> logout() {
-        //TODO:登出逻辑，需要配合登录逻辑实现
+    public JsonVO<String> logout() throws Exception {
+        //登出逻辑，需要配合登录逻辑实现
         //1.获取当前用户token
+        String currentUserToken = userHolder.getCurrentUserToken();
+        //2.拼接key
+        String userTokenKey = RedisConstant.USER_TOKEN + ":" + currentUserToken;
         //2.删除当前用户token
-        return null;
+        int del = redisUtils.del(userTokenKey);
+        if (del < 0) {
+            return JsonVO.fail("退出失败！");
+        }
+        return JsonVO.success("退出成功！");
     }
 
     @Resource
@@ -203,7 +210,7 @@ public class LoginController implements LoginApis {
         //4.判断新旧密码是否一致
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         boolean matches = passwordEncoder.matches(newPassword, oldPassword);
-        System.out.println("**************matches="+matches);
+        System.out.println("**************matches=" + matches);
         if (matches) {
             return JsonVO.fail("新旧密码不能一致！");
         }

@@ -43,7 +43,7 @@ public interface LoginApis {
      * 退出登录
      * @return 退出结果
      */
-    JsonVO<String> logout();
+    JsonVO<String> logout() throws Exception;
 
     /**
      * 获取菜单数据
