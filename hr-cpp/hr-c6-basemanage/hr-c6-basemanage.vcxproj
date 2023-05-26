@@ -162,6 +162,7 @@
     <ClCompile Include="controller\GoshController\TestController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\Gosh\GoshDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\Gosh\GoshService.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -176,15 +177,16 @@
     <ClInclude Include="controller\test\TestController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\Gosh\GoshDAO.h" />
+    <ClInclude Include="dao\Gosh\GoshMapper.h" />
     <ClInclude Include="dao\Sample\ContractMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\Gosh\ContractDO.h" />
     <ClInclude Include="domain\dto\contract\ContractDTO.h" />
     <ClInclude Include="domain\dto\Gosh\ContractDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\contract\ContractQuery.h" />
     <ClInclude Include="domain\query\Gosh\ContractQuery.h" />
-    <ClInclude Include="domain\query\Gosh\PersonQuery.h" />
-    <ClInclude Include="domain\query\person\PersonQuery.h" />
     <ClInclude Include="domain\vo\contract\ContractVO.h" />
     <ClInclude Include="domain\vo\Gosh\ContractVO.h" />
     <ClInclude Include="Macros.h" />

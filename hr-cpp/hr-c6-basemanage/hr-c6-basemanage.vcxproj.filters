@@ -33,6 +33,9 @@
     <ClCompile Include="service\Gosh\GoshService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="dao\Gosh\GoshDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -68,9 +71,6 @@
     <ClInclude Include="domain\vo\contract\ContractVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\person\PersonQuery.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="service\sample\ContractService.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -83,9 +83,6 @@
     <ClInclude Include="domain\query\Gosh\ContractQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\Gosh\PersonQuery.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\vo\Gosh\ContractVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -93,6 +90,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="service\Gosh\GoshService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\Gosh\GoshDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Gosh\ContractDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\Gosh\GoshMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

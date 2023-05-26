@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"`
-#include "controller/GoshController/GoshController.h"
+#include "controller/GoshController/TestController.h"
 
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"

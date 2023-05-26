@@ -11,15 +11,15 @@
 class ContractDTO_gs : public oatpp::DTO
 {
 	DTO_INIT(ContractDTO_gs, DTO);
-	// 姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("contract.field.name");
-	}
 	// 编号
 	DTO_FIELD(UInt64, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("contract.field.id");
+	}
+	// 姓名
+	DTO_FIELD(String, name);
+	DTO_FIELD_INFO(name) {
+		info->description = ZH_WORDS_GETTER("contract.field.name");
 	}
 	// 合同类别
 	DTO_FIELD(String, type);
@@ -63,6 +63,16 @@ class ContractDTO_gs : public oatpp::DTO
 	}
 };
 
+class ContractDTO_gs_delete : public oatpp::DTO
+{
+	DTO_INIT(ContractDTO_gs_delete, DTO);
+	// 编号
+	DTO_FIELD(UInt64, id);
+	DTO_FIELD_INFO(id) {
+		info->description = ZH_WORDS_GETTER("contract.field.id");
+	}
+};
+
 /**
  * 示例分页传输对象
  */
@@ -70,6 +80,7 @@ class ContractPageDTO_gs : public PageDTO<ContractDTO_gs::Wrapper>
 {
 	DTO_INIT(ContractPageDTO_gs, PageDTO<ContractDTO_gs::Wrapper>);
 };
+
 
 #include OATPP_CODEGEN_END(DTO)
 #endif // !_SAMPLE_DTO_
