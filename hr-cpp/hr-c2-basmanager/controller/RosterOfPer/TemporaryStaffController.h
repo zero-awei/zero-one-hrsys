@@ -1,6 +1,6 @@
 #pragma once
 /**
-* 挂职人员功能点
+* 挂职人员功能点--(人员花名册-挂职人员)--未小满
 */
 
 #ifndef _TEMPORARYSTAFFCONTROLLER_H_
