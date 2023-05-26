@@ -8,7 +8,7 @@
 /**
  * 论文信息表字段匹配映射
  */
-class SampleMapper : public Mapper<t_pimpaperDO>
+class t_pimpaperMapper : public Mapper<t_pimpaperDO>
 {
 public:
 	t_pimpaperDO mapper(ResultSet* resultSet) const override

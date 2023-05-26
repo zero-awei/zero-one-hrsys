@@ -177,14 +177,14 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\paperinfoController\PaperinfoController.h" />
     <ClInclude Include="controller\patentinfo\PatentinfoController.h" />
-    <ClInclude Include="controller\pimpaper\pimpaperController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.h" />
+    <ClInclude Include="dao\paperinfo\t_pimpaperDAO.h" />
+    <ClInclude Include="dao\paperinfo\t_pimpaperMapper.h" />
     <ClInclude Include="domain\do\archives\t_pimarchivesDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\NotEmployeeInArchive\NotEmployeeInArchiveDO.h" />
     <ClInclude Include="domain\do\paperinfo\t_pimpaperDO.h" />
-    <ClInclude Include="domain\do\pimpaper\pimpaperDO.h" />
     <ClInclude Include="domain\do\UpdateArchiveInfo\UpdateArchiveInfoDO.h" />
     <ClInclude Include="domain\dto\archivesCenter\ArchivesCenterDTO.h" />
     <ClInclude Include="domain\dto\archives\ArchivesDTO.h" />
@@ -192,7 +192,6 @@
     <ClInclude Include="domain\dto\NotEmployeeInArchive\NotEmployeeInArchiveDTO.h" />
     <ClInclude Include="domain\dto\paperinfo\PaperDTO.h" />
     <ClInclude Include="domain\dto\patentinfo\PatentinfoDTO.h" />
-    <ClInclude Include="domain\dto\pimpaper\pimpaperDTO.h" />
     <ClInclude Include="domain\dto\UpdateArchiveInfo\UpdateArchiveInfoDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\archivesCenter\ArchivesCenterQuery.h" />
@@ -213,6 +212,7 @@
     <ClInclude Include="domain\vo\UpdateArchiveInfo\UpdateArchiveInfoVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\paperinfo\PaperinfoService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -221,11 +221,12 @@
     <ClCompile Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.cpp" />
     <ClCompile Include="controller\paperinfoController\PaperinfoController.cpp" />
     <ClCompile Include="controller\patentinfo\PatentinfoController.cpp" />
-    <ClCompile Include="controller\pimpaper\pimpaperController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.cpp" />
+    <ClCompile Include="dao\paperinfo\t_pimpaperDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\paperinfo\PaperinfoService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

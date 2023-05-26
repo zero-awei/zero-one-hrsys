@@ -12,10 +12,10 @@ class PaperDTO : public oatpp::DTO
 {
 public:
 	PaperDTO() {}
-	PaperDTO(String pimpersonid, String cbs, String fbsj,
-		String kwqs, String fj, Int32 grzlwzzzdpm, String kwmc) : pimpersonid(pimpersonid), 
+	PaperDTO(String cbs, String fbsj, String kwqs, String fj, Int32 grzlwzzzdpm, String kwmc) : 
 		cbs(cbs), fbsj(fbsj), kwqs(kwqs), fj(fj), grzlwzzzdpm(grzlwzzzdpm), kwmc(kwmc){}
 	DTO_INIT(PaperDTO, DTO);
+	
 	// 出版社
 	DTO_FIELD(String, cbs);
 	DTO_FIELD_INFO(cbs) {
@@ -50,11 +50,6 @@ public:
 	DTO_FIELD(String, pimpapername);
 	DTO_FIELD_INFO(pimpapername) {
 		info->description = ZH_WORDS_GETTER("paperinfo.field.pimpapername");
-	}
-	// 员工编号
-	DTO_FIELD(String, pimpersonid);
-	DTO_FIELD_INFO(pimpersonid) {
-		info->description = ZH_WORDS_GETTER("paperinfo.field.pimpersonid");
 	}
 };
 

@@ -14,14 +14,14 @@
 
 
 // 0 定义API控制器使用宏
-#include OATPP_CODEGEN_BEGIN(ApiController) // 0
+#include OATPP_CODEGEN_BEGIN(ApiController) 
 
-class PaperinfoController : public oatpp::web::server::api::ApiController // 1
+class PaperinfoController : public oatpp::web::server::api::ApiController
 {
-	// 2 定义控制器访问入口
+	//  定义控制器访问入口
 	API_ACCESS_DECLARE(PaperinfoController);
 public: // 定义接口
-	//3 定义接口描述
+	// 定义分页查询指定员工论文信息接口描述
 	ENDPOINT_INFO(queryPaperinfo) {
 		//定义接口标题
 		info->summary = ZH_WORDS_GETTER("paperinfo.get.summary");
@@ -34,33 +34,66 @@ public: // 定义接口
 		info->queryParams["pimpersonid"].addExample("default", String("10001"));
 		info->queryParams["pimpersonid"].required = true;
 	}
-	//4 定义接口端点
-	ENDPOINT(API_M_GET, "/employee-info/query-by-pimpersonid", queryPaperinfo, QUERIES(QueryParams, qps)) {
+	// 定义接口端点处理
+	ENDPOINT(API_M_GET, "/employee-info/query-paperinfo-by-pimpersonid", queryPaperinfo, QUERIES(QueryParams, qps)) {
 		//解析查询参数（解析成领域模型对象）
-		API_HANDLER_QUERY_PARAM(query, PageQuery, qps);
+		API_HANDLER_QUERY_PARAM(query, PaperQuery, qps);
 		//响应结果
 		API_HANDLER_RESP_VO(execQueryPaperinfo(query));
 	}
 
-	// 3.1 定义修改接口描述
+	//  定义修改接口描述
 	ENDPOINT_INFO(modifyPaperinfo) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("paperinfo.put.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	// 3.2 定义修改接口处理
+	//  定义修改接口处理
 	ENDPOINT(API_M_PUT, "/employee-info/modify-paperinfo", modifyPaperinfo, BODY_DTO(PaperDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyPaperinfo(dto));
 	}
 
+	//  定义新增接口描述
+	ENDPOINT_INFO(addPaperinfo) {
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("paperinfo.post.summary");
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+	}
+
+	//  定义新增接口处理
+	ENDPOINT(API_M_POST, "/employee-info/add-paperinfo", addPaperinfo, BODY_DTO(PaperDTO::Wrapper, dto)) {
+		// 响应结果
+		API_HANDLER_RESP_VO(execAddPaperinfo(dto));
+	}
+
+	//  定义删除接口描述
+	ENDPOINT_INFO(removePimpaper) {
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("paperinfo.delete.summary");
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+	}
+	//  定义删除接口处理
+	ENDPOINT(API_M_DEL, "/employee-info/remove-paperinfo", removePimpaper, BODY_DTO(PaperDTO::Wrapper, dto)) {
+		// 响应结果
+		API_HANDLER_RESP_VO(execRemovePaperinfo(dto));
+	}
+
 private: // 定义接口执行函数
-	//5 定义接口执行函数
+	// 分页查询论文信息
 	PaperPageJsonVO::Wrapper execQueryPaperinfo(const PageQuery::Wrapper& query);
 
-	// 3.3 演示修改数据
+	// 修改论文信息
 	Uint64JsonVO::Wrapper execModifyPaperinfo(const PaperDTO::Wrapper& dto);
+
+	// 添加论文信息
+	Uint64JsonVO::Wrapper execAddPaperinfo(const PaperDTO::Wrapper& dto);
+
+	// 删除论文信息
+	Uint64JsonVO::Wrapper execRemovePaperinfo(const PaperDTO::Wrapper& dto);
 };
 
 

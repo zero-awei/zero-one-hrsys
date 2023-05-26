@@ -36,7 +36,6 @@
 #include"UpdateArchiveInfo/UpdateArchiveInfoController.h"
 
 #include "archives/ArchivesController.h"
-#include "pimpaper/pimpaperController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -66,8 +65,6 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(PatentinfoController);
 	ROUTER_SIMPLE_BIND(PaperinfoController);
 	ROUTER_SIMPLE_BIND(ArchivesController);
-	ROUTER_SIMPLE_BIND(PimpaperController);
-
 	ROUTER_SIMPLE_BIND(NotEmployeeInArchiveController);
 	ROUTER_SIMPLE_BIND(UpdateArchiveInfoController);
 	ROUTER_SIMPLE_BIND(ArchivesController);

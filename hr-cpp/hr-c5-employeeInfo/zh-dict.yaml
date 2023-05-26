@@ -82,14 +82,27 @@ paperinfo:
   kwmc: 刊物名称
   pimpapername: 论文名称
   pimpersonid: 员工编号
+  UPDATEMAN: 更新人
+  PIMPAPERID: 论文信息标识
+  CREATEDATE: 建立时间
+  UPDATEDATE: 更新时间
+  CREATEMAN: 建立人
+  CBSHKWMC: 出版社或刊物名称
+  JLSPZT: 审批状态
+  JLGLBH: 记录管理编号
+  JLCZZ: 记录操作者
+  JLSS: 记录所属
+  REASON: 拒绝原因
  get:
-  summary: 分页查询论文信息
+  summary: 分页查询指定员工论文信息
  put:
   summary: 修改一条论文信息
+ post:
+  summary: 新增指定员工论文信息
+ delete:
+  summary: 删除指定员工论文信息
 #pimpaper的中英词典
 pimpaper:
- get:
-  summary: 查看指定员工论文信息(分页)
  post:
   summary: 新增指定员工论文信息
  delete:

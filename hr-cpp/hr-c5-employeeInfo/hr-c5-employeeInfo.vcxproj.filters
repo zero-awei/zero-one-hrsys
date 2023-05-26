@@ -90,16 +90,7 @@
     <ClInclude Include="controller\patentinfo\PatentinfoController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\pimpaper\pimpaperController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\do\pimpaper\pimpaperDO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\dto\patentinfo\PatentinfoDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\pimpaper\pimpaperDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\patentinfo\PatentinfoQuery.h">
@@ -150,6 +141,15 @@
     <ClInclude Include="domain\vo\paperinfo\PaperVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="service\paperinfo\PaperinfoService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\paperinfo\t_pimpaperDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\paperinfo\t_pimpaperMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -179,10 +179,13 @@
     <ClCompile Include="controller\patentinfo\PatentinfoController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\pimpaper\pimpaperController.cpp">
+    <ClCompile Include="controller\paperinfoController\PaperinfoController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\paperinfoController\PaperinfoController.cpp">
+    <ClCompile Include="service\paperinfo\PaperinfoService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\paperinfo\t_pimpaperDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

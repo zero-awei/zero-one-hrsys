@@ -23,6 +23,7 @@ class t_pimpaperDO
 	CC_SYNTHESIZE(string, kwmc, Kwmc);
 	// бшндцШЁф
 	CC_SYNTHESIZE(string, pimpapername, Pimpapername);
+
 public:
 	t_pimpaperDO() {
 		fbsj = "";

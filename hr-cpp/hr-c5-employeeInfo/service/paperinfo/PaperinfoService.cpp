@@ -3,10 +3,10 @@
 #include "PaperinfoService.h"
 #include "../../dao/paperinfo/t_pimpaperDAO.h"
 
-PaperPageDTO::Wrapper PaperinfoService::listByPimpersonId(const PaperQuery::Wrapper& query)
+PaperDTO::Wrapper PaperinfoService::listAll(const PaperQuery::Wrapper& query)
 {
 	// 构建返回对象
-	auto pages = PaperPageDTO::createShared();
+	auto pages = PaperPageDTO::createShared(); 
 	pages->pageIndex = query->pageIndex;
 	pages->pageSize = query->pageSize;
 
@@ -21,51 +21,36 @@ PaperPageDTO::Wrapper PaperinfoService::listByPimpersonId(const PaperQuery::Wrap
 	// 分页查询数据
 	pages->total = count;
 	pages->calcPages();
-	list<SampleDO> result = dao.selectWithPage(query);
+	list<t_pimpaperDO> result = dao.selectWithPage(query);
 	// 将DO转换成DTO
-	for (SampleDO sub : result)
+	for (t_pimpaperDO sub : result)
 	{
-		auto dto = SampleDTO::createShared();
-		// 		dto->id = sub.getId();
-		// 		dto->name = sub.getName();
-		// 		dto->sex = sub.getSex();
-		// 		dto->age = sub.getAge();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id, name, Name, sex, Sex, age, Age)
+		auto dto = PaperDTO::createShared();
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, fbsj, Fbsj, cbs, Cbs, kwqs, Kwqs,
+			fj, Fj, grzlwzzzdpm, Grzlwzzzdpm, kwmc, Kwmc, pimpapername, Pimpapername);
 			pages->addData(dto);
 
 	}
 	return pages;
 }
 
-uint64_t SampleService::saveData(const SampleDTO::Wrapper& dto)
+uint64_t PaperinfoService::saveData(const PaperDTO::Wrapper& dto)
 {
 	// 组装DO数据
-	SampleDO data;
-	// 	data.setName(dto->name.getValue(""));
-	// 	data.setSex(dto->sex.getValue(""));
-	// 	data.setAge(dto->age.getValue(1));
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Name, name, Sex, sex, Age, age)
-		// 执行数据添加
-		SampleDAO dao;
+	t_pimpaperDO data;
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Fbsj, fbsj, Cbs, cbs, Kwqs, kwqs,
+		Fj, fj, Grzlwzzzdpm, grzlwzzzdpm, Kwmc, kwmc, Pimpapername, pimpapername)
+	// 执行数据添加
+	t_pimpaperDAO dao;
 	return dao.insert(data);
 }
 
-bool SampleService::updateData(const SampleDTO::Wrapper& dto)
+bool PaperinfoService::updateData(const PaperDTO::Wrapper& dto)
 {
-	// 组装DO数据
-	SampleDO data;
-	// 	data.setId(dto->id.getValue(0));
-	// 	data.setName(dto->name.getValue(""));
-	// 	data.setSex(dto->sex.getValue(""));
-	// 	data.setAge(dto->age.getValue(1));
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Name, name, Sex, sex, Age, age, Id, id)
-		// 执行数据修改
-		SampleDAO dao;
-	return dao.update(data) == 1;
+	return false;
 }
 
-bool SampleService::removeData(uint64_t id)
+bool PaperinfoService::removeData(uint64_t id)
 {
-	SampleDAO dao;
-	return dao.deleteById(id) == 1;
+	return false;
 }
