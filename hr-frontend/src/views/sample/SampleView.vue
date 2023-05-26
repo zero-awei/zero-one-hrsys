@@ -62,7 +62,7 @@
   border: 0;
 }
 .el-main {
-  padding-top: 12px;
+  padding: 0px;
   background-color: #edecec;
   height: 95vh;
 }

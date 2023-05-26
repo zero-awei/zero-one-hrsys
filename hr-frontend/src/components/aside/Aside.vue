@@ -1,84 +1,86 @@
 <template>
-  <el-row class="tac">
-    <el-col :span="3">
-      <el-menu
-        background-color="#fff"
-        text-color="#303133"
-        default-active="1"
-        class="el-menu-vertical-demo"
-        @open="handleOpen"
-        @close="handleClose"
-      >
-        <el-menu-item
-          v-for="(mes, index) in data"
-          :key="index"
-          @click="clickHandele(index)"
-          :class="[{ elactive: isActive === index }, 'hr-menuitem_layout']"
+  <el-aside>
+    <div class="menu-wrap">
+      <el-scrollbar max-height="95vh" :always="true">
+        <el-menu
+          default-active="0"
+          active-text-color="#409EFF"
+          text-color="#606266"
+          background-color="#fff"
+          unique-opened
+          router
         >
-          <el-icon>
-            <!-- <User /> -->
-            <component :is="icon" />
-          </el-icon>
-          <span>{{ mes }}</span>
-        </el-menu-item>
-      </el-menu>
-    </el-col>
-  </el-row>
+          <template v-for="(menu, index) in menus" :key="index">
+            <!-- 有二级目录的层级 -->
+            <el-sub-menu v-if="menu.children" :index="menu.id">
+              <template #title>
+                <el-icon>
+                  <component :is="menu.icon"></component>
+                  <span>{{ menu.text }}</span>
+                </el-icon>
+              </template>
+              <!-- 二级目录 -->
+              <el-menu-item-group>
+                <el-menu-item
+                  v-for="(child, idx) in menu.children"
+                  :key="idx"
+                  :index="child.path"
+                >
+                  <el-icon>
+                    <component :is="child.icon"></component>
+                  </el-icon>
+                  <span>{{ child.text }}</span>
+                </el-menu-item>
+              </el-menu-item-group>
+            </el-sub-menu>
+            <!-- 没有二级目录的层级 -->
+            <el-menu-item v-else :index="menu.path">
+              <el-icon>
+                <component :is="menu.icon"></component>
+              </el-icon>
+              <span>{{ menu.text }}</span>
+            </el-menu-item>
+          </template>
+        </el-menu>
+      </el-scrollbar>
+    </div>
+  </el-aside>
 </template>
 
 <script setup>
 import { Menu as IconMenu, Location, User } from '@element-plus/icons-vue'
 import { reactive, ref } from 'vue'
-const isActive = ref(0)
-const data = reactive([
-  '员工信息',
-  '分配信息',
-  '教育信息',
-  '语言能力',
-  '家庭情况',
-  '工作履历',
-  '档案信息',
-  '绩效信息',
-  '考勤信息',
-  '合同信息',
-  '证书信息',
-  '奖励惩罚',
-  '培训记录',
-  '军转干部',
-  '学术成果'
-])
-
-let icon = ref('Plus')
-const handleOpen = (key, keyPath) => {
-  console.log(key, keyPath)
-}
-const handleClose = (key, keyPath) => {
-  console.log(key, keyPath)
-}
-const clickHandele = (index) => {
-  // console.log(index);
-  isActive.value = index
-}
+const prop = defineProps({
+  menus: {
+    type: Array,
+    default: () => []
+  }
+})
 </script>
 
-<style scoped>
-.el-main[data-v-3ab90702] {
-  padding: 0;
+<style lang="scss" scoped>
+.el-aside {
+  background-color: #fff;
+  height: 100%;
+  width: 241px;
+  border-right: 1px solid #ccc;
+  .menu-wrap {
+    width: 240px;
+  }
 }
-.hr-menuitem_layout {
-  height: 40px;
-  line-height: 36px;
-  font-size: 14px;
-  color: #303133;
-  padding: 0 20px;
+.el-menu {
+  border: 0;
+}
+.el-menu-item {
   cursor: pointer;
-  box-sizing: border-box;
-  border-left: 3px solid transparent;
-  border-top: 1px solid #fff;
-}
-.elactive {
-  background: #e9e9e9 !important;
-  color: #666 !important;
-  border-left: 3px solid #3fd5c0;
+  &:hover {
+    background-color: #ecf1f7;
+  }
+  :deep(.el-sub-menu__title) {
+    :deep(.el-icon) {
+      margin-left: 20px !important;
+      font-style: normal !important;
+    }
+  }
 }
 </style>
