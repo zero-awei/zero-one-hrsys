@@ -8,6 +8,7 @@
 #include "domain/dto/work-history/WorkHistoryIntoDTO.h"
 #include "uselib/rocketmq/TestRocket.h"
 #include "../Router.h"
+#include "uselib/rocketmq/ExportRocket.h"
 
 
 WorkHistoryFindVO::Wrapper WorkHistoryController::execQueryPageWorkHistory(const WorkHistoryPageQuery::Wrapper& query)
@@ -156,16 +157,17 @@ StringJsonVO::Wrapper WorkHistoryController::execIntoWorkHistory(const String& b
 StringJsonVO::Wrapper WorkHistoryController::execExportWorkHistory(const WorkHistoryExportQuery::Wrapper& query)
 {
 	auto vo = StringJsonVO::createShared();
-	WorkHistoryService service;
+	//WorkHistoryService service;
 
-	std::string filaName= service.exportData(query);
-	
-	if (filaName.empty())
+	//std::string filaName= service.exportData(query);
+	ExportRocket::getInstance().testRocket(query);
+	std::string fileName = ExportRocket::getInstance().receiveMessage("export");
+	if (fileName.empty())
 	{
 		vo->fail("µ¼³öÊ§°Ü");
 	}
 
-	vo->success(filaName);
+	vo->success(fileName);
 
 	return vo;
 }

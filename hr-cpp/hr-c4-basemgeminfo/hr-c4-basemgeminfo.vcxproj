@@ -262,10 +262,8 @@
     <ClInclude Include="service\military\MilitaryService.h" />
     <ClInclude Include="service\work-history\WorkHistoryService.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\rocketmq\ExportRocket.h" />
     <ClInclude Include="uselib\rocketmq\TestRocket.h" />
-    <ClInclude Include="uselib\ws\WSController.h" />
-    <ClInclude Include="uselib\ws\WSInstanceListener.h" />
-    <ClInclude Include="uselib\ws\WSListener.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\archives\ArchivesController.cpp" />
@@ -298,9 +296,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="uselib\rocketmq\ExportRocket.cpp" />
     <ClCompile Include="uselib\rocketmq\TestRocket.cpp" />
-    <ClCompile Include="uselib\ws\WSInstanceListener.cpp" />
-    <ClCompile Include="uselib\ws\WSListener.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\lib-common\lib-common.vcxproj">

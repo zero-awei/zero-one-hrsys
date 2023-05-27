@@ -51,15 +51,6 @@
     <ClInclude Include="domain\dto\work-history\AddWorkHistoryDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="uselib\ws\WSController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="uselib\ws\WSInstanceListener.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="uselib\ws\WSListener.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\dto\work-history\DelWorkHistoryDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -300,6 +291,9 @@
     <ClInclude Include="domain\dto\work-history\WorkHistoryMqDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="uselib\rocketmq\ExportRocket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -315,12 +309,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\work-history\WorkHistoryController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="uselib\ws\WSInstanceListener.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="uselib\ws\WSListener.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="dao\work-history\WorkHistoryDAO.cpp">
@@ -384,6 +372,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="uselib\rocketmq\TestRocket.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\rocketmq\ExportRocket.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
