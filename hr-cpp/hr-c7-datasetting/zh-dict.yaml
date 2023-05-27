@@ -51,8 +51,9 @@ contractType:
  delete:
   summary: 删除合同类型
  field:
-  id: 员工编号
-  name: 员工姓名
+
+  id: 合同类型代码
+  name: 合同类型名称
   department: 员工所属单位
   state: 员工状态
   unitArrivalTime: 到单位时间
