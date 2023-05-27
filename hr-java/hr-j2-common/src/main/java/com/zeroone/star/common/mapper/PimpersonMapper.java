@@ -20,6 +20,6 @@ import java.util.List;
 @Mapper
 public interface PimpersonMapper extends BaseMapper<Pimperson> {
 
-    @Select("select a.PIMPERSONID AS 'status',b.PERSONSTATEMGRNAME AS 'id' FROM t_pimperson a INNER JOIN t_personstatemgr b ON a.YGZT = b.PERSONSTATEMGRID;")
+    @Select("SELECT PERSONSTATEMGRNAME AS 'status', PERSONSTATEMGRID AS 'id' FROM t_personstatemgr;")
     List<StatusListDTO> selectEmployeeStatus();
 }
