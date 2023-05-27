@@ -18,7 +18,7 @@
 */
 #include "stdafx.h"
 #include "ImportJobController.h"
-#include "ExcelComponent.h"
+#include "service/jobSet/JobSetService.h"
 
 #define RTN(__VO__, __MSG__) __VO__->setStatus(__MSG__); \
 return __VO__;
@@ -29,15 +29,13 @@ ImportJobJsonVO::Wrapper ImportJobController::execImportJob(const ImportJobDTO::
 	// 参数校验
 	if (dto->filePath->empty()) { RTN(vo, RS_PARAMS_INVALID) }
 
-	String str1 = "123abc";
-	String str2 = "456def";
-	String str3 = "789ghi";
-	auto ij = ImportJobVO::createShared();
-	ij->newId->push_back("123abc");
-	ij->newId->push_back("456def");
-	ij->newId->push_back("789ghi");
-
 	// TODO: 调用service
-	vo->init(ij, RS_SUCCESS);
+	JobSetService service;
+	auto listid = service.saveMultiJob(dto);
+	auto ret = ImportJobVO::createShared();
+	for (auto it = listid.begin(); it != listid.end(); it++) {
+		ret->newId->push_back((*it));
+	}
+	vo->init(ret, RS_SUCCESS);
 	return vo;
 }

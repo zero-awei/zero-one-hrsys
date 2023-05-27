@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: yuanxiang
- @Date: 2023/05/23 17:01:55
+ @Date: 2023/05/26 23:16:50
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,28 +17,18 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _PROJTAGSERVICE_H_
-#define _PROJTAGSERVICE_H_
-#include "domain/dto/projTag/ProjTagDTO.h"
-#include "domain/dto/projTag/OrgListDTO.h"
-#include "domain/query/projTag/OrgListQuery.h"
+#ifndef _JOBSETSERVICE_H_
+#define _JOBSETSERVICE_H_
+#include "domain/dto/jobSet/ImportJobDTO.h"
 
-/**
- * 项目标签Service
- */
-class ProjTagService
+class JobSetService
 {
 public:
 	/**
-	 * 新增项目标签
+	 * 导入岗位设置
 	 * 负责人：远翔
 	 */
-	uint64_t saveData(const ProjTagDTO::Wrapper& dto);
-	/**
-	 * 分页查询组织列表
-	 * 负责人：Andrew
-	 */
-	OrgListPageDTO::Wrapper listOrgList(const OrgListQuery::Wrapper &query);
+	list<string> saveMultiJob(const ImportJobDTO::Wrapper& dto);
 };
 
-#endif // !_PROJTAGSERVICE_H_
+#endif // !_JOBSETSERVICE_H_
