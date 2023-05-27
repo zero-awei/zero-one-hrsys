@@ -10,7 +10,7 @@
             class="bar"
             :style="{
               backgroundColor: scope.row.color,
-              width: (scope.row.val / total * 100) + '%'
+              width: (scope.row.val / total) * 100 + '%'
             }"
           >
             {{}}
@@ -48,6 +48,7 @@ h1 {
   font-weight: bold;
 }
 .chart-container {
+  width: 100%;
   display: flex;
   float: right;
   flex-direction: column;
