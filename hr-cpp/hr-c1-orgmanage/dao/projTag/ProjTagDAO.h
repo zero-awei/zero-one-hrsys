@@ -23,6 +23,7 @@
 #include "domain/do/projTag/ProjTagDO.h"
 #include "domain/do/projTag/OrgListDO.h"
 #include "domain/query/projTag/OrgListQuery.h"
+#include "domain/query/projTag/PageProjTagQuery.h"
 
 /**
  * 项目标签DAO实现
@@ -53,6 +54,18 @@ public:
 	 * 负责人：Andrew
 	 */
 	bool updateProjTag(const ProjTagDO& data);
+	/**
+	 * 项目标签 - 分页查询项目标签列表DAO实现
+	 * 功能：数据条数计数
+	 * 负责人：咫尺之书
+	 */
+	uint64_t count(const PageProjTagQuery::Wrapper& query);
+	/**
+	 * 项目标签 - 分页查询项目标签列表DAO实现
+	 * 功能：查询项目标签列表，进行数据分页
+	 * 负责人：咫尺之书
+	 */
+	std::list<ProjTagDO> selectProjTag(const PageProjTagQuery::Wrapper& query);
 };
 
 #endif // !_PROJTAGDAO_H_

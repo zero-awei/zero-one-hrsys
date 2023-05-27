@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "ProjTagDAO.h"
 #include "OrgListMapper.h"
+#include "ProjTagListMapper.h"
 
 /**
  * 组织列表查询条件匹配宏
@@ -43,6 +44,23 @@ if (__QUERY__->order == "ASC") { \
 } \
 if (__QUERY__->order == "DESC") { \
 		__SQL__ << " ORDER BY `PX` DESC"; \
+}
+
+ /**
+  * 项目标签列表查询条件匹配宏
+  */
+#define PROJTAGLIST_TERAM_PARSE(__QUERY__, __SQL__) \
+SqlParams params; \
+__SQL__ << " WHERE 1=1"; \
+if (__QUERY__->tagName) { \
+	__SQL__ << " AND `ORMXMBQNAME` LIKE CONCAT('%',?,'%')"; \
+	SQLPARAMS_PUSH(params, "s", std::string, __QUERY__->tagName.getValue("")); \
+} \
+if (__QUERY__->order == "ASC") { \
+	__SQL__ << " ORDER BY `XH` ASC"; \
+} \
+if (__QUERY__->order == "DESC") { \
+		__SQL__ << " ORDER BY `XH` DESC"; \
 }
 
 uint64_t ProjTagDAO::insert(const ProjTagDO& iObj)
@@ -85,4 +103,25 @@ bool ProjTagDAO::updateProjTag(const ProjTagDO& data)
 		`ORMXMBQNAME` = ?, `ORMORGID` = ? WHERE `ORMXMBQID` = ?";
 	return sqlSession->executeUpdate(sql, "%s%s%s%s%s", data.getUpdateTime(), data.getUpdater(), \
 		data.getTagName(), data.getOrgId(), data.getId());
+}
+
+uint64_t ProjTagDAO::count(const PageProjTagQuery::Wrapper& query)
+{
+	stringstream sql;
+	sql << "SELECT COUNT(`ORMXMBQID`) FROM `t_ormxmbq`";
+	PROJTAGLIST_TERAM_PARSE(query, sql);
+	string sqlStr = sql.str();
+	return sqlSession->executeQueryNumerical(sqlStr, params);
+}
+
+std::list<ProjTagDO> ProjTagDAO::selectProjTag(const PageProjTagQuery::Wrapper& query)
+{
+	stringstream sql;
+	sql << "SELECT `ORMXMBQID`, `CREATEMAN`, `ORMXMBQNAME`, `UPDATEMAN`, `CREATEDATE`, `UPDATEDATE`,"
+		<< "`ORMORGID` FROM `t_ormxmbq`";
+	PROJTAGLIST_TERAM_PARSE(query, sql);
+	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
+	ProjTagListMapper mapper;
+	string sqlStr = sql.str();
+	return sqlSession->executeQuery<ProjTagDO, ProjTagListMapper>(sqlStr, mapper, params);
 }

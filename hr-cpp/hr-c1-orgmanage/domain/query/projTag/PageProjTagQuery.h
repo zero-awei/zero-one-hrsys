@@ -3,28 +3,25 @@
 #define _PAGEPROJTAGQUERY_H_
 
 #include "../../GlobalInclude.h"
+#include "domain/query/PageQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 导出项目标签Query领域模型
- * 负责人：Andrew
+ * 分页查询项目标签Query领域模型
+ * 负责人：咫尺之书
  */
-class PageProjTagQuery : public oatpp::DTO
+class PageProjTagQuery : public PageQuery
 {
-	DTO_INIT(PageProjTagQuery, DTO);
-	DTO_FIELD_INFO(size) {
-		info->description = ZH_WORDS_GETTER("projTag.pageQuery.size");
+	DTO_INIT(PageProjTagQuery, PageQuery);
+	DTO_FIELD_INFO(tagName) {
+		info->description = ZH_WORDS_GETTER("projTag.pageQuery.tagName");
 	}
-	DTO_FIELD(UInt8, size);
-	DTO_FIELD_INFO(page) {
-		info->description = ZH_WORDS_GETTER("projTag.pageQuery.page");
+	DTO_FIELD(String, tagName);
+	DTO_FIELD_INFO(order) {
+		info->description = ZH_WORDS_GETTER("projTag.pageQuery.order");
 	}
-	DTO_FIELD(UInt8, page);
-	DTO_FIELD_INFO(sort) {
-		info->description = ZH_WORDS_GETTER("projTag.pageQuery.sort");
-	}
-	DTO_FIELD(String, sort);
+	DTO_FIELD(String, order);
 };
 
 #include OATPP_CODEGEN_END(DTO)

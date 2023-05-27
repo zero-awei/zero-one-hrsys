@@ -67,7 +67,6 @@
     <ClInclude Include="domain\dto\itemLabel\ItemLabelDTO.h" />
     <ClInclude Include="domain\query\itemlabel\ItemlabelQuery.h" />
     <ClInclude Include="domain\vo\itemLabel\ItemLabelVO.h" />
-    <ClInclude Include="domain\vo\pageQuery\PageQueryVO.h" />
     <ClInclude Include="domain\do\projTag\ProjTagDO.h" />
     <ClInclude Include="domain\vo\jobUpdate\JobUpdateVO.h" />
     <ClInclude Include="domain\vo\jobDownload\JobDownloadVO.h" />
@@ -87,7 +86,6 @@
     <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryMapper.h" />
     <ClInclude Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.h" />
     <ClInclude Include="domain\do\postSet\PostDetailDO.h" />
-    <ClInclude Include="domain\vo\postSet\PostDeleteBatchVO.h" />
     <ClInclude Include="domain\do\projTag\OrgListDO.h" />
     <ClInclude Include="dao\projTag\OrgListMapper.h" />
     <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
@@ -115,6 +113,12 @@
     <ClCompile Include="controller\projTag\deleteProjTag\DeleteProjTagController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClInclude Include="domain\vo\pageQuery\PageQueryVO.h" />
+    <ClInclude Include="domain\vo\postSet\PostDeleteBatchVO.h" />
+    <ClInclude Include="domain\vo\jobSet\JobDownloadVO\JobDownloadVO.h" />
+    <ClInclude Include="domain\vo\jobSet\JobUpdateVO\JobUpdateVO.h" />
+    <ClInclude Include="domain\vo\projTag\PageQueryProjTagVO.h" />
+    <ClInclude Include="dao\projTag\ProjTagListMapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
@@ -139,9 +143,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\projTag\PageProjTagQuery.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\projTag\PageQueryProjTagVO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="controller\projTag\deleteProjTag\DeleteProjTagController.h">
