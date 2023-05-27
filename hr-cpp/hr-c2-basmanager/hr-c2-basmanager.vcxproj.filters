@@ -294,6 +294,21 @@
     <ClInclude Include="service\CertificateManage\EmployeeInfoService.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\RosterOfPer\LoanedPerPageController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\RosterOfPer\LoanedPerPageDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\RosterOfPer\LoanedPerPageQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\RosterOfPer\LoanedPerPageVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\RosterOfPer\LoanedPerPageService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -381,6 +396,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="service\CertificateManage\EmployeeInfoService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\RosterOfPer\LoanedPerPageController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

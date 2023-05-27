@@ -194,6 +194,7 @@
     <ClInclude Include="controller\RosterOfPer\ExportEmployeeController.h" />
     <ClInclude Include="controller\RosterOfPer\ExportRetireesController.h" />
     <ClInclude Include="controller\RosterOfPer\FormerEmployeesController.h" />
+    <ClInclude Include="controller\RosterOfPer\LoanedPerPageController.h" />
     <ClInclude Include="controller\RosterOfPer\RraineeController.h" />
     <ClInclude Include="controller\RosterOfPer\TemporaryStaffController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
@@ -236,6 +237,7 @@
     <ClInclude Include="domain\dto\RosterOfPer\ExportEmployeeDTO.h" />
     <ClInclude Include="domain\dto\RosterOfPer\ExportRetireesDTO.h" />
     <ClInclude Include="domain\dto\RosterOfPer\FormerEmployeesDTO.h" />
+    <ClInclude Include="domain\dto\RosterOfPer\LoanedPerPageDTO.h" />
     <ClInclude Include="domain\dto\RosterOfPer\RraineeDTO.h" />
     <ClInclude Include="domain\dto\RosterOfPer\TemporaryStaffDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
@@ -250,6 +252,7 @@
     <ClInclude Include="domain\query\RosterOfPer\ExportEmployeeQuery.h" />
     <ClInclude Include="domain\query\RosterOfPer\ExportRetireesQuery.h" />
     <ClInclude Include="domain\query\RosterOfPer\FormerEmployeesQuery.h" />
+    <ClInclude Include="domain\query\RosterOfPer\LoanedPerPageQuery.h" />
     <ClInclude Include="domain\query\RosterOfPer\RraineeQuery.h" />
     <ClInclude Include="domain\query\RosterOfPer\TemporaryStaffQuery.h" />
     <ClInclude Include="domain\vo\CertificateManage\CertificateInfoVO.h" />
@@ -263,6 +266,7 @@
     <ClInclude Include="domain\vo\RosterOfPer\ExportEmployeeJsonVO.h" />
     <ClInclude Include="domain\vo\RosterOfPer\ExportRetireesVO.h" />
     <ClInclude Include="domain\vo\RosterOfPer\FormerEmployeesVO.h" />
+    <ClInclude Include="domain\vo\RosterOfPer\LoanedPerPageVO.h" />
     <ClInclude Include="domain\vo\RosterOfPer\RraineeVO.h" />
     <ClInclude Include="domain\vo\RosterOfPer\TemporaryStaffVO.h" />
     <ClInclude Include="Macros.h" />
@@ -272,6 +276,7 @@
     <ClInclude Include="service\RosterOfPer\EmployeePageService.h" />
     <ClInclude Include="service\RosterOfPer\ExportEmployeeService.h" />
     <ClInclude Include="service\RosterOfPer\FormerEmployeesService.h" />
+    <ClInclude Include="service\RosterOfPer\LoanedPerPageService.h" />
     <ClInclude Include="service\RosterOfPer\TemporaryStaffService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
@@ -288,6 +293,7 @@
     <ClCompile Include="controller\RosterOfPer\ExportEmployeeController.cpp" />
     <ClCompile Include="controller\RosterOfPer\ExportRetireesController.cpp" />
     <ClCompile Include="controller\RosterOfPer\FormerEmployeesController.cpp" />
+    <ClCompile Include="controller\RosterOfPer\LoanedPerPageController.cpp" />
     <ClCompile Include="controller\RosterOfPer\RraineeController.cpp" />
     <ClCompile Include="controller\RosterOfPer\TemporaryStaffController.cpp" />
     <ClCompile Include="controller\Router.cpp" />

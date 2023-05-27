@@ -1,9 +1,9 @@
 #pragma once
 /*
-（人员花名册-人员花名册-导出员工（导出本页在前端完成））--luoluo
+（人员花名册-借调人员-分页查询员工列表（导出本页在前端完成））--luoluo
 */
-#ifndef _EXPORTEMPLOYEE_QUERY_
-#define _EXPORTEMPLOYEE_QUERY_
+#ifndef _LOANEDPERPAGE_QUERY_
+#define _LOANEDPERPAGE_QUERY_
 
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
@@ -13,9 +13,9 @@
 /**
  * 示例分页查询对象
  */
-class ExportEmployeeQuery : public PageQuery
+class LoanedPerPageQuery : public PageQuery
 {
-	DTO_INIT(ExportEmployeeQuery, PageQuery);
+	DTO_INIT(LoanedPerPageQuery, PageQuery);
 	// 姓名
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
@@ -34,4 +34,4 @@ class ExportEmployeeQuery : public PageQuery
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_EXPORTEMPLOYEE_QUERY_
+#endif // !_LOANEDPERPAGE_QUERY_

@@ -68,7 +68,7 @@ LegalEntitySet:
  delete:
   summary: 删除法人主体设置（支持批量删除）
  import:
-  summary: 导入法人主体设置  
+  summary: （数据设置——法人主体设置——导入法人主体设置)--洛洛  
  export:
   summary: （数据设置——法人主体设置——导出法人主体设置 (导出页面在前端完成) ）--cpt
  field:

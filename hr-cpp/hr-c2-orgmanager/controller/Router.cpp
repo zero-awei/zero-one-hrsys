@@ -30,6 +30,8 @@
 #include "LegalEntitySet/LegalerNamePullDownListController.h"
 #include "LegalEntitySet/UpdateLegalerSetingMessageController.h"
 
+#include "LegalEntitySet/ImportLeagalPerSettingController.h"
+
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -59,6 +61,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(LegalerNamePullDownListController);
 	ROUTER_SIMPLE_BIND(UpdateLegalerSetingMessageController);
 	ROUTER_SIMPLE_BIND(LegalEntityMaiController);
+	ROUTER_SIMPLE_BIND(ImportLeagalPerSettingController);
 
 }
 

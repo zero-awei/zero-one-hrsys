@@ -184,6 +184,7 @@
   <ItemGroup>
     <ClCompile Include="controller\LegalEntityMai\LegalEntityMaiController.cpp" />
     <ClCompile Include="controller\LegalEntitySet\ExportLegalerSetingController.cpp" />
+    <ClCompile Include="controller\LegalEntitySet\ImportLeagalPerSettingController.cpp" />
     <ClCompile Include="controller\LegalEntitySet\LegalerNamePullDownListController.cpp" />
     <ClCompile Include="controller\LegalEntitySet\UpdateLegalerSetingMessageController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
@@ -200,6 +201,7 @@
   <ItemGroup>
     <ClInclude Include="controller\LegalEntityMai\LegalEntityMaiController.h" />
     <ClInclude Include="controller\LegalEntitySet\ExportLegalerSetingController.h" />
+    <ClInclude Include="controller\LegalEntitySet\ImportLeagalPerSettingController.h" />
     <ClInclude Include="controller\LegalEntitySet\LegalerNamePullDownListController.h" />
     <ClInclude Include="controller\LegalEntitySet\UpdateLegalerSetingMessageController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
@@ -211,6 +213,7 @@
     <ClInclude Include="domain\do\LegalEntitySet\UpdateLegalerSetingMessageDO.h" />
     <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDTO.h" />
     <ClInclude Include="domain\dto\LegalEntitySet\ExportLegalerSetingDTO.h" />
+    <ClInclude Include="domain\dto\LegalEntitySet\ImportLeagalPerSettingDTO.h" />
     <ClInclude Include="domain\dto\LegalEntitySet\LegalerNamePullDownListDTO.h" />
     <ClInclude Include="domain\dto\LegalEntitySet\UpdateLegalerSetingMessageDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
@@ -224,6 +227,7 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\LegalEntityMai\LegalEntityMaiService.h" />
+    <ClInclude Include="service\LegalEntitySet\ImportLeagalPerSettingService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

@@ -25,9 +25,9 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/**
- * 示例分页查询对象
- */
+/*
+（人员花名册-人员花名册-分页查询员工列表）--洛洛
+*/
 class EmployeePageQuery : public PageQuery
 {
 	DTO_INIT(EmployeePageQuery, PageQuery);

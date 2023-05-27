@@ -27,10 +27,12 @@
 #include "controller/RosterOfPer/CheckRetiresListController.h"
 #include "controller/RosterOfPer/ExportRetireesController.h"
 
-#include "RosterOfPer/EmployeePageController.h"
-#include "CertificateManage/CertifDeleteController.h"
-#include "CertificateManage/ExportCertifController.h"
-#include "RosterOfPer/ExportEmployeeController.h"
+#include "RosterOfPer/EmployeePageController.h"  //（人员花名册-人员花名册-分页查询员工数据）--洛洛
+#include "CertificateManage/CertifDeleteController.h" //（证书管理-证书信息-删除证书）--洛洛
+#include "CertificateManage/ExportCertifController.h" //（证书管理-证书信息-导出证书）--洛洛
+#include "RosterOfPer/ExportEmployeeController.h"//（人员花名册-人员花名册-导出员工（导出本页在前端完成））--洛洛
+#include "controller/RosterOfPer/LoanedPerPageController.h"//（人员花名册-借调人员-分页查询员工列表（导出本页在前端完成））--luoluo
+
 #include "controller/RosterOfPer/RraineeController.h"
 
 //测试controller引入头文件
@@ -64,7 +66,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(CheckCerListController);//分页查询证书列表--(证书管理-分页查询证书列表)--pine
 	ROUTER_SIMPLE_BIND(CreateNewCerController);//新建证书--(证书管理-新建证书)--pine
 	ROUTER_SIMPLE_BIND(CheckRetiresListController);//人员花名册-（离退休员工-分页查询员工列表）--pine
-	ROUTER_SIMPLE_BIND(ExportRetireesController); //人员花名册 - （离退休员工 - 导出员工）--pine
+	ROUTER_SIMPLE_BIND(ExportRetireesController); //人员花名册-（离退休员工-导出员工）--pine
 	ROUTER_SIMPLE_BIND(FormerEmployeesController);
 	ROUTER_SIMPLE_BIND(UpdateCertificateController);	
 	ROUTER_SIMPLE_BIND(RraineeController);  // 见习员工 swagger效果测试
@@ -75,10 +77,11 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(CreateNewCerController);
 	ROUTER_SIMPLE_BIND(CheckRetiresListController);
 	ROUTER_SIMPLE_BIND(ExportRetireesController);
-	ROUTER_SIMPLE_BIND(EmployeePageController); //（人员花名册 - 人员花名册 - 分页查询员工数据）--洛洛
-	ROUTER_SIMPLE_BIND(CertifDeleteController); //（证书管理 - 证书信息 - 删除证书）--洛洛
-	ROUTER_SIMPLE_BIND(ExportCertifController); //（证书管理 - 证书信息 - 导出证书）--洛洛
-	ROUTER_SIMPLE_BIND(ExportEmployeeController);//（人员花名册 - 人员花名册 - 导出员工（导出本页在前端完成））--洛洛
+	ROUTER_SIMPLE_BIND(EmployeePageController); //（人员花名册-人员花名册-分页查询员工数据）--洛洛
+	ROUTER_SIMPLE_BIND(CertifDeleteController); //（证书管理-证书信息-删除证书）--洛洛
+	ROUTER_SIMPLE_BIND(ExportCertifController); //（证书管理-证书信息-导出证书）--洛洛
+	ROUTER_SIMPLE_BIND(ExportEmployeeController);//（人员花名册-人员花名册-导出员工（导出本页在前端完成））--洛洛
+	ROUTER_SIMPLE_BIND(LoanedPerPageController);//（人员花名册-借调人员-分页查询员工列表（导出本页在前端完成））--luoluo
 }
 
 #ifdef HTTP_SERVER_DEMO

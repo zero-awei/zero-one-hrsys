@@ -1,9 +1,9 @@
 #pragma once
 /*
-（证书管理-证书信息-删除证书（支持批量删除））--洛洛
+（人员花名册-借调人员-分页查询员工列表（导出本页在前端完成））--luoluo
 */
-#ifndef _REMOVECERTIF_DTO_
-#define _REMOVECERTIF_DTO_
+#ifndef _LOANEDPERPAGE_DTO_
+#define _LOANEDPERPAGE_DTO_
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
@@ -11,15 +11,14 @@
 /**
  * 示例传输对象
  */
-class RemoveCertifDTO : public oatpp::DTO
+class LoanedPerDTO : public oatpp::DTO
 {
-	DTO_INIT(RemoveCertifDTO, DTO);
-	// 编号 CREDENTIALS_NUM
-	DTO_FIELD(String, id);
+	DTO_INIT(LoanedPerDTO, DTO);
+	// 编号
+	DTO_FIELD(UInt64, id);
 	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("certif.field.id");
+		info->description = ZH_WORDS_GETTER("sample.field.id");
 	}
-	/*
 	// 姓名
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
@@ -35,8 +34,15 @@ class RemoveCertifDTO : public oatpp::DTO
 	DTO_FIELD_INFO(sex) {
 		info->description = ZH_WORDS_GETTER("sample.field.sex");
 	}
-	*/
+};
+
+/**
+ * 示例分页传输对象
+ */
+class LoanedPerPageDTO : public PageDTO<LoanedPerDTO::Wrapper>
+{
+	DTO_INIT(LoanedPerPageDTO, PageDTO<LoanedPerDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_REMOVECERTIF_DTO_
+#endif // !_LOANEDPERPAGE_DTO_

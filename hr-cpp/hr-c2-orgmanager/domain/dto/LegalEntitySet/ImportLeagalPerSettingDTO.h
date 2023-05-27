@@ -1,9 +1,9 @@
 #pragma once
 /*
-（证书管理-证书信息-删除证书（支持批量删除））--洛洛
+(法人主体设置-导入法人设置)--洛洛
 */
-#ifndef _REMOVECERTIF_DTO_
-#define _REMOVECERTIF_DTO_
+#ifndef _IMPORTLEAGALPERSETTING_DTO_
+#define _IMPORTLEAGALPERSETTING_DTO_
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
@@ -11,15 +11,14 @@
 /**
  * 示例传输对象
  */
-class RemoveCertifDTO : public oatpp::DTO
+class ImportLeagalPerSettingDTO : public oatpp::DTO
 {
-	DTO_INIT(RemoveCertifDTO, DTO);
-	// 编号 CREDENTIALS_NUM
-	DTO_FIELD(String, id);
+	DTO_INIT(ImportLeagalPerSettingDTO, DTO);
+	// 编号
+	DTO_FIELD(UInt64, id);
 	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("certif.field.id");
+		info->description = ZH_WORDS_GETTER("sample.field.id");
 	}
-	/*
 	// 姓名
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
@@ -35,8 +34,15 @@ class RemoveCertifDTO : public oatpp::DTO
 	DTO_FIELD_INFO(sex) {
 		info->description = ZH_WORDS_GETTER("sample.field.sex");
 	}
-	*/
 };
+//
+///**
+// * 示例分页传输对象
+// */
+//class SamplePageDTO : public PageDTO<ImportLeagalPerSettingDTO::Wrapper>
+//{
+//	DTO_INIT(SamplePageDTO, PageDTO<ImportLeagalPerSettingDTO::Wrapper>);
+//};
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_REMOVECERTIF_DTO_
+#endif // !_IMPORTLEAGALPERSETTING_DTO_
