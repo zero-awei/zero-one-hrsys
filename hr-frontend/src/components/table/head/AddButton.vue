@@ -12,7 +12,7 @@
         <div class="line"></div>
         <div class="hr-dialog-head">
           <span class="dialog-header">
-            <el-button @click="saveData">
+            <el-button @click="saveData(stores)">
               <span  class="hr-button">
               <IconChecked class="hr-button__icon"/>
               <p class="hr-button__p">
@@ -64,14 +64,13 @@ defineProps({
     tableTitle : String,
     addTitle : String,
     addData : Array,
-    store : Object
+    stores : Object
   })
 
 const formData = ref({})
 
-const saveData = () =>{
-  // store.addData(formData.value)
-  store.initTableData()
+const saveData = (stores) =>{
+  stores.addData(formData.value)
   dialogFormVisible.value = false
 }
 </script>

@@ -2,7 +2,16 @@ import { defineStore } from 'pinia'
 
 export const usePostCertificateStore = defineStore('postCertificate',{
     state:()=>({
-        tableData:null
+        tableData:[
+            {
+                id:1,
+                name:'施工员'
+            },
+            // {
+            //     id:2,
+            //     name:'安全员'
+            // }
+        ]
     }),
     actions:{
         initTableData(){
@@ -16,6 +25,9 @@ export const usePostCertificateStore = defineStore('postCertificate',{
                     name:'安全员'
                 }
             ]
+        },
+        addData(val){
+            this.tableData.push(val)
         }
     },
     getters:{
