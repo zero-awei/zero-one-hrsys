@@ -23,7 +23,9 @@
 #include "domain/dto/projTag/OrgListDTO.h"
 #include "domain/query/projTag/OrgListQuery.h"
 #include "domain/dto/projTag/ModifyTagDTO.h"
-
+#include "domain/vo/projTag/ProjTagVO.h"
+#include "domain/dto/projTag/ImportTagDTO.h"
+#include "domain/vo/projTag/ImportTagVO.h"
 /**
  * 项目标签Service
  */
@@ -45,6 +47,12 @@ public:
 	 * 负责人：Andrew
 	 */
 	bool updateProjTag(const ModifyTagDTO::Wrapper& dto, const PayloadDTO& payload);
+
+	/**
+	 * 导入项目标签
+	 * 负责人：远翔
+	 */
+	ImportTagVO::Wrapper addMultiTag(const ImportTagDTO::Wrapper& dto, const PayloadDTO& payload);
 };
 
 #endif // !_PROJTAGSERVICE_H_
