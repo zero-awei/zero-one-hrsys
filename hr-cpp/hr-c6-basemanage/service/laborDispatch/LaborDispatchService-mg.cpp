@@ -61,7 +61,28 @@ LaborDispatchPageDTO::Wrapper LaborDispatchMService::ListAll(const LaborDispatch
 	return pages;
 }
 
-bool LaborDispatchMService::modifyData(const LaborDispatchMDTO::Wrapper& dto)
+bool LaborDispatchMService::updateData(const LaborDispatchDTO::Wrapper& dto)
 {
-	return true;//啊对对对对
+	// 组装DO数据
+	LaborDispatchDO data;
+	data.setName(dto->name.getValue(""));
+	data.setId(dto->id.getValue(""));
+	data.setCreatedate(dto->createdate.getValue(""));
+	data.setCreateman(dto->createdate.getValue(""));
+	data.setUpdateman(dto->updateman.getValue(""));
+	data.setUpdatedate(dto->updatedate.getValue(""));
+	data.setJyfw(dto->jyfw.getValue(""));
+	data.setLxdz(dto->lxdz.getValue(""));
+	data.setLxfs(dto->lxfs.getValue(""));
+	data.setLxr(dto->lxr.getValue(""));
+	data.setGsjj(dto->gsjj.getValue(""));
+	data.setPimpersonid(dto->pimpersonid.getValue(""));
+	data.setOrmorgid(dto->ormorgid.getValue(""));
+	data.setRegcapital(dto->regcapital.getValue(""));
+	data.setLegalperson(dto->legalperson.getValue(""));
+	cout << "data is " << data.getName() << ":" << dto->name.getValue("") << endl;
+	LaborDispatchMDAO dao;
+	return dao.update(data) == 1;
 }
+
+

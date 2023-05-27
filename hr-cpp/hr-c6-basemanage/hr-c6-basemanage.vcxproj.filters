@@ -23,6 +23,8 @@
     <ClCompile Include="dao\Gosh\GoshDAO.cpp" />
     <ClCompile Include="service\laborDispatch\LaborDispatchService-mg.cpp" />
     <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mg.cpp" />
+    <ClCompile Include="dao\expenseLedger\ExpenseLedgerDAO.cpp" />
+    <ClCompile Include="service\expenseLedger\ExpenseLedgerService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -72,6 +74,9 @@
     <ClInclude Include="domain\query\LaborDispatch\LaborDispatchQuery-mg.h" />
     <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mg.h" />
     <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO-mg.h" />
+    <ClInclude Include="dao\expenseLedger\ExpenseLedgerDAO.h" />
+    <ClInclude Include="dao\expenseLedger\ExpenseLedgerMapper.h" />
+    <ClInclude Include="service\expenseLedger\ExpenseLedgerService.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />
