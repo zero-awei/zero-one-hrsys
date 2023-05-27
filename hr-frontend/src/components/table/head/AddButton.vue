@@ -12,7 +12,7 @@
         <div class="line"></div>
         <div class="hr-dialog-head">
           <span class="dialog-header">
-            <el-button @click="dialogFormVisible = false">
+            <el-button @click="saveData">
               <span  class="hr-button">
               <IconChecked class="hr-button__icon"/>
               <p class="hr-button__p">
@@ -63,19 +63,17 @@ const formLabelWidth = '140px'
 defineProps({
     tableTitle : String,
     addTitle : String,
-    addData : Array
+    addData : Array,
+    store : Object
   })
 
-const formData = reactive({
-  // name: '',
-  // region: '',
-  // date1: '',
-  // date2: '',
-  // delivery: false,
-  // type: [],
-})
+const formData = ref({})
 
-
+const saveData = () =>{
+  // store.addData(formData.value)
+  store.initTableData()
+  dialogFormVisible.value = false
+}
 </script>
 
 <style lang="scss" scoped>
