@@ -52,5 +52,6 @@
     <ClInclude Include="domain\query\contractcategory\ContractCategoryQuery.h" />
     <ClInclude Include="domain\vo\ContractCategory\ContractCategoryVO.h" />
     <ClInclude Include="controller\Title\TitleController.h" />
+    <ClInclude Include="domain\do\ContractType\ContractTypeDO.h" />
   </ItemGroup>
 </Project>

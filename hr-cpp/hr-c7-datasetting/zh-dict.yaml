@@ -125,7 +125,8 @@ Title:
  delete:
   summary: 删除职称类型
  field:
-  id: 编号
-  age: 年龄
-  name: 姓名
-  sex: 性别，如：男
+  id: 排序号
+  num: 职称代码
+  name: 职称目录名称
+  dtype: 呢称目录类型
+  type: 职称类型

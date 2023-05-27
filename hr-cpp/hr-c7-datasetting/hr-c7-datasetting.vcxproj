@@ -186,6 +186,7 @@
     <ClInclude Include="controller\Title\TitleController.h" />
     <ClInclude Include="domain\do\archive\ArchiveDO.h" />
     <ClInclude Include="domain\do\contractcategory\ContractCategoryDO.h" />
+    <ClInclude Include="domain\do\ContractType\ContractTypeDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\Title\TitleDO.h" />
     <ClInclude Include="domain\dto\certificate\CertificateDTO.h" />
