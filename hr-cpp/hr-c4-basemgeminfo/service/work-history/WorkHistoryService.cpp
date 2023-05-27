@@ -113,7 +113,7 @@ bool WorkHistoryService::removeData(const DelWorkHistoryDTO::Wrapper& dto)
 	return true;
 }
 
-uint64_t WorkHistoryService::saveManyData(const std::string fileName, const String& pimpersonid)
+uint64_t WorkHistoryService::saveManyData(const std::string fileName, const String& pimpersonid, const String& createName)
 {
 
 	FastDfsClient client("192.168.80.129");
@@ -166,7 +166,10 @@ uint64_t WorkHistoryService::saveManyData(const std::string fileName, const Stri
 
 		//更新时间
 		SimpleDateTimeFormat times;
-
+		data.setcREATEDATE(times.format());
+		data.setuPDATEDATE(times.format());
+		data.setcREATEMAN(createName);
+		data.setuPDATEMAN(createName);
 
 		//插入数据
 		dao.insert(data);

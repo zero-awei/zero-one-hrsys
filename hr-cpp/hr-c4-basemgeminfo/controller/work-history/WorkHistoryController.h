@@ -109,6 +109,8 @@ public: // 定义接口
 
 	// 定义一个单文件导入接口
 	ENDPOINT_INFO(postFile) {
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
 		info->summary = ZH_WORDS_GETTER("workhistory.file.summary");
 		info->addConsumes<oatpp::swagger::Binary>("application/octet-stream");
 		API_DEF_ADD_RSP_JSON(StringJsonVO::Wrapper);
@@ -122,10 +124,10 @@ public: // 定义接口
 		
 	}
 	// 定义文件上传端点处理
-	ENDPOINT(API_M_POST, "/workhistory/file", postFile, BODY_STRING(String, body),QUERY(String, suffix), QUERY(String, pimpersonid)) {
+	ENDPOINT(API_M_POST, "/workhistory/file", postFile, API_HANDLER_AUTH_PARAME, BODY_STRING(String, body),QUERY(String, suffix), QUERY(String, pimpersonid)) {
 
 		// 执行文件保存逻辑
-		API_HANDLER_RESP_VO(execIntoWorkHistory(body,suffix,pimpersonid));
+		API_HANDLER_RESP_VO(execIntoWorkHistory(body,suffix,pimpersonid, authObject->getPayload()));
 	}
 
 	//文件导出接口
@@ -210,7 +212,7 @@ private:
 	Uint64JsonVO::Wrapper execDelWorkHistory(const DelWorkHistoryDTO::Wrapper& dto);
 
 	//定义导入执行函数
-	StringJsonVO::Wrapper execIntoWorkHistory(const String&, const String&, const String&);
+	StringJsonVO::Wrapper execIntoWorkHistory(const String&, const String&, const String&, const PayloadDTO& payload);
 
 	//定义导出执行函数
 	StringJsonVO::Wrapper execExportWorkHistory(const WorkHistoryExportQuery::Wrapper& query);

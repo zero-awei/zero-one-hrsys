@@ -95,7 +95,7 @@ Uint64JsonVO::Wrapper WorkHistoryController::execDelWorkHistory(const DelWorkHis
 
 
 
-StringJsonVO::Wrapper WorkHistoryController::execIntoWorkHistory(const String& body, const String& suffix, const String& pimpersonid)
+StringJsonVO::Wrapper WorkHistoryController::execIntoWorkHistory(const String& body, const String& suffix, const String& pimpersonid, const PayloadDTO& payload)
 {
 	auto jvo = StringJsonVO::createShared();
 	if (!pimpersonid || !body || !suffix)
@@ -145,7 +145,7 @@ StringJsonVO::Wrapper WorkHistoryController::execIntoWorkHistory(const String& b
 
 	cout << ss.str() << endl;
 
-	TestRocket::getInstance().testRocket(fieldName, pimpersonid);
+	TestRocket::getInstance().testRocket(fieldName, pimpersonid, payload);
 	
 		/*WorkHistoryService service;
 		service.saveManyData(fieldName, pimpersonid);*/

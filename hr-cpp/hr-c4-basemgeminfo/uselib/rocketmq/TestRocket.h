@@ -23,6 +23,7 @@
 #include <memory>
 #include "oatpp/core/Types.hpp"
 #include "Macros.h"
+#include "domain/dto/PayloadDTO.h"
 
 
 using namespace oatpp;
@@ -39,7 +40,7 @@ private:
 public:
 	//TestRocket();
 	~TestRocket();
-	void testRocket(const String& fileName, const String& pimpersonid);
+	void testRocket(const String& fileName, const String& pimpersonid, const PayloadDTO& payload);
 	void receiveMessage(std::string payload) override;
 };
 #endif // _TESTROCKET_H_

@@ -43,7 +43,7 @@ TestRocket::~TestRocket()
 	}
 }
 
-void TestRocket::testRocket(const String& fileName, const String& pimpersonid)
+void TestRocket::testRocket(const String& fileName, const String& pimpersonid, const PayloadDTO& payload)
 {
 	// 创建客户端
 	client = make_shared<RocketClient>("192.168.80.129:9876");
@@ -60,6 +60,7 @@ void TestRocket::testRocket(const String& fileName, const String& pimpersonid)
 	auto dto = WorkHistoryMqDTO::createShared();
 	dto->body = fileName;
 	dto->pimpersonid = pimpersonid;
+	dto->creatName = payload.getUsername();
 	//auto dto = SampleDTO::createShared();
 	//dto->name = "cat";
 	//dto->sex = "man";
@@ -83,5 +84,5 @@ void TestRocket::receiveMessage(std::string payload)
 	//	<< "-" << dto->age.getValue(0)
 	//	<< endl;*/
 	WorkHistoryService service;
-	service.saveManyData(dto->body,  dto->pimpersonid);
+	service.saveManyData(dto->body,  dto->pimpersonid, dto->creatName);
 }

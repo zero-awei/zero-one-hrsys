@@ -40,8 +40,10 @@ class WorkHistoryMqDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("workhistory.field.pimpersionid");
 	}
 
-	DTO_INIT_(String, body, "workhistory.field.pimpersionid");
+	DTO_INIT_(String, body, "workhistory.field");
 
+	DTO_INIT_(String, creatName, "workhistory.field");
+	//DTO_INIT_(String)
 	//DTO_INIT_(String, suffix, "workhistory.field.pimpersionid");
 };
 
