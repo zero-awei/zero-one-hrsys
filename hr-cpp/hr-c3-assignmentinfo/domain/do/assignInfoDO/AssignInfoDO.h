@@ -43,7 +43,7 @@ class AssignInfoDO
 	// 任职开始时间
 	CC_SYNTHESIZE(string, startTime, StartTime);
 	// 任职结束时间
-	CC_SYNTHESIZE(string, endTime, Endtime);
+	CC_SYNTHESIZE(string, endTime, EndTime);
 
 public:
 	AssignInfoDO() {

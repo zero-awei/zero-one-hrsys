@@ -23,6 +23,7 @@
 
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
+#include "domain/dto/assignInfo/AssignInfoDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 /**
@@ -48,10 +49,7 @@ class AssignInfoQuery : public PageQuery
 	// 任职开始时间
 	API_DTO_FIELD_DEFAULT(String, startTime, ZH_WORDS_GETTER("employee.field.startTime"));
 	// 任职结束时间
-	DTO_FIELD(String, endTime);
-	DTO_FIELD_INFO(endTime) {
-		info->description = ZH_WORDS_GETTER("employee.field.endTime");
-	}
+	API_DTO_FIELD_DEFAULT(String, endTime, ZH_WORDS_GETTER("employee.field.endTime"));
 };
 
 #include OATPP_CODEGEN_END(DTO)

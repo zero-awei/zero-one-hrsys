@@ -17,8 +17,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _ADD_EMPLOYEE_ASSIGN_INFO_DTO_
-#define _ADD_EMPLOYEE_ASSIGN_INFO_DTO_
+#ifndef _ASSIGN_INFO_DTO_
+#define _ASSIGN_INFO_DTO_
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
@@ -26,9 +26,9 @@
 /**
  * 新增指定员工分配信息
  */
-class AddAssignInfoDTO : public oatpp::DTO
+class AssignInfoDTO : public oatpp::DTO
 {
-	DTO_INIT(AddAssignInfoDTO, DTO);
+	DTO_INIT(AssignInfoDTO, DTO);
 	//编号
 	API_DTO_FIELD_DEFAULT(String, id, ZH_WORDS_GETTER("employee.field.id"));
 	//DTO_FIELD(String, id);
@@ -53,6 +53,13 @@ class AddAssignInfoDTO : public oatpp::DTO
 	API_DTO_FIELD_DEFAULT(String, endTime, ZH_WORDS_GETTER("employee.field.endTime"));
 };
 
+/**
+ * 示例分页传输对象
+ */
+class AssignInfoPageDTO : public PageDTO<AssignInfoDTO::Wrapper>
+{
+	DTO_INIT(AssignInfoPageDTO, PageDTO<AssignInfoDTO::Wrapper>);
+};
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_ADD_EMPLOYEE_ASSIGN_INFO_DTO_
+#endif // !_ASSIGN_INFO_DTO_
