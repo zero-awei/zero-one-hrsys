@@ -43,7 +43,7 @@ SamplePageDTO::Wrapper SampleService::listAll(const SampleQuery::Wrapper& query)
 	for (SampleDO sub : result)
 	{
 		auto dto = SampleDTO::createShared();
-// 		dto->id = sub.getId();
+ 		dto->id = sub.getId();
 // 		dto->name = sub.getName();
 // 		dto->sex = sub.getSex();
 // 		dto->age = sub.getAge();
@@ -71,7 +71,7 @@ bool SampleService::updateData(const SampleDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	SampleDO data;
-// 	data.setId(dto->id.getValue(0));
+//data.setId(dto->id.getValue(0));
 // 	data.setName(dto->name.getValue(""));
 // 	data.setSex(dto->sex.getValue(""));
 // 	data.setAge(dto->age.getValue(1));

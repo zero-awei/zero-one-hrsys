@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "ArchiveController.h"
 
-// 分页查询数据
+// 进行分页查询数据
 ArchivePageJsonVO::Wrapper ArchiveController::execQueryArchive(const ArchiveQuery::Wrapper& query, const PayloadDTO& payload)
 {
     // 创建响应对象
