@@ -48,9 +48,7 @@ std::list<LaborDispatchDO> LaborDispatchMDAO::selectByCorporateName(const LaborD
 	stringstream sql;
 	sql << "SELECT * FROM t_pimlabourcampany";
 	LABORDISPATCH_TERAM_PARSE(query, sql);
-
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
-	
 	LaborDispatchMapper mapper;
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<LaborDispatchDO, LaborDispatchMapper>(sqlStr, mapper, params);

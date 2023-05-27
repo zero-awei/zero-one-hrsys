@@ -20,7 +20,7 @@
 #include "laborDispatchService-mg.h"
 #include "../../dao/laborDispatch/LaborDispatchDAO-mg.h"
 #include "domain/dto/LaborDispatch/LaborDispatchDTO.h"
-#include "domain/dto/LaborDispatch/LaborDispatchDTO-mg.h"
+//#include "domain/dto/LaborDispatch/LaborDispatchDTO-mg.h"
 
 LaborDispatchPageDTO::Wrapper LaborDispatchMService::ListAll(const LaborDispatchMQuery::Wrapper& query)
 {
@@ -58,7 +58,6 @@ LaborDispatchPageDTO::Wrapper LaborDispatchMService::ListAll(const LaborDispatch
 		dto->legalperson = sub.getLegalperson();
 		pages->addData(dto);
 	}
-
 	return pages;
 }
 
