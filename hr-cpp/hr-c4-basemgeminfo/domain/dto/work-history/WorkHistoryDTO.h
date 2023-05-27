@@ -9,16 +9,12 @@
 class WorkHistoryDTO : public oatpp::DTO
 {
 	DTO_INIT(WorkHistoryDTO, DTO);
-	// 更新时间
-	DTO_FIELD(String, update);
-	DTO_FIELD_INFO(update) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.update");
-	}
-	//员工id
-	DTO_FIELD(String, pimpersonid);
-	DTO_FIELD_INFO(pimpersonid) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.pimpersionid");
-	}
+	
+	////员工pimpersonid
+	//DTO_FIELD(String, pimpersonid);
+	//DTO_FIELD_INFO(pimpersonid) {
+	//info->description = ZH_WORDS_GETTER("workhistory.field.pimpersionid");
+	//}
 
 	// rzkssj: 任职开始时间
 	DTO_FIELD(String, rzkssj);
@@ -60,6 +56,11 @@ class WorkHistoryDTO : public oatpp::DTO
 	DTO_FIELD_INFO(enable) {
 		info->description = ZH_WORDS_GETTER("workhistory.field.enable");
 	}
+	/* 更新时间
+	DTO_FIELD(String, update);
+	DTO_FIELD_INFO(update) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.update");
+	}*/
 	
 };
 

@@ -7,14 +7,14 @@
 SqlParams params; \
 sql<<" WHERE 1=1"; \
 if (query->employeeid) { \
-	sql << " AND `PIMPERSONNAME`=?"; \
+	sql << " AND `EMPLOYEEID`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->employeeid.getValue("")); \
 }
 //统计职称的记录数
 uint64_t JobTitleInformationDAO::count(const JobTitleInformationPageQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM `bis_professoranalysis_t`  ";
+	sql << "SELECT COUNT(*) FROM `bis_professoranalysis_t`";
 	JOBTITLE_INFORMATION_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);

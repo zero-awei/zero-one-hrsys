@@ -11,14 +11,14 @@ public:
 	{
 		CertificateInformationDO data;
 	    
-		data.setYgbh(resultSet->getString(1));
-		data.setZgzsbh(resultSet->getString(2));
-		data.setPimvocationalname(resultSet->getString(3));
-		data.setZslx(resultSet->getString(4));
-		data.setZghqrq(resultSet->getString(5));
-		data.setZgsydw(resultSet->getString(6));
-		data.setFzyxq(resultSet->getString(7));
 		
+		data.setZgzsbh(resultSet->getString(1));
+		data.setPimvocationalname(resultSet->getString(2));
+		data.setZslx(resultSet->getString(3));
+		data.setZghqrq(resultSet->getString(4));
+		data.setZgsydw(resultSet->getString(5));
+		data.setFzyxq(resultSet->getString(6));
+		//data.setYgbh(resultSet->getString(7));
 		return data;
 	}
 };

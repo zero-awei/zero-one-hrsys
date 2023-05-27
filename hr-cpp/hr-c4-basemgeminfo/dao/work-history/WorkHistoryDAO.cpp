@@ -81,9 +81,11 @@ uint64_t WorkHistoryDAO::count(const WorkHistoryPageQuery::Wrapper& query)
 list<WorkHistoryDO> WorkHistoryDAO::selectDetail(const WorkHistoryQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "select rzkssj,rzjssj,ormorgname,ormorgsectorname,ormdutyname,ormpostname,cfplx,experience,enable from t_pimdistirbution ";
+	sql << "select rzkssj,rzjssj,ormorgname,ormorgsectorname,ormdutyname,ormpostname,cfplx,experience,enable from t_pimdistirbution WHERE `PIMPERSONID`=? AND `ORMORGNAME`=?";
 	SqlParams params;
+	SQLPARAMS_PUSH(params, "s", std::string, query->pimpersonid.getValue(""));
 	SQLPARAMS_PUSH(params, "s", std::string, query->ormorgname.getValue(""));
+	
 	WorkHistoryMapper mapper;
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<WorkHistoryDO, WorkHistoryMapper>(sqlStr, mapper, params);
@@ -91,6 +93,6 @@ list<WorkHistoryDO> WorkHistoryDAO::selectDetail(const WorkHistoryQuery::Wrapper
 
 int WorkHistoryDAO::update(const WorkHistoryDO& uObj)
 {
-	string sql = "UPDATE `t_pimdistirbution` SET `rzkssj`=?, `rzjssj`=?, `ormorgname`=? ,`ormdutyname`=? ,`ormpostname`=? ,`cfplx`=? ,`enable`=? WHERE `ormorgname`=?";
+	string sql = "UPDATE `t_pimdistirbution` SET `rzkssj`=?, `rzjssj`=?, `ormorgname`=? ,`ormdutyname`=? ,`ormpostname`=? ,`cfplx`=? ,`enable`=? WHERE `PIMPERSONID`=?";
 	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s", uObj.getRzkssj(), uObj.getRzjssj(), uObj.getOrmorgname(), uObj.getOrmdutyname(), uObj.getOrmpostname(), uObj.getCfplx(), uObj.getEnable());
 }

@@ -160,6 +160,9 @@ public: // 定义接口
 		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("workhistory.field.pimpersonid");
 		info->queryParams["pimpersonid"].addExample("default", String("6611212223"));
 		info->queryParams["pimpersonid"].required = false;
+		info->queryParams.add<String>("ormorgname").description = ZH_WORDS_GETTER("workhistory.field.ormorgname");
+		info->queryParams["ormorgname"].addExample("default", String("XXXX"));
+		info->queryParams["ormorgname"].required = false;
 
 
 	}
