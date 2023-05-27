@@ -28,8 +28,6 @@ Uint64JsonVO::Wrapper ArchiveController::execModifyArchive(const ArchiveDTO::Wra
 {
     // 创建响应对象
     auto vo = Uint64JsonVO::createShared();
-
-  
     // 响应结果
     vo->success(1);
     return vo;
