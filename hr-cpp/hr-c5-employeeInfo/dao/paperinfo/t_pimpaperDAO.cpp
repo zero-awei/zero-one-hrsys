@@ -39,8 +39,8 @@ list<t_pimpaperDO> t_pimpaperDAO::selectWithPage(const PaperQuery::Wrapper& quer
 	return sqlSession->executeQuery<t_pimpaperDO, t_pimpaperMapper>(sqlStr, mapper, params);
 }
 
-int t_pimpaperDAO::deleteById(uint64_t id)
+int t_pimpaperDAO::deleteById(string pimpaperid)
 {
 	string sql = "DELETE FROM `t_pimpaper` WHERE `PIMPAPERID`=?";
-	return sqlSession->executeUpdate(sql, "%ull", id);
+	return sqlSession->executeUpdate(sql, "%s", pimpaperid);
 }

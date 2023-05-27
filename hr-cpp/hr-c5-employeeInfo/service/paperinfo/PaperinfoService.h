@@ -18,7 +18,7 @@ public:
 	// 保存数据
 	uint64_t saveData(const PaperDTO::Wrapper& dto);
 	// 通过ID删除数据
-	bool removeData(uint64_t id);
+	bool removeData(string id);
 	// 查询数据ID
 	uint64_t selectPaperID(const PaperDTO::Wrapper& dto);
 };

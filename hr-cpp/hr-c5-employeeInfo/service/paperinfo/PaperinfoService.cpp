@@ -44,15 +44,8 @@ uint64_t PaperinfoService::saveData(const PaperDTO::Wrapper& dto)
 	return dao.insert(data);
 }
 
-bool PaperinfoService::removeData(uint64_t id)
+bool PaperinfoService::removeData(string pimpaperid)
 {
 	t_pimpaperDAO dao;
-	return dao.deleteById(id) == 1;
+	return dao.deleteById(pimpaperid) == 1;
 }
-
-//uint64_t PaperinfoService::selectPaperID(const PaperDTO::Wrapper& dto)
-//{
-//	uint64_t id;
-//
-//	return id;
-//}

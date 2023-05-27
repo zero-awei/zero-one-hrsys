@@ -19,7 +19,7 @@ public:
 	// 分页查询数据
 	list<t_pimpaperDO> selectWithPage(const PaperQuery::Wrapper& query);
 	// 通过ID删除数据
-	int deleteById(uint64_t id);
+	int deleteById(string pimpaperid);
 	// 通过DTO查询数据ID
 	uint64_t selectPaperID(const t_pimpaperDO& sdo);
 };

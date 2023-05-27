@@ -64,34 +64,38 @@ Uint64JsonVO::Wrapper PaperinfoController::execRemovePaperinfo(const PaperDTO::W
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
-	// 非空校验
-	if (!dto->fbsj || !dto->cbs || !dto->kwqs || !dto->fj
-		|| !dto->grzlwzzzdpm || !dto->kwmc || !dto->pimpapername)
-	{
+	if (!dto->pimpaperid) {
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	// 有效值校验
-	if (dto->fbsj->empty() || dto->cbs->empty() || dto->kwqs <= 0 ||
-		dto->fj->empty() || dto->grzlwzzzdpm <= 0 || dto->kwmc->empty() ||
-		dto->pimpapername->empty())
-	{
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-		return jvo;
+	List<String> ids = dto->pimpaperid;
+	String id = "";
+	for (auto p = ids->begin(); p != ids->end(); p++) {
+		id = *p;
+		if (id->empty()) {
+			jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+			return jvo;
+		}
 	}
 
 	// 定义一个Service
 	PaperinfoService service;
-	// 获取数据id
-	uint64_t id = service.selectPaperID(dto);
+	int cnt = 0;
 	// 执行数据删除
-	if (service.removeData(id)) {
-		jvo->success(UInt64(id));
+	for (auto p = ids->begin(); p != ids->end(); p++) {
+		id = *p;
+		if (service.removeData(id)) {
+			cnt++;
+		}
+	}
+
+	// 响应结果
+	if (cnt > 0) {
+		jvo->success(UInt64(cnt));
 	}
 	else
 	{
-		jvo->fail(UInt64(id));
+		jvo->fail(UInt64(cnt));
 	}
-	// 响应结果
 	return jvo;
 }
