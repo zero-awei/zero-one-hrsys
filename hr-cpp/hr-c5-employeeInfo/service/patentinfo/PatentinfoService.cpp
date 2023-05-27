@@ -53,20 +53,6 @@ PatentinfoDTO::Wrapper PatentinfoService::listAll(const PatentinfoQuery::Wrapper
 }
 
 
-// //保存数据
-//uint64_t SampleService::saveData(const SampleDTO::Wrapper& dto)
-//{
-//	// 组装DO数据
-//	SampleDO data;
-//	// 	data.setName(dto->name.getValue(""));
-//	// 	data.setSex(dto->sex.getValue(""));
-//	// 	data.setAge(dto->age.getValue(1));
-//	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Name, name, Sex, sex, Age, age)
-//		// 执行数据添加
-//		SampleDAO dao;
-//	return dao.insert(data);
-//}
-
 // 修改数据
 bool PatentinfoService::updateData(const PatentinfoDTO::Wrapper& dto)
 {
@@ -98,10 +84,3 @@ bool PatentinfoService::updateData(const PatentinfoDTO::Wrapper& dto)
 }
 
 
-
-// 通过ID删除数据
-//bool SampleService::removeData(uint64_t id)
-//{
-//	SampleDAO dao;
-//	return dao.deleteById(id) == 1;
-//}

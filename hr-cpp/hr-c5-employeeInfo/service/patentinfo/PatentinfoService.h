@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _SAMPLE_SERVICE_
-#define _SAMPLE_SERVICE_
+#ifndef _PATENTINFO_SERVICE_
+#define _PATENTINFO_SERVICE_
 #include <list>
 #include "domain/vo/patentinfo/PatentinfoVO.h"
 #include "domain/query/patentinfo/PatentinfoQuery.h"
