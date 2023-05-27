@@ -132,6 +132,7 @@ person_gosh:
   summary: 修改一条个人数据
  delete:
   summary: 删除一条个人数据
+
 retirement_gan:
  get:
   summary: 分页查询离退休列表
@@ -142,7 +143,6 @@ retirement_gan:
   summary: 删除离退休列表
  update:
   summary: 更新离退休列表
- 
  query:
   name: 员工姓名
   number: 员工编号
@@ -189,6 +189,7 @@ contract:
   export:
     rows: 导出数据条数
     sequence: 导出数据顺序
+
 jobtitle:
  field:
   employee_id: 员工编号
@@ -223,6 +224,7 @@ expense:
   summary: 导出费别
  update:
   summary: 更新费别
+
 reminder:
  name:
   contract_termination_reminder: 合同终止提醒

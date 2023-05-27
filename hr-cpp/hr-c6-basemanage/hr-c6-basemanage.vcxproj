@@ -216,9 +216,11 @@
     <ClInclude Include="domain\do\expenseLedger\ExpenseLedgerDO.h" />
     <ClInclude Include="domain\do\ExpenseLedge\ExpenseLedge.h" />
     <ClInclude Include="domain\do\laborDispatch\LaborDispatchDO.h" />
+    <ClInclude Include="domain\dto\ExpenseLedger\ExpenseLedgerDTO.h" />
     <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
     <ClInclude Include="domain\dto\JobTitleInfo\JobTitleInfoDTO.h" />
     <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO-mg.h" />
+    <ClInclude Include="domain\query\ExpenseLedger\ExpenseLedgerQuery.h" />
     <ClInclude Include="domain\query\LaborDispatch\LaborDispatchQuery-mg.h" />
     <ClInclude Include="domain\query\RetirementQuery\RetirementQuery.h" />
     <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h" />

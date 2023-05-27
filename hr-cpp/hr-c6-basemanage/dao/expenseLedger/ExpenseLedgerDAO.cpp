@@ -101,3 +101,4 @@ uint64_t ExpenseLedgerDAO::insert(const ExpenseLedgerDO& ido)
 	string sql = "INSERT INTO `t_pimexpaccount` (`PIMEXPACCOUNTNAME`, `PIMEXPACCOUNTID`, `UPDATEMAN`, `CREATEDATE`, `CREATEMAN`, `UPDATEDATE`, `FYLB`, `FYJE`, `FFRS`, `FFSJ`, `FFYBZ`, `BZ`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 	return sqlSession->executeInsert(sql,"%s%s%s%s%s%s%s%d%i%s%s%s",ido.getName(),ido.getId(),ido.getUpdateman(),ido.getCreatedate(),ido.getCreateman(),ido.getUpdatedate(),ido.getFylb(),ido.getFyje(),ido.getFfrs(),ido.getFfsj(),ido.getFybz(),ido.getBz());
 }
+

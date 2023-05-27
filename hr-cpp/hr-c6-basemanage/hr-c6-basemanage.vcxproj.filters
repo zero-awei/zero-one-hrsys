@@ -80,6 +80,8 @@
     <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgerVO.h" />
     <ClInclude Include="domain\vo\LaborDispatch\LaborDispatchJsonVO-mg.h" />
     <ClInclude Include="domain\do\expenseLedger\ExpenseLedgerDO.h" />
+    <ClInclude Include="domain\dto\ExpenseLedger\ExpenseLedgerDTO.h" />
+    <ClInclude Include="domain\query\ExpenseLedger\ExpenseLedgerQuery.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />

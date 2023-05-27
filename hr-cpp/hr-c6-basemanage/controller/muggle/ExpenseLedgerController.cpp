@@ -47,13 +47,8 @@ StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger(const Expen
 	}
 
 	ExpenseLedgerService service;
-	if (service.saveData(dto)) {
-		jvo->success(dto->pimexpaccountname);
-	}
-	else
-	{
-		jvo->fail(dto->pimexpaccountname);
-	}
+	service.saveData(dto);
+	jvo->success(dto->pimexpaccountname);
 	return jvo;
 }
 

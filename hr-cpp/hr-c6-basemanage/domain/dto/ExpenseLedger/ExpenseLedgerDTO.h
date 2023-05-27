@@ -98,4 +98,6 @@ class ExpenseLedgerPageDTO : public PageDTO< ExpenseLedgerDTO::Wrapper>
 {
 	DTO_INIT(ExpenseLedgerPageDTO, PageDTO< ExpenseLedgerDTO::Wrapper>);
 };
+
+#include OATPP_CODEGEN_END(DTO)
 #endif
