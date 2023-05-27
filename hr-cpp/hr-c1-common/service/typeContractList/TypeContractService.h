@@ -1,8 +1,9 @@
 #pragma once
 /*
  Copyright Zero One Star. All rights reserved.
+
  @Author: Andrew211vibe
- @Date: 2023/05/27 7:25:35
+ @Date: 2023/05/26 21:48:28
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,29 +17,19 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _JOBSETSERVICE_H_
-#define _JOBSETSERVICE_H_
+#ifndef _TYPECONTRACTSERVICE_H_
+#define _TYPECONTRACTSERVICE_H_
 
-#include "domain/vo/jobSet/ImportJobVO.h"
-#include "domain/dto/jobSet/ImportJobDTO.h"
-#include "domain/dto/addJob/AddJobDTO.h"
+#include "domain/dto/pullList/PullListDTO.h"
 
 /**
- * 项目标签service层实现
+ * 合同类型下拉列表service实现
+ * 负责人：Andrew
  */
-class JobSetService
+class TypeContractService
 {
 public:
-	/**
-	 * 导入项目标签（批量新增）
-	 * 负责人：Andrew
-	 */
-	ImportJobVO::Wrapper addMultiJob(const ImportJobDTO::Wrapper &dto, const PayloadDTO &payload);
-	/**
-	 * 新增项目标签
-	 * 负责人：Andrew
-	 */
-	std::string saveJob(const AddJobDTO::Wrapper& dto, const PayloadDTO& payload);
+	PullListDTO::Wrapper listAll();
 };
 
-#endif // !_JOBSETSERVICE_H_
+#endif // !_TYPECONTRACTSERVICE_H_

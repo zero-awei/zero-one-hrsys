@@ -68,6 +68,18 @@ jobSet:
   sheetName: 数据表名
   file: 待导入文件
   id: 新增id
+ add:
+  controller: 新增岗位
+  postName: 岗位集名称
+  postId: 岗位集标识
+  orgId: 组织标识
+  jobType: 岗位类型
+  jobClass: 岗位分类
+  isTemp: 是否临时数据
+  isConfidential: 是否保密岗
+  postNature: 岗位性质
+  isKeyPostion: 是否关键岗位
+  sign: 启用标识
 
 #项目标签-导出岗位标签
 projTag:

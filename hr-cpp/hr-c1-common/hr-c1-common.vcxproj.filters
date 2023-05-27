@@ -30,6 +30,8 @@
     <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
     <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
     <ClCompile Include="controller\contractStatus\ContractStatusController.cpp" />
+    <ClCompile Include="service\typeContractList\TypeContractService.cpp" />
+    <ClCompile Include="dao\typeContract\TypeContractDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -98,6 +100,9 @@
     <ClInclude Include="dao\armyLevelType\ArmyLevelMapper.h" />
     <ClInclude Include="domain\do\fileStatus\FileStatusDO.h" />
     <ClInclude Include="domain\do\fileReservation\FileReservationDO.h" />
+    <ClInclude Include="service\typeContractList\TypeContractService.h" />
+    <ClInclude Include="dao\typeContract\TypeContractDAO.h" />
+    <ClInclude Include="dao\typeContract\TypeContractMapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

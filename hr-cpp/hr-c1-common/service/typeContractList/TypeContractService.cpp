@@ -2,7 +2,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: Andrew211vibe
- @Date: 2023/05/23 19:26:11
+ @Date: 2023/05/26 21:48:28
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,36 +17,35 @@
  limitations under the License.
 */
 #include "stdafx.h"
-#include "Macros.h"
-#include "ArmyLevelTypeService.h"
+#include "TypeContractService.h"
 #include "uselib/pullListRedis/UseLibRedis.h"
-#include "dao/armyLevelType/ArmyLevelTypeDAO.h"
+#include "dao/typeContract/TypeContractDAO.h"
 
-PullListDTO::Wrapper ArmyLevelTypeService::listAll()
+PullListDTO::Wrapper TypeContractService::listAll()
 {
 	// 构建返回对象
 	auto dto = PullListDTO::createShared();
 
-	// TODO: 查询缓存
-	// 从缓存中获取军转列表
-	auto hash = UseLibRedis::queryRedis("army-level-type");
+	// TODO: 从缓存中查询下拉列表
+	auto hash = UseLibRedis::queryRedis("type-contract");
 
-	// 如果为空则调用dao查询数据库
+	// 如果缓存中没有数据
 	if (hash.empty())
 	{
-		// TODO: 调用dao查询数据库
-		ArmyLevelTypeDAO dao;
+		// TODO: 调用DAO查询数据库
+		TypeContractDAO dao;
 		auto res = dao.selectAll();
-		
-		// 组装成DTO返回
+
+		// 将DO转换为DTO，组装哈希表
 		for (auto item : res)
 		{
-			string code = item.getCode();
-			dto->pullList->push_back(ItemDTO::createShared(atoi(code.c_str()), item.getArmyLevelType()));
+			string code = item.getTypeCode();
+			dto->pullList->push_back(ItemDTO::createShared(atoi(code.c_str()), item.getTypeContract()));
+			hash[code] = item.getTypeContract();
 		}
 
 		// TODO: 将获取的数据更新到Redis缓存
-		UseLibRedis::updateRedis("army-level-type", dao.getMapList());
+		UseLibRedis::updateRedis("type-contract", hash);
 	}
 	// 否则组装缓存数据到DTO
 	else
@@ -57,6 +56,6 @@ PullListDTO::Wrapper ArmyLevelTypeService::listAll()
 			dto->pullList->push_back(ItemDTO::createShared(code, item.second));
 		}
 	}
+
 	return dto;
 }
-

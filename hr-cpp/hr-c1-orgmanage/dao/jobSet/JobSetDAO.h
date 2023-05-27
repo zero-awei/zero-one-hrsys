@@ -1,9 +1,9 @@
 #pragma once
 /*
  Copyright Zero One Star. All rights reserved.
-
- @Author: yuanxiang
- @Date: 2023/05/27 10:29:17
+ @Author: Andrew211vibe
+ @Date: 2023/05/27 8:24:55
+>>>>>>> fd9c62c9f45a44f72160877d460eb61f63de0604
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -19,20 +19,26 @@
 */
 #ifndef _JOBSETDAO_H_
 #define _JOBSETDAO_H_
+
 #include "BaseDAO.h"
 #include "domain/do/postSet/PostDetailDO.h"
+
 /**
- * 岗位设置DAO
+ * 岗位设置DAO数据持久化层
  */
 class JobSetDAO : public BaseDAO
 {
 public:
 	/**
-	 * 插入多条数据
-	 * 返回自增id列表
-	 * 负责人：远翔
+	 * 导入岗位设置（批量新增岗位设置）
+	 * 负责人：Andrew
 	 */
-	list<string> insertMultiData(const list<PostDetailDO>& dataList);
+	std::list<std::string> insertMultiJob(const std::list<PostDetailDO> &data);
+	/**
+	 * 新增岗位设置
+	 * 负责人：Andrew
+	 */
+	bool insertJob(const PostDetailDO& data);
 };
 
 #endif // !_JOBSETDAO_H_

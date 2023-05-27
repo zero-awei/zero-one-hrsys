@@ -31,6 +31,7 @@
 #include "jobSet/postDeleteController/PostDeleteController.h"
 #include "jobSet/jobOutput/JobOutputController.h"
 #include "jobSet/jobUpdate/JobUpdateController.h"
+#include "jobSet/addJobController/AddJobController.h"
 // 项目标签
 #include "projTag/pageQueryProjTagList/PageQueryProjTagListController.h"
 #include "projTag/deleteProjTag/DeleteProjTagController.h"
@@ -39,9 +40,9 @@
 #include "projTag/addTagController/AddTagController.h"
 #include "projTag/modifyProjTagController/ModifyProjTagController.h"
 #include "itemLabel/ItemLabelController.h"
+#include "projTag/queryOrgList/QueryOrgListController.h"
 //编制查询
 #include "orgbz/PageQueryBzController.h"
-#include "projTag/queryOrgList/QueryOrgListController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -88,10 +89,11 @@ void Router::createSampleRouter()
 void Router::createJobSetRouter()
 {
 	/**
-	 * 导入岗位
+	 * 导入岗位&新增岗位
 	 * 负责人：Andrew
 	 */
 	ROUTER_SIMPLE_BIND(ImportJobController);
+	ROUTER_SIMPLE_BIND(AddJobController);
 	/**
 	 * 查询指定岗位详情&删除岗位
 	 * 负责人：米饭

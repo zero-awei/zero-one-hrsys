@@ -2,7 +2,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: Andrew211vibe
- @Date: 2023/05/20 15:29:33
+ @Date: 2023/05/27 10:04:04
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,31 +17,31 @@
  limitations under the License.
 */
 #include "stdafx.h"
-#include "ModifyProjTagController.h"
-#include "SimpleDateTimeFormat.h"
-#include "service/projTag/ProjTagService.h"
+#include "AddJobController.h"
+#include "service/jobSet/JobSetService.h"
 
-StringJsonVO::Wrapper ModifyProjTagController::execModifyTag(const ModifyTagDTO::Wrapper& dto, const PayloadDTO& payload)
+StringJsonVO::Wrapper AddJobController::execAddJob(const AddJobDTO::Wrapper& dto, const PayloadDTO& payload)
 {
-	// 创建返回参数
+	// 构建返回对象
 	auto jvo = StringJsonVO::createShared();
+
 	// 参数校验
-	if (!dto->id || dto->id->empty())
+	if (!dto->postId || dto->postId->empty())
 	{
-		jvo->init(String(-1), RS_PARAMS_INVALID);
+		jvo->init("", RS_PARAMS_INVALID);
 		return jvo;
 	}
 
-	// TODO: 调用service执行更新
-	ProjTagService service;
-	if (service.updateProjTag(dto, payload))
+	// TODO: 调用service
+	JobSetService service;
+	auto id = service.saveJob(dto, payload);
+	if (!id.empty())
 	{
-		jvo->success(dto->id);
+		jvo->init(id, RS_SUCCESS);
 	}
 	else
 	{
-		jvo->fail(dto->id);
+		jvo->init(id, RS_FAIL);
 	}
-
 	return jvo;
 }

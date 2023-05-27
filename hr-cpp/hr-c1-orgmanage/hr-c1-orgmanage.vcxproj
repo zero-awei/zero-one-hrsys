@@ -160,6 +160,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="controller\itemLabel\ItemLabelController.cpp" />
+    <ClCompile Include="controller\jobSet\addJobController\AddJobController.cpp" />
     <ClCompile Include="controller\jobSet\jobOutput\JobOutputController.cpp" />
     <ClCompile Include="controller\jobSet\jobUpdate\JobUpdateController.cpp" />
     <ClCompile Include="controller\orgbz\PageQueryBzController.cpp" />
@@ -194,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\itemLabel\ItemLabelController.h" />
+    <ClInclude Include="controller\jobSet\addJobController\AddJobController.h" />
     <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
     <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
     <ClInclude Include="controller\orgbz\PageQueryBzController.h" />
@@ -220,6 +222,7 @@
     <ClInclude Include="domain\do\projTag\OrgListDO.h" />
     <ClInclude Include="domain\do\sector\SectorDO.h" />
     <ClInclude Include="domain\do\projTag\ProjTagDO.h" />
+    <ClInclude Include="domain\dto\addJob\AddJobDTO.h" />
     <ClInclude Include="domain\dto\itemLabel\ItemLabelDTO.h" />
     <ClInclude Include="domain\dto\jobDownload\JobDownloadDTO.h" />
     <ClInclude Include="domain\dto\jobUpdate\JobUpdateDTO.h" />

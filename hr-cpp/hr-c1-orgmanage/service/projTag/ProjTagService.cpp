@@ -20,6 +20,7 @@
 #include "ProjTagService.h"
 #include "domain/do/projTag/ProjTagDO.h"
 #include "dao/projTag/ProjTagDAO.h"
+#include "SimpleDateTimeFormat.h"
 
 uint64_t ProjTagService::saveData(const ProjTagDTO::Wrapper& dto)
 {
@@ -68,4 +69,16 @@ OrgListPageDTO::Wrapper ProjTagService::listOrgList(const OrgListQuery::Wrapper&
 		dto->addData(to_dto);
 	}
 	return dto;
+}
+
+bool ProjTagService::updateProjTag(const ModifyTagDTO::Wrapper& dto, const PayloadDTO& payload)
+{
+	// 组装DO对象
+	ProjTagDO data;
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Id, id, OrgId, orgId, TagName, tagName);
+	data.setUpdater(payload.getUsername());
+	data.setUpdateTime(SimpleDateTimeFormat::format());
+	// TODO: 调用dao操作数据库
+	ProjTagDAO dao;
+	return dao.updateProjTag(data);
 }

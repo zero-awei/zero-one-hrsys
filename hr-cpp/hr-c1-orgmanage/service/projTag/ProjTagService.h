@@ -22,6 +22,7 @@
 #include "domain/dto/projTag/ProjTagDTO.h"
 #include "domain/dto/projTag/OrgListDTO.h"
 #include "domain/query/projTag/OrgListQuery.h"
+#include "domain/dto/projTag/ModifyTagDTO.h"
 
 /**
  * 项目标签Service
@@ -39,6 +40,11 @@ public:
 	 * 负责人：Andrew
 	 */
 	OrgListPageDTO::Wrapper listOrgList(const OrgListQuery::Wrapper &query);
+	/**
+	 * 修改项目标签
+	 * 负责人：Andrew
+	 */
+	bool updateProjTag(const ModifyTagDTO::Wrapper& dto, const PayloadDTO& payload);
 };
 
 #endif // !_PROJTAGSERVICE_H_

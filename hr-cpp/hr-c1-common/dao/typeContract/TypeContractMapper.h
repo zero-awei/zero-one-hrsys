@@ -1,8 +1,9 @@
 #pragma once
 /*
  Copyright Zero One Star. All rights reserved.
+
  @Author: Andrew211vibe
- @Date: 2023/05/27 7:25:35
+ @Date: 2023/05/26 22:54:52
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,29 +17,28 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _JOBSETSERVICE_H_
-#define _JOBSETSERVICE_H_
+#ifndef _TYPECONTRACTMAPPER_H_
+#define _TYPECONTRACTMAPPER_H_
 
-#include "domain/vo/jobSet/ImportJobVO.h"
-#include "domain/dto/jobSet/ImportJobDTO.h"
-#include "domain/dto/addJob/AddJobDTO.h"
+#include "Mapper.h"
+#include "domain/do/typeContract/TypeContractDO.h"
 
 /**
- * 项目标签service层实现
+ * 合同类型字段映射
+ * 负责人：Andrew
  */
-class JobSetService
+class TypeContractMapper : public Mapper<TypeContractDO>
 {
 public:
-	/**
-	 * 导入项目标签（批量新增）
-	 * 负责人：Andrew
-	 */
-	ImportJobVO::Wrapper addMultiJob(const ImportJobDTO::Wrapper &dto, const PayloadDTO &payload);
-	/**
-	 * 新增项目标签
-	 * 负责人：Andrew
-	 */
-	std::string saveJob(const AddJobDTO::Wrapper& dto, const PayloadDTO& payload);
+	TypeContractDO mapper(ResultSet* resultSet) const override
+	{
+		TypeContractDO data;
+
+		data.setTypeContract(resultSet->getString(1));
+		data.setTypeCode(resultSet->getString(2));
+
+		return data;
+	}
 };
 
-#endif // !_JOBSETSERVICE_H_
+#endif // !_TYPECONTRACTMAPPER_H_
