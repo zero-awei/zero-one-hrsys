@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: awei
- @Date: 2022/10/25 14:23:49
+ @Author: guyier
+ @Date: 2023/05/25 20:30:40
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,29 +17,29 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _SAMPLE_DAO_
-#define _SAMPLE_DAO_
+#ifndef _EMPLOYEE_INFORMATION_DAO_
+#define _EMPLOYEE_INFORMATION_DAO_
 #include "BaseDAO.h"
-#include "../../domain/do/sample/SampleDO.h"
-#include "../../domain/query/sample/SampleQuery.h"
+#include "domain/do/EmployeeInformationPage/EmployeeInformationPageDO.h"
+#include "domain/query/EmployeeInformationPageQuery/EmployeeInformationPageQuery.h"
 
-/**
- * 示例表数据库操作实现
- */
-class SampleDAO : public BaseDAO
+class EmployeeInformationDAO:public BaseDAO
 {
 public:
 	// 统计数据条数
-	uint64_t count(const SampleQuery::Wrapper& query);
+	uint64_t count(const EmployeeInformationPageQuery::Wrapper& query);
 	// 分页查询数据
-	list<SampleDO> selectWithPage(const SampleQuery::Wrapper& query);
+	list<EmployeeInformationPageDO> selectWithPage(const EmployeeInformationPageQuery::Wrapper& query);
 	// 通过姓名查询数据
-	list<SampleDO> selectByName(const string& name);
+	list<EmployeeInformationPageDO> selectByName(const string& name);
+
 	// 插入数据
-	uint64_t insert(const SampleDO& iObj);
+	uint64_t insert(const EmployeeInformationPageDO& iObj);
 	// 修改数据
-	int update(const SampleDO& uObj);
+	int update(const EmployeeInformationPageDO& uObj);
 	// 通过ID删除数 据
 	int deleteById(uint64_t id);
+
 };
-#endif // !_SAMPLE_DAO_
+
+#endif // !_EMPLOYEE_INFORMATION_DAO_

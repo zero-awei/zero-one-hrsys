@@ -18,18 +18,18 @@ class EmployeeInformationDTO : public oatpp::DTO
 	DTO_FIELD_INFO(name) {
 		info->description = ZH_WORDS_GETTER("employee.field.name");
 	}
-	// 性别
-	DTO_FIELD(String, sex);
-	DTO_FIELD_INFO(sex) {
-		info->description = ZH_WORDS_GETTER("employee.field.sex");
-	}
+	//// 性别
+	//DTO_FIELD(String, sex);
+	//DTO_FIELD_INFO(sex) {
+	//	info->description = ZH_WORDS_GETTER("employee.field.sex");
+	//}
 	// 年龄
 	DTO_FIELD(UInt32, age);
 	DTO_FIELD_INFO(age) {
 		info->description = ZH_WORDS_GETTER("employee.field.age");
 	}
 	//编号
-	DTO_FIELD(UInt64, id);
+	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("employee.field.id");
 	}
@@ -59,9 +59,9 @@ class EmployeeInformationDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("employee.field.idMum");
 	}
 	//出生日期
-	DTO_FIELD(String, bitrhday);
-	DTO_FIELD_INFO(bitrhday) {
-		info->description = ZH_WORDS_GETTER("employee.field.bitrhday");
+	DTO_FIELD(String, birthday);
+	DTO_FIELD_INFO(birthday) {
+		info->description = ZH_WORDS_GETTER("employee.field.birthday");
 	}
 	//手机号码
 	DTO_FIELD(String, phone);
