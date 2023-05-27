@@ -59,4 +59,28 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         user.setRegistTime(now);
         return baseMapper.insert(user)>=1;
     }
+
+    @Override
+    public Boolean removeUser(String id) {
+        return baseMapper.deleteById(id)>=1;
+    }
+
+    @Override
+    public Boolean updateUser(UserDTO dto) {
+        LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(User::getId,dto.getId());
+        User user = new User();
+        BeanUtil.copyProperties(dto,user);
+        return baseMapper.update(user,wrapper)>=1;
+    }
+
+    @Override
+    public Boolean updateStatus(String id) {
+        User user = baseMapper.selectById(id);
+        Integer status = user.getIsEnable();
+        status=(status+1)%2;
+        user.setIsEnable(status);
+        return baseMapper.updateById(user)>=1;
+    }
+
 }

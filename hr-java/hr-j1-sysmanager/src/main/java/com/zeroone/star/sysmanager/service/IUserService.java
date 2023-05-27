@@ -22,4 +22,11 @@ public interface IUserService extends IService<User> {
     PageDTO<UserDTO> selectUser(UserQuery condition);
 
     Boolean saveUser(UserDTO dto);
+
+    Boolean removeUser(String id);
+
+
+    Boolean updateUser(UserDTO dto);
+
+    Boolean updateStatus(String id);
 }

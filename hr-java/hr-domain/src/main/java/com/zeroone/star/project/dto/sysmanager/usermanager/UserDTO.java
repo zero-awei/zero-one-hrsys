@@ -30,6 +30,7 @@ public class UserDTO {
     @ApiModelProperty(value = "注册时间", example = "2023-11-12")
     private Date registTime;
 
+    @Email(message = "The mailbox format is incorrect")
     @ApiModelProperty(value = "电子邮件", example = "2132123113@qq.com")
     private String mail;
 
