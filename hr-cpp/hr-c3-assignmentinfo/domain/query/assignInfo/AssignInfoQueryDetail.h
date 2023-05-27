@@ -19,13 +19,13 @@
 */
 #ifndef _Assign_Info_Query_Detail_DTO_
 #define _Assign_Info_Query_Detail_DTO_
-#include "domain/dto/assignInfo/AddAssignInfoDTO.h"
+#include "domain/dto/assignInfo/AssignInfoDTO.h"
 
 
 /**
  * 查询指定员工详细分配信息
  */
-class AssignInfoQueryDetail : public  AddAssignInfoDTO
+class AssignInfoQueryDetail : public  AssignInfoDTO
 {
 
 };

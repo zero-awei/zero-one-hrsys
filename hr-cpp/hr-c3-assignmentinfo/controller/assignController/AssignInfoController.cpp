@@ -19,61 +19,76 @@
 */
 #include "stdafx.h"
 #include "AssignInfoController.h"
-#include "../../service/assignInfo/AssignInfoQueryService.h"
-Uint64JsonVO::Wrapper AssignInfoController::execAddAssignInfo(const AddAssignInfoDTO::Wrapper& dto)
+#include "../../service/assignInfo/AssignInfoService.h"
+
+bool isNum(string str1) {
+	for (auto i : str1) {
+		if (i < 48 || i > 57) {
+			return false;
+		}
+	}
+	return true;
+}
+StringJsonVO::Wrapper AssignInfoController::execAddAssignInfo(const AssignInfoDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
-	auto jvo = Uint64JsonVO::createShared();
+	auto jvo = StringJsonVO::createShared();
 	// 参数校验
 	// 非空校验
-	//if (!dto->id || !dto->assign || !dto->organize || !dto->depart || !dto->job || !dto->post || !dto->start_time || !dto->end_time)
-	//{
-	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-	//	return jvo;
-	//}
-	//// 有效值校验
-	//if (dto->id->empty())
-	//{
-	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-	//	return jvo;
-	//}
+	if (!dto->id || !dto->assign || !dto->organize || !dto->depart || !dto->job || !dto->post || !dto->startTime || !dto->endTime)
+	{
+		jvo->init(String(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	// 有效值校验
+	if (dto->id->empty() && !isNum(dto->id))
+	{
+		jvo->init(String(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
 
-	//// 定义一个Service
-	//AddAssignInfoService service;
-	//// 执行数据新增
-	//uint64_t id = service.saveData(dto);
-	//if (id > 0) {
-	//	jvo->success(UInt64(id));
-	//}
-	//else
-	//{
-	//	jvo->fail(UInt64(id));
-	//}
+	// 定义一个Service
+	AssignInfoService service;
+	// 执行数据新增
+	uint64_t id = service.saveData(dto);
+	if (id > 0) {
+		jvo->success(String(id));
+	}
+	else
+	{
+		jvo->fail(String(id));
+	}
 	//响应结果
 	return jvo;
 }
 
-Uint64JsonVO::Wrapper AssignInfoController::execDeleteAssignInfo(const DeleteAssignInfoDTO::Wrapper& dto)
+StringJsonVO::Wrapper AssignInfoController::execDeleteAssignInfo(const AssignInfoDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
-	auto jvo = Uint64JsonVO::createShared();
+	auto jvo = StringJsonVO::createShared();
 	//// 参数校验
-	//if (!dto->id || dto->id <= 0)
-	//{
-	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-	//	return jvo;
-	//}
-	//// 定义一个Service
-	//SampleService service;
-	//// 执行数据删除
-	//if (service.removeData(dto->id.getValue(0))) {
-	//	jvo->success(dto->id);
-	//}
-	//else
-	//{
-	//	jvo->fail(dto->id);
-	//}
-	//// 响应结果
+	if (!dto->id)
+	{
+		jvo->init(String(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	// 有效值校验
+	if (!isNum(dto->id))
+	{
+		jvo->init(String(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	// 定义一个Service
+	AssignInfoService service;
+	// 执行数据删除
+	if (service.removeData(dto->id.getValue(""))) {
+		jvo->success(dto->id);
+	}
+	else
+	{
+		jvo->fail(dto->id);
+	}
+	// 响应结果
 	return jvo;
 }
 
@@ -85,45 +100,51 @@ Uint64JsonVO::Wrapper AssignInfoController::execDeleteAssignInfo(const DeleteAss
 //	return jvo;     
 //}
 
-Uint64JsonVO::Wrapper AssignInfoController::execModifyAssignInfo(const ModifyAssignInfoDTO::Wrapper& dto)
+StringJsonVO::Wrapper AssignInfoController::execModifyAssignInfo(const AssignInfoDTO::Wrapper& dto)
 {
 	//// 定义返回数据对象
-	auto jvo = Uint64JsonVO::createShared();
+	auto jvo = StringJsonVO::createShared();
 	//// 参数校验
-	//if (!dto->id || dto->id <= 0)
-	//{
-	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-	//	return jvo;
-	//}
-	//// 定义一个Service
-	//SampleService service;
-	//// 执行数据修改
-	//if (service.updateData(dto)) {
-	//	jvo->success(dto->id);
-	//}
-	//else
-	//{
-	//	jvo->fail(dto->id);
-	//}
-	//// 响应结果
+	if (!dto->id)
+	{
+		jvo->init(String(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	// 有效值校验
+	if (!isNum(dto->id))
+	{
+		jvo->init(String(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	// 定义一个Service
+	AssignInfoService service;
+	// 执行数据修改
+	if (service.updateData(dto)) {
+		jvo->success(dto->id);
+	}
+	else
+	{
+		jvo->fail(dto->id);
+	}
+	// 响应结果
 	return jvo;
 }
 
-AssignInfoQueryJsonVO::Wrapper AssignInfoController::execAssignQuery(const AssignInfoQuery::Wrapper& query, const PayloadDTO& payload)
+AssignInfoPageJsonVO::Wrapper AssignInfoController::execAssignQuery(const AssignInfoQuery::Wrapper& query)
 {
 	// 定义一个Service
-	AssignInfoQueryService service;
+	AssignInfoService service;
 	//// 查询数据
 	auto result = service.listAll(query);
 	// 响应结果
-	auto jvo = AssignInfoQueryJsonVO::createShared();
+	auto jvo = AssignInfoPageJsonVO::createShared();
 	jvo->success(result);
 	return jvo;
 }
 
-AssignInfoQueryDetailJsonVO::Wrapper AssignInfoController::execAssignQueryDetail(const AssignInfoQueryDetail::Wrapper& dto, const PayloadDTO& payload)
+AssignInfoJsonVO::Wrapper AssignInfoController::execAssignQueryDetail(const AssignInfoQueryDetail::Wrapper& dto, const PayloadDTO& payload)
 {
 	// 定义返回数据对象
-	auto jvo = AssignInfoQueryDetailJsonVO::createShared();
+	auto jvo = AssignInfoJsonVO::createShared();
 	return jvo;
 }

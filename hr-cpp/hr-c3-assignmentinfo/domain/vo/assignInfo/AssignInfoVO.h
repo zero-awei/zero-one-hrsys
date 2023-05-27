@@ -17,11 +17,11 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _Assign_Info_Query_VO_
-#define _Assign_Info_Query_VO_
+#ifndef _Add_Assign_VO_
+#define _Add_Assign_VO_
 
 #include "../../GlobalInclude.h"
-#include "../../query/assignInfo/AssignInfoQuery.h"
+#include "../../dto/assignInfo/AssignInfoDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
@@ -29,10 +29,16 @@
 /**
  * 示例分页显示JsonVO，用于响应给客户端的Json对象
  */
-class AssignInfoQueryJsonVO : public JsonVO<AssignInfoQuery::Wrapper> {
-	DTO_INIT(AssignInfoQueryJsonVO, JsonVO<AssignInfoQuery::Wrapper>);
+class AssignInfoJsonVO : public JsonVO<AssignInfoDTO::Wrapper> {
+	DTO_INIT(AssignInfoJsonVO, JsonVO<AssignInfoDTO::Wrapper>);
 };
 
+/**
+ * 示例分页显示JsonVO，用于响应给客户端的Json对象
+ */
+class AssignInfoPageJsonVO : public JsonVO<AssignInfoPageDTO::Wrapper> {
+	DTO_INIT(AssignInfoPageJsonVO, JsonVO<AssignInfoPageDTO::Wrapper>);
+};
 #include OATPP_CODEGEN_END(DTO)
 
-#endif // !_Assign_Info_Query_VO_
+#endif // !Add_Assign_VO_
