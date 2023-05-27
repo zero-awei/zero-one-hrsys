@@ -19,7 +19,7 @@ import java.util.List;
 @Mapper
 public interface BisProfessoranalysisMapper extends BaseMapper<BisProfessoranalysis> {
 
-    @Select("SELECT COUNT(a.ORDERVALUE),a.TITLEGRADENAME FROM bis_titlegrade_t a INNER JOIN bis_professoranalysis_t b on a.ORDERVALUE = b.PROFESSOR_GRADES GROUP BY b.PROFESSOR_GRADES;")
+    @Select("SELECT COUNT(a.ORDERVALUE) AS 'count',a.TITLEGRADENAME AS 'zcdj' FROM bis_titlegrade_t a INNER JOIN bis_professoranalysis_t b on a.ORDERVALUE = b.PROFESSOR_GRADES GROUP BY a.TITLEGRADENAME;")
     List<PimTitleDTO> selectRank();
 
 }

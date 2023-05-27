@@ -37,7 +37,7 @@ public class DashboardController implements DashboardApis, OrgDistributeApis {
     @GetMapping("pim-output-yd")
     @Override
     public JsonVO<List<PimOutputDTO>> queryByMonth() {
-        return JsonVO.success(iPimoutputService.listPimOutput());
+        return JsonVO.success(iPimoutputService.listYd());
     }
 
     @ApiOperation(value = "获取机关和项目人员")

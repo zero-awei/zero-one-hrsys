@@ -15,5 +15,5 @@ import java.util.List;
  * @since 2023-05-23
  */
 public interface IPimoutputService extends IService<Pimoutput> {
-    List<PimOutputDTO> listPimOutput();
+    List<PimOutputDTO> listYd();
 }
