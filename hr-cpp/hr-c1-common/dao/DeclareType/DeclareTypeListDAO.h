@@ -10,7 +10,9 @@
 class DeclareTypeListDAO
 {
 public:
+	//创建申报下拉列表
 	list<DeclareTypeDO> getDeclareTypeList();
+
 };
 
 #endif // !_DECLARE_TYPE_LIST_DAO_

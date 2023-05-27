@@ -99,5 +99,7 @@
     <ClInclude Include="uselib\pullListRedis\UseLibRedis.h" />
     <ClInclude Include="dao\archivesLevel\ArchivesLevelsDAO.h" />
     <ClInclude Include="dao\DeclareType\DeclareTypeListDAO.h" />
+    <ClInclude Include="dao\DeclareType\DeclareTypeMapper.h" />
+    <ClInclude Include="dao\archivesLevel\ArchivesLevelMapper.h" />
   </ItemGroup>
 </Project>
