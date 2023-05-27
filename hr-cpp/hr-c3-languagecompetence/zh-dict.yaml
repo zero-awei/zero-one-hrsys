@@ -23,9 +23,13 @@ language:
  get:
   summarys: 分页查询语言数据
   summary: 查询一条语言数据
+  downloadurl: 下载路径
  post:
   summary: 新增一条语言数据
   file: 上传文件
+  fileType: 文件类型
+  sheetName: 文件名
+  path: 文件路径
  put:
   summary: 修改一条语言数据
  delete:

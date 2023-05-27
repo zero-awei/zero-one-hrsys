@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: jun
- @Date: 2023/05/21 1:24:39
+ @Date: 2023/05/25 0:20:35
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,30 +17,30 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _LANGUAGE_VO_
-#define _LANGUAGE_VO_
+#ifndef _DOWNLOADLANGUAGEDTO_H_
+#define _DOWNLOADLANGUAGEDTO_H_
 
 #include "../../GlobalInclude.h"
-#include "../../dto/Language/LanguageDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
-
 /**
- * 语言能力显示JsonVO，用于响应给客户端的Json对象
+ * 导出语言能力DTO
  * 负责人：君
  */
-class LanguageJsonVO : public JsonVO<LanguageDTO::Wrapper> {
-	DTO_INIT(LanguageJsonVO, JsonVO<LanguageDTO::Wrapper>);
-};
-
-/**
- * 语言能力分页显示JsonVO，用于响应给客户端的Json对象
- * 负责人：君
- */
-class LanguagePageJsonVO : public JsonVO<LanguagePageDTO::Wrapper> {
-	DTO_INIT(LanguagePageJsonVO, JsonVO<LanguagePageDTO::Wrapper>);
+class DownloadLanguageDTO : public oatpp::DTO
+{
+	DTO_INIT(DownloadLanguageDTO, DTO);
+	
+	DTO_FIELD(String, url);
+	DTO_FIELD_INFO(url) {
+		info->description = ZH_WORDS_GETTER("language.get.downloadurl");
+	}
+public:
+	DownloadLanguageDTO() {
+		String url = "github.com";
+	}
 };
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif // !_LANGUAGE_VO_
+#endif // !_DOWNLOADLANGUAGEDTO_H_

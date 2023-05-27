@@ -60,6 +60,18 @@
     <ClInclude Include="domain\query\EmployeeLanguareQuery\EmployeeLanguareQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\ImportLanguage\ImportLanguageController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\DownloadLanguage\DownloadLanguageDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\ExportLanguage\ExportLanguage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Language\LanguageDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -78,6 +90,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="service\Language\LanguageService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\ImportLanguage\ImportLanguageController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\ExportLanguage\ExportLanguage.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
