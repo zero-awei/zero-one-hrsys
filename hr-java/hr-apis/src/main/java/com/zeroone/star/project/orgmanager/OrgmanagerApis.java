@@ -1,14 +1,15 @@
 package com.zeroone.star.project.orgmanager;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.orgmanager.OrgsectorDTO;
-import com.zeroone.star.project.vo.orgmanager.DeptKqdzVO;
+import com.zeroone.star.project.dto.orgmanager.DeptKqdzDTO;
 import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
-import com.zeroone.star.project.query.orgmanager.KqdzQuery;
+import com.zeroone.star.project.query.orgmanager.DeptKqdzQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.Valid;
-import java.util.List;
 
 /**
  * 描述：部门信息接口
@@ -42,5 +43,5 @@ public interface OrgmanagerApis {
      * @Author: Rqs
      * @Date: 2023/5/19 23:56
      */
-    JsonVO<List<DeptKqdzVO>> queryBmKqdzById(KqdzQuery kqdzQuery);
+    JsonVO<Page<DeptKqdzDTO>> queryBmKqdzById(@Valid DeptKqdzQuery kqdzQuery);
 }

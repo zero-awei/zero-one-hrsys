@@ -1,12 +1,14 @@
 package com.zeroone.star.orgmanager.controller;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zeroone.star.orgmanager.service.IOrmService;
+import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.orgmanager.OrgsectorDTO;
-import com.zeroone.star.project.vo.orgmanager.DeptKqdzVO;
+import com.zeroone.star.project.dto.orgmanager.DeptKqdzDTO;
 import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
 import com.zeroone.star.project.orgmanager.OrgmanagerApis;
-import com.zeroone.star.project.query.orgmanager.KqdzQuery;
+import com.zeroone.star.project.query.orgmanager.DeptKqdzQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -64,9 +66,9 @@ public class OrmController implements OrgmanagerApis {
     @ApiOperation(value = "查询指定部门考勤地址列表（分页查询）")
     @GetMapping("query-bm-kqdz-by-id")
     @Override
-    public JsonVO<List<DeptKqdzVO>> queryBmKqdzById(KqdzQuery kqdzQuery) {
+    public JsonVO<Page<DeptKqdzDTO>> queryBmKqdzById(@Valid DeptKqdzQuery deptKqdzQuery) {
 
-        List<DeptKqdzVO> deptKqdz = ormorginfoService.listBmKqdz(kqdzQuery);
+        Page<DeptKqdzDTO> deptKqdz = ormorginfoService.listBmKqdz(deptKqdzQuery);
         return JsonVO.success(deptKqdz);
     }
 

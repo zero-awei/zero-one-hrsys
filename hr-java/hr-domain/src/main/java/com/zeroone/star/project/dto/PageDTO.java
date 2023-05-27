@@ -54,6 +54,7 @@ public class PageDTO<T> implements Serializable {
     @ApiModelProperty(value = "当前页数据列表")
     protected List<T> rows;
 
+
     /**
      * 静态构建方法，将分页插件的page对象转换成当前pageDto对象
      * @param page 分页插件的page对象

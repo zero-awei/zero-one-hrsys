@@ -1,12 +1,13 @@
 package com.zeroone.star.orgmanager.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zeroone.star.orgmanager.entity.Orgsector;
+import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.orgmanager.OrgsectorDTO;
-import com.zeroone.star.project.vo.orgmanager.DeptKqdzVO;
+import com.zeroone.star.project.dto.orgmanager.DeptKqdzDTO;
 import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
-import com.zeroone.star.project.query.orgmanager.KqdzQuery;
-import com.zeroone.star.project.vo.JsonVO;
+import com.zeroone.star.project.query.orgmanager.DeptKqdzQuery;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -28,5 +29,5 @@ public interface IOrmService extends IService<Orgsector> {
     String updateDeptById(ModifyDeptInfoDTO modifyDeptInfoDTO);
 
     @GetMapping("/list-bm-kqdz")
-    List<DeptKqdzVO> listBmKqdz(KqdzQuery kqdzQuery);
+    Page<DeptKqdzDTO> listBmKqdz(DeptKqdzQuery kqdzQuery);
 }

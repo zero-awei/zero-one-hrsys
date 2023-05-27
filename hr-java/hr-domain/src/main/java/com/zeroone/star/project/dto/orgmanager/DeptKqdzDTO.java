@@ -1,4 +1,4 @@
-package com.zeroone.star.project.vo.orgmanager;
+package com.zeroone.star.project.dto.orgmanager;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -12,7 +12,7 @@ import lombok.Data;
  */
 @ApiModel("查询指定部门考勤地址列表（分页查询）数据对象")
 @Data
-public class DeptKqdzVO {
+public class DeptKqdzDTO {
     @ApiModelProperty(value = "部门地址",example ="宜昌")
     private String ormbmkqdzname;
     @ApiModelProperty(value = "考勤范围",example ="西陵区")
