@@ -28,7 +28,7 @@ public:
 
 
 	// 增加一条数据
-	uint64_t saveData(const AddWorkHistoryDTO::Wrapper& dto);
+	uint64_t saveData(const AddWorkHistoryDTO::Wrapper& dto, const PayloadDTO& payload);
 
 
 	//删除数据(支持批量删除)

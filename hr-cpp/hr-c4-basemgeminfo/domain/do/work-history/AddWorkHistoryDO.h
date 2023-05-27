@@ -54,6 +54,18 @@ class AddWorkHistoryDO
 	//10人员信息id
 	CC_SYNTHESIZE(std::string, PIMPERSONID, pIMPERSONID);
 
+	//创建人
+	CC_SYNTHESIZE(std::string, CREATEMAN, cREATEMAN);
+
+	//更新人
+	CC_SYNTHESIZE(std::string, UPDATEMAN, uPDATEMAN);
+
+	//创建时间
+	CC_SYNTHESIZE(std::string, CREATEDATE, cREATEDATE);
+
+	//更新时间
+	CC_SYNTHESIZE(std::string, UPDATEDATE, uPDATEDATE);
+
 public:
 	AddWorkHistoryDO() = default;
 

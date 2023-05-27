@@ -26,7 +26,7 @@ WorkHistoryFindVO::Wrapper WorkHistoryController::execQueryPageWorkHistory(const
 	
 }
 
-Uint64JsonVO::Wrapper WorkHistoryController::execAddWorkHistory(const AddWorkHistoryDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper WorkHistoryController::execAddWorkHistory(const AddWorkHistoryDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto jvo = Uint64JsonVO::createShared();
 
@@ -46,7 +46,7 @@ Uint64JsonVO::Wrapper WorkHistoryController::execAddWorkHistory(const AddWorkHis
 	}
 
 	WorkHistoryService service;
-	uint64_t id  = service.saveData(dto);
+	uint64_t id  = service.saveData(dto, payload);
 
 	if (id > 0)
 	{

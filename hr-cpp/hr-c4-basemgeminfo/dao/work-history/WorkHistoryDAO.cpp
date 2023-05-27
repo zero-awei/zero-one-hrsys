@@ -83,11 +83,13 @@ uint64_t WorkHistoryDAO::insert(const AddWorkHistoryDO& iObj)
 {
 	std::string sql = "INSERT INTO `t_pimworkhistory` \
 		(`RZKSSJ`, `RZJSSJ`, `ORMORGNAME`, ORMORGSECTORNAME,\
-		ORMDUTYNAME, ORMPOSTNAME, CFPLX, EXPERIENCE,PIMWORKHISTORYID,PIMPERSONID ) VALUES \
-		(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%i%s%s", iObj.getrZKSSJ(), iObj.getrZJSSJ() \
+		ORMDUTYNAME, ORMPOSTNAME, CFPLX, EXPERIENCE,PIMWORKHISTORYID,\
+		PIMPERSONID,CREATEDATE,UPDATEDATE, CREATEMAN, UPDATEMAN) VALUES \
+		(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%i%s%s%s%s%s%s", iObj.getrZKSSJ(), iObj.getrZJSSJ() \
 		, iObj.getoRMORGNAME(), iObj.getoRMORGSECTORNAME(), iObj.getoRMDUTYNAME(), iObj.getoRMPOSTNAME(), \
-		iObj.getcFPLX(), iObj.geteXPERIENCE(), iObj.getpIMWORKHISTORYID(), iObj.getpIMPERSONID());
+		iObj.getcFPLX(), iObj.geteXPERIENCE(), iObj.getpIMWORKHISTORYID(), iObj.getpIMPERSONID(), \
+	    iObj.getcREATEDATE(), iObj.getuPDATEDATE(), iObj.getcREATEMAN(), iObj.getuPDATEMAN() );
 }
 
 int WorkHistoryDAO::deleteById(std::string pimpersonid, std::string pimworkhistoryid)
