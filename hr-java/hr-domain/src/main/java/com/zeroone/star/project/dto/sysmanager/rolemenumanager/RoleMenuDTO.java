@@ -10,6 +10,6 @@ public class RoleMenuDTO {
     @ApiModelProperty(value = "角色id", example = "1")
     private String roleId;
 
-    @ApiModelProperty(value = "菜单id，在数据库中存储菜单id列表用逗号分隔", example = "1")
+    @ApiModelProperty(value = "菜单id", example = "1")
     private String menuId;
 }

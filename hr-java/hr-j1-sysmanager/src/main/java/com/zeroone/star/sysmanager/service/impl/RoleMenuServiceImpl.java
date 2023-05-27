@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class RoleMenuServiceImpl implements RoleMenuService {
@@ -27,7 +28,7 @@ public class RoleMenuServiceImpl implements RoleMenuService {
     }
     @Override
     @Transactional
-    public String getMenuIdsByRoleId(String roleId){
+    public List<String> getMenuIdsByRoleId(String roleId){
         // 调用mapper层的getMenuIdsByRoleId方法来从角色的菜单列表中获取已有的menuId
         return roleMenuMapper.getMenuIdsByRoleId(roleId);
     }

@@ -10,7 +10,7 @@ public class RolePowerDTO {
     @ApiModelProperty(value = "角色id", example = "1")
     private String roleId;
 
-    @ApiModelProperty(value = "权限id，在数据库中存储权限id列表用逗号分隔", example = "1")
+    @ApiModelProperty(value = "权限id", example = "1")
     private String powerId;
 
 }

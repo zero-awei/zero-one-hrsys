@@ -3,6 +3,8 @@ package com.zeroone.star.sysmanager.mapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 @Mapper
 public interface RoleMenuMapper {
 
@@ -10,5 +12,5 @@ public interface RoleMenuMapper {
 
     int deleteMenu(@Param("roleId") String roleId, @Param("menuId") String menuId);
 
-    String getMenuIdsByRoleId(@Param("roleId") String roleId);
+    List<String> getMenuIdsByRoleId(@Param("roleId") String roleId);
 }
