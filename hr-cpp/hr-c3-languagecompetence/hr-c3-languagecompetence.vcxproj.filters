@@ -69,6 +69,9 @@
     <ClInclude Include="controller\ExportLanguage\ExportLanguage.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\do\Language\LanguageDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">

@@ -22,6 +22,7 @@
 #include <list>
 #include "domain/query/Language/LanguageQuery.h"
 #include "domain/dto/Language/LanguageDTO.h"
+#include "domain/query/LanguagePage/LanguagePageQuery.h"
 #include "domain/dto/ImportLanguage/ImportLanguageDTO.h"
 
 /**
@@ -32,12 +33,14 @@ class LanguageService
 {
 public:
 	// 分页查询所有数据
-	LanguagePageDTO::Wrapper listAll(const LanguageQuery::Wrapper& query);
+	LanguagePageDTO::Wrapper listAll(const LanguagePageQuery::Wrapper& query);
+	//查询单条数据
+	LanguageDTO::Wrapper queryOneData(const LanguageQuery::Wrapper& query);
 	// 保存数据
 	uint64_t saveData(const LanguageDTO::Wrapper& dto);
 	// 修改数据
 	bool updateData(const LanguageDTO::Wrapper& dto);
 	// 通过ID删除数据
-	bool removeData(uint64_t id);
+	bool removeData(string id, string languageType);
 };
 #endif // !_LANGUAGE_SERVICE_
