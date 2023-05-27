@@ -2,7 +2,7 @@
     <div class="hr-table-header">
         <div class="hr-table-header__title">{{tableTitle}}</div>
         <div class="hr-table-header__menus" v-for="tableOperation in tableOperations" :key="tableOperation.name">
-            <AddButton :tableTitle="tableTitle" :addTitle="addTitle" :addData="addData" :saveData="saveData" v-if="tableOperation.name==='新增'"/>
+            <AddButton :tableTitle="tableTitle" :addTitle="addTitle" :dataitem="dataitem" :saveData="saveData" v-if="tableOperation.name==='新增'"/>
         </div>
     </div>
 </template>
@@ -10,7 +10,7 @@
 <script setup>
 import AddButton from "./AddButton.vue"
 
-defineProps(['tableTitle','addTitle','tableOperations','addData','saveData'])
+defineProps(['tableTitle','addTitle','tableOperations','dataitem','saveData'])
 </script>
 
 <style lang="scss" scoped>

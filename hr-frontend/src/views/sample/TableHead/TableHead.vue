@@ -1,5 +1,5 @@
 <template>
-  <TableHead :tableTitle="tableTitle" :addTitle="addTitle" :tableOperations ="tableOperations" :addData="addData"/>
+  <TableHead :tableTitle="tableTitle" :addTitle="addTitle" :tableOperations ="tableOperations" :dataitem="dataitem"/>
 </template>
 
 <script setup>
@@ -20,7 +20,7 @@ const tableOperations = reactive([
   },  
 ])
 //新增表单所需栏目配置
-const addData = reactive([
+const dataitem = reactive([
   {
     label:'员工姓名',
     name:'name',

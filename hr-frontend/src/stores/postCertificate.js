@@ -2,15 +2,25 @@ import { defineStore } from 'pinia'
 
 export const usePostCertificateStore = defineStore('postCertificate',{
     state:()=>({
-        tableData:[
+        tableTitle:'岗位(技能)证书',
+        tableOperations:[{name:'新增'}],
+        xmlData:[
+            { id: 1, name: '排序号', prop: 'id' },
+            { id: 2, name: '岗位(技能)证书', prop: 'name' },
+        ],
+        tableData:null,
+        addTitle:'岗位(技能)证书',
+        dataitem:[
             {
-                id:1,
-                name:'施工员'
+              label:'排序号',
+              name:'id',
+              type:Number,
             },
-            // {
-            //     id:2,
-            //     name:'安全员'
-            // }
+            {
+              label:'岗位(技能)证书',
+              name:'name',
+              type:String,
+            }  
         ]
     }),
     actions:{
@@ -28,11 +38,6 @@ export const usePostCertificateStore = defineStore('postCertificate',{
         },
         addData(val){
             this.tableData.push(val)
-        }
-    },
-    getters:{
-        getTableData(){
-            return this.tableData
         }
     }
 })

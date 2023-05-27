@@ -32,8 +32,8 @@
           </span>
         </div>
         <div class="hr-dialog-body">
-          <el-form :model="formData" >
-            <div v-for="data in addData" :key="data.name">
+          <el-form v-model="formData">
+            <div v-for="data in dataitem" :key="data.name">
               <el-form-item  :label="data.label" :label-width="formLabelWidth" >
                     <el-select v-model="formData[data.name]" placeholder="请选择..." v-if="data.type===Array">
                       <el-option v-for="option in data.options" :key="option.id" :label="option.optionData" :value="option.optionData" />
@@ -63,7 +63,7 @@ const formLabelWidth = '140px'
 defineProps({
     tableTitle : String,
     addTitle : String,
-    addData : Array,
+    dataitem : Array,
     saveData: Function
   })
 
@@ -72,6 +72,7 @@ const formData = ref({})
 const addTableData = (saveData) =>{
   saveData(formData.value)
   dialogFormVisible.value = false
+  formData.value={}
 }
 </script>
 
