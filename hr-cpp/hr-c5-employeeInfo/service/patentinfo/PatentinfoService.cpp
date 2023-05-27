@@ -68,34 +68,37 @@ PatentinfoDTO::Wrapper PatentinfoService::listAll(const PatentinfoQuery::Wrapper
 //}
 
 // 修改数据
-//bool PatentinfoService::updateData(const PatentinfoDTO::Wrapper& dto)
-//{
-//	// 组装DO数据
-//	PatentinfoDO data;
-//	// 	data.setId(dto->id.getValue(0));
-//	// 	data.setName(dto->name.getValue(""));
-//	// 	data.setSex(dto->sex.getValue(""));
-//	// 	data.setAge(dto->age.getValue(1));
-//	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ZLH, ZLH,
-//										UPDATEDATE,UPDATEDATE,
-//										PIMPATENTID, PIMPATENTID,
-//										ZLHQSJ, ZLHQSJ,
-//										PIMPATENTNAME, PIMPATENTNAME,
-//										UPDATEMAN, UPDATEMAN,
-//										CREATEMAN, CREATEMAN,
-//										CREATEDATE, CREATEDATE,
-//										ZLPZGB, ZLPZGB,
-//										PIMPERSONID, PIMPERSONID,
-//										JLSS, JLSS,
-//										JLSPZT, JLSPZT,
-//										JLGLBH, JLGLBH,
-//										JLCZZ, JLCZZ,
-//										ENCLOLURE, ENCLOLURE,
-//										REASON, REASON)
-//		// 执行数据修改
-//		PatentinfoDAO dao;
-//	return dao.update(data) == 1;
-//}
+bool PatentinfoService::updateData(const PatentinfoDTO::Wrapper& dto)
+{
+	// 组装DO数据
+	PatentinfoDO data;
+	// 	data.setId(dto->id.getValue(0));
+	// 	data.setName(dto->name.getValue(""));
+	// 	data.setSex(dto->sex.getValue(""));
+	// 	data.setAge(dto->age.getValue(1));
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ZLH, zlh,
+										UPDATEDATE, updatedate,
+										PIMPATENTID, pimpatentid,
+										ZLHQSJ, zlhqsj,
+										PIMPATENTNAME, pimpatentname,
+										UPDATEMAN, updateman,
+										CREATEMAN, createman,
+										CREATEDATE, createdate,
+										ZLPZGB, zlpzgb,
+										PIMPERSONID, pimpersonid,
+										JLSS, jlss,
+										JLSPZT, jlspzt,
+										JLGLBH, jlglbh,
+										JLCZZ, jlczz,
+										ENCLOLURE, enclolure,
+										REASON, reason)
+		// 执行数据修改
+		PatentinfoDAO dao;
+	return dao.update(data) == 1;
+}
+
+
+
 // 通过ID删除数据
 //bool SampleService::removeData(uint64_t id)
 //{

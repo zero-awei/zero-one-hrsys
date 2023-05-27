@@ -31,9 +31,27 @@ std::list<PatentinfoDO> PatentinfoDAO::selectByPIMPATENTID(const PatentinfoQuery
 
 
 // ÐÞ¸ÄÊý¾Ý
-//int PatentinfoDAO::update(const PatentinfoDO& uObj)
-//{
-//	string sql = "UPDATE `patentinfo` SET `name`=?, `sex`=?, `age`=? WHERE `PIMPATENTID`=?";
-//	return sqlSession->executeUpdate(sql, "%s%s%i%ull", uObj.getName(), uObj.getSex(), uObj.getAge(), uObj.getId());
-//}
+int PatentinfoDAO::update(const PatentinfoDO& uObj)
+{
+	string sql = "UPDATE `t_pimpatent` SET `zlh`=?, `updatedate`=?, `zlhqsj`=?, `pimpatentname`=?,\
+											 `updateman`=?, `createman`=?, `createdate`=?, `zlpzgb`=?,\
+											 `pimpersonid`=?, `jlss`=?, `jlspzt`=?, `jlglbh`=?,\
+											 `jlczz`=?, `enclolure`=?, `reason`=? WHERE `PIMPATENTID`=?";
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s", 
+		uObj.getZLH(), 
+		uObj.getUPDATEDATE(), 
+		uObj.getZLHQSJ(), 
+		uObj.getPIMPATENTNAME(),
+		uObj.getUPDATEMAN(),
+		uObj.getCREATEMAN(),
+		uObj.getCREATEDATE(),
+		uObj.getZLPZGB(),
+		uObj.getPIMPERSONID(),
+		uObj.getJLSS(),
+		uObj.getJLSPZT(),
+		uObj.getJLGLBH(),
+		uObj.getJLCZZ(),
+		uObj.getENCLOLURE(),
+		uObj.getREASON() );
+}
 

@@ -19,7 +19,7 @@ public:
 	//list<PatentinfoDO> selectByPIMPATENTID(const string& PIMPATENTID);
 
 	// ÐÞ¸ÄÊý¾Ý
-	//int update(const PatentinfoDO& uObj);
+	int update(const PatentinfoDO& uObj);
 
 };
 #endif // !_SAMPLE_DAO_

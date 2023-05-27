@@ -19,7 +19,7 @@ public:
 	PatentinfoDTO::Wrapper listAll(const PatentinfoQuery::Wrapper& query);
 
 	// ÐÞ¸ÄÊý¾Ý
-	//bool updateData(const PatentinfoDTO::Wrapper& dto);
+	bool updateData(const PatentinfoDTO::Wrapper& dto);
 
 };
 

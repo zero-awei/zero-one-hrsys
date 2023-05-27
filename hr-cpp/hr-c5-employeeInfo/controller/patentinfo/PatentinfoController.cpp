@@ -33,6 +33,23 @@ Uint64JsonVO::Wrapper PatentinfoController::execModifyPatentinfo(const Patentinf
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
+	// 参数校验
+	if (!dto->pimpatentid)
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	// 定义一个Service
+	PatentinfoService service;
+	// 执行数据修改
+	/*if (service.updateData(dto)) {
+		jvo->success({});
+	}
+	else
+	{
+		jvo->fail({});
+	}*/
+	//jvo->success(dto->pimpatentid);
 	return jvo;
 }
 
