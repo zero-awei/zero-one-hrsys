@@ -51,6 +51,12 @@
     <ClInclude Include="controller\familysituation\FamilysituationController.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\do\Familysituation\FamilysituationDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\familysituation\FamilysituationService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -68,5 +74,8 @@
     <ClCompile Include="controller\familysituation\FamiylsituationController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="zh-dict.yaml" />
   </ItemGroup>
 </Project>
