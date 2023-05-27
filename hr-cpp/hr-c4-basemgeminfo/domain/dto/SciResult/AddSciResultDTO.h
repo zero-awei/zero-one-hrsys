@@ -19,8 +19,6 @@ class AddSciResultDTO : public oatpp::DTO
 
 		//科研成果名称
 		DTO_INIT_(String, PIMRESEARCHFINDINGSNAME, "sciresult.PIMRESEARCHFINDINGSNAME")
-
-
 		//附件
 		DTO_INIT_(String, FJ, "sciresult.FJ")
 

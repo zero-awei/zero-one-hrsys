@@ -18,28 +18,56 @@
 */
 #include "stdafx.h"
 #include "SciResultController.h"
+#include"../../service/SciResult/SciResultService.h"
 //查询
 SciResultPageJsonVO::Wrapper SciResultController::execQueryTest(const SciResultQuery::Wrapper& query)
 {
-	// 创建响应对象
 	auto vo = SciResultPageJsonVO::createShared();
-	// 创建分页对象
+
 	auto pdto = SciResultPageDTO::createShared();
-	pdto->addData(SciResultDTO::createShared("1", "zs"));
-	pdto->addData(SciResultDTO::createShared("2", "ls"));
-	// 响应结果
+	// 定义一个Service
+	SciResultService service;
+	// 查询数据
+
+	pdto = service.listAll(query);
+
 	vo->success(pdto);
+
 	return vo;
 }
 
 
 //新增
-Uint64JsonVO::Wrapper SciResultController::execAddSciResult(const AddSciResultDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper SciResultController::execAddSciResult(const Add2SciResultDTO::Wrapper& dto)
 {
-	// 定义返回数据对象
-	auto jvo1 = Uint64JsonVO::createShared();
-	jvo1->success(1);
-	return jvo1;
+	auto jvo = Uint64JsonVO::createShared();
+
+	if (!dto->PIMRESEARCHFINDINGSNAME || !dto->HQSJ || !dto->pimpersonid)
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+
+	//有效值效验
+	if (dto->PIMRESEARCHFINDINGSNAME->empty() || dto->HQSJ->empty()  || dto->pimpersonid->empty())
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	
+	// TODO : 处理附件上传
+
+	SciResultService service;
+	uint64_t id = service.saveData(dto);
+	if (id > 0) {
+		jvo->success(UInt64(id));
+	}
+	else
+	{
+		jvo->fail(UInt64(id));
+	}
+
+	return jvo;
 }
 
 
@@ -47,14 +75,50 @@ Uint64JsonVO::Wrapper SciResultController::execAddSciResult(const AddSciResultDT
 Uint64JsonVO::Wrapper SciResultController::execDelSciResult(const DelSciResultDTO::Wrapper& dto)
 {
 	auto jvo = Uint64JsonVO::createShared();
-	jvo->success(1);
+
+	int length = dto->deleteById->size();
+
+	if (length <= 0 || !dto->PIMPERSONID)
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	for (auto it = dto->deleteById->begin(); it != dto->deleteById->end(); ++it)
+	{
+		if (!(*it))
+		{
+			jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+			return jvo;
+		}
+	}
+
+     SciResultService service;
+	if (service.removeData(dto))
+	{
+		jvo->success(1);
+	}
+	else
+	{
+		jvo->fail(1);
+	}
 	return jvo;
 }
 //导入
-StringJsonVO::Wrapper SciResultController::execIntoSciResult(const String fileBody, const String suffix)
+StringJsonVO::Wrapper SciResultController::execIntoSciResult(const String& body, const String& suffix, const String& pimpersonid)
 {
 	auto jvo = StringJsonVO::createShared();
-				return jvo;
+	if (!pimpersonid || !body || !suffix)
+	{
+		jvo->fail("导入失败,文件为空");
+	}
+	if (pimpersonid->empty() || body->empty() || suffix->empty())
+	{
+		jvo->fail("导入失败,没有数据");
+	}
+	SciResultService service;
+	service.saveManyData(body, suffix, pimpersonid);
+	jvo->success("文件导入成功");
+	return jvo;
 }
 
 

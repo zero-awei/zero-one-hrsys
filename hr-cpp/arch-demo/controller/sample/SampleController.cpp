@@ -49,7 +49,6 @@ Uint64JsonVO::Wrapper SampleController::execAddSample(const SampleDTO::Wrapper& 
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-
 	// 定义一个Service
 	SampleService service;
 	// 执行数据新增

@@ -81,6 +81,8 @@ sciresult:
   REASON: 拒绝原因
   list<delSciResult>: 用来批量删除的
   listsciresult: 导入
+ file:
+  suffix: 文件名
 Into: 
  fileinto: 导入科研成果
 contract:

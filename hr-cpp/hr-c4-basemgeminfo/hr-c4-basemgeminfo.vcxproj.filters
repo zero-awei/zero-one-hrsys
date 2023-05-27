@@ -282,6 +282,21 @@
     <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresPageQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\do\SciResult\SciResultDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\sciresult\SciResultService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\SciResult\SciResultDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\SciResult\SciResultMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\SciResult\Add2SciResultDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -363,6 +378,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\Pimarmycadres\PimarmycadresController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\sciresult\SciResultService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\SciResult\SciResultDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
