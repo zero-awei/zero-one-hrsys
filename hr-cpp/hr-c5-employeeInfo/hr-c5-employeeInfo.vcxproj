@@ -200,7 +200,6 @@
     <ClInclude Include="domain\query\NotEmployeeInArchive\NotEmployeeInArchiveQuery.h" />
     <ClInclude Include="domain\query\paperinfo\PaperQuery.h" />
     <ClInclude Include="domain\query\patentinfo\PatentinfoQuery.h" />
-    <ClInclude Include="domain\query\pimpaper\pimpaperQuery.h" />
     <ClInclude Include="domain\vo\archivesCenter\ArchivesCenterVO.h" />
     <ClInclude Include="domain\vo\archives\ArchivesVO.h" />
     <ClInclude Include="domain\vo\BlacklistEmployee\BlacklistEmployeeVO.h" />

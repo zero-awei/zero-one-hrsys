@@ -84,7 +84,7 @@ public: // 定义接口
 
 private: // 定义接口执行函数
 	// 分页查询论文信息
-	PaperPageJsonVO::Wrapper execQueryPaperinfo(const PageQuery::Wrapper& query);
+	PaperPageJsonVO::Wrapper execQueryPaperinfo(const PaperQuery::Wrapper& query);
 
 	// 修改论文信息
 	Uint64JsonVO::Wrapper execModifyPaperinfo(const PaperDTO::Wrapper& dto);

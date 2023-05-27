@@ -14,13 +14,13 @@ class PaperinfoService
 {
 public:
 	// 分页查询所有数据
-	PaperDTO::Wrapper listAll(const PaperQuery::Wrapper& query);
+	PaperPageDTO::Wrapper listAll(const PaperQuery::Wrapper& query);
 	// 保存数据
 	uint64_t saveData(const PaperDTO::Wrapper& dto);
-	// 修改数据
-	bool updateData(const PaperDTO::Wrapper& dto);
 	// 通过ID删除数据
 	bool removeData(uint64_t id);
+	// 查询数据ID
+	uint64_t selectPaperID(const PaperDTO::Wrapper& dto);
 };
 
 #endif // !_SAMPLE_SERVICE_

@@ -16,7 +16,7 @@ public:
 		t_pimpaperDO data;
 		data.setFbsj(resultSet->getString(1));
 		data.setCbs(resultSet->getString(2));
-		data.setKwqs(resultSet->getString(3));
+		data.setKwqs(resultSet->getInt(3));
 		data.setFj(resultSet->getString(4));
 		data.setGrzlwzzzdpm(resultSet->getInt(5));
 		data.setKwmc(resultSet->getString(6));

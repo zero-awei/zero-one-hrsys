@@ -96,9 +96,6 @@
     <ClInclude Include="domain\query\patentinfo\PatentinfoQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\pimpaper\pimpaperQuery.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\vo\patentinfo\PatentinfoVO.h">
       <Filter>头文件</Filter>
     </ClInclude>

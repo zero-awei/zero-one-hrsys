@@ -3,7 +3,7 @@
 #include "PaperinfoService.h"
 #include "../../dao/paperinfo/t_pimpaperDAO.h"
 
-PaperDTO::Wrapper PaperinfoService::listAll(const PaperQuery::Wrapper& query)
+PaperPageDTO::Wrapper PaperinfoService::listAll(const PaperQuery::Wrapper& query)
 {
 	// 构建返回对象
 	auto pages = PaperPageDTO::createShared(); 
@@ -44,12 +44,15 @@ uint64_t PaperinfoService::saveData(const PaperDTO::Wrapper& dto)
 	return dao.insert(data);
 }
 
-bool PaperinfoService::updateData(const PaperDTO::Wrapper& dto)
-{
-	return false;
-}
-
 bool PaperinfoService::removeData(uint64_t id)
 {
-	return false;
+	t_pimpaperDAO dao;
+	return dao.deleteById(id) == 1;
 }
+
+//uint64_t PaperinfoService::selectPaperID(const PaperDTO::Wrapper& dto)
+//{
+//	uint64_t id;
+//
+//	return id;
+//}

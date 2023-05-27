@@ -10,10 +10,6 @@
  */
 class PaperDTO : public oatpp::DTO
 {
-public:
-	PaperDTO() {}
-	PaperDTO(String cbs, String fbsj, String kwqs, String fj, Int32 grzlwzzzdpm, String kwmc) : 
-		cbs(cbs), fbsj(fbsj), kwqs(kwqs), fj(fj), grzlwzzzdpm(grzlwzzzdpm), kwmc(kwmc){}
 	DTO_INIT(PaperDTO, DTO);
 	
 	// 出版社
@@ -27,7 +23,7 @@ public:
 		info->description = ZH_WORDS_GETTER("paperinfo.field.fbsj");
 	}
 	// 刊物期数
-	DTO_FIELD(String, kwqs);
+	DTO_FIELD(Int32, kwqs);
 	DTO_FIELD_INFO(kwqs) {
 		info->description = ZH_WORDS_GETTER("paperinfo.field.kwqs");
 	}
@@ -51,6 +47,12 @@ public:
 	DTO_FIELD_INFO(pimpapername) {
 		info->description = ZH_WORDS_GETTER("paperinfo.field.pimpapername");
 	}
+
+public:
+	PaperDTO() {}
+	/*PaperDTO(String cbs, String fbsj, String kwqs, String fj, Int32 grzlwzzzdpm, String kwmc) :
+		cbs(cbs), fbsj(fbsj), kwqs(kwqs), fj(fj), grzlwzzzdpm(grzlwzzzdpm), kwmc(kwmc){}
+	*/
 };
 
 /**

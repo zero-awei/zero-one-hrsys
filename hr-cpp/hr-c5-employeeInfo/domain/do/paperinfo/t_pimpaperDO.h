@@ -14,7 +14,7 @@ class t_pimpaperDO
 	// 出版社
 	CC_SYNTHESIZE(string, cbs, Cbs);
 	// 刊物期数
-	CC_SYNTHESIZE(string, kwqs, Kwqs);
+	CC_SYNTHESIZE(int, kwqs, Kwqs);
 	// 附件
 	CC_SYNTHESIZE(string, fj, Fj);
 	// 个人在论文著作中的排名
@@ -28,7 +28,7 @@ public:
 	t_pimpaperDO() {
 		fbsj = "";
 		cbs = "";
-		kwqs = "";
+		kwqs = 0;
 		fj = "";
 		grzlwzzzdpm = 0;
 		kwmc = "";
