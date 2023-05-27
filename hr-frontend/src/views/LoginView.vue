@@ -28,7 +28,7 @@
 <script setup>
 import Verify from '@/components/verifition/Verify.vue'
 import Request from '@/apis/request'
-import { ref, reactive } from 'vue'
+// import { ref, reactive } from 'vue'
 import { login } from '@/apis/login'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
@@ -38,8 +38,8 @@ const $router = useRouter()
 
 // 定义登录数据对象
 const formData = reactive({
-  username: '',
-  password: ''
+  username: 'admin',
+  password: '123456'
 })
 
 /**
@@ -69,10 +69,10 @@ function doLogin(code) {
 // 定义登录提交函数
 function submitForm() {
   //TODO[TEST_CODE]:测试直接进入主界面
-  //$router.push('/home')
+  // $router.push('/home')
 
   // 弹出验证码框
-  //useVerify('blockPuzzle')
+  // useVerify('blockPuzzle')
 
   //TODO[TEST_CODE]:测试登录
   doLogin('dddd')
@@ -99,27 +99,27 @@ function useVerify(type) {
  */
 function handleSuccess(res) {
   //TODO[TEST_CODE]:测试调用二次验证
-  // Request.requestForm(
-  //   Request.POST,
-  //   '/login',
-  //   { captchaVerification: res.captchaVerification },
-  //   { baseURL: import.meta.env.VITE_CAPTCHA_URL }
-  // )
-  //   .then((res) => {
-  //     console.log(res)
-  //     if (res.data.repCode === '0000') {
-  //       // 跳转到首页
-  //       $router.push('/home')
-  //       // 登录成功提示
-  //       ElMessage.success('登录成功，前往首页')
-  //       return
-  //     }
-  //     ElMessage.error('账号或密码错误')
-  //   })
-  //   .catch((res) => {
-  //     console.log(res)
-  //     ElMessage.error('账号或密码错误')
-  //   })
+  Request.requestForm(
+    Request.POST,
+    '/login',
+    { captchaVerification: res.captchaVerification },
+    { baseURL: import.meta.env.VITE_CAPTCHA_URL }
+  )
+    .then((res) => {
+      console.log(res)
+      if (res.data.repCode === '0000') {
+        // 跳转到首页
+        $router.push('/home')
+        // 登录成功提示
+        ElMessage.success('登录成功，前往首页')
+        return
+      }
+      ElMessage.error('账号或密码错误')
+    })
+    .catch((res) => {
+      console.log(res)
+      ElMessage.error('账号或密码错误')
+    })
 
   doLogin(res.captchaVerification)
 }
