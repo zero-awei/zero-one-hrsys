@@ -1,9 +1,9 @@
 <script setup>
-import Education from './Employee/Education.vue'
-import Experience from './Employee/Experience.vue'
-import Employee from './Employee/Employee.vue'
-import RewardsAndPunishment from './Employee/RewardsAndPunishment.vue'
-import Additional from './Employee/Additional.vue'
+import Education from './employee/Education.vue'
+import Experience from './employee/Experience.vue'
+import Employee from './employee/Employee.vue'
+import RewardsAndPunishment from './employee/RewardsAndPunishment.vue'
+import Additional from './employee/Additional.vue'
 import Edit from '@/components/edit/Edit.vue'
 </script>
 

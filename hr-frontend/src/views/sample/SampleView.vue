@@ -62,7 +62,7 @@
   border: 0;
 }
 .el-main {
-  padding-top: 12px;
+  padding: 0px;
   background-color: #edecec;
   height: 95vh;
 }
@@ -109,7 +109,7 @@ const menus = reactive([
     text: '表格主体测试页面'
   },
   {
-    path: '/sample/Aside',
+    path: '/sample/aside',
     text: '侧边栏'
   },
   {
