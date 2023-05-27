@@ -19,4 +19,10 @@
         WHERE role_id = #{roleId}
     </select>
 
+    <select id="checkRoleMenu" resultType="int">
+        SELECT COUNT(*)
+        FROM zo_role r, zo_menu m
+        WHERE r.id = #{roleId} AND m.id = #{menuId}
+    </select>
+
 </mapper>

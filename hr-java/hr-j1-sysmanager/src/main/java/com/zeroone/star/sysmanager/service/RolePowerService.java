@@ -10,4 +10,6 @@ public interface RolePowerService {
     Boolean deletePermissions(RolePowerDTO dto);
 
     List<String> getPowerIdsByRoleId(String roleId);
+
+    Boolean checkRoleMenu(RolePowerDTO dto);
 }

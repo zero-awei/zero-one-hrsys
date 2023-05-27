@@ -13,4 +13,6 @@ public interface RoleMenuMapper {
     int deleteMenu(@Param("roleId") String roleId, @Param("menuId") String menuId);
 
     List<String> getMenuIdsByRoleId(@Param("roleId") String roleId);
+
+    int checkRoleMenu(@Param("roleId") String roleId, @Param("menuId") String menuId);
 }

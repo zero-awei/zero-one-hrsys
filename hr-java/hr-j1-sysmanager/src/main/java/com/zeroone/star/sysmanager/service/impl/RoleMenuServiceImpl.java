@@ -33,4 +33,9 @@ public class RoleMenuServiceImpl implements RoleMenuService {
         return roleMenuMapper.getMenuIdsByRoleId(roleId);
     }
 
+    @Override
+    @Transactional
+    public Boolean checkRoleMenu(RoleMenuDTO dto) {
+        return roleMenuMapper.checkRoleMenu(dto.getRoleId(), dto.getMenuId()) > 0;
+    }
 }

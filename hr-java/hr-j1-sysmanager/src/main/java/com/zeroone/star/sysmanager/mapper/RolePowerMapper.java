@@ -12,4 +12,6 @@ public interface RolePowerMapper {
     int deletePower(@Param("roleId") String roleId, @Param("powerId") String powerId);
 
     List<String> getPowerIdsByRoleId(@Param("roleId") String roleId);
+
+    int checkRolePower(@Param("roleId") String roleId, @Param("powerId") String powerId);
 }

@@ -18,4 +18,9 @@
         WHERE role_id = #{roleId}
     </select>
 
+    <select id="checkRolePower" resultType="int">
+        SELECT COUNT(*)
+        FROM zo_role r, zo_power p
+        WHERE r.id = #{roleId} AND p.id = #{powerId}
+    </select>
 </mapper>

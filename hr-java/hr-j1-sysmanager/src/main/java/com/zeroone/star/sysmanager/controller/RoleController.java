@@ -61,19 +61,24 @@ public class RoleController implements RoleApis {
         JsonVO<Boolean> json = new JsonVO<>();
         try {
             // 查询相应的角色和菜单，以确保它们存在且可以被操作
-
+            if(!roleMenuService.checkRoleMenu(dto)){
+                json.setData(false);
+                json.setMessage("不存在此用户或者此菜单");
+                return json;
+            }
             // 检索指定角色的现有菜单 ID 列表
             List<String> existingMenuIds = roleMenuService.getMenuIdsByRoleId(dto.getRoleId());
             // 查看是否已存在此菜单ID
             if(existingMenuIds.contains(dto.getMenuId())){
                 json.setData(false);
                 json.setMessage("当前用户已被分配此菜单");
+                return json;
             }
             // 将新的菜单 ID 添加到用户菜单表中
             boolean result = roleMenuService.assignMenus(dto);
             // 返回结果
             json.setData(result);
-            json.setMessage("分配菜单成功");
+            json.setMessage(result ? "分配菜单成功" : "分配菜单失败");
             return json;
         }catch (Exception e) {
             json.setData(false);
@@ -89,7 +94,11 @@ public class RoleController implements RoleApis {
         JsonVO<Boolean> json = new JsonVO<>();
         try {
             // 查询相应的角色和菜单，以确保它们存在且可以被操作
-
+            if(!roleMenuService.checkRoleMenu(dto)){
+                json.setData(false);
+                json.setMessage("不存在此用户或者此菜单");
+                return json;
+            }
             // 检索指定角色的现有菜单 ID 列表
             List<String> existingMenuIds = roleMenuService.getMenuIdsByRoleId(dto.getRoleId());
             // 查看传入的菜单ID是否在现有菜单ID列表中
@@ -113,30 +122,35 @@ public class RoleController implements RoleApis {
 
     @Resource
     private RolePowerService rolePowerService;
-    @GetMapping("/assign-permissions")
+    @PostMapping("/assign-permissions")
     @ApiOperation(value = "角色分配权限")
     @Override
-    public JsonVO<Boolean> assignPermissions(RolePowerDTO dto) {
+    public JsonVO<Boolean> assignPermissions(@RequestBody RolePowerDTO dto) {
         JsonVO<Boolean> json = new JsonVO<>();
         try {
-            // 查询相应的角色和权限，以确保它们存在且可以被操作
-
+            // 查询相应的角色和菜单，以确保它们存在且可以被操作
+            if(!rolePowerService.checkRoleMenu(dto)){
+                json.setData(false);
+                json.setMessage("不存在此用户或者此菜单");
+                return json;
+            }
             // 检索指定角色的现有权限 ID 列表
             List<String> existingPowerIds = rolePowerService.getPowerIdsByRoleId(dto.getPowerId());
             // 查看是否已存在此权限ID
             if(existingPowerIds.contains(dto.getPowerId())){
                 json.setData(false);
                 json.setMessage("当前用户已被分配此权限");
+                return json;
             }
             // 将新的权限 ID 添加到数据库中
             boolean result = rolePowerService.assignPermissions(dto);
             // 返回结果
             json.setData(result);
-            json.setMessage("分配菜单成功");
+            json.setMessage(result ? "删除权限成功" : "删除权限失败");
             return json;
         }catch (Exception e) {
             json.setData(false);
-            json.setMessage("分配菜单失败");
+            json.setMessage("分配权限失败");
             return json;
         }
     }
@@ -144,11 +158,15 @@ public class RoleController implements RoleApis {
     @DeleteMapping("/delete-permissions")
     @ApiOperation(value = "角色删除权限")
     @Override
-    public JsonVO<Boolean> deletePermissions(RolePowerDTO dto) {
+    public JsonVO<Boolean> deletePermissions(@RequestBody RolePowerDTO dto) {
         JsonVO<Boolean> json = new JsonVO<>();
         try {
-            // 查询相应的角色和权限，以确保它们存在且可以被操作
-
+            // 查询相应的角色和菜单，以确保它们存在且可以被操作
+            if(!rolePowerService.checkRoleMenu(dto)){
+                json.setData(false);
+                json.setMessage("不存在此用户或者此菜单");
+                return json;
+            }
             // 检索指定角色的现有权限 ID 列表
             List<String> existingPowerIds = rolePowerService.getPowerIdsByRoleId(dto.getRoleId());
             // 查看传入的权限ID是否在现有权限ID列表中

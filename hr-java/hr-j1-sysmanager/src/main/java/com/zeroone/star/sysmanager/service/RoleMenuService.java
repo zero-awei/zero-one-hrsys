@@ -11,4 +11,6 @@ public interface RoleMenuService {
 
     List<String> getMenuIdsByRoleId(String roleId);
 
+    Boolean checkRoleMenu(RoleMenuDTO dto);
+
 }
