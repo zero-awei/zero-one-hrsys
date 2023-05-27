@@ -25,7 +25,6 @@
     <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mg.cpp" />
     <ClCompile Include="dao\expenseLedger\ExpenseLedgerDAO.cpp" />
     <ClCompile Include="service\expenseLedger\ExpenseLedgerService.cpp" />
-    <ClCompile Include="service\JobTitleInfo\JobTitleInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -81,7 +80,6 @@
     <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgerVO.h" />
     <ClInclude Include="domain\vo\LaborDispatch\LaborDispatchJsonVO-mg.h" />
     <ClInclude Include="domain\do\expenseLedger\ExpenseLedgerDO.h" />
-    <ClInclude Include="service\JobTitleInfo\JobTitleInfo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />

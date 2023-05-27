@@ -184,7 +184,6 @@
     <ClCompile Include="dao\Sample\ContractDao.cpp" />
     <ClCompile Include="service\expenseLedger\ExpenseLedgerService.cpp" />
     <ClCompile Include="service\laborDispatch\LaborDispatchService-mg.cpp" />
-    <ClCompile Include="service\JobTitleInfo\JobTitleInfo.cpp" />
     <ClCompile Include="service\laborDispatch\LaborDispatchService-mh.cpp" />
     <ClCompile Include="service\Gosh\GoshService.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -257,7 +256,6 @@
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\expenseLedger\ExpenseLedgerService.h" />
     <ClInclude Include="service\laborDispatch\LaborDispatchService-mg.h" />
-    <ClInclude Include="service\JobTitleInfo\JobTitleInfo.h" />
     <ClInclude Include="service\laborDispatch\LaborDispatchService-mh.h" />
     <ClInclude Include="service\Gosh\GoshService.h" />
     <ClInclude Include="service\sample\ContractService.h" />

@@ -29,7 +29,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -171,22 +171,19 @@
     <ClCompile Include="controller\GoshController\TestController.cpp" />
     <ClCompile Include="controller\LaborDispatch\LaborDispatchConstroller.cpp" />
     <ClCompile Include="controller\muggle\ExpenseLedgerController.cpp" />
-    <ClCompile Include="controller\LaborDispatch\LaborDispatchController-mg.cpp" />
+    <ClCompile Include="controller\muggle\LaborDispatchController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\retirementController\retirement.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
-    <ClCompile Include="dao\expenseLedger\ExpenseLedgerDAO.cpp" />
     <ClCompile Include="dao\Gosh\GoshDAO.cpp" />
     <ClCompile Include="controller\TerminationReminder\terminationReminder.cpp" />
-    <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mg.cpp" />
     <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mh.cpp" />
+    <ClCompile Include="dao\muggle\LaborDispatchDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="dao\Sample\ContractDao.cpp" />
-    <ClCompile Include="service\expenseLedger\ExpenseLedgerService.cpp" />
-    <ClCompile Include="service\laborDispatch\LaborDispatchService-mg.cpp" />
-    <ClCompile Include="service\JobTitleInfo\JobTitleInfo.cpp" />
     <ClCompile Include="service\laborDispatch\LaborDispatchService-mh.cpp" />
     <ClCompile Include="service\Gosh\GoshService.cpp" />
+    <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -203,27 +200,23 @@
     <ClInclude Include="controller\JobTitle\JobTitleController.h" />
     <ClInclude Include="controller\LaborDispatch\LaborDispatchConstroller.h" />
     <ClInclude Include="controller\muggle\ExpenseLedgerController.h" />
-    <ClInclude Include="controller\LaborDispatch\LaborDispatchController-mg.h" />
+    <ClInclude Include="controller\muggle\LaborDispatchController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
-    <ClInclude Include="dao\expenseLedger\ExpenseLedgerDAO.h" />
-    <ClInclude Include="dao\expenseLedger\ExpenseLedgerMapper.h" />
     <ClInclude Include="dao\Gosh\GoshDAO.h" />
     <ClInclude Include="dao\Gosh\GoshMapper.h" />
     <ClInclude Include="controller\TerminationReminder\terminationReminder.h" />
-    <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mg.h" />
     <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mh.h" />
     <ClInclude Include="dao\laborDispatch\LaborDispatchMapper-mh.h" />
-    <ClInclude Include="domain\do\expenseLedger\ExpenseLedgerDO.h" />
+    <ClInclude Include="dao\muggle\LaborDispatchDAO.h" />
     <ClInclude Include="domain\do\ExpenseLedge\ExpenseLedge.h" />
     <ClInclude Include="domain\do\laborDispatch\LaborDispatchDO.h" />
+    <ClInclude Include="domain\do\muggle\LaborDispatchDO.h" />
     <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
     <ClInclude Include="domain\dto\JobTitleInfo\JobTitleInfoDTO.h" />
-    <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO-mg.h" />
-    <ClInclude Include="domain\query\LaborDispatch\LaborDispatchQuery-mg.h" />
+    <ClInclude Include="domain\query\muggle\LaborDispatchQuery.h" />
     <ClInclude Include="domain\query\RetirementQuery\RetirementQuery.h" />
     <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h" />
-    <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgerVO.h" />
     <ClInclude Include="domain\vo\JobTitleInfo\JobTitleInfoVO.h" />
     <ClInclude Include="controller\retirementController\retirement.h" />
     <ClInclude Include="dao\Sample\ContractDao.h" />
@@ -248,20 +241,20 @@
     <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO.h" />
     <ClInclude Include="domain\dto\retirement\RetiremetDto.h" />
     <ClInclude Include="domain\query\LaborDispatch\LaborDispatchQuery.h" />
-    <ClInclude Include="domain\vo\LaborDispatch\LaborDispatchJsonVO-mg.h" />
     <ClInclude Include="domain\vo\LaborDispatch\LaborDispatchVO.h" />
     <ClInclude Include="domain\query\Gosh\ContractQuery.h" />
     <ClInclude Include="domain\vo\Gosh\ContractVO.h" />
     <ClInclude Include="domain\vo\RetirementVo\RetirementVo.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
-    <ClInclude Include="service\expenseLedger\ExpenseLedgerService.h" />
-    <ClInclude Include="service\laborDispatch\LaborDispatchService-mg.h" />
-    <ClInclude Include="service\JobTitleInfo\JobTitleInfo.h" />
     <ClInclude Include="service\laborDispatch\LaborDispatchService-mh.h" />
     <ClInclude Include="service\Gosh\GoshService.h" />
+    <ClInclude Include="service\muggle\LaborDispatchService.h" />
     <ClInclude Include="service\sample\ContractService.h" />
+    <ClInclude Include="domain\dto\muggle\ExpenseLedgerDTO.h" />
+    <ClInclude Include="domain\dto\muggle\LaborDispatchDTO.h" />
     <ClInclude Include="domain\vo\muggle\LaborDispatchJsonVO.h" />
+    <ClInclude Include="domain\query\muggle\ExpenseLedgerQuery.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
