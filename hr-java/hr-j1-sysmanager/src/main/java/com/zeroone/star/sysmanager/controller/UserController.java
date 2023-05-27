@@ -1,11 +1,14 @@
 package com.zeroone.star.sysmanager.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.usermanager.UserDTO;
 import com.zeroone.star.project.query.PageQuery;
 import com.zeroone.star.project.query.sysmanager.usermanager.UserQuery;
 import com.zeroone.star.project.sysmanager.UserAPis;
 import com.zeroone.star.project.vo.JsonVO;
+import com.zeroone.star.project.vo.ResultStatus;
+import com.zeroone.star.sysmanager.entity.User;
 import com.zeroone.star.sysmanager.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -13,6 +16,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -49,6 +53,10 @@ public class UserController implements UserAPis {
     @PostMapping("add")
     @Override
     public JsonVO<Boolean> addUser(@Validated UserDTO dto) {
+        List<User> list = userService.list(new LambdaQueryWrapper<User>().eq(User::getUsername, dto.getUsername()));
+        if(list.size()>0){
+            return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(),"已经有该用户了");
+        }
         return  userService.saveUser(dto)? JsonVO.success(true):JsonVO.fail(false);
     }
 
@@ -63,7 +71,6 @@ public class UserController implements UserAPis {
     @PutMapping("modify")
     @Override
     public JsonVO<Boolean> modifyUser(@Validated UserDTO dto) {
-
         return userService.updateUser(dto)?JsonVO.success(true):JsonVO.fail(false);
     }
 
