@@ -61,26 +61,17 @@ LaborDispatchPageDTO::Wrapper LaborDispatchMService::ListAll(const LaborDispatch
 	return pages;
 }
 
-bool LaborDispatchMService::updateData(const LaborDispatchDTO::Wrapper& dto)
+bool LaborDispatchMService::updateData(const LaborDispatchUpdateDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	LaborDispatchDO data;
-	data.setName(dto->name.getValue(""));
-	data.setId(dto->id.getValue(""));
-	data.setCreatedate(dto->createdate.getValue(""));
-	data.setCreateman(dto->createdate.getValue(""));
-	data.setUpdateman(dto->updateman.getValue(""));
-	data.setUpdatedate(dto->updatedate.getValue(""));
-	data.setJyfw(dto->jyfw.getValue(""));
-	data.setLxdz(dto->lxdz.getValue(""));
-	data.setLxfs(dto->lxfs.getValue(""));
-	data.setLxr(dto->lxr.getValue(""));
-	data.setGsjj(dto->gsjj.getValue(""));
-	data.setPimpersonid(dto->pimpersonid.getValue(""));
-	data.setOrmorgid(dto->ormorgid.getValue(""));
-	data.setRegcapital(dto->regcapital.getValue(""));
-	data.setLegalperson(dto->legalperson.getValue(""));
-	cout << "data is " << data.getName() << ":" << dto->name.getValue("") << endl;
+	data.setName(dto->corporateName.getValue(""));
+	data.setLxdz(dto->contactAddress.getValue(""));
+	data.setLxfs(dto->contactNumber.getValue(""));
+	data.setLxr(dto->contactPerson.getValue(""));
+	data.setGsjj(dto->introduction.getValue(""));
+	data.setRegcapital(dto->registerdCapital.getValue(""));
+	data.setLegalperson(dto->legalPerson.getValue(""));
 	LaborDispatchMDAO dao;
 	return dao.update(data) == 1;
 }

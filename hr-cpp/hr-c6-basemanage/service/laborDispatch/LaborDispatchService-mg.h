@@ -31,7 +31,7 @@ public:
 	LaborDispatchPageDTO::Wrapper ListAll(const LaborDispatchMQuery::Wrapper& query);
 	//LaborDispatchMDTO::Wrapper ListData(const LaborDispatchMQuery::Wrapper& query);
 
-	bool updateData(const LaborDispatchDTO::Wrapper& dto);
+	bool updateData(const LaborDispatchUpdateDTO::Wrapper& dto);
 protected:
 private:
 };

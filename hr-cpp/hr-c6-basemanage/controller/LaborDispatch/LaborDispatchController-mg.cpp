@@ -32,26 +32,24 @@ LaborDispatchJsonMVO::Wrapper LaborDispatchMController::execQueryLaborDispatch(c
 	return vo;
 }
 
-StringJsonVO::Wrapper LaborDispatchMController::execModifyLaborDispatch(const LaborDispatchDTO::Wrapper& dto)
+StringJsonVO::Wrapper LaborDispatchMController::execModifyLaborDispatch(const LaborDispatchUpdateDTO::Wrapper& dto)
 {
 	auto jvo = StringJsonVO::createShared();
 
-	if (!dto->id)
+	if (!dto->corporateName)
 	{
 		jvo->init(String(-1), RS_PARAMS_INVALID);
-		cout << "wrong"<< endl;
 		return jvo;
 	}
 	LaborDispatchMService service;
 	if (service.updateData(dto))
 	{
-		jvo->success(dto->id);
-		cout << "success" << endl;
+		jvo->success(dto->corporateName);
+		
 	} 
 	else
 	{
-		jvo->fail(dto->id);
-		cout << "wrong2" << endl;
+		jvo->fail(dto->corporateName);
 	}
 	return jvo;
 }

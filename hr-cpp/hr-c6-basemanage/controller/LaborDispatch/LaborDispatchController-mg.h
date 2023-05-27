@@ -57,32 +57,17 @@ public:
 	// 修改指定公司信息
 	ENDPOINT_INFO(modifyLaborDispatch) {
 		info->summary = ZH_WORDS_GETTER("labordispatch_mug.modify.summary");
-		//info->queryParams.add<String>("corporateName").description = ZH_WORDS_GETTER("ldcompany.field.PIMLABOURCAMPANYNAME");
-		info->queryParams.add<String>("PIMLABOURCAMPANYNAME").description = ZH_WORDS_GETTER("ldcompany.field.PIMLABOURCAMPANYNAME");
-		info->queryParams["corporateName"].required = true;
-		info->queryParams.add<String>("contactAddress").description = ZH_WORDS_GETTER("ldcompany.field.LXDZ");
-		info->queryParams["contactAddress"].required = false;
-		info->queryParams.add<String>("contactNumber").description = ZH_WORDS_GETTER("ldcompany.field.LXFS");
-		info->queryParams["contactNumber"].required = false;
-		info->queryParams.add<String>("contactPerson").description = ZH_WORDS_GETTER("ldcompany.field.LXR");
-		info->queryParams["contactPerson"].required = false;
-		info->queryParams.add<String>("legalPerson").description = ZH_WORDS_GETTER("ldcompany.field.LEGALPERSON");
-		info->queryParams["legalPerson"].required = false;
-		info->queryParams.add<String>("registeredPrincipal").description = ZH_WORDS_GETTER("ldcompany.field.REGCAPITAL");
-		info->queryParams["registeredPrincipal"].required = false;
-		info->queryParams.add<String>("corporateIntroduction").description = ZH_WORDS_GETTER("ldcompany.field.GSJJ");
-		info->queryParams["corporateIntroduction"].required = false;
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 
-	ENDPOINT(API_M_PUT, "/contract-management/modify-labor-dispatch-corporate", modifyLaborDispatch, BODY_DTO(LaborDispatchDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/contract-management/modify-labor-dispatch-corporate", modifyLaborDispatch, BODY_DTO(LaborDispatchUpdateDTO::Wrapper, dto)) {
 		API_HANDLER_RESP_VO(execModifyLaborDispatch(dto));
 	}
 private:
 	LaborDispatchJsonMVO::Wrapper execQueryLaborDispatch(const LaborDispatchMQuery::Wrapper& query);
 
 
-	StringJsonVO::Wrapper execModifyLaborDispatch(const LaborDispatchDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execModifyLaborDispatch(const LaborDispatchUpdateDTO::Wrapper& dto);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
