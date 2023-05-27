@@ -36,8 +36,8 @@ public: // 定义接口
 	ENDPOINT_INFO(modifyProjTag) {
 		info->summary = ZH_WORDS_GETTER("projTag.modify.summary");
 		API_DEF_ADD_AUTH();
-		/*API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-		API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("projTag.field.id"), "tag114514", true);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		/*API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("projTag.field.id"), "tag114514", true);
 		API_DEF_ADD_QUERY_PARAMS(String, "tagName", ZH_WORDS_GETTER("projTag.field.tagName"), "test tag", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "orgId", ZH_WORDS_GETTER("projTag.field.orgId"), "org114514", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "updater", ZH_WORDS_GETTER("projTag.field.updater"), "root", false);

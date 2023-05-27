@@ -60,15 +60,17 @@ std::list<std::string> JobSetDAO::insertMultiJob(const std::list<PostDetailDO>& 
 	return res;
 }
 
-std::string JobSetDAO::insertJob(const PostDetailDO& data)
+bool JobSetDAO::insertJob(const PostDetailDO& data)
 {
-	string sql = "INSERT INTO `t_ormpost` (`ORMPOSTID`, `ORMPOSTNAME`, `ISKEYPOSTION`, `CREATEMAN`, \
-		`UPDATEMAN`, `CREATEDATE`, `UPDATEDATE`, `ORMORGID`, `GWTYPE`, `GWFL`, `ISCONFIDENTIAL`, \
-`ISTEMP`, `POSTNATURE`, `STARTSTOPSIGN`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	stringstream ss;
+	ss << "INSERT INTO `t_ormpost` (`ORMPOSTID`, `ORMPOSTNAME`, `ISKEYPOSTION`, `CREATEMAN`";
+	ss << ", `UPDATEMAN`, `CREATEDATE`, `UPDATEDATE`, `ORMORGID`, `GWTYPE`, `GWFL`, `ISCONFIDENTIAL`";
+	ss << ", `ISTEMP`, `POSTNATURE`, `STARTSTOPSIGN`) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-	return std::to_string(sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s", 
+	string sql = ss.str();
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s", 
 		data.getOrmPostId(), data.getOrmPostName(), data.getIsKeyPostion(), data.getCreateMan(), 
 		data.getUpdateMan(), data.getCreateDate(), data.getUpdateDate(), data.getOrmOrgId(), 
 		data.getGwType(), data.getGwfl(), data.getIsConfidential(), data.getIsTemp(), 
-		data.getPostNature(), data.getStartStopSign()));
+		data.getPostNature(), data.getStartStopSign());
 }

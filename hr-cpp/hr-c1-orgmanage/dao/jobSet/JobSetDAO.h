@@ -38,7 +38,7 @@ public:
 	 * 新增岗位设置
 	 * 负责人：Andrew
 	 */
-	std::string insertJob(const PostDetailDO& data);
+	bool insertJob(const PostDetailDO& data);
 };
 
 #endif // !_JOBSETDAO_H_

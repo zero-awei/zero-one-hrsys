@@ -83,3 +83,23 @@ ImportJobVO::Wrapper JobSetService::addMultiJob(const ImportJobDTO::Wrapper& dto
 
 	return vo;
 }
+
+std::string JobSetService::saveJob(const AddJobDTO::Wrapper& dto, const PayloadDTO& payload)
+{
+	// 构建DO对象
+	PostDetailDO data;
+
+	string day = SimpleDateTimeFormat::format();
+	string name = payload.getUsername();
+	data.setCreateDate(day);
+	data.setCreateMan(name);
+	data.setUpdateDate(day);
+	data.setUpdateMan(name);
+
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, OrmPostId, postId, OrmPostName, postName, OrmOrgId, orgId, GwType, jobType, Gwfl, jobClass, IsTemp, isTemp, IsConfidential, isConfidential, PostNature, postNature, IsKeyPostion, isKeyPostion, StartStopSign, sign);
+
+	// 调用DAO操作数据库
+	JobSetDAO dao;
+	if (dao.insertJob(data)) return dto->postId;
+	else return "";
+}

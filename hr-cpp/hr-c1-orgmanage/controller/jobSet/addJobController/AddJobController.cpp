@@ -1,9 +1,8 @@
-#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: Andrew211vibe
- @Date: 2023/05/27 7:25:35
+ @Date: 2023/05/27 10:04:04
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,29 +16,32 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _JOBSETSERVICE_H_
-#define _JOBSETSERVICE_H_
+#include "stdafx.h"
+#include "AddJobController.h"
+#include "service/jobSet/JobSetService.h"
 
-#include "domain/vo/jobSet/ImportJobVO.h"
-#include "domain/dto/jobSet/ImportJobDTO.h"
-#include "domain/dto/addJob/AddJobDTO.h"
-
-/**
- * 项目标签service层实现
- */
-class JobSetService
+StringJsonVO::Wrapper AddJobController::execAddJob(const AddJobDTO::Wrapper& dto, const PayloadDTO& payload)
 {
-public:
-	/**
-	 * 导入项目标签（批量新增）
-	 * 负责人：Andrew
-	 */
-	ImportJobVO::Wrapper addMultiJob(const ImportJobDTO::Wrapper &dto, const PayloadDTO &payload);
-	/**
-	 * 新增项目标签
-	 * 负责人：Andrew
-	 */
-	std::string saveJob(const AddJobDTO::Wrapper& dto, const PayloadDTO& payload);
-};
+	// 构建返回对象
+	auto jvo = StringJsonVO::createShared();
 
-#endif // !_JOBSETSERVICE_H_
+	// 参数校验
+	if (!dto->postId || dto->postId->empty())
+	{
+		jvo->init("", RS_PARAMS_INVALID);
+		return jvo;
+	}
+
+	// TODO: 调用service
+	JobSetService service;
+	auto id = service.saveJob(dto, payload);
+	if (!id.empty())
+	{
+		jvo->init(id, RS_SUCCESS);
+	}
+	else
+	{
+		jvo->init(id, RS_FAIL);
+	}
+	return jvo;
+}
