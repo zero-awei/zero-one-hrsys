@@ -30,7 +30,7 @@ ArchivePageDTO::Wrapper ArchiveService::listAll(const ArchiveQuery::Wrapper& que
  		dto->layernum = sub.getlayerNum();
 		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, sortid, sortID, archivename, archiveName, cabinetnum, cabinetNum,
 			layernum, layerNum, numid, numID);
-			pages->addData(dto);
+		pages->addData(dto);
 
 	}
 	return pages;

@@ -1,7 +1,6 @@
 #pragma once
-#ifndef _ARCHIVE_MAPPER_
 #define _ARCHIVE_MAPPER_
-
+#include "stdafx.h"
 #include "Mapper.h"
 #include "../../domain/do/archive/ArchiveDo.h"
 
@@ -22,5 +21,3 @@ public:
 		return data;
 	}
 };
-
-#endif // !_ARCHIVE_MAPPER_

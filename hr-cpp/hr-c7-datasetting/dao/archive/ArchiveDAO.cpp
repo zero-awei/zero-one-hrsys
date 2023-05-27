@@ -57,7 +57,7 @@ std::list<ArchiveDO> ArchiveDAO::selectByName(const string& name)
 
 uint64_t ArchiveDAO::insert(const ArchiveDO& iObj)
 {
-	string sql = "INSERT INTO `archive` (`sordid`, `archivename`, `cabinetnum`,`layernum`,`numid`) VALUES (?, ?, ?,?,?)";
+	string sql = "INSERT INTO `archive` (`sordid`, `archivename`, `cabinetnum`,`layernum`,`numid`) VALUES (?, ?, ?, ?, ?)";
 	return sqlSession->executeInsert(sql, "%s%s%i", iObj.getsortID(), iObj.getarchiveName(), iObj.getcabinetNum(),iObj.getlayerNum(), iObj.getnumID());
 }
 

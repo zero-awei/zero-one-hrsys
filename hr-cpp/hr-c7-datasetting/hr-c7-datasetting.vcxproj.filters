@@ -6,7 +6,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="controller\Certificate\CertificateController.cpp" />
-    <ClCompile Include="controller\archive\archiveController.cpp" />
+    <ClCompile Include="controller\archive\ArchiveController.cpp" />
     <ClCompile Include="controller\contract\ContractController.cpp" />
     <ClCompile Include="controller\Qualification\QualificationController.cpp" />
     <ClCompile Include="controller\ContractCategory\ContractCategoryController.cpp" />
