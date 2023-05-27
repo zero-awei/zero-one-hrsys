@@ -39,8 +39,8 @@ archive:
  delete:
   summary: 删除一条示例数据
  field:
- sortID: 排序号
- archiveName: 档案室名称
- cabinetNum: 柜数  
- layerNum: 层数
- numID: 编号
+ sortid: 排序号
+ archivename: 档案室名称
+ cabinetnum: 柜数  
+ layernum: 层数
+ numid: 编号

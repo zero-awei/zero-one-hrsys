@@ -6,28 +6,34 @@
 /**
  * µµ°¸ÊÒĞÅÏ¢ÊµÌå
  */
-class archiveDO
+class ArchiveDO
 {
 	// ÅÅĞòºÅ
-	CC_SYNTHESIZE(int32_t, sortID, sortid);
+	CC_SYNTHESIZE(int32_t, sortid, sortID);
 	// µµ°¸ÊÒÃû³Æ
-	CC_SYNTHESIZE(string, archiveName, archivename);
+	CC_SYNTHESIZE(string, archivename, archiveName);
 	// ¹ñÊı
-	CC_SYNTHESIZE(int32_t, cabinetNum, cabinetnum);
+	CC_SYNTHESIZE(int32_t, cabinetnum, cabinetNum);
 	// ²ãÊı
-	CC_SYNTHESIZE(int32_t, layerNum, layernum);
+	CC_SYNTHESIZE(int32_t, layernum, layerNum);
 	// ±àºÅ
-	CC_SYNTHESIZE(int32_t, numID, numid);
+	CC_SYNTHESIZE(int32_t, numid, numID);
 public:
-	archiveDO() {}
+	ArchiveDO() {
+			sortid = 0;
+			archivename = "";
+			cabinetnum =0;
+			layernum = 0;
+			numid = 0;
+	}
 	//·Ö±ğÎªÅÅĞòºÅ£¬µµ°¸ÊÒÃû³Æ£¬¹ñÊı£¬²ãÊı£¬±àºÅ
-	archiveDO(int sortid,string archivename ,int cabinetnum,int layernum,int numid)
+	ArchiveDO(int sortid,string archivename ,int cabinetnum,int layernum,int numid)
 	{
-		this->sortID = sortid;
-		this->archiveName = archivename;
-		this->cabinetNum = cabinetnum;
-		this->layerNum = layernum;
-		this->numID = numid;
+		this->sortid = sortid;
+		this->archivename = archivename;
+		this->cabinetnum = cabinetnum;
+		this->layernum = layernum;
+		this->numid = numid;
 	}
 };
 

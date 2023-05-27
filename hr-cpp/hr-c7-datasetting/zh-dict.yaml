@@ -53,3 +53,18 @@ contractType:
   contractStatus: 合同状态
   remainingDays: 合同剩余时间
   expiryDate: 试用到期时间
+archive:
+ get:
+  summary: 分页查询示例数据
+ post:
+  summary: 新增一条示例数据
+ put:
+  summary: 修改一条示例数据
+ delete:
+  summary: 删除一条示例数据
+ field:
+ sortid: 排序号
+ archivename: 档案室名称
+ cabinetnum: 柜数  
+ layernum: 层数
+ numid: 编号
