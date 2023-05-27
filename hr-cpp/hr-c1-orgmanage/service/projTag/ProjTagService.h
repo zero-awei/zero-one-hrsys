@@ -26,11 +26,14 @@
 
 /**
  * 项目标签Service
- * 负责人：远翔
  */
 class ProjTagService
 {
 public:
+	/**
+	 * 新增项目标签
+	 * 负责人：远翔
+	 */
 	uint64_t saveData(const ProjTagDTO::Wrapper& dto);
 	/**
 	 * 分页查询组织列表

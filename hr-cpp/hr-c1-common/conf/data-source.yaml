@@ -28,7 +28,7 @@ spring:
       connection-init-sqls: SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
       filters: stat
   redis:
-    host: 192.168.144.33
+    host: 192.168.24.19
     port: 6379
     #password: 01star
   data:

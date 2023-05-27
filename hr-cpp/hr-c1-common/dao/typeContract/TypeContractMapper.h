@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: yuanchen
- @Date: 2023/05/23 21:46:57
+ @Author: Andrew211vibe
+ @Date: 2023/05/26 22:54:52
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,20 +17,28 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _TYPECONTRACTDO_H_
-#define _TYPECONTRACTDO_H_
+#ifndef _TYPECONTRACTMAPPER_H_
+#define _TYPECONTRACTMAPPER_H_
 
-#include "../DoInclude.h"
+#include "Mapper.h"
+#include "domain/do/typeContract/TypeContractDO.h"
+
 /**
- * 合同类型下拉列表
- * 负责人：yuanchen
+ * 合同类型字段映射
+ * 负责人：Andrew
  */
-class TypeContractDO
+class TypeContractMapper : public Mapper<TypeContractDO>
 {
-	// 合同类型名称
-	CC_SYNTHESIZE(string, typeContract, TypeContract);
-	// 合同类型代码
-	CC_SYNTHESIZE(string, typeCode, TypeCode);
+public:
+	TypeContractDO mapper(ResultSet* resultSet) const override
+	{
+		TypeContractDO data;
+
+		data.setTypeContract(resultSet->getString(1));
+		data.setTypeCode(resultSet->getString(2));
+
+		return data;
+	}
 };
 
-#endif // !_TYPECONTRACTDO_H_
+#endif // !_TYPECONTRACTMAPPER_H_

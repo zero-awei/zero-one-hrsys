@@ -2,7 +2,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: Andrew211vibe
- @Date: 2023/05/17 23:35:42
+ @Date: 2023/05/26 22:37:53
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,26 +17,14 @@
  limitations under the License.
 */
 #include "stdafx.h"
-#include "TypeContractListController.h"
-#include "service/typeContractList/TypeContractService.h"
+#include "TypeContractDAO.h"
+#include "domain/do/typeContract/TypeContractDO.h"
+#include "TypeContractMapper.h"
 
-PullListVO::Wrapper TypeContractListController::execQueryContractType()
+std::list<TypeContractDO> TypeContractDAO::selectAll()
 {
-	// 构建示例返回
-	/*auto dto = PullListDTO::createShared();
-	auto a = ItemDTO::createShared(1, "Yes");
-	dto->pullList->push_back(a);
-	auto b = ItemDTO::createShared(2, "No");
-	dto->pullList->push_back(b);*/
-
-	// 构建返回对象
-	auto vo = PullListVO::createShared();
-
-	// TODO: 调用service
-	TypeContractService service;
-	auto dto = service.listAll();
-	vo->success(dto);
-
-	// 响应返回对象
-	return vo;
+	// 构建SQL查询语句
+	string str = "SELECT `PIMTYPECONTRACTNAME`, `TYPECODE` FROM `t_pimtypecontract`";
+	TypeContractMapper mapper;
+	return sqlSession->executeQuery<TypeContractDO, TypeContractMapper>(str, mapper);
 }

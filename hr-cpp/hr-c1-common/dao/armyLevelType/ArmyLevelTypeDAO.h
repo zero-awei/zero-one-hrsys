@@ -40,7 +40,7 @@ private:
 	};
 public:
 	// 查询数据
-	list<ArmyLevelTypeDO> listAll();
+	list<ArmyLevelTypeDO> selectAll();
 	// 返回下拉列表
 	unordered_map<string, string> getMapList();
 };
