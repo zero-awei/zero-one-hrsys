@@ -19,25 +19,34 @@
 #include "stdafx.h"
 #include "ImportJobController.h"
 #include "ExcelComponent.h"
+#include "service/jobSet/JobSetService.h"
 
-#define RTN(__VO__, __MSG__) __VO__->setStatus(__MSG__); \
-return __VO__;
-
-ImportJobJsonVO::Wrapper ImportJobController::execImportJob(const ImportJobDTO::Wrapper& dto/*, const PayloadDTO & payload*/)
+ImportJobJsonVO::Wrapper ImportJobController::execImportJob(const ImportJobDTO::Wrapper& dto, const PayloadDTO & payload)
 {
 	auto vo = ImportJobJsonVO::createShared();
 	// 参数校验
-	if (dto->filePath->empty()) { RTN(vo, RS_PARAMS_INVALID) }
+	if (dto->filePath->empty()) {
+		vo->init({}, RS_PARAMS_INVALID);
+		return vo;
+	}
 
-	String str1 = "123abc";
+	// 构建返回样例
+	/*String str1 = "123abc";
 	String str2 = "456def";
 	String str3 = "789ghi";
 	auto ij = ImportJobVO::createShared();
 	ij->newId->push_back("123abc");
 	ij->newId->push_back("456def");
 	ij->newId->push_back("789ghi");
+	vo->init(ij, RS_SUCCESS);*/
 
 	// TODO: 调用service
-	vo->init(ij, RS_SUCCESS);
+	std::list<std::string> result;
+	JobSetService service;
+	auto res = service.addMultiJob(dto, payload);
+
+	if (res->newId->size()) vo->init(res, RS_SUCCESS);
+	else vo->init(res, RS_FAIL);
+
 	return vo;
 }

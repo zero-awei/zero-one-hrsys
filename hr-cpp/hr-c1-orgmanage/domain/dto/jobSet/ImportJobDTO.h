@@ -49,6 +49,7 @@ public:
 	{
 		fileType = "xlsx";
 		filePath = "";
+		sheetName = "";
 	}
 
 	ImportJobDTO(String type, String name, String path)
