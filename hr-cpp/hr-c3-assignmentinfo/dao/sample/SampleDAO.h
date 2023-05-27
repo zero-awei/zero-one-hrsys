@@ -2,7 +2,7 @@
 #ifndef _SAMPLE_DAO_
 #define _SAMPLE_DAO_
 #include "BaseDAO.h"
-#include "../../domain/do/assignDO/AssignInfoDO.h"
+#include "../../domain/do/assignInfoDO/AssignInfoDO.h"
 #include "../../domain/query/assignInfo/AssignInfoQuery.h"
 
 /**

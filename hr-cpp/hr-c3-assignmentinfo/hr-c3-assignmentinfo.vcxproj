@@ -186,7 +186,7 @@
     <ClInclude Include="controller\assignController\AssignInfoController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
-    <ClInclude Include="domain\do\assignDO\AssignInfoDO.h" />
+    <ClInclude Include="domain\do\assignInfoDO\AssignInfoDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\assignInfo\AddAssignInfoDTO.h" />
     <ClInclude Include="domain\dto\assignInfo\DeleteAssignInfoDTO.h" />

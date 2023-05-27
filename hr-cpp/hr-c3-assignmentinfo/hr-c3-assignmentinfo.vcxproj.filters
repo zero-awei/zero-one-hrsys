@@ -98,7 +98,7 @@
     <ClInclude Include="controller\assignController\AssignInfoController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\assignDO\AssignInfoDO.h">
+    <ClInclude Include="domain\do\assignInfoDO\AssignInfoDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
