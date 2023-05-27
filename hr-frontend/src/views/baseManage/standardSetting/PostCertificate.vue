@@ -1,6 +1,6 @@
 <template>
   <TableHead :tableTitle="tableTitle" :tableOperations ="tableOperations" :stores="$store" :addData="addData"/>
-  <MainTable :xmlData="xmlData" :tableData="tableData"/>
+  <MainTable :xmlData="xmlData" :tableData="$store.tableData"/>
 </template>
 
 <script setup>
@@ -10,7 +10,7 @@ import {usePostCertificateStore} from '@/stores/postCertificate'
 
 const $store = usePostCertificateStore()
 $store.initTableData()
-const tableData = computed(()=>$store.tableData)
+// const tableData = computed(()=>$store.tableData)
 
 const tableTitle = ref('岗位(技能)证书')
 const tableOperations = reactive([
