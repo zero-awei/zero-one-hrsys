@@ -53,8 +53,8 @@ EmpInfo:
 
 formeremployees: 
  get:
-  summary: 人员花名册-离职员工-分页查询离职员工数据-chumengxian
-  out: 人员花名册-离职员工-导出离职员工数据-chumengxian
+  summary: (人员花名册-离职员工-分页查询离职员工数据)-chumengxian
+  out: (人员花名册-离职员工-导出离职员工数据)-chumengxian
  field:
   id: 编号
   age: 年龄
@@ -68,10 +68,22 @@ formeremployees:
   mail_address: 通讯地址
   outbenye: 导出本页离职员工数据
   outall: 导出全部离职员工数据
+  phonenumber: 手机号码
+  dateofbirth: 出生日期
 certificate: 
- update:  证书管理-证书信息-更新指定证书-chumengxian
- get: 证书管理-证书信息-查询指定证书详情-chumengxian
-
+ update: (证书管理-证书信息-更新指定证书)-chumengxian
+ get: (证书管理-证书信息-查询指定证书详情)-chumengxian
+probationaryemployee: 
+ field: 
+  zz: 组织名称 
+  zw: 职务
+  gw: 岗位
+  rzsj: 任职时间
+  time: 试用到期时间
+  bm: 部门
+ get:
+  summary: (人员花名册-试用员工-分页查询试用员工数据)-chumengxian
+  out: (人员花名册-试用员工-导出试用员工数据)-chumengxian
 
 
 RosterOfPer:

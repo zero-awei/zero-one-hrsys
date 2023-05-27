@@ -190,12 +190,16 @@
     <ClInclude Include="controller\RosterOfPer\CheckRetiresListController.h" />
     <ClInclude Include="controller\RosterOfPer\ExportRetireesController.h" />
     <ClInclude Include="controller\RosterOfPer\FormerEmployeesController.h" />
+    <ClInclude Include="controller\RosterOfPer\ProbationaryEmployeeController.h" />
     <ClInclude Include="controller\RosterOfPer\RraineeController.h" />
     <ClInclude Include="controller\RosterOfPer\TemporaryStaffController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="dao\CertificateManage\CheckCerListDAO.h" />
     <ClInclude Include="dao\CertificateManage\CheckCerListMapper.h" />
+    <ClInclude Include="dao\RosterOfPer\FormerEmployeesDAO.h" />
+    <ClInclude Include="dao\RosterOfPer\FormerEmployeesMapper.h" />
+    <ClInclude Include="dao\RosterOfPer\ProbationaryEmployeeDAO.h" />
     <ClInclude Include="dao\RosterOfPer\TemporaryStaffDAO.h" />
     <ClInclude Include="dao\RosterOfPer\TemporaryStaffMapper.h" />
     <ClInclude Include="domain\do\CertificateManage\CertificateDO.h" />
@@ -203,6 +207,7 @@
     <ClInclude Include="domain\do\CertificateManage\EmployeeInfoDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\RosterOfPer\CommonRosterOfPerDO.h" />
+    <ClInclude Include="dao\RosterOfPer\ProbationaryEmployeeMapper.h" />
     <ClInclude Include="domain\do\RosterOfPer\RraineeDO.h" />
     <ClInclude Include="domain\do\RosterOfPer\ProbationaryEmployeeDO.h" />
     <ClInclude Include="domain\do\RosterOfPer\ExportEmployeeDO.h" />
@@ -219,6 +224,7 @@
     <ClInclude Include="domain\dto\RosterOfPer\CheckRetiresListDTO.h" />
     <ClInclude Include="domain\dto\RosterOfPer\ExportRetireesDTO.h" />
     <ClInclude Include="domain\dto\RosterOfPer\FormerEmployeesDTO.h" />
+    <ClInclude Include="domain\dto\RosterOfPer\ProbationaryEmployeeDTO.h" />
     <ClInclude Include="domain\dto\RosterOfPer\RraineeDTO.h" />
     <ClInclude Include="domain\dto\RosterOfPer\TemporaryStaffDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
@@ -230,6 +236,7 @@
     <ClInclude Include="domain\query\RosterOfPer\CheckRetiresListQuery.h" />
     <ClInclude Include="domain\query\RosterOfPer\ExportRetireesQuery.h" />
     <ClInclude Include="domain\query\RosterOfPer\FormerEmployeesQuery.h" />
+    <ClInclude Include="domain\query\RosterOfPer\ProbationaryEmployeeQuery.h" />
     <ClInclude Include="domain\query\RosterOfPer\RraineeQuery.h" />
     <ClInclude Include="domain\query\RosterOfPer\TemporaryStaffQuery.h" />
     <ClInclude Include="domain\vo\CertificateManage\CertificateInfoVO.h" />
@@ -240,11 +247,13 @@
     <ClInclude Include="domain\vo\RosterOfPer\CheckRetiresListVO.h" />
     <ClInclude Include="domain\vo\RosterOfPer\ExportRetireesVO.h" />
     <ClInclude Include="domain\vo\RosterOfPer\FormerEmployeesVO.h" />
+    <ClInclude Include="domain\vo\RosterOfPer\ProbationaryEmployeeVO.h" />
     <ClInclude Include="domain\vo\RosterOfPer\RraineeVO.h" />
     <ClInclude Include="domain\vo\RosterOfPer\TemporaryStaffVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\RosterOfPer\FormerEmployeesService.h" />
+    <ClInclude Include="service\RosterOfPer\ProbationaryEmployeeService.h" />
     <ClInclude Include="service\RosterOfPer\TemporaryStaffService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
@@ -257,14 +266,18 @@
     <ClCompile Include="controller\RosterOfPer\CheckRetiresListController.cpp" />
     <ClCompile Include="controller\RosterOfPer\ExportRetireesController.cpp" />
     <ClCompile Include="controller\RosterOfPer\FormerEmployeesController.cpp" />
+    <ClCompile Include="controller\RosterOfPer\ProbationaryEmployeeController.cpp" />
     <ClCompile Include="controller\RosterOfPer\RraineeController.cpp" />
     <ClCompile Include="controller\RosterOfPer\TemporaryStaffController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="dao\CertificateManage\CheckCerListDAO.cpp" />
+    <ClCompile Include="dao\RosterOfPer\FormerEmployeesDAO.cpp" />
+    <ClCompile Include="dao\RosterOfPer\ProbationaryEmployeeDAO.cpp" />
     <ClCompile Include="dao\RosterOfPer\TemporaryStaffDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\RosterOfPer\FormerEmployeesService.cpp" />
+    <ClCompile Include="service\RosterOfPer\ProbationaryEmployeeService.cpp" />
     <ClCompile Include="service\RosterOfPer\TemporaryStaffService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

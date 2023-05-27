@@ -19,13 +19,15 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-#include "RosterOfPer/FormerEmployeesController.h"
-#include "CertificateManage/UpdateCertificateController.h"
 //pine
 #include "controller/CertificateManage/CheckCerListController.h"
 #include "controller/CertificateManage/CreateNewCerController.h"
 #include "controller/RosterOfPer/CheckRetiresListController.h"
 #include "controller/RosterOfPer/ExportRetireesController.h"
+//chumengxian
+#include "RosterOfPer/ProbationaryEmployeeController.h"
+#include "RosterOfPer/FormerEmployeesController.h"
+#include "CertificateManage/UpdateCertificateController.h"
 
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
@@ -77,7 +79,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(CreateNewCerController);
 	ROUTER_SIMPLE_BIND(CheckRetiresListController);
 	ROUTER_SIMPLE_BIND(ExportRetireesController);
-
+	ROUTER_SIMPLE_BIND(ProbationaryEmployeeController);
 }
 
 #ifdef HTTP_SERVER_DEMO

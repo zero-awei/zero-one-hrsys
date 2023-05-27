@@ -27,9 +27,9 @@
 class FormerEmployeesDO
 {
 	// 员工基本信息表ID,同员工ID
-	CC_SYNTHESIZE(uint64_t, ygbh, ygbh);
+	CC_SYNTHESIZE(string, ygbh, ygbh);
 	// 姓名
-	CC_SYNTHESIZE(string, pimperSonName, pimperSonName);
+	CC_SYNTHESIZE(string, pimPersonName, pimPersonName);
 	// 性别
 	CC_SYNTHESIZE(string, sex, sex);
 	// 手机号码
