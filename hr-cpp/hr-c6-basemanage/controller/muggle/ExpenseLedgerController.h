@@ -23,6 +23,7 @@
 #include "domain/vo/BaseJsonVO.h"
 #include "domain/query/ExpenseLedger/ExpenseLedgerQuery.h"
 #include "domain/dto/ExpenseLedger/ExpenseLedgerDTO.h"
+#include "domain/vo/ExpenseLedge/ExpenseLedgerVO.h"
 #include "ApiHelper.h"
 #include "Macros.h"
 #include "ServerInfo.h"
@@ -36,15 +37,13 @@ public:
 	// 查询费别
 	ENDPOINT_INFO(queryExpenseLedger) {
 		info->summary = ZH_WORDS_GETTER("expenseledger_mug.get.summary");
-		//API_DEF_ADD_RSP_JSON_WRAPPER()
 		API_DEF_ADD_PAGE_PARAMS();
-		info->queryParams.add<String>("expenseCategory").description = ZH_WORDS_GETTER("expenseledger_mug.field.expenseCategory");;
-		info->queryParams["expenseCategory"].addExample("default", String("PDD"));
-		info->queryParams["expenseCategory"].required = false;
+		info->queryParams.add<String>("PIMEXPACCOUNTNAME").description = ZH_WORDS_GETTER("expenseledger_mug.field.expenseCategory");;
+		info->queryParams["PIMEXPACCOUNTNAME"].required = false;
 	}
 	ENDPOINT(API_M_GET, "/contract-management/query-by-expense-category", queryExpenseLedger,QUERIES(QueryParams, queryParams)) {
 		API_HANDLER_QUERY_PARAM(query, ExpenseLedgerPageQuery, queryParams);
-		API_HANDLER_RESP_VO(execQueryExpenseLedger());
+		API_HANDLER_RESP_VO(execQueryExpenseLedger(query));
 	}
 
 	// 新增费别
@@ -65,7 +64,7 @@ public:
 		API_HANDLER_RESP_VO(execDeleteExpenseLedger());
 	}
 private:
-	StringJsonVO::Wrapper execQueryExpenseLedger();
+	ExpenseLedgerPageJsonVO::Wrapper execQueryExpenseLedger(const ExpenseLedgerPageQuery::Wrapper& query);
 
 	StringJsonVO::Wrapper execAddExpenseLedger();
 

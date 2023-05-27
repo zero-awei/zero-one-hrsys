@@ -2,7 +2,7 @@
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
- @Date: 2023/05/21 12:05:31
+ @Date: 2023/05/27 19:57:51
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,24 +17,20 @@
  limitations under the License.
 */
 #pragma once
-#ifndef _LDJ_M_VO_
-#define _LDJ_M_VO_
+#ifndef _EXPENSELEDGER_VO_
+#define _EXPENSELEDGER_VO_
 #include "../../GlobalInclude.h"
 #include "domain/vo/JsonVO.h"
-#include "domain/dto/LaborDispatch/LaborDispatchDTO-mg.h"
-#include "domain/dto/LaborDispatch/LaborDispatchDTO.h"
+#include "domain/dto/ExpenseLedger/ExpenseLedgerDTO.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
-
-class LaborDispatchJsonMVO : public JsonVO<LaborDispatchMDTO::Wrapper>
+class ExpenseLedgerJsonVO : public JsonVO<ExpenseLedgerDTO::Wrapper>
 {
-	DTO_INIT(LaborDispatchJsonMVO, JsonVO<LaborDispatchMDTO::Wrapper>);
+	DTO_INIT(ExpenseLedgerJsonVO, JsonVO < ExpenseLedgerDTO::Wrapper>);
 };
 
-// 分页显示JsonVO，用于响应给客户端的Json对象
-// Fork from : Menghuan
-class LaborDispatchPageJsonMVO : public JsonVO<LaborDispatchPageDTO::Wrapper>
+class ExpenseLedgerPageJsonVO : public JsonVO<ExpenseLedgerPageDTO::Wrapper>
 {
-	DTO_INIT(LaborDispatchPageJsonMVO, JsonVO< LaborDispatchPageDTO::Wrapper>);
+	DTO_INIT(ExpenseLedgerPageJsonVO, JsonVO < ExpenseLedgerPageDTO::Wrapper>);
 };
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_LDJ_M_VO_
+#endif

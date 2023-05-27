@@ -77,6 +77,8 @@
     <ClInclude Include="dao\expenseLedger\ExpenseLedgerDAO.h" />
     <ClInclude Include="dao\expenseLedger\ExpenseLedgerMapper.h" />
     <ClInclude Include="service\expenseLedger\ExpenseLedgerService.h" />
+    <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgerVO.h" />
+    <ClInclude Include="domain\vo\LaborDispatch\LaborDispatchJsonVO-mg.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />
@@ -130,12 +132,8 @@
     <ClInclude Include="dao\Sample\ContractDao.h" />
     <ClInclude Include="dao\Sample\ContractMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\dto\Muggle\expenseLedgerDTO.h" />
-    <ClInclude Include="domain\dto\Muggle\laborDispatchDTO.h" />
     <ClInclude Include="domain\dto\Gosh\ContractDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
-    <ClInclude Include="domain\query\Muggle\expenseLedgerQuery.h" />
-    <ClInclude Include="domain\query\Muggle\laborDispatchQuery.h" />
     <ClInclude Include="domain\vo\Muggle\laborDispatchJsonVO.h" />
     <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO.h" />
     <ClInclude Include="domain\dto\retirement\RetiremetDto.h" />

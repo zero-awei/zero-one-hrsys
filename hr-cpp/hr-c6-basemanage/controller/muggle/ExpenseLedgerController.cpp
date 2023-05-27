@@ -18,10 +18,17 @@
 */
 #include "stdafx.h"
 #include "ExpenseLedgerController.h"
+#include "service/expenseLedger/ExpenseLedgerService.h"
 
-StringJsonVO::Wrapper ExpenseLedgerMController::execQueryExpenseLedger()
+
+ExpenseLedgerPageJsonVO::Wrapper ExpenseLedgerMController::execQueryExpenseLedger(const ExpenseLedgerPageQuery::Wrapper& query)
 {
-	return StringJsonVO::Wrapper();
+	ExpenseLedgerService service;
+	auto result = service.ListAll(query);
+
+	auto jvo = ExpenseLedgerPageJsonVO::createShared();
+	jvo->success(result);
+	return jvo;
 }
 
 StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger()
