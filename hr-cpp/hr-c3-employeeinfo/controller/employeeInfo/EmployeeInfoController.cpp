@@ -25,24 +25,29 @@ StringJsonVO::Wrapper EmployeeInfoController::execEmployeeQuery(const EmployeeIn
 	vo->success("Employee information query success");
 	return vo;
 }
-StringJsonVO::Wrapper EmployeeInfoController::execEmployeeModify(const EmployeeInfoDTO::Wrapper& dto) {
-	auto vo = StringJsonVO::createShared();
+Uint64JsonVO::Wrapper EmployeeInfoController::execEmployeeModify(const EmployeeInfoDTO::Wrapper& dto) {
+	//auto vo = StringJsonVO::createShared();
 	auto jvo = Uint64JsonVO::createShared();
-	if (!dto->age || !dto->name || !dto->sex)
+	if (!dto->empid || !dto->name || !dto->idtype || !dto->idnum)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	if (dto->age < 0 || dto->name->empty() || dto->sex->empty())
+	if (dto->age < 0 || dto->name->empty() || dto->idtype->empty() || dto->idnum->empty())
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	vo->success("Employee information modify success");
-	return vo;
+	if (dto->idtype != nullptr && (dto->idtype != "10" || dto->idtype != "20" || dto->idtype != "30"))
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	//vo->success("Employee information modify success");
+	return jvo;
 }
-StringJsonVO::Wrapper EmployeeInfoController:: execEmployeePut(const EmployeeInfoAddDTO::Wrapper& dto){
-	auto vo = StringJsonVO::createShared();
+Uint64JsonVO::Wrapper EmployeeInfoController:: execEmployeePut(const EmployeeInfoAddDTO::Wrapper& dto){
+	//auto vo = StringJsonVO::createShared();
 	auto jvo = Uint64JsonVO::createShared();
 	if (!dto->empid || !dto->name || !dto->idType || !dto->idNum)
 	{
@@ -59,8 +64,8 @@ StringJsonVO::Wrapper EmployeeInfoController:: execEmployeePut(const EmployeeInf
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	vo->success("Job list information query success");
-	return vo;
+	//vo->success("Job list information query success");
+	return jvo;
 }
 StringJsonVO::Wrapper EmployeeInfoController::execJobListQuery(const JobListQuery::Wrapper& query) {
 	auto vo = StringJsonVO::createShared();

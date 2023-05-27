@@ -83,7 +83,7 @@ public:
 		API_DEF_ADD_QUERY_PARAMS(String, "phone", ZH_WORDS_GETTER("employee.field.phone"), "10086", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "state", ZH_WORDS_GETTER("employee.field.state"), "on", false);
 	};
-	API_HANDLER_ENDPOINT(API_M_POST, "/employee-info/employeePost", employeePost, BODY_DTO(EmployeeInfoAddDTO::Wrapper, dto), execEmployeePut(dto));
+	API_HANDLER_ENDPOINT(API_M_POST, "/employee-info/employee-post", employeePost, BODY_DTO(EmployeeInfoAddDTO::Wrapper, dto), execEmployeePut(dto));
 	/* *
 	* 修改指定员工员工信息接口
 	* 执行人：Detachment
@@ -114,10 +114,10 @@ public:
 		API_DEF_ADD_QUERY_PARAMS(String, "workTime", ZH_WORDS_GETTER("employee.field.workTime"), "6666-66-66 66:66:66", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "inTime", ZH_WORDS_GETTER("employee.field.inTime"), "6666-66-66 66:66:66", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "photo", ZH_WORDS_GETTER("employee.field.photo"), u8"[{\"name\":\"组织管理.png\",\"id\":\"4d3c48ea78cc1d4a04bdb2142f136d28\"}]", false);
-		API_DEF_ADD_QUERY_PARAMS(String, "phone", ZH_WORDS_GETTER("employee.field.phone"), "6666", true);
+		API_DEF_ADD_QUERY_PARAMS(String, "phone", ZH_WORDS_GETTER("employee.field.phone"), "6666", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "email", ZH_WORDS_GETTER("employee.field.email"), "666@666.com", false);
 	}
-	API_HANDLER_ENDPOINT(API_M_PUT, "/employee-info/employeePut", employeePut,BODY_DTO(EmployeeInfoDTO::Wrapper,dto), execEmployeeModify(dto));
+	API_HANDLER_ENDPOINT(API_M_PUT, "/employee-info/employee-put", employeePut,BODY_DTO(EmployeeInfoDTO::Wrapper,dto), execEmployeeModify(dto));
 	/* *
 	* 岗位列表接口
 	* 执行人：Detachment
@@ -138,12 +138,12 @@ private: // 定义接口执行函数
 	* 修改指定员工员工信息执行接口
 	* 执行人：Detachment
 	*/
-	StringJsonVO::Wrapper execEmployeeModify(const EmployeeInfoDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execEmployeeModify(const EmployeeInfoDTO::Wrapper& dto);
 	/* *
 	* 增加员工信息执行接口
 	* 执行人：Detachment
 	*/
-	StringJsonVO::Wrapper execEmployeePut(const EmployeeInfoAddDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execEmployeePut(const EmployeeInfoAddDTO::Wrapper& dto);
 	/* *
 	* 岗位列表查询执行接口
 	* 执行人：Detachment
