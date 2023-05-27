@@ -181,6 +181,7 @@
     <ClCompile Include="dao\muggle\LaborDispatchDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="dao\Sample\ContractDao.cpp" />
+    <ClCompile Include="service\JobTitleInfo\JobTitleInfo.cpp" />
     <ClCompile Include="service\laborDispatch\LaborDispatchService-mh.cpp" />
     <ClCompile Include="service\Gosh\GoshService.cpp" />
     <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
@@ -247,6 +248,7 @@
     <ClInclude Include="domain\vo\RetirementVo\RetirementVo.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\JobTitleInfo\JobTitleInfo.h" />
     <ClInclude Include="service\laborDispatch\LaborDispatchService-mh.h" />
     <ClInclude Include="service\Gosh\GoshService.h" />
     <ClInclude Include="service\muggle\LaborDispatchService.h" />

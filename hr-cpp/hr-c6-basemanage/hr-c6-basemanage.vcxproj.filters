@@ -23,6 +23,7 @@
     <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
     <ClCompile Include="service\Gosh\GoshService.cpp" />
     <ClCompile Include="dao\Gosh\GoshDAO.cpp" />
+    <ClCompile Include="service\JobTitleInfo\JobTitleInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -75,6 +76,7 @@
     <ClInclude Include="dao\Gosh\GoshMapper.h" />
     <ClInclude Include="domain\do\Gosh\ContractDO.h" />
     <ClInclude Include="domain\do\ExpenseLedge\ExpenseLedge.h" />
+    <ClInclude Include="service\JobTitleInfo\JobTitleInfo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />

@@ -35,6 +35,9 @@ public:
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(JobTitleInfoJsonVO);
 		// 定义其他表单参数描述
+		info->queryParams.add<String>("employee_id").description = ZH_WORDS_GETTER("jobtitle.field.employee_id");
+		info->queryParams["employee_id"].addExample("default", String("11"));
+		info->queryParams["employee_id"].required = true;
 		info->queryParams.add<String>("employee_name").description = ZH_WORDS_GETTER("jobtitle.field.employee_name");
 		info->queryParams["employee_name"].addExample("default", String("li hua"));
 		info->queryParams["employee_name"].required = true;
@@ -44,6 +47,12 @@ public:
 		info->queryParams.add<String>("get_time").description = ZH_WORDS_GETTER("jobtitle.field.get_time");
 		info->queryParams["get_time"].addExample("default", String("2023-05-15"));
 		info->queryParams["get_time"].required = true;
+		info->queryParams.add<String>("org_name").description = ZH_WORDS_GETTER("jobtitle.field.org_name");
+		info->queryParams["org_name"].addExample("default", String("hua wei"));
+		info->queryParams["org_name"].required = true;
+		info->queryParams.add<String>("professor_grades").description = ZH_WORDS_GETTER("jobtitle.field.professor_grades");
+		info->queryParams["professor_grades"].addExample("default", String("gaoji"));
+		info->queryParams["professor_grades"].required = true;
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/job-title-management/query-job-title", queryJobTitle, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
