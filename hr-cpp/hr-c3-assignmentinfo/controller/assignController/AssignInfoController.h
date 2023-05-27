@@ -130,8 +130,8 @@ public:
 			multipartReader.setPartReader("depart", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 			multipartReader.setPartReader("job", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 			multipartReader.setPartReader("post", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			multipartReader.setPartReader("start-time", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			multipartReader.setPartReader("end-time", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+			multipartReader.setPartReader("startTime", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+			multipartReader.setPartReader("endTime", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 			/* 配置读取器读取文件到文件 */
 			multipartReader.setPartReader("file", multipart::createFilePartReader("public/static/file/test.png"));
 			/* 读取请求体中的数据 */
@@ -141,7 +141,7 @@ public:
 			/* 获取表单数据 */
 			auto id = multipartContainer->getNamedPart("id");
 			auto assign = multipartContainer->getNamedPart("assign");
-			auto etype = multipartContainer->getNamedPart("Etype");
+			auto etype = multipartContainer->getNamedPart("etype");
 			auto organize = multipartContainer->getNamedPart("organize");
 			auto depart = multipartContainer->getNamedPart("depart");
 			auto job = multipartContainer->getNamedPart("job");
