@@ -25,7 +25,7 @@
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
-#include"contract/ContractController.h"
+#include"contractType/ContractTypeController.h"
 #include"Certificate/CertificateController.h"
 #include "archive/ArchiveController.h"
 // 如果定义了关闭Swagger文档宏
@@ -56,6 +56,7 @@ void Router::initRouter()
 	// xxxxxxxxxx
 ROUTER_SIMPLE_BIND(CertificateController);
 ROUTER_SIMPLE_BIND(ArchiveController);
+ROUTER_SIMPLE_BIND(ContractTypeController);
 }
 
 #ifdef HTTP_SERVER_DEMO

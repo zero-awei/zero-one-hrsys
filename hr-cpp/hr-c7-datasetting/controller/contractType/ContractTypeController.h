@@ -12,10 +12,10 @@
 /**
  * 合同查询控制器
  */
-class ContractController : public oatpp::web::server::api::ApiController // 1
+class ContractTypeController : public oatpp::web::server::api::ApiController // 1
 {
 	// 2 定义控制器访问入口
-	API_ACCESS_DECLARE(ContractController);
+	API_ACCESS_DECLARE(ContractTypeController);
 public: // 定义接口
 	// 3 定义接口描述
 	ENDPOINT_INFO(queryContract) {
@@ -31,7 +31,7 @@ public: // 定义接口
 		info->queryParams["name"].required = false;
 	}
 	// 4 定义接口端点
-	ENDPOINT(API_M_GET, "/contract", queryContract, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/contracttype/query-contractType", queryContract, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, ContractTypeQuery, qps);
 		// 响应结果
@@ -45,7 +45,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(ContractTypeJsonVO);
 	}
 	// 定义新增接口处理
-	ENDPOINT(API_M_POST, "/contract", addContractType, BODY_DTO(ContractTypeDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/contracttype/add-contractType", addContractType, BODY_DTO(ContractTypeDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddContractType(dto));
 	}
@@ -57,7 +57,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(ContractTypeJsonVO);
 	}
 	// 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/contract", modifyContractType, BODY_DTO(ContractTypeDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/contracttype/modify-contractType", modifyContractType, BODY_DTO(ContractTypeDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyContractType(dto));
 	}
@@ -69,7 +69,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(ContractTypeJsonVO);
 	}
 	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/contract", removeContractType, BODY_DTO(ContractTypeDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/contract/remote-contractType", removeContractType, BODY_DTO(ContractTypeDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveContractType(dto));
 	}

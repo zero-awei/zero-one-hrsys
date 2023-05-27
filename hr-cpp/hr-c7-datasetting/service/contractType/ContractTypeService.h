@@ -6,7 +6,7 @@
 #include "domain/query/contractType/ContractTypeQuery.h"
 #include "domain/dto/contractType/ContractTypeDTO.h"
 
-class ContractService
+class ContractTypeService
 {
 public:
 	// 分页查询所有数据
