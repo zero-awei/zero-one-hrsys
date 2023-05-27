@@ -31,10 +31,33 @@ ExpenseLedgerPageJsonVO::Wrapper ExpenseLedgerMController::execQueryExpenseLedge
 	return jvo;
 }
 
-StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger()
+StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger(const ExpenseLedgerDTO::Wrapper& dto)
 {
-	return StringJsonVO::Wrapper();
+	auto jvo = StringJsonVO::createShared();
+	if (!dto->pimexpaccountname || !dto->pimexpaccountid || !dto->fyje || !dto->ffrs || !dto->ffybz) 
+	{
+		jvo->init(String(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+
+	if (dto->pimexpaccountname->empty() || dto->ffybz->empty())
+	{
+		jvo->init(String(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+
+	ExpenseLedgerService service;
+	if (service.saveData(dto)) {
+		jvo->success(dto->pimexpaccountname);
+	}
+	else
+	{
+		jvo->fail(dto->pimexpaccountname);
+	}
+	return jvo;
 }
+
+
 
 StringJsonVO::Wrapper ExpenseLedgerMController::execDeleteExpenseLedger()
 {

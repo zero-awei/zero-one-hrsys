@@ -30,5 +30,7 @@ public:
 	uint64_t count(const ExpenseLedgerPageQuery::Wrapper& query);
 	// 根据页面请求返回DO
 	std::list<ExpenseLedgerDO> selectByPageQuery(const ExpenseLedgerPageQuery::Wrapper& query);
+
+	uint64_t insert(const ExpenseLedgerDO& ido);
 };
 #endif

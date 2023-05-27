@@ -49,10 +49,10 @@ public:
 	// 新增费别
 	ENDPOINT_INFO(addExpenseLedger) {
 		info->summary = ZH_WORDS_GETTER("expenseledger_mug.post.summary");
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	ENDPOINT(API_M_POST, "/contract-management/add-expense-category", addExpenseLedger, BODY_DTO(ExpenseLedgerDTO::Wrapper, dto)) {
-		API_HANDLER_RESP_VO(execAddExpenseLedger());
+		API_HANDLER_RESP_VO(execAddExpenseLedger(dto));
 	}
 	
 	// 删除费别
@@ -66,7 +66,7 @@ public:
 private:
 	ExpenseLedgerPageJsonVO::Wrapper execQueryExpenseLedger(const ExpenseLedgerPageQuery::Wrapper& query);
 
-	StringJsonVO::Wrapper execAddExpenseLedger();
+	StringJsonVO::Wrapper execAddExpenseLedger(const ExpenseLedgerDTO::Wrapper& dto);
 
 	StringJsonVO::Wrapper execDeleteExpenseLedger();
 };

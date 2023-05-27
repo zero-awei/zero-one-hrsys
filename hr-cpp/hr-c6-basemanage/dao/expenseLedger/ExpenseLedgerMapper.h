@@ -35,8 +35,8 @@ public:
 		data.setCreateman(resultSet->getString(5));
 		data.setUpdatedate(resultSet->getString(6));
 		data.setFylb(resultSet->getString(7));
-		data.setFyje(resultSet->getString(8));
-		data.setFfrs(resultSet->getString(9));
+		data.setFyje(resultSet->getDouble(8));
+		data.setFfrs(resultSet->getInt(9));
 		data.setFfsj(resultSet->getString(10));
 		data.setFybz(resultSet->getString(11));
 		data.setBz(resultSet->getString(12));

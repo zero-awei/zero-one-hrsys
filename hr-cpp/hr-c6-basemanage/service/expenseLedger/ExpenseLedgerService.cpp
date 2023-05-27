@@ -61,3 +61,22 @@ ExpenseLedgerPageDTO::Wrapper ExpenseLedgerService::ListAll(const ExpenseLedgerP
 	}
 	return pages;
 }
+
+uint64_t ExpenseLedgerService::saveData(const ExpenseLedgerDTO::Wrapper& dto)
+{
+	ExpenseLedgerDO data;
+	data.setName(dto->pimexpaccountname.getValue(""));
+	data.setId(dto->pimexpaccountid.getValue(""));
+	data.setUpdateman(dto->updateman.getValue(""));
+	data.setUpdatedate(dto->updatedate.getValue(""));
+	data.setCreateman(dto->createman.getValue(""));
+	data.setCreatedate(dto->createdate.getValue(""));
+	data.setFylb(dto->fylb.getValue(""));
+	data.setFyje(dto->fyje.getValue(0));
+	data.setFfrs(dto->ffrs.getValue(0));
+	data.setFfsj(dto->ffsj.getValue(""));
+	data.setFybz(dto->ffybz.getValue(""));
+	data.setBz(dto->bz.getValue(""));
+	ExpenseLedgerDAO dao;
+	return dao.insert(data);
+}

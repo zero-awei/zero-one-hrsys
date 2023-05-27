@@ -39,9 +39,9 @@ class ExpenseLedgerDO
 	//费用类别
 	CC_SYNTHESIZE(string, fylb, Fylb);
 	//费用金额
-	CC_SYNTHESIZE(string, fyje, Fyje);
+	CC_SYNTHESIZE(double, fyje, Fyje);
 	//发放人数
-	CC_SYNTHESIZE(string, ffrs, Ffrs);
+	CC_SYNTHESIZE(int, ffrs, Ffrs);
 	//发放时间
 	CC_SYNTHESIZE(string, ffsj, Ffsj);
 	//费用标准
@@ -58,8 +58,8 @@ public:
 		updatedate = "";
 
 		fylb = "";
-		fyje = "";
-		ffrs = "";
+		fyje = 0;
+		ffrs = 0;
 		ffsj = "";
 		fybz = "";
 		bz = "";

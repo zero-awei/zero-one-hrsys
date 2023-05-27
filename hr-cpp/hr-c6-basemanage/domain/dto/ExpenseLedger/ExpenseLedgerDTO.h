@@ -19,7 +19,8 @@
 #ifndef _EXPENSELEDGER_DTO_
 #define _EXPENSELEDGER_DTO_
 #include "../../GlobalInclude.h"
-
+#include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
@@ -65,12 +66,12 @@ class ExpenseLedgerDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("expenseledger.field.FYLB");
 	}
 	// 费用金额
-	DTO_FIELD(String, fyje);
+	DTO_FIELD(Float32, fyje);
 	DTO_FIELD_INFO(fyje) {
 		info->description = ZH_WORDS_GETTER("expenseledger.field.FYJE");
 	}
 	// 发放人数
-	DTO_FIELD(String, ffrs);
+	DTO_FIELD(Int32, ffrs);
 	DTO_FIELD_INFO(ffrs) {
 		info->description = ZH_WORDS_GETTER("expenseledger.field.FFRS");
 	}
