@@ -1,9 +1,8 @@
-
 /*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
- @Date: 2023/05/20 0:00:36
+ @Date: 2023/05/27 19:57:51
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -18,19 +17,20 @@
  limitations under the License.
 */
 #pragma once
-#ifndef _LD_M_SERVICE_
-#define _LD_M_SERVICE_
-#include "domain/dto/muggle/LaborDispatchDTO.h"
-#include "domain/vo/muggle/LaborDispatchJsonVO.h"
-#include "domain/query/muggle/LaborDispatchQuery.h"
-
-class LaborDispatchMService
+#ifndef _EXPENSELEDGER_VO_
+#define _EXPENSELEDGER_VO_
+#include "../../GlobalInclude.h"
+#include "domain/vo/JsonVO.h"
+#include "domain/dto/ExpenseLedger/ExpenseLedgerDTO.h"
+#include OATPP_CODEGEN_BEGIN(DTO)
+class ExpenseLedgerJsonVO : public JsonVO<ExpenseLedgerDTO::Wrapper>
 {
-public:
-	LaborDispatchMDTO::Wrapper ListData(const LaborDispatchMQuery::Wrapper& query);
-
-	bool modifyData(const LaborDispatchMDTO::Wrapper& dto);
-protected:
-private:
+	DTO_INIT(ExpenseLedgerJsonVO, JsonVO < ExpenseLedgerDTO::Wrapper>);
 };
+
+class ExpenseLedgerPageJsonVO : public JsonVO<ExpenseLedgerPageDTO::Wrapper>
+{
+	DTO_INIT(ExpenseLedgerPageJsonVO, JsonVO < ExpenseLedgerPageDTO::Wrapper>);
+};
+#include OATPP_CODEGEN_END(DTO)
 #endif

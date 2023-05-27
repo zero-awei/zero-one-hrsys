@@ -118,7 +118,7 @@ expenseledger_mug:
   department_c: 合同签订单位
   date_end: 合同到期时间
   tip: 备注
-person:
+person_gosh:
  get:
   summary: 分页查询个人信息
  post:
@@ -144,7 +144,6 @@ retirement_gan:
   idcard: 证件号码
   department: 部门
   organization: 组织
-
 
 contract:
   upload: 导入合同

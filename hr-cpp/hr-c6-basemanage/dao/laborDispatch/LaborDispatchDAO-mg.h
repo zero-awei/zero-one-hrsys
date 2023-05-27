@@ -2,7 +2,7 @@
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
- @Date: 2023/05/20 10:53:13
+ @Date: 2023/05/20 10:46:18
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,26 +17,22 @@
  limitations under the License.
 */
 #pragma once
-#ifndef _LD_M_DO_
-#define _LD_M_DO_
-#include "../DoInclude.h"
+#ifndef _LD_M_DAO_
+#define _LD_M_DAO_
+#include "BaseDAO.h"
+#include "../../domain/query/LaborDispatch/LaborDispatchQuery-mg.h"
+#include "../../domain/do/laborDispatch/LaborDispatchDO.h"
 
-class LaborDispatchMDO
+class LaborDispatchMDAO : public BaseDAO
 {
-	// 公司名称
-	CC_SYNTHESIZE(string, corporatename, CorporateName);
-	// 公司地址
-	CC_SYNTHESIZE(string, corporateAddress, CorporateAddress);
-	// 公司联系人
-	CC_SYNTHESIZE(string, corporateContact, CorporateContact);
-	// 公司联系电话
-	CC_SYNTHESIZE(string, corporateNumber, CorporateNumber);
 public:
-	LaborDispatchMDO() {
-		corporatename = "";
-		corporateAddress = "";
-		corporateContact = "";
-		corporateNumber = "";
-	}
+	// 统计数据条数
+	uint64_t count(const LaborDispatchMQuery::Wrapper& query);
+	// 根据公司名称查询数据
+	std::list<LaborDispatchDO> selectByCorporateName(const LaborDispatchMQuery::Wrapper& query);
+
+protected:
+private:
 };
+
 #endif

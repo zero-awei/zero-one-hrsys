@@ -2,7 +2,7 @@
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
- @Date: 2023/05/20 10:46:22
+ @Date: 2023/05/19 23:24:57
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,18 +16,26 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "LaborDispatchDAO.h"
-#include <sstream>
+#pragma once
+#ifndef _LB_M_QUERY_
+#define _LB_M_QUERY
+#include "../../GlobalInclude.h"
+#include "domain/query/PageQuery.h"
+#include OATPP_CODEGEN_BEGIN(DTO)
 
-LaborDispatchMDO LaborDispatchMDAO::selectByCorporateName(const LaborDispatchMQuery::Wrapper& query)
+class LaborDispatchMQuery : public PageQuery
 {
-	stringstream sql;
-	sql << "SELECT `PIMLABOURCAMPANYNAME`,`LXDZ`,`LXR`,`LXFS` FROM t_pimlabourcampany WHERE `PIMLABOURCAMPANYNAME` = ?";
-	LaborDispatchMDO reply;
-	reply.setCorporateAddress("cosmic");
-	reply.setCorporateContact("muggle");
-	reply.setCorporateName("zerone");
-	reply.setCorporateNumber("88480520");
-	return reply;
-}
+	DTO_INIT(LaborDispatchMQuery, PageQuery);
+	/**
+	 * ¹«Ë¾Ãû³Æ
+	 */
+	DTO_FIELD(String, corporateName);
+	DTO_FIELD_INFO(corporateName) {
+		info->description = ZH_WORDS_GETTER("labordispatch_mug.field.corporatename");
+	}
+
+};
+
+
+#include OATPP_CODEGEN_END(DTO)
+#endif // !_LB_M_QUERY_

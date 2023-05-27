@@ -11,25 +11,43 @@
 
 //修改合同所需参数
 #define UPDATECONTRACTINFO \
-info->queryParams.add<String>("PIMCONTRACTID").description = ZH_WORDS_GETTER("contract.PIMCONTRACTID");\
-info->queryParams["PIMCONTRACTID"].addExample("default", String("06CB7488-FCFB-41C3-8A9A-F4D35780F428"));\
-info->queryParams.add<String>("CREATEMAN").description = ZH_WORDS_GETTER("contract.CREATEMAN");\
-info->queryParams["CREATEMAN"].addExample("default", String("xiaoming"));\
-info->queryParams["CREATEMAN"].required = false;\
-info->queryParams.add<String>("CREATEDATE").description = ZH_WORDS_GETTER("contract.CREATEDATE");\
-info->queryParams["CREATEDATE"].addExample("default", String("2019-05-10 16:15:52"));\
-info->queryParams["CREATEDATE"].required = false;\
-info->queryParams.add<String>("UPDATEDATE").description = ZH_WORDS_GETTER("contract.UPDATEDATE");\
-info->queryParams["UPDATEDATE"].addExample("default", String("2020-05-10 16:15:52"));\
-info->queryParams["UPDATEDATE"].required = false;\
-info->queryParams.add<String>("PIMCONTRACTNAME").description = ZH_WORDS_GETTER("contract.PIMCONTRACTNAME");\
-info->queryParams["PIMCONTRACTNAME"].addExample("default", String("xiaoming"));\
-info->queryParams["PIMCONTRACTNAME"].required = false 
+info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("expenseledger_mug.filed.id");\
+info->queryParams["id"].addExample("default", UInt64(114514));\
+info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("expenseledger_mug.filed.name");\
+info->queryParams["name"].addExample("default", String("xiaoming"));\
+info->queryParams["name"].required = false;\
+info->queryParams.add<String>("type").description = ZH_WORDS_GETTER("expenseledger_mug.filed.type");\
+info->queryParams["type"].addExample("default", String("A"));\
+info->queryParams["type"].required = false;\
+info->queryParams.add<String>("variety").description = ZH_WORDS_GETTER("expenseledger_mug.filed.variety");\
+info->queryParams["variety"].addExample("default", String("a"));\
+info->queryParams["variety"].required = false;\
+info->queryParams.add<String>("date").description = ZH_WORDS_GETTER("expenseledger_mug.filed.date");\
+info->queryParams["date"].addExample("default", String("2023-05-02 19:57:59"));\
+info->queryParams["date"].required = false;\
+info->queryParams.add<String>("condition").description = ZH_WORDS_GETTER("expenseledger_mug.filed.condition"); \
+info->queryParams["condition"].addExample("default", String("ok")); \
+info->queryParams["condition"].required = false;\
+info->queryParams.add<String>("department_m").description = ZH_WORDS_GETTER("expenseledger_mug.filed.department_m"); \
+info->queryParams["department_m"].addExample("default", String("ok")); \
+info->queryParams["department_m"].required = false;\
+info->queryParams.add<String>("department_c").description = ZH_WORDS_GETTER("expenseledger_mug.filed.department_c"); \
+info->queryParams["department_c"].addExample("default", String("ok")); \
+info->queryParams["department_c"].required = false;\
+info->queryParams.add<String>("date_end").description = ZH_WORDS_GETTER("expenseledger_mug.filed.date_end"); \
+info->queryParams["date_end"].addExample("default", String("2023-05-02 19:57:59")); \
+info->queryParams["date_end"].required = false;\
+info->queryParams.add<String>("tip").description = ZH_WORDS_GETTER("expenseledger_mug.filed.tip"); \
+info->queryParams["tip"].addExample("default", String("ok")); \
+info->queryParams["tip"].required = false
+
+
+
 
 //查询合同所需参数
 #define QUERYCONTRACTINFO \
-info->queryParams.add<String>("PIMCONTRACTID").description = ZH_WORDS_GETTER("contract.PIMCONTRACTID");\
-info->queryParams["PIMCONTRACTID"].addExample("default", String("06CB7488-FCFB-41C3-8A9A-F4D35780F428"))
+info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("expenseledger_mug.filed.id");\
+info->queryParams["id"].addExample("default", String("114514"))
 
 
 using namespace oatpp;

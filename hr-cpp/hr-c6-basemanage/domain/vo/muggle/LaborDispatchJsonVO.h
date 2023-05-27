@@ -21,13 +21,14 @@
 #define _LDJ_M_VO_
 #include "../../GlobalInclude.h"
 #include "domain/vo/JsonVO.h"
-#include "domain/dto/muggle/LaborDispatchDTO.h"
+#include "domain/dto/LaborDispatch/LaborDispatchDTO-mg.h"
+#include "domain/dto/LaborDispatch/LaborDispatchDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class LaborDispatchJsonMVO : public JsonVO<LaborDispatchMDTO::Wrapper>
+class LaborDispatchJsonMVO : public JsonVO<LaborDispatchPageDTO::Wrapper>
 {
-	DTO_INIT(LaborDispatchJsonMVO, JsonVO<LaborDispatchMDTO::Wrapper>);
+	DTO_INIT(LaborDispatchJsonMVO, JsonVO<LaborDispatchPageDTO::Wrapper>);
 };
 
 

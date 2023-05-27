@@ -2,7 +2,7 @@
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
- @Date: 2023/05/19 23:24:57
+ @Date: 2023/05/27 0:16:41
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,24 +17,18 @@
  limitations under the License.
 */
 #pragma once
-#ifndef _LB_M_QUERY_
-#define _LB_M_QUERY
-#include "../../GlobalInclude.h"
-#include OATPP_CODEGEN_BEGIN(DTO)
+#ifndef _EXPENSELEDGER_DAO_
+#define _EXPENSELEDGER_DAO_
+#include "BaseDAO.h"
+#include "../../domain/do/expenseLedger/ExpenseLedgerDO.h"
+#include "../../domain/query/ExpenseLedger/ExpenseLedgerQuery.h"
 
-class LaborDispatchMQuery : public oatpp::DTO
+class ExpenseLedgerDAO : public BaseDAO
 {
-	DTO_INIT(LaborDispatchMQuery, DTO);
-	/**
-	 * 公司名称
-	 */
-	DTO_FIELD(String, corporateName);
-	DTO_FIELD_INFO(corporateName) {
-		info->description = ZH_WORDS_GETTER("labordispatch_mug.field.corporatename");
-	}
-
+public:
+	// 统计数据条数
+	uint64_t count(const ExpenseLedgerPageQuery::Wrapper& query);
+	// 根据页面请求返回DO
+	std::list<ExpenseLedgerDO> selectByPageQuery(const ExpenseLedgerPageQuery::Wrapper& query);
 };
-
-
-#include OATPP_CODEGEN_END(DTO)
-#endif // !_LB_M_QUERY_
+#endif

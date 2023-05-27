@@ -1,9 +1,8 @@
-#pragma once
 /*
- Copyright Zero One Star. All rights reserved.
+ Copyright Muggle. All rights reserved.
 
- @Author: mengHuan
- @Date: 2023/05/15 21:50:08
+ @Author: Muggle
+ @Date: 2023/05/26 23:55:14
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,22 +16,19 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _LABORDISPATCHSERVICE_H_
-#define _LABORDISPATCHSERVICE_H_
-#include <list>
+#pragma once
+#ifndef _EXPENSELEDGER_SERVICE_
+#define _EXPENSELEDGER_SERVICE_
+#include "domain/dto/ExpenseLedger/ExpenseLedgerDTO.h"
+#include "domain/query/ExpenseLedger/ExpenseLedgerQuery.h"
 
-
-class LaborDispatchService
+class ExpenseLedgerService
 {
 public:
-	//分页查询所有数据
-
-	//保存数据
-
-	//修改数据
-
-	//通过ID删除数据
-
+	// 分页查询数据
+	ExpenseLedgerPageDTO::Wrapper ListAll(const ExpenseLedgerPageQuery::Wrapper& query);
+protected:
+private:
 };
 
-#endif // !_LABORDISPATCHSERVICE_H_
+#endif

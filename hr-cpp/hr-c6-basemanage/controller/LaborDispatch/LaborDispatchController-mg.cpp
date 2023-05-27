@@ -17,15 +17,15 @@
  limitations under the License.
 */
 #include "stdafx.h"
-#include "LaborDispatchController.h"
-#include "../../service/muggle/LaborDispatchService.h"
+#include "LaborDispatchController-mg.h"
+#include "../../service/laborDispatch/LaborDispatchService-mg.h"
 
 LaborDispatchJsonMVO::Wrapper LaborDispatchMController::execQueryLaborDispatch(const LaborDispatchMQuery::Wrapper& query)
 {
 	// 定义Service
 	LaborDispatchMService service;
 	// service执行并返回数据
-	auto result = service.ListData(query);
+	auto result = service.ListAll(query);
 	// 响应结果
 	auto vo = LaborDispatchJsonMVO::createShared();
 	vo->success(result);

@@ -1,8 +1,9 @@
+
 /*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
- @Date: 2023/05/20 10:46:18
+ @Date: 2023/05/20 0:00:36
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,19 +18,21 @@
  limitations under the License.
 */
 #pragma once
-#ifndef _LD_M_DAO_
-#define _LD_M_DAO_
-#include "BaseDAO.h"
-#include "../../domain/do/muggle/LaborDispatchDO.h"
-#include "../../domain/query/muggle/LaborDispatchQuery.h"
+#ifndef _LD_M_SERVICE_
+#define _LD_M_SERVICE_
+#include "domain/dto/LaborDispatch/LaborDispatchDTO.h"
+#include "domain/dto/LaborDispatch/LaborDispatchDTO-mg.h"
+#include "domain/query/LaborDispatch/LaborDispatchQuery-mg.h"
 
-class LaborDispatchMDAO : public BaseDAO
+class LaborDispatchMService
 {
 public:
-	LaborDispatchMDO selectByCorporateName(const LaborDispatchMQuery::Wrapper& query);
+	// 分页查询所有数据
+	LaborDispatchPageDTO::Wrapper ListAll(const LaborDispatchMQuery::Wrapper& query);
+	//LaborDispatchMDTO::Wrapper ListData(const LaborDispatchMQuery::Wrapper& query);
 
+	bool modifyData(const LaborDispatchMDTO::Wrapper& dto);
 protected:
 private:
 };
-
 #endif

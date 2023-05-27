@@ -10,38 +10,57 @@ class ContractDTO_ : public oatpp::DTO
 {
 public:
 	ContractDTO_() {};
-	ContractDTO_(String PIMCONTRACTID, String CREATEMAN, String CREATEDATE, \
-	String UPDATEDATE, String PIMCONTRACTNAME) :\
-		PIMCONTRACTID(PIMCONTRACTID), CREATEMAN(CREATEMAN),\
-		CREATEDATE(CREATEDATE), UPDATEDATE(UPDATEDATE),\
-		PIMCONTRACTNAME(PIMCONTRACTNAME){};
 
 	DTO_INIT(ContractDTO_, DTO);
 
-	// 合同信息标识
-	DTO_FIELD(String, PIMCONTRACTID);
-	DTO_FIELD_INFO(PIMCONTRACTID) {
-		info->description = ZH_WORDS_GETTER("contract.PIMCONTRACTID");
+	DTO_FIELD(UInt64, id);
+	DTO_FIELD_INFO(id) {
+		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.id");
 	}
-	// 建立人
-	DTO_FIELD(String, CREATEMAN);
-	DTO_FIELD_INFO(CREATEMAN) {
-		info->description = ZH_WORDS_GETTER("contract.CREATEMAN");
+
+	DTO_FIELD(String, name);
+	DTO_FIELD_INFO(name) {
+		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.name");
 	}
-	// 建立时间
-	DTO_FIELD(String, CREATEDATE);
-	DTO_FIELD_INFO(CREATEDATE) {
-		info->description = ZH_WORDS_GETTER("contract.CREATEDATE");
+
+	DTO_FIELD(String, type);
+	DTO_FIELD_INFO(type) {
+		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.type");
 	}
-	// 更新时间
-	DTO_FIELD(String, UPDATEDATE);
-	DTO_FIELD_INFO(UPDATEDATE) {
-		info->description = ZH_WORDS_GETTER("contract.UPDATEDATE");
+
+	DTO_FIELD(String, variety);
+	DTO_FIELD_INFO(variety) {
+		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.variety");
 	}
-	// 合同信息名称
-	DTO_FIELD(String, PIMCONTRACTNAME);
-	DTO_FIELD_INFO(PIMCONTRACTNAME) {
-		info->description = ZH_WORDS_GETTER("contract.PIMCONTRACTNAME");
+
+	DTO_FIELD(String, date);
+	DTO_FIELD_INFO(date) {
+		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.date");
+	}
+
+	DTO_FIELD(String, condition);
+	DTO_FIELD_INFO(condition) {
+		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.condition");
+	}
+
+	DTO_FIELD(String, department_m);
+	DTO_FIELD_INFO(department_m) {
+		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.department_m");
+	}
+
+	DTO_FIELD(String, department_c);
+	DTO_FIELD_INFO(department_c) {
+		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.department_c");
+	}
+
+	DTO_FIELD(String, date_end);
+	DTO_FIELD_INFO(date_end) {
+		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.date_end");
+	}
+
+	DTO_FIELD(String, tip);
+	DTO_FIELD_INFO(tip) {
+		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.tip");
 	}
 
 };
