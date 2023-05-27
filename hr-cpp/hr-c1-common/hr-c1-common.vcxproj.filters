@@ -31,6 +31,7 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="uselib\pullListRedis\UseLibRedis.cpp" />
     <ClCompile Include="dao\archivesLevel\ArchivesLevelsDAO.cpp" />
+    <ClCompile Include="dao\DeclareType\DeclareTypeListDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\archivesLevel\ArchivesLevelsController.h" />
@@ -97,5 +98,6 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="uselib\pullListRedis\UseLibRedis.h" />
     <ClInclude Include="dao\archivesLevel\ArchivesLevelsDAO.h" />
+    <ClInclude Include="dao\DeclareType\DeclareTypeListDAO.h" />
   </ItemGroup>
 </Project>

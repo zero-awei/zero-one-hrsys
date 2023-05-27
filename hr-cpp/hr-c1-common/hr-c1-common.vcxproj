@@ -182,6 +182,7 @@
     <ClInclude Include="dao\archivesLevel\ArchivesLevelsDAO.h" />
     <ClInclude Include="dao\armyLevelType\ArmyLevelMapper.h" />
     <ClInclude Include="dao\armyLevelType\ArmyLevelTypeDAO.h" />
+    <ClInclude Include="dao\DeclareType\DeclareTypeListDAO.h" />
     <ClInclude Include="dao\dismissReason\DismissReasonDAO.h" />
     <ClInclude Include="dao\dismissReason\DismissReasonMapper.h" />
     <ClInclude Include="dao\leaveReason\LeaveReasonDAO.h" />
@@ -247,6 +248,7 @@
     <ClCompile Include="controller\typeContract\TypeContractListController.cpp" />
     <ClCompile Include="dao\archivesLevel\ArchivesLevelsDAO.cpp" />
     <ClCompile Include="dao\armyLevelType\ArmyLevelTypeDAO.cpp" />
+    <ClCompile Include="dao\DeclareType\DeclareTypeListDAO.cpp" />
     <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
     <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
     <ClCompile Include="main.cpp" />
