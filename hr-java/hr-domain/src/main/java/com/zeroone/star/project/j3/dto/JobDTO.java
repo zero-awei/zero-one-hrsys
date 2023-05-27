@@ -4,11 +4,11 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 /**
  * ClassName: JobDTO
- * Description: 职务详细传输对象（防API报错，暂未实例）
+ * Description: 职务详细传输对象
  *
  * @Author LR
  * @Create 2023/5/19 11:50
@@ -23,11 +23,11 @@ public class JobDTO {
     @ApiModelProperty(value = "职务编码",example = "2213")
     private String fglx;
     @ApiModelProperty(value = "职务标识",example = "唯一字段，不展示")
-    private String ormdutyId;
+    private String ormdutyid;
     @ApiModelProperty(value = "职务名称",example = "技术员")
-    private String ormdutyName;
+    private String ormdutyname;
     @ApiModelProperty(value = "更新人",example = "管理员")
-    private String updateMan;
+    private String updateman;
     @ApiModelProperty(value = "更新日期",example = "2023-05-17 12:14:15")
-    private Date updateTime;
+    private LocalDateTime updatedate;
 }

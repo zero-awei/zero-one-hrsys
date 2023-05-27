@@ -2,16 +2,13 @@ package com.zeroone.star.project.j3.orgmanager;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sample.SampleDTO;
+import com.zeroone.star.project.j3.dto.AddOrgInfoDTO;
 import com.zeroone.star.project.j3.dto.DeleteDTO;
+import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.ModifyOrgAddressDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
-import cn.hutool.http.server.HttpServerResponse;
-import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.j3.query.OrgQuery;
-import com.zeroone.star.project.query.sample.SampleQuery;
 import com.zeroone.star.project.vo.JsonVO;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 /**
@@ -72,10 +69,10 @@ public interface OrgInfoApis {
     /**
      * 添加组织信息
      *
-     * @param orgInfoDTO 添加组织的内容
-     * @return 是否添加成功
+     * @param addOrgInfoDTO 添加组织的内容
+     * @return 是否添加成功信息
      */
-    JsonVO<Boolean> addOryData(OrgInfoDTO orgInfoDTO);
+    JsonVO<String> addOryData(AddOrgInfoDTO addOrgInfoDTO);
 
     /**
      * 分页查询指定组织地址列表

@@ -1,5 +1,6 @@
 package com.zeroone.star.orgmanager.controller;
 
+import com.zeroone.star.orgmanager.service.ITOrmdutyService;
 import com.zeroone.star.project.components.fastdfs.FastDfsClientComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
 import com.zeroone.star.project.dto.PageDTO;
@@ -38,6 +39,8 @@ import java.util.List;
 public class JobSetController implements JobSetApis {
     @Resource
     private FastDfsClientComponent fastDfsClientComponent;
+    @Resource
+    private ITOrmdutyService itOrmdutyService;
 
     @Value("${fastdfs.nginx-servers}")
     private String fileServerUrl;
@@ -84,9 +87,7 @@ public class JobSetController implements JobSetApis {
     @ApiOperation("通过名称查找职位详情")
     @Override
     public JsonVO<PageDTO<JobDTO>> queryJobByName(JobByNameQuery condition) {
-        //测试接收数据
-        System.out.println(condition.getName());
-        return null;
+        return JsonVO.success(itOrmdutyService.listJobByName(condition));
     }
     @DeleteMapping("delete-position")
     @ApiOperation("删除组织信息(支持批量)")
