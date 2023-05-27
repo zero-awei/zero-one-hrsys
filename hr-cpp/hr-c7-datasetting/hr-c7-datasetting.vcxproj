@@ -184,6 +184,7 @@
     <ClInclude Include="controller\Qualification\QualificationController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\Title\TitleController.h" />
+    <ClInclude Include="dao\archive\ArchiveDAO.h" />
     <ClInclude Include="domain\do\archive\ArchiveDO.h" />
     <ClInclude Include="domain\do\contractcategory\ContractCategoryDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
@@ -214,6 +215,7 @@
     <ClInclude Include="domain\vo\Title\TitleVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\archive\ArchiveService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -225,7 +227,10 @@
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\Title\TitleController.cpp" />
+    <ClCompile Include="dao\archive\ArchiveDAO.cpp" />
+    <ClCompile Include="dao\archive\ArchiveMapper.h" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\archive\ArchiveService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

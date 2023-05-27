@@ -11,6 +11,9 @@
     <ClCompile Include="controller\Qualification\QualificationController.cpp" />
     <ClCompile Include="controller\ContractCategory\ContractCategoryController.cpp" />
     <ClCompile Include="controller\Title\TitleController.cpp" />
+    <ClCompile Include="service\archive\ArchiveService.cpp" />
+    <ClCompile Include="dao\archive\ArchiveDAO.cpp" />
+    <ClCompile Include="dao\archive\ArchiveMapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\OtherComponent.hpp" />
@@ -52,5 +55,7 @@
     <ClInclude Include="domain\query\contractcategory\ContractCategoryQuery.h" />
     <ClInclude Include="domain\vo\ContractCategory\ContractCategoryVO.h" />
     <ClInclude Include="controller\Title\TitleController.h" />
+    <ClInclude Include="service\archive\ArchiveService.h" />
+    <ClInclude Include="dao\archive\ArchiveDAO.h" />
   </ItemGroup>
 </Project>
