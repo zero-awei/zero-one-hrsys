@@ -25,7 +25,7 @@ public interface IOrmService extends IService<Orgsector> {
     String saveDept(OrgsectorDTO orgsectorDTO);
 
     @PostMapping("/update-dept-by-id")
-    JsonVO<String> updateDept(ModifyDeptInfoDTO modifyDeptInfoDTO);
+    String updateDeptById(ModifyDeptInfoDTO modifyDeptInfoDTO);
 
     @GetMapping("/list-bm-kqdz")
     List<DeptKqdzVO> listBmKqdz(KqdzQuery kqdzQuery);

@@ -5,7 +5,9 @@ import com.zeroone.star.project.vo.orgmanager.DeptKqdzVO;
 import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
 import com.zeroone.star.project.query.orgmanager.KqdzQuery;
 import com.zeroone.star.project.vo.JsonVO;
+import org.springframework.validation.annotation.Validated;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -14,6 +16,7 @@ import java.util.List;
  * 创建者：rqs
  * 创建时间：2023/5/19 21:07
  */
+@Validated
 public interface OrgmanagerApis {
     /**
      * @Description: 新增部门
@@ -22,7 +25,7 @@ public interface OrgmanagerApis {
      * @Author: Rqs
      * @Date: 2023/5/19 23:43
      */
-    JsonVO<String> addDept(OrgsectorDTO orgsectorDTO);
+    JsonVO<String> addDept(@Valid OrgsectorDTO orgsectorDTO);
     /**
      * @Description: 修改指定部门信息
      * @params: [modifyDeptInfoDTO]
@@ -30,7 +33,7 @@ public interface OrgmanagerApis {
      * @Author: Rqs
      * @Date: 2023/5/19 23:43
      */
-    JsonVO<String> modifyDept(ModifyDeptInfoDTO modifyDeptInfoDTO);
+    JsonVO<String> modifyDeptById(@Valid ModifyDeptInfoDTO modifyDeptInfoDTO);
 
     /**
      * @Description: 查询指定部门考勤地址列表（分页查询）

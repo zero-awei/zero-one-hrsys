@@ -10,11 +10,15 @@ import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
 import com.zeroone.star.project.query.orgmanager.KqdzQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import lombok.AllArgsConstructor;
+import org.apache.ibatis.javassist.NotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -35,7 +39,10 @@ public class OrmServiceImpl extends ServiceImpl<OrmMapper, Orgsector> implements
 
     @Override
     public String saveDept(OrgsectorDTO orgsectorDTO) {
+        LocalDateTime localDateTime = LocalDateTime.now();
         Orgsector orgsector = new Orgsector();
+        orgsector.setCreatedate(localDateTime);
+        orgsector.setUpdatedate(localDateTime);
         orgsector.generateOrgSectorId();
         BeanUtils.copyProperties(orgsectorDTO, orgsector);
         int result = ormMapper.insert(orgsector);
@@ -43,8 +50,9 @@ public class OrmServiceImpl extends ServiceImpl<OrmMapper, Orgsector> implements
     }
 
     @Override
-    public JsonVO<String> updateDept(ModifyDeptInfoDTO modifyDeptInfoDTO) {
-        return null;
+    public String updateDeptById(ModifyDeptInfoDTO modifyDeptInfoDTO) {
+        int result = ormMapper.updateDeptById(modifyDeptInfoDTO);
+        return Integer.toString(result);
     }
 
     @Override

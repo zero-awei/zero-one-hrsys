@@ -43,14 +43,22 @@ public class OrmController implements OrgmanagerApis {
     @Override
     public JsonVO<String> addDept(@Valid OrgsectorDTO orgsectorDTO) {
         String result = ormorginfoService.saveDept(orgsectorDTO);
-        return JsonVO.success(result) ;
+        if (result.equals("0")) {
+            return JsonVO.fail(result);
+        }
+        return JsonVO.success(result);
     }
 
-    @ApiOperation(value = "修改指定部门信息")
+    @ApiOperation(value = "根据部门标识修改部门信息")
     @PostMapping("modify-dept-by-id")
     @Override
-    public JsonVO<String> modifyDept(ModifyDeptInfoDTO modifyDeptInfoDTO) {
-        return ormorginfoService.updateDept(modifyDeptInfoDTO);
+    public JsonVO<String> modifyDeptById(@Valid ModifyDeptInfoDTO modifyDeptInfoDTO) {
+        String result = ormorginfoService.updateDeptById(modifyDeptInfoDTO);
+        if (result.equals("0")) {
+            return JsonVO.fail(result);
+        }
+        return JsonVO.success(result);
+
     }
 
     @ApiOperation(value = "查询指定部门考勤地址列表（分页查询）")
