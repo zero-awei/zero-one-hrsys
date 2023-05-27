@@ -46,10 +46,13 @@ private:
 	// 创建演示路由
 	void createSampleRouter();
 #endif
+
 	// 岗位设置路由绑定
 	void createJobSetRouter();
 	// 项目标签路由绑定
 	void createProjTagRouter();
+	// 创建编制查询路由绑定
+	void createBzRouter();
 };
 
 #endif // !_ROUTER_

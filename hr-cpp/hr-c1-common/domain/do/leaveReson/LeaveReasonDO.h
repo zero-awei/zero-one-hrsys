@@ -27,7 +27,9 @@
 class LeaveReasonDO
 {
 	// 离职原因下拉列表
-	// 只提供GET方法
 	CC_SYNTHESIZE(string, leavereason, Leavereason);
+
+	// 原因code
+	CC_SYNTHESIZE(int, code, Code);
 };
 #endif // !_LEAVEREASONDO_H_

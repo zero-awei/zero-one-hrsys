@@ -31,6 +31,7 @@
 #include "jobSet/postDeleteController/PostDeleteController.h"
 #include "jobSet/jobOutput/JobOutputController.h"
 #include "jobSet/jobUpdate/JobUpdateController.h"
+#include "jobSet/addJobController/AddJobController.h"
 // 项目标签
 #include "projTag/pageQueryProjTagList/PageQueryProjTagListController.h"
 #include "projTag/deleteProjTag/DeleteProjTagController.h"
@@ -39,6 +40,9 @@
 #include "projTag/addTagController/AddTagController.h"
 #include "projTag/modifyProjTagController/ModifyProjTagController.h"
 #include "itemLabel/ItemLabelController.h"
+#include "projTag/queryOrgList/QueryOrgListController.h"
+//编制查询
+#include "orgbz/PageQueryBzController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -66,6 +70,7 @@ void Router::initRouter()
 	//#TIP :系统扩展路由定义，写在这个后面
 	createJobSetRouter();
 	createProjTagRouter();
+	createBzRouter();
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -84,10 +89,11 @@ void Router::createSampleRouter()
 void Router::createJobSetRouter()
 {
 	/**
-	 * 导入岗位
+	 * 导入岗位&新增岗位
 	 * 负责人：Andrew
 	 */
 	ROUTER_SIMPLE_BIND(ImportJobController);
+	ROUTER_SIMPLE_BIND(AddJobController);
 	/**
 	 * 查询指定岗位详情&删除岗位
 	 * 负责人：米饭
@@ -105,11 +111,12 @@ void Router::createJobSetRouter()
 void Router::createProjTagRouter()
 {
 	/**
-	 * 导出项目标签&更新项目标签
+	 * 导出项目标签&更新项目标签&组织列表分页查询
 	 * 负责人：Andrew
 	 */
 	ROUTER_SIMPLE_BIND(ExportProjTagController);
 	ROUTER_SIMPLE_BIND(ModifyProjTagController);
+	ROUTER_SIMPLE_BIND(QueryOrgListController);
 	/**
 	 * 导入项目标签&新增项目标签
 	 * 负责人：远翔
@@ -127,4 +134,13 @@ void Router::createProjTagRouter()
 	 * 负责人：缘尘
 	 */
 	ROUTER_SIMPLE_BIND(ItemLabelController);
+}
+
+void Router::createBzRouter()
+{
+	/**
+	 * 编制查询
+	 * 负责人：xubuxi
+	 */
+	ROUTER_SIMPLE_BIND(PageQueryBzController);
 }

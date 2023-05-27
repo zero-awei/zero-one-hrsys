@@ -18,18 +18,25 @@
 */
 #include "stdafx.h"
 #include "TypeContractListController.h"
+#include "service/typeContractList/TypeContractService.h"
 
 PullListVO::Wrapper TypeContractListController::execQueryContractType()
 {
-	auto dto = PullListDTO::createShared();
+	// 构建示例返回
+	/*auto dto = PullListDTO::createShared();
 	auto a = ItemDTO::createShared(1, "Yes");
 	dto->pullList->push_back(a);
 	auto b = ItemDTO::createShared(2, "No");
-	dto->pullList->push_back(b);
+	dto->pullList->push_back(b);*/
 
+	// 构建返回对象
 	auto vo = PullListVO::createShared();
-	vo->success(dto);
-	// TODO: 调用service
 
+	// TODO: 调用service
+	TypeContractService service;
+	auto dto = service.listAll();
+	vo->success(dto);
+
+	// 响应返回对象
 	return vo;
 }

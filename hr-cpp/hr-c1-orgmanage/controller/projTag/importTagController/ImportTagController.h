@@ -71,7 +71,7 @@ public: // 定义接口
 		info->queryParams["file"].required = true;
 	}
 	// 定义文件上传端点处理
-	ENDPOINT(API_M_POST, "/import-proj-tag", postFile, /*API_HANDLER_AUTH_PARAME, */REQUEST(std::shared_ptr<IncomingRequest>, request)) {
+	ENDPOINT(API_M_POST, PATH_TO_PROJTAG("/import-proj-tag"), postFile, /*API_HANDLER_AUTH_PARAME, */REQUEST(std::shared_ptr<IncomingRequest>, request)) {
 		/* 创建multipart容器 */
 		auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
 		/* 创建multipart读取器 */

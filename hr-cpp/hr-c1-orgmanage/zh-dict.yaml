@@ -29,6 +29,7 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+
 orgmanage:
  controller:
   postQuery: 查询指定岗位详情
@@ -67,9 +68,48 @@ jobSet:
   sheetName: 数据表名
   file: 待导入文件
   id: 新增id
+ add:
+  controller: 新增岗位
+  postName: 岗位集名称
+  postId: 岗位集标识
+  orgId: 组织标识
+  jobType: 岗位类型
+  jobClass: 岗位分类
+  isTemp: 是否临时数据
+  isConfidential: 是否保密岗
+  postNature: 岗位性质
+  isKeyPostion: 是否关键岗位
+  sign: 启用标识
 
 #项目标签-导出岗位标签
 projTag:
+ orgList:
+  summary: 分页查询组织列表
+  order: 排序 (DESC/ASC)
+  regionSubsidy: 区域补贴
+  flag: 公司根组织ID
+  updater: 更新人
+  creator: 建立人
+  updateTime: 更新时间
+  createTime: 建立时间
+  erpOrgId: ERP组织ID
+  belongRegion: 所属区域
+  legalEntity: 组织性质
+  levelCode: 级别编码
+  orgCode: 组织编号
+  orgId: 组织机构标识
+  orgName: 组织机构名称
+  porgId: 组织机构
+  shortname: 简称
+  belongou: 所属OU
+  sign: 启停标识
+  orgAddrCode: 组织地址编码
+  orgAddr2: 组织地址一
+  orgAddr1: 组织地址二
+  orgCreateTime: 组织创建时间
+  name: 组织显示名称
+  orgType: 组织类型
+  correspondou: 对应OU
  export:
   summary: 导出项目标签
   rows: 导出数据条数(最大5000条)
@@ -82,16 +122,14 @@ projTag:
  add:
   summary: 新增项目标签
  filed:
-  sortid: 排序号
-  orgname: 组织名称
-  projecttag: 项目标签
-  creater: 建立人
-  creattime: 建立时间
-  updater: 更新人
+  ormxmbqid: 项目标签标识
+  createman: 建立人
+  ormxmbqname: 项目标签
+  updateman: 更新人
+  createtime: 建立时间
   updatetime: 更新时间
-  id: 项目标签标识
-  tagName: 项目标签名
-  orgId: 组织ID
+  xh: 序号
+  ormorgid: 组织ID
  modify:
   summary: 更新项目标签
  tagId: 项目标签ID
@@ -110,6 +148,28 @@ ormanage:
   createtime: 创建时间
   id: 项目编号
   name: 创建人
-  label: 项目标签
+  label: 查询指定项目标签详情
   ormorgid: 项目ID
   ormxbqid: 项目标签标识
+
+job:
+ set:
+  update: 更新岗位信息
+  index: 排序
+  jobname: 岗位名称
+  jotype: 岗位类型（是否党内）
+  sugyear: 建议年限
+  nesyear: 必要年限
+  isSecret: 是否保密
+  isStandard: 是否标准工时
+  isKeywork: 是否关键岗位
+  isId: 是否启用标识
+ downloadurl: 岗位设置导出
+
+#分页查询编制列表
+orgbz:
+ pagequery:
+  controller: 分页查询编制列表
+  size: 每页显示条数
+  page: 查询页码
+  sort: 显示顺序

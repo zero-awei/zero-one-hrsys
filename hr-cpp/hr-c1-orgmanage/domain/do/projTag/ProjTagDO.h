@@ -39,7 +39,7 @@ class ProjTagDO
 	// 更新人
 	CC_SYNTHESIZE(string, updater, Updater);
 	// 更新时间
-	CC_SYNTHESIZE(string, updateTime, updateTime);
+	CC_SYNTHESIZE(string, updateTime, UpdateTime);
 	// 组织id
 	CC_SYNTHESIZE(string, orgId, OrgId);
 public:
