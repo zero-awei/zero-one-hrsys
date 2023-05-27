@@ -179,15 +179,23 @@
   <ItemGroup>
     <ClInclude Include="controller\archive\ArchiveController.h" />
     <ClInclude Include="controller\Certificate\CertificateController.h" />
+    <ClInclude Include="controller\ContractCategory\ContractCategoryController.h" />
     <ClInclude Include="controller\contract\ContractController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\Qualification\QualificationController.h" />
     <ClInclude Include="controller\Router.h" />
+<<<<<<< HEAD
     <ClInclude Include="dao\archive\ArchiveDAO.h" />
     <ClInclude Include="dao\archive\ArchiveMapper.h" />
+=======
+    <ClInclude Include="controller\Title\TitleController.h" />
+>>>>>>> 18bd48428ba58fb308cb3f32ce259f014c74d54a
     <ClInclude Include="domain\do\archive\ArchiveDO.h" />
+    <ClInclude Include="domain\do\contractcategory\ContractCategoryDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\Title\TitleDO.h" />
     <ClInclude Include="domain\dto\certificate\CertificateDTO.h" />
+    <ClInclude Include="domain\dto\contractcategory\ContractCategoryDTO.h" />
     <ClInclude Include="domain\dto\contracttype\ContractTypeCreateDTO.h" />
     <ClInclude Include="domain\dto\contracttype\ContractTypeDeleteDTO.h" />
     <ClInclude Include="domain\dto\contracttype\ContractTypeDTO.h" />
@@ -195,18 +203,20 @@
     <ClInclude Include="domain\dto\contracttype\ContractTypeUpdateDTO.h" />
     <ClInclude Include="domain\dto\Title\TitleDTO.h" />
     <ClInclude Include="domain\query\certificate\CertificateQuery.h" />
+    <ClInclude Include="domain\query\contractcategory\ContractCategoryQuery.h" />
     <ClInclude Include="domain\query\contracttype\ContractTypeQuery.h" />
     <ClInclude Include="domain\query\Title\TitleQuery.h" />
     <ClInclude Include="domain\vo\certificate\CertificateVO.h" />
+    <ClInclude Include="domain\vo\ContractCategory\ContractCategoryVO.h" />
     <ClInclude Include="domain\vo\contracttype\ContractTypeExportVO.h" />
     <ClInclude Include="domain\vo\contracttype\ContractTypeUpdateResultVO.h" />
     <ClInclude Include="domain\vo\contracttype\ContractTypeVO.h" />
     <ClInclude Include="domain\dto\archive\ArchiveDTO.h" />
     <ClInclude Include="domain\query\archive\ArchiveQuery.h" />
     <ClInclude Include="domain\vo\archive\ArchiveVO.h" />
-    <ClInclude Include="domain\dto\Qualification\QulificationDTO.h" />
+    <ClInclude Include="domain\dto\Qualification\QualificationDTO.h" />
     <ClInclude Include="domain\query\Qualification\QualificationQuery.h" />
-    <ClInclude Include="domain\vo\Qulification\QulificationVO.h" />
+    <ClInclude Include="domain\vo\Qualification\QualificationVO.h" />
     <ClInclude Include="domain\vo\Title\TitleVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
@@ -216,10 +226,16 @@
   <ItemGroup>
     <ClCompile Include="controller\archive\archiveController.cpp" />
     <ClCompile Include="controller\Certificate\CertificateController.cpp" />
+    <ClCompile Include="controller\ContractCategory\ContractCategoryController.cpp" />
     <ClCompile Include="controller\contract\ContractController.cpp" />
+    <ClCompile Include="controller\Qualification\QualificationController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="dao\archive\ArchiveDAO.cpp" />
+=======
+    <ClCompile Include="controller\Title\TitleController.cpp" />
+>>>>>>> 18bd48428ba58fb308cb3f32ce259f014c74d54a
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\archive\ArchiveService.cpp" />
     <ClCompile Include="stdafx.cpp">

@@ -45,7 +45,7 @@ public://定义接口
 		info->queryParams["name"].addExample("default", String("shi gong yuan"));
 		info->queryParams["name"].required = false;
 	}
-	ENDPOINT(API_M_GET, "/Certificate/query", queryCertificate, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/Certificate/query-certificate", queryCertificate, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, CertificateQuery, qps);
 		// 响应结果
@@ -60,7 +60,7 @@ public://定义接口
 		
 	}
 	// 定义新增接口处理
-	ENDPOINT(API_M_POST, "/Certificate/add", addCertificate, BODY_DTO(CertificateDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/Certificate/add-certificate", addCertificate, BODY_DTO(CertificateDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddCertificate(dto));
 	}
@@ -72,7 +72,7 @@ public://定义接口
 		
 	}
 	// 定义批量删除接口处理
-	ENDPOINT(API_M_DEL, "/Certificate/delete", delCertificate, BODY_DTO(CertificateDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/Certificate/remote-certificate", delCertificate, BODY_DTO(CertificateDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execDelCertificate(dto));
 	}
@@ -84,7 +84,7 @@ public://定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		
 	}
-	ENDPOINT(API_M_PUT, "/Certificate/modify", modifyCertificate, BODY_DTO(CertificateDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/Certificate/modify-certificate", modifyCertificate, BODY_DTO(CertificateDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyCertificate(dto));
 	}

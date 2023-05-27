@@ -8,8 +8,14 @@
     <ClCompile Include="controller\Certificate\CertificateController.cpp" />
     <ClCompile Include="controller\archive\archiveController.cpp" />
     <ClCompile Include="controller\contract\ContractController.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="service\archive\ArchiveService.cpp" />
     <ClCompile Include="dao\archive\ArchiveDAO.cpp" />
+=======
+    <ClCompile Include="controller\Qualification\QualificationController.cpp" />
+    <ClCompile Include="controller\ContractCategory\ContractCategoryController.cpp" />
+    <ClCompile Include="controller\Title\TitleController.cpp" />
+>>>>>>> 18bd48428ba58fb308cb3f32ce259f014c74d54a
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\OtherComponent.hpp" />
@@ -31,9 +37,7 @@
     <ClInclude Include="domain\dto\archive\ArchiveDTO.h" />
     <ClInclude Include="domain\query\archive\ArchiveQuery.h" />
     <ClInclude Include="domain\vo\archive\ArchiveVO.h" />
-    <ClInclude Include="domain\dto\Qualification\QulificationDTO.h" />
     <ClInclude Include="domain\query\Qualification\QualificationQuery.h" />
-    <ClInclude Include="domain\vo\Qulification\QulificationVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
@@ -44,8 +48,20 @@
     <ClInclude Include="controller\Certificate\CertificateController.h" />
     <ClInclude Include="controller\archive\ArchiveController.h" />
     <ClInclude Include="controller\contract\ContractController.h" />
+<<<<<<< HEAD
     <ClInclude Include="service\archive\ArchiveService.h" />
     <ClInclude Include="dao\archive\ArchiveDAO.h" />
     <ClInclude Include="dao\archive\ArchiveMapper.h" />
+=======
+    <ClInclude Include="domain\do\contractcategory\ContractCategoryDO.h" />
+    <ClInclude Include="controller\Qualification\QualificationController.h" />
+    <ClInclude Include="domain\dto\Qualification\QualificationDTO.h" />
+    <ClInclude Include="domain\vo\Qualification\QualificationVO.h" />
+    <ClInclude Include="controller\ContractCategory\ContractCategoryController.h" />
+    <ClInclude Include="domain\dto\contractcategory\ContractCategoryDTO.h" />
+    <ClInclude Include="domain\query\contractcategory\ContractCategoryQuery.h" />
+    <ClInclude Include="domain\vo\ContractCategory\ContractCategoryVO.h" />
+    <ClInclude Include="controller\Title\TitleController.h" />
+>>>>>>> 18bd48428ba58fb308cb3f32ce259f014c74d54a
   </ItemGroup>
 </Project>

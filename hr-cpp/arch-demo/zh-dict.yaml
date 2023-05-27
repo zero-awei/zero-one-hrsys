@@ -29,6 +29,7 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+<<<<<<< HEAD
 archive:
  get:
   summary: 分页查询示例数据
@@ -44,3 +45,5 @@ archive:
  cabinetnum: 柜数  
  layernum: 层数
  numid: 编号
+=======
+>>>>>>> 18bd48428ba58fb308cb3f32ce259f014c74d54a

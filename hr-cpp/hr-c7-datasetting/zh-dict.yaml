@@ -29,6 +29,18 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+certificate:
+ get:
+  summary: 分页查询证书数据
+ post:
+  summary: 新增证书类型
+ put:
+  summary: 修改证书类型
+ delete: 
+  summary: 删除证书类型
+ field:
+  id: 排序号
+  certificateName:	证书名称
 contractType:
  get:
   summary: 分页查询合同数据
@@ -53,6 +65,7 @@ contractType:
   contractStatus: 合同状态
   remainingDays: 合同剩余时间
   expiryDate: 试用到期时间
+<<<<<<< HEAD
 archive:
  get:
   summary: 分页查询示例数据
@@ -68,3 +81,69 @@ archive:
  cabinetnum: 柜数  
  layernum: 层数
  numid: 编号
+=======
+contractCategory:
+  query-all:
+    summary: 分页查询合同类别列表
+  post:
+    summary: 新建合同类别
+  delete:
+    summary: 删除合同类别（支持批量删除）
+  import:
+    summary: 导入合同类别
+  export:
+    summary: 导出合同类别
+  put:
+    summary: 修改指定合同类别
+  field:
+    id: 编号
+    categoryName: 类别名称
+    description: 描述
+    createTime: 创建时间
+    ids: 编号列表
+archive:
+ get:
+  summary: 分页查询档案室
+ post:
+  summary: 新增档案室数据
+ put:
+  summary: 修改档案室数据
+ delete:
+  summary: 删除档案室数据
+ field:
+  sortID: 排序号
+  archiveName: 档案室名称
+  cabinetNum: 柜数  
+  layerNum: 层数
+  numID: 编号    
+  ids: 编号列表
+Qualification:
+ get:
+  summary: 分页查询证书数据
+ post:
+  summary: 新增证书类型
+ put:
+  summary: 修改证书类型
+ delete: 
+  summary: 删除证书类型
+ filed:
+  qualificationName: 执业资格名称
+  rank: 级别
+  practicingQualification: 执业资格
+  profession: 专业    
+  ids: 编号列表
+Title:
+ get:
+  summary: 分页查询职称数据
+ post:
+  summary: 新增职称类型
+ put:
+  summary: 修改职称类型
+ delete:
+  summary: 删除职称类型
+ field:
+  id: 编号
+  age: 年龄
+  name: 姓名
+  sex: 性别，如：男
+>>>>>>> 18bd48428ba58fb308cb3f32ce259f014c74d54a
