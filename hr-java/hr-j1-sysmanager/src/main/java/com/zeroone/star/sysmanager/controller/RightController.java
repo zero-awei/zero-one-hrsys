@@ -3,6 +3,7 @@ package com.zeroone.star.sysmanager.controller;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import cn.hutool.core.lang.func.Func1;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.metadata.TableFieldInfo;
@@ -19,13 +20,15 @@ import com.zeroone.star.project.vo.ResultStatus;
 import com.zeroone.star.sysmanager.entity.Right;
 import com.zeroone.star.sysmanager.service.RightService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Function;
 
 /**
  * The controller of {@link RightApis}, base on {@link RightService}
@@ -62,26 +65,26 @@ public class RightController implements RightApis {
         long pageSize = query.getPageSize();
         Page<Right> page = new Page<>(pageIndex, pageSize);
         // 构建查询条件
-        QueryWrapper<Right> queryWrapper = new QueryWrapper<>();
+        LambdaQueryWrapper<Right> queryWrapper = new LambdaQueryWrapper<>();
         String name = query.getName();
         if (Objects.nonNull(name)) {
-            queryWrapper.eq("name", name);
+            queryWrapper.eq(Right::getName, name);
         }
         String linkUrl = query.getLinkUrl();
         if (Objects.nonNull(linkUrl)) {
-            queryWrapper.eq("linkUrl", linkUrl);
+            queryWrapper.eq(Right::getLinkUrl, linkUrl);
         }
         Integer priority = query.getPriority();
         if (Objects.nonNull(priority)) {
-            queryWrapper.eq("priority", priority);
+            queryWrapper.eq(Right::getPriority, priority);
         }
         Integer isEnable = query.getIsEnable();
         if (Objects.nonNull(isEnable)) {
-            queryWrapper.eq("priority", isEnable);
+            queryWrapper.eq(Right::getIsEnable, isEnable);
         }
         Integer level = query.getLevel();
         if (Objects.nonNull(level)) {
-            queryWrapper.eq("level", level);
+            queryWrapper.eq(Right::getLevel, level);
         }
         // 执行分页查询
         Page<Right> resultPage = rightService.page(page, queryWrapper);
@@ -100,8 +103,7 @@ public class RightController implements RightApis {
         // 构建查询条件
         String queryLike = query.getQuery();
         QueryWrapper<Right> queryWrapper = new QueryWrapper<>();
-        Class<Right> entityClass = queryWrapper.getEntityClass();
-        TableInfo tableInfo = TableInfoHelper.getTableInfo(entityClass);
+        TableInfo tableInfo = TableInfoHelper.getTableInfo(Right.class);
         List<TableFieldInfo> fieldList = tableInfo.getFieldList();
         for (TableFieldInfo field : fieldList) {
             queryWrapper.or(wrapper -> wrapper.like(field.getColumn(), queryLike));
@@ -116,26 +118,32 @@ public class RightController implements RightApis {
     @PostMapping("/add-right")
     @Override
     public JsonVO<Boolean> addRight(RightDTO dto) {
+        // 字段 id 为 varchar(64) 类型，不能设置为自增，需要自己指定
+        // 判断 id 是否重复
+        String id = dto.getId();
+        Right checkRight = rightService.getById(id);
+        if (Objects.nonNull(checkRight)) {
+            return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "id 重复");
+        }
         // 判断 name 非空且不重复
         String name = dto.getName();
         boolean nameIsNullOrExist = Objects.isNull(name) ||
-                Objects.nonNull(rightService.getOne(new QueryWrapper<Right>().eq("name", name)));
+                Objects.nonNull(rightService.getOne(new QueryWrapper<Right>().lambda().eq(Right::getName, name)));
         if (nameIsNullOrExist) {
-            return JsonVO.fail(false, ResultStatus.PARAMS_INVALID);
+            return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "name 不能为空或已存在");
         }
         // 判断 linkUrl 非空且不重复
         String linkUrl = dto.getLinkUrl();
         boolean linkUrlIsNullOrExist = Objects.isNull(linkUrl) ||
-                Objects.nonNull(rightService.getOne(new QueryWrapper<Right>().eq("linkUrl", linkUrl)));
+                Objects.nonNull(rightService.getOne(new QueryWrapper<Right>().lambda().eq(Right::getLinkUrl, linkUrl)));
         if (linkUrlIsNullOrExist) {
-            return JsonVO.fail(false, ResultStatus.PARAMS_INVALID);
+            return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "link url 不能为空或已存在");
         }
         // 判断 parentRightId 是否存在
         String parentRightId = dto.getParentRightId();
-        boolean parentRightIdNotExist = Objects.isNull(rightService
-                .getOne(new QueryWrapper<Right>().eq("parentRightId", parentRightId)));
+        boolean parentRightIdNotExist = Objects.isNull(rightService.getById(parentRightId));
         if (parentRightIdNotExist) {
-            return JsonVO.fail(false, ResultStatus.PARAMS_INVALID);
+            return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "parent right id 不存在");
         }
         // 将 dto 的非空属性赋值给 right 权限，然后添加权限
         Right right = new Right();
@@ -155,28 +163,27 @@ public class RightController implements RightApis {
         String id = dto.getId();
         Right right = rightService.getById(id);
         if (Objects.isNull(right)) {
-            return JsonVO.fail(false, ResultStatus.PARAMS_INVALID);
+            return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "权限不存在");
         }
         // 若修改了 name，则需判断 name 是否重复
         String name = dto.getName();
         boolean nameExist = !right.getName().equals(name) &&
-                Objects.nonNull(rightService.getOne(new QueryWrapper<Right>().eq("name", name)));
+                Objects.nonNull(rightService.getOne(new QueryWrapper<Right>().lambda().eq(Right::getName, name)));
         if (nameExist) {
-            return JsonVO.fail(false, ResultStatus.PARAMS_INVALID);
+            return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "修改后的 name 已存在");
         }
         // 若修改了 linkUrl，则需判断 linkUrl 是否重复
         String linkUrl = dto.getLinkUrl();
         boolean linkUrlExist = !right.getLinkUrl().equals(linkUrl) &&
-                Objects.nonNull(rightService.getOne(new QueryWrapper<Right>().eq("linkUrl", linkUrl)));
+                Objects.nonNull(rightService.getOne(new QueryWrapper<Right>().lambda().eq(Right::getLinkUrl, linkUrl)));
         if (linkUrlExist) {
-            return JsonVO.fail(false, ResultStatus.PARAMS_INVALID);
+            return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "修改后的 link url 已存在");
         }
         // 判断 parentRightId 是否存在
         String parentRightId = dto.getParentRightId();
-        boolean parentRightIdNotExist = Objects.isNull(rightService
-                .getOne(new QueryWrapper<Right>().eq("parentRightId", parentRightId)));
+        boolean parentRightIdNotExist = Objects.isNull(rightService.getById(parentRightId));
         if (parentRightIdNotExist) {
-            return JsonVO.fail(false, ResultStatus.PARAMS_INVALID);
+            return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "parent right id 不存在");
         }
         // 将 dto 的非空属性赋值给 right 权限，然后更新权限
         BeanUtil.copyProperties(dto, right, CopyOptions.create().setIgnoreNullValue(true));
@@ -191,14 +198,14 @@ public class RightController implements RightApis {
     @ApiOperation(value = "删除权限")
     @DeleteMapping("/remove-right")
     @Override
-    public JsonVO<Boolean> removeRight(@NotBlank(message = "id 不能为空") String id) {
+    public JsonVO<Boolean> removeRight(@RequestParam String id) {
         if (RIGHT_ROOT_ID.equals(id)) {
             // 不能删除根权限
-            return JsonVO.fail(false, ResultStatus.FORBIDDEN);
+            return JsonVO.create(false, ResultStatus.FORBIDDEN.getCode(), "不能删除根权限");
         }
         Right right = rightService.getById(id);
         if (Objects.isNull(right)) {
-            return JsonVO.create(false, ResultStatus.PARAMS_INVALID);
+            return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "权限不存在");
         }
         boolean result = rightService.removeById(right);
 
@@ -211,15 +218,15 @@ public class RightController implements RightApis {
     @ApiOperation(value = "修改状态")
     @PostMapping("/modify-status")
     @Override
-    public JsonVO<Boolean> modifyStatus(@NotBlank(message = "id 不能为空") String id) {
+    public JsonVO<Boolean> modifyStatus(@RequestParam String id) {
         Right right = rightService.getById(id);
         if (Objects.isNull(right)) {
-            return JsonVO.fail(false, ResultStatus.PARAMS_INVALID);
+            return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "权限不存在");
         }
         Integer isEnable = right.getIsEnable();
         if (Objects.isNull(isEnable)) {
             // 若 isEnable 为空说明数据库有脏数据
-            return JsonVO.fail(false, ResultStatus.SERVER_ERROR);
+            return JsonVO.create(false, ResultStatus.SERVER_ERROR.getCode(), "数据库字段数据异常");
         }
         if (isEnable.equals(1)) {
             right.setIsEnable(0);

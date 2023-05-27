@@ -1,7 +1,6 @@
 package com.zeroone.star.sysmanager.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -20,12 +19,10 @@ public class Right {
 
     private String name;
 
-    @TableField("link_url")
     private String linkUrl;
 
     private Integer priority;
 
-    @TableField("parent_right_id")
     private String parentRightId;
 
     private Integer level;
@@ -35,6 +32,5 @@ public class Right {
     /**
      * 1: Enable 0: Not Enable
      */
-    @TableField("is_enable")
     private Integer isEnable;
 }
