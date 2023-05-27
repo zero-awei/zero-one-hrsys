@@ -36,7 +36,6 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="domain\do\Title\TitleDO.h" />
     <ClInclude Include="domain\dto\Title\TitleDTO.h" />
     <ClInclude Include="domain\query\Title\TitleQuery.h" />
     <ClInclude Include="domain\vo\Title\TitleVO.h" />

@@ -188,7 +188,6 @@
     <ClInclude Include="domain\do\contractcategory\ContractCategoryDO.h" />
     <ClInclude Include="domain\do\ContractType\ContractTypeDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\do\Title\TitleDO.h" />
     <ClInclude Include="domain\dto\certificate\CertificateDTO.h" />
     <ClInclude Include="domain\dto\contractcategory\ContractCategoryDTO.h" />
     <ClInclude Include="domain\dto\contracttype\ContractTypeCreateDTO.h" />

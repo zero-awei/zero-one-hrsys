@@ -16,7 +16,7 @@ public:
 	
 
 	//ÅÅÐòºÅ
-	DTO_FIELD(String, id);
+	DTO_FIELD(Int32, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("Title.field.id");
 	}
