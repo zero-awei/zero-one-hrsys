@@ -14,10 +14,10 @@ class CertificateDTO : public oatpp::DTO
 {
 public:
 	CertificateDTO(){};
-	CertificateDTO(Int32 certificateId, String certificateName) :certificateId(certificateId), certificateName(certificateName) {};
+	CertificateDTO(String certificateId, String certificateName) :certificateId(certificateId), certificateName(certificateName) {};
 	DTO_INIT(CertificateDTO, DTO);
 	//≈≈–Ú∫≈
-	API_DTO_FIELD_DEFAULT(Int32, certificateId, ZH_WORDS_GETTER("certificate.field.id"));
+	API_DTO_FIELD_DEFAULT(String, certificateId, ZH_WORDS_GETTER("certificate.field.id"));
 	//∏⁄Œª÷§ È
 	API_DTO_FIELD_DEFAULT(String, certificateName, ZH_WORDS_GETTER("certificate.field.certificateName"));
 	

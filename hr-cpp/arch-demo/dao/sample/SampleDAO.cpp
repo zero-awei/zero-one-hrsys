@@ -38,7 +38,7 @@ if (query->age) { \
 	SQLPARAMS_PUSH(params, "i", int, query->age.getValue(0)); \
 }
 
-uint64_t SampleDAO::count(const SampleQuery::Wrapper& query)
+uint64_t SampleDAO::count(const SampleQuery::Wrapper & query)
 {
 	stringstream sql;
 	sql << "SELECT COUNT(*) FROM sample";

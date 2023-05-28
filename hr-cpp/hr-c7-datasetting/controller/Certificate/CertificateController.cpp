@@ -6,8 +6,8 @@ CertificatePageJsonVO::Wrapper CertificateController::execQueryCertificate(const
 	auto vo = CertificatePageJsonVO::createShared();
 	// 创建分页对象
 	auto pdto = CertificatePageDTO::createShared();
-	pdto->addData(CertificateDTO::createShared(1, "zs"));
-	pdto->addData(CertificateDTO::createShared(2, "ls"));
+	pdto->addData(CertificateDTO::createShared("1", "zs"));
+	pdto->addData(CertificateDTO::createShared("2", "ls"));
 	// 响应结果
 	vo->success(pdto);
 	return vo;

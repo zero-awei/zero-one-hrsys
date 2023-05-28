@@ -25,8 +25,7 @@
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
-
-#include"contractType/ContractTypeController.h"
+#include"contract/ContractController.h"
 #include"Certificate/CertificateController.h"
 #include "archive/ArchiveController.h"
 #include "Qualification/QualificationController.h"
@@ -60,10 +59,10 @@ void Router::initRouter()
 	// xxxxxxxxxx
 ROUTER_SIMPLE_BIND(CertificateController);
 ROUTER_SIMPLE_BIND(ArchiveController);
-ROUTER_SIMPLE_BIND(ContractTypeController);
+ROUTER_SIMPLE_BIND(ContractController);
+ROUTER_SIMPLE_BIND(QualificationController);
 ROUTER_SIMPLE_BIND(ContractCategoryController);
 ROUTER_SIMPLE_BIND(TitleController);
-ROUTER_SIMPLE_BIND(QualificationController);
 }
 
 #ifdef HTTP_SERVER_DEMO

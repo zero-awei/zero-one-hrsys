@@ -32,7 +32,7 @@ class ContractTypeQuery : public PageQuery
 {
 	DTO_INIT(ContractTypeQuery, PageQuery);
 
-	// 合同类型名称
+	// 员工姓名
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
 		info->description = ZH_WORDS_GETTER("contractType.field.name");

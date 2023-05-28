@@ -14,10 +14,10 @@ class TitleQuery : public PageQuery
 {
 	DTO_INIT(TitleQuery, PageQuery);
 
-	// 职称目录名称
+	// 员工姓名
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("Title.field.name");
+		info->description = ZH_WORDS_GETTER("title.field.name");
 	}
 };
 
