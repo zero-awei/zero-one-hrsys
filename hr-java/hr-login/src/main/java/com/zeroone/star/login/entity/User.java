@@ -36,5 +36,8 @@ public class User implements Serializable {
      */
     private String password;
 
-
+    /**
+     * 是否启用
+     */
+    private int isEnable;
 }
