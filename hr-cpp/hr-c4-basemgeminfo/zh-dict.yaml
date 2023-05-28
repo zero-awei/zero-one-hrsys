@@ -227,15 +227,20 @@ scientific:
 pimarmycadres:
  get:
   summary: 分页查询军转干部数据
+ delete:
+  summary: 批量删除军转干部信息
+ post:
+  summary: 新增一条数据
+
  field:
   list<pimarmycardesid>: 批量删除
   pimarmycadresid: 军转干部信息
   pimid: 员工编号
-  type: 类型
+  form: 类型
   level: 级别
   occurtime: 发生时间
+  annexPath: 附件路径
   summary: 文件上传
   suffix: 文件后缀
- post:
-  summary: 新增一条数据
+ 
  

@@ -17,7 +17,12 @@ WorkHistoryDTO::Wrapper WorkHistoryService::listDetail(const WorkHistoryQuery::W
 	auto lists = dao.selectDetail(query);
 	auto dto = WorkHistoryDTO::createShared();
 	if (!lists.empty()) {
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, lists.front(), rzkssj, Rzkssj,rzjssj, Rzjssj, ormorgname, Ormorgname, ormdutyname, Ormdutyname, ormpostname, Ormpostname, cfplx, Cfplx, enable,Enable);
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, lists.front(), rzkssj, Rzkssj,
+			rzjssj, Rzjssj, 
+			ormorgname, Ormorgname, 
+			ormdutyname, Ormdutyname, 
+			ormpostname, Ormpostname, 
+			cfplx, Cfplx, enable,Enable);
 	}
 	return dto;
 }
@@ -60,10 +65,16 @@ WorkHistoryFindPageDTO::Wrapper WorkHistoryService::listAll(const WorkHistoryPag
 		// 		dto->name = sub.getName();
 		// 		dto->sex = sub.getSex();
 		// 		dto->age = sub.getAge();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, rzkssj, rZKSSJ, rzjssj, rZJSSJ, \
-			ormorgname, oRMORGNAME, ormorgsectorname, oRMORGSECTORNAME, \
-			ormdutyname, oRMDUTYNAME, ormpostname, oRMPOSTNAME, cfplx, cFPLX, \
-			experience, eXPERIENCE, pimworkhistoryid, pIMWORKHISTORYID, pimpersonid, pIMPERSONID);
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, rzkssj, rZKSSJ, 
+			rzjssj, rZJSSJ, 
+			ormorgname, oRMORGNAME, 
+			ormorgsectorname, oRMORGSECTORNAME, 
+			ormdutyname, oRMDUTYNAME, 
+			ormpostname, oRMPOSTNAME, 
+			cfplx, cFPLX, 
+			experience, eXPERIENCE, 
+			pimworkhistoryid, pIMWORKHISTORYID, 
+			pimpersonid, pIMPERSONID);
 		pages->addData(dto);
 
 	}

@@ -291,6 +291,45 @@
     <ClInclude Include="domain\dto\work-history\WorkHistoryMqDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="dao\Pimarmycadres\PimarmycadresDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\Pimarmycadres\PimarmycadresMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\SciResult\SciResultDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\SciResult\SciResultMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Pimarmycadres\AddPimarmycadresDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Pimarmycadres\DelPimarmycadresDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresFindDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresIntoDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\SciResult\SciResultDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\SciResult\Add2SciResultDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\Pimarmycadres\PimarmycadresVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -369,6 +408,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="uselib\rocketmq\TestRocket.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\Pimarmycadres\PimarmycadresDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\SciResult\SciResultDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

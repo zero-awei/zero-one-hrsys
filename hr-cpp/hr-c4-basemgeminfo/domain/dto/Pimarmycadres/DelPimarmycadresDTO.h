@@ -45,4 +45,4 @@ class DelPimarmycadresDTO : public oatpp::DTO
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif // !_DELWORKHISTORYDTO_H_
+#endif 

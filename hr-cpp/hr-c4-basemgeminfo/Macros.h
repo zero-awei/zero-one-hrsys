@@ -243,6 +243,7 @@ ZO_STAR_EXPAND(ZO_STAR_PASTE(target, src, ZO_STAR_DOMAIN_FILED_DO_TO_DTO, __VA_A
 
 // DTO转成DO属性设置
 #define ZO_STAR_DOMAIN_FILED_DTO_TO_DO(target, src, f1, f2) target.set##f1(src->f2.getValue({}));
+
 /**
 * DTO转DO帮助宏
 * @param target: 属性值接收目标对象

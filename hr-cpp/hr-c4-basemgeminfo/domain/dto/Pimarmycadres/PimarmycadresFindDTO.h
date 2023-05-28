@@ -36,8 +36,8 @@ class PimarmycadresFindDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("pimarmycadres.field.pimid");
 	}
 	// 类型
-	DTO_FIELD(String, type);
-	DTO_FIELD_INFO(type) {
+	DTO_FIELD(String, form);
+	DTO_FIELD_INFO(form) {
 		info->description = ZH_WORDS_GETTER("pimarmycadres.field.type");
 	}
 	// 级别
@@ -49,6 +49,12 @@ class PimarmycadresFindDTO : public oatpp::DTO
 	DTO_FIELD(String, occurtime);
 	DTO_FIELD_INFO(occurtime) {
 		info->description = ZH_WORDS_GETTER("pimarmycadres.field.occurtime");
+	}
+
+	// 附件路径
+	DTO_FIELD(String, annexPath);
+	DTO_FIELD_INFO(annexPath) {
+		info->description = ZH_WORDS_GETTER("pimarmycadres.field.annexPath");
 	}
 };
 

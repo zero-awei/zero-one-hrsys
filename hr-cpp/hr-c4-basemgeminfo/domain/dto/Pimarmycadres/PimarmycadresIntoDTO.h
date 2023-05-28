@@ -40,9 +40,9 @@ class PimarmycadresDTO : public oatpp::DTO
 	}
 
 	// 类型
-	DTO_FIELD(String, type);
-	DTO_FIELD_INFO(type) {
-		info->description = ZH_WORDS_GETTER("pimarmycadres.field.type");
+	DTO_FIELD(String, form);
+	DTO_FIELD_INFO(form) {
+		info->description = ZH_WORDS_GETTER("pimarmycadres.field.form");
 	}
 	// 级别
 	DTO_FIELD(String, level);
@@ -54,7 +54,19 @@ class PimarmycadresDTO : public oatpp::DTO
 	DTO_FIELD_INFO(occurtime) {
 		info->description = ZH_WORDS_GETTER("pimarmycadres.field.occurtime");
 	}
+
+	// 附件路径
+	DTO_FIELD(String, annexPath);
+	DTO_FIELD_INFO(annexPath) {
+		info->description = ZH_WORDS_GETTER("pimarmycadres.field.annexPath");
+	}
 	
+	//
+	DTO_FIELD(String, pimarmycadresid);
+	DTO_FIELD_INFO(pimarmycadresid) {
+		info->description = ZH_WORDS_GETTER("pimarmycadres.field.pimarmycadresid");
+	}
+
 };
 
 
@@ -63,7 +75,7 @@ class PimarmycadresIntoDTO : public oatpp::DTO
 	DTO_INIT(PimarmycadresIntoDTO, DTO);
 
 	//批量增加list
-	DTO_FIELD(List<PimarmycadresDTO>, listpimamrycadres) = {};
+	DTO_FIELD(List<PimarmycadresDTO::Wrapper>, listpimamrycadres) = {};
 	DTO_FIELD_INFO(listpimamrycadres) {
 		info->description = ZH_WORDS_GETTER("pimarmycadres.field.listpimarmycadres");
 	}
