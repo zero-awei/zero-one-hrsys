@@ -47,7 +47,10 @@ public:
 	// Parameter: function<void(std::shared_ptr<AbstractComponentReg>*> otherComponentRegCall 如果还需要在外部注册组件可以通过该回调执行组件注册，默认为nullptr
 	// Parameter: string host 绑定地址，默认值0.0.0.0
 	//************************************
-	static void startServer(string port, function<void(Endpoints*, HttpRouter*)> bindRouterFun, function<void(std::shared_ptr<AbstractComponentReg>*)> otherComponentRegCall = nullptr, string host = "0.0.0.0");
+	static void startServer(string port, 
+		function<void(Endpoints*, HttpRouter*)> bindRouterFun, 
+		function<void(std::shared_ptr<AbstractComponentReg>*)> otherComponentRegCall = nullptr, 
+		string host = "0.0.0.0");
 };
 
 #endif // _HTTPSERVER_H_

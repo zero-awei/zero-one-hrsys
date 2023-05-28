@@ -38,7 +38,7 @@ class EducationController : public oatpp::web::server::api::ApiController
 	// 定义控制器访问入口
 	API_ACCESS_DECLARE(EducationController);
 public: // 接口
-	// 功能1 分页查询指定姓名员工的教育信息：接口描述
+	// 功能1 分页查询指定员工的教育信息：接口描述
 	ENDPOINT_INFO(gueryEducationPage) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("gueryEducationPage");//中文字典zh-dict.yaml
@@ -49,7 +49,10 @@ public: // 接口
 		//API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
-		// 定义其他表单参数描述：根据员工姓名查询
+		// 定义其他表单参数描述：根据员工id和姓名查询
+		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("education.id");
+		info->queryParams["pimpersonid"].addExample("default", String("114514"));
+		info->queryParams["pimpersonid"].required = false;
 		info->queryParams.add<String>("pimpersonname").description = ZH_WORDS_GETTER("gueryEducationPage");
 		info->queryParams["pimpersonname"].addExample("default", String("Chen Jun"));
 		info->queryParams["pimpersonname"].required = false;
@@ -57,7 +60,7 @@ public: // 接口
 		info->queryParams["sort"].addExample("default", String("asc"));
 		info->queryParams["sort"].required = false;
 	}
-	// 功能1 分页查询指定姓名员工的教育信息：接口处理
+	// 功能1 分页查询指定员工的教育信息：接口处理
 	ENDPOINT(API_M_GET, "/education/guery-education-page", gueryEducationPage, API_HANDLER_AUTH_PARAME,  QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(educationQuery, EducationPageQuery, queryParams);
@@ -65,7 +68,7 @@ public: // 接口
 		API_HANDLER_RESP_VO(execQueryEducationPage(educationQuery, authObject->getPayload()));
 	}
 	
-	// 功能2 单独查询指定姓名员工的教育信息：接口描述
+	// 功能2 单独查询指定员工的教育信息：接口描述
 	ENDPOINT_INFO(queryEducationSingle) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("queryEducationSingle");//中文字典zh-dict.yaml
@@ -74,11 +77,14 @@ public: // 接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(EducationSingleJsonVO);
 		//API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-		// 定义其他表单参数描述：根据员工姓名查询
+		// 定义其他表单参数描述：根据员工id和姓名查询
+		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("education.id");
+		info->queryParams["pimpersonid"].addExample("default", String("114514"));
+		info->queryParams["pimpersonid"].required = false;
 		info->queryParams.add<String>("pimpersonname").description = ZH_WORDS_GETTER("getEducationPageQuery");
 		info->queryParams["pimpersonname"].addExample("default", String("ChenJun"));
 	}
-	// 功能2 单独查询指定姓名员工的教育信息：接口处理
+	// 功能2 单独查询指定员工的教育信息：接口处理
 	ENDPOINT(API_M_GET, "/education/query-education-single", queryEducationSingle, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(educationSingle, EducationSingleQuery, queryParams);
@@ -86,7 +92,7 @@ public: // 接口
 		API_HANDLER_RESP_VO(execQueryEducationSingle(educationSingle, authObject->getPayload()));
 	}
 	
-	// 功能3 单条新增指定姓名员工的教育信息：接口描述
+	// 功能3 单条新增指定员工的教育信息：接口描述
 	ENDPOINT_INFO(addEducationSingle) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("addEducationSingle");
@@ -95,14 +101,74 @@ public: // 接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 		//API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		// 教育信息标识 （必填）
+		info->queryParams.add<String>("PIMEDUCATIONID").description = ZH_WORDS_GETTER("education.PIMEDUCATIONID");
+		info->queryParams["PIMEDUCATIONID"].addExample("default", String("114514114514"));
+		info->queryParams["PIMEDUCATIONID"].required = false;
+		// 学历
+		info->queryParams.add<String>("XL").description = ZH_WORDS_GETTER("education.XL");
+		info->queryParams["XL"].addExample("default", String(u8"带专"));
+		info->queryParams["XL"].required = false;
+		// 入学时间
+		info->queryParams.add<UInt64>("QSSJ").description = ZH_WORDS_GETTER("education.QSSJ");
+		info->queryParams["QSSJ"].addExample("default", UInt64(19210606));
+		info->queryParams["QSSJ"].required = false;
+		// 毕业时间
+		info->queryParams.add<UInt64>("JSSJ").description = ZH_WORDS_GETTER("education.JSSJ");
+		info->queryParams["JSSJ"].addExample("default", UInt64(19780606));
+		info->queryParams["JSSJ"].required = false;
+		// 毕业院校
+		info->queryParams.add<String>("BYYX").description = ZH_WORDS_GETTER("education.BYYX");
+		info->queryParams["BYYX"].addExample("default", String(u8"黑龙江科技大学"));
+		info->queryParams["BYYX"].required = false;
+		// 一级学科
+		info->queryParams.add<String>("XKML").description = ZH_WORDS_GETTER("education.XKML");
+		info->queryParams["XKML"].addExample("default", String(u8"生物学"));
+		info->queryParams["XKML"].required = false;
+		// 所学专业
+		info->queryParams.add<String>("SXZY").description = ZH_WORDS_GETTER("education.SXZY");
+		info->queryParams["SXZY"].addExample("default", String(u8"母猪的产后护理"));
+		info->queryParams["SXZY"].required = false;
+		// 学习形式
+		info->queryParams.add<String>("XLLX").description = ZH_WORDS_GETTER("education.XLLX");
+		info->queryParams["XLLX"].addExample("default", String(u8"全日制"));
+		info->queryParams["XLLX"].required = false;
+		// 学校性质
+		info->queryParams.add<String>("XXXZ").description = ZH_WORDS_GETTER("education.XXXZ");
+		info->queryParams["XXXZ"].addExample("default", String(u8"双非"));
+		info->queryParams["XXXZ"].required = false;
+		// 是否第一学历
+		info->queryParams.add<Int16>("SFDYXL").description = ZH_WORDS_GETTER("education.SFDYXL");
+		info->queryParams["SFDYXL"].addExample("default", Int16(1));
+		info->queryParams["SFDYXL"].required = false;
+		//是否最高学历
+		info->queryParams.add<Int16>("SFZGXL").description = ZH_WORDS_GETTER("education.SFZGXL");
+		info->queryParams["SFZGXL"].addExample("default", Int16(1));
+		info->queryParams["SFZGXL"].required = false;
+		// 毕业证
+		info->queryParams.add<String>("BTZ").description = ZH_WORDS_GETTER("education.BTZ");
+		info->queryParams["BTZ"].addExample("default", String(u8"文件"));
+		info->queryParams["BTZ"].required = false;
+		// 学位证
+		info->queryParams.add<String>("XWZ").description = ZH_WORDS_GETTER("education.XWZ");
+		info->queryParams["XWZ"].addExample("default", String(u8"文件"));
+		info->queryParams["XWZ"].required = false;
+		// 学历验证
+		info->queryParams.add<String>("XLCX").description = ZH_WORDS_GETTER("education.XLCX");
+		info->queryParams["XLCX"].addExample("default", String(u8"文件"));
+		info->queryParams["XLCX"].required = false;
+		// 其他附件
+		info->queryParams.add<String>("FJ").description = ZH_WORDS_GETTER("education.FJ");
+		info->queryParams["FJ"].addExample("default", String(u8"文件"));
+		info->queryParams["FJ"].required = false;
 	}
-	// 功能3 单条新增指定姓名员工的教育信息：接口处理
+	// 功能3 单条新增指定员工的教育信息：接口处理
 	ENDPOINT(API_M_POST, "/education/add-education-single", addEducationSingle, API_HANDLER_AUTH_PARAME, BODY_DTO(EducationSingleDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddEducationSingle(dto, authObject->getPayload()));
 	}
 
-	// 功能4 单条修改指定姓名员工的教育信息：接口描述
+	// 功能4 单条修改指定员工的教育信息：接口描述
 	ENDPOINT_INFO(modifyEducationSingle) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("modifyEducationSingle");
@@ -111,8 +177,68 @@ public: // 接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 		//API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+				// 教育信息标识 （必填）
+		info->queryParams.add<String>("PIMEDUCATIONID").description = ZH_WORDS_GETTER("education.PIMEDUCATIONID");
+		info->queryParams["PIMEDUCATIONID"].addExample("default", String("114514114514"));
+		info->queryParams["PIMEDUCATIONID"].required = false;
+		// 学历
+		info->queryParams.add<String>("XL").description = ZH_WORDS_GETTER("education.XL");
+		info->queryParams["XL"].addExample("default", String(u8"带专"));
+		info->queryParams["XL"].required = false;
+		// 入学时间
+		info->queryParams.add<UInt64>("QSSJ").description = ZH_WORDS_GETTER("education.QSSJ");
+		info->queryParams["QSSJ"].addExample("default", UInt64(19210606));
+		info->queryParams["QSSJ"].required = false;
+		// 毕业时间
+		info->queryParams.add<UInt64>("JSSJ").description = ZH_WORDS_GETTER("education.JSSJ");
+		info->queryParams["JSSJ"].addExample("default", UInt64(19780606));
+		info->queryParams["JSSJ"].required = false;
+		// 毕业院校
+		info->queryParams.add<String>("BYYX").description = ZH_WORDS_GETTER("education.BYYX");
+		info->queryParams["BYYX"].addExample("default", String(u8"黑龙江科技大学"));
+		info->queryParams["BYYX"].required = false;
+		// 一级学科
+		info->queryParams.add<String>("XKML").description = ZH_WORDS_GETTER("education.XKML");
+		info->queryParams["XKML"].addExample("default", String(u8"生物学"));
+		info->queryParams["XKML"].required = false;
+		// 所学专业
+		info->queryParams.add<String>("SXZY").description = ZH_WORDS_GETTER("education.SXZY");
+		info->queryParams["SXZY"].addExample("default", String(u8"母猪的产后护理"));
+		info->queryParams["SXZY"].required = false;
+		// 学习形式
+		info->queryParams.add<String>("XLLX").description = ZH_WORDS_GETTER("education.XLLX");
+		info->queryParams["XLLX"].addExample("default", String(u8"全日制"));
+		info->queryParams["XLLX"].required = false;
+		// 学校性质
+		info->queryParams.add<String>("XXXZ").description = ZH_WORDS_GETTER("education.XXXZ");
+		info->queryParams["XXXZ"].addExample("default", String(u8"双非"));
+		info->queryParams["XXXZ"].required = false;
+		// 是否第一学历
+		info->queryParams.add<Int16>("SFDYXL").description = ZH_WORDS_GETTER("education.SFDYXL");
+		info->queryParams["SFDYXL"].addExample("default", Int16(1));
+		info->queryParams["SFDYXL"].required = false;
+		//是否最高学历
+		info->queryParams.add<Int16>("SFZGXL").description = ZH_WORDS_GETTER("education.SFZGXL");
+		info->queryParams["SFZGXL"].addExample("default", Int16(1));
+		info->queryParams["SFZGXL"].required = false;
+		// 毕业证
+		info->queryParams.add<String>("BTZ").description = ZH_WORDS_GETTER("education.BTZ");
+		info->queryParams["BTZ"].addExample("default", String(u8"文件"));
+		info->queryParams["BTZ"].required = false;
+		// 学位证
+		info->queryParams.add<String>("XWZ").description = ZH_WORDS_GETTER("education.XWZ");
+		info->queryParams["XWZ"].addExample("default", String(u8"文件"));
+		info->queryParams["XWZ"].required = false;
+		// 学历验证
+		info->queryParams.add<String>("XLCX").description = ZH_WORDS_GETTER("education.XLCX");
+		info->queryParams["XLCX"].addExample("default", String(u8"文件"));
+		info->queryParams["XLCX"].required = false;
+		// 其他附件
+		info->queryParams.add<String>("FJ").description = ZH_WORDS_GETTER("education.FJ");
+		info->queryParams["FJ"].addExample("default", String(u8"文件"));
+		info->queryParams["FJ"].required = false;
 	}
-	// 功能4 修改指定姓名员工的教育信息：接口处理
+	// 功能4 单条修改指定员工的教育信息：接口处理
 	ENDPOINT(API_M_PUT, "/education/modify-education-single", modifyEducationSingle, API_HANDLER_AUTH_PARAME, BODY_DTO(EducationSingleDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyEducationSingle(dto, authObject->getPayload()));
@@ -120,7 +246,7 @@ public: // 接口
 	
 
 	
-	// 功能5 删除指定姓名员工的教育信息：接口描述
+	// 功能5 删除指定员工的教育信息：接口描述
 	ENDPOINT_INFO(removeEducation) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("removeEducation");
@@ -132,7 +258,7 @@ public: // 接口
 		
 
 	}
-	// 功能5 删除指定姓名员工的教育信息：接口处理
+	// 功能5 删除指定员工的教育信息：接口处理
 	//ENDPOINT(API_M_DEL, "/education/remove-Education-Single", removeEducation, API_HANDLER_AUTH_PARAME,PATH(String, deleteId)) {
 	ENDPOINT(API_M_DEL, "/education/remove-education-single", removeEducation, API_HANDLER_AUTH_PARAME,BODY_DTO(EducationDeleteSingleDTO::Wrapper, dto)) {
 		//auto dto = EducationDeleteSingleDTO::createShared();
@@ -143,7 +269,7 @@ public: // 接口
 	}
 
 
-	// 功能6 批量删除指定姓名员工的教育信息：接口描述
+	// 功能6 批量删除姓名员工的教育信息：接口描述
 	ENDPOINT_INFO(removeEducationNotSingle) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("removeEducationNotSingle");
@@ -153,7 +279,7 @@ public: // 接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 		//API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
-	//// 功能6 批量删除指定姓名员工的教育信息：接口处理
+	// 功能6 批量删除姓名员工的教育信息：接口处理
 	//ENDPOINT(API_M_DEL, "/education/remove-Education-Not-Single", removeEducationNotSingle, API_HANDLER_AUTH_PARAME, BODY_STRING(String, jsonPayload)) {
 	ENDPOINT(API_M_DEL, "/education/remove-education-not-single", removeEducationNotSingle, API_HANDLER_AUTH_PARAME, BODY_DTO(EducationDeleteNotSingleDTO::Wrapper, dto)) {
 		//const std::shared_ptr<ObjectMapper>& objectMapper = oatpp::parser::json::mapping::ObjectMapper::createShared();
@@ -242,6 +368,8 @@ public: // 接口
 		API_HANDLER_RESP_VO(execImportEducation(dto, authObject->getPayload()));
 
 
+		// 响应结果
+		API_HANDLER_RESP_VO(execImportEducation(dto));
 	}
 
 
@@ -265,29 +393,29 @@ public: // 接口
 		info->queryParams["sequence"].required = true;
 	}
 	//功能8 导出教育信息文件 接口处理
-	ENDPOINT(API_M_GET, "/education/export-education", exportEducation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/education/export-eudaction", exportEducation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
 		API_HANDLER_QUERY_PARAM(query, EducationExportQuery, qps);
 		API_HANDLER_RESP_VO(execExportEducation(query, authObject->getPayload()));
 	}
 
 
 private: // 接口执行函数
-// 功能1 分页查询指定姓名员工的教育信息：接口执行函数
+// 功能1 分页查询指定员工的教育信息：接口执行函数
 	EducationPageJsonVO::Wrapper execQueryEducationPage(const EducationPageQuery::Wrapper& query, const PayloadDTO& payload);
 	//StringJsonVO::Wrapper execQueryEducationPage(const EducationPageQuery::Wrapper& query, const PayloadDTO& payload);
-// 功能2 单条查询指定姓名员工的教育信息：接口执行函数
+// 功能2 单条查询指定员工的教育信息：接口执行函数
 	EducationSingleJsonVO::Wrapper execQueryEducationSingle(const EducationSingleQuery::Wrapper& query, const PayloadDTO& payload);
 	//StringJsonVO::Wrapper execQueryEducationSingle(const EducationSingleQuery::Wrapper& query, const PayloadDTO& payload);
-// 功能3 单条新增指定姓名员工的教育信息：接口执行函数
+// 功能3 单条新增指定员工的教育信息：接口执行函数
 	//StringJsonVO::Wrapper execAddEducationSingle(const EducationSingleDTO::Wrapper& dto, const PayloadDTO& payload);
 	Uint64JsonVO::Wrapper execAddEducationSingle(const EducationSingleDTO::Wrapper& dto, const PayloadDTO& payload);
-// 功能4 修改指定姓名员工的教育信息：接口执行函数
+// 功能4 修改指定员工的教育信息：接口执行函数
 	//StringJsonVO::Wrapper execModifyEducationSingle(const EducationSingleDTO::Wrapper& dto, const PayloadDTO& payload);
 	Uint64JsonVO::Wrapper execModifyEducationSingle(const EducationSingleDTO::Wrapper& dto, const PayloadDTO& payload);
-// 功能5 删除指定姓名员工的教育信息：接口执行函数
+// 功能5 删除指定员工的教育信息：接口执行函数
 	Uint64JsonVO::Wrapper execRemoveEducation(const EducationDeleteSingleDTO::Wrapper& dto, const PayloadDTO& payload);
 	//StringJsonVO::Wrapper execRemoveEducation(const EducationDeleteSingleDTO::Wrapper& dto, const PayloadDTO& payload);
-// 功能6 批量删除指定姓名员工的教育信息：接口执行函数
+// 功能6 批量删除指定员工的教育信息：接口执行函数
 	Uint64JsonVO::Wrapper execRemoveEducationNotSingle(const EducationDeleteNotSingleDTO::Wrapper& dto, const PayloadDTO& payload);
 	//StringJsonVO::Wrapper execRemoveEducationNotSingle(const EducationDeleteNotSingleDTO::Wrapper& dto, const PayloadDTO& payload);
 // 功能7 单个文件上传教育信息：接口执行函数

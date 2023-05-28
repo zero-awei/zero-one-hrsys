@@ -29,29 +29,6 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
-employee:
- language:
-  summary: 语言能力
- field:
-  age: 年龄
-  nickname: 昵称
-  idCard: 身份证号码
-  menuname: 菜单名称
-  menuicon: 图标名称
-  menuhref: 路由地址
-  menusub: 子菜单
- education:
-  degree: 学历
-  enrollmentDate: 入学时间
-  graduationDate: 毕业时间
-  graduatedInstitution: 毕业院校
-  primaryDiscipline: 一级学科
-  major: 所学专业
-  studyFormat: 学习形式
-  schoolNature: 学校性质
-  firstDegree: 是否第一学历
-  highestEducationDegree: 最高学历
-  sex: 性别，如：男
 gueryEducationPage: 分页查询指定姓名员工的教育信息
 queryEducationSingle: 单独查询指定姓名员工的教育信息
 addEducationSingle: 单条新增指定姓名员工的教育信息
@@ -70,6 +47,7 @@ importEducation:
 t_pimperson: 
   pimpersonname: 员工姓名
   sort: 排序方式
+  pimpersonid: 员工id
 export:
   summary: 导出全部教育信息
   rows: 导出数据条数(最大5000条)
@@ -108,3 +86,29 @@ education:
   BTZ: 毕业证
   XWZ: 学位证
   XLCX: 学历验证
+  sex: 性别，如：男
+employee:
+ language:
+  summary: 语言能力
+ field:
+  age: 年龄
+  nickname: 昵称
+  idCard: 身份证号码
+  menuname: 菜单名称
+  menuicon: 图标名称
+  menuhref: 路由地址
+  menusub: 子菜单
+ education:
+  degree: 学历
+  enrollmentDate: 入学时间
+  graduationDate: 毕业时间
+  graduatedInstitution: 毕业院校
+  primaryDiscipline: 一级学科
+  major: 所学专业
+  studyFormat: 学习形式
+  schoolNature: 学校性质
+  firstDegree: 是否第一学历
+  highestEducationDegree: 最高学历
+  sex: 性别，如：男
+  deleteId: 单条教育信息
+  deleteIds: 多条教育信息

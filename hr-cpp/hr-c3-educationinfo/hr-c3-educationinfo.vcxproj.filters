@@ -36,13 +36,37 @@
     <ClInclude Include="controller\Router.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\EmployeeEducationQuery\EmployeeEducationQuery.h">
+    <ClInclude Include="domain\query\EducationPage\EducationPageQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\AddEmployeeInfoDTO\AddEmployeeInfoDTO.h">
+    <ClInclude Include="domain\dto\Education\EducationDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="controller\Education\EducationController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\EducationSingle\EducationSingleQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\Education\EducationJsonVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\EducationDelete\EducationDeleteDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\EducationImport\EducationImportDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\EducationImport\EducationImportVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\EducationExport\EducationExportQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Education\EducationDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\AddEmployeeInfoDTO\AddEmployeeInfoDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
