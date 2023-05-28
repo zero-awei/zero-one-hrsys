@@ -18,10 +18,8 @@ public:
 	//ContractPageDTO_gs::Wrapper listPerson(const PersonQuery::Wrapper& query);
 	// 保存数据
 	uint64_t saveData(const ContractDTO_gs::Wrapper& dto);
-	//// 修改数据
-	//bool updateData(const ContractDTO_gs::Wrapper& dto);
 	// 通过ID删除数据
-	bool removeData(uint64_t id);
+	bool removeData(const ContractDTO_gs_delete::Wrapper& dto);
 };
 
 #endif // !_SAMPLE_SERVICE_

@@ -6,7 +6,7 @@ contract_gosh:
  put:
   summary: 修改一条合同数据
  delete:
-  summary: 删除一条合同数据
+  summary: 删除多条合同数据
  filed:   
   name: 员工姓名
   id: 合同编号
