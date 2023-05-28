@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _EXPORTLEGALERSETTING_CONTROLLER_
-#define _EXPORTLEGALERSETTING_CONTROLLER_
+#ifndef _EXPORTLEGALERSETING_CONTROLLER_
+#define _EXPORTLEGALERSETING_CONTROLLER_
 
 #include "domain/vo/BaseJsonVO.h"
 #include "domain/do/LegalEntitySet/ExportLegalerSetingDO.h"
@@ -44,5 +44,5 @@ private:
 };
 
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
-#endif // _EXPORTLEGALERSETTING_CONTROLLER_
+#endif // _EXPORTLEGALERSETING_CONTROLLER_
 

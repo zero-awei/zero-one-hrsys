@@ -45,6 +45,9 @@
     <ClCompile Include="controller\LegalEntitySet\ImportLeagalPerSettingController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="controller\LegalEntitySet\AddLegalerSetingController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
@@ -135,6 +138,18 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="service\LegalEntitySet\ImportLeagalPerSettingService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\LegalEntitySet\AddLegalerSetingController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\LegalEntitySet\AddLegalerSetingDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\LegalEntitySet\AddLegalerSetingDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\LegalEntitySet\AddLegalerSetingVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
