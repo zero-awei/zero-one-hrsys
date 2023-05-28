@@ -1,4 +1,8 @@
 #pragma once
+
+/**
+ * 人员花名册 - 试用人员Service实现 - 楚孟献
+ */
 #ifndef __PROBATIONARY_EMPLOYEE_SERVICE_
 #define __PROBATIONARY_EMPLOYEE_SERVICE_
 #include <list>

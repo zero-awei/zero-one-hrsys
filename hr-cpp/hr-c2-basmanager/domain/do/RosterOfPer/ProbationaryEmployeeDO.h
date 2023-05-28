@@ -1,4 +1,7 @@
 #pragma once
+/**
+ * 人员花名册 - 试用人员数据库实体实现 - 楚孟献
+ */
 /*
  Copyright Zero One Star. All rights reserved.
 

@@ -23,7 +23,7 @@
 #include "CharsetConvertHepler.h"
 
 /**
- * 离职员工数据库实体类
+ * 离职员工数据库实体类 -- 楚孟献
  */
 class FormerEmployeesDO
 {

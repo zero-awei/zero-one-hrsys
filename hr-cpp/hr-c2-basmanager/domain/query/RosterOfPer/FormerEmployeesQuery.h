@@ -1,4 +1,8 @@
 #pragma once
+
+/**
+ * 人员花名册 - 离职人员Query实现 - 楚孟献
+ */
 /*
  Copyright Zero One Star. All rights reserved.
 

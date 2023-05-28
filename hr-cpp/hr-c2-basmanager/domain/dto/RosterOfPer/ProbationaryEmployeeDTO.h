@@ -24,7 +24,7 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 试用人员传输对象
+ * 人员花名册 - 试用人员DTO实现 - 楚孟献
  */
 class ProbationaryEmployeeDTO : public oatpp::DTO
 {

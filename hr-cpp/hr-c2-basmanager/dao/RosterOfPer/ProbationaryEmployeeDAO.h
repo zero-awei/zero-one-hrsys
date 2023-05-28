@@ -4,7 +4,7 @@
 #include "../../domain/query/RosterOfPer/ProbationaryEmployeeQuery.h"
 
 /**
- * 离职人员数据库操作实现
+ * 人员花名册 - 试用人员数据库操作实现 - 楚孟献
  */
 class ProbationaryEmployeeDAO : public BaseDAO
 {

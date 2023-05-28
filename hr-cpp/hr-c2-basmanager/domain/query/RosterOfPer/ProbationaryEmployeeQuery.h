@@ -8,8 +8,7 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 示例分页查询对象
- * (后面要拍改成新增证书)
+ * 人员花名册 - 试用人员Query实现 - 楚孟献
  */
 class ProbationaryEmployeeQuery : public PageQuery
 {

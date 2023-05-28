@@ -1,4 +1,7 @@
 #pragma once
+/**
+ * 人员花名册 - 试用人员响应类型实现 - 楚孟献
+ */
 /*
  Copyright Zero One Star. All rights reserved.
  @Author: awei
@@ -13,8 +16,6 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-
-// 试用员工响应类型
 
 #ifndef _PROBATIONARY_EMPLOYEE_VO_
 #define _PROBATIONARY_EMPLOYEE_VO_
