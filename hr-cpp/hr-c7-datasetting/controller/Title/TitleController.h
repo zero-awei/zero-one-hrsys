@@ -52,7 +52,7 @@ public:
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("Title.post.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(Uint32JsonVO);
 	}
 	// 3.2 定义新增接口处理
 	ENDPOINT(API_M_POST, "/Title/add-Title", addTitle, BODY_DTO(TitleDTO::Wrapper, dto)) {
@@ -65,7 +65,7 @@ public:
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("Title.put.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(Uint32JsonVO);
 	}
 	// 3.2 定义修改接口处理
 	ENDPOINT(API_M_PUT, "/Title/modify-Title", modifyTitle, BODY_DTO(TitleDTO::Wrapper, dto)) {
@@ -78,7 +78,7 @@ public:
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("Title.delete.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(Uint32JsonVO);
 	}
 	// 3.2 定义删除接口处理
 	ENDPOINT(API_M_DEL, "/Title/delete-Title", removeTitle, BODY_DTO(TitleDTO::Wrapper, dto)) {
