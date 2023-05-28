@@ -65,12 +65,17 @@ public:
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		//定义分页参数
+		info->queryParams.add<UInt64>("pageIndex").description = API_PAGE_INDEX_DESC; 
+		info->queryParams["pageIndex"].addExample("default", oatpp::UInt64(1)); 
+		info->queryParams.add<UInt64>("pageSize").description = API_PAGE_SIZE_DESC; 
+		info->queryParams["pageSize"].addExample("default", oatpp::UInt64(10));
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("TempStaff.field.name");
-		info->queryParams["name"].addExample("default", String("li ming"));
+		info->queryParams["name"].addExample("default", String(""));
 		info->queryParams["name"].required = false;
 		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("TempStaff.field.id");
-		info->queryParams["id"].addExample("default", String("0"));
+		info->queryParams["id"].addExample("default", String(""));
 		info->queryParams["id"].required = false;
 	}
 	// 3.2 定义查询接口处理

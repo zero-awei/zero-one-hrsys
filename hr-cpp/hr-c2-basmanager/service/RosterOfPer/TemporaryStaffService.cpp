@@ -1,6 +1,17 @@
 #include "stdafx.h"
 #include "TemporaryStaffService.h"
 #include "../../dao/RosterOfPer/TemporaryStaffDAO.h"
+
+//#ifdef LINUX
+//#include "../../ServerInfo.h"
+//#include "NacosClient.h"
+//#include "YamlHelper.h"
+//#endif
+
+#include "CharsetConvertHepler.h"
+#include "ExcelComponent.h"
+#include "FastDfsClient.h"
+#include <cstdio>
 /**
 * 挂职人员service--(人员花名册-挂职人员-分页查询员工列表)--weixiaoman
 */
@@ -33,4 +44,66 @@ TemporaryStaffPageDTO::Wrapper TemporaryStaffService::listAll(const TempStaffQue
 		pages->addData(dto);
 	}
 	return pages;
+}
+
+std::string TemporaryStaffService::exportData(const TempStaffQuery::Wrapper& query)
+{
+	//查询数据并设置page的大小等
+	TemporaryStaffDAO dao;
+	int count = dao.count(query);
+	if (count > 5000) query->pageSize = 5000;
+	else query->pageSize = count ;
+	query->pageIndex = 1;
+	list<TemporaryStaffDO> result = dao.selectWithPage(query);
+
+	//构建excel数据
+	std::vector<std::vector<std::string>> datas;
+	//构建excel表头
+	std::vector<std::string> head_datas;
+	head_datas.push_back(CharsetConvertHepler::ansiToUtf8("员工编号"));
+	head_datas.push_back(CharsetConvertHepler::ansiToUtf8("员工姓名"));
+	head_datas.push_back(CharsetConvertHepler::ansiToUtf8("员工状态"));
+	head_datas.push_back(CharsetConvertHepler::ansiToUtf8("挂职状态"));
+	head_datas.push_back(CharsetConvertHepler::ansiToUtf8("挂职组织"));
+	head_datas.push_back(CharsetConvertHepler::ansiToUtf8("挂职部门"));
+	head_datas.push_back(CharsetConvertHepler::ansiToUtf8("挂职开始时间"));
+	head_datas.push_back(CharsetConvertHepler::ansiToUtf8("挂职结束时间"));
+	datas.push_back(head_datas);
+
+	//填充数据
+	for (auto data : result) {
+		std::vector<std::string> row;
+		row.push_back(data.getygbh());
+		row.push_back(data.getpimPersonName());
+		row.push_back(data.getygzt());
+		row.push_back(data.getgzzt());
+		row.push_back(data.getgzzz());
+		row.push_back(data.getgzbm());
+		row.push_back(data.getgzkssj());
+		row.push_back(data.getgzjssj());
+		datas.push_back(row);
+	}
+
+	//构建文件名和页签名称
+	std::string fileName = "./TempStaffExport.xlsx";
+	std::string sheetName = CharsetConvertHepler::ansiToUtf8("挂职员工表");
+	// 保存到文件
+	ExcelComponent excel;
+	excel.writeVectorToFile(fileName, sheetName, datas);
+
+	// 上传FastDFS文件服务器
+#ifdef LINUX
+	//定义客户端对象
+	FastDfsClient client("conf/client.conf", 3);
+#else
+	//定义客户端对象
+	FastDfsClient client("8.130.87.15");
+#endif
+	//上传文件
+	std::string fieldName = client.uploadFile(fileName);
+	std::cout << "upload fieldname is : " << fieldName << std::endl;
+	remove(fileName.c_str());
+	std::stringstream ss;
+	ss << "http://8.130.87.15:8888/" << fieldName;
+	return ss.str();
 }
