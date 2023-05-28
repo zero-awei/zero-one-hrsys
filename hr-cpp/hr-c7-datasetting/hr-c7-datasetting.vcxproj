@@ -184,10 +184,13 @@
     <ClInclude Include="controller\Qualification\QualificationController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\Title\TitleController.h" />
+    <ClInclude Include="dao\Title\TitleDAO.h" />
+    <ClInclude Include="dao\Title\TitleMapper.h" />
     <ClInclude Include="domain\do\archive\ArchiveDO.h" />
     <ClInclude Include="domain\do\contractcategory\ContractCategoryDO.h" />
     <ClInclude Include="domain\do\ContractType\ContractTypeDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\Title\TitleDO.h" />
     <ClInclude Include="domain\dto\certificate\CertificateDTO.h" />
     <ClInclude Include="domain\dto\contractcategory\ContractCategoryDTO.h" />
     <ClInclude Include="domain\dto\contracttype\ContractTypeCreateDTO.h" />
@@ -214,6 +217,7 @@
     <ClInclude Include="domain\vo\Title\TitleVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\Title\TitleService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -225,7 +229,9 @@
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\Title\TitleController.cpp" />
+    <ClCompile Include="dao\Title\TitleDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\Title\TitleService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

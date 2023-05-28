@@ -11,6 +11,8 @@
     <ClCompile Include="controller\Qualification\QualificationController.cpp" />
     <ClCompile Include="controller\ContractCategory\ContractCategoryController.cpp" />
     <ClCompile Include="controller\Title\TitleController.cpp" />
+    <ClCompile Include="service\Title\TitleService.cpp" />
+    <ClCompile Include="dao\Title\TitleDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\OtherComponent.hpp" />
@@ -52,5 +54,9 @@
     <ClInclude Include="domain\vo\ContractCategory\ContractCategoryVO.h" />
     <ClInclude Include="controller\Title\TitleController.h" />
     <ClInclude Include="domain\do\ContractType\ContractTypeDO.h" />
+    <ClInclude Include="service\Title\TitleService.h" />
+    <ClInclude Include="dao\Title\TitleDAO.h" />
+    <ClInclude Include="dao\Title\TitleMapper.h" />
+    <ClInclude Include="domain\do\Title\TitleDO.h" />
   </ItemGroup>
 </Project>
