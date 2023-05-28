@@ -21,7 +21,11 @@ class TitleDO
 
 public:
 	TitleDO() {
-		
+		id = 0;
+		num = "";
+		name = "";
+		dtype = "";
+		Ttype = "";
 	}
 	TitleDO(uint32_t Id,string Num, string Name, string Dtype, string TTtype)
 	{

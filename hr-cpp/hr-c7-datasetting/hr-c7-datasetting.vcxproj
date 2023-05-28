@@ -86,7 +86,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib\debug;..\lib-common\lib\debug;..\lib-mysql\lib\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;yaml-cppd.lib;xlntd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
     <PreBuildEvent>
       <Command>path=%path%;../lib-dy/lib/debug</Command>
@@ -185,9 +184,11 @@
     <ClInclude Include="controller\Qualification\QualificationController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\Title\TitleController.h" />
-    <ClInclude Include="dao\archive\ArchiveDAO.h" />
+    <ClInclude Include="dao\Title\TitleDAO.h" />
+    <ClInclude Include="dao\Title\TitleMapper.h" />
     <ClInclude Include="domain\do\archive\ArchiveDO.h" />
     <ClInclude Include="domain\do\contractcategory\ContractCategoryDO.h" />
+    <ClInclude Include="domain\do\ContractType\ContractTypeDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\Title\TitleDO.h" />
     <ClInclude Include="domain\dto\certificate\CertificateDTO.h" />
@@ -216,22 +217,20 @@
     <ClInclude Include="domain\vo\Title\TitleVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
-    <ClInclude Include="service\archive\ArchiveService.h" />
+    <ClInclude Include="service\Title\TitleService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="controller\archive\ArchiveController.cpp" />
+    <ClCompile Include="controller\archive\archiveController.cpp" />
     <ClCompile Include="controller\Certificate\CertificateController.cpp" />
     <ClCompile Include="controller\ContractCategory\ContractCategoryController.cpp" />
-    <ClCompile Include="controller\contract\ContractController.cpp" />
     <ClCompile Include="controller\Qualification\QualificationController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\Title\TitleController.cpp" />
-    <ClCompile Include="dao\archive\ArchiveDAO.cpp" />
-    <ClCompile Include="dao\archive\ArchiveMapper.h" />
+    <ClCompile Include="dao\Title\TitleDAO.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="service\archive\ArchiveService.cpp" />
+    <ClCompile Include="service\Title\TitleService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
