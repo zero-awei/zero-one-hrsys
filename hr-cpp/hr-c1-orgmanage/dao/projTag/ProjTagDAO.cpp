@@ -86,3 +86,43 @@ bool ProjTagDAO::updateProjTag(const ProjTagDO& data)
 	return sqlSession->executeUpdate(sql, "%s%s%s%s%s", data.getUpdateTime(), data.getUpdater(), \
 		data.getTagName(), data.getOrgId(), data.getId());
 }
+
+std::list<std::string> ProjTagDAO::insertMultiTag(const std::list<ProjTagDO>& data)
+{
+	// 构建返回对象
+	std::list<std::string> res;
+
+	// 开启事务处理
+	sqlSession->beginTransaction();
+
+	// 调用新增岗位设置
+	for (auto item : data)
+	{
+		// 调用单个新增
+		string sql = "INSERT INTO `t_ormxmbq` \
+		(`ORMXMBQID`, `CREATEMAN`, `ORMXMBQNAME`, `UPDATEMAN`, \
+		`CREATEDATE`, `UPDATEDATE`, `ORMORGID`) \
+		VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+		int row = sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s",
+			item.getId(), item.getCreator(), item.getTagName(), item.getUpdater(),
+			item.getCreateTime(), item.getUpdateTime(), item.getOrgId());
+
+		// 新增成功将id加入返回列表中
+		if (row == 1)
+		{
+			res.push_back(item.getId());
+		}
+		// 否则则回滚并返回失败
+		else
+		{
+			sqlSession->rollbackTransaction();
+			res.clear();
+			return res;
+		}
+	}
+
+	// 全部新增成功则提交并返回成功
+	sqlSession->commitTransaction();
+	return res;
+}

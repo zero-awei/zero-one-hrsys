@@ -29,6 +29,7 @@
     <ClCompile Include="service\jobSet\JobSetService.cpp" />
     <ClCompile Include="dao\jobSet\JobSetDAO.cpp" />
     <ClCompile Include="controller\jobSet\addJobController\AddJobController.cpp" />
+
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -48,7 +49,6 @@
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\postSet\PostDetailQuery.h" />
     <ClInclude Include="domain\vo\postSet\PostDetailVO.h" />
-    <ClInclude Include="domain\dto\jobSet\ImportJobDTO.h" />
     <ClInclude Include="domain\query\projTag\ExportProjTagQuery.h" />
     <ClInclude Include="domain\vo\jobSet\ImportJobVO.h" />
     <ClInclude Include="domain\vo\projTag\ImportTagVO.h" />

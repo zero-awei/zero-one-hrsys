@@ -29,7 +29,6 @@ ImportJobJsonVO::Wrapper ImportJobController::execImportJob(const ImportJobDTO::
 		vo->init({}, RS_PARAMS_INVALID);
 		return vo;
 	}
-
 	// 构建返回样例
 	/*String str1 = "123abc";
 	String str2 = "456def";
@@ -47,6 +46,7 @@ ImportJobJsonVO::Wrapper ImportJobController::execImportJob(const ImportJobDTO::
 
 	if (res->newId->size()) vo->init(res, RS_SUCCESS);
 	else vo->init(res, RS_FAIL);
+
 
 	return vo;
 }

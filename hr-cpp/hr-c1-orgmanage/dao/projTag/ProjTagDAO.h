@@ -53,6 +53,13 @@ public:
 	 * 负责人：Andrew
 	 */
 	bool updateProjTag(const ProjTagDO& data);
+
+	/**
+	 * 项目标签 - 导入项目标签DAO实现
+	 * 功能：将文件中的数据导入到数据库中
+	 * 负责人：远翔
+	 */
+	std::list<std::string> insertMultiTag(const std::list<ProjTagDO>& data);
 };
 
 #endif // !_PROJTAGDAO_H_
