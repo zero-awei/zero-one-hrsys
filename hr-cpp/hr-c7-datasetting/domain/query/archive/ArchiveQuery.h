@@ -13,7 +13,7 @@ class ArchiveQuery : public PageQuery
 {
 	DTO_INIT(ArchiveQuery, PageQuery);
 	// ÅÅÐòºÅ
-	DTO_FIELD(Int32, sortid);
+	DTO_FIELD(Int64, sortid);
 	DTO_FIELD_INFO(sortid) {
 		info->description = ZH_WORDS_GETTER("archive.field.sortid");
 	}

@@ -40,7 +40,7 @@ uint64_t ArchiveDAO::count(const ArchiveQuery::Wrapper& query)
 std::list<ArchiveDO> ArchiveDAO::selectWithPage(const ArchiveQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT * FROM Archive";
+	sql << "SELECT * FROM archive";
 	ARCHIVE_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	ArchiveMapper mapper;
@@ -58,13 +58,13 @@ std::list<ArchiveDO> ArchiveDAO::selectByName(const string& name)
 uint64_t ArchiveDAO::insert(const ArchiveDO& iObj)
 {
 	string sql = "INSERT INTO `archive` (`sordid`, `archivename`, `cabinetnum`,`layernum`,`numid`) VALUES (?, ?, ?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%i", iObj.getsortID(), iObj.getarchiveName(), iObj.getcabinetNum(),iObj.getlayerNum(), iObj.getnumID());
+	return sqlSession->executeInsert(sql, "%i%s%i%i%i", iObj.getsortID(), iObj.getarchiveName(), iObj.getcabinetNum(),iObj.getlayerNum(), iObj.getnumID());
 }
 
 int ArchiveDAO::update(const ArchiveDO& uObj)
 {
 	string sql = "UPDATE `archive` SET `sortid`=?, `archivename`=?, `cabinetnum`=? ,`layernum`=?,`numid`=? WHERE `id`=?";
-	return sqlSession->executeUpdate(sql, "%s%s%i%ull", uObj.getsortID(), uObj.getarchiveName(), uObj.getcabinetNum(), uObj.getlayerNum(), uObj.getnumID());
+	return sqlSession->executeUpdate(sql, "%i%s%i%i%i%ull", uObj.getsortID(), uObj.getarchiveName(), uObj.getcabinetNum(), uObj.getlayerNum(), uObj.getnumID());
 }
 
 int ArchiveDAO::deleteById(uint64_t id)
