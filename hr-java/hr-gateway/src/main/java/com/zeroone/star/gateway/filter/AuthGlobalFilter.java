@@ -2,7 +2,11 @@ package com.zeroone.star.gateway.filter;
 
 import cn.hutool.core.util.StrUtil;
 import com.nimbusds.jose.JWSObject;
+
+import com.zeroone.star.gateway.handler.CommonSender;
+import com.zeroone.star.login.utils.RedisUtils;
 import com.zeroone.star.project.constant.RedisConstant;
+import com.zeroone.star.project.vo.ResultStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
@@ -12,7 +16,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import javax.annotation.Resource;
 import java.text.ParseException;
+
 
 /**
  * <p>
@@ -27,6 +33,10 @@ import java.text.ParseException;
 @Component
 @Slf4j
 public class AuthGlobalFilter implements GlobalFilter, Ordered {
+    @Resource
+    private RedisUtils redisUtils;
+
+
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         String token = exchange.getRequest().getHeaders().getFirst("Authorization");
@@ -39,7 +49,10 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
             String realToken = token.replace("Bearer ", "");
             //从redis中查询当前token是否存在
             String userTokenKey = RedisConstant.USER_TOKEN + ":" + realToken;
-
+            if (!redisUtils.isExist(userTokenKey)) {
+                //token不存在，拦截请求
+                return CommonSender.sender(exchange, ResultStatus.UNAUTHORIZED, null);
+            }
             JWSObject jwsObject = JWSObject.parse(realToken);
             String userStr = jwsObject.getPayload().toString();
             log.info("AuthGlobalFilter.filter() user:{}", userStr);
