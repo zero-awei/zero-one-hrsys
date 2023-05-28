@@ -20,7 +20,7 @@ class EducationSingleJsonVO : public JsonVO<EducationSingleDTO::Wrapper>
 
 class EducationPageJsonVO : public JsonVO<EducationPageDTO::Wrapper>
 {
-	DTO_INIT(EducationPageJsonVO, JsonVO<EducationSingleDTO::Wrapper>);
+	DTO_INIT(EducationPageJsonVO, JsonVO<EducationPageDTO::Wrapper>);
 
 };
 

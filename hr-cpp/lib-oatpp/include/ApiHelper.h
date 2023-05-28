@@ -316,4 +316,18 @@ DTO_FIELD_INFO(_NAME_) { \
 	info->description = _DESCRIPTION_; \
 }
 
+/**
+ * Controller 指定路由路径拼接宏
+ * @param __PATH__: 对应URL请求路径
+ */
+#define PATH_TO_PROJTAG(__PATH__) (String("/proj-tag") + String(__PATH__))
+#define PATH_TO_JOBSET(__PATH__) (String("/job-set") + String(__PATH__))
+#define PATH_TO_STAFFING(__PATH__) (String("/staffing") + String(__PATH__))
+
+/**
+ * 公共接口绑定路径拼接宏
+ * @param __PATH__: 对应URL请求路径
+ */
+#define PATH_TO_PULLIST(__PATH__) (String("/pull-list") + String(__PATH__))
+
 #endif // !_API_HELPER_

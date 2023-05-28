@@ -15,6 +15,11 @@
 class EducationPageQuery : public PageQuery
 {
 	DTO_INIT(EducationPageQuery, PageQuery);
+	// 员工id pimpersonid
+	DTO_FIELD(String, pimpersonid);
+	DTO_FIELD_INFO(pimpersonid) {
+		info->description = ZH_WORDS_GETTER("t_pimperson.pimpersonid");
+	}
 	// 员工姓名pimpersonname
 	DTO_FIELD(String, pimpersonname);
 	DTO_FIELD_INFO(pimpersonname) {

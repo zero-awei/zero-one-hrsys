@@ -42,7 +42,6 @@ SOFTWARE.
 #include "jwt/json/json.hpp"
 #else
 #include "jwt/json/json.hpp"
-//#include "nlohmann/json.hpp"
 #endif
 // For convenience
 using json_t = nlohmann::json;

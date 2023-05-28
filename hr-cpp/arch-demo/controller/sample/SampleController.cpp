@@ -20,7 +20,7 @@
 #include "SampleController.h"
 #include "../../service/sample/SampleService.h"
 
-SamplePageJsonVO::Wrapper SampleController::execQuerySample(const SampleQuery::Wrapper& query, const PayloadDTO& payload)
+SamplePageJsonVO::Wrapper SampleController::execQuerySample(const SampleQuery::Wrapper& query)
 {
 	// 定义一个Service
 	SampleService service;

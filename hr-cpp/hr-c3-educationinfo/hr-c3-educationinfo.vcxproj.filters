@@ -63,6 +63,12 @@
     <ClInclude Include="domain\query\EducationExport\EducationExportQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\do\Education\EducationDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\AddEmployeeInfoDTO\AddEmployeeInfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

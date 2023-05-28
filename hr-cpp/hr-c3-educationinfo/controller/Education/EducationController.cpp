@@ -2,55 +2,95 @@
 #include "EducationController.h"
 
 EducationPageJsonVO::Wrapper EducationController::execQueryEducationPage(const EducationPageQuery::Wrapper& query, const PayloadDTO& payload)
-//StringJsonVO::Wrapper EducationController::execQueryEducationPage(const EducationPageQuery::Wrapper& query, const PayloadDTO& payload)
+//StringJsonVO::Wrapper EducationController::execQueryEducationPage(const EducationPageQuery::Wrapper& query, const PayloadDTO& payload, const PayloadDTO& payload)
 {
 	/*auto vo = StringJsonVO::createShared();
 	vo->success("execQueryEducationPage success");
 	return vo;*/
 	return EducationPageJsonVO::Wrapper();
 
+	auto vo = EducationPageJsonVO::createShared();
+	return vo;
+
+
 }
 
 EducationSingleJsonVO::Wrapper EducationController::execQueryEducationSingle(const EducationSingleQuery::Wrapper& query, const PayloadDTO& payload)
+//StringJsonVO::Wrapper EducationController::execQueryEducationSingle(const EducationSingleQuery::Wrapper& query, const PayloadDTO& payload, const PayloadDTO& payload)
 {
-	/*auto vo = StringJsonVO::createShared();
-	vo->success("execQueryEducationPage success");
-	return vo;*/
-	return EducationSingleJsonVO::Wrapper();
-}
-
-StringJsonVO::Wrapper EducationController::execAddEducationSingle(const EducationSingleDTO::Wrapper& dto)
-{
-	auto vo = StringJsonVO::createShared();
-	vo->success("execaddEducationSingle success");
+	
+	auto vo = EducationSingleJsonVO::createShared();
 	return vo;
 }
 
-StringJsonVO::Wrapper EducationController::execModifyEducationSingle(const EducationSingleDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper EducationController::execAddEducationSingle(const EducationSingleDTO::Wrapper& dto, const PayloadDTO& payload)
+//StringJsonVO::Wrapper EducationController::execAddEducationSingle(const EducationSingleDTO::Wrapper& dto, const PayloadDTO& payload)
 {
-	auto vo = StringJsonVO::createShared();
-	vo->success("execaddEducationSingle success");
+	auto vo = Uint64JsonVO::createShared();
+	
+	// 参数校验
+	if (!dto->PIMEDUCATIONID)
+	{	
+		vo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return vo;
+	}
+
+	
+
 	return vo;
 }
 
-Uint64JsonVO::Wrapper EducationController::execRemoveEducation(const EducationDeleteSingleDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper EducationController::execModifyEducationSingle(const EducationSingleDTO::Wrapper& dto, const PayloadDTO& payload)
 {
-	/*auto vo = StringJsonVO::createShared();
-	vo->success("execRemoveEducation success");
-	return vo;*/
-	return Uint64JsonVO::Wrapper();
+	auto vo = Uint64JsonVO::createShared();
+
+	// 参数校验
+	if (!dto->PIMEDUCATIONID)
+	{
+		vo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return vo;
+	}
+
+	return vo;
 }
 
-Uint64JsonVO::Wrapper EducationController::execRemoveEducationNotSingle(const EducationDeleteNotSingleDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper EducationController::execRemoveEducation(const EducationDeleteSingleDTO::Wrapper& dto, const PayloadDTO& payload)
+//StringJsonVO::Wrapper EducationController::execRemoveEducation(const EducationDeleteSingleDTO::Wrapper& dto, const PayloadDTO& payload)
 {
-	return Uint64JsonVO::Wrapper();
+	auto vo = Uint64JsonVO::createShared();
+	// 参数校验
+	if (!dto->deleteId) {
+		vo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return vo;
+	}
+	return vo;
+	//return Uint64JsonVO::Wrapper();
+}
+
+Uint64JsonVO::Wrapper EducationController::execRemoveEducationNotSingle(const EducationDeleteNotSingleDTO::Wrapper& dto, const PayloadDTO& payload)
+//StringJsonVO::Wrapper EducationController::execRemoveEducationNotSingle(const EducationDeleteNotSingleDTO::Wrapper& dto, const PayloadDTO& payload)
+{
+	auto vo = Uint64JsonVO::createShared();
+	if (!dto->deleteIds) {
+		vo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return vo;
+	}
+	return vo;
+	
 }
 
 #define RTN(__VO__, __MSG__) __VO__->setStatus(__MSG__); \
 return __VO__;
 
-EudacationImportJsonVO::Wrapper EducationController::execImportEducation(const EducationImportDTO::Wrapper& dto)
+EudacationImportJsonVO::Wrapper EducationController::execImportEducation(const EducationImportDTO::Wrapper& dto, const PayloadDTO& payload)
+//StringJsonVO::Wrapper EducationController::execImportEducation(const EducationImportDTO::Wrapper& dto)
 {
+
+	/*auto vo = StringJsonVO::createShared();
+	vo->success("execImportEducation success");
+	return vo;*/
+
+
 	auto vo = EudacationImportJsonVO::createShared();
 	// 参数校验
 	if (dto->filePath->empty()) { RTN(vo, RS_PARAMS_INVALID) }
@@ -68,7 +108,7 @@ EudacationImportJsonVO::Wrapper EducationController::execImportEducation(const E
 	return vo;
 }
 
-StringJsonVO::Wrapper EducationController::execExportEducation(const EducationExportQuery::Wrapper& query)
+StringJsonVO::Wrapper EducationController::execExportEducation(const EducationExportQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	auto vo = StringJsonVO::createShared();
 

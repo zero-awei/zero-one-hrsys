@@ -1,34 +1,27 @@
-user:
- query-all: 
-  summary: 查询所有用户
-  nickname: 昵称
- file:
-  summary: 文件上传
-  suffix: 文件后缀
- query-menu:
-  summary: 查询所有菜单
- field:
-  age: 年龄
-  nickname: 昵称
-  idCard: 身份证号码
-  menuname: 菜单名称
-  menuicon: 图标名称
-  menuhref: 路由地址
-  menusub: 子菜单
-sample:
+employee:
  get:
-  summary: 分页查询示例数据
+  summary: 分页查询指定员工分配信息
+  detail: 查询制定员工详细分配信息
  post:
-  summary: 新增一条示例数据
+  summary: 新增指定员工分配信息
+  upload: 导入指定员工分配信息
  put:
-  summary: 修改一条示例数据
+  summary: 修改指定员工分配信息
  delete:
-  summary: 删除一条示例数据
+  summary: 删除指定员工分配信息
  field:
   id: 编号
   age: 年龄
   name: 姓名
   sex: 性别，如：男
 t_pimperson: 
- pimpersonname: 员工姓名
+  pimpersonname: 员工姓名
 
+  assign: 分配
+  etype: 类型
+  organize: 组织
+  depart: 部门
+  job: 职务
+  post: 岗位
+  startTime: 任职开始时间
+  endTime: 任职结束时间

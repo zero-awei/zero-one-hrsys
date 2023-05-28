@@ -27,6 +27,15 @@
     <ClCompile Include="controller\SystemInterceptor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="service\assignInfo\AssignInfoQueryService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\assignController\AssignInfoController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\assignInfo\AddAssignInfoService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
@@ -51,6 +60,27 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\GetAllotSingle\GetAllotSingleQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\assignController\AssignInfoController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\assignInfo\AddAssignInfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\assignInfo\DeleteAssignInfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\AssignInfo\ImportAssignInfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\assignInfo\ModifyAssignInfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\assignInfo\AssignInfoQueryService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\assignInfo\AddAssignInfoService.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
