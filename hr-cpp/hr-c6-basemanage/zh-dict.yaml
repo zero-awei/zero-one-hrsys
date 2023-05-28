@@ -212,6 +212,7 @@ jobtitle:
 
 expense:
  field:
+  expense_id: 费别ID
   expense_name: 费别类型
   expense_num: 费用金额
   people_num: 发放人数
