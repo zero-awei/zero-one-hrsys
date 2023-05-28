@@ -203,6 +203,7 @@
     <ClInclude Include="dao\RosterOfPer\TemporaryStaffDAO.h" />
     <ClInclude Include="dao\RosterOfPer\TemporaryStaffMapper.h" />
     <ClInclude Include="domain\do\CertificateManage\CertificateDO.h" />
+    <ClInclude Include="domain\do\CertificateManage\CertificateInfoDO.h" />
     <ClInclude Include="domain\do\CertificateManage\CertificateTypeDO.h" />
     <ClInclude Include="domain\do\CertificateManage\EmployeeInfoDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />

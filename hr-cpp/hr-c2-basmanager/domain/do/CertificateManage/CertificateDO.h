@@ -30,12 +30,10 @@ class CertificateDO
 	CC_SYNTHESIZE(uint64_t, ygbh, Ygbh);
 	// 姓名
 	CC_SYNTHESIZE(string, pimperSonName, PimperSonName);
-	// 员工状态 
-	CC_SYNTHESIZE(string, ygzt, Ygzt);
-	// 组织   t_srforg 需要连表操作获取组织名称
-	CC_SYNTHESIZE(string, organizationName, OrganizationName);
 	// 证书编号
 	CC_SYNTHESIZE(string, zgzsbh, Zgzsbh);
+	// 组织   t_srforg 需要连表操作获取组织名称
+	CC_SYNTHESIZE(string, organizationName, OrganizationName);
 	// 一建配套B证编号
 	CC_SYNTHESIZE(string, bcardNumber, BcardNumber);
 	// 证书名称
@@ -52,6 +50,8 @@ class CertificateDO
 	CC_SYNTHESIZE(string, fzyxq, Fzyxq);
 	// 失效日期
 	CC_SYNTHESIZE(string, sxrq, Sxrq);
+	// 员工状态 
+	CC_SYNTHESIZE(string, ygzt, Ygzt);
 	// 证书剩余日期 表内没有
 	//////////////////////////////////////////////////////////////
 	// 以下为非前端显示字段

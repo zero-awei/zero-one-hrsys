@@ -49,6 +49,8 @@ list<FormerEmployeesDO> FormerEmployeesDAO::selectAll(const FormerEmployeesQuery
 		FROM t_pimperson INNER JOIN t_pcmydlzmx \
 		ON t_pimperson.PIMPERSONID = t_pcmydlzmx.lzmtrId";
 	FORMER_EMPLOYEES_PARSE(query, sql);
+
+	sql << " LIMIT 5000 ";// 设置输出上限条数
 	string sqlStr = sql.str();
 
 	FormerEmployeesMapper mapper;

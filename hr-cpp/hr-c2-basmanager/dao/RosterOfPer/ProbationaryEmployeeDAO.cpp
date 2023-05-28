@@ -52,6 +52,7 @@ list<ProbationaryEmployeeDO> ProbationaryEmployeeDAO::selectAll(const Probationa
 		ON t_pcmsgqmgr.PIMPERSONID = t_pimperson.PIMPERSONID";
 	PROBATIONARY_EMPLOYEE_PARSE(query, sql);
 
+	sql << " LIMIT 5000 ";// 设置输出上限条数
 	string sqlStr = sql.str();
 
 	ProbationaryEmployeeMapper mapper;

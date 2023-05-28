@@ -88,21 +88,32 @@ std::string ProbationaryEmployeeService::exportData(const ProbationaryEmployeeQu
 	excel.writeVectorToFile(fileName, sheetName, datas);
 
 
-//	// 上传到FastDFS文件服务器
-//#ifdef LINUX
-////定义客户端对象
-//	FastDfsClient client("conf/client.conf", 3);
-//#else
-//	//定义客户端对象
-//	FastDfsClient client("192.168.174.130");
-//#endif
-//	std::string fieldName = client.uploadFile(fileName);
-//	std::cout << "upload fieldname is : " << fieldName << std::endl;
-//	ss.str("");
-//	ss.clear();
-//	ss << "http://8.130.87.15:8888/" << fieldName;
-//
-//	cout << ss.str() << endl;
-//
-//	return ss.str();
+	// 上传到FastDFS文件服务器
+#ifdef LINUX
+//定义客户端对象
+	FastDfsClient client("conf/client.conf", 3);
+#else
+	//定义客户端对象
+	FastDfsClient client("8.130.87.15");
+#endif
+	std::string fieldName = client.uploadFile(fileName);
+	std::cout << "upload fieldname is : " << fieldName << std::endl;
+	ss.str("");
+	ss.clear();
+	ss << "http://8.130.87.15:8888/" << fieldName;
+
+	cout << ss.str() << endl;
+
+	// 删除本地文件
+	const char* filename = fileName.c_str();
+	if (std::remove(filename) != 0) {
+		// 删除失败
+		std::perror("Error deleting local file");
+	}
+	else {
+		// 删除成功
+		std::puts("Local file successfully deleted");
+	}
+
+	return ss.str();
 }
