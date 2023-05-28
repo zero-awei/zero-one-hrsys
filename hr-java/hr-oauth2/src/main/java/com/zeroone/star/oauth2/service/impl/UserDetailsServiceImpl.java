@@ -44,6 +44,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (AuthConstant.CLIENT_MANAGER.equals(clientId)) {
             //1 通过用户名查找用户对象
             User user = new User();
+            System.out.println("loadUserByUsername创建新对象拉！！");
             user.setUsername(username);
             user = userService.getOne(new QueryWrapper<>(user));
             if (user == null) {

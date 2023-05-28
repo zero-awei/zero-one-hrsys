@@ -100,9 +100,11 @@ public class LoginController implements LoginApis {
         //3.调用远程接口，获取Token
         JsonVO<Oauth2TokenDTO> oauth2TokenDTO = oAuthService.postAccessToken(params);
         //4.将授权token存储到Redis中，记录登录状态
-        if (oauth2TokenDTO == null) {
+
+        if (oauth2TokenDTO.getData() == null) {
             return fail(null, ResultStatus.SERVER_ERROR);
         }
+
         String token = oauth2TokenDTO.getData().getToken();
         //4.1拼接key
         String userTokenKey = RedisConstant.USER_TOKEN + ":" + token;

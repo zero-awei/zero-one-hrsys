@@ -2,6 +2,7 @@ package com.zeroone.star.gateway.filter;
 
 import cn.hutool.core.util.StrUtil;
 import com.nimbusds.jose.JWSObject;
+import com.zeroone.star.project.constant.RedisConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
@@ -36,6 +37,9 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
         try {
             //从token中解析用户信息并设置到Header中去
             String realToken = token.replace("Bearer ", "");
+            //从redis中查询当前token是否存在
+            String userTokenKey = RedisConstant.USER_TOKEN + ":" + realToken;
+
             JWSObject jwsObject = JWSObject.parse(realToken);
             String userStr = jwsObject.getPayload().toString();
             log.info("AuthGlobalFilter.filter() user:{}", userStr);
