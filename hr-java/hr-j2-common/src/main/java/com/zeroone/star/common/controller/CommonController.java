@@ -166,4 +166,28 @@ public class CommonController implements CommonApis {
     public JsonVO<List<DropdownListOptionDTO>> queryDistrictName(DistrictNameStatusListQuery query) {
         return null;
     }
+
+    @Resource
+    private IZoWorkStatusService workStatusService;
+
+    @Resource
+    private IZoMaritalStatusService maritalStatusService;
+
+    @GetMapping("query-marital-status")
+    @ApiOperation(value = "婚姻状况下拉列表")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryMaritalStatus() {
+        List<DropdownListOptionDTO> dtoList = maritalStatusService.listMaritalStatus();
+        return JsonVO.success(dtoList);
+    }
+
+    @GetMapping("query-work-status")
+    @ApiOperation(value = "工作状态下拉列表")
+    @Override
+    public JsonVO<List<DropdownListOptionDTO>> queryWorkStatus() {
+        List<DropdownListOptionDTO> dtoList = workStatusService.listWorkStatus();
+        return JsonVO.success(dtoList);
+    }
+
+
 }

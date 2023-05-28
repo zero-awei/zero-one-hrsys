@@ -3,6 +3,7 @@ package com.zeroone.star.project.dashboard;
 import com.zeroone.star.project.dto.dashboard.AgencyProjectStaffDTO;
 import com.zeroone.star.project.dto.dashboard.PimOutputDTO;
 import com.zeroone.star.project.dto.dashboard.PimTitleDTO;
+import com.zeroone.star.project.dto.dashboard.PimVocationalDTO;
 import com.zeroone.star.project.vo.JsonVO;
 import com.zeroone.star.project.query.dashboard.EducationQuery;
 
@@ -48,4 +49,11 @@ public interface DashboardApis {
      * @Date: 2023/5/18 22:47
      */
     JsonVO<EducationQuery> queryEducationDistribution();
+
+
+    /**
+     * 查询职业资格
+     * @return
+     */
+    JsonVO<List<PimVocationalDTO>> queryVocational();
 }

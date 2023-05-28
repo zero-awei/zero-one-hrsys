@@ -1,8 +1,7 @@
 package com.zeroone.star.project.common;
 
 import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
-import com.zeroone.star.project.dto.common.StatusListDTO;
+import com.zeroone.star.project.dto.common.*;
 import com.zeroone.star.project.query.common.ZzmmQuery;
 import com.zeroone.star.project.dto.common.GwTypeDTO;
 import com.zeroone.star.project.dto.common.PostNatureDTO;
@@ -137,4 +136,19 @@ public interface CommonApis {
      * @return 查询结果
      */
     JsonVO<List<DropdownListOptionDTO>> queryDistrictName(DistrictNameStatusListQuery query);
+
+
+    /**
+     * 婚姻状态下拉列表
+     * @return
+     */
+    JsonVO<List<DropdownListOptionDTO>> queryMaritalStatus();
+
+    /**
+     * 工作状态下拉列表
+     * @return
+     */
+    JsonVO<List<DropdownListOptionDTO>> queryWorkStatus();
+
+
 }
