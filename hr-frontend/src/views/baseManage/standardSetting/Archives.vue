@@ -21,9 +21,9 @@
 import TableHead from '@/components/table/head/TableHead.vue'
 import MainTable from '@/components/MainTable.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
-import {usePostCertificateStore} from '@/stores/postCertificate'
+import {useArchivesStore} from '@/stores/archives'
 
-const $store = usePostCertificateStore()
+const $store = useArchivesStore()
 $store.initTableData()
 
 //将新增的数据保存

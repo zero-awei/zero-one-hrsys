@@ -21,9 +21,9 @@
 import TableHead from '@/components/table/head/TableHead.vue'
 import MainTable from '@/components/MainTable.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
-import {usePostCertificateStore} from '@/stores/postCertificate'
+import {useJobTitleCatalogeStore} from '@/stores/jobTitleCataloge'
 
-const $store = usePostCertificateStore()
+const $store = useJobTitleCatalogeStore()
 $store.initTableData()
 
 //将新增的数据保存

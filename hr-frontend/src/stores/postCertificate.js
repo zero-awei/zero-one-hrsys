@@ -21,7 +21,9 @@ export const usePostCertificateStore = defineStore('postCertificate',{
               name:'name',
               type:String,
             }  
-        ]
+        ],
+        pageSizes: ['10', '20'],
+        total: 1000
     }),
     actions:{
         initTableData(){

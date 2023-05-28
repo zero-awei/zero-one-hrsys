@@ -163,14 +163,14 @@ let testMenus = [
       {
         id: 5,
         text: '职称目录',
-        path: '/un-34',
+        path: '/jobtitlecatalog',
         icon: 'IconTickets',
         pid: 4
       },
       {
         id: 6,
         text: '档案室',
-        path: '/un-55',
+        path: '/archives',
         icon: 'IconTickets',
         pid: 4
       }
