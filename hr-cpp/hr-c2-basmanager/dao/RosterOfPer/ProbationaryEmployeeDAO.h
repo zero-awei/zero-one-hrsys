@@ -13,6 +13,8 @@ public:
 	uint64_t count(const ProbationaryEmployeeQuery::Wrapper& query);
 	// 分页查询离职员工数据
 	list<ProbationaryEmployeeDO> selectWithPage(const ProbationaryEmployeeQuery::Wrapper& query);
+	// 分页查询离职员工数据
+	list<ProbationaryEmployeeDO> selectAll(const ProbationaryEmployeeQuery::Wrapper& query);
 	// 通过姓名查询数据
 	list<ProbationaryEmployeeDO> selectByName(const string& name);
 	// 通过编号查询数据

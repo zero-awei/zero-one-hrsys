@@ -41,3 +41,17 @@ list<FormerEmployeesDO> FormerEmployeesDAO::selectWithPage(const FormerEmployees
 
 	return sqlSession->executeQuery<FormerEmployeesDO, FormerEmployeesMapper>(sqlStr, mapper, params);
 }
+
+list<FormerEmployeesDO> FormerEmployeesDAO::selectAll(const FormerEmployeesQuery::Wrapper& query)
+{
+	stringstream sql;
+	sql << "SELECT ygbh, PIMPERSONNAME, XB, lxdh, csrq, ORMORGNAME, ORMORGSECTORNAME, POSTALADDRESS, jtlxr, jtlxrdh, 'rank' \
+		FROM t_pimperson INNER JOIN t_pcmydlzmx \
+		ON t_pimperson.PIMPERSONID = t_pcmydlzmx.lzmtrId";
+	FORMER_EMPLOYEES_PARSE(query, sql);
+	string sqlStr = sql.str();
+
+	FormerEmployeesMapper mapper;
+
+	return sqlSession->executeQuery<FormerEmployeesDO, FormerEmployeesMapper>(sqlStr, mapper, params);
+}

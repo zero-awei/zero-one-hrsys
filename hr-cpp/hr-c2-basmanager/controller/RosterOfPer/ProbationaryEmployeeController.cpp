@@ -14,9 +14,14 @@ ProbationaryEmployeePageJsonVO::Wrapper ProbationaryEmployeeController::execQuer
 	return jvo;
 }
 
-ProbationaryEmployeePageJsonVO::Wrapper ProbationaryEmployeeController::execListProbationaryEmployee(const ProbationaryEmployeeQuery::Wrapper& query, const PayloadDTO& payload)
+StringJsonVO::Wrapper ProbationaryEmployeeController::execExportProbationaryEmployee(const ProbationaryEmployeeQuery::Wrapper& query, const PayloadDTO& payload)
 {
-	auto jvo = ProbationaryEmployeePageJsonVO::createShared();
+	auto jvo = StringJsonVO::createShared();
+
+	ProbationaryEmployeeService Service;
+
+	auto result = Service.exportData(query);
+	jvo->success(result);
 
 	return jvo;
 }

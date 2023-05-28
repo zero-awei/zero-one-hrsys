@@ -8,6 +8,7 @@
 class ProbationaryEmployeeService {
 public:
 	ProbationaryEmployeePageDTO::Wrapper listAll(const ProbationaryEmployeeQuery::Wrapper& query);
+	std::string exportData(const ProbationaryEmployeeQuery::Wrapper& query);
 };
 
 

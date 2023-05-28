@@ -43,3 +43,18 @@ list<ProbationaryEmployeeDO> ProbationaryEmployeeDAO::selectWithPage(const Proba
 
 	return sqlSession->executeQuery<ProbationaryEmployeeDO>(sqlStr, mapper, params);
 }
+
+list<ProbationaryEmployeeDO> ProbationaryEmployeeDAO::selectAll(const ProbationaryEmployeeQuery::Wrapper& query)
+{
+	stringstream sql;
+	sql << "SELECT t_pimperson.YGBH,PIMPERSONNAME,ORMORGNAME,ORMORGSECTORNAME,ZW,ORMPOSTNAME,RZSJ,SYDQ \
+		FROM t_pcmsgqmgr INNER JOIN t_pimperson \
+		ON t_pcmsgqmgr.PIMPERSONID = t_pimperson.PIMPERSONID";
+	PROBATIONARY_EMPLOYEE_PARSE(query, sql);
+
+	string sqlStr = sql.str();
+
+	ProbationaryEmployeeMapper mapper;
+
+	return sqlSession->executeQuery<ProbationaryEmployeeDO>(sqlStr, mapper, params);
+}

@@ -38,12 +38,15 @@ FormerEmployeesPageJsonVO::Wrapper FormerEmployeesController::execQueryFormerEmp
 	return jvo;
 }
 
-FormerEmployeesPageJsonVO::Wrapper FormerEmployeesController::execListFormerEmployees(const FormerEmployeesQuery::Wrapper& query, const PayloadDTO& payload)
+StringJsonVO::Wrapper FormerEmployeesController::execExportFormerEmployees(const FormerEmployeesQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	// 响应结果
-	auto jvo = FormerEmployeesPageJsonVO::createShared();
-	// 创建分页对象
-	auto pdtd = FormerEmployeesPageDTO::createShared();
-	jvo->success(pdtd);
+	auto jvo = StringJsonVO::createShared();
+
+	FormerEmployeesService service;
+	
+	auto result = service.exportData(query);
+
+	jvo->success(result);
 	return jvo;
 }

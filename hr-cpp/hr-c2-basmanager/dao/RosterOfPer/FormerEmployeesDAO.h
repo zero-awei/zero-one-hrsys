@@ -5,7 +5,7 @@
 #include "../../domain/query/RosterOfPer/FormerEmployeesQuery.h"
 
 /**
- * 离职人员数据库操作实现
+ * 人员花名册 - 离职人员数据库操作实现 - 楚孟献
  */
 class FormerEmployeesDAO : public BaseDAO
 {
@@ -14,6 +14,8 @@ public:
 	uint64_t count(const FormerEmployeesQuery::Wrapper& query);
 	// 分页查询离职员工数据
 	list<FormerEmployeesDO> selectWithPage(const FormerEmployeesQuery::Wrapper& query);
+	// 查询离职员工数据
+	list<FormerEmployeesDO> selectAll(const FormerEmployeesQuery::Wrapper& query);
 	// 通过姓名查询数据
 	list<FormerEmployeesDO> selectByName(const string& name);
 	// 通过编号查询数据

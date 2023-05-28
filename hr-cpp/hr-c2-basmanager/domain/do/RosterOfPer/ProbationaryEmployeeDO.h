@@ -65,6 +65,13 @@ public:
 		, pimPersonId(pimPersonId)
 		, PCMSGQMGRID(PCMSGQMGRID)
 	{}
+	std::vector<std::string> ProbationaryEmployeetoVector()
+	{
+		std::vector<std::string> vec{this->getYGBH(), this->getPIMPERSONNAME(), this->getORMORGNAME(),\
+			this->getORMORGSECTORNAME(), this->getZW(), this->getORMPOSTNAME(), this->getRZSJ(),\
+			this->getSYDQ()};
+		return vec;
+	}
 };
 
-#endif // !_DO_H_
+#endif 

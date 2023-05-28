@@ -20,6 +20,7 @@
 #ifndef _FORMER_EMPLOYEES_DO_
 #define _FORMER_EMPLOYEES_DO_
 #include "../DoInclude.h"
+#include "CharsetConvertHepler.h"
 
 /**
  * 离职员工数据库实体类
@@ -56,7 +57,16 @@ class FormerEmployeesDO
 	CC_SYNTHESIZE(string, lzmtrId, lzmtrId);
 
 public:
-	FormerEmployeesDO() {}
+	FormerEmployeesDO() {};
+	std::vector<std::string> FormerEmployeestoVector()
+	{
+		std::vector<std::string> vec { this->getygbh(),\
+			this->getpimPersonName(), this->getsex(), this->getlxdh(),\
+			this->getcsrq(), this->getorganizationName(), this->getbm(),\
+			this->getrank(), this->getpostalAddress(), this->getjtlxr(), this->getjtlxrdh() };
+		
+		return vec;
+	}
 };
 
 #endif // !_FPRMERRMPLOYEES_DO_
