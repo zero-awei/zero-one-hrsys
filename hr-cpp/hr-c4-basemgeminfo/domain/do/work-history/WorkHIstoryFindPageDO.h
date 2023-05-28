@@ -67,4 +67,4 @@ public:
 
 };
 
-#endif // !_WORKHISTORYFINDPAGEDO_H_
+#endif // !_WORKHISTORYFINDPAGEDO_H__

@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
- @Date: 2022/10/25 11:36:29
+ @Date: 2023/05/17 19:59:13
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,26 +17,24 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _SCIRESULT_QUERY_
-#define _SCIRESULT_QUERY_
+#ifndef _SCIRESULTDAO_H_
+#define _SCIRESULTDAO_H_
+#include "BaseDAO.h"
+#include "../../domain/do/SciResult/SciResultDO.h"
+#include "../../domain/query/SciResult/SciResultQuery.h"
 
-#include "../../GlobalInclude.h"
-#include "domain/query/PageQuery.h"
-
-#include OATPP_CODEGEN_BEGIN(DTO)
-
-/**
- * 示例分页查询对象
- */
-class SciResultQuery : public PageQuery
+class SciResultDAO : public BaseDAO
 {
-	DTO_INIT(SciResultQuery, PageQuery);
-	// 姓名
-	DTO_FIELD(String,pimpersonid);
-	DTO_FIELD_INFO(pimpersonid) {
-		info->description = ZH_WORDS_GETTER("sciresult.field.pimpersonid");
-	}
+public:
+	// 统计数据条数
+	uint64_t count(const SciResultQuery::Wrapper& query);
+	// 分页查询数据
+	list<SciResultDO> selectWithPage(const SciResultQuery::Wrapper& query);
+	// 插入数据
+	int insert(const SciResultDO& iObj);
+	// 通过ID删除数据
+	int deleteById(std::string pimpersonid, std::string pimsciresultid);
 };
 
-#include OATPP_CODEGEN_END(DTO)
-#endif // !_SAMPLE_QUERY_
+#endif // !_SCIRESULTDAO_H_
+

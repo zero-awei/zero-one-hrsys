@@ -15,7 +15,7 @@ class AddSciResult1DTO : public oatpp::DTO
 	DTO_INIT(AddSciResultDTO, DTO);
 
 	//更新人
-	DTO_INIT_(String, UPDATEMAN, "sciresult.UPDATEMAN")
+	       DTO_INIT_(String, UPDATEMAN, "sciresult.UPDATEMAN")
 
 		//科研成果名称
 		DTO_INIT_(String, PIMRESEARCHFINDINGSNAME, "sciresult.PIMRESEARCHFINDINGSNAME")

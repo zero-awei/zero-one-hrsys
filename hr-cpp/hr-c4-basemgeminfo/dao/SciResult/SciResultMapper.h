@@ -1,9 +1,10 @@
 #pragma once
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
- @Date: 2022/10/25 11:36:29
+ @Date: 2023/05/17 14:08:32
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,26 +18,24 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _SCIRESULT_QUERY_
-#define _SCIRESULT_QUERY_
+#ifndef _SCIRESULTMAPPER_H_
+#define _SCIRESULTMAPPER_H_
+#include "Mapper.h"
+#include "../../domain/do/SciResult/SciResultDO.h"
 
-#include "../../GlobalInclude.h"
-#include "domain/query/PageQuery.h"
-
-#include OATPP_CODEGEN_BEGIN(DTO)
-
-/**
- * 示例分页查询对象
- */
-class SciResultQuery : public PageQuery
+class SciResultMapper : public Mapper<SciResultDO>
 {
-	DTO_INIT(SciResultQuery, PageQuery);
-	// 姓名
-	DTO_FIELD(String,pimpersonid);
-	DTO_FIELD_INFO(pimpersonid) {
-		info->description = ZH_WORDS_GETTER("sciresult.field.pimpersonid");
+public:
+	SciResultDO mapper(ResultSet* resultSet) const override
+	{
+		SciResultDO data;
+		data.set_PIMRESEARCHFINDINGSNAME(resultSet->getString(1));
+		data.set_FJ(resultSet->getString(2));
+		data.set_PIMRESEARCHFINDINGSID(resultSet->getString(3));
+		data.set_pimpersonid(resultSet->getString(4));
+		data.set_HQSJ(resultSet->getString(5));
+		return data;
 	}
 };
 
-#include OATPP_CODEGEN_END(DTO)
-#endif // !_SAMPLE_QUERY_
+#endif // !_CONTRACTMAPPER_H_
