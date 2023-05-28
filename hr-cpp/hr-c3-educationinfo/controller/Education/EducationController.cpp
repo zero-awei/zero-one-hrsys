@@ -4,15 +4,8 @@
 EducationPageJsonVO::Wrapper EducationController::execQueryEducationPage(const EducationPageQuery::Wrapper& query, const PayloadDTO& payload)
 //StringJsonVO::Wrapper EducationController::execQueryEducationPage(const EducationPageQuery::Wrapper& query, const PayloadDTO& payload, const PayloadDTO& payload)
 {
-	/*auto vo = StringJsonVO::createShared();
-	vo->success("execQueryEducationPage success");
-	return vo;*/
-	return EducationPageJsonVO::Wrapper();
-
 	auto vo = EducationPageJsonVO::createShared();
 	return vo;
-
-
 }
 
 EducationSingleJsonVO::Wrapper EducationController::execQueryEducationSingle(const EducationSingleQuery::Wrapper& query, const PayloadDTO& payload)

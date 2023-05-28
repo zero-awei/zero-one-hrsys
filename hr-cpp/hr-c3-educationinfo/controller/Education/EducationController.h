@@ -369,7 +369,7 @@ public: // 接口
 
 
 		// 响应结果
-		API_HANDLER_RESP_VO(execImportEducation(dto));
+		//API_HANDLER_RESP_VO(execImportEducation(dto));
 	}
 
 
