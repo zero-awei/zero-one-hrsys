@@ -33,7 +33,7 @@
 #include "./ContractController/ContractController.h"
 #include "../uselib/ws/WSController.h"
 #endif
-#include "muggle/LaborDispatchController.h"
+#include "LaborDispatch/LaborDispatchController-mg.h"
 #include "muggle/ExpenseLedgerController.h"
 #include "LaborDispatch/LaborDispatchConstroller.h"
 #include "GoshController/TestController.h"
@@ -60,10 +60,10 @@ void Router::initRouter()
 {
 #ifdef HTTP_SERVER_DEMO
 	createSampleRouter();
-	createJobAndExpenseRouter();
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
+	createJobAndExpenseRouter();
 	ROUTER_SIMPLE_BIND(ContractController);
 	ROUTER_SIMPLE_BIND(LaborDispatchMController);
 	ROUTER_SIMPLE_BIND(ExpenseLedgerMController);

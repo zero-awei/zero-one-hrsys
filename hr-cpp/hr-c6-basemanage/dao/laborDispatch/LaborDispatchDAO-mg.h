@@ -2,7 +2,7 @@
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
- @Date: 2023/05/19 23:25:03
+ @Date: 2023/05/20 10:46:18
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,23 +16,24 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "LaborDispatchController.h"
-#include "../../service/muggle/LaborDispatchService.h"
+#pragma once
+#ifndef _LD_M_DAO_
+#define _LD_M_DAO_
+#include "BaseDAO.h"
+#include "../../domain/query/LaborDispatch/LaborDispatchQuery-mg.h"
+#include "../../domain/do/laborDispatch/LaborDispatchDO.h"
 
-LaborDispatchJsonMVO::Wrapper LaborDispatchMController::execQueryLaborDispatch(const LaborDispatchMQuery::Wrapper& query)
+class LaborDispatchMDAO : public BaseDAO
 {
-	// 定义Service
-	LaborDispatchMService service;
-	// service执行并返回数据
-	auto result = service.ListData(query);
-	// 响应结果
-	auto vo = LaborDispatchJsonMVO::createShared();
-	vo->success(result);
-	return vo;
-}
+public:
+	// 统计数据条数
+	uint64_t count(const LaborDispatchMQuery::Wrapper& query);
+	// 根据公司名称查询数据
+	std::list<LaborDispatchDO> selectByCorporateName(const LaborDispatchMQuery::Wrapper& query);
 
-StringJsonVO::Wrapper LaborDispatchMController::execModifyLaborDispatch()
-{
-	return StringJsonVO::Wrapper();
-}
+	int update(const LaborDispatchDO& uDo);
+protected:
+private:
+};
+
+#endif

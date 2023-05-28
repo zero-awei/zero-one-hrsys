@@ -1,8 +1,9 @@
+
 /*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
- @Date: 2023/05/20 10:46:22
+ @Date: 2023/05/20 0:00:36
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,18 +17,22 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "LaborDispatchDAO.h"
-#include <sstream>
+#pragma once
+#ifndef _LD_M_SERVICE_
+#define _LD_M_SERVICE_
+#include "domain/dto/LaborDispatch/LaborDispatchDTO.h"
+#include "domain/dto/LaborDispatch/LaborDispatchDTO-mg.h"
+#include "domain/query/LaborDispatch/LaborDispatchQuery-mg.h"
 
-LaborDispatchMDO LaborDispatchMDAO::selectByCorporateName(const LaborDispatchMQuery::Wrapper& query)
+class LaborDispatchMService
 {
-	stringstream sql;
-	sql << "SELECT `PIMLABOURCAMPANYNAME`,`LXDZ`,`LXR`,`LXFS` FROM t_pimlabourcampany WHERE `PIMLABOURCAMPANYNAME` = ?";
-	LaborDispatchMDO reply;
-	reply.setCorporateAddress("cosmic");
-	reply.setCorporateContact("muggle");
-	reply.setCorporateName("zerone");
-	reply.setCorporateNumber("88480520");
-	return reply;
-}
+public:
+	// 分页查询所有数据
+	LaborDispatchPageDTO::Wrapper ListAll(const LaborDispatchMQuery::Wrapper& query);
+	//LaborDispatchMDTO::Wrapper ListData(const LaborDispatchMQuery::Wrapper& query);
+
+	bool updateData(const LaborDispatchUpdateDTO::Wrapper& dto);
+protected:
+private:
+};
+#endif
