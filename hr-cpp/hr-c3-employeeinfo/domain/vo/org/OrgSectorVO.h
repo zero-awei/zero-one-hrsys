@@ -11,9 +11,9 @@
 /**
  * 定义一个示例菜单显示JsonVO对象，用于响应给前端
  */
-class OrgSectorVO : public JsonVO<PageOrgSector::Wrapper>
+class OrgSectorVO : public JsonVO<OrgSectorPageDTO::Wrapper>
 {
-	DTO_INIT(OrgSectorVO, JsonVO<PageOrgSector::Wrapper>);
+	DTO_INIT(OrgSectorVO, JsonVO<OrgSectorPageDTO::Wrapper>);
 public:
 	// 在构造函数中实例化data列表
 	OrgSectorVO() {

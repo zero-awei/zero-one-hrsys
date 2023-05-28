@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: guyier
- @Date: 2023/05/24 14:16:12
+ @Author: J1senn
+ @Date: 2022/10/25 14:21:55
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,27 +17,27 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _SECTORDO_H_
-#define _SECTORDO_H_
-#include "../DoInclude.h"
+#ifndef _ORGSECTOR_MAPPER_
+#define _ORGSECTOR_MAPPER_
 
-/*
-组织实体类
-*/
-class SectorDO
+#include "Mapper.h"
+#include "../../domain/do/org/OrgSectorDO.h"
+
+/**
+ * 示例表字段匹配映射
+ */
+class OrgSectorMapper : public Mapper<OrgSectorDO>
 {
-	// 查询Sector的parent是OrmOrg还是OrmOrgsector
-	CC_SYNTHESIZE(string, parentdename, Parentdename);
-	// 查询的parent id
-	CC_SYNTHESIZE(string, parentkey, Parentkey);
-	// 排序方式
-	CC_SYNTHESIZE(string, sort, Sort);
 public:
-	SectorDO() {
-		parentdename = "";
-		parentkey = "";
-		sort = "";
+	OrgSectorDO mapper(ResultSet* resultSet) const override
+	{
+		OrgSectorDO data;
+		data.setOrgSectorID(resultSet->getString(1));
+		data.setOrgSectorName(resultSet->getString(2));
+		data.setOrgID(resultSet->getString(3));
+		data.setOrgName(resultSet->getString(4));
+		return data;
 	}
 };
 
-#endif // !_SECTORDO_H_
+#endif // !_ORGSECTOR_MAPPER_

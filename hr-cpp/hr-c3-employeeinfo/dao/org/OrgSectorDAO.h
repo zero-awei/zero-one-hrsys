@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: guyier
- @Date: 2023/05/24 14:20:25
+ @Author: J1senn
+ @Date: 2022/10/25 14:23:49
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,27 +17,19 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _VALIDORGDO_H_
-#define _VALIDORGDO_H_
-#include "../DoInclude.h"
+#ifndef _ORGSECTOR_DAO_
+#define _ORGSECTOR_DAO_
+#include "BaseDAO.h"
+#include "../../domain/do/org/OrgSectorDO.h"
+#include "../../domain/query/orgquery/SectorQuery.h"
 
-/*
-组织实体类
-*/
-class ValidOrgDO
+/**
+ * 示例表数据库操作实现
+ */
+class OrgSectorDAO : public BaseDAO
 {
-	// 搜索匹配
-	CC_SYNTHESIZE(string, fillter, Fillter);
-	// 父组织id
-	CC_SYNTHESIZE(string, porgid, Porgid);
-	// 排序方式
-	CC_SYNTHESIZE(string, sort, Sort);
 public:
-	ValidOrgDO() {
-		fillter = "";
-		porgid = "";
-		sort = "";
-	}
+    // 查询根组织数据
+    list<OrgSectorDO> selectOrgSector(const SectorQuery::Wrapper &query);
 };
-
-#endif // !_VALIDORGDO_H_
+#endif // !_ORGSECTOR_DAO_

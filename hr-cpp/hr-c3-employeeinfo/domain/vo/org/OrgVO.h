@@ -1,5 +1,7 @@
 #pragma once
 
+#ifndef _ORG_VO_
+#define _ORG_VO_
 #include "../../GlobalInclude.h"
 #include "../../dto/org/OrgDTO.h"
 
@@ -8,9 +10,9 @@
 /**
  * 定义一个示例菜单显示JsonVO对象，用于响应给前端
  */
-class OrgJsonVO : public JsonVO<PageOrg::Wrapper>>
+class OrgJsonVO : public JsonVO<OrgPageDTO::Wrapper>
 {
-	DTO_INIT(OrgJsonVO, JsonVO<PageOrg::Wrapper>>);
+	DTO_INIT(OrgJsonVO, JsonVO<OrgPageDTO::Wrapper>);
 public:
 	// 在构造函数中实例化data列表
 	OrgJsonVO() {
@@ -20,4 +22,4 @@ public:
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif // !_MENUVO_H_
+#endif // !_ORG_VO_

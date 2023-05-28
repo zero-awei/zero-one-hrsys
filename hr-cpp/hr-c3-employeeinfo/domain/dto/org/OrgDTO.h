@@ -27,7 +27,7 @@ class OrgDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("org.field.orgid");
 	}
     // 父组织名字
-	DTO_FIELD(Int32, porgname);
+	DTO_FIELD(String, porgname);
 	DTO_FIELD_INFO(porgname) {
 		info->description = ZH_WORDS_GETTER("org.field.porgname");
 	}
@@ -41,9 +41,9 @@ class OrgDTO : public oatpp::DTO
 /**
  * 示例分页传输对象
  */
-class PageOrg : public PageDTO<OrgDTO::Wrapper> 
+class OrgPageDTO : public PageDTO<OrgDTO::Wrapper> 
 {
-	DTO_INIT(PageOrg, PageDTO<OrgDTO::Wrapper>);
+	DTO_INIT(OrgPageDTO, PageDTO<OrgDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

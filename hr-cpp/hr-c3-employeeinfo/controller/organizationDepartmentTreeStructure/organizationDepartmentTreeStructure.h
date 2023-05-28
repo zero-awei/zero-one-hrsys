@@ -31,7 +31,9 @@
 #include "domain/query/orgquery/RootOrgQuery.h"
 #include "domain/query/orgquery/ValidOrgQuery.h"
 #include "domain/vo/org/OrgSectorVO.h"
+#include "domain/vo/org/OrgVO.h"
 #include "domain/query/orgquery/SectorQuery.h"
+#include "service/org/OrgService.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
@@ -66,7 +68,7 @@ public: // 定义接口
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(rootQuery,RootOrgQuery, queryParams);
 		// 响应结果
-		API_HANDLER_RESP_VO(execRootOrgQuery(rootQuery));
+		API_HANDLER_RESP_VO(execRootOrgQuery(rootQuery, authObject));
 	}
 
 	//定义查询有效组织信息接口端点描述
@@ -126,9 +128,9 @@ public: // 定义接口
 
 private: // 定义接口执行函数
 	//查询根组织
-	MemberJsonVO::Wrapper execRootOrgQuery(const RootOrgQuery::Wrapper& rootQuery);
+	OrgJsonVO::Wrapper execRootOrgQuery(const RootOrgQuery::Wrapper& rootQuery, const std::shared_ptr<CustomerAuthorizeObject> &authObject);
 	//查询有效组织
-	MemberJsonVO::Wrapper execValidOrgQuery(const ValidOrgQuery::Wrapper& validOrg);
+	OrgJsonVO::Wrapper execValidOrgQuery(const ValidOrgQuery::Wrapper& validOrg);
 	//查询部门
 	OrgSectorVO::Wrapper execSectorOrgQuery(const SectorQuery::Wrapper& sectorOrg);
 };
