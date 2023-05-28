@@ -29,6 +29,7 @@
  */
 class ProjTagMapper : public Mapper<ProjTagDO>
 {
+public:
 	ProjTagDO mapper(ResultSet* resultSet) const override
 	{
 		ProjTagDO data;

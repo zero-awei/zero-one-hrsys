@@ -22,6 +22,7 @@
 #include "SimpleDateTimeFormat.h"
 #include "domain/do/postSet/PostDetailDO.h"
 #include "dao/jobSet/JobSetDAO.h"
+#include "SnowFlake.h"
 
 // 文件到DO宏
 #define FILE_TO_DO(target, src, f1, f2) target.set##f1(src##f2);
@@ -43,6 +44,9 @@ ImportJobVO::Wrapper JobSetService::addMultiJob(const ImportJobDTO::Wrapper& dto
 		hash[data[0][i]] = i;
 	}
 	
+	// 生成SnowFlake对象
+	SnowFlake sf(1, 1);
+
 	string name = payload.getUsername();
 	string day = SimpleDateTimeFormat::format();
 	// 文件数据到DO
@@ -50,7 +54,7 @@ ImportJobVO::Wrapper JobSetService::addMultiJob(const ImportJobDTO::Wrapper& dto
 	for (int i = 1; i < data.size(); i++)
 	{
 		PostDetailDO tmp;
-		ZO_STAR_FILE_TO_DO(tmp, data, OrmPostId, INDEX(i, hash["ORMPOSTID"]),
+		ZO_STAR_FILE_TO_DO(tmp, data,
 			OrmPostName, INDEX(i, hash["ORMPOSTNAME"]),
 			OrmOrgId, INDEX(i, hash["ORMORGID"]),
 			GwType, INDEX(i, hash["GWTYPE"]),
@@ -62,6 +66,7 @@ ImportJobVO::Wrapper JobSetService::addMultiJob(const ImportJobDTO::Wrapper& dto
 			StartStopSign, INDEX(i, hash["STARTSTOPSIGN"])
 		);
 
+		tmp.setOrmPostId(to_string(sf.nextId()));
 		tmp.setUpdateDate(day);
 		tmp.setCreateDate(day);
 		tmp.setUpdateMan(name);
@@ -89,17 +94,24 @@ std::string JobSetService::saveJob(const AddJobDTO::Wrapper& dto, const PayloadD
 	// 构建DO对象
 	PostDetailDO data;
 
+	// 生成SnowFlake对象
+	SnowFlake sf(1, 1);
+
 	string day = SimpleDateTimeFormat::format();
 	string name = payload.getUsername();
+	string id = to_string(sf.nextId());
 	data.setCreateDate(day);
 	data.setCreateMan(name);
 	data.setUpdateDate(day);
 	data.setUpdateMan(name);
+	data.setOrmPostId(id);
 
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, OrmPostId, postId, OrmPostName, postName, OrmOrgId, orgId, GwType, jobType, Gwfl, jobClass, IsTemp, isTemp, IsConfidential, isConfidential, PostNature, postNature, IsKeyPostion, isKeyPostion, StartStopSign, sign);
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, OrmPostName, postName, OrmOrgId, orgId, GwType, jobType, Gwfl, jobClass, IsTemp, isTemp, IsConfidential, isConfidential, PostNature, postNature, IsKeyPostion, isKeyPostion, StartStopSign, sign);
 
 	// 调用DAO操作数据库
 	JobSetDAO dao;
-	if (dao.insertJob(data)) return dto->postId;
-	else return "";
+	if (dao.insertJob(data)) 
+		return id;
+	else 
+		return "";
 }

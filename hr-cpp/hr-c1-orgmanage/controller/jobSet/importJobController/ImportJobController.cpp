@@ -23,12 +23,14 @@
 
 ImportJobJsonVO::Wrapper ImportJobController::execImportJob(const ImportJobDTO::Wrapper& dto, const PayloadDTO & payload)
 {
+	// 构建返回VO
 	auto vo = ImportJobJsonVO::createShared();
 	// 参数校验
 	if (dto->filePath->empty()) {
 		vo->init({}, RS_PARAMS_INVALID);
 		return vo;
 	}
+
 	// 构建返回样例
 	/*String str1 = "123abc";
 	String str2 = "456def";
@@ -44,9 +46,10 @@ ImportJobJsonVO::Wrapper ImportJobController::execImportJob(const ImportJobDTO::
 	JobSetService service;
 	auto res = service.addMultiJob(dto, payload);
 
-	if (res->newId->size()) vo->init(res, RS_SUCCESS);
-	else vo->init(res, RS_FAIL);
-
+	if (res->newId->size()) 
+		vo->init(res, RS_SUCCESS);
+	else 
+		vo->init(res, RS_FAIL);
 
 	return vo;
 }

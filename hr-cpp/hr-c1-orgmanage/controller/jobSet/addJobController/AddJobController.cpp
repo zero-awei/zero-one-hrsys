@@ -26,7 +26,7 @@ StringJsonVO::Wrapper AddJobController::execAddJob(const AddJobDTO::Wrapper& dto
 	auto jvo = StringJsonVO::createShared();
 
 	// 参数校验
-	if (!dto->postId || dto->postId->empty())
+	if (!dto->orgId || dto->orgId->empty())
 	{
 		jvo->init("", RS_PARAMS_INVALID);
 		return jvo;

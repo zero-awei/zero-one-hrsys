@@ -33,10 +33,10 @@ class AddJobDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("jobSet.add.postName");
 	}
 	// 岗位集标识
-	DTO_FIELD(String, postId);
+	/*DTO_FIELD(String, postId);
 	DTO_FIELD_INFO(postId) {
 		info->description = ZH_WORDS_GETTER("jobSet.add.postId");
-	}
+	}*/
 	// 组织标识
 	DTO_FIELD(String, orgId);
 	DTO_FIELD_INFO(orgId) {
@@ -90,7 +90,6 @@ public:
 		jobType = "";
 		orgId = "";
 		postName = "";
-		postId = "";
 	}
 };
 
