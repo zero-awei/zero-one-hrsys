@@ -2,10 +2,14 @@ package com.zeroone.star.login.controller;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.anji.captcha.service.CaptchaService;
+import com.zeroone.star.login.entity.Role;
+import com.zeroone.star.login.entity.User;
 import com.zeroone.star.login.service.IMenuService;
+import com.zeroone.star.login.service.IRoleService;
 import com.zeroone.star.login.service.IUserService;
 import com.zeroone.star.login.service.OauthService;
 import com.zeroone.star.login.utils.RedisUtils;
+
 import com.zeroone.star.project.components.user.UserDTO;
 import com.zeroone.star.project.components.user.UserHolder;
 import com.zeroone.star.project.constant.AuthConstant;
@@ -28,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,6 +66,8 @@ public class LoginController implements LoginApis {
     RedisUtils redisUtils;
     @Resource
     CaptchaService captchaService;
+    @Resource
+    IRoleService roleService;
 
 
     @ApiOperation(value = "授权登录")
@@ -147,6 +154,7 @@ public class LoginController implements LoginApis {
     @GetMapping("current-user")
     @Override
     public JsonVO<LoginVO> getCurrUser() {
+        //UserDTO 用户id，用户名称，是否启用，用户拥有角色列表
         UserDTO currentUser;
         try {
             currentUser = userHolder.getCurrentUser();
@@ -156,7 +164,22 @@ public class LoginController implements LoginApis {
         if (currentUser == null) {
             return fail(null);
         } else {
-            //TODO:这里需要根据业务逻辑接口，重新实现
+            //需要（LoginVo）：1.用户id，2.用户名，3.是否启用（1启用0禁用），4.用户角色列表
+            User user = userService.getById(currentUser.getId());
+            //设置用户id
+            currentUser.setId(user.getId());
+            //设置用户名
+            currentUser.setUsername(user.getUsername());
+            currentUser.setIsEnabled((byte) user.getIsEnable());
+            //设置用户角色列表
+            List<Role> roleList = roleService.listRoleByUserId(user.getId());
+            List<String> roleStringList = new ArrayList<>();
+            //转换
+            for (Role role : roleList) {
+                roleStringList.add(role.getName());
+            }
+            currentUser.setRoles(roleStringList);
+            //这里需要根据业务逻辑接口，重新实现
             LoginVO vo = new LoginVO();
             BeanUtil.copyProperties(currentUser, vo);
             return JsonVO.success(vo);
@@ -210,7 +233,7 @@ public class LoginController implements LoginApis {
         //4.判断新旧密码是否一致
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         boolean matches = passwordEncoder.matches(newPassword, oldPassword);
-        System.out.println("**************matches=" + matches);
+//        System.out.println("**************matches=" + matches);
         if (matches) {
             return JsonVO.fail("新旧密码不能一致！");
         }
