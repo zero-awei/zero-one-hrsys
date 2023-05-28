@@ -93,10 +93,10 @@ cermanage:
  delete:
   summary: 删除一条示例数据
  field:
-  id: 编号
-  age: 年龄
-  name: 姓名
-  sex: 性别，如：男
+  ygbh: 员工编号
+  pcmjxszzkhjgjlname: 员工姓名
+
+
 rosterofper:
  get:
   summary: 分页查询示例数据

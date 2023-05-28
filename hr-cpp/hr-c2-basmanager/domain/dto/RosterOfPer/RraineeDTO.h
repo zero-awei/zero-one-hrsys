@@ -10,25 +10,15 @@
  */
 class RraineeDTO : public oatpp::DTO {
 	DTO_INIT(RraineeDTO, DTO);
-	// 编号
-	DTO_FIELD(UInt64, id);
-	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("sample.field.id");
+	// 员工编号
+	DTO_FIELD(String, ygbh);
+	DTO_FIELD_INFO(ygbh) {
+		info->description = ZH_WORDS_GETTER("RosterOfPer.field.ygbh");
 	}
-	// 姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("sample.field.name");
-	}
-	// 年龄
-	DTO_FIELD(Int32, age);
-	DTO_FIELD_INFO(age) {
-		info->description = ZH_WORDS_GETTER("sample.field.age");
-	}
-	// 性别
-	DTO_FIELD(String, sex);
-	DTO_FIELD_INFO(sex) {
-		info->description = ZH_WORDS_GETTER("sample.field.sex");
+	// 员工姓名
+	DTO_FIELD(String, pcmjxszzkhjgjlname);
+	DTO_FIELD_INFO(pcmjxszzkhjgjlname) {
+		info->description = ZH_WORDS_GETTER("RosterOfPer.field.pcmjxszzkhjgjlname");
 	}
 };
 

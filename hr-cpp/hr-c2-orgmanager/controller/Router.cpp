@@ -54,7 +54,6 @@ void Router::initRouter()
 #ifdef HTTP_SERVER_DEMO
 	createSampleRouter();
 #endif
-
 	//#TIP :系统扩展路由定义，写在这个后面
 	ROUTER_SIMPLE_BIND(LegalEntityMaiController); 
 	ROUTER_SIMPLE_BIND(ExportLegalerSetingController);
@@ -72,7 +71,6 @@ void Router::createSampleRouter()
 	ROUTER_SIMPLE_BIND(SampleController);
 	// 绑定用户控制器
 	ROUTER_SIMPLE_BIND(UserController);
-
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());
 }

@@ -3,7 +3,6 @@
 /*
 *（	数据设置——法人主体设置——导出法人主体设置 (导出页面在前端完成) --cpt
 */
-
 #ifndef _ADDTLEGALERSETING_CONTROLLER_
 #define _ADDTLEGALERSETING_CONTROLLER_
 

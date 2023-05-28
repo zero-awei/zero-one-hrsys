@@ -309,6 +309,15 @@
     <ClInclude Include="service\RosterOfPer\LoanedPerPageService.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="service\RosterOfPer\RraineeService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\RosterOfPer\RraineeDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\RosterOfPer\RraineeMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -399,6 +408,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\RosterOfPer\LoanedPerPageController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\RosterOfPer\RraineeService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\RosterOfPer\RraineeDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
