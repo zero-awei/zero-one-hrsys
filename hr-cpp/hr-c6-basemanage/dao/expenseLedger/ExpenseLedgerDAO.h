@@ -33,6 +33,6 @@ public:
 	// 插入数据
 	uint64_t insert(const ExpenseLedgerDO& ido);
 	// 删除数据
-	uint64_t deleteById();
+	uint64_t deleteById(const ExpenseLedgerDO& obj);
 };
 #endif

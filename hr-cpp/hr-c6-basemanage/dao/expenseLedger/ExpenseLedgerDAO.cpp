@@ -102,3 +102,9 @@ uint64_t ExpenseLedgerDAO::insert(const ExpenseLedgerDO& ido)
 	return sqlSession->executeInsert(sql,"%s%s%s%s%s%s%s%d%i%s%s%s",ido.getName(),ido.getId(),ido.getUpdateman(),ido.getCreatedate(),ido.getCreateman(),ido.getUpdatedate(),ido.getFylb(),ido.getFyje(),ido.getFfrs(),ido.getFfsj(),ido.getFybz(),ido.getBz());
 }
 
+uint64_t ExpenseLedgerDAO::deleteById(const ExpenseLedgerDO& obj)
+{
+	string sql = "DELETE FROM `t_pimexpaccount` WHERE `PIMEXPACCOUNTID` = ?";
+	return sqlSession->executeUpdate(sql,"%s",obj.getId());
+}
+

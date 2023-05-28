@@ -94,7 +94,7 @@ class ExpenseLedgerDelQuery : public oatpp::DTO
 	DTO_INIT(ExpenseLedgerDelQuery, DTO);
 	DTO_FIELD(List<String>, Ids);
 	DTO_FIELD_INFO(Ids) {
-		info->description = ZH_WORDS_GETTER("expenseledger.field.BZ");
+		info->description = ZH_WORDS_GETTER("expenseledger.field.IDS");
 	}
 };
 #include OATPP_CODEGEN_END(DTO)

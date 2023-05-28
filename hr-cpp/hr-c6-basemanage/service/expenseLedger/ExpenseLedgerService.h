@@ -30,7 +30,7 @@ public:
 	// 保存数据
 	uint64_t saveData(const ExpenseLedgerDTO::Wrapper& dto);
 	// 根据..删除数据
-	bool removeDate(List<String> id);
+	bool removeData(String id);
 protected:
 private:
 };

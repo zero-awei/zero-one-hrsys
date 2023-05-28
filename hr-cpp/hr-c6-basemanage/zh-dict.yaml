@@ -123,6 +123,23 @@ expenseledger_mug:
   date_end: 合同到期时间
   tip: 备注
 
+expenseledger:
+ field:
+  PIMEXPACCOUNTNAME: 费用台账名称
+  PIMEXPACCOUNTID: 费用台账标识
+  UPDATEMAN: 更新人
+  CREATEDATE: 建立时间
+  CREATEMAN: 建立人
+  UPDATEDATE: 更新时间
+  FYLB: 费用类别
+  FYJE: 费用金额
+  FFRS: 发放人数
+  FFSJ: 发放时间
+  FFYBZ: 费用标准
+  BZ: 备注
+  IDS: 费用台账标识集合
+
+
 person_gosh:
  get:
   summary: 分页查询个人信息

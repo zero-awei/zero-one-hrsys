@@ -60,15 +60,15 @@ public:
 		info->summary = ZH_WORDS_GETTER("expenseledger_mug.delete.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	ENDPOINT(API_M_DEL, "/contract-management/delete-by-expense-category", deleteExpenseLedger, BODY_DTO(ExpenseLedgerDTO::Wrapper, dto)) {
-		API_HANDLER_RESP_VO(execDeleteExpenseLedger());
+	ENDPOINT(API_M_DEL, "/contract-management/delete-by-expense-category", deleteExpenseLedger, BODY_DTO(ExpenseLedgerDelQuery::Wrapper, query)) {
+		API_HANDLER_RESP_VO(execDeleteExpenseLedger(query));
 	}
 private:
 	ExpenseLedgerPageJsonVO::Wrapper execQueryExpenseLedger(const ExpenseLedgerPageQuery::Wrapper& query);
 
 	StringJsonVO::Wrapper execAddExpenseLedger(const ExpenseLedgerDTO::Wrapper& dto);
 
-	StringJsonVO::Wrapper execDeleteExpenseLedger();
+	Uint64JsonVO::Wrapper execDeleteExpenseLedger(const ExpenseLedgerDelQuery::Wrapper& query);
 };
 #include OATPP_CODEGEN_END(ApiController)
 #endif // !_EL_M_CONTROLLER_

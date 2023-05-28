@@ -80,3 +80,11 @@ uint64_t ExpenseLedgerService::saveData(const ExpenseLedgerDTO::Wrapper& dto)
 	ExpenseLedgerDAO dao;
 	return dao.insert(data);
 }
+
+bool ExpenseLedgerService::removeData(String id)
+{
+	ExpenseLedgerDO data;
+	data.setId(id);
+	ExpenseLedgerDAO dao;
+	return dao.deleteById(data)==1;
+}

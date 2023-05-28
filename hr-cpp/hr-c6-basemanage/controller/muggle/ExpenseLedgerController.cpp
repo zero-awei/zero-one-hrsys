@@ -52,11 +52,20 @@ StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger(const Expen
 	return jvo;
 }
 
-
-
-StringJsonVO::Wrapper ExpenseLedgerMController::execDeleteExpenseLedger()
+Uint64JsonVO::Wrapper ExpenseLedgerMController::execDeleteExpenseLedger(const ExpenseLedgerDelQuery::Wrapper& query)
 {
-	return StringJsonVO::Wrapper();
+	auto jvo = Uint64JsonVO::createShared();
+	int success = 0;
+	ExpenseLedgerService service;
+	for (int i=0;i<query->Ids->size();i++)
+	{
+		success += service.removeData(query->Ids[i]);
+		cout << query->Ids[i].getPtr() << endl;
+	}
+	jvo->success(success);
+	return jvo;
 }
+
+
 
 
