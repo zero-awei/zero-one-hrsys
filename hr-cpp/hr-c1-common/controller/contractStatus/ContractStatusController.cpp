@@ -18,15 +18,40 @@
 */
 #include "stdafx.h"
 #include "ContractStatusController.h"
+#include "uselib/pullListRedis/UseLibRedis.h"
 
+/**
+ * 实现合同状态下拉列表
+ * 负责人：远翔
+ */
 PullListVO::Wrapper ConstractStatusController::execQueryContractStatus()
 {
-	auto vo = PullListVO::createShared();
-
 	auto dto = PullListDTO::createShared();
-	dto->pullList->push_back(ItemDTO::createShared(1, "Yes"));
-	dto->pullList->push_back(ItemDTO::createShared(2, "NO"));
+	UseLibRedis redisExm;
+	std::string tableName = "constract-status-pull-list";
+	std::unordered_map<std::string, std::string> constractStatusList;
+	std::unordered_map<std::string, std::string> redisResult = redisExm.queryRedis(tableName);
+	if (redisResult.empty()) {
+		// 列表数据
+		dto->pullList->push_back(ItemDTO::createShared(20, ZH_WORDS_GETTER("contractStatus.duration")));
+		dto->pullList->push_back(ItemDTO::createShared(30, ZH_WORDS_GETTER("contractStatus.outOfDate")));
+		dto->pullList->push_back(ItemDTO::createShared(40, ZH_WORDS_GETTER("contractStatus.haveSigned")));
+		dto->pullList->push_back(ItemDTO::createShared(50, ZH_WORDS_GETTER("contractStatus.terminated")));
 
+		// 加入缓存
+		for (auto subptr = dto->pullList->begin(); subptr != dto->pullList->end(); subptr++) {
+			constractStatusList.insert(std::make_pair(std::to_string(*subptr->get()->key), *subptr->get()->val));
+		}
+		// 加入缓存
+		redisExm.updateRedis(tableName, constractStatusList);
+	}
+	else { // 缓存有数据
+		constractStatusList = redisExm.queryRedis(tableName);
+		for (auto sub : constractStatusList) {
+			dto->pullList->push_back(ItemDTO::createShared(std::stoi(sub.first), sub.second));
+		}
+	}
+	auto vo = PullListVO::createShared();
 	vo->success(dto);
 	return vo;
 }
