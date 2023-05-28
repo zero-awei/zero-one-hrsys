@@ -1,5 +1,9 @@
 <template>
-  <TableHead :tableTitle="tableTitle" :addTitle="addTitle" :tableOperations ="tableOperations" :dataitem="dataitem"/>
+  <TableHead :tableTitle="tableTitle" 
+             :addTitle="addTitle" 
+             :tableOperations ="tableOperations" 
+             :dataitem="dataitem"
+             :saveData="saveData"/>
 </template>
 
 <script setup>
@@ -49,4 +53,7 @@ const dataitem = reactive([
   },
 ])
 
+const saveData = (val)=>{
+  //写保存数据的逻辑
+}
 </script>
