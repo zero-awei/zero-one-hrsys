@@ -175,6 +175,8 @@
     <ClCompile Include="controller\projTag\queryOrgList\QueryOrgListController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\jobSet\jobExportDAO\JobExportDAO.cpp" />
+    <ClCompile Include="dao\jobSet\jobUpdateDAO\JobUpdteDAO.cpp" />
     <ClCompile Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.cpp" />
     <ClCompile Include="dao\jobSet\postQueryDAO\PostQueryDAO.cpp" />
     <ClCompile Include="dao\projTag\ProjTagDAO.cpp" />
@@ -208,6 +210,9 @@
     <ClInclude Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.h" />
     <ClInclude Include="controller\projTag\queryOrgList\QueryOrgListController.h" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\jobSet\jobExportDAO\JobExportDAO.h" />
+    <ClInclude Include="dao\jobSet\jobExportDAO\JobExportMapper.h" />
+    <ClInclude Include="dao\jobSet\jobUpdateDAO\JobUpdteDAO.h" />
     <ClInclude Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.h" />
     <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryDAO.h" />
     <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryMapper.h" />
