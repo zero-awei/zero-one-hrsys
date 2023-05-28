@@ -1,8 +1,6 @@
 package com.zeroone.star.login.controller;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.anji.captcha.model.common.ResponseModel;
-import com.anji.captcha.model.vo.CaptchaVO;
 import com.anji.captcha.service.CaptchaService;
 import com.zeroone.star.login.service.IMenuService;
 import com.zeroone.star.login.service.IUserService;
@@ -24,7 +22,6 @@ import io.swagger.annotations.ApiOperation;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,29 +61,28 @@ public class LoginController implements LoginApis {
     RedisUtils redisUtils;
     @Resource
     CaptchaService captchaService;
-    @Resource
-    PasswordEncoder passwordEncoder;
+
 
     @ApiOperation(value = "授权登录")
     @PostMapping("auth-login")
     @Override
     public JsonVO<Oauth2TokenDTO> authLogin(LoginDTO loginDTO) {
         //1.验证码验证
-        CaptchaVO captchaVO = new CaptchaVO();
-        captchaVO.setCaptchaVerification(loginDTO.getCode());
-        ResponseModel response = captchaService.verification(captchaVO);
-        if (!response.isSuccess()) {
-            JsonVO<Oauth2TokenDTO> fail = fail(null);
-            fail.setMessage(response.getRepCode() + response.getRepMsg());
-            //验证码校验失败，返回信息告诉前端
-            //repCode  0000  无异常，代表成功
-            //repCode  9999  服务器内部异常
-            //repCode  0011  参数不能为空
-            //repCode  6110  验证码已失效，请重新获取
-            //repCode  6111  验证失败
-            //repCode  6112  获取验证码失败,请联系管理员
-            return fail;
-        }
+//        CaptchaVO captchaVO = new CaptchaVO();
+//        captchaVO.setCaptchaVerification(loginDTO.getCode());
+//        ResponseModel response = captchaService.verification(captchaVO);
+//        if (!response.isSuccess()) {
+//            JsonVO<Oauth2TokenDTO> fail = fail(null);
+//            fail.setMessage(response.getRepCode() + response.getRepMsg());
+//            //验证码校验失败，返回信息告诉前端
+//            //repCode  0000  无异常，代表成功
+//            //repCode  9999  服务器内部异常
+//            //repCode  0011  参数不能为空
+//            //repCode  6110  验证码已失效，请重新获取
+//            //repCode  6111  验证失败
+//            //repCode  6112  获取验证码失败,请联系管理员
+//            return fail;
+//        }
         //2.账号密码认证
         Map<String, String> params = new HashMap<>(5);
         params.put("grant_type", "password");
@@ -97,8 +93,12 @@ public class LoginController implements LoginApis {
         //3.调用远程接口，获取Token
         JsonVO<Oauth2TokenDTO> oauth2TokenDTO = oAuthService.postAccessToken(params);
         //4.将授权token存储到Redis中，记录登录状态
+        if (oauth2TokenDTO == null) {
+            return fail(null, ResultStatus.SERVER_ERROR);
+        }
+        String token = oauth2TokenDTO.getData().getToken();
         //4.1拼接key
-        String userTokenKey = RedisConstant.USER_TOKEN + ":" + oauth2TokenDTO.getData().getToken();
+        String userTokenKey = RedisConstant.USER_TOKEN + ":" + token;
         //4.2逻辑判断
         if (redisUtils.add(userTokenKey, 1, 1L, TimeUnit.HOURS) < 0) {
             return fail(oauth2TokenDTO.getData(), ResultStatus.SERVER_ERROR);
@@ -166,11 +166,18 @@ public class LoginController implements LoginApis {
     @ApiOperation(value = "退出登录")
     @GetMapping("logout")
     @Override
-    public JsonVO<String> logout() {
-        //TODO:登出逻辑，需要配合登录逻辑实现
+    public JsonVO<String> logout() throws Exception {
+        //登出逻辑，需要配合登录逻辑实现
         //1.获取当前用户token
+        String currentUserToken = userHolder.getCurrentUserToken();
+        //2.拼接key
+        String userTokenKey = RedisConstant.USER_TOKEN + ":" + currentUserToken;
         //2.删除当前用户token
-        return null;
+        int del = redisUtils.del(userTokenKey);
+        if (del < 0) {
+            return JsonVO.fail("退出失败！");
+        }
+        return JsonVO.success("退出成功！");
     }
 
     @Resource
@@ -194,25 +201,27 @@ public class LoginController implements LoginApis {
     @PostMapping("update-password")
     @Override
     public JsonVO<String> updatePassword(LoginDTO loginDTO) {
-        //1.获取新密码
+        //1.获取新密码 newPassword
         String newPassword = loginDTO.getPassword();
-        //2.获取用户名
+        //2.获取用户名 userName
         String userName = loginDTO.getUsername();
-        //3.获取旧密码
+        //3.获取旧密码 oldPassword
         String oldPassword = userService.getCurrentPassword(userName);
         //4.判断新旧密码是否一致
-        boolean matches = passwordEncoder.matches(oldPassword, newPassword);
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        boolean matches = passwordEncoder.matches(newPassword, oldPassword);
+        System.out.println("**************matches=" + matches);
         if (matches) {
             return JsonVO.fail("新旧密码不能一致！");
         }
         //5.修改密码
-        Boolean isSuccess = userService.updatePassword(userName, oldPassword);
+        String password = passwordEncoder.encode(newPassword);
+        Boolean isSuccess = userService.updatePassword(userName, password);
         //6.返回结果
         if (!isSuccess) {
             //更新失败
             return JsonVO.fail("密码修改失败");
         }
         return JsonVO.success("密码修改成功");
-
     }
 }

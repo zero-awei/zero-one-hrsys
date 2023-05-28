@@ -21,8 +21,6 @@ import javax.annotation.Resource;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
-    @Resource
-    PasswordEncoder passwordEncoder;
 
     @Override
     public String getCurrentPassword(String username) {
@@ -34,9 +32,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Override
     public Boolean updatePassword(String username, String password) {
-        User user = null;
+        User user = new User();
         user.setUsername(username);
-        user.setPassword(passwordEncoder.encode(password));
+        user.setPassword(password);
         UpdateWrapper<User> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("username", username);
         int updateNum = baseMapper.update(user, updateWrapper);
