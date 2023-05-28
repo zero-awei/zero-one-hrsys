@@ -23,6 +23,7 @@
 #include "domain/do/projTag/ProjTagDO.h"
 #include "domain/do/projTag/OrgListDO.h"
 #include "domain/query/projTag/OrgListQuery.h"
+#include "domain/query/projTag/ExportProjTagQuery.h"
 
 /**
  * 项目标签DAO实现
@@ -60,6 +61,12 @@ public:
 	 * 负责人：远翔
 	 */
 	std::list<std::string> insertMultiTag(const std::list<ProjTagDO>& data);
+	/**
+	 * 项目标签 - 导出项目标签DAO实现
+	 * 功能：查询最多5000条数据到DO并返回
+	 * 负责人：Andrew
+	 */
+	std::list<ProjTagDO> exportProjTag(const ExportProjTagQuery::Wrapper& query);
 };
 
 #endif // !_PROJTAGDAO_H_

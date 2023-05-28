@@ -29,7 +29,6 @@
     <ClCompile Include="service\jobSet\JobSetService.cpp" />
     <ClCompile Include="dao\jobSet\JobSetDAO.cpp" />
     <ClCompile Include="controller\jobSet\addJobController\AddJobController.cpp" />
-
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -96,5 +95,6 @@
     <ClInclude Include="dao\jobSet\JobSetDAO.h" />
     <ClInclude Include="controller\jobSet\addJobController\AddJobController.h" />
     <ClInclude Include="domain\dto\addJob\AddJobDTO.h" />
+    <ClInclude Include="dao\projTag\ProjTagMapper.h" />
   </ItemGroup>
 </Project>

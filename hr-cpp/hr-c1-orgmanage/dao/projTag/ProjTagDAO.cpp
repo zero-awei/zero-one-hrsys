@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "ProjTagDAO.h"
 #include "OrgListMapper.h"
+#include "ProjTagMapper.h"
 
 /**
  * 组织列表查询条件匹配宏
@@ -125,4 +126,11 @@ std::list<std::string> ProjTagDAO::insertMultiTag(const std::list<ProjTagDO>& da
 	// 全部新增成功则提交并返回成功
 	sqlSession->commitTransaction();
 	return res;
+}
+
+std::list<ProjTagDO> ProjTagDAO::exportProjTag(const ExportProjTagQuery::Wrapper& query)
+{
+	string sql = "SELECT `ORMXMBQID`, `ORMXMBQNAME`, `CREATEMAN`, `UPDATEMAN`, `CREATEDATE`, `UPDATEDATE`, `ORMORGID` FROM `t_ormxmbq` ORDER BY ? LIMIT ?";
+	ProjTagMapper mapper;
+	return sqlSession->executeQuery<ProjTagDO, ProjTagMapper>(sql, mapper);
 }

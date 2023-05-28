@@ -139,3 +139,14 @@ ImportTagVO::Wrapper ProjTagService::addMultiTag(const ImportTagDTO::Wrapper& dt
 
 	return vo;
 }
+
+std::string ProjTagService::exportProjTag(const ExportProjTagQuery::Wrapper& query)
+{
+	// TODO: 调用DAO查询数据条数
+
+	// TODO: 包装数据到Excel文件
+
+	// TODO: 上传到FastDFS文件服务器
+
+	// TODO: 生成下载链接并返回
+}

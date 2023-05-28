@@ -26,6 +26,7 @@
 #include "domain/vo/projTag/ProjTagVO.h"
 #include "domain/dto/projTag/ImportTagDTO.h"
 #include "domain/vo/projTag/ImportTagVO.h"
+#include "domain/query/projTag/ExportProjTagQuery.h"
 /**
  * 项目标签Service
  */
@@ -53,6 +54,13 @@ public:
 	 * 负责人：远翔
 	 */
 	ImportTagVO::Wrapper addMultiTag(const ImportTagDTO::Wrapper& dto, const PayloadDTO& payload);
+	/**
+	 * 导出项目标签（最大5000条）
+	 * 调用DAO查询数据库，返回后包装进Excel文件并保存到FastDFS文件服务器
+	 * 返回值：文件服务器拼接下载链接
+	 * 负责人：Andrew
+	 */
+	std::string exportProjTag(const ExportProjTagQuery::Wrapper& query);
 };
 
 #endif // !_PROJTAGSERVICE_H_

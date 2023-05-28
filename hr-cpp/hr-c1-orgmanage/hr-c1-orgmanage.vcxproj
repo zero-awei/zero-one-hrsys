@@ -217,6 +217,7 @@
     <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryMapper.h" />
     <ClInclude Include="dao\projTag\OrgListMapper.h" />
     <ClInclude Include="dao\projTag\ProjTagDAO.h" />
+    <ClInclude Include="dao\projTag\ProjTagMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\postSet\PostDetailDO.h" />
     <ClInclude Include="domain\do\projTag\OrgListDO.h" />

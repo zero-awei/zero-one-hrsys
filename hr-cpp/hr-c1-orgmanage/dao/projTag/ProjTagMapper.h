@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: Andrew211vibe
- @Date: 2023/05/18 17:23:11
+ @Date: 2023/05/28 13:54:40
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,32 +17,32 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _EXPORTPROJTAGQUERY_H_
-#define _EXPORTPROJTAGQUERY_H_
+#ifndef _PROJTAGMAPPER_H_
+#define _PROJTAGMAPPER_H_
 
-#include "../../GlobalInclude.h"
-
-#include OATPP_CODEGEN_BEGIN(DTO)
+#include "Mapper.h"
+#include "domain/do/projTag/ProjTagDO.h"
 
 /**
- * 导出项目标签Query领域模型
+ * 项目标签字段映射类
  * 负责人：Andrew
  */
-class ExportProjTagQuery : public oatpp::DTO
+class ProjTagMapper : public Mapper<ProjTagDO>
 {
-	DTO_INIT(ExportProjTagQuery, DTO);
-	// 导出行数
-	DTO_FIELD_INFO(rows) {
-		info->description = ZH_WORDS_GETTER("projTag.export.rows");
+	ProjTagDO mapper(ResultSet* resultSet) const override
+	{
+		ProjTagDO data;
+
+		data.setId(resultSet->getString(1));
+		data.setTagName(resultSet->getString(2));
+		data.setCreator(resultSet->getString(3));
+		data.setUpdater(resultSet->getString(4));
+		data.setCreateTime(resultSet->getString(5));
+		data.setUpdateTime(resultSet->getString(6));
+		data.setOrgId(resultSet->getString(7));
+
+		return data;
 	}
-	DTO_FIELD(UInt8, rows);
-	// 顺序
-	DTO_FIELD_INFO(sequence) {
-		info->description = ZH_WORDS_GETTER("projTag.export.sequence");
-	}
-	DTO_FIELD(String, sequence);
 };
 
-#include OATPP_CODEGEN_END(DTO)
-
-#endif // !_EXPORTPROJTAGQUERY_H_
+#endif // !_PROJTAGMAPPER_H_
