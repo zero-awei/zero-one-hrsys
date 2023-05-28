@@ -19,6 +19,8 @@ public:
 	bool updateContract(const ContractDTO_::Wrapper& dto);
 	// 下载合同
 	std::string downloadContract(const ContractDownloadQuery::Wrapper& query);
+	// 保存数据
+	uint64_t saveData(const ContractDTO_::Wrapper& dto);
 };
 
 #endif // !_SAMPLE_SERVICE_

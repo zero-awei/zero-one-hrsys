@@ -19,5 +19,8 @@ public:
 
 	//按rows导出数据
 	std::list<ContractDO> downloadByRows(oatpp::String sequence, UInt64 rows);
+
+	// 插入数据
+	uint64_t insert(const ContractDO& iObj);
 };
 #endif // !_SAMPLE_DAO_

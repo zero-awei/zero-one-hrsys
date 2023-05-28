@@ -21,8 +21,24 @@ int ContractInfoDAO::update(const ContractDO& uObj)
 
 std::list<ContractDO> ContractInfoDAO::downloadByRows(oatpp::String sequence, UInt64 rows)
 {
-	string sql = "SELECT * FROM test ORDER BY id ? LIMIT ?";
+	string sql;
+	if(sequence == "DESC")
+	{
+		sql = "SELECT * FROM `test` ORDER BY `id` DESC LIMIT ?";
+	}
+	else
+	{
+		sql = "SELECT * FROM `test` ORDER BY `id` LIMIT ?";
+	}
 	GoshMapper mapper;
-	return sqlSession->executeQuery<ContractDO, GoshMapper>(sql, mapper, "%s%ull", sequence, rows);
+	return sqlSession->executeQuery<ContractDO, GoshMapper>(sql, mapper, "%ull", rows);
 
+}
+
+
+
+uint64_t ContractInfoDAO::insert(const ContractDO& iObj)
+{
+	string sql = "INSERT INTO `test` (`id`, `name`, `type`, `variety`,`date`,`condition`,`department_m`,`department_c`,`date_end`,`tip`) VALUES (?, ?, ?, ?,?,?,?,?,?,?)";
+	return sqlSession->executeInsert(sql, "%ull%s%s%s%s%s%s%s%s%s", iObj.getId(), iObj.getName(), iObj.getType(), iObj.getVariety(), iObj.getDate(), iObj.getCondition(), iObj.getDepartment_m(), iObj.getDepartment_c(), iObj.getDate_end(), iObj.getTip());
 }

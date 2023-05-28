@@ -4,6 +4,8 @@
 #include "domain/dto/ContractDTO/ContractDTO_.h"
 #include <stdlib.h>
 #include "FastDfsClient.h"
+#include "ExcelComponent.h"
+#include "CharsetConvertHepler.h"
 ContractDTO_::Wrapper ContractInfoService::listContract(const ContractQuery_::Wrapper& query)
 {
 	// 构建返回对象
@@ -55,15 +57,6 @@ bool ContractInfoService::updateContract(const ContractDTO_::Wrapper& dto)
 
 std::string ContractInfoService::downloadContract(const ContractDownloadQuery::Wrapper& query)
 {
-// TODO: 调用DAO查询数据条数
-
-// TODO: 包装数据到Excel文件
-
-// TODO: 上传到FastDFS文件服务器
-
-// TODO: 生成下载链接并返回
-
-
 	const String suffix = ".xls";
 	// 根据时间戳生成一个临时文件名称
 	std::stringstream ss;
@@ -81,12 +74,51 @@ std::string ContractInfoService::downloadContract(const ContractDownloadQuery::W
 	ss << suffix.getValue("");
 	// 临时文件名称
 	std::string fileName = ss.str();
-
+	// 保存文件到临时目录
+	//fileBody.saveToFile(fileName.c_str());
 
 	//dao层逻辑运算
 	ContractInfoDAO dao;
 	auto res = dao.downloadByRows(query->sequence.getValue(""), query->rows.getValue(1));
-	
+	//auto dto = ContractDTO_::createShared();
+
+	vector<vector<std::string>> data;
+	data.push_back(vector<string>());
+	data[0].push_back("name");
+	data[0].push_back("id");
+	data[0].push_back("type");
+	data[0].push_back("variety");
+	data[0].push_back("date");
+	data[0].push_back("condition");
+	data[0].push_back("department_m");
+	data[0].push_back("department_c");
+	data[0].push_back("date_end");
+	data[0].push_back("tip");
+	int i = 1;
+	for (ContractDO sub : res)
+	{
+		data.push_back(vector<string>());
+		data[i].push_back(sub.getName());
+		string tmp = std::to_string(sub.getId());
+		oatpp::String s = tmp;
+		data[i].push_back(s);
+		data[i].push_back(sub.getType());
+		data[i].push_back(sub.getVariety());
+		data[i].push_back(sub.getDate());
+		data[i].push_back(sub.getCondition());
+		data[i].push_back(sub.getDepartment_m());
+		data[i].push_back(sub.getDepartment_c());
+		data[i].push_back(sub.getDate_end());
+		data[i].push_back(sub.getTip());
+		i++;
+	}
+	// 注意：因为xlnt不能存储非utf8编码的字符，所以中文字需要转换编码
+	std::string sheetName = CharsetConvertHepler::ansiToUtf8("数据表1");
+
+	// 保存到文件
+	ExcelComponent excel;
+	excel.writeVectorToFile(fileName, sheetName, data);
+
 	// 测试上传到FastDFS文件服务器
 #ifdef LINUX
 	//定义客户端对象
@@ -96,10 +128,30 @@ std::string ContractInfoService::downloadContract(const ContractDownloadQuery::W
 	FastDfsClient client("8.130.87.15");
 #endif
 	std::string fieldName = client.uploadFile(fileName);
-	//std::cout << "upload fieldname is : " << res << std::endl;
-	//ss.str("");
-	//ss.clear();
-	//ss << "8.130.87.15:8888/" << fieldName;
 
-	return fieldName;
+	std::string url = "8.130.87.15:8888/" + fieldName;
+	//std::cout << url << std::endl;
+	return url;
+}
+
+uint64_t ContractInfoService::saveData(const ContractDTO_::Wrapper& dto)
+{
+	// 组装DO数据
+	ContractDO data;
+	data.setId(dto->id.getValue(1));
+	data.setName(dto->name.getValue(""));
+	data.setType(dto->type.getValue(""));
+	data.setVariety(dto->variety.getValue(""));
+	data.setDate(dto->date.getValue(""));
+	data.setCondition(dto->condition.getValue(""));
+	data.setDepartment_m(dto->department_m.getValue(""));
+	data.setDepartment_c(dto->department_c.getValue(""));
+	data.setDate_end(dto->date_end.getValue(""));
+	data.setTip(dto->tip.getValue(""));
+	//data.setAge(dto->age.getValue(1));
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Id, id, Name, name, Type, type, Variety, variety, Date, date, Condition, condition, Department_m, department_m, Department_c, department_c, Date_end, date_end, Tip, tip)
+	// 执行数据添加
+	ContractInfoDAO dao;
+	return dao.insert(data);
+
 }
