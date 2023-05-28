@@ -33,12 +33,12 @@ private:
 	std::shared_ptr<RocketClient> client;
 	std::shared_ptr<RocketClient::RSendCallback> cb;
 	void init();
-	DECLARE_INSTANCE(ExportRocket);
+	//DECLARE_INSTANCE(ExportRocket);
 public:
 	//TestRocket();
 	~ExportRocket();
 	void testRocket(const WorkHistoryExportQuery::Wrapper& query);
-	std::string receiveMessage(std::string payload) override;
+	//std::string receiveMessage(std::string payload) override;
 };
 
 #endif // !_EXPORTROCKET_H_

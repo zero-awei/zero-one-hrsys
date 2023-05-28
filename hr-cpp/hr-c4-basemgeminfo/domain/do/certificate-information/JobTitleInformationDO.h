@@ -6,7 +6,7 @@
 
 class JobTitleInformationDO
 {
-	
+	CC_SYNTHESIZE(string, employeeid, Employeeid);
 	CC_SYNTHESIZE(string, professoranalysis_name, Professoranalysis_name);
 	CC_SYNTHESIZE(string, credentials_num, Credentials_num);
 	CC_SYNTHESIZE(string, professor_grades, Professor_grades);

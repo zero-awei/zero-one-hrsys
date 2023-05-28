@@ -35,7 +35,7 @@ class WorkHistoryDAO : public BaseDAO
 public:
 	// 分页查询数据
 	list<WorkHistoryFindDO> selectWithPage(const WorkHistoryPageQuery::Wrapper& query);
-
+	
 	// 统计数据条数
 	uint64_t count(const WorkHistoryPageQuery::Wrapper& query);
 

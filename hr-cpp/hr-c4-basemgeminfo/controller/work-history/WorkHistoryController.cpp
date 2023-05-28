@@ -157,21 +157,21 @@ StringJsonVO::Wrapper WorkHistoryController::execIntoWorkHistory(const String& b
 StringJsonVO::Wrapper WorkHistoryController::execExportWorkHistory(const WorkHistoryExportQuery::Wrapper& query)
 {
 	auto vo = StringJsonVO::createShared();
-	//WorkHistoryService service;
+	WorkHistoryService service;
 
-	//std::string filaName= service.exportData(query);
-	ExportRocket::getInstance().testRocket(query);
-	std::string fileName = ExportRocket::getInstance().receiveMessage("export");
-	if (fileName.empty())
+	std::string filaName= service.exportData(query);
+	//ExportRocket::getInstance().testRocket(query);
+	//std::string fileName = ExportRocket::getInstance().receiveMessage("export");
+	if (filaName.empty())
 	{
 		vo->fail("导出失败");
 	}
 
-	vo->success(fileName);
+	vo->success(filaName);
 
 	return vo;
 }
-
+//定义查看指定员工工作履历详情函数execQueryWorkHistory
 WorkHistoryJsonVO::Wrapper WorkHistoryController::execQueryWorkHistory(const WorkHistoryQuery::Wrapper& query)
 {
 	// 定义一个Service
@@ -180,11 +180,27 @@ WorkHistoryJsonVO::Wrapper WorkHistoryController::execQueryWorkHistory(const Wor
 	auto result = service.listDetail(query);
 	// 响应结果
 	auto jvo = WorkHistoryJsonVO::createShared();
-	jvo->success(result);
+	if (result->ormorgname.getValue("").empty()) {
+		cout << "No details were found" << endl;
+		jvo->fail(result);
+	}
+	else {
+		jvo->success(result);
+	}
 	return jvo;
 }
-StringJsonVO::Wrapper WorkHistoryController::execModifyWorkHistory(const WorkHistoryDTO::Wrapper& dto)
+//定义修改指定员工工作履历函数execModifyWorkHistory
+StringJsonVO::Wrapper WorkHistoryController::execModifyWorkHistory(const WorkHistoryDTO::Wrapper& dto,const PayloadDTO& payload)
 {
+	////获取修改人id
+	//dto->update = payload.getId();
+	////获取当前时间
+	//time_t timep;
+	//time(&timep);
+	//char tmp[256];
+	//strftime(tmp, sizeof(tmp), "%Y-%m-%d %H:%M:%S", localtime(&timep));
+	////更改更新时间
+	//dto->update = tmp;
 	// 定义返回数据对象
 	auto jvo = StringJsonVO::createShared();
 	// 参数校验
@@ -197,13 +213,12 @@ StringJsonVO::Wrapper WorkHistoryController::execModifyWorkHistory(const WorkHis
 	WorkHistoryService service;
 	// 执行数据修改
 	if (service.updateData(dto)) {
-		jvo->success(dto->rzkssj);
-		
+		jvo->success(dto->rzkssj);	
 	}
 	else
 	{
-		jvo->fail(dto->rzkssj);
-		
+		cout << "The primary key is not found or the data is consistent before and after the modification!" << endl;
+		jvo->fail(dto->rzkssj);		
 	}
 	// 响应结果
 	return jvo;

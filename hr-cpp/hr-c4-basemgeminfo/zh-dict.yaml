@@ -41,7 +41,7 @@ workhistory:
   rzkssj: 任职开始时间
   rzjssj: 任职结束时间
   ormorgname: 工作单位
-  bm: 部门
+  ormorgsectorname: 部门
   ormdutyname: 职务
   ormpostname: 岗位
   cfplx: 兼职主要类型
@@ -49,6 +49,7 @@ workhistory:
   enable: 是否主要经历
   suffix: 导入文件后缀名
   body: 导入文件主体
+  update: 更新时间
  put:
   summary: 单条修改工作履历数据
  export:
@@ -62,7 +63,7 @@ workhistory:
  delete:
   summary: 删除数据(支持批量删除)  
  select:
-  summary: 查询数据
+  summary: 指定工作履历详情
   
 sciresult:
  field:
@@ -146,6 +147,8 @@ jobtitleinformation:
  get:
   summary: 分页查询职称信息
  field:
+  employeeid: 员工编号
+  organization_name: 员工姓名
   state: 员工状态
   ormorgname: 组织
   professoranalysis_name: 职称名称 
@@ -161,6 +164,7 @@ certificateinformation:
  get:
   summary: 分页查询证书信息
  field:
+  ygbh: 员工编号
   state: 员工状态
   ormorgname: 组织
   zgzsbh: 证书编号

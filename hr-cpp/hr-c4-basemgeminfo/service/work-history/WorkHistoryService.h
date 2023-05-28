@@ -46,7 +46,7 @@ public:
 
 
 
-	//陈靓仔
+	////查询数据详情
 	WorkHistoryDTO::Wrapper listDetail(const WorkHistoryQuery::Wrapper& query);
 
 	bool updateData(const WorkHistoryDTO::Wrapper& dto);

@@ -18,7 +18,7 @@ namespace multipart = oatpp::web::mime::multipart;
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
 /**
- * 示例控制器，演示基础接口的使用
+ * 职称控制器，基础接口的使用
  */
 class JobTitleInformationController : public oatpp::web::server::api::ApiController // 1 继承控制器
 {
@@ -38,13 +38,13 @@ public:
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
 		// 添加其他查询参数
-		info->queryParams.add<String>("professoranalysis_name").description = ZH_WORDS_GETTER("jobtitleinformation.field.professoranalysis_name");
-		info->queryParams["professoranalysis_name"].addExample("default", String(" "));
-		info->queryParams["professoranalysis_name"].required = true;
+		info->queryParams.add<String>("employeeid").description = ZH_WORDS_GETTER("jobtitleinformation.field.employeeid");
+		info->queryParams["employeeid"].addExample("default", String("6611212223"));
+		info->queryParams["employeeid"].required = false;
 		
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/jobtitle-information", queryJobTitleInformation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/jobtitle-information/select", queryJobTitleInformation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, JobTitleInformationPageQuery, queryParams);
 		// 响应结果

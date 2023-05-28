@@ -7,6 +7,7 @@
 class CertificateInformationDO
 {
 	
+	CC_SYNTHESIZE(string, ygbh, Ygbh);
 	CC_SYNTHESIZE(string, zgzsbh, Zgzsbh);
 	CC_SYNTHESIZE(string, pimvocationalname, Pimvocationalname);
 	CC_SYNTHESIZE(string, zslx, Zslx);

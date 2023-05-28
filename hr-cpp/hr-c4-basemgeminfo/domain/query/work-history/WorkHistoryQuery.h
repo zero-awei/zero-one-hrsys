@@ -12,10 +12,50 @@ class WorkHistoryQuery : public oatpp::DTO
 	// 定义初始化
 	DTO_INIT(WorkHistoryQuery, DTO);
 	
-	//ormorgname: 工作单位
+	//任职开始时间
+	DTO_FIELD(String, rzkssj);
+	DTO_FIELD_INFO(rzkssj) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.rzkssj");
+	}
+
+
+	//任职结束时间
+	DTO_FIELD(String, rzjssj);
+	DTO_FIELD_INFO(rzjssj) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.rzjssj");
+	}
+
+	//工作单位
 	DTO_FIELD(String, ormorgname);
 	DTO_FIELD_INFO(ormorgname) {
 		info->description = ZH_WORDS_GETTER("workhistory.field.ormorgname");
+	}
+
+	//4部门
+	DTO_INIT_(String, ormorgsectorname, "workhistory.field.ormorgsectorname")
+
+	//5职务
+	DTO_INIT_(String, ormdutyname, "workhistory.field.ormdutyname")
+
+	//6岗位
+	DTO_INIT_(String, ormpostname, "workhistory.field.ormpostname")
+
+	//7兼职借调类型
+	DTO_FIELD(String, cfplx);
+	DTO_FIELD_INFO(cfplx) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.cfplx");
+	}
+
+	//8是否主要经历
+	DTO_FIELD(UInt64, experience);
+	DTO_FIELD_INFO(experience) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.experience");
+	}
+
+	//人员信息id
+	DTO_FIELD(String, pimpersonid);
+	DTO_FIELD_INFO(pimpersonid) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.pimpersionid");
 	}
 	
 };

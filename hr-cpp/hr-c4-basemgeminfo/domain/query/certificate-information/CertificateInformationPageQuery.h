@@ -7,41 +7,45 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 示例分页查询对象
+ * 示例证书分页查询对象
  */
 class CertificateInformationPageQuery : public PageQuery
 {
 	DTO_INIT(CertificateInformationPageQuery, PageQuery);
-	
+	//ygbh:员工编号
+	DTO_FIELD(String, ygbh);
+	DTO_FIELD_INFO(ygbh) {
+		info->description = ZH_WORDS_GETTER("certificateinformation.field.ygbh");
+	}
 	//zgzsbh: 证书编号
 	DTO_FIELD(String, zgzsbh);
 	DTO_FIELD_INFO(zgzsbh) {
-		info->description = ZH_WORDS_GETTER("sample.field.zgzsbh");
+		info->description = ZH_WORDS_GETTER("certificateinformation.field.zgzsbh");
 	}
 	//pimvocationalname: 证书名称
 	DTO_FIELD(String, pimvocationalname);
 	DTO_FIELD_INFO(pimvocationalname) {
-		info->description = ZH_WORDS_GETTER("sample.field.pimvocationalname");
+		info->description = ZH_WORDS_GETTER("certificateinformation.field.pimvocationalname");
 	}
 	// zslx: 证书类型
 	DTO_FIELD(String, zslx);
 	DTO_FIELD_INFO(zslx) {
-		info->description = ZH_WORDS_GETTER("sample.field.zslx");
+		info->description = ZH_WORDS_GETTER("certificateinformation.field.zslx");
 	}
 	// zghqrq: 签发日期
 	DTO_FIELD(String, zghqrq);
 	DTO_FIELD_INFO(zghqrq) {
-		info->description = ZH_WORDS_GETTER("sample.field.zghqrq");
+		info->description = ZH_WORDS_GETTER("certificateinformation.field.zghqrq");
 	}
 	// zgsydw: 签发机构
 	DTO_FIELD(String, zgsydw);
 	DTO_FIELD_INFO(zgsydw) {
-		info->description = ZH_WORDS_GETTER("sample.field.zgsydw");
+		info->description = ZH_WORDS_GETTER("certificateinformation.field.zgsydw");
 	}
 	// fzyxq: 发证有效期
 	DTO_FIELD(String, fzyxq);
 	DTO_FIELD_INFO(fzyxq) {
-		info->description = ZH_WORDS_GETTER("sample.field.fzyxq");
+		info->description = ZH_WORDS_GETTER("certificateinformation.field.fzyxq");
 	}
 	
 };

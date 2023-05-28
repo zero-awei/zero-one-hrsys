@@ -11,16 +11,16 @@ public:
 	{
 		JobTitleInformationDO data;
 		
-		data.setProfessoranalysis_name(resultSet->getString(5));
-		data.setCredentials_num(resultSet->getString(6));
-		data.setProfessor_grades(resultSet->getString(7));
-		data.setMajor(resultSet->getString(8));
-		data.setZchqrq(resultSet->getString(9));
-		data.setReviewbody(resultSet->getString(10));
-		data.setLssuingagency(resultSet->getString(11));
-		data.setEmploytime(resultSet->getString(12));
-		data.setEnable(resultSet->getString(13));
-		
+		data.setProfessoranalysis_name(resultSet->getString(1));
+		data.setCredentials_num(resultSet->getString(2));
+		data.setProfessor_grades(resultSet->getString(3));
+		data.setMajor(resultSet->getString(4));
+		data.setZchqrq(resultSet->getString(5));
+		data.setReviewbody(resultSet->getString(6));
+		data.setLssuingagency(resultSet->getString(7));
+		data.setEmploytime(resultSet->getString(8));
+		data.setEnable(resultSet->getString(9));
+		//data.setEmployeeid(resultSet->getString(10));
 		return data;
 	}
 };

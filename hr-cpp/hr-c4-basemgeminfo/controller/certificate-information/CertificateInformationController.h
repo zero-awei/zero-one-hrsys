@@ -17,7 +17,7 @@ namespace multipart = oatpp::web::mime::multipart;
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
 /**
- * 示例控制器，演示基础接口的使用
+ * 证书控制器，基础接口的使用
  */
 class CertificateInformationController : public oatpp::web::server::api::ApiController // 1 继承控制器
 {
@@ -27,7 +27,7 @@ class CertificateInformationController : public oatpp::web::server::api::ApiCont
 public:
 		//定义查询接口描述
 	ENDPOINT_INFO(queryCertificateInformation) {
-		// 定义接口标题,用到中英文字典函数，用过zh-dict.yaml确定参数
+		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("certificateinformation.get.summary");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
@@ -35,15 +35,16 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(CertificateInformationPageJsonVO);
 		// 定义分页查询参数描述
 		API_DEF_ADD_PAGE_PARAMS();
-		// 添加其他查询参数
-		info->queryParams.add<String>("pimvocationalname").description = ZH_WORDS_GETTER("certificateinformation.field.pimvocationalname");
-		info->queryParams["pimvocationalname"].addExample("default", String(" "));
-		info->queryParams["pimvocationalname"].required = true;
+		// 添加其他查询参数 
+
+		info->queryParams.add<String>("ygbh").description = ZH_WORDS_GETTER("certificateinformation.field.ygbh");
+		info->queryParams["ygbh"].addExample("default", String("6611212223"));
+		info->queryParams["ygbh"].required = false;
 		
 		
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/certificate-information", queryCertificateInformation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/certificate-information/select", queryCertificateInformation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, CertificateInformationPageQuery, queryParams);
 		// 响应结果
