@@ -74,3 +74,23 @@ bool AssignInfoService::removeData(string id)
 	AssignInfoDAO dao;
 	return dao.deleteById(id) == 1;
 }
+
+AssignInfoDTO::Wrapper AssignInfoService::QueryDetail(const AssignInfoDTO::Wrapper& dto)
+{
+	//// 构建返回对象
+	auto page = AssignInfoDTO::createShared();
+
+	//// 将DO转换成DTO
+	AssignInfoDO sub;
+	//	dto->id = sub.getId();
+	//	dto->assign = sub.getAssign();
+	//	dto->etype = sub.getEtype();
+	//	dto->organize = sub.getOrganize();
+		//dto->depart = sub.getDepart();
+		//dto->job = sub.getJob();
+		//dto->post= sub.getPost();
+		//dto->startTime = sub.getStartTime();
+		//dto->endTime = sub.getEndTime();
+	ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id, assign, Assign, etype, Etype, organize, Organize, depart, Depart, job, Job, post, Post, startTime, StartTime, endTime, EndTime)
+		return page;
+}
