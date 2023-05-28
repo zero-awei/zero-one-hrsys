@@ -47,6 +47,7 @@ Uint64JsonVO::Wrapper ArchiveController::execAddArchive(const ArchiveDTO::Wrappe
 Uint64JsonVO::Wrapper ArchiveController::execModifyArchive(const ArchiveDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
+	
 	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
 	if (!dto->sortid || dto->sortid <= 0)
@@ -54,7 +55,8 @@ Uint64JsonVO::Wrapper ArchiveController::execModifyArchive(const ArchiveDTO::Wra
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-
+	ArchiveService service;
+	service.updateData(dto);
 	jvo->success(dto->sortid);
 	return jvo;
 }
@@ -73,13 +75,8 @@ Uint64JsonVO::Wrapper ArchiveController::execRemoveArchive(const ArchiveDTO::Wra
 	// 定义一个Service
 	ArchiveService service;
 	// 执行数据删除
-	if (service.removeData(dto->sortid.getValue(0))) {
-		jvo->success(dto->sortid);
-	}
-	else
-	{
-		jvo->fail(dto->sortid);
-	}
+	jvo->success(dto->sortid);
+
 	// 响应结果
 	return jvo;
 }

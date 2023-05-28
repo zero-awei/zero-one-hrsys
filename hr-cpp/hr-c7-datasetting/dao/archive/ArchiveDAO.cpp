@@ -63,8 +63,8 @@ uint64_t ArchiveDAO::insert(const ArchiveDO& iObj)
 
 int ArchiveDAO::update(const ArchiveDO& uObj)
 {
-	string sql = "UPDATE `archive` SET `sortid`=?, `archivename`=?, `cabinetnum`=? ,`layernum`=?,`numid`=? WHERE `id`=?";
-	return sqlSession->executeUpdate(sql, "%i%s%i%i%i%ull", uObj.getsortID(), uObj.getarchiveName(), uObj.getcabinetNum(), uObj.getlayerNum(), uObj.getnumID());
+	string sql = "UPDATE `archive` SET `archivename`=?, `cabinetnum`=? ,`layernum`=?,`numid`=? WHERE `sortid`=?";
+	return sqlSession->executeUpdate(sql, "%s%i%i%i%i", uObj.getarchiveName(), uObj.getcabinetNum(), uObj.getlayerNum(), uObj.getnumID(),uObj.getsortID());
 }
 
 int ArchiveDAO::deleteById(uint64_t id)
