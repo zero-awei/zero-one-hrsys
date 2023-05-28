@@ -44,7 +44,7 @@ namespace multipart = oatpp::web::mime::multipart;
  * fileType指定文件后缀名（如test.xlsx，后缀名为xlsx），sheetName为excel表格中sheet名，file为具体文件
  * 将文件按%Y-%m-%d_%H-%M-%S_ProjTag.xlsx格式放到"public/static/file/"目录下，
  * 最终将文件内容导入到数据库。
- * 返回值：项目标签排序号
+ * 返回值：新增的项目标签id列表
  * 负责人：远翔
  */
 class ImportTagController : public oatpp::web::server::api::ApiController
