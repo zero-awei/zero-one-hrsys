@@ -276,13 +276,34 @@
     <ClInclude Include="domain\dto\Pimarmycadres\PimarmycadresIntoDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\PimarmycadresDTO\PimarmycadresDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresPageQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\Pimarmycadres\PimarmycadresService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\Pimarmycadres\PimarmycadresDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresFindDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\Pimarmycadres\PimarmycadresVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Pimarmycadres\DelPimarmycadresDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresIntoDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\Pimarmycadres\PimarmycadresMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -366,6 +387,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\Pimarmycadres\PimarmycadresController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\Pimarmycadres\PimarmycadresService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="domain\do\Pimarmycadres\AddPimarmycadresDO.h">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\Pimarmycadres\PimarmycadresDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

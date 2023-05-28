@@ -228,7 +228,7 @@ pimarmycadres:
   list<pimarmycardesid>: 批量删除
   pimarmycadresid: 军转干部信息
   pimid: 员工编号
-  type: 类型
+  form: 类型
   level: 级别
   occurtime: 发生时间
   annexPath: 附件路径

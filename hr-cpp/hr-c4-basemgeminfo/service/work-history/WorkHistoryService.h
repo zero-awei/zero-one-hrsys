@@ -23,13 +23,6 @@ public:
 	// 分页查询所有数据
 	WorkHistoryFindPageDTO::Wrapper listAll(const WorkHistoryPageQuery::Wrapper& query);
 
-
-
-
-
-
-
-
 	//陈靓仔
 	WorkHistoryDTO::Wrapper listDetail(const WorkHistoryQuery::Wrapper& query);
 

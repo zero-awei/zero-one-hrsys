@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: awei
- @Date: 2023/05/17 19:42:46
+ @Author: huilai
+ @Date: 2023/05/18 8:59:52
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,28 +17,24 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _PIMARMYCADRESDO_H_
-#define _PIMARMYCADRESDO_H_
-#include "../DoInclude.h"
+#ifndef _PIMARMYCADRESFINDPAGEDO_H_
+#define _PIMARMYCADRESFINDPAGEDO_H_
 
 
-class PimarmycadresDO {
+	
+
+class PimarmycadresFindDO
+{
 	// 编号
-	CC_SYNTHESIZE(string, pimid, Pimid);
+	CC_SYNTHESIZE(string, PIMID, pIMID);
 	//	种类
-	CC_SYNTHESIZE(string, form, Form);
+	CC_SYNTHESIZE(string, FORM, fORM);
 	// 级别
-	CC_SYNTHESIZE(string, level, Level);
+	CC_SYNTHESIZE(string, LEVEL, lEVEL);
 	// 发生时间
-	CC_SYNTHESIZE(string, occurtime, Occurtime);
+	CC_SYNTHESIZE(string, OCCURTIME, oCCURTIME);
 	//附件路径
-	CC_SYNTHESIZE(string, annexPath, AnnexPath);
-	//记录id
-	CC_SYNTHESIZE(string, pimarmycadresid, Pimarmycadresid);
-
-
+	CC_SYNTHESIZE(string, ANNEXPATH, aNNEXPATH);
 };
 
-
-
-#endif
+#endif 

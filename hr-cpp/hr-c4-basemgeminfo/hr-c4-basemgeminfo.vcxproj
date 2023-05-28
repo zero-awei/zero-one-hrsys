@@ -192,6 +192,8 @@
     <ClInclude Include="dao\contract\ContractMapper.h" />
     <ClInclude Include="dao\military\MilitaryDAO.h" />
     <ClInclude Include="dao\military\MilitaryMapper.h" />
+    <ClInclude Include="dao\Pimarmycadres\PimarmycadresDAO.h" />
+    <ClInclude Include="dao\Pimarmycadres\PimarmycadresMapper.h" />
     <ClInclude Include="dao\work-history\WorkHistoryDAO.h" />
     <ClInclude Include="dao\work-history\WorkHistoryMapper.h" />
     <ClInclude Include="domain\do\archives\ArchivesDO.h" />
@@ -201,7 +203,10 @@
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\military\MilitaryDO.h" />
     <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresDO.h" />
+    <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresFindDO.h" />
     <ClInclude Include="domain\do\scientific\Scientific.h" />
+    <ClInclude Include="domain\do\Pimarmycadres\DelPimarmycadresDO.h" />
+    <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresIntoDO.h" />
     <ClInclude Include="domain\do\work-history\WorkHistoryDO.h" />
     <ClInclude Include="domain\do\work-history\WorkHistoryFindPageDO.h" />
     <ClInclude Include="domain\dto\archives\ArchivesDTO.h" />
@@ -209,7 +214,6 @@
     <ClInclude Include="domain\dto\certificate-information\JobTitleInformationDTO.h" />
     <ClInclude Include="domain\dto\contract\ContractDTO.h" />
     <ClInclude Include="domain\dto\military\militaryDTO.h" />
-    <ClInclude Include="domain\dto\PimarmycadresDTO\PimarmycadresDTO.h" />
     <ClInclude Include="domain\dto\Pimarmycadres\AddPimarmycadresDTO.h" />
     <ClInclude Include="domain\dto\Pimarmycadres\DelPimarmycadresDTO.h" />
     <ClInclude Include="domain\dto\Pimarmycadres\PimarmycadresFindDTO.h" />
@@ -233,6 +237,7 @@
     <ClInclude Include="domain\query\contract\ContractQuery.h" />
     <ClInclude Include="domain\query\military\MilitaryQuery.h" />
     <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresPageQuery.h" />
+    <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresQuery.h" />
     <ClInclude Include="domain\query\scientific\ScientificQuery.h" />
     <ClInclude Include="domain\query\SciResult\SciResultQuery.h" />
     <ClInclude Include="domain\query\work-history\WorkHistoryExportQuery.h" />
@@ -243,6 +248,7 @@
     <ClInclude Include="domain\vo\certificate-information\JobTitleInformationVO.h" />
     <ClInclude Include="domain\vo\contract\ContractVO.h" />
     <ClInclude Include="domain\vo\military\MilitaryVO.h" />
+    <ClInclude Include="domain\vo\Pimarmycadres\PimarmycadresVO.h" />
     <ClInclude Include="domain\vo\scientific\ScientificVO.h" />
     <ClInclude Include="domain\vo\SciResult\SciResultVo.h" />
     <ClInclude Include="domain\vo\work-history\ModWorkHistoryVO.h" />
@@ -256,6 +262,7 @@
     <ClInclude Include="service\certificate-information\jobtitle-information\JobTitleInformationService.h" />
     <ClInclude Include="service\contract\ContractService.h" />
     <ClInclude Include="service\military\MilitaryService.h" />
+    <ClInclude Include="service\Pimarmycadres\PimarmycadresService.h" />
     <ClInclude Include="service\work-history\WorkHistoryService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="uselib\ws\WSController.h" />
@@ -279,13 +286,16 @@
     <ClCompile Include="dao\certificate-information\jobtitle-information\JobTitleInformationDAO.cpp" />
     <ClCompile Include="dao\contract\ContractDAO.cpp" />
     <ClCompile Include="dao\military\MilitaryDAO.cpp" />
+    <ClCompile Include="dao\Pimarmycadres\PimarmycadresDAO.cpp" />
     <ClCompile Include="dao\work-history\WorkHistoryDAO.cpp" />
+    <ClCompile Include="domain\do\Pimarmycadres\AddPimarmycadresDO.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\Archives\ArchivesService.cpp" />
     <ClCompile Include="service\certificate-information\certificate-information\CertificateInformationService.cpp" />
     <ClCompile Include="service\certificate-information\jobtitle-information\JobTitleInformationService.cpp" />
     <ClCompile Include="service\contract\ContractService.cpp" />
     <ClCompile Include="service\military\MilitaryService.cpp" />
+    <ClCompile Include="service\Pimarmycadres\PimarmycadresService.cpp" />
     <ClCompile Include="service\work-history\WorkHistoryService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

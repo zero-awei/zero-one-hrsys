@@ -37,13 +37,6 @@ public:
 	// 统计数据条数
 	uint64_t count(const WorkHistoryPageQuery::Wrapper& query);
 
-
-
-
-
-
-
-
 	//陈靓仔
 	list<WorkHistoryDO> selectDetail(const WorkHistoryQuery::Wrapper& query);
 

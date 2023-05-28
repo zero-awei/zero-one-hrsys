@@ -5,7 +5,6 @@
 
 class WorkHistoryDO
 {
-
 	CC_SYNTHESIZE(string, rzkssj, Rzkssj);
 	CC_SYNTHESIZE(string, rzjssj, Rzjssj);
 	CC_SYNTHESIZE(string, ormorgname, Ormorgname);

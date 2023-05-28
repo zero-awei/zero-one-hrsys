@@ -22,7 +22,7 @@ Uint64JsonVO::Wrapper PimarmycadresController::execAddPimarmycadres(const AddPim
 {
 	auto jvo = Uint64JsonVO::createShared();
 
-	if (!dto->level || !dto->type || !dto->occurtime || !dto->pimid ) {
+	if (!dto->level || !dto->form || !dto->occurtime || !dto->pimid) {
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
@@ -57,10 +57,9 @@ Uint64JsonVO::Wrapper PimarmycadresController::execDelPimarmycadres(const DelPim
 	jvo->success(1);
 
 	return jvo;
-
 }
 
-StringJsonVO::Wrapper PimarmycadresController::execIntoPimarmycadres(const String fileBody, const String suffix)
+StringJsonVO::Wrapper PimarmycadresController::execIntoPimarmycadres(const String body, const String suffix)
 {
 	// 根据时间戳生成一个临时文件名称
 	std::stringstream ss;
@@ -81,14 +80,14 @@ StringJsonVO::Wrapper PimarmycadresController::execIntoPimarmycadres(const Strin
 	// 临时文件名称
 	std::string fileName = ss.str();
 	// 保存文件到临时目录
-	fileBody.saveToFile(fileName.c_str());
+	body.saveToFile(fileName.c_str());
 
 
 	// 保存到文件
 	ExcelComponent excel;
 
 	auto jvo = StringJsonVO::createShared();
-	std::string sheetName = CharsetConvertHepler::ansiToUtf8("工作履历");
+	std::string sheetName = CharsetConvertHepler::ansiToUtf8("军转干部");
 	// 从文件中读取
 	auto readData = excel.readIntoVector(fileName, sheetName);
 	for (auto row : readData)
@@ -119,3 +118,5 @@ StringJsonVO::Wrapper PimarmycadresController::execIntoPimarmycadres(const Strin
 	jvo->success("文件导入成功");
 	return jvo;
 }
+
+

@@ -2,9 +2,8 @@
 
 构建一个带路由功能的HTTP微服务架构，支持`JSON`序列化，支持`MySQL`关系型数据库，支持`JWT`安全认证，支持`Nacos`服务注册与配置管理，支持消息中间件`RocketMQ`，支持`FastDFS`分布式文件存储，支持`Redis`缓存数据库，支持`Excel`报表导入导出。
 
-## 1 目录说明
+## 1 目录说明 `arch-demo`：架构演示模块 
 
-- `arch-demo`：架构演示模块
 - `lib-dy`：动态库存放目录
 - `lib-common`：公用组件静态库模块
 - `lib-oatpp`：web服务组件静态库模块
@@ -1043,7 +1042,6 @@ int main(int argc, char* argv[]) {
 - BO（Business Object）：业务对象，可以由 Service 层输出的封装业务逻辑的对象。
 - Query：数据查询对象，各层接收上层的查询请求。注意超过2个参数的查询封装，禁止使用Map类来传输。
 - `VO`（View Object）：显示层对象，通常是 Web 向模板渲染引擎层传输的对象。
-
-各层之间的关系如下图所示，里面包含了领域模型的传递过程。
+- 各层之间的关系如下图所示，里面包含了领域模型的传递过程。
 
 ![image-20230410170044445](imgs/layer.png)

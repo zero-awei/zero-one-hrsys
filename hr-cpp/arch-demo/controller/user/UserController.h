@@ -64,11 +64,12 @@ public:
 		info->queryParams["suffix"].addExample("jpg", String(".jpg"));
 		info->queryParams["suffix"].addExample("txt", String(".txt"));
 	}
-	// 定义文件上传端点处理
+	// 定义文件上传端点处理 
 	ENDPOINT(API_M_POST, "/user/file", postFile, BODY_STRING(String, body), QUERY(String, suffix)) {
 		// 执行文件保存逻辑
 		API_HANDLER_RESP_VO(executePostFile(body, suffix));
 	}
+
 	// 定义查询用户菜单接口端点描述
 	ENDPOINT_INFO(queryMenu) {
 		// 定义接口标题

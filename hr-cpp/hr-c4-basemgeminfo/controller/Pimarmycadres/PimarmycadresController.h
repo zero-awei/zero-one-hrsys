@@ -67,6 +67,7 @@ public: // 定义接口
 		API_HANDLER_QUERY_PARAM(query, PimarmycadresPageQuery, qps);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryPimarmycadres(query));
+		//PimarmycadresFindVO::Wrapper execQueryPimarmycadres(const PimarmycadresPageQuery::Wrapper & query);
 	}
 
 	// 定义新增接口描述
@@ -108,9 +109,6 @@ public: // 定义接口
 		// 执行文件保存逻辑
 		API_HANDLER_RESP_VO(execIntoPimarmycadres(body, suffix));
 	}
-
-
-
 
 private:
 
