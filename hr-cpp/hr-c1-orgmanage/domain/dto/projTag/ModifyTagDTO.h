@@ -46,16 +46,6 @@ class ModifyTagDTO : public oatpp::DTO
 	DTO_FIELD_INFO(orgId) {
 		info->description = ZH_WORDS_GETTER("projTag.field.orgId");
 	}
-	// 更新人
-	DTO_FIELD(String, updater);
-	DTO_FIELD_INFO(updater) {
-		info->description = ZH_WORDS_GETTER("projTag.field.updater");
-	}
-	// 更新时间
-	DTO_FIELD(String, updateTime);
-	DTO_FIELD_INFO(updateTime) {
-		info->description = ZH_WORDS_GETTER("projTag.field.updatetime");
-	}
 };
 
 #include OATPP_CODEGEN_END(DTO)

@@ -18,13 +18,31 @@
 */
 #include "stdafx.h"
 #include "ExportProjTagController.h"
+#include "service/projTag/ProjTagService.h"
 
 StringJsonVO::Wrapper ExportProjTagController::execExportProjTag(const ExportProjTagQuery::Wrapper& query)
 {
+	// 构建返回对象
 	auto vo = StringJsonVO::createShared();
 
-	// TODO: 调用service获取导出文件下载链接
+	// 参数校验
+	if (query->sequence->empty() || query->sequence != "DESC" && query->sequence != "DESC")
+	{
+		vo->init("", RS_PARAMS_INVALID);
+		return vo;
+	}
 
-	vo->success("url/download");
+	// 最大5000条
+	if (query->rows > 5000) 
+		query->rows = 5000;
+
+	// TODO: 调用service获取导出文件下载链接
+	ProjTagService service;
+	string url = service.exportProjTag(query);
+
+	if (url.empty()) 
+		vo->fail(url);
+	else 
+		vo->success(url);
 	return vo;
 }

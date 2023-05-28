@@ -194,6 +194,12 @@ class SectorDO
 	// 汇报部门ID
 	CC_SYNTHESIZE(string, repOrgSectorId, RepOrgSectorId);
 
+	// 考勤员标识
+	CC_SYNTHESIZE(string, pimPersonId, PimPersonId);
+
+	// 考勤设置标识
+	CC_SYNTHESIZE(string, attendenceSetUpId, AttendenceSetUpId);
+
 public:
 	SectorDO() {
 		orgSectorId = "";

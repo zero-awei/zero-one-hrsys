@@ -22,20 +22,51 @@
 #include "domain/dto/projTag/ProjTagDTO.h"
 #include "domain/dto/projTag/OrgListDTO.h"
 #include "domain/query/projTag/OrgListQuery.h"
-
+#include "domain/query/projTag/PageProjTagQuery.h"
+#include "domain/dto/projTag/ModifyTagDTO.h"
+#include "domain/vo/projTag/ProjTagVO.h"
+#include "domain/dto/projTag/ImportTagDTO.h"
+#include "domain/vo/projTag/ImportTagVO.h"
+#include "domain/query/projTag/ExportProjTagQuery.h"
 /**
  * 项目标签Service
- * 负责人：远翔
  */
 class ProjTagService
 {
 public:
+	/**
+	 * 新增项目标签
+	 * 负责人：远翔
+	 */
 	uint64_t saveData(const ProjTagDTO::Wrapper& dto);
 	/**
 	 * 分页查询组织列表
 	 * 负责人：Andrew
 	 */
 	OrgListPageDTO::Wrapper listOrgList(const OrgListQuery::Wrapper &query);
+	/**
+	 * 修改项目标签
+	 * 负责人：Andrew
+	 */
+	bool updateProjTag(const ModifyTagDTO::Wrapper& dto, const PayloadDTO& payload);
+
+	/**
+	 * 导入项目标签
+	 * 负责人：远翔
+	 */
+	ImportTagVO::Wrapper addMultiTag(const ImportTagDTO::Wrapper& dto, const PayloadDTO& payload);
+	/**
+	 * 导出项目标签（最大5000条）
+	 * 调用DAO查询数据库，返回后包装进Excel文件并保存到FastDFS文件服务器
+	 * 返回值：文件服务器拼接下载链接
+	 * 负责人：Andrew
+	 */
+	std::string exportProjTag(const ExportProjTagQuery::Wrapper& query);
+	/**
+	 * 分页查询项目标签
+	 * 负责人：咫尺之书
+	 */
+	ProjTagPageDTO::Wrapper listProjTagList(const PageProjTagQuery::Wrapper& query);
 };
 
 #endif // !_PROJTAGSERVICE_H_

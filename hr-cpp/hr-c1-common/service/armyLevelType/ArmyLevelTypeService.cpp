@@ -25,19 +25,18 @@
 PullListDTO::Wrapper ArmyLevelTypeService::listAll()
 {
 	// 构建返回对象
-	auto res = PullListDTO::createShared();
+	auto dto = PullListDTO::createShared();
 
 	// TODO: 查询缓存
 	// 从缓存中获取军转列表
 	auto hash = UseLibRedis::queryRedis("army-level-type");
 
-	auto dto = PullListDTO::createShared();
 	// 如果为空则调用dao查询数据库
 	if (hash.empty())
 	{
 		// TODO: 调用dao查询数据库
 		ArmyLevelTypeDAO dao;
-		auto res = dao.listAll();
+		auto res = dao.selectAll();
 		
 		// 组装成DTO返回
 		for (auto item : res)

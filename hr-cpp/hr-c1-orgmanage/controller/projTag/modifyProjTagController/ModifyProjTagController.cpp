@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "ModifyProjTagController.h"
 #include "SimpleDateTimeFormat.h"
+#include "service/projTag/ProjTagService.h"
 
 StringJsonVO::Wrapper ModifyProjTagController::execModifyTag(const ModifyTagDTO::Wrapper& dto, const PayloadDTO& payload)
 {
@@ -31,11 +32,16 @@ StringJsonVO::Wrapper ModifyProjTagController::execModifyTag(const ModifyTagDTO:
 		return jvo;
 	}
 
-	dto->updater = payload.getUsername();
-	dto->updateTime = SimpleDateTimeFormat::format();
-
 	// TODO: 调用service执行更新
+	ProjTagService service;
+	if (service.updateProjTag(dto, payload))
+	{
+		jvo->success(dto->id);
+	}
+	else
+	{
+		jvo->fail(dto->id);
+	}
 
-	jvo->success(dto->id);
 	return jvo;
 }

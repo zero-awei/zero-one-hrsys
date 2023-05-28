@@ -31,9 +31,21 @@
 class JobLevelTypeDO
 {
 	// 代码项名称
-	CC_SYNTHESIZE(string, jobLevel, jobLevel);
+	CC_SYNTHESIZE(string, jobLevel, JobLevel);
 	// 代码项值
-	CC_SYNTHESIZE(int, code, Code);
+	CC_SYNTHESIZE(string, code, Code);
+public:
+	JobLevelTypeDO()
+	{
+		code = "";
+		jobLevel = "";
+	}
+
+	JobLevelTypeDO(string code_, string level_)
+	{
+		code = code_;
+		jobLevel = level_;
+	}
 };
 
 
