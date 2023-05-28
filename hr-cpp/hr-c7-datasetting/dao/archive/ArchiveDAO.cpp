@@ -50,14 +50,14 @@ std::list<ArchiveDO> ArchiveDAO::selectWithPage(const ArchiveQuery::Wrapper& que
 
 std::list<ArchiveDO> ArchiveDAO::selectByName(const string& name)
 {
-	string sql = "SELECT * FROM archive WHERE `name` LIKE CONCAT('%',?,'%')";
+	string sql = "SELECT * FROM archive WHERE `archivename` LIKE CONCAT('%',?,'%')";
 	ArchiveMapper mapper;
 	return sqlSession->executeQuery<ArchiveDO, ArchiveMapper>(sql, mapper, "%s", name);
 }
 
 uint64_t ArchiveDAO::insert(const ArchiveDO& iObj)
 {
-	string sql = "INSERT INTO `archive` (`sordid`, `archivename`, `cabinetnum`,`layernum`,`numid`) VALUES (?, ?, ?, ?, ?)";
+	string sql = "INSERT INTO `archive` (`sortid`, `archivename`, `cabinetnum`,`layernum`,`numid`) VALUES (?, ?, ?, ?, ?)";
 	return sqlSession->executeInsert(sql, "%i%s%i%i%i", iObj.getsortID(), iObj.getarchiveName(), iObj.getcabinetNum(),iObj.getlayerNum(), iObj.getnumID());
 }
 
@@ -69,6 +69,6 @@ int ArchiveDAO::update(const ArchiveDO& uObj)
 
 int ArchiveDAO::deleteById(uint64_t id)
 {
-	string sql = "DELETE FROM `archive` WHERE `id`=?";
+	string sql = "DELETE FROM `archive` WHERE `sortid`=?";
 	return sqlSession->executeUpdate(sql, "%ull", id);
 }

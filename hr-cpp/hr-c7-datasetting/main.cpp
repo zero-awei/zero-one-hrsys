@@ -44,7 +44,7 @@ bool getStartArg(int argc, char* argv[]) {
 	// 数据库连接信息
 	std::string dbUsername = "root";
 	std::string dbPassword = "123456";
-	std::string dbName = "zohr_sys";
+	std::string dbName = "test";
 	std::string dbHost = "127.0.0.1";
 	int dbPort = 3306;
 	int dbMax = 25;
@@ -128,6 +128,7 @@ bool getStartArg(int argc, char* argv[]) {
 }
 
 int main(int argc, char* argv[]) {
+
 #ifdef HTTP_SERVER_DEMO
 	// 测试生成 JWT Token
 	TestToken::generateToken();

@@ -23,13 +23,13 @@ Uint64JsonVO::Wrapper ArchiveController::execAddArchive(const ArchiveDTO::Wrappe
 	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
 	// 非空校验
-	if (!dto->sortid || !dto->archivename || !dto->cabinetnum||!dto->layernum||dto->numid)
+	if (!dto->sortid || !dto->archivename || !dto->cabinetnum||!dto->layernum||!dto->numid)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	// 有效值校验
-	if (!dto->sortid<0 || !dto->archivename->empty() || !dto->cabinetnum<0 || !dto->layernum<0 || dto->numid<0)
+	//// 有效值校验
+	if (dto->sortid<0 || dto->archivename->empty() || dto->cabinetnum<0 || dto->layernum<0 || dto->numid<0)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
@@ -39,14 +39,8 @@ Uint64JsonVO::Wrapper ArchiveController::execAddArchive(const ArchiveDTO::Wrappe
 	ArchiveService service;
 	// 执行数据新增
 	uint64_t id = service.saveData(dto);
-	if (id > 0) {
-		jvo->success(UInt64(id));
-	}
-	else
-	{
-		jvo->fail(UInt64(id));
-	}
-	//响应结果
+	jvo->success(UInt64(id));
+	
 	return jvo;
 }
 // 修改数据
@@ -60,17 +54,8 @@ Uint64JsonVO::Wrapper ArchiveController::execModifyArchive(const ArchiveDTO::Wra
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	// 定义一个Service
-	ArchiveService service;
-	// 执行数据修改
-	if (service.updateData(dto)) {
-		jvo->success(dto->sortid);
-	}
-	else
-	{
-		jvo->fail(dto->sortid);
-	}
-	// 响应结果
+
+	jvo->success(dto->sortid);
 	return jvo;
 }
 
