@@ -185,7 +185,9 @@
     <ClCompile Include="controller\LegalEntityMai\LegalEntityMaiController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\LegalEntityMai\LegalEntityMaiDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\LegalEntityMai\LegalEntityMaiService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -206,6 +208,7 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="dao\LegalEntityMai\LegalEntityMaiDAO.h" />
+    <ClInclude Include="dao\LegalEntityMai\LegalEntityMaiMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\LegalEntityMai\OrmsignorgDO.h" />
     <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDTO.h" />
