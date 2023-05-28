@@ -12,29 +12,36 @@ class ExpenseLedgeDTO : public oatpp::DTO
 	DTO_INIT(ExpenseLedgeDTO, DTO);
 
 	// 费用类别
-	DTO_FIELD(String, expense_name);
-	DTO_FIELD_INFO(expense_name) {
+	DTO_FIELD(String, PIMEXPACCOUNTNAME);
+	DTO_FIELD_INFO(PIMEXPACCOUNTNAME) {
 		info->description = ZH_WORDS_GETTER("expense.field.expense_name");
 	}
+
+	// 费用标识
+	DTO_FIELD(UInt32, PIMEXPACCOUNTID);
+	DTO_FIELD_INFO(PIMEXPACCOUNTID) {
+		info->description = ZH_WORDS_GETTER("expense.field.expense_id");
+	}
+
 	// 费用金额
-	DTO_FIELD(UInt32, expense_num);
-	DTO_FIELD_INFO(expense_num) {
+	DTO_FIELD(Float64, FYJE);
+	DTO_FIELD_INFO(FYJE) {
 		info->description = ZH_WORDS_GETTER("expense.field.expense_num");
 	}
 	// 发放人数
-	DTO_FIELD(UInt32, people_num);
-	DTO_FIELD_INFO(people_num) {
+	DTO_FIELD(UInt32, FFRS);
+	DTO_FIELD_INFO(FFRS) {
 		info->description = ZH_WORDS_GETTER("expense.field.people_num");
 	}
 	
 	// 发放时间
-	DTO_FIELD(String, get_time);
-	DTO_FIELD_INFO(get_time) {
+	DTO_FIELD(String, FFSJ);
+	DTO_FIELD_INFO(FFSJ) {
 		info->description = ZH_WORDS_GETTER("expense.field.get_time");
 	}
 	// 费用标准
-	DTO_FIELD(UInt32, expense_std);
-	DTO_FIELD_INFO(expense_std) {
+	DTO_FIELD(String, FFYBZ);
+	DTO_FIELD_INFO(FFYBZ) {
 		info->description = ZH_WORDS_GETTER("expense.field.expense_std");
 	}
 };

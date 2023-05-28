@@ -18,4 +18,11 @@ if (query->SQL_field) { \
 	SQLPARAMS_PUSH(params, "i", int, query->SQL_field.getValue(0)); \
 }
 
+// 填充double类型字段
+// 要求：数据库字段必须与变量字段一致
+#define SQLPARAMS_FLOAT_PUSH(SQL_field)		\
+if (query->SQL_field) { \
+	sql << " AND `" #SQL_field "`=?"; \
+	SQLPARAMS_PUSH(params, "d", double, query->SQL_field.getValue(0.0)); \
+}
 #endif // !_MACRO_H_

@@ -20,6 +20,7 @@
 #include <sstream>
 #include "ExpenseLedgerDAO.h"
 #include "ExpenseLedgerMapper.h"
+#include "../dao-sql-macro/macro.h"
 
 #define EXPENSELEDGER_TERAM_PARSE(query, sql) \
 SqlParams params; \
@@ -73,6 +74,18 @@ if (query->BZ) { \
 	SQLPARAMS_PUSH(params, "s", std::string, query->BZ.getValue("")); \
 } \
 
+inline SqlParams expenseledge_teram_parse(const ExpenseLedgeDTO::Wrapper & query, stringstream & sql)
+{
+	SqlParams params;
+	sql << " WHERE 1=1";
+	SQLPARAMS_INT_PUSH(FFRS);
+	SQLPARAMS_INT_PUSH(PIMEXPACCOUNTID);
+	SQLPARAMS_FLOAT_PUSH(FYJE);
+	SQLPARAMS_STRING_PUSH(PIMEXPACCOUNTNAME);
+	SQLPARAMS_STRING_PUSH(FFSJ);
+	SQLPARAMS_STRING_PUSH(FFYBZ);
+	return params;
+}
 
 uint64_t ExpenseLedgerDAO::count(const ExpenseLedgerPageQuery::Wrapper& query)
 {
@@ -91,6 +104,16 @@ std::list<ExpenseLedgerDO> ExpenseLedgerDAO::selectByPageQuery(const ExpenseLedg
 	EXPENSELEDGER_TERAM_PARSE(query, sql);
 	// ∑÷“≥≤È’“
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
+	ExpenseLedgerMapper mapper;
+	string sqlStr = sql.str();
+	return sqlSession->executeQuery<ExpenseLedgerDO, ExpenseLedgerMapper>(sqlStr, mapper, params);
+}
+
+std::list<ExpenseLedgerDO> ExpenseLedgerDAO::selectAll(const ExpenseLedgeDTO::Wrapper& query)
+{
+	stringstream sql;
+	sql << "SELECT * FROM t_pimexpaccount";
+	SqlParams params = expenseledge_teram_parse(query, sql);
 	ExpenseLedgerMapper mapper;
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<ExpenseLedgerDO, ExpenseLedgerMapper>(sqlStr, mapper, params);

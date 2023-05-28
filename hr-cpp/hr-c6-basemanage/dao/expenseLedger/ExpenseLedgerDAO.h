@@ -22,6 +22,7 @@
 #include "BaseDAO.h"
 #include "../../domain/do/expenseLedger/ExpenseLedgerDO.h"
 #include "../../domain/query/ExpenseLedger/ExpenseLedgerQuery.h"
+#include "../../domain/dto/ExpenseLedge/ExpenseLedgeDTO.h"
 
 class ExpenseLedgerDAO : public BaseDAO
 {
@@ -30,6 +31,9 @@ public:
 	uint64_t count(const ExpenseLedgerPageQuery::Wrapper& query);
 	// 根据页面请求返回DO
 	std::list<ExpenseLedgerDO> selectByPageQuery(const ExpenseLedgerPageQuery::Wrapper& query);
+
+	// 导出所有数据（查询所有数据）
+	std::list<ExpenseLedgerDO> selectAll(const ExpenseLedgeDTO::Wrapper& query);
 
 	uint64_t insert(const ExpenseLedgerDO& ido);
 };
