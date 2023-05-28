@@ -31,7 +31,6 @@ TemporaryStaffPageDTO::Wrapper TemporaryStaffService::listAll(const TempStaffQue
 			ygzt,tempStatus, gzzt, tempOrg, gzzz,
 			tempDept, gzbm, tempStartTime, gzkssj,tempEndTime, gzjssj);
 		pages->addData(dto);
-
 	}
 	return pages;
 }

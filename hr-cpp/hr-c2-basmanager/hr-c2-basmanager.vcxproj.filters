@@ -222,6 +222,15 @@
     <ClInclude Include="service\CertificateManage\EmployeeInfoService.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="dao\CertificateManage\CertificateTypeDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\CertificateManage\CertificateTypeMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\CertificateManage\CertificateTypeService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -282,6 +291,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="service\CertificateManage\EmployeeInfoService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\CertificateManage\CertificateTypeDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\CertificateManage\CertificateTypeService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
