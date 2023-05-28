@@ -160,6 +160,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="controller\itemLabel\ItemLabelController.cpp" />
+    <ClCompile Include="controller\jobSet\addJobController\AddJobController.cpp" />
     <ClCompile Include="controller\jobSet\jobOutput\JobOutputController.cpp" />
     <ClCompile Include="controller\jobSet\jobUpdate\JobUpdateController.cpp" />
     <ClCompile Include="controller\orgbz\PageQueryBzController.cpp" />
@@ -175,10 +176,12 @@
     <ClCompile Include="controller\projTag\queryOrgList\QueryOrgListController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\jobSet\JobSetDAO.cpp" />
     <ClCompile Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.cpp" />
     <ClCompile Include="dao\jobSet\postQueryDAO\PostQueryDAO.cpp" />
     <ClCompile Include="dao\projTag\ProjTagDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\jobSet\JobSetService.cpp" />
     <ClCompile Include="service\jobSet\postDeleteService\PostDeleteService.cpp" />
     <ClCompile Include="service\jobSet\postQueryService\PostQueryService.cpp" />
     <ClCompile Include="service\projTag\ProjTagService.cpp" />
@@ -192,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\itemLabel\ItemLabelController.h" />
+    <ClInclude Include="controller\jobSet\addJobController\AddJobController.h" />
     <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
     <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
     <ClInclude Include="controller\orgbz\PageQueryBzController.h" />
@@ -207,6 +211,7 @@
     <ClInclude Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.h" />
     <ClInclude Include="controller\projTag\queryOrgList\QueryOrgListController.h" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\jobSet\JobSetDAO.h" />
     <ClInclude Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.h" />
     <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryDAO.h" />
     <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryMapper.h" />
@@ -217,6 +222,7 @@
     <ClInclude Include="domain\do\projTag\OrgListDO.h" />
     <ClInclude Include="domain\do\sector\SectorDO.h" />
     <ClInclude Include="domain\do\projTag\ProjTagDO.h" />
+    <ClInclude Include="domain\dto\addJob\AddJobDTO.h" />
     <ClInclude Include="domain\dto\itemLabel\ItemLabelDTO.h" />
     <ClInclude Include="domain\dto\jobDownload\JobDownloadDTO.h" />
     <ClInclude Include="domain\dto\jobUpdate\JobUpdateDTO.h" />
@@ -247,6 +253,7 @@
     <ClInclude Include="domain\vo\projTag\ProjTagVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\jobSet\JobSetService.h" />
     <ClInclude Include="service\jobSet\postDeleteService\PostDeleteService.h" />
     <ClInclude Include="service\jobSet\postQueryService\PostQueryService.h" />
     <ClInclude Include="service\projTag\ProjTagService.h" />

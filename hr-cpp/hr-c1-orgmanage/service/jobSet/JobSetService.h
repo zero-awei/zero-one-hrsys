@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: yuanchen
- @Date: 2023/05/23 21:46:57
+ @Author: Andrew211vibe
+ @Date: 2023/05/27 7:25:35
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,20 +17,29 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _TYPECONTRACTDO_H_
-#define _TYPECONTRACTDO_H_
+#ifndef _JOBSETSERVICE_H_
+#define _JOBSETSERVICE_H_
 
-#include "../DoInclude.h"
+#include "domain/vo/jobSet/ImportJobVO.h"
+#include "domain/dto/jobSet/ImportJobDTO.h"
+#include "domain/dto/addJob/AddJobDTO.h"
+
 /**
- * 合同类型下拉列表
- * 负责人：yuanchen
+ * 项目标签service层实现
  */
-class TypeContractDO
+class JobSetService
 {
-	// 合同类型名称
-	CC_SYNTHESIZE(string, typeContract, TypeContract);
-	// 合同类型代码
-	CC_SYNTHESIZE(string, typeCode, TypeCode);
+public:
+	/**
+	 * 导入项目标签（批量新增）
+	 * 负责人：Andrew
+	 */
+	ImportJobVO::Wrapper addMultiJob(const ImportJobDTO::Wrapper &dto, const PayloadDTO &payload);
+	/**
+	 * 新增项目标签
+	 * 负责人：Andrew
+	 */
+	std::string saveJob(const AddJobDTO::Wrapper& dto, const PayloadDTO& payload);
 };
 
-#endif // !_TYPECONTRACTDO_H_
+#endif // !_JOBSETSERVICE_H_

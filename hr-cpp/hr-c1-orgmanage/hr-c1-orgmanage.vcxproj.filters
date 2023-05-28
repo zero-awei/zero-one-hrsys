@@ -26,6 +26,9 @@
     <ClCompile Include="service\jobSet\postQueryService\PostQueryService.cpp" />
     <ClCompile Include="dao\jobSet\postQueryDAO\PostQueryDAO.cpp" />
     <ClCompile Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.cpp" />
+    <ClCompile Include="service\jobSet\JobSetService.cpp" />
+    <ClCompile Include="dao\jobSet\JobSetDAO.cpp" />
+    <ClCompile Include="controller\jobSet\addJobController\AddJobController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -89,5 +92,9 @@
     <ClInclude Include="dao\projTag\OrgListMapper.h" />
     <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
     <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
+    <ClInclude Include="service\jobSet\JobSetService.h" />
+    <ClInclude Include="dao\jobSet\JobSetDAO.h" />
+    <ClInclude Include="controller\jobSet\addJobController\AddJobController.h" />
+    <ClInclude Include="domain\dto\addJob\AddJobDTO.h" />
   </ItemGroup>
 </Project>

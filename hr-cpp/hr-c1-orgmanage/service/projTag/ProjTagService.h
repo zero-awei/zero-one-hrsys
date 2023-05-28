@@ -22,20 +22,29 @@
 #include "domain/dto/projTag/ProjTagDTO.h"
 #include "domain/dto/projTag/OrgListDTO.h"
 #include "domain/query/projTag/OrgListQuery.h"
+#include "domain/dto/projTag/ModifyTagDTO.h"
 
 /**
  * 项目标签Service
- * 负责人：远翔
  */
 class ProjTagService
 {
 public:
+	/**
+	 * 新增项目标签
+	 * 负责人：远翔
+	 */
 	uint64_t saveData(const ProjTagDTO::Wrapper& dto);
 	/**
 	 * 分页查询组织列表
 	 * 负责人：Andrew
 	 */
 	OrgListPageDTO::Wrapper listOrgList(const OrgListQuery::Wrapper &query);
+	/**
+	 * 修改项目标签
+	 * 负责人：Andrew
+	 */
+	bool updateProjTag(const ModifyTagDTO::Wrapper& dto, const PayloadDTO& payload);
 };
 
 #endif // !_PROJTAGSERVICE_H_

@@ -2,7 +2,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: Andrew211vibe
- @Date: 2023/05/20 15:29:33
+ @Date: 2023/05/26 22:37:53
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,31 +17,14 @@
  limitations under the License.
 */
 #include "stdafx.h"
-#include "ModifyProjTagController.h"
-#include "SimpleDateTimeFormat.h"
-#include "service/projTag/ProjTagService.h"
+#include "TypeContractDAO.h"
+#include "domain/do/typeContract/TypeContractDO.h"
+#include "TypeContractMapper.h"
 
-StringJsonVO::Wrapper ModifyProjTagController::execModifyTag(const ModifyTagDTO::Wrapper& dto, const PayloadDTO& payload)
+std::list<TypeContractDO> TypeContractDAO::selectAll()
 {
-	// 创建返回参数
-	auto jvo = StringJsonVO::createShared();
-	// 参数校验
-	if (!dto->id || dto->id->empty())
-	{
-		jvo->init(String(-1), RS_PARAMS_INVALID);
-		return jvo;
-	}
-
-	// TODO: 调用service执行更新
-	ProjTagService service;
-	if (service.updateProjTag(dto, payload))
-	{
-		jvo->success(dto->id);
-	}
-	else
-	{
-		jvo->fail(dto->id);
-	}
-
-	return jvo;
+	// 构建SQL查询语句
+	string str = "SELECT `PIMTYPECONTRACTNAME`, `TYPECODE` FROM `t_pimtypecontract`";
+	TypeContractMapper mapper;
+	return sqlSession->executeQuery<TypeContractDO, TypeContractMapper>(str, mapper);
 }
