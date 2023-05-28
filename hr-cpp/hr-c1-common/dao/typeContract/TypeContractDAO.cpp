@@ -1,9 +1,8 @@
-#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: Andrew211vibe
- @Date: 2023/05/17 22:56:57
+ @Date: 2023/05/26 22:37:53
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,20 +16,15 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _PULLLISTVO_H_
-#define _PULLLISTVO_H_
+#include "stdafx.h"
+#include "TypeContractDAO.h"
+#include "domain/do/typeContract/TypeContractDO.h"
+#include "TypeContractMapper.h"
 
-#include "../../GlobalInclude.h"
-#include "../../dto/pullList/PullListDTO.h"
-
-#include OATPP_CODEGEN_BEGIN(DTO)
-
-class PullListVO : public JsonVO<PullListDTO::Wrapper>
+std::list<TypeContractDO> TypeContractDAO::selectAll()
 {
-	DTO_INIT(PullListVO, JsonVO<PullListDTO::Wrapper>);
-};
-
-
-#include OATPP_CODEGEN_END(DTO)
-
-#endif // !_PULLLISTVO_H_
+	// ¹¹½¨SQL²éÑ¯Óï¾ä
+	string str = "SELECT `PIMTYPECONTRACTNAME`, `TYPECODE` FROM `t_pimtypecontract`";
+	TypeContractMapper mapper;
+	return sqlSession->executeQuery<TypeContractDO, TypeContractMapper>(str, mapper);
+}

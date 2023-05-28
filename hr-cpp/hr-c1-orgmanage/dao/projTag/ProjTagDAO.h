@@ -21,6 +21,10 @@
 #define _PROJTAGDAO_H_
 #include "BaseDAO.h"
 #include "domain/do/projTag/ProjTagDO.h"
+#include "domain/do/projTag/OrgListDO.h"
+#include "domain/query/projTag/OrgListQuery.h"
+#include "domain/query/projTag/ExportProjTagQuery.h"
+#include "domain/query/projTag/PageProjTagQuery.h"
 
 /**
  * 项目标签DAO实现
@@ -35,9 +39,47 @@ public:
 	uint64_t insert(const ProjTagDO& iObj);
 	/**
 	 * 项目标签 - 分页查询组织列表DAO实现
+	 * 功能：查询组织列表，进行数据分页
 	 * 负责人：Andrew
 	 */
-	//std::list<OrgListDO::Wrapper> insert(const ProjTagDO& iObj);
+	std::list<OrgListDO> selectOrgList(const OrgListQuery::Wrapper& query);
+	/**
+	 * 项目标签 - 分页查询组织列表DAO实现
+	 * 功能：数据条数计数
+	 * 负责人：Andrew
+	 */
+	uint64_t count(const OrgListQuery::Wrapper& query);
+	/**
+	 * 项目标签 - 修改项目标签DAO实现
+	 * 功能：更新指定项目标签唯一标识更新项目标签数据
+	 * 负责人：Andrew
+	 */
+	bool updateProjTag(const ProjTagDO& data);
+
+	/**
+	 * 项目标签 - 导入项目标签DAO实现
+	 * 功能：将文件中的数据导入到数据库中
+	 * 负责人：远翔
+	 */
+	std::list<std::string> insertMultiTag(const std::list<ProjTagDO>& data);
+	/**
+	 * 项目标签 - 导出项目标签DAO实现
+	 * 功能：查询最多5000条数据到DO并返回
+	 * 负责人：Andrew
+	 */
+	std::list<ProjTagDO> exportProjTag(const ExportProjTagQuery::Wrapper& query);
+	/**
+	 * 项目标签 - 分页查询项目标签列表DAO实现
+	 * 功能：数据条数计数
+	 * 负责人：咫尺之书
+	 */
+	uint64_t count(const PageProjTagQuery::Wrapper& query);
+	/**
+	 * 项目标签 - 分页查询项目标签列表DAO实现
+	 * 功能：查询项目标签列表，进行数据分页
+	 * 负责人：咫尺之书
+	 */
+	std::list<ProjTagDO> selectProjTag(const PageProjTagQuery::Wrapper& query);
 };
 
 #endif // !_PROJTAGDAO_H_

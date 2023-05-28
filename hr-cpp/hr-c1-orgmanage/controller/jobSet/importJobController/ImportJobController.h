@@ -56,10 +56,10 @@ public: // 定义接口
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("jobSet.import.summary");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
-		//API_DEF_ADD_AUTH();
+		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(ImportJobJsonVO);
-		// 定义分页参数描述
+		// 定义参数描述
 		info->queryParams.add<String>("fileType").description = ZH_WORDS_GETTER("jobSet.import.fileType");
 		info->queryParams["fileType"].addExample("default", String("xlsx"));
 		info->queryParams["fileType"].required = false;
@@ -70,7 +70,7 @@ public: // 定义接口
 		info->queryParams["file"].required = true;
 	}
 
-	ENDPOINT(API_M_POST, PATH_TO_JOBSET("/import-job"), importJob, /*API_HANDLER_AUTH_PARAME, */REQUEST(std::shared_ptr<IncomingRequest>, request)) {
+	ENDPOINT(API_M_POST, PATH_TO_JOBSET("/import-job"), importJob, API_HANDLER_AUTH_PARAME, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
 		/* 创建multipart容器 */
 		auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
 		/* 创建multipart读取器 */
@@ -116,10 +116,10 @@ public: // 定义接口
 
 		auto dto = ImportJobDTO::createShared(String(fileType), String(sheetName), filePath);
 		// 响应结果
-		API_HANDLER_RESP_VO(execImportJob(dto/*, authObject->getPayload()*/));
+		API_HANDLER_RESP_VO(execImportJob(dto, authObject->getPayload()));
 	}
 private: // 定义接口执行函数
-	ImportJobJsonVO::Wrapper execImportJob(const ImportJobDTO::Wrapper& dto/*, const PayloadDTO& payload*/);
+	ImportJobJsonVO::Wrapper execImportJob(const ImportJobDTO::Wrapper& dto, const PayloadDTO& payload);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

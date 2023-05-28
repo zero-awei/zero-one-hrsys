@@ -1,9 +1,8 @@
-#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: Andrew211vibe
- @Date: 2023/05/17 22:56:57
+ @Date: 2023/05/27 10:04:04
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,20 +16,32 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _PULLLISTVO_H_
-#define _PULLLISTVO_H_
+#include "stdafx.h"
+#include "AddJobController.h"
+#include "service/jobSet/JobSetService.h"
 
-#include "../../GlobalInclude.h"
-#include "../../dto/pullList/PullListDTO.h"
-
-#include OATPP_CODEGEN_BEGIN(DTO)
-
-class PullListVO : public JsonVO<PullListDTO::Wrapper>
+StringJsonVO::Wrapper AddJobController::execAddJob(const AddJobDTO::Wrapper& dto, const PayloadDTO& payload)
 {
-	DTO_INIT(PullListVO, JsonVO<PullListDTO::Wrapper>);
-};
+	// 构建返回对象
+	auto jvo = StringJsonVO::createShared();
 
+	// 参数校验
+	if (!dto->orgId || dto->orgId->empty())
+	{
+		jvo->init("", RS_PARAMS_INVALID);
+		return jvo;
+	}
 
-#include OATPP_CODEGEN_END(DTO)
-
-#endif // !_PULLLISTVO_H_
+	// TODO: 调用service
+	JobSetService service;
+	auto id = service.saveJob(dto, payload);
+	if (!id.empty())
+	{
+		jvo->init(id, RS_SUCCESS);
+	}
+	else
+	{
+		jvo->init(id, RS_FAIL);
+	}
+	return jvo;
+}

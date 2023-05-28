@@ -36,7 +36,7 @@ class PageQueryBzController : public oatpp::web::server::api::ApiController
 	API_ACCESS_DECLARE(PageQueryBzController);
 public: // 定义接口
 	ENDPOINT_INFO(pageQueryBz) {
-		info->summary = ZH_WORDS_GETTER("orgbz.pageQuery.controller");
+		info->summary = ZH_WORDS_GETTER("orgbz.pagequery.controller");
 		API_DEF_ADD_RSP_JSON_WRAPPER(PageQueryVO);
 		info->queryParams.add<UInt8>("size").description = ZH_WORDS_GETTER("orgbz.pagequery.size");
 		info->queryParams["size"].addExample("default", UInt8(20));

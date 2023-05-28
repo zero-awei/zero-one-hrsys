@@ -108,7 +108,11 @@ fileReservation:
 fileStatus:
  borrowing: 借阅中
  returned: 已归还
-
+contractStatus:
+ duration: 存续期
+ outOfDate: 已过期
+ haveSigned: 已续签
+ terminated: 已终止
 htlx:
  query-list:
   summary: 查询合同类别下拉列表

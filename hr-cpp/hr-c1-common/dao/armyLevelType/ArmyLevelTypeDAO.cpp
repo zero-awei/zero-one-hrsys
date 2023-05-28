@@ -20,7 +20,7 @@
 #include "ArmyLevelTypeDAO.h"
 #include "ArmyLevelMapper.h"
 
-std::list<ArmyLevelTypeDO> ArmyLevelTypeDAO::listAll()
+std::list<ArmyLevelTypeDO> ArmyLevelTypeDAO::selectAll()
 {
 	/*string str = "SELECT `LEVELTYPE` FROM `t_pimarmycadres` GROUP BY `LEVELTYPE`";
 	ArmyLevelMapper mapper;

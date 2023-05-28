@@ -21,10 +21,6 @@
     <ClCompile Include="controller\auditstatusController.h\AuditstatusController.cpp" />
     <ClCompile Include="controller\typeContract\TypeContractListController.cpp" />
     <ClCompile Include="controller\contractType\ContractTypeController.cpp" />
-	<ClCompile Include="service\certs\certTypeService\CertTypeService.cpp" />
-    <ClCompile Include="dao\certs\certTypeDAO\CertTypeDAO.cpp" />
-    <ClCompile Include="service\certs\profCertsService\ProfCertsService.cpp" />
-    <ClCompile Include="dao\certs\profCertsDAO\ProfCertsDAO.cpp" />
     <ClCompile Include="service\armyLevelType\ArmyLevelTypeService.cpp" />
     <ClCompile Include="uselib\pullListRedis\UseLibRedis.cpp" />
     <ClCompile Include="dao\armyLevelType\ArmyLevelTypeDAO.cpp" />
@@ -34,6 +30,16 @@
     <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
     <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
     <ClCompile Include="controller\contractStatus\ContractStatusController.cpp" />
+    <ClCompile Include="service\typeContractList\TypeContractService.cpp" />
+    <ClCompile Include="dao\typeContract\TypeContractDAO.cpp" />
+    <ClCompile Include="dao\costTypeList\CostTypeListDAO.cpp" />
+    <ClCompile Include="dao\jobLevelTypeList\JobLevelTypeListDAO.cpp" />
+    <ClCompile Include="service\costTypeList\CostTypeListService.cpp" />
+    <ClCompile Include="service\jobLevelTypeList\JobLevelTypeListService.cpp" />
+    <ClCompile Include="service\certs\certTypeService\CertTypeService.cpp" />
+    <ClCompile Include="service\certs\profCertsService\ProfCertsService.cpp" />
+    <ClCompile Include="dao\certs\certTypeDAO\CertTypeDAO.cpp" />
+    <ClCompile Include="dao\certs\profCertsDAO\ProfCertsDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -72,7 +78,6 @@
     <ClInclude Include="controller\leaveReason\LeaveReasonController.h" />
     <ClInclude Include="domain\do\leaveReson\LeaveReasonDO.h" />
     <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
-    <ClInclude Include="domain\do\certs\ProfCertsDO.h" />
     <ClInclude Include="domain\do\typeContract\TypeContractDO.h" />
     <ClInclude Include="domain\dto\typeContract\TypeContractDTO.h" />
     <ClInclude Include="domain\vo\typeContract\TypeContractVO.h" />
@@ -94,18 +99,31 @@
     <ClInclude Include="domain\do\declareType\DeclareTypeDO.h" />
     <ClInclude Include="domain\do\archivesLevel\ArchivesLevelDO.h" />
     <ClInclude Include="domain\do\certs\CertTypeDO.h" />
-	<ClInclude Include="service\certs\certTypeService\CertTypeService.h" />
-    <ClInclude Include="dao\certs\certTypeDAO\CertTypeDAO.h" />
-    <ClInclude Include="dao\certs\certTypeDAO\CertTypeMapper.h" />
-    <ClInclude Include="service\certs\profCertsService\ProfCertsService.h" />
-    <ClInclude Include="dao\certs\profCertsDAO\ProfCertsDAO.h" />
-    <ClInclude Include="dao\certs\profCertsDAO\ProfCertsMapper.h" />
     <ClInclude Include="domain\do\pimType\PimTypeDO.h" />
     <ClInclude Include="domain\do\pimArchives\PimArchivesDO.h" />
     <ClInclude Include="controller\contractStatus\ContractStatusController.h" />
     <ClInclude Include="domain\do\armyLevelType\ArmyLevelTypeDO.h" />
     <ClInclude Include="domain\do\contractType\ContractTypeDO.h" />
     <ClInclude Include="dao\armyLevelType\ArmyLevelMapper.h" />
+    <ClInclude Include="domain\do\fileStatus\FileStatusDO.h" />
+    <ClInclude Include="domain\do\fileReservation\FileReservationDO.h" />
+    <ClInclude Include="domain\do\constractStatus\ConstractStatusDO.h" />
+    <ClInclude Include="service\typeContractList\TypeContractService.h" />
+    <ClInclude Include="dao\typeContract\TypeContractDAO.h" />
+    <ClInclude Include="dao\typeContract\TypeContractMapper.h" />
+    <ClInclude Include="dao\costTypeList\CostTypeListDAO.h" />
+    <ClInclude Include="dao\costTypeList\CostTypeMapper.h" />
+    <ClInclude Include="dao\jobLevelTypeList\JobLevelMapper.h" />
+    <ClInclude Include="dao\jobLevelTypeList\JobLevelTypeListDAO.h" />
+    <ClInclude Include="domain\do\certs\ProCertsDO.h" />
+    <ClInclude Include="service\costTypeList\CostTypeListService.h" />
+    <ClInclude Include="service\jobLevelTypeList\JobLevelTypeListService.h" />
+    <ClInclude Include="service\certs\certTypeService\CertTypeService.h" />
+    <ClInclude Include="service\certs\profCertsService\ProfCertsService.h" />
+    <ClInclude Include="dao\certs\certTypeDAO\CertTypeDAO.h" />
+    <ClInclude Include="dao\certs\certTypeDAO\CertTypeMapper.h" />
+    <ClInclude Include="dao\certs\profCertsDAO\ProfCertsDAO.h" />
+    <ClInclude Include="dao\certs\profCertsDAO\ProfCertsMapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
