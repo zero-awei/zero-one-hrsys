@@ -3,18 +3,33 @@
 #include "../../service/military/MilitaryService.h"
 
 MilitaryJsonVO::Wrapper MilitaryController::execQueryMilitary(const MilitaryDetailQuery::Wrapper& query) {
+	// 响应结果
+	auto jvo = MilitaryJsonVO::createShared();
 	// 定义一个Service
 	MilitaryService service;
 	// 查询数据
 	auto result = service.listDetail(query);
-	// 响应结果
-	auto jvo = MilitaryJsonVO::createShared();
-	jvo->success(result);
+	if (result->PIMARMYCADRESID.getValue("").empty()) {
+		cout << "No details were found" << endl;
+		jvo->fail(result);
+	}
+	else {
+		jvo->success(result);
+	}
 	return jvo;
 }
 
-StringJsonVO::Wrapper MilitaryController::execModifyMilitary(const MilitaryDTO::Wrapper& dto)
+StringJsonVO::Wrapper MilitaryController::execModifyMilitary(const MilitaryDTO::Wrapper& dto, const PayloadDTO& payload)
 {
+	//获取修改人id
+	dto->UPDATEMAN = payload.getId();
+	//获取当前时间
+	time_t timep;
+	time(&timep);
+	char tmp[256];
+	strftime(tmp, sizeof(tmp), "%Y-%m-%d %H:%M:%S", localtime(&timep));
+	//更改更新时间
+	dto->UPDATEDATE = tmp;
 	// 定义返回数据对象
 	auto jvo = StringJsonVO::createShared();
 	// 参数校验
@@ -31,6 +46,7 @@ StringJsonVO::Wrapper MilitaryController::execModifyMilitary(const MilitaryDTO::
 	}        
 	else
 	{
+		cout << "The primary key is not found or the data is consistent before and after the modification!" << endl;
 		jvo->fail(dto->PIMARMYCADRESID);
 	}
 	// 响应结果

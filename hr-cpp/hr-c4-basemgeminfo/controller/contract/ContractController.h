@@ -39,6 +39,8 @@ public: // 定义接口
 	ENDPOINT_INFO(queryContract) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("contract.get.summary");
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
 		// 定义响应参数类型
 		API_DEF_ADD_RSP_JSON_WRAPPER(ContractPageJsonVO);
 		// 定义分页查询参数描述
@@ -49,7 +51,7 @@ public: // 定义接口
 		info->queryParams["name"].required = false;
 	}
 	// 4 定义接口端点
-	ENDPOINT(API_M_GET,"/contract", queryContract, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET,"/contract/select", queryContract, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, ContractQuery, qps);
 		// 响应结果
