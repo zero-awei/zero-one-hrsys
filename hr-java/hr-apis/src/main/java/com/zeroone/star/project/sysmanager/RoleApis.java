@@ -1,6 +1,8 @@
 package com.zeroone.star.project.sysmanager;
 
 import com.zeroone.star.project.dto.sysmanager.rolemanager.RoleDTO;
+import com.zeroone.star.project.dto.sysmanager.rolemenumanager.RoleMenuDTO;
+import com.zeroone.star.project.dto.sysmanager.rolepowermanager.RolePowerDTO;
 import com.zeroone.star.project.vo.JsonVO;
 
 import javax.validation.constraints.NotBlank;
@@ -37,34 +39,34 @@ public interface RoleApis {
     /**
      * 角色分配菜单
      *
-     * @param roleId 角色ID menuId 菜单ID
+     * @param dto 用户菜单对象
      * @return Boolean 是否成功状态
      */
-    JsonVO<Boolean> assignMenus(@NotBlank(message = "id 不能为空")String roleId,@NotBlank(message = "id 不能为空")String menuId);
+    JsonVO<Boolean> assignMenus(RoleMenuDTO dto);
 
     /**
      * 角色删除菜单
      *
-     * @param roleId 角色ID menuId 菜单ID
+     * @param dto 用户菜单对象
      * @return Boolean 是否成功状态
      */
-    JsonVO<Boolean> deleteMenus(@NotBlank(message = "id 不能为空")String roleId,@NotBlank(message = "id 不能为空")String menuId);
+    JsonVO<Boolean> deleteMenus(RoleMenuDTO dto);
 
     /**
      * 角色分配权限
      *
-     * @param roleId 角色ID powerId 权限ID
+     * @param dto 用户权限对象
      * @return Boolean 是否成功状态
      */
-    JsonVO<Boolean> assignPermissions(@NotBlank(message = "id 不能为空")String roleId,@NotBlank(message = "id 不能为空")String powerId);
+    JsonVO<Boolean> assignPermissions(RolePowerDTO dto);
 
     /**
      * 角色删除权限
      *
-     * @param roleId 角色ID powerId 权限ID
+     * @param dto 用户权限对象
      * @return Boolean 是否成功状态
      */
-    JsonVO<Boolean>  deletePermissions(@NotBlank(message = "id 不能为空")String roleId,@NotBlank(message = "id 不能为空")String powerId);
+    JsonVO<Boolean>  deletePermissions(RolePowerDTO dto);
 
     /**
      * 修改状态

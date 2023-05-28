@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.sysmanager.mapper.RolePowerMapper">
+
+    <insert id="assignPower">
+        INSERT INTO zo_role_power(role_id, power_id)
+        VALUES (#{roleId}, #{powerId})
+    </insert>
+
+    <delete id="deletePower">
+        DELETE FROM zo_role_power
+        WHERE role_id = #{roleId} AND power_id = #{powerId}
+    </delete>
+
+    <select id="getPowerIdsByRoleId" resultType="string">
+        SELECT power_id
+        FROM zo_role_power
+        WHERE role_id = #{roleId}
+    </select>
+
+    <select id="checkRolePower" resultType="int">
+        SELECT COUNT(*)
+        FROM zo_role r, zo_power p
+        WHERE r.id = #{roleId} AND p.id = #{powerId}
+    </select>
+</mapper>

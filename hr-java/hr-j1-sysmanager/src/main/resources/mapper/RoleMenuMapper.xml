@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.sysmanager.mapper.RoleMenuMapper">
+
+    <insert id="assignMenu">
+        INSERT INTO zo_role_menu(role_id, menu_id)
+        VALUES (#{roleId},#{menuId})
+    </insert>
+
+    <delete id="deleteMenu">
+        DELETE FROM zo_role_menu
+        WHERE role_id = #{roleId} AND menu_id = #{menuId}
+    </delete>
+
+    <select id="getMenuIdsByRoleId" resultType="string">
+        SELECT menu_id
+        FROM  zo_role_menu
+        WHERE role_id = #{roleId}
+    </select>
+
+    <select id="checkRoleMenu" resultType="int">
+        SELECT COUNT(*)
+        FROM zo_role r, zo_menu m
+        WHERE r.id = #{roleId} AND m.id = #{menuId}
+    </select>
+
+</mapper>
