@@ -65,9 +65,9 @@ class ContractDTO_gs : public oatpp::DTO
 class ContractDTO_gs_delete : public oatpp::DTO
 {
 	DTO_INIT(ContractDTO_gs_delete, DTO);
-	// ±àºÅ
-	DTO_FIELD(UInt64, id);
-	DTO_FIELD_INFO(id) {
+	// ´ýÉ¾³ý±àºÅ
+	DTO_FIELD(List<String>, deleteById) = {};
+	DTO_FIELD_INFO(deleteById) {
 		info->description = ZH_WORDS_GETTER("contract.field.id");
 	}
 };

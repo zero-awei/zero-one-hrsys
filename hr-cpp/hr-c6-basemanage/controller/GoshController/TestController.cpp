@@ -49,27 +49,37 @@ Uint64JsonVO::Wrapper GoshController::execAddContract(const ContractDTO_gs::Wrap
 	}
 	//响应结果
 	return jvo;
-}//演示删除合同数据
+}
+//演示批量删除合同数据
 Uint64JsonVO::Wrapper GoshController::execRemoveContract(const ContractDTO_gs_delete::Wrapper& dto)
 {
-	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
-	//// 参数校验
-	if (!dto->id)
+
+	int length = dto->deleteById->size();
+
+	if (length <= 0)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	// 定义一个Service
+	int count = 0;
+	for (auto it = dto->deleteById->begin(); it != dto->deleteById->end(); ++it,++count)
+	{
+		if (!(*it))
+		{
+			jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+			return jvo;
+		}
+	}
+
 	GoshService service;
-	// 执行数据删除
-	if (service.removeData(dto->id.getValue(0))) {
-		jvo->success(dto->id);
+	if (service.removeData(dto))
+	{
+		jvo->success(count);
 	}
 	else
 	{
-		jvo->fail(dto->id);
+		jvo->fail(1);
 	}
-	// 响应结果
 	return jvo;
 }

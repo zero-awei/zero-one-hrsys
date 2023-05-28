@@ -2,6 +2,7 @@
 #include "GoshService.h"
 #include "dao/Gosh/GoshDAO.h"
 #include "domain/dto/Gosh/ContractDTO.h"
+#include "Macros.h"
 
 ContractPageDTO_gs::Wrapper GoshService::listContract(const ContractQuery::Wrapper& query)
 {
@@ -37,6 +38,7 @@ ContractPageDTO_gs::Wrapper GoshService::listContract(const ContractQuery::Wrapp
 		dto->date_end = sub.getDate_end();
 		dto->tip = sub.getTip();
 		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id, name, Name, type, Type,variety,Variety,date,Date, condition, Condition, department_m, Department_m, department_c, Department_c, date_end, Date_end, tip,Tip);
+		//ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub,name, Name, type, Type, variety, Variety, date, Date, condition, Condition, department_m, Department_m, department_c, Department_c, date_end, Date_end, tip, Tip);
 		pages->addData(dto);
 
 	}
@@ -64,22 +66,12 @@ uint64_t GoshService::saveData(const ContractDTO_gs::Wrapper& dto)
 	return dao.insert(data);
 }
 
-//bool GoshService::updateData(const ContractDTO_gs::Wrapper& dto)
-//{
-//	// 组装DO数据
-//	GoshDO data;
-//	// 	data.setId(dto->id.getValue(0));
-//	// 	data.setName(dto->name.getValue(""));
-//	// 	data.setSex(dto->sex.getValue(""));
-//	// 	data.setAge(dto->age.getValue(1));
-//	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Name, name, Sex, sex, Age, age, Id, id)
-//		// 执行数据修改
-//		GoshDAO dao;
-//	return dao.update(data) == 1;
-//}
-
-bool GoshService::removeData(uint64_t id)
+bool GoshService::removeData(const ContractDTO_gs_delete::Wrapper& dto)
 {
 	GoshDAO dao;
-	return dao.deleteById(id) == 1;
+	for (auto it = dto->deleteById->begin(); it != dto->deleteById->end(); ++it)
+	{
+		dao.deleteById(*it);
+	}
+	return true;
 }
