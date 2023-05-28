@@ -1,15 +1,16 @@
 package com.zeroone.star.project.j3.orgmanager;
 
 import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.dto.*;
 
 import com.zeroone.star.project.dto.sample.SampleDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.JobTitleDTO;
 import com.zeroone.star.project.j3.query.JobByNameQuery;
+import com.zeroone.star.project.query.PageQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -51,19 +52,21 @@ public interface JobSetApis {
 
 
     /**
-     * 查询职务列表
+     * 分页查询职务列表
      *
      * @return
      */
-    public JsonVO<PageDTO<JobTitleDTO>> queryJobTitleList();
+    @GetMapping("queryJobList")
+    @ApiOperation("查询职务")
+    JsonVO<PageDTO<JobTitleDTO>> queryJobTitleList(PageQuery pageQuery);
 
     /**
      * 修改所选若干个职务
-     *
-     * @param jobTitleDTOList
+     * @param ormdutyid 职务标识id
+     * @param jobTitleDTO  修改职务信息传输对象
      * @return
      */
-    public JsonVO<Boolean> modifyJobTitle(List<JobTitleDTO> jobTitleDTOList);
+    JsonVO<Boolean> modifyJobTitle(String ormdutyid,JobTitleDTO jobTitleDTO);
 
 
     /**

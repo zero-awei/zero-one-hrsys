@@ -1,7 +1,12 @@
 package com.zeroone.star.orgmanager.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.zeroone.star.orgmanager.entity.TOrmduty;
+import com.zeroone.star.orgmanager.service.ITOrmdutyService;
 import com.zeroone.star.project.components.fastdfs.FastDfsClientComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
+import com.zeroone.star.project.dto.DataTransCallBack;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.dto.AddPositionDTO;
 import com.zeroone.star.project.j3.dto.DeletePositionDTO;
@@ -10,16 +15,25 @@ import com.zeroone.star.project.j3.dto.JobDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.JobTitleDTO;
 import com.zeroone.star.project.j3.orgmanager.JobSetApis;
 import com.zeroone.star.project.j3.query.JobByNameQuery;
+import com.zeroone.star.project.query.PageQuery;
 import com.zeroone.star.project.vo.JsonVO;
+import com.zeroone.star.project.vo.ResultStatus;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.SneakyThrows;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -36,6 +50,8 @@ import java.util.List;
 @RequestMapping("jobset")
 @Api(tags = "职务设置")
 public class JobSetController implements JobSetApis {
+    @Autowired
+    ITOrmdutyService itOrmdutyService;
     @Resource
     private FastDfsClientComponent fastDfsClientComponent;
 
@@ -69,15 +85,39 @@ public class JobSetController implements JobSetApis {
     @GetMapping("queryJobList")
     @ApiOperation("查询职务")
     @Override
-    public JsonVO<PageDTO<JobTitleDTO>> queryJobTitleList() {
-        return null;
+    public JsonVO<PageDTO<JobTitleDTO>> queryJobTitleList(PageQuery pageQuery) {
+        Page<TOrmduty> tOrmdutyPage =new Page<>(pageQuery.getPageIndex(),pageQuery.getPageSize());
+        Page<JobTitleDTO> jobTitleDTOPage = new Page<>(pageQuery.getPageIndex(),pageQuery.getPageSize());
+        LambdaQueryWrapper<TOrmduty> queryWrapper = new LambdaQueryWrapper<>();
+        // 默认按序号升序排序职务 后续增加可以按照编号 姓名 修改时间排序
+        queryWrapper.orderByAsc(TOrmduty::getXh);
+        itOrmdutyService.page(tOrmdutyPage,queryWrapper);
+        //对象拷贝
+        BeanUtils.copyProperties(tOrmdutyPage,jobTitleDTOPage,"records");
+        List<TOrmduty> records = tOrmdutyPage.getRecords();
+        List<JobTitleDTO> dtoList = records.stream().map((item) -> {
+            JobTitleDTO jobTitleDTO = new JobTitleDTO();
+            //对象拷贝
+            BeanUtils.copyProperties(item, jobTitleDTO);
+            jobTitleDTO.setUpdatedate(item.getUpdatedate().toString());
+            return jobTitleDTO;
+        }).collect(Collectors.toList());
+        jobTitleDTOPage.setRecords(dtoList);
+        return JsonVO.create(PageDTO.create(jobTitleDTOPage,JobTitleDTO.class),ResultStatus.SUCCESS);
     }
 
-    @PutMapping("modify-jobTitles")
+    @PutMapping("modifyJobTitles/{ormdutyid}")
     @ApiOperation("更新若干职务信息")
     @Override
-    public JsonVO<Boolean> modifyJobTitle(List<JobTitleDTO> ids) {
-        return JsonVO.success(true);
+    public JsonVO<Boolean> modifyJobTitle(@PathVariable String ormdutyid,@RequestBody JobTitleDTO jobTitleDTO) {
+
+        TOrmduty tOrmduty = new TOrmduty();
+        tOrmduty.setOrmdutyid(ormdutyid);
+        tOrmduty.setUpdatedate(LocalDateTime.now());
+        tOrmduty.setFglx(jobTitleDTO.getFglx());
+        tOrmduty.setXh(jobTitleDTO.getXh());
+        tOrmduty.setOrmdutyname(jobTitleDTO.getOrmdutyname());
+        return JsonVO.success(itOrmdutyService.updateByOrmdutyId(tOrmduty));
     }
 
     @GetMapping("query-by-name")

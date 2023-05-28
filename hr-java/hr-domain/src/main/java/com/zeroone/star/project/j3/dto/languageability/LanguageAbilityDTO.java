@@ -17,5 +17,6 @@ public class LanguageAbilityDTO {
     private String languageType; // 外语类型
     @ApiModelProperty(value = "外语等级",example = "大学英语六级")
     private String languageLevel; // 外语等级
-
+    @ApiModelProperty(value = "获取时间",example = "2020-10-15")
+    private String date; // 获取时间
 }

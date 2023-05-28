@@ -9,11 +9,13 @@ import lombok.Data;
 public class JobTitleDTO {
 
     @ApiModelProperty(value = "工作职务编码",example = "101")
-    private String jobId; // 工作职务编码
-    @ApiModelProperty(value = "职务名称",example = "董事长")
-    private String title; // 职务名称
+    private String fglx; // 工作职务编码
+    @ApiModelProperty(value = "职务名称",example = "总规划师")
+    private String ormdutyname; // 职务名称
     @ApiModelProperty(value = "职务序号",example = "3")
-    private int order; // 职务序号
+    private int xh; // 职务序号
     @ApiModelProperty(value = "职务标识",example = "039bb636-099a-4deb-bf9b-c9b865e35e0f")
-    private String dutyId; //职务标识
+    private String ormdutyid; // 职务标识
+    @ApiModelProperty(value = "更新日期",example = "2022-5-15")
+    private String updatedate; // 更新日期
 }
