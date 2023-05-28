@@ -14,7 +14,7 @@ class EmployeeNotInArchiveDto : public oatpp::DTO
 {
 	DTO_INIT(EmployeeNotInArchiveDto, DTO);
 	// 档案编号
-	DTO_FIELD(UInt32, nummber);
+	DTO_FIELD(String, nummber);
 	DTO_FIELD_INFO(nummber) {
 		info->description = ZH_WORDS_GETTER("EmployeeNotInArchive.field.nummber");
 	}
@@ -39,7 +39,7 @@ class EmployeeNotInArchiveDto : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("EmployeeNotInArchive.field.status");
 	}
 	// 员工编号
-	DTO_FIELD(UInt32, emloyeenumber);
+	DTO_FIELD(String, emloyeenumber);
 	DTO_FIELD_INFO(emloyeenumber) {
 		info->description = ZH_WORDS_GETTER("EmployeeNotInArchive.field.emloyeenumber");
 	}
@@ -70,7 +70,7 @@ class ArchiveOutDto : public oatpp::DTO
 {
 	DTO_INIT(ArchiveOutDto, DTO);
 	// 员工编号
-	DTO_FIELD(UInt32, emloyeenumber);
+	DTO_FIELD(String, emloyeenumber);
 	DTO_FIELD_INFO(emloyeenumber) {
 		info->description = ZH_WORDS_GETTER("EmployeeNotInArchive.field.emloyeenumber");
 	}
@@ -103,9 +103,9 @@ class EmployeeNotInArchivePageDTO : public PageDTO<EmployeeNotInArchiveDto::Wrap
 	DTO_INIT(EmployeeNotInArchivePageDTO, PageDTO<EmployeeNotInArchiveDto::Wrapper>);
 };
 
-class ArchiveOutDTO : public PageDTO<ArchiveOutDto::Wrapper>
+class ArchiveOutPageDTO : public PageDTO<ArchiveOutDto::Wrapper>
 {
-	DTO_INIT(ArchiveOutDTO, PageDTO<ArchiveOutDto::Wrapper>);
+	DTO_INIT(ArchiveOutPageDTO, PageDTO<ArchiveOutDto::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

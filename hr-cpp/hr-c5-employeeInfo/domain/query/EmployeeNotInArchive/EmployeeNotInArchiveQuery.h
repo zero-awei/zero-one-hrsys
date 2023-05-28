@@ -19,6 +19,11 @@ class EmployeeNotInArchiveQuery : public PageQuery
 	DTO_FIELD_INFO(PimPersonName) {
 		info->description = ZH_WORDS_GETTER("EmployeeNotInArchive.field.PimPersonName");
 	}
+	// Ô±¹¤id
+	DTO_FIELD(String, pimpersonid);
+	DTO_FIELD_INFO(pimpersonid) {
+		info->description = ZH_WORDS_GETTER("EmployeeNotInArchive.field.pimpersonid");
+	}
 
 };
 class ArchiveOutQuery : public PageQuery

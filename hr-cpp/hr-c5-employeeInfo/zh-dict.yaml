@@ -213,6 +213,7 @@ EmployeeNotInArchive:
   outunit: 调出单位
   inunit: 调入单位
   time: 调动时间
+  pimpersonid : 员工id
 blacklist:
  field:
   ygbh: 员工编号

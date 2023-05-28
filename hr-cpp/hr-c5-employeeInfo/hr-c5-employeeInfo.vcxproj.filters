@@ -168,6 +168,27 @@
     <ClInclude Include="domain\do\t_srforg\t_srforgDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="service\EmployeeNotInArchive\EmployeeNotInArchiveService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\EmployeeNotInArchive\EmployeeNotInArchiveQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\EmployeeNotInArchive\EmployeeNotInArchiveDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\ArchivesManagement\t_pimarchivesDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\ArchivesManagement\t_pimarchivesMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Blacklist\BlacklistDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\Blacklist\BlacklistController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -204,6 +225,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\EmployeeNotInArchive\EmployeeNotInArchiveController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\EmployeeNotInArchive\EmployeeNotInArchiveService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\ArchivesManagement\t_pimarchivesDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\Blacklist\BlacklistController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

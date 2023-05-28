@@ -21,7 +21,7 @@ class t_pimarchivesDO
 	//档案室中文编码 位于数据表t_archivescenter
 	CC_SYNTHESIZE(string, archivescentername, Archivescentername);
 	//档案状态
-	CC_SYNTHESIZE(string, dazt, Dazt);
+	CC_SYNTHESIZE(string, dastate, Dastate);
 	//员工id
 	CC_SYNTHESIZE(string, pimpersonid, Pimpersonid);
 	//员工编号 位于数据表t_pimperson
@@ -58,7 +58,7 @@ public:
 		dabgd = "";
 		archivescenterid = "";
 		archivescentername = "";
-		dazt = "";
+		dastate = "";
 		pimpersonid = "";
 		ygbh = "";
 		pimpersonname = "";
