@@ -148,9 +148,22 @@ std::list<std::string> ProjTagDAO::insertMultiTag(const std::list<ProjTagDO>& da
 
 std::list<ProjTagDO> ProjTagDAO::exportProjTag(const ExportProjTagQuery::Wrapper& query)
 {
-	string sql = "SELECT `ORMXMBQID`, `ORMXMBQNAME`, `CREATEMAN`, `UPDATEMAN`, `CREATEDATE`, `UPDATEDATE`, `ORMORGID` FROM `t_ormxmbq` ORDER BY ? LIMIT ?";
+	stringstream sql;
+	sql << "SELECT `ORMXMBQID`, `ORMXMBQNAME`, `CREATEMAN`, `UPDATEMAN`, `CREATEDATE`, `UPDATEDATE`, `ORMORGID` FROM `t_ormxmbq`";
+	
+	SqlParams params;
+	if (query->order == "DESC")
+		sql << " ORDER BY `XH` DESC";
+	if (query->order == "ASC")
+		sql << " ORDER BY `XH` ASC";
+	if (query->line) {
+		sql << " LIMIT ?";
+		SQLPARAMS_PUSH(params, "ui", uint32_t, query->line.getValue(1));
+	}
+
+	string str = sql.str();
 	ProjTagMapper mapper;
-	return sqlSession->executeQuery<ProjTagDO, ProjTagMapper>(sql, mapper);
+	return sqlSession->executeQuery<ProjTagDO, ProjTagMapper>(str, mapper, params);
 }
 
 uint64_t ProjTagDAO::count(const PageProjTagQuery::Wrapper& query)
@@ -172,4 +185,24 @@ std::list<ProjTagDO> ProjTagDAO::selectProjTag(const PageProjTagQuery::Wrapper& 
 	ProjTagListMapper mapper;
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<ProjTagDO, ProjTagListMapper>(sqlStr, mapper, params);
+}
+
+std::vector<std::string> ProjTagDAO::getHead()
+{
+	// 构建返回对象
+	vector<std::string> head;
+
+	string sql = "SELECT COLUMN_NAME FROM information_schema.COLUMNS WHERE TABLE_NAME = 't_ormxmbq' ORDER BY ORDINAL_POSITION";
+	Statement* st = sqlSession->getConnection()->createStatement();
+	ResultSet* res;
+
+	res = st->executeQuery(sql);
+	while (res->next())
+	{
+		head.push_back(res->getString(1));
+	}
+
+	st->close();
+	res->close();
+	return head;
 }

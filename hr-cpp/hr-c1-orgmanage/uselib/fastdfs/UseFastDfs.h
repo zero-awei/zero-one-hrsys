@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: Andrew211vibe
- @Date: 2023/05/18 17:23:11
+ @Date: 2023/05/28 16:21:27
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,32 +17,28 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _EXPORTPROJTAGQUERY_H_
-#define _EXPORTPROJTAGQUERY_H_
+#ifndef _USEFASTDFS_H_
+#define _USEFASTDFS_H_
+#include <string>
 
-#include "../../GlobalInclude.h"
-
-#include OATPP_CODEGEN_BEGIN(DTO)
-
-/**
- * 导出项目标签Query领域模型
- * 负责人：Andrew
- */
-class ExportProjTagQuery : public oatpp::DTO
+class UseFastDfs
 {
-	DTO_INIT(ExportProjTagQuery, DTO);
-	// 导出行数
-	DTO_FIELD(UInt32, line);
-	DTO_FIELD_INFO(line) {
-		info->description = ZH_WORDS_GETTER("projTag.export.line");
+	std::string host; // FastDFS服务器IP
+	std::string url_prefix;
+public:
+	// 构造函数
+	UseFastDfs(std::string host_ = "") 
+		: host(host_)
+	{
+		stringstream ss;
+		ss << "http://" << host << ":8888/";
+		url_prefix = ss.str();
 	}
-	// 顺序
-	DTO_FIELD(String, order);
-	DTO_FIELD_INFO(order) {
-		info->description = ZH_WORDS_GETTER("projTag.export.order");
-	}
+
+	// 上传到FastDFS服务器, 返回FastDFS服务器文件保存路径
+	std::string upload(std::string fileName);
+	// Nacos 上传
+	std::string uploadWithNacos(std::string fileName);
 };
 
-#include OATPP_CODEGEN_END(DTO)
-
-#endif // !_EXPORTPROJTAGQUERY_H_
+#endif // !_USEFASTDFS_H_

@@ -23,12 +23,13 @@
 #include "SimpleDateTimeFormat.h"
 #include "ExcelComponent.h"
 #include "domain/vo/projTag/ImportTagVO.h"
+#include "uselib/excel/ExportExcel.h"
+#include "uselib/fastdfs/UseFastDfs.h"
 // 文件到DO宏
 #define FILE_TO_DO(target, src, f1, f2) target.set##f1(src##f2);
 #define INDEX(x, y) [x][y]
 #define ZO_STAR_FILE_TO_DO(target, src, ...) \
 ZO_STAR_EXPAND(ZO_STAR_PASTE(target, src, FILE_TO_DO, __VA_ARGS__))
-
 
 uint64_t ProjTagService::saveData(const ProjTagDTO::Wrapper& dto)
 {
@@ -143,13 +144,39 @@ ImportTagVO::Wrapper ProjTagService::addMultiTag(const ImportTagDTO::Wrapper& dt
 std::string ProjTagService::exportProjTag(const ExportProjTagQuery::Wrapper& query)
 {
 	// TODO: 调用DAO查询数据条数
+	ProjTagDAO dao;
+	auto res = dao.exportProjTag(query);
 
 	// TODO: 包装数据到Excel文件
+	ExportExcel excel;
 
-	// TODO: 上传到FastDFS文件服务器
+	// 读取数据到二维数组
+	vector<vector<string>> data;
+	for (auto item : res)
+	{
+		vector<string> tmp;
+		tmp.push_back(item.getId());
+		tmp.push_back(item.getTagName());
+		tmp.push_back(item.getCreator());
+		tmp.push_back(item.getUpdater());
+		tmp.push_back(item.getCreateTime());
+		tmp.push_back(item.getUpdateTime());
+		tmp.push_back(item.getOrgId());
+		data.push_back(tmp);
+	}
 
-	// TODO: 生成下载链接并返回
-	return "";
+	// 生成数据表表头
+	vector<string> head = dao.getHead();
+	head.erase(head.begin() + 6);
+	// 导出到Excel文件
+	data.insert(data.begin(), head);
+	string fileName = excel.exportExcel(data);
+
+	// TODO: 上传到FastDFS文件服务器, 返回下载链接
+	UseFastDfs dfs("8.130.87.15");
+	string url = dfs.uploadWithNacos(fileName);
+
+	return url;
 }
 
 ProjTagPageDTO::Wrapper ProjTagService::listProjTagList(const PageProjTagQuery::Wrapper& query) {

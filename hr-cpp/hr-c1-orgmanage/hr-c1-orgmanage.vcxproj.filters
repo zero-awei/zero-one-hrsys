@@ -29,6 +29,8 @@
     <ClCompile Include="service\jobSet\JobSetService.cpp" />
     <ClCompile Include="dao\jobSet\JobSetDAO.cpp" />
     <ClCompile Include="controller\jobSet\addJobController\AddJobController.cpp" />
+    <ClCompile Include="uselib\excel\ExportExcel.cpp" />
+    <ClCompile Include="uselib\fastdfs\UseFastDfs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -96,5 +98,8 @@
     <ClInclude Include="controller\jobSet\addJobController\AddJobController.h" />
     <ClInclude Include="domain\dto\addJob\AddJobDTO.h" />
     <ClInclude Include="dao\projTag\ProjTagMapper.h" />
+    <ClInclude Include="dao\projTag\ProjTagListMapper.h" />
+    <ClInclude Include="uselib\excel\ExportExcel.h" />
+    <ClInclude Include="uselib\fastdfs\UseFastDfs.h" />
   </ItemGroup>
 </Project>

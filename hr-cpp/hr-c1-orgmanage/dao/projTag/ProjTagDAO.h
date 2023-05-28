@@ -80,6 +80,11 @@ public:
 	 * 负责人：咫尺之书
 	 */
 	std::list<ProjTagDO> selectProjTag(const PageProjTagQuery::Wrapper& query);
+	/**
+	 * 获取项目标签表头
+	 * 负责人：Andrew
+	 */
+	vector<std::string> getHead();
 };
 
 #endif // !_PROJTAGDAO_H_
