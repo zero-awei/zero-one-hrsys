@@ -119,6 +119,37 @@ std::list<ExpenseLedgerDO> ExpenseLedgerDAO::selectAll(const ExpenseLedgeDTO::Wr
 	return sqlSession->executeQuery<ExpenseLedgerDO, ExpenseLedgerMapper>(sqlStr, mapper, params);
 }
 
+int ExpenseLedgerDAO::update(const ExpenseLedgerDO& uObj)
+{
+	stringstream sql;
+	stringstream fmts;
+	sql << "UPDATE `t_pimexpaccount` SET ";
+	SQLPARAMS_UPDATE_STRING(name);
+	SQLPARAMS_UPDATE_STRING(updateman);
+	SQLPARAMS_UPDATE_STRING(createdate);
+	SQLPARAMS_UPDATE_STRING(createman);
+	SQLPARAMS_UPDATE_STRING(updatedate);
+	SQLPARAMS_UPDATE_STRING(fylb);
+	SQLPARAMS_UPDATE_FLOAT(fyje);
+	SQLPARAMS_UPDATE_INT(ffrs);
+	SQLPARAMS_UPDATE_STRING(ffsj);
+	SQLPARAMS_UPDATE_STRING(fybz);
+	SQLPARAMS_UPDATE_PUSH_FINAL(bz,"%s",id);
+	return sqlSession->executeUpdate(sql.str(), fmts.str().c_str(),
+		uObj.getName(),
+		uObj.getUpdateman(),
+		uObj.getCreatedate(),
+		uObj.getCreateman(),
+		uObj.getUpdatedate(),
+		uObj.getFylb(),
+		uObj.getFyje(),
+		uObj.getFfrs(),
+		uObj.getFfsj(),
+		uObj.getFybz(),
+		uObj.getBz(),
+		uObj.getId());
+}
+
 uint64_t ExpenseLedgerDAO::insert(const ExpenseLedgerDO& ido)
 {
 	string sql = "INSERT INTO `t_pimexpaccount` (`PIMEXPACCOUNTNAME`, `PIMEXPACCOUNTID`, `UPDATEMAN`, `CREATEDATE`, `CREATEMAN`, `UPDATEDATE`, `FYLB`, `FYJE`, `FFRS`, `FFSJ`, `FFYBZ`, `BZ`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";

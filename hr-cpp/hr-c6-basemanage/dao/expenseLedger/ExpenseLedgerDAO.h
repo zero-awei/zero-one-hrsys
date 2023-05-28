@@ -35,6 +35,9 @@ public:
 	// 导出所有数据（查询所有数据）
 	std::list<ExpenseLedgerDO> selectAll(const ExpenseLedgeDTO::Wrapper& query);
 
+	// 修改数据
+	int update(const ExpenseLedgerDO& uObj);
+
 	uint64_t insert(const ExpenseLedgerDO& ido);
 };
 #endif

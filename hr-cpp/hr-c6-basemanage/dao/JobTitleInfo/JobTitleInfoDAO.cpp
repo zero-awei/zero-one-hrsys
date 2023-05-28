@@ -36,3 +36,34 @@ std::list<JobTitleDo> JobTitleInfoDAO::selectAll(const JobTitleInfoDTO::Wrapper&
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<JobTitleDo,JobTitleInfoMapper>(sqlStr,mapper, params);
 }
+
+int JobTitleInfoDAO::update(const JobTitleInfoDTO& uObj)
+{
+	stringstream sql;
+	stringstream fmts;
+	sql << "UPDATE `bis_professoranalysis_t` SET ";
+	SQLPARAMS_UPDATE_INT(EMPLOYEEID);
+	SQLPARAMS_UPDATE_INT(CREDENTIALS_NUM);
+	SQLPARAMS_UPDATE_STRING(EMPLOYEENAME);
+	SQLPARAMS_UPDATE_STRING(ORGANIZATION_NAME);
+	SQLPARAMS_UPDATE_STRING(PROFESSORANALYSIS_NAME);
+	SQLPARAMS_UPDATE_STRING(PROFESSOR_GRADES);
+	SQLPARAMS_UPDATE_STRING(PROFESSOR_DATE);
+	SQLPARAMS_UPDATE_STRING(PROFESSIONAL_CATEGORY);
+	SQLPARAMS_UPDATE_STRING(issuing_authority);
+	SQLPARAMS_UPDATE_STRING(judging_unit);
+	SQLPARAMS_UPDATE_PUSH_FINAL(b_highest_professional_title, "%b", id);
+	return sqlSession->executeUpdate(sql.str(), fmts.str().c_str(),
+		uObj.getName(),
+		uObj.getUpdateman(),
+		uObj.getCreatedate(),
+		uObj.getCreateman(),
+		uObj.getUpdatedate(),
+		uObj.getFylb(),
+		uObj.getFyje(),
+		uObj.getFfrs(),
+		uObj.getFfsj(),
+		uObj.getFybz(),
+		uObj.getBz(),
+		uObj.getId());
+}
