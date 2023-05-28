@@ -78,7 +78,7 @@ bool AssignInfoService::removeData(string id)
 AssignInfoDTO::Wrapper AssignInfoService::QueryDetail(const AssignInfoDTO::Wrapper& dto)
 {
 	//// 构建返回对象
-	auto page = AssignInfoDTO::createShared();
+	//auto page = AssignInfoDTO::createShared();
 
 	//// 将DO转换成DTO
 	AssignInfoDO sub;
@@ -92,5 +92,5 @@ AssignInfoDTO::Wrapper AssignInfoService::QueryDetail(const AssignInfoDTO::Wrapp
 		//dto->startTime = sub.getStartTime();
 		//dto->endTime = sub.getEndTime();
 	ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id, assign, Assign, etype, Etype, organize, Organize, depart, Depart, job, Job, post, Post, startTime, StartTime, endTime, EndTime)
-		return page;
+		return dto;
 }

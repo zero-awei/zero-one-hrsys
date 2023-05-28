@@ -144,12 +144,13 @@ AssignInfoPageJsonVO::Wrapper AssignInfoController::execAssignQuery(const Assign
 
 AssignInfoJsonVO::Wrapper AssignInfoController::execAssignQueryDetail(const AssignInfoQueryDetail::Wrapper& dto, const PayloadDTO& payload)
 {
+	// 定义返回数据对象
+	auto jvo = AssignInfoJsonVO::createShared();
+
 	// 定义一个Service
 	AssignInfoService service;
 	//// 查询数据
 	auto result = service.QueryDetail(dto);
-	// 定义返回数据对象
-	auto jvo = AssignInfoJsonVO::createShared();
 	jvo->success(result);
 	return jvo;
 }
