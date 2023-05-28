@@ -357,6 +357,9 @@
     <ClInclude Include="service\sciresult\SciResultService.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\trainingrecord\TrainingRecordController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -453,6 +456,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="service\sciresult\SciResultService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\trainingrecord\TrainingRecordController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

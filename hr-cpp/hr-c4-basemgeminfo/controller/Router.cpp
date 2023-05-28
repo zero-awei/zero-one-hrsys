@@ -35,6 +35,9 @@
 
 #include "archives/ArchivesController.h"
 #include "scientific/ScientificController.h"
+#include "trainingrecord/TrainingRecordController.h"
+
+
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC

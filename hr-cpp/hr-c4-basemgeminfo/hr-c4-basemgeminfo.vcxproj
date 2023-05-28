@@ -182,6 +182,7 @@
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\scientific\ScientificController.h" />
     <ClInclude Include="controller\SciResult\SciResultController.h" />
+    <ClInclude Include="controller\trainingrecord\TrainingRecordController.h" />
     <ClInclude Include="controller\work-history\WorkHistoryController.h" />
     <ClInclude Include="dao\archives\ArchivesDAO.h" />
     <ClInclude Include="dao\archives\ArchivesMapper.h" />
@@ -298,6 +299,7 @@
     <ClCompile Include="controller\scientific\ScientficController.cpp" />
     <ClCompile Include="controller\SciResult\SciResultController.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="controller\trainingrecord\TrainingRecordController.cpp" />
     <ClCompile Include="controller\work-history\WorkHistoryController.cpp" />
     <ClCompile Include="dao\archives\ArchivesDAO.cpp" />
     <ClCompile Include="dao\certificate-information\certificate-information\CertificateInformationDAO.cpp" />
