@@ -22,6 +22,7 @@
 #include "domain/dto/projTag/ProjTagDTO.h"
 #include "domain/dto/projTag/OrgListDTO.h"
 #include "domain/query/projTag/OrgListQuery.h"
+#include "domain/query/projTag/PageProjTagQuery.h"
 #include "domain/dto/projTag/ModifyTagDTO.h"
 #include "domain/vo/projTag/ProjTagVO.h"
 #include "domain/dto/projTag/ImportTagDTO.h"
@@ -61,6 +62,11 @@ public:
 	 * 负责人：Andrew
 	 */
 	std::string exportProjTag(const ExportProjTagQuery::Wrapper& query);
+	/**
+	 * 分页查询项目标签
+	 * 负责人：咫尺之书
+	 */
+	ProjTagPageDTO::Wrapper listProjTagList(const PageProjTagQuery::Wrapper& query);
 };
 
 #endif // !_PROJTAGSERVICE_H_

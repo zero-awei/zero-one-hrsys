@@ -7,7 +7,7 @@
 #include "Macros.h"
 #include "ServerInfo.h"
 #include "domain/query/projTag/PageProjTagQuery.h"
-#include "domain/vo/pageQuery/PageQueryVO.h"
+#include "domain/vo/projTag/PageQueryProjTagVO.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
@@ -19,25 +19,19 @@ public: // 定义接口
 	ENDPOINT_INFO(pageQueryProjTag) {
 		info->summary = ZH_WORDS_GETTER("projTag.pageQuery.controller");
 		API_DEF_ADD_AUTH();
-		API_DEF_ADD_RSP_JSON_WRAPPER(PageQueryVO);
-		//API_DEF_ADD_PAGE_PARAMS();
-		info->queryParams.add<UInt8>("size").description = ZH_WORDS_GETTER("projTag.pageQuery.size");
-		info->queryParams["size"].addExample("default", UInt8(20));
-		info->queryParams["size"].required = true;
-		info->queryParams.add<UInt8>("page").description = ZH_WORDS_GETTER("projTag.pageQuery.page");
-		info->queryParams["page"].addExample("default", UInt8(1));
-		info->queryParams["page"].required = true;
-		info->queryParams.add<String>("sort").description = ZH_WORDS_GETTER("projTag.pageQuery.sort");
-		info->queryParams["sort"].addExample("default", String("xh,ASC"));
-		info->queryParams["sort"].required = true;
+		API_DEF_ADD_RSP_JSON_WRAPPER(PageQueryProjTagVO);
+		API_DEF_ADD_PAGE_PARAMS();
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		API_DEF_ADD_QUERY_PARAMS(String, "order", ZH_WORDS_GETTER("projTag.pageQuery.order"), "ASC", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "tagName", ZH_WORDS_GETTER("projTag.pageQuery.tagName"), "tag1", false);
 	}
 
-	ENDPOINT(API_M_GET, "/page-query-project-tag-list", pageQueryProjTag, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/project-tag/page-query-project-tag-list", pageQueryProjTag, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
 		API_HANDLER_QUERY_PARAM(query, PageProjTagQuery, qps);
 		API_HANDLER_RESP_VO(execPageQueryProjTag(query));
 	}
 private: // 定义接口执行函数
-	PageQueryVO::Wrapper execPageQueryProjTag(const PageProjTagQuery::Wrapper& Query);
+	PageQueryProjTagVO::Wrapper execPageQueryProjTag(const PageProjTagQuery::Wrapper& query);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

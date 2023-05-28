@@ -151,3 +151,31 @@ std::string ProjTagService::exportProjTag(const ExportProjTagQuery::Wrapper& que
 	// TODO: 生成下载链接并返回
 	return "";
 }
+
+ProjTagPageDTO::Wrapper ProjTagService::listProjTagList(const PageProjTagQuery::Wrapper& query) {
+	// 构建返回对象
+	auto dto = ProjTagPageDTO::createShared();
+	dto->pageIndex = query->pageIndex;
+	dto->pageSize = query->pageSize;
+
+	// 获取查询总条数
+	ProjTagDAO dao;
+	uint64_t cnt = dao.count(query);
+	if (cnt <= 0)
+	{
+		return dto;
+	}
+
+	// 分页查询数据
+	dto->total = cnt;
+	dto->calcPages();
+	list<ProjTagDO> res = dao.selectProjTag(query);
+	// 将DO转成DTO
+	for (ProjTagDO item : res)
+	{
+		auto to_dto = ProjTagDTO::createShared();
+		ZO_STAR_DOMAIN_DO_TO_DTO(to_dto, item, ormxmbqid, Id, createman, Creator, ormxmbqname, TagName, updateman, Updater, createdate, CreateTime, updatedate, UpdateTime, ormorgid, OrgId);
+		dto->addData(to_dto);
+	}
+	return dto;
+}
