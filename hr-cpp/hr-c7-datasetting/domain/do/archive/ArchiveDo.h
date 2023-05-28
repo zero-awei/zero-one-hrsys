@@ -20,11 +20,15 @@ class ArchiveDO
 	CC_SYNTHESIZE(int32_t, numid, numID);
 public:
 	ArchiveDO() {
-			sortid = 0;
-			archivename = "";
-			cabinetnum =0;
-			layernum = 0;
-			numid = 0;
+	
+		sortid = 0;
+		archivename = "";
+		cabinetnum = 0;
+		layernum = 0;
+		numid = 0;
+	
+	
+	
 	}
 	//分别为排序号，档案室名称，柜数，层数，编号
 	ArchiveDO(int sortid,string archivename ,int cabinetnum,int layernum,int numid)

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _ARCHIVE_SERIVCE_
-#define _ARCHIVE_SERIVCE_
+#ifndef _ARCHIVE_SERVICE_
+#define _ARCHIVE_SERVICE_
 #include <list>
 #include "domain/vo/archive/ArchiveVO.h"
 #include "domain/query/archive/ArchiveQuery.h"
@@ -22,4 +22,5 @@ public:
 	bool removeData(uint64_t id);
 };
 
-#endif // !_ARCHIVE_SERIVCE_
+#endif // !_ARCHIVE_SERVICE_
+

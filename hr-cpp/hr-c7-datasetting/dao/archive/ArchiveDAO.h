@@ -25,4 +25,3 @@ public:
 	int deleteById(uint64_t id);
 };
 #endif // !_ARCHIVE_DAO_
-

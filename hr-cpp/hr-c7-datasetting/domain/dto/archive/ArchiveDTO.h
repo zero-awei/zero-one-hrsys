@@ -11,7 +11,7 @@ class ArchiveDTO : public oatpp::DTO
 {
 	DTO_INIT(ArchiveDTO, DTO);
 	// ÅÅÐòºÅ
-	DTO_FIELD(UInt32, sortid);
+	DTO_FIELD(UInt64, sortid);
 	DTO_FIELD_INFO(sortid) {
 		info->description = ZH_WORDS_GETTER("archive.field.sortid");
 	}

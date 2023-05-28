@@ -40,7 +40,7 @@ certificate:
   summary: 删除证书类型
  field:
   id: 排序号
-  certificateName:	证书名称
+  certificateName: 证书名称
 contractType:
  get:
   summary: 分页查询合同数据
@@ -109,11 +109,11 @@ archive:
  delete:
   summary: 删除档案室数据
  field:
-  sortID: 排序号
-  archiveName: 档案室名称
-  cabinetNum: 柜数  
-  layerNum: 层数
-  numID: 编号    
+  sortid: 排序号
+  archivename: 档案室名称
+  cabinetnum: 柜数  
+  layernum: 层数
+  numid: 编号    
   ids: 编号列表
 Qualification:
  get:
