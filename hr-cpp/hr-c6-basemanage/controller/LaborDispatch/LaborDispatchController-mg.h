@@ -44,7 +44,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(LaborDispatchMDTO);
 		
 		// 定义输入参数描述
-		info->queryParams.add<String>("corporateName").description = ZH_WORDS_GETTER("labordispatch_mug.field.corporatename");;
+		info->queryParams.add<String>("corporateName").description = ZH_WORDS_GETTER("labordispatch_mug.field.corporatename");
 		info->queryParams["corporateName"].addExample("default", String("PDD"));
 		info->queryParams["corporateName"].required = false;
 	}
@@ -60,14 +60,14 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 
-	ENDPOINT(API_M_DEL, "/contract-management/modify-labor-dispatch-corporate", modifyLaborDispatch, BODY_DTO(LaborDispatchMDTO::Wrapper, dto)) {
-		API_HANDLER_RESP_VO(execModifyLaborDispatch());
+	ENDPOINT(API_M_PUT, "/contract-management/modify-labor-dispatch-corporate", modifyLaborDispatch, BODY_DTO(LaborDispatchUpdateDTO::Wrapper, dto)) {
+		API_HANDLER_RESP_VO(execModifyLaborDispatch(dto));
 	}
 private:
 	LaborDispatchJsonMVO::Wrapper execQueryLaborDispatch(const LaborDispatchMQuery::Wrapper& query);
 
 
-	StringJsonVO::Wrapper execModifyLaborDispatch();
+	StringJsonVO::Wrapper execModifyLaborDispatch(const LaborDispatchUpdateDTO::Wrapper& dto);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

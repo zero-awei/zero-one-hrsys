@@ -16,5 +16,8 @@ public:
 
 	//更新指定合同
 	int update(const ContractDO& uObj);
+
+	//按rows导出数据
+	std::list<ContractDO> downloadByRows(oatpp::String sequence, UInt64 rows);
 };
 #endif // !_SAMPLE_DAO_

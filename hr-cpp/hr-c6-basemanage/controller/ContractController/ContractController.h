@@ -87,7 +87,7 @@ public:
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 		// 添加其他查询参数
-		UPDATECONTRACTINFO;
+		//UPDATECONTRACTINFO;
 	}
 
 	// 3.2.2 定义接口端点
@@ -142,7 +142,13 @@ private:
 	Uint64JsonVO::Wrapper execUpdateContract(const ContractDTO_::Wrapper& dto);
 	//导入合同
 	StringJsonVO::Wrapper execUploadContract(const String& fileBody, const String& suffix);
-	//导出合同
+
+	/*
+	* 导出项目标签（最大5000条）
+	* 调用DAO查询数据库，返回后包装进Excel文件并保存到FastDFS文件服务器
+	* 返回值：文件服务器拼接下载链接
+	* 负责人：akie
+	*/
 	StringJsonVO::Wrapper execDownloadContract(const ContractDownloadQuery::Wrapper& query);
 };
 // 0 取消API控制器使用宏

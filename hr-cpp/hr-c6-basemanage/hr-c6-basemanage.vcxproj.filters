@@ -23,6 +23,8 @@
     <ClCompile Include="dao\Gosh\GoshDAO.cpp" />
     <ClCompile Include="service\laborDispatch\LaborDispatchService-mg.cpp" />
     <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mg.cpp" />
+    <ClCompile Include="dao\expenseLedger\ExpenseLedgerDAO.cpp" />
+    <ClCompile Include="service\expenseLedger\ExpenseLedgerService.cpp" />
     <ClCompile Include="dao\ContractInfo\ContractInfoDAO.cpp" />
     <ClCompile Include="service\akieService\ContractInfoService.cpp" />
   </ItemGroup>
@@ -74,7 +76,14 @@
     <ClInclude Include="domain\query\LaborDispatch\LaborDispatchQuery-mg.h" />
     <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mg.h" />
     <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO-mg.h" />
-    <ClInclude Include="domain\dto\ContractDTO\ContractDTO_.h" />
+    <ClInclude Include="dao\expenseLedger\ExpenseLedgerDAO.h" />
+    <ClInclude Include="dao\expenseLedger\ExpenseLedgerMapper.h" />
+    <ClInclude Include="service\expenseLedger\ExpenseLedgerService.h" />
+    <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgerVO.h" />
+    <ClInclude Include="domain\vo\LaborDispatch\LaborDispatchJsonVO-mg.h" />
+    <ClInclude Include="domain\do\expenseLedger\ExpenseLedgerDO.h" />
+    <ClInclude Include="domain\dto\ExpenseLedger\ExpenseLedgerDTO.h" />
+    <ClInclude Include="domain\query\ExpenseLedger\ExpenseLedgerQuery.h" />
     <ClInclude Include="dao\ContractInfo\ContractInfoDAO.h" />
     <ClInclude Include="service\akieService\ContractInfoService.h" />
   </ItemGroup>

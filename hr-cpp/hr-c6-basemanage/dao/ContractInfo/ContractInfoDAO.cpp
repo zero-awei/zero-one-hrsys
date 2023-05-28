@@ -17,3 +17,12 @@ int ContractInfoDAO::update(const ContractDO& uObj)
 	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%ull", uObj.getName(),uObj.getType(), uObj.getVariety(), uObj.getDate(), \
 		uObj.getCondition(), uObj.getDepartment_m(), uObj.getDepartment_c(), uObj.getDate_end(), uObj.getTip(), uObj.getId());
 }
+
+
+std::list<ContractDO> ContractInfoDAO::downloadByRows(oatpp::String sequence, UInt64 rows)
+{
+	string sql = "SELECT * FROM test ORDER BY id ? LIMIT ?";
+	GoshMapper mapper;
+	return sqlSession->executeQuery<ContractDO, GoshMapper>(sql, mapper, "%s%ull", sequence, rows);
+
+}

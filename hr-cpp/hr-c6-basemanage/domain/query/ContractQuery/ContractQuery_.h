@@ -70,7 +70,7 @@ class ContractDownloadQuery : public oatpp::DTO
 	DTO_FIELD_INFO(rows) {
 		info->description = ZH_WORDS_GETTER("contract.export.rows");
 	}
-	DTO_FIELD(UInt8, rows);
+	DTO_FIELD(UInt64, rows);
 	DTO_FIELD_INFO(sequence) {
 		info->description = ZH_WORDS_GETTER("contract.export.sequence");
 	}

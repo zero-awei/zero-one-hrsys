@@ -77,8 +77,8 @@ uint64_t GoshDAO::insert(const ContractDO& iObj)
 	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%s%s", iObj.getName(), iObj.getType(), iObj.getVariety(), iObj.getDate(), iObj.getCondition(), iObj.getDepartment_m(), iObj.getDepartment_c(), iObj.getDate_end(), iObj.getTip());
 }
 
-int GoshDAO::deleteById(uint64_t id)
+int GoshDAO::deleteById(std::string id)
 {
 	string sql = "DELETE FROM `Gosh` WHERE `id`=?";
-	return sqlSession->executeUpdate(sql, "%ull", id);
+	return sqlSession->executeUpdate(sql, "%s", id);
 }

@@ -33,7 +33,7 @@ Uint64JsonVO::Wrapper ContractController::execUpdateContract(const ContractDTO_:
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-
+	//创建service对象
 	ContractInfoService service;
 
 	// 执行数据修改
@@ -43,10 +43,7 @@ Uint64JsonVO::Wrapper ContractController::execUpdateContract(const ContractDTO_:
 	else
 	{
 		jvo->fail(dto->id);
-		//cout << 1 << endl;
 	}
-
-
 	return jvo;
 }
 
@@ -89,16 +86,9 @@ StringJsonVO::Wrapper ContractController::execUploadContract(const String& fileB
 	// 创建响应数据
 	auto vo = StringJsonVO::createShared();
 	vo->success(String(ss.str().c_str()));
+
 	return vo;
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -106,17 +96,27 @@ StringJsonVO::Wrapper ContractController::execDownloadContract(const ContractDow
 {
 	auto vo = StringJsonVO::createShared();
 
-	// TODO: 调用service获取导出文件下载链接
-
-
 
 	// 校验
-	if (query->sequence != "ASC" && query->sequence != "DESC")
+	if (query->sequence->empty() || query->sequence != "ASC" && query->sequence != "DESC")
 	{
-		vo->init("error(please contact akie)", RS_PARAMS_INVALID);
+		vo->init("error(contact akie)", RS_PARAMS_INVALID);
 		return vo;
 	}
 
-	vo->success("url/download");
+	// 最大5000条
+	if (query->rows > 5000)
+		query->rows = 5000;
+
+	//创建service对象
+	ContractInfoService service;
+	string url = service.downloadContract(query);
+
+	std::cout << url;
+	//判断url是否为空
+	if (url.empty())
+		vo->fail(url);
+	else
+		vo->success(url);
 	return vo;
 }

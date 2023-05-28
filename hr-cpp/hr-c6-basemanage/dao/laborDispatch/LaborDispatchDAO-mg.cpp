@@ -53,3 +53,9 @@ std::list<LaborDispatchDO> LaborDispatchMDAO::selectByCorporateName(const LaborD
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<LaborDispatchDO, LaborDispatchMapper>(sqlStr, mapper, params);
 }
+
+int LaborDispatchMDAO::update(const LaborDispatchDO& uDo)
+{
+	string sql = "UPDATE `t_pimlabourcampany` SET  `LXDZ`=?, `LXR`=?, `LXFS`=?, `LEGALPEROSN`=?, `REGCAPITAL`=?, `GSJJ`=? WHERE `PIMLABOURCAMPANYNAME`=?";
+	return sqlSession->executeUpdate(sql,"%s%s%s%s%s%s%s",uDo.getLxdz(),uDo.getLxr(),uDo.getLxfs(),uDo.getLegalperson(),uDo.getRegcapital(),uDo.getGsjj(), uDo.getName());
+}

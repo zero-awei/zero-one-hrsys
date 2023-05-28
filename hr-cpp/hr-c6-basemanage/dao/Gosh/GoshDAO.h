@@ -20,6 +20,6 @@ public:
 	// 插入数据
 	uint64_t insert(const ContractDO& iObj);
 	// 通过ID删除数据
-	int deleteById(uint64_t id);
+	int deleteById(std::string id);
 };
 #endif // !_SAMPLE_DAO_

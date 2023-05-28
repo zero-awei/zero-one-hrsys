@@ -17,10 +17,8 @@ public:
 	ContractDTO_::Wrapper listContract(const ContractQuery_::Wrapper& query);
 	// 修改指定合同
 	bool updateContract(const ContractDTO_::Wrapper& dto);
-	// 修改数据
-	//bool updateData(const ContractDTO_::Wrapper& dto);
-	// 通过ID删除数据
-	//bool removeData(uint64_t id);
+	// 下载合同
+	std::string downloadContract(const ContractDownloadQuery::Wrapper& query);
 };
 
 #endif // !_SAMPLE_SERVICE_

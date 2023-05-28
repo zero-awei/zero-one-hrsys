@@ -61,7 +61,19 @@ LaborDispatchPageDTO::Wrapper LaborDispatchMService::ListAll(const LaborDispatch
 	return pages;
 }
 
-bool LaborDispatchMService::modifyData(const LaborDispatchMDTO::Wrapper& dto)
+bool LaborDispatchMService::updateData(const LaborDispatchUpdateDTO::Wrapper& dto)
 {
-	return true;//啊对对对对
+	// 组装DO数据
+	LaborDispatchDO data;
+	data.setName(dto->corporateName.getValue(""));
+	data.setLxdz(dto->contactAddress.getValue(""));
+	data.setLxfs(dto->contactNumber.getValue(""));
+	data.setLxr(dto->contactPerson.getValue(""));
+	data.setGsjj(dto->introduction.getValue(""));
+	data.setRegcapital(dto->registerdCapital.getValue(""));
+	data.setLegalperson(dto->legalPerson.getValue(""));
+	LaborDispatchMDAO dao;
+	return dao.update(data) == 1;
 }
+
+

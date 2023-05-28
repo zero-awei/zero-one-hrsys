@@ -27,6 +27,10 @@ class ExpenseLedgerService
 public:
 	// 分页查询数据
 	ExpenseLedgerPageDTO::Wrapper ListAll(const ExpenseLedgerPageQuery::Wrapper& query);
+	// 保存数据
+	uint64_t saveData(const ExpenseLedgerDTO::Wrapper& dto);
+	// 根据..删除数据
+	bool removeData(String id);
 protected:
 private:
 };

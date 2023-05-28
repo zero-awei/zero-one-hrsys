@@ -23,7 +23,6 @@
 #include "domain/query/PageQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
-
 class ExpenseLedgerPageQuery : public PageQuery
 {
 	DTO_INIT(ExpenseLedgerPageQuery, PageQuery);
@@ -90,5 +89,13 @@ class ExpenseLedgerPageQuery : public PageQuery
 	}
 };
 
+class ExpenseLedgerDelQuery : public oatpp::DTO
+{
+	DTO_INIT(ExpenseLedgerDelQuery, DTO);
+	DTO_FIELD(List<String>, Ids);
+	DTO_FIELD_INFO(Ids) {
+		info->description = ZH_WORDS_GETTER("expenseledger.field.IDS");
+	}
+};
 #include OATPP_CODEGEN_END(DTO)
 #endif

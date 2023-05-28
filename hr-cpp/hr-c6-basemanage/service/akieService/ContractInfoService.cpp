@@ -3,7 +3,7 @@
 #include "../../dao/ContractInfo/ContractInfoDAO.h"
 #include "domain/dto/ContractDTO/ContractDTO_.h"
 #include <stdlib.h>
-
+#include "FastDfsClient.h"
 ContractDTO_::Wrapper ContractInfoService::listContract(const ContractQuery_::Wrapper& query)
 {
 	// 构建返回对象
@@ -50,4 +50,56 @@ bool ContractInfoService::updateContract(const ContractDTO_::Wrapper& dto)
 	//dao层逻辑运算
 	ContractInfoDAO dao;
 	return dao.update(cdo) == 1;
+}
+
+
+std::string ContractInfoService::downloadContract(const ContractDownloadQuery::Wrapper& query)
+{
+// TODO: 调用DAO查询数据条数
+
+// TODO: 包装数据到Excel文件
+
+// TODO: 上传到FastDFS文件服务器
+
+// TODO: 生成下载链接并返回
+
+
+	const String suffix = ".xls";
+	// 根据时间戳生成一个临时文件名称
+	std::stringstream ss;
+	ss << "public/static/file/";
+	// 计算时间戳
+	auto now = std::chrono::system_clock::now();
+	auto tm_t = std::chrono::system_clock::to_time_t(now);
+	ss << std::put_time(std::localtime(&tm_t), "%Y%m%d%H%M%S");
+	// 获取毫秒
+	auto tSeconds = std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch());
+	auto tMilli = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
+	auto ms = tMilli - tSeconds;
+	ss << std::setfill('0') << std::setw(3) << ms.count();
+	// 拼接后缀名
+	ss << suffix.getValue("");
+	// 临时文件名称
+	std::string fileName = ss.str();
+
+
+	//dao层逻辑运算
+	ContractInfoDAO dao;
+	auto res = dao.downloadByRows(query->sequence.getValue(""), query->rows.getValue(1));
+	
+	// 测试上传到FastDFS文件服务器
+#ifdef LINUX
+	//定义客户端对象
+	FastDfsClient client("conf/client.conf", 3);
+#else
+	//定义客户端对象
+	FastDfsClient client("8.130.87.15");
+#endif
+	std::string fieldName = client.uploadFile(fileName);
+	//std::cout << "upload fieldname is : " << res << std::endl;
+	//ss.str("");
+	//ss.clear();
+	//ss << "8.130.87.15:8888/" << fieldName;
+
+	return fieldName;
 }
