@@ -99,6 +99,7 @@
     <ClInclude Include="service\TerminationReminder\TerminationReminderService.h" />
     <ClInclude Include="uselib\excel\TerminationRemidner\ChangeToExcel.h" />
     <ClInclude Include="uselib\fastdfs\TerminationReminder\TerminationRemidnerFastdfs.h" />
+    <ClInclude Include="domain\dto\ContractDTO\ContractDTO_.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />

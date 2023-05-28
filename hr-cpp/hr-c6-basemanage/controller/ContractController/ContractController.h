@@ -8,7 +8,12 @@
 #include "domain/query/ContractQuery/ContractQuery_.h"
 #include "../../domain/dto/ContractDTO/ContractDTO_.h"
 #include "../../domain/vo/ContractVO/ContractVO_.h"
-
+#include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
+#include "oatpp/web/mime/multipart/FileProvider.hpp"
+#include "oatpp/web/mime/multipart/Reader.hpp"
+#include "oatpp/web/mime/multipart/PartList.hpp"
+using namespace oatpp;
+namespace multipart = oatpp::web::mime::multipart;
 //修改合同所需参数
 #define UPDATECONTRACTINFO \
 info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("expenseledger_mug.filed.id");\
@@ -103,7 +108,7 @@ public:
 		API_DEF_ADD_RSP_JSON(StringJsonVO::Wrapper);
 		info->queryParams["suffix"].description = ZH_WORDS_GETTER("user.file.suffix");
 		info->queryParams["suffix"].addExample("png", String(".png"));
-		info->queryParams["suffix"].addExample("jpg", String(".jpg"));
+		info->queryParams["suffix"].addExample("xls", String(".xls"));
 		info->queryParams["suffix"].addExample("txt", String(".txt"));
 	}
 	// 3.3.2 定义接口端点
@@ -120,7 +125,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 添加其他查询参数
 		info->queryParams.add<UInt8>("rows").description = ZH_WORDS_GETTER("contract.export.rows");
-		info->queryParams["rows"].addExample("default", UInt8(1));
+		info->queryParams["rows"].addExample("default", UInt64(1));
 		info->queryParams["rows"].required = true;
 		info->queryParams.add<String>("sequence").description = ZH_WORDS_GETTER("contract.export.sequence");
 		info->queryParams["sequence"].addExample("default", String("ASC"));
@@ -131,7 +136,6 @@ public:
 		API_HANDLER_QUERY_PARAM(query, ContractDownloadQuery, qps);
 		API_HANDLER_RESP_VO(execDownloadContract(query));
 	}
-
 
 
 

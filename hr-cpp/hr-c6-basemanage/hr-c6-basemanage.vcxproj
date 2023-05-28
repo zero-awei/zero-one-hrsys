@@ -226,6 +226,7 @@
     <ClInclude Include="domain\do\ExpenseLedge\ExpenseLedge.h" />
     <ClInclude Include="domain\do\laborDispatch\LaborDispatchDO.h" />
     <ClInclude Include="domain\do\TerminationReminder\TerminationReminderDO.h" />
+    <ClInclude Include="domain\dto\ContractDTO\ContractDTO_.h" />
     <ClInclude Include="domain\dto\ExpenseLedger\ExpenseLedgerDTO.h" />
     <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
     <ClInclude Include="domain\dto\JobTitleInfo\JobTitleInfoDTO.h" />

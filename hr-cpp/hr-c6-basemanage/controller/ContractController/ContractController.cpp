@@ -2,6 +2,8 @@
 #include "ContractController.h"
 #include "service/akieService/ContractInfoService.h"
 #include "FastDfsClient.h"
+#include "ExcelComponent.h"
+#include "CharsetConvertHepler.h"
 ContractJsonVO_::Wrapper ContractController::execQueryContract(const ContractQuery_::Wrapper& query)
 {
 	// 创建响应对象
@@ -64,26 +66,43 @@ StringJsonVO::Wrapper ContractController::execUploadContract(const String& fileB
 	ss << std::setfill('0') << std::setw(3) << ms.count();
 	// 拼接后缀名
 	ss << suffix.getValue("");
-
 	// 临时文件名称
 	std::string fileName = ss.str();
 	// 保存文件到临时目录
 	fileBody.saveToFile(fileName.c_str());
 
-	// 测试上传到FastDFS文件服务器
-#ifdef LINUX
-	//定义客户端对象
-	FastDfsClient client("conf/client.conf", 3);
-#else
-	//定义客户端对象
-	FastDfsClient client("8.130.87.15");
-#endif
-	std::string fieldName = client.uploadFile(fileName);
-	std::cout << "upload fieldname is : " << fieldName << std::endl;
-	ss.str("");
-	ss.clear();
-	ss << "8.130.87.15:8888/" << fieldName;
-	// 创建响应数据
+	//读取excel
+	std::string sheetName = CharsetConvertHepler::ansiToUtf8("Sheet1");
+	ExcelComponent excel;
+	auto readData = excel.readIntoVector(fileName, sheetName);
+
+	//创建dto
+	auto dto = ContractDTO_::createShared();
+	//创建service
+	ContractInfoService service;
+	//显示excel数据
+	for (auto row : readData)
+	{
+		for (auto cellVal : row)
+		{
+			// 注意：这里使用了编码转换，目的是为了在控制台打印显示不乱码，如果是将数据写入数据库，那么就不需要再进行编码转换了
+			cout << CharsetConvertHepler::utf8ToAnsi(cellVal) << ",";
+		}
+		cout << endl;
+		dto->name = row[0];
+		string tmp = row[1];
+		dto->id = atoi(tmp.c_str());
+		dto->type = row[2];
+		dto->variety = row[3];
+		dto->date = row[4];
+		dto->condition = row[5];
+		dto->department_m = row[6];
+		dto->department_c = row[7];
+		dto->date_end = row[8];
+		dto->tip = row[9];
+		service.saveData(dto);
+	}
+
 	auto vo = StringJsonVO::createShared();
 	vo->success(String(ss.str().c_str()));
 
