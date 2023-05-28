@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
- @Date: 2023/05/20 19:37:01
+ @Date: 2023/05/27 13:25:22
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,29 +17,24 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _CONTRACTTYPEQUERY_H_
-#define _CONTRACTTYPEQUERY_H_
+#ifndef _TITLE_SERVICE_
+#define _TITLE_SERVICE_
+#include <list>
+#include "domain/dto/Title/TitleDTO.h"
+#include "domain/query/Title/TitleQuery.h"
+#include "domain/vo/Title/TitleVO.h"
 
-#include "../../GlobalInclude.h"
-#include "domain/query/PageQuery.h"
-
-#include OATPP_CODEGEN_BEGIN(DTO)
-
-/**
- * 合同类型分页查询对象
- */
-class ContractTypeQuery : public PageQuery
+class TitleService
 {
-	DTO_INIT(ContractTypeQuery, PageQuery);
-
-	// 合同类型名称
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("contractType.field.name");
-	}
-
+public:
+	// 分页查询职称数据
+	TitlePageDTO::Wrapper listAll(const TitleQuery::Wrapper& query);
+	//保存职称数据
+	uint64_t saveData(const TitleDTO::Wrapper& dto);
+	//修改职称数据
+	bool updateData(const TitleDTO::Wrapper& dto);
+	// 通过ID删除数据
+	bool removeData(uint32_t id);
 };
 
-#include OATPP_CODEGEN_END(DTO)
-
-#endif // !_CONTRACTTYPEQUERY_H_
+#endif // !_TITLESERVICE_H_

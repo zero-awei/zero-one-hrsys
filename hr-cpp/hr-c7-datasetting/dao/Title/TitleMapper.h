@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
- @Date: 2023/05/20 19:37:01
+ @Date: 2023/05/27 11:00:03
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,29 +17,28 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _CONTRACTTYPEQUERY_H_
-#define _CONTRACTTYPEQUERY_H_
-
-#include "../../GlobalInclude.h"
-#include "domain/query/PageQuery.h"
-
-#include OATPP_CODEGEN_BEGIN(DTO)
+#ifndef _TITLE_MAPPER_
+#define _TITLE_MAPPER_
+#include "Mapper.h"
+#include "../../domain/do/Title/TitleDO.h"
 
 /**
- * 合同类型分页查询对象
+ * 职称目录表字段匹配映射
  */
-class ContractTypeQuery : public PageQuery
+class TitleMapper:public Mapper<TitleDO>
 {
-	DTO_INIT(ContractTypeQuery, PageQuery);
-
-	// 合同类型名称
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("contractType.field.name");
+public:
+	TitleDO mapper(ResultSet* resultSet)const override
+	{
+		TitleDO data;
+		data.setId(resultSet->getUInt(1));
+		data.setNum(resultSet->getString(2));
+		data.setName(resultSet->getString(3));
+		data.setDtype(resultSet->getString(4));
+		data.setTTtype(resultSet->getString(5));
+		return data;
 	}
-
+	
 };
 
-#include OATPP_CODEGEN_END(DTO)
-
-#endif // !_CONTRACTTYPEQUERY_H_
+#endif // !_TITLEMAPPER_H_

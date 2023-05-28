@@ -2,7 +2,7 @@
 #include "ArchiveController.h"
 #include"../../service/archive/ArchiveService.h"
 
-// 分页查询数据
+// 进行分页查询数据
 ArchivePageJsonVO::Wrapper ArchiveController::execQueryArchive(const ArchiveQuery::Wrapper& query, const PayloadDTO& payload)
 {
     // 定义一个Service
