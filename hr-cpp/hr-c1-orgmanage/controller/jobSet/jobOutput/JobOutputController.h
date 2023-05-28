@@ -34,4 +34,3 @@ private:
 #include OATPP_CODEGEN_END(ApiController)
 #endif // !_JOB_OUTPUT_CONTROLLER_
 
-

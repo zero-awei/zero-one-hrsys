@@ -26,7 +26,8 @@ uint64_t PostQueryDAO::count(const PostDetailQuery::Wrapper& query)
 	//组织sql语句
 	stringstream sql;
 	sql << "SELECT COUNT(*) FROM t_ormpost";
-	string queryType = query->query;
+	string queryType = query->queryPostName;
+	//模糊查询
 	sql << " WHERE ORMPOSTNAME LIKE \'%" + queryType + "%\'";
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr);
@@ -39,13 +40,13 @@ std::list<PostDetailDO> PostQueryDAO::selectWithPage(const PostDetailQuery::Wrap
 	sql << " SELECT t1.*, IFNULL(t2.ORGNAME, NULL) FROM t_ormpost t1 ";
 	sql << " LEFT JOIN t_srforg t2 ON t1.ORMORGID = t2.ORGID ";
 	//SAMPLE_TERAM_PARSE(query, sql);
-	string queryType = query->query;
+	string queryType = query->queryPostName;
 	sql << " WHERE ORMPOSTNAME LIKE \'%" + queryType + "%\'";
 	//(xh,ASC)
-	if (query->sort)
+	if (query->sortTypeAndMethod)
 	{
-		string orderBy = query->sort->substr(0, query->sort->find(","));
-		string direction = query->sort->substr(query->sort->find(",") + 1);
+		string orderBy = query->sortTypeAndMethod->substr(0, query->sortTypeAndMethod->find(","));
+		string direction = query->sortTypeAndMethod->substr(query->sortTypeAndMethod->find(",") + 1);
 		sql << " ORDER BY " + orderBy + " " + direction;
 	}
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;

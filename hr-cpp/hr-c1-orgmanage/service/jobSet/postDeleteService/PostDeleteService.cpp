@@ -29,12 +29,17 @@ bool PostDeleteService::removeData(string id)
 bool PostDeleteService::removeBatchData(const PostDeleteBatchDTO::Wrapper& postDeleteBatchDTO)
 {
 	PostDeleteDAO postDeleteDAO;
+	auto sqlSession = postDeleteDAO.getSqlSession();
+	//¿ªÆôÊÂÎñ
+	sqlSession->beginTransaction();
 	bool isSuccess = true;
 	for (const auto& item : *postDeleteBatchDTO->ormPostIds) {
 		if (postDeleteDAO.deleteById(item->c_str()) != 1)
 		{
 			isSuccess = false;
+			return isSuccess;
 		}
 	}
+	sqlSession->commitTransaction();
 	return isSuccess;
 }
