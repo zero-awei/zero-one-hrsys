@@ -88,7 +88,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib\debug;..\lib-common\lib\debug;..\lib-mysql\lib\vs14\debug;D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\lib\x86;D:\vs studio\VC\Tools\MSVC\14.35.32215\atlmfc\include;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib\debug;..\lib-common\lib\debug;..\lib-mysql\lib\vs14\debug;D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\lib\x86;D:\vs studio\VC\Tools\MSVC\14.35.32215\atlmfc\include;D:\vs studio\VC\Tools\MSVC\14.35.32215\atlmfc\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -181,6 +181,7 @@
     <ClCompile Include="controller\TerminationReminder\terminationReminder.cpp" />
     <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mg.cpp" />
     <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mh.cpp" />
+    <ClCompile Include="dao\TerminationReminder\TerminationReminderDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="dao\Sample\ContractDao.cpp" />
     <ClCompile Include="service\akieService\ContractInfoService.cpp" />
@@ -188,12 +189,15 @@
     <ClCompile Include="service\laborDispatch\LaborDispatchService-mg.cpp" />
     <ClCompile Include="service\laborDispatch\LaborDispatchService-mh.cpp" />
     <ClCompile Include="service\Gosh\GoshService.cpp" />
+    <ClCompile Include="service\TerminationReminder\TerminationReminderServicecpp.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="uselib\excel\TerminationRemidner\ChangeToExcel.cpp" />
+    <ClCompile Include="uselib\fastdfs\TerminationReminder\TerminationRemidnerFastdfs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractManagement\Contractmanagement.h" />
@@ -216,16 +220,21 @@
     <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mg.h" />
     <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mh.h" />
     <ClInclude Include="dao\laborDispatch\LaborDispatchMapper-mh.h" />
+    <ClInclude Include="dao\TerminationReminder\TerminationReminderDAO.h" />
+    <ClInclude Include="dao\TerminationReminder\TerminationReminderMapper.h" />
     <ClInclude Include="domain\do\expenseLedger\ExpenseLedgerDO.h" />
     <ClInclude Include="domain\do\ExpenseLedge\ExpenseLedge.h" />
     <ClInclude Include="domain\do\laborDispatch\LaborDispatchDO.h" />
+    <ClInclude Include="domain\do\TerminationReminder\TerminationReminderDO.h" />
     <ClInclude Include="domain\dto\ExpenseLedger\ExpenseLedgerDTO.h" />
     <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
     <ClInclude Include="domain\dto\JobTitleInfo\JobTitleInfoDTO.h" />
     <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO-mg.h" />
+    <ClInclude Include="domain\dto\TerminationReminderDTO\TerminationReminderDTO.h" />
     <ClInclude Include="domain\query\ExpenseLedger\ExpenseLedgerQuery.h" />
     <ClInclude Include="domain\query\LaborDispatch\LaborDispatchQuery-mg.h" />
     <ClInclude Include="domain\query\RetirementQuery\RetirementQuery.h" />
+    <ClInclude Include="domain\query\TerminationReminder\TerminationReminderQuery.h" />
     <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h" />
     <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgerVO.h" />
     <ClInclude Include="domain\vo\JobTitleInfo\JobTitleInfoVO.h" />
@@ -257,6 +266,7 @@
     <ClInclude Include="domain\query\Gosh\ContractQuery.h" />
     <ClInclude Include="domain\vo\Gosh\ContractVO.h" />
     <ClInclude Include="domain\vo\RetirementVo\RetirementVo.h" />
+    <ClInclude Include="domain\vo\TerminationReminderVO\TerminationReminderVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\akieService\ContractInfoService.h" />
@@ -266,7 +276,10 @@
     <ClInclude Include="service\Gosh\GoshService.h" />
     <ClInclude Include="service\sample\ContractService.h" />
     <ClInclude Include="domain\vo\muggle\LaborDispatchJsonVO.h" />
+    <ClInclude Include="service\TerminationReminder\TerminationReminderService.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\excel\TerminationRemidner\ChangeToExcel.h" />
+    <ClInclude Include="uselib\fastdfs\TerminationReminder\TerminationRemidnerFastdfs.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\lib-common\lib-common.vcxproj">
