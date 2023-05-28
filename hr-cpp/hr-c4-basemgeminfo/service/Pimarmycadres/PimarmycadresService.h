@@ -18,7 +18,7 @@
 #include "domain/query/Pimarmycadres/PimarmycadresPageQuery.h"
 #include "domain/dto/Pimarmycadres/PimarmycadresIntoDTO.h"
 #include "domain/query/Pimarmycadres/PimarmycadresQuery.h"
-#include"D:\big项目\zero-one-hrsys\hr-cpp\lib-oatpp\include\oatpp\web\server\api\ApiController.hpp"
+//#include"D:\big项目\zero-one-hrsys\hr-cpp\lib-oatpp\include\oatpp\web\server\api\ApiController.hpp"
 #include"../lib-oatpp/include/oatpp/web/server/api/ApiController.hpp"
 #include <oatpp/web/client/ApiClient.hpp>
 #include <oatpp/web/client/ApiClient.hpp>

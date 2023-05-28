@@ -27,6 +27,7 @@
 #include"military/MilitaryController.h"
 #include "work-history/WorkHistoryController.h"
 #include "controller/Pimarmycadres/PimarmycadresController.h"
+#include "controller/rewardandpunish/RewardAndPunishController.h"
 
 
 
@@ -76,7 +77,8 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(ContractController);
 	// °ó¶¨MilitaryController
 	ROUTER_SIMPLE_BIND(MilitaryController);
-
+	//°ó¶¨RewardAndPunishController
+	ROUTER_SIMPLE_BIND(RewardAndPunishController);
 
 }
 

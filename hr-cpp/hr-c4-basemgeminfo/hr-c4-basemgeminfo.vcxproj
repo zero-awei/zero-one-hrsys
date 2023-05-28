@@ -178,6 +178,7 @@
     <ClInclude Include="controller\military\MilitaryController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Pimarmycadres\PimarmycadresController.h" />
+    <ClInclude Include="controller\rewardandpunish\RewardAndPunishController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\scientific\ScientificController.h" />
     <ClInclude Include="controller\SciResult\SciResultController.h" />
@@ -194,6 +195,8 @@
     <ClInclude Include="dao\military\MilitaryMapper.h" />
     <ClInclude Include="dao\Pimarmycadres\PimarmycadresDAO.h" />
     <ClInclude Include="dao\Pimarmycadres\PimarmycadresMapper.h" />
+    <ClInclude Include="dao\rewardandpunish\RewardAndPunishDAO.h" />
+    <ClInclude Include="dao\rewardandpunish\RewardAndPunishMapper.h" />
     <ClInclude Include="dao\SciResult\SciResultDAO.h" />
     <ClInclude Include="dao\SciResult\SciResultMapper.h" />
     <ClInclude Include="dao\work-history\WorkHistoryDAO.h" />
@@ -209,6 +212,7 @@
     <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresDO.h" />
     <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresFindDO.h" />
     <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresIntoDO.h" />
+    <ClInclude Include="domain\do\rewardandpunish\RewardAndPunishDO.h" />
     <ClInclude Include="domain\do\scientific\Scientific.h" />
     <ClInclude Include="domain\do\SciResult\SciResultDO.h" />
     <ClInclude Include="domain\do\work-history\AddWorkHistoryDO.h" />
@@ -226,6 +230,7 @@
     <ClInclude Include="domain\dto\Pimarmycadres\DelPimarmycadresDTO.h" />
     <ClInclude Include="domain\dto\Pimarmycadres\PimarmycadresFindDTO.h" />
     <ClInclude Include="domain\dto\Pimarmycadres\PimarmycadresIntoDTO.h" />
+    <ClInclude Include="domain\dto\rewardandpunish\RewardAndPunishDTO.h" />
     <ClInclude Include="domain\dto\scientific\ScientificDTO.h" />
     <ClInclude Include="domain\dto\SciResult\Add2SciResultDTO.h" />
     <ClInclude Include="domain\dto\SciResult\AddSciResultDTO.h" />
@@ -248,6 +253,7 @@
     <ClInclude Include="domain\query\military\MilitaryQuery.h" />
     <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresPageQuery.h" />
     <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresQuery.h" />
+    <ClInclude Include="domain\query\rewardandpunish\RewardAndPunishQuery.h" />
     <ClInclude Include="domain\query\scientific\ScientificQuery.h" />
     <ClInclude Include="domain\query\SciResult\SciResultQuery.h" />
     <ClInclude Include="domain\query\work-history\WorkHistoryExportQuery.h" />
@@ -260,6 +266,7 @@
     <ClInclude Include="domain\vo\contract\ContractVO.h" />
     <ClInclude Include="domain\vo\military\MilitaryVO.h" />
     <ClInclude Include="domain\vo\Pimarmycadres\PimarmycadresVO.h" />
+    <ClInclude Include="domain\vo\rewardandpunish\RewardAndPunishVO.h" />
     <ClInclude Include="domain\vo\scientific\ScientificVO.h" />
     <ClInclude Include="domain\vo\SciResult\SciResultVo.h" />
     <ClInclude Include="domain\vo\work-history\ModWorkHistoryVO.h" />
@@ -273,6 +280,8 @@
     <ClInclude Include="service\certificate-information\jobtitle-information\JobTitleInformationService.h" />
     <ClInclude Include="service\contract\ContractService.h" />
     <ClInclude Include="service\military\MilitaryService.h" />
+    <ClInclude Include="service\Pimarmycadres\PimarmycadresService.h" />
+    <ClInclude Include="service\sciresult\SciResultService.h" />
     <ClInclude Include="service\work-history\WorkHistoryService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="uselib\rocketmq\TestRocket.h" />
@@ -284,6 +293,7 @@
     <ClCompile Include="controller\jobtitle-information\JobTitleInformationController.cpp" />
     <ClCompile Include="controller\military\MilitaryController.cpp" />
     <ClCompile Include="controller\Pimarmycadres\PimarmycadresController.cpp" />
+    <ClCompile Include="controller\rewardandpunish\RewardAndPunishController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\scientific\ScientficController.cpp" />
     <ClCompile Include="controller\SciResult\SciResultController.cpp" />
@@ -295,6 +305,7 @@
     <ClCompile Include="dao\contract\ContractDAO.cpp" />
     <ClCompile Include="dao\military\MilitaryDAO.cpp" />
     <ClCompile Include="dao\Pimarmycadres\PimarmycadresDAO.cpp" />
+    <ClCompile Include="dao\rewardandpunish\RewardAndPunishDAO.cpp" />
     <ClCompile Include="dao\SciResult\SciResultDAO.cpp" />
     <ClCompile Include="dao\work-history\WorkHistoryDAO.cpp" />
     <ClCompile Include="main.cpp" />
@@ -303,6 +314,8 @@
     <ClCompile Include="service\certificate-information\jobtitle-information\JobTitleInformationService.cpp" />
     <ClCompile Include="service\contract\ContractService.cpp" />
     <ClCompile Include="service\military\MilitaryService.cpp" />
+    <ClCompile Include="service\Pimarmycadres\PimarmycadresService.cpp" />
+    <ClCompile Include="service\sciresult\SciResultService.cpp" />
     <ClCompile Include="service\work-history\WorkHistoryService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
