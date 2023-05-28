@@ -18,20 +18,54 @@
 */
 #include "stdafx.h"
 #include "ExpenseLedgerController.h"
+#include "service/expenseLedger/ExpenseLedgerService.h"
 
-StringJsonVO::Wrapper ExpenseLedgerMController::execQueryExpenseLedger()
+
+ExpenseLedgerPageJsonVO::Wrapper ExpenseLedgerMController::execQueryExpenseLedger(const ExpenseLedgerPageQuery::Wrapper& query)
 {
-	return StringJsonVO::Wrapper();
+	ExpenseLedgerService service;
+	auto result = service.ListAll(query);
+
+	auto jvo = ExpenseLedgerPageJsonVO::createShared();
+	jvo->success(result);
+	return jvo;
 }
 
-StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger()
+StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger(const ExpenseLedgerDTO::Wrapper& dto)
 {
-	return StringJsonVO::Wrapper();
+	auto jvo = StringJsonVO::createShared();
+	if (!dto->pimexpaccountname || !dto->pimexpaccountid || !dto->fyje || !dto->ffrs || !dto->ffybz) 
+	{
+		jvo->init(String(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+
+	if (dto->pimexpaccountname->empty() || dto->ffybz->empty())
+	{
+		jvo->init(String(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+
+	ExpenseLedgerService service;
+	service.saveData(dto);
+	jvo->success(dto->pimexpaccountname);
+	return jvo;
 }
 
-StringJsonVO::Wrapper ExpenseLedgerMController::execDeleteExpenseLedger()
+Uint64JsonVO::Wrapper ExpenseLedgerMController::execDeleteExpenseLedger(const ExpenseLedgerDelQuery::Wrapper& query)
 {
-	return StringJsonVO::Wrapper();
+	auto jvo = Uint64JsonVO::createShared();
+	int success = 0;
+	ExpenseLedgerService service;
+	for (int i=0;i<query->Ids->size();i++)
+	{
+		success += service.removeData(query->Ids[i]);
+		cout << query->Ids[i].getPtr() << endl;
+	}
+	jvo->success(success);
+	return jvo;
 }
+
+
 
 

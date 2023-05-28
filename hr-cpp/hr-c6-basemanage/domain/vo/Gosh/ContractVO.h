@@ -1,3 +1,4 @@
+#pragma once
 #ifndef _Contract_VO_
 #define _Contract_VO_
 

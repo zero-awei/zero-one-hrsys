@@ -1,3 +1,4 @@
+#pragma once
 #ifndef _Contract_QUERY_
 #define _Contract_QUERY_
 
@@ -12,15 +13,15 @@ class ContractQuery : public PageQuery
 {
 	// 初始化定义
 	DTO_INIT(ContractQuery, PageQuery);
-	// 姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("contract.field.name");
-	}
 	// 编号
 	DTO_FIELD(UInt64, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("contract.field.id");
+	}
+	// 姓名
+	DTO_FIELD(String, name);
+	DTO_FIELD_INFO(name) {
+		info->description = ZH_WORDS_GETTER("contract.field.name");
 	}
 	// 合同类别
 	DTO_FIELD(String, type);

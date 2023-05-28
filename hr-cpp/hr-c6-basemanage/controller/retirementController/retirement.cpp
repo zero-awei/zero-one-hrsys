@@ -44,7 +44,7 @@ Uint64JsonVO::Wrapper TestController::execAddSample(const SampleDTO::Wrapper& dt
 	return jvo;
 }
 
-
+Uint64JsonVO::Wrapper TestController::execAddSample1(const RetirementDTO::Wrapper& dto)
 Uint64JsonVO::Wrapper RetirementController::execAddSample1(const RetirementDTO::Wrapper& dto)
 {
 	// 定义返回数据对象

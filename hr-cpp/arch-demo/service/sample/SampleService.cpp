@@ -44,10 +44,10 @@ SamplePageDTO::Wrapper SampleService::listAll(const SampleQuery::Wrapper& query)
 	for (SampleDO sub : result)
 	{
 		auto dto = SampleDTO::createShared();
-// 		dto->id = sub.getId();
-// 		dto->name = sub.getName();
-// 		dto->sex = sub.getSex();
-// 		dto->age = sub.getAge();
+ 		dto->id = sub.getId();
+ 		dto->name = sub.getName();
+ 		dto->sex = sub.getSex();
+ 		dto->age = sub.getAge();
 		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id, name, Name, sex, Sex, age, Age)
 		pages->addData(dto);
 		

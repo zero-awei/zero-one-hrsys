@@ -29,6 +29,7 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+
 ldcompany:
  get:
   summary: 分页查询劳务公司列表
@@ -56,6 +57,7 @@ ldcompany:
   LEGALPEROSN: 法人
   REGCAPITAL: 注册本金
   UPDATEDATE: 更新时间
+
 contract_gs:
  get:
   summary: 分页查询合同信息
@@ -64,7 +66,7 @@ contract_gs:
  put:
   summary: 修改一条合同数据
  delete:
-  summary: 删除一条合同信息
+  summary: 删除多条合同数据
 title:
  query:
   summary: "分页查询职称列表"
@@ -79,6 +81,7 @@ title:
   grades: "职称等级"
   type: "职称类型"
   category: "专业类别"
+
 labordispatch_mug:
  get:
   summary: 查看指定公司信息
@@ -89,6 +92,7 @@ labordispatch_mug:
   corporateaddress: 公司名称
   corporatecontact: 公司联系人
   corporatenumber: 公司联系电话
+
 expenseledger_mug:
  get:
   summary: 分页查询费别列表
@@ -118,7 +122,25 @@ expenseledger_mug:
   department_c: 合同签订单位
   date_end: 合同到期时间
   tip: 备注
-person:
+
+expenseledger:
+ field:
+  PIMEXPACCOUNTNAME: 费用台账名称
+  PIMEXPACCOUNTID: 费用台账标识
+  UPDATEMAN: 更新人
+  CREATEDATE: 建立时间
+  CREATEMAN: 建立人
+  UPDATEDATE: 更新时间
+  FYLB: 费用类别
+  FYJE: 费用金额
+  FFRS: 发放人数
+  FFSJ: 发放时间
+  FFYBZ: 费用标准
+  BZ: 备注
+  IDS: 费用台账标识集合
+
+
+person_gosh:
  get:
   summary: 分页查询个人信息
  post:
@@ -127,6 +149,7 @@ person:
   summary: 修改一条个人数据
  delete:
   summary: 删除一条个人数据
+
 retirement_gan:
  get:
   summary: 分页查询离退休列表
@@ -137,14 +160,12 @@ retirement_gan:
   summary: 删除离退休列表
  update:
   summary: 更新离退休列表
- 
  query:
   name: 员工姓名
   number: 员工编号
   idcard: 证件号码
   department: 部门
   organization: 组织
-
 
 contract:
   upload: 导入合同
@@ -185,6 +206,7 @@ contract:
   export:
     rows: 导出数据条数
     sequence: 导出数据顺序
+
 jobtitle:
  field:
   employee_id: 员工编号
@@ -205,6 +227,7 @@ jobtitle:
   summary: 导出职称
  update:
   summary: 更新职称
+
 expense:
  field:
   expense_name: 费别类型
@@ -218,6 +241,7 @@ expense:
   summary: 导出费别
  update:
   summary: 更新费别
+
 reminder:
  name:
   contract_termination_reminder: 合同终止提醒
