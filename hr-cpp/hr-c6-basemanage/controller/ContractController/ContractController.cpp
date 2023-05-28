@@ -1,22 +1,22 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "ContractController.h"
 
 
 ContractJsonVO_::Wrapper ContractController::execQueryContract(const ContractQuery_::Wrapper& query)
 {
-	// ´´½¨ÏìÓ¦¶ÔÏó
+	// åˆ›å»ºå“åº”å¯¹è±¡
 	auto vo = ContractJsonVO_::createShared();
-	// ÏìÓ¦½á¹û
+	// å“åº”ç»“æžœ
 	//vo->success(1);
 	return vo;
 }
 
 Uint64JsonVO::Wrapper ContractController::execUpdateContract(const ContractDTO_::Wrapper& dto)
 {
-	// ¶¨Òå·µ»ØÊý¾Ý¶ÔÏó
+	// å®šä¹‰è¿”å›žæ•°æ®å¯¹è±¡
 	auto jvo = Uint64JsonVO::createShared();
 
-	// ÏìÓ¦½á¹û
+	// å“åº”ç»“æžœ
 	//jvo->success(1);
 	return jvo;
 }
@@ -32,7 +32,7 @@ StringJsonVO::Wrapper ContractController::execDownloadContract(const ContractDow
 {
 	auto vo = StringJsonVO::createShared();
 
-	// TODO: µ÷ÓÃservice»ñÈ¡µ¼³öÎÄ¼þÏÂÔØÁ´½Ó
+	// TODO: è°ƒç”¨serviceèŽ·å–å¯¼å‡ºæ–‡ä»¶ä¸‹è½½é“¾æŽ¥
 
 	vo->success("url/download");
 	return vo;

@@ -21,6 +21,8 @@
     <ClCompile Include="controller\muggle\LaborDispatchController.cpp" />
     <ClCompile Include="dao\muggle\LaborDispatchDAO.cpp" />
     <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
+    <ClCompile Include="service\JobTitle\JobTitleService.cpp" />
+    <ClCompile Include="dao\JobTitle\JobTitleDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -62,6 +64,9 @@
     <ClInclude Include="dao\muggle\LaborDispatchDAO.h" />
     <ClInclude Include="domain\query\muggle\LaborDispatchQuery.h" />
     <ClInclude Include="service\muggle\LaborDispatchService.h" />
+    <ClInclude Include="service\JobTitle\JobTitleService.h" />
+    <ClInclude Include="dao\JobTitle\JobTitleDAO.h" />
+    <ClInclude Include="dao\JobTitle\JobTitleMapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />
@@ -82,7 +87,7 @@
     <ClInclude Include="domain\query\Gosh\PersonQuery.h" />
     <ClInclude Include="controller\GoshController\TestController.h" />
     <ClInclude Include="controller\JobTitle\JobTitleController.h" />
-    <ClInclude Include="domain\do\JobTitle\JobTitleDo.h" />
+    <ClInclude Include="domain\do\JobTitle\JobTitleDO.h" />
     <ClInclude Include="domain\dto\ContractDTO\ContractDTO.h" />
     <ClInclude Include="domain\dto\Gosh\ContractDTO.h" />
     <ClInclude Include="domain\dto\JobTitle\JobTitleDTO.h" />
