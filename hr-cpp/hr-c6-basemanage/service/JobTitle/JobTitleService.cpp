@@ -29,7 +29,7 @@ JobTitlePageDTO::Wrapper JobTitleService::listAll(const JobTitleQuery::Wrapper& 
 	for (JobTitleDO r : result) {
 		auto dto = JobTitleDTO::createShared();
 		// 将DO转换为DTO
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, r, employee_id, Employee_Id
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, r, id, Id, employee_id, Employee_Id
 			, employee_name, Employee_Name, employee_state, Employee_State,
 			org_name, Org_Name, jobtitle_name, Jobtitle_Name,
 			get_time, Get_Time, certificate_id, Certificate_Id,
@@ -72,7 +72,7 @@ JobTitlePageDTO::Wrapper JobTitleService::listByParams(const JobTitleQuery::Wrap
 	for (JobTitleDO r : result) {
 		auto dto = JobTitleDTO::createShared();
 		// 将DO转换为DTO
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, r, employee_id, Employee_Id
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, r, id, Id, employee_id, Employee_Id
 			, employee_name, Employee_Name, employee_state, Employee_State,
 			org_name, Org_Name, jobtitle_name, Jobtitle_Name,
 			get_time, Get_Time, certificate_id, Certificate_Id,

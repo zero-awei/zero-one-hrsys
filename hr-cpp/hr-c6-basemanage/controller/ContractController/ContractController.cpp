@@ -4,20 +4,35 @@
 
 ContractJsonVO_::Wrapper ContractController::execQueryContract(const ContractQuery_::Wrapper& query)
 {
-	// 创建响应对象
+	// ������Ӧ����
 	auto vo = ContractJsonVO_::createShared();
-	// 响应结果
-	//vo->success(1);
+
+	auto data = ContractDTO_::createShared();
+	// �ǿ�У��
+	if (!query->PIMCONTRACTID)
+	{
+		vo->init(data, RS_PARAMS_INVALID);
+		return vo;
+	}
+
+	// ��Ӧ���
+	vo->success(data);
 	return vo;
 }
 
 Uint64JsonVO::Wrapper ContractController::execUpdateContract(const ContractDTO_::Wrapper& dto)
 {
-	// 定义返回数据对象
+	// ���巵�����ݶ���
 	auto jvo = Uint64JsonVO::createShared();
+	// �ǿ�У��
+	if (!dto->PIMCONTRACTID || !dto->CREATEMAN || !dto->CREATEDATE || !dto->UPDATEDATE || !dto->PIMCONTRACTNAME)
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
 
-	// 响应结果
-	//jvo->success(1);
+	// ��Ӧ���
+	jvo->success(1);
 	return jvo;
 }
 
@@ -32,7 +47,16 @@ StringJsonVO::Wrapper ContractController::execDownloadContract(const ContractDow
 {
 	auto vo = StringJsonVO::createShared();
 
-	// TODO: 调用service获取导出文件下载链接
+	// TODO: ����service��ȡ�����ļ���������
+
+
+
+	// У��
+	if (query->sequence != "ASC" && query->sequence != "DESC")
+	{
+		vo->init("error(please contact akie)", RS_PARAMS_INVALID);
+		return vo;
+	}
 
 	vo->success("url/download");
 	return vo;

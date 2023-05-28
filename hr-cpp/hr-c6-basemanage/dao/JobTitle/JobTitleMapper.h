@@ -10,6 +10,7 @@ public:
 	{
 		JobTitleDO data;
 		data.setId(resultSet->getUInt64(1));
+		//cout << "id:" << data.getId() << endl;
 		data.setEmployee_Id(resultSet->getUInt64(2));
 		data.setEmployee_Name(resultSet->getString(3));
 		data.setEmployee_State(resultSet->getString(4));

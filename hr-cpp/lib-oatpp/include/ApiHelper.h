@@ -99,10 +99,7 @@ static std::shared_ptr<__CLASS__> createShared(OATPP_COMPONENT(std::shared_ptr<O
 info->queryParams.add<UInt64>("pageIndex").description = API_PAGE_INDEX_DESC;\
 info->queryParams["pageIndex"].addExample("default", oatpp::UInt64(1)); \
 info->queryParams.add<UInt64>("pageSize").description = API_PAGE_SIZE_DESC; \
-info->queryParams["pageSize"].addExample("default", oatpp::UInt64(10));
-#define API_DEF_ADD_PERSON_PARAMS()	\
-info->queryParams.add<String>("PersonName").description = API_INIT_PERSON_DESC; \
-info->queryParams["PersonName"].addExample("default", oatpp::String(API_PERSON_defalut_DESC)); 
+info->queryParams["pageSize"].addExample("default", oatpp::UInt64(10)); 
 /**
  * API描述定义
  * @param __API_FUN_NAME__: Api端点名称

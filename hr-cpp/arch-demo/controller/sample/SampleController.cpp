@@ -40,6 +40,7 @@ Uint64JsonVO::Wrapper SampleController::execAddSample(const SampleDTO::Wrapper& 
 	// 参数校验
 	// 非空校验
 	if (!dto->age || !dto->name || !dto->sex)
+		//!dto->age || !dto->name || !dto->sex
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;

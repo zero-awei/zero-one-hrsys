@@ -1,86 +1,85 @@
 #include "stdafx.h"//cpp文件第一件事导入预编译标头
-#include "TestController.h"
-//#include "service/sample/ContractService.h"
-
+#include "controller/GoshController/TestController.h"
+#include "service/Gosh/GoshService.h"
+#include "domain/vo/Gosh/ContractVO.h"
 //演示查询合同信息
-StringJsonVO::Wrapper GoshController::execQueryContract(const ContractQuery::Wrapper& query)
+ContractPageJsonVO::Wrapper GoshController::execQueryContract(const ContractQuery::Wrapper& query, const PayloadDTO& payload)
 {
-	//响应结果
-	auto vo = StringJsonVO::createShared();
-	vo->success("contract infomation get success");
-	return vo; 
-}
-//演示查询个人信息
-StringJsonVO::Wrapper GoshController::execQueryPerson(const PersonQuery::Wrapper& query)
+	// 定义一个Service
+	GoshService service;
+	// 查询数据
+	auto result = service.listContract(query);
+	// 响应结果
+	auto jvo = ContractPageJsonVO::createShared();
+	jvo->success(result);
+	return jvo;
+}//演示查询个人信息
+ContractPageJsonVO::Wrapper GoshController::execQueryPerson(const ContractQuery::Wrapper& query, const PayloadDTO& payload)
 {
-	auto vo = StringJsonVO::createShared();
-	if (!query->PersonName)
-	{
-		return vo;
-	}
-	else 
-	{
-		vo->success("person information get success");
-	}
-	return vo;
-}
-//演示新增合同数据
+	// 定义一个Service
+	GoshService service;
+	// 查询数据
+	auto result = service.listContract(query);
+	// 响应结果
+	auto jvo = ContractPageJsonVO::createShared();
+	jvo->success(result);
+	return jvo;
+}//演示新增合同数据
 Uint64JsonVO::Wrapper GoshController::execAddContract(const ContractDTO_gs::Wrapper& dto)
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
 	// 非空校验
-	//if (!dto->age || !dto->name || !dto->sex)
-	//{
-	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-	//	return jvo;
-	//}
-	//// 有效值校验
-	//if (dto->age < 0 || dto->name->empty() || dto->sex->empty())
-	//{
-	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-	//	return jvo;
-	//}
+	if (dto->name->empty() || dto->type->empty() || dto->variety->empty() || dto->date->empty() || dto->condition->empty())
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	// 定义一个Service
+	GoshService service;
+	// 执行数据新增
+	uint64_t id = service.saveData(dto);
+	if (id >= 0) {
+		jvo->success(UInt64(id));
+	}
+	else
+	{
+		jvo->fail(UInt64(id));
+	}
+	//响应结果
 	return jvo;
-
-	//// 定义一个Service
-	//SampleService service;
-	//// 执行数据新增
-	//uint64_t id = service.saveData(dto);
-	//if (id > 0) {
-	//	jvo->success(UInt64(id));
-	//}
-	//else
-	//{
-	//	jvo->fail(UInt64(id));
-	//}
-	////响应结果
-	//return jvo;
 }
-//演示删除合同数据
-Uint64JsonVO::Wrapper GoshController::execRemoveContract(const ContractDTO_gs::Wrapper& dto)
+//演示批量删除合同数据
+Uint64JsonVO::Wrapper GoshController::execRemoveContract(const ContractDTO_gs_delete::Wrapper& dto)
 {
-	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
-	//// 参数校验
-	//if (!dto->id || dto->id <= 0)
-	//{
-	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-	//	return jvo;
-	//}
-	//// 定义一个Service
-	//SampleService service;
-	//// 执行数据删除
-	//if (service.removeData(dto->id.getValue(0))) {
-	//	jvo->success(dto->id);
-	//}
-	//else
-	//{
-	//	jvo->fail(dto->id);
-	//}
-	//// 响应结果
+
+	int length = dto->deleteById->size();
+
+	if (length <= 0)
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	int count = 0;
+	for (auto it = dto->deleteById->begin(); it != dto->deleteById->end(); ++it,++count)
+	{
+		if (!(*it))
+		{
+			jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+			return jvo;
+		}
+	}
+
+	GoshService service;
+	if (service.removeData(dto))
+	{
+		jvo->success(count);
+	}
+	else
+	{
+		jvo->fail(1);
+	}
 	return jvo;
 }
-
-
