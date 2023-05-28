@@ -46,7 +46,7 @@ Uint64JsonVO::Wrapper PaperinfoController::execAddPaperinfo(const PaperDTO::Wrap
 	// 定义一个Service
 	PaperinfoService service;
 	// 执行数据新增
-	uint64_t id = service.saveData(dto);
+	int id = service.saveData(dto);
 	if (id > 0) {
 		jvo->success(UInt64(id));
 	}

@@ -13,7 +13,7 @@ class t_pimpaperDAO : public BaseDAO
 {
 public:
 	// 插入数据
-	uint64_t insert(const t_pimpaperDO& iObj);
+	int insert(const t_pimpaperDO& iObj, string idStr);
 	// 统计数据条数
 	uint64_t count(const PaperQuery::Wrapper& query);
 	// 分页查询数据

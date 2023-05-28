@@ -2,6 +2,7 @@
 #include "t_pimpaperDAO.h"
 #include "t_pimpaperMapper.h"
 #include <sstream>
+#include "SnowFlake.h"
 
 //定义条件解析宏，减少重复代码
 #define SAMPLE_TERAM_PARSE(query, sql) \
@@ -12,11 +13,12 @@ if (query->pimpersonid) { \
 	SQLPARAMS_PUSH(params, "s", std::string, query->pimpersonid.getValue("")); \
 }
 
-uint64_t t_pimpaperDAO::insert(const t_pimpaperDO& iObj)
+int t_pimpaperDAO::insert(const t_pimpaperDO& iObj, string idStr)
 {
-	string sql = "INSERT INTO `t_pimpaper` (`FBSJ`, `CBS`, `KWQS`, `FJ`, `GRZLWZZZDPM`, `KWMC`, `PIMPAPERNAME`) VALUES (?, ?, ?, ?, ?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%i%s%i%s%s", iObj.getFbsj(), iObj.getCbs(), iObj.getKwqs(), iObj.getFj(), 
-															iObj.getGrzlwzzzdpm(), iObj.getKwmc(), iObj.getPimpapername());
+	string sql = "INSERT INTO `t_pimpaper` (`FBSJ`, `CBS`, `KWQS`, `FJ`, `GRZLWZZZDPM`, `KWMC`, `PIMPAPERNAME`, `PIMPAPERID`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+	return sqlSession->executeUpdate(sql, "%s%s%i%s%i%s%s%s", iObj.getFbsj(), iObj.getCbs(), iObj.getKwqs(), iObj.getFj(),
+												iObj.getGrzlwzzzdpm(), iObj.getKwmc(), iObj.getPimpapername(), idStr);
 }
 
 uint64_t t_pimpaperDAO::count(const PaperQuery::Wrapper& query)

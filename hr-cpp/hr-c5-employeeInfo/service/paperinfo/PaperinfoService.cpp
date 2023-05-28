@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "PaperinfoService.h"
 #include "../../dao/paperinfo/t_pimpaperDAO.h"
+#include "SnowFlake.h"
 
 PaperPageDTO::Wrapper PaperinfoService::listAll(const PaperQuery::Wrapper& query)
 {
@@ -33,15 +34,20 @@ PaperPageDTO::Wrapper PaperinfoService::listAll(const PaperQuery::Wrapper& query
 	return pages;
 }
 
-uint64_t PaperinfoService::saveData(const PaperDTO::Wrapper& dto)
+int PaperinfoService::saveData(const PaperDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	t_pimpaperDO data;
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Fbsj, fbsj, Cbs, cbs, Kwqs, kwqs,
 		Fj, fj, Grzlwzzzdpm, grzlwzzzdpm, Kwmc, kwmc, Pimpapername, pimpapername)
+	
+	// 雪花算法生成id
+	SnowFlake snowFlake(1, 5);
+	uint64_t id = snowFlake.nextId();
+	string idStr = to_string(id);
 	// 执行数据添加
 	t_pimpaperDAO dao;
-	return dao.insert(data);
+	return dao.insert(data, idStr);
 }
 
 bool PaperinfoService::removeData(string pimpaperid)

@@ -16,7 +16,8 @@ public:
 	// 分页查询所有数据
 	PaperPageDTO::Wrapper listAll(const PaperQuery::Wrapper& query);
 	// 保存数据
-	uint64_t saveData(const PaperDTO::Wrapper& dto);
+	// int 影响数据行数
+	int saveData(const PaperDTO::Wrapper& dto);
 	// 通过ID删除数据
 	bool removeData(string id);
 	// 查询数据ID
