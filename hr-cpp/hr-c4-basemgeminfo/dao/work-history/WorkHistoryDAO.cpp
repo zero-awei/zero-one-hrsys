@@ -86,7 +86,7 @@ uint64_t WorkHistoryDAO::insert(const AddWorkHistoryDO& iObj)
 		ORMDUTYNAME, ORMPOSTNAME, CFPLX, EXPERIENCE,PIMWORKHISTORYID,\
 		PIMPERSONID,CREATEDATE,UPDATEDATE, CREATEMAN, UPDATEMAN) VALUES \
 		(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%i%s%s%s%s%s%s", iObj.getrZKSSJ(), iObj.getrZJSSJ() \
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%i%s%s%s%s%s%s", iObj.getrZKSSJ(), iObj.getrZJSSJ() \
 		, iObj.getoRMORGNAME(), iObj.getoRMORGSECTORNAME(), iObj.getoRMDUTYNAME(), iObj.getoRMPOSTNAME(), \
 		iObj.getcFPLX(), iObj.geteXPERIENCE(), iObj.getpIMWORKHISTORYID(), iObj.getpIMPERSONID(), \
 	    iObj.getcREATEDATE(), iObj.getuPDATEDATE(), iObj.getcREATEMAN(), iObj.getuPDATEMAN() );

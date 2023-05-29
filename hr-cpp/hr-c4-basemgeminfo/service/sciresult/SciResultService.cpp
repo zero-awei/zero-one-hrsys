@@ -108,7 +108,7 @@ uint64_t SciResultService::saveManyData(const String& fileBody, const oatpp::dat
 
 	SciResultDAO dao;
 
-	SnowFlake sf(0, 31);
+	SnowFlake sf(1, 4);
 
 	bool tem = true;
 	for (auto row : readData)

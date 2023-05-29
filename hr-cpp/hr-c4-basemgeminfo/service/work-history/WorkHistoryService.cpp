@@ -83,6 +83,7 @@ WorkHistoryFindPageDTO::Wrapper WorkHistoryService::listAll(const WorkHistoryPag
 
 uint64_t WorkHistoryService::saveData(const AddWorkHistoryDTO::Wrapper& dto, const PayloadDTO& payload)
 {
+	SnowFlake sf(1, 4);
 	// 组装DO数据
 	SimpleDateTimeFormat times;
 	AddWorkHistoryDO data;
@@ -96,6 +97,8 @@ uint64_t WorkHistoryService::saveData(const AddWorkHistoryDTO::Wrapper& dto, con
 		pIMWORKHISTORYID, pimworkhistoryid, pIMPERSONID, pimpersonid);
 		// 执行数据添加
 
+	//雪花算法生产履历id
+	data.setpIMWORKHISTORYID(to_string(sf.nextId()));
 
 	data.setcREATEMAN(payload.getUsername());
 	data.setuPDATEMAN(payload.getUsername());

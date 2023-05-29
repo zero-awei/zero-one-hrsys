@@ -31,7 +31,7 @@ sample:
   sex: 性别，如：男
 workhistory:
  file:
-  summary: 文件上传
+  summary: 导入工作履历
   suffix: 文件后缀
  field:
   list<pimworkhistoryid>: 履历的独有信息，用来批量删除的

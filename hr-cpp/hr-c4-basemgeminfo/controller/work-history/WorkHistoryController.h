@@ -114,13 +114,13 @@ public: // 定义接口
 		info->summary = ZH_WORDS_GETTER("workhistory.file.summary");
 		info->addConsumes<oatpp::swagger::Binary>("application/octet-stream");
 		API_DEF_ADD_RSP_JSON(StringJsonVO::Wrapper);
-		info->queryParams["suffix"].description = ZH_WORDS_GETTER("workhistory.file.suffix");
-		info->queryParams["suffix"].addExample("xlsx", String(".xlsx"));
-
+		//info->queryParams["suffix"].description = ZH_WORDS_GETTER("workhistory.file.suffix");
+		//info->queryParams["suffix"].addExample("xlsx", String(".xlsx"));
+		//info->queryParams["suffix"].required = false;
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("workhistory.field.pimpersonid");
 		info->queryParams["pimpersonid"].addExample("default", String("1002"));
-		info->queryParams["pimpersonid"].required = false;
+		//info->queryParams["pimpersonid"].required = true;
 		
 	}
 	// 定义文件上传端点处理
@@ -183,7 +183,7 @@ public: // 定义接口
 
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/work-history/specify-details", queryWorkHistory, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/workhistory/specify-details", queryWorkHistory, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, WorkHistoryQuery, queryParams);
 		// 响应结果
@@ -199,7 +199,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	
-	ENDPOINT(API_M_PUT, "/work-history/update", modifyWorkHistory,  API_HANDLER_AUTH_PARAME, BODY_DTO(WorkHistoryDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/workhistory/update", modifyWorkHistory,  API_HANDLER_AUTH_PARAME, BODY_DTO(WorkHistoryDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyWorkHistory(dto, authObject->getPayload()));
 	}

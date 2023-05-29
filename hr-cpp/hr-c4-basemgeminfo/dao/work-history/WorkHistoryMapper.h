@@ -45,7 +45,7 @@ public:
 		data.seteXPERIENCE(resultSet->getInt(8));
 		data.setpIMWORKHISTORYID(resultSet->getString(9));
 		data.setpIMPERSONID(resultSet->getString(10));
-		data.setoRMORGSECTORNAME(resultSet->getString(11));
+		//data.setoRMORGSECTORNAME(resultSet->getString(11));
 		return data;
 	}
 };
