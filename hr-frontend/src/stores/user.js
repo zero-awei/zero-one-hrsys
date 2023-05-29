@@ -3,6 +3,12 @@ import Request from '@/apis/request'
 // 测试菜单数据
 let testMenus = [
   {
+    id: 0,
+    text: '门户首页',
+    icon: 'DataAnalysis',
+    path: '/pimportalview'
+  },
+  {
     id: 1,
     text: '系统管理',
     icon: 'IconSetting',
