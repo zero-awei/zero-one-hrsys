@@ -32,9 +32,9 @@ class ModifyTagDTO : public oatpp::DTO
 {
 	DTO_INIT(ModifyTagDTO, DTO);
 	// 项目标签唯一标识
-	DTO_FIELD(String, id);
-	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("projTag.field.id");
+	DTO_FIELD(String, tagId);
+	DTO_FIELD_INFO(tagId) {
+		info->description = ZH_WORDS_GETTER("projTag.field.tagId");
 	}
 	// 项目标签名
 	DTO_FIELD(String, tagName);
