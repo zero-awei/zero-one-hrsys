@@ -3,10 +3,9 @@ package com.zeroone.star.orgmanager.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zeroone.star.orgmanager.service.IOrmService;
-import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.dto.orgmanager.OrgsectorDTO;
 import com.zeroone.star.project.dto.orgmanager.DeptKqdzDTO;
 import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
+import com.zeroone.star.project.dto.orgmanager.OrgsectorDTO;
 import com.zeroone.star.project.orgmanager.OrgmanagerApis;
 import com.zeroone.star.project.query.orgmanager.DeptKqdzQuery;
 import com.zeroone.star.project.vo.JsonVO;
@@ -16,12 +15,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
-import java.util.List;
 
 /**
  * <p>

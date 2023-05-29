@@ -1,16 +1,17 @@
 package com.zeroone.star.orgmanager.controller;
 
 import com.zeroone.star.orgmanager.service.ISrforgsectorService;
-import com.zeroone.star.project.orgmanager.RemoveDeptApis;
 import com.zeroone.star.project.dto.orgmanager.DeptDTO;
+import com.zeroone.star.project.orgmanager.RemoveDeptApis;
 import com.zeroone.star.project.query.orgmanager.DeptQuery1;
 import com.zeroone.star.project.query.orgmanager.DeptQuery2;
 import com.zeroone.star.project.vo.JsonVO;
 import com.zeroone.star.project.vo.ResultStatus;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
