@@ -9,11 +9,15 @@ import cn.hutool.http.server.HttpServerResponse;
 import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.j3.query.OrgQuery;
 import com.zeroone.star.project.query.sample.SampleQuery;
+import com.zeroone.star.project.j3.dto.orgmanager.ExportOrgAddressDto;
+import com.zeroone.star.project.j3.dto.orgmanager.OrgAddressDto;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.List;
+
 /**
  * <p>
  * 描述：组织地址接口
@@ -86,5 +90,9 @@ public interface OrgInfoApis {
      * @Date 17:16 2023/5/24
      */
     JsonVO<PageDTO<SampleDTO>> queryAllOrg(OrgQuery condition);
-
+    /**
+     * 导出组织地址接口
+     * @param ids
+     */
+    JsonVO<List<ExportOrgAddressDto>> exportOrgAddress(OrgAddressDto ids);
 }
