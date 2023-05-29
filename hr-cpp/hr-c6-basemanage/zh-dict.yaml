@@ -89,9 +89,17 @@ labordispatch_mug:
   summary: 修改指定公司信息
  field:
   corporatename: 公司名称
-  corporateaddress: 公司名称
+  corporateaddress: 公司地址
   corporatecontact: 公司联系人
   corporatenumber: 公司联系电话
+  PIMLABOURCAMPANYNAME: 公司名称
+  PIMLABOURCAMPANYID: 公司标识
+  LXDZ: 联系地址
+  LXR: 联系人
+  LXFS: 联系方式
+  REGCAPITAL: 注册本金
+  LEGALPERSON: 法人
+  UPDATEDATE: 更新时间
 
 expenseledger_mug:
  get:
@@ -110,7 +118,6 @@ expenseledger_mug:
   REGCAPITAL: 注册本金
   LEGALPERSON: 法人
   UPDATEDATE: 更新时间
-  summary: 删除一条合同数据
  filed:   
   name: 员工姓名
   id: 合同编号
@@ -173,36 +180,20 @@ contract:
   check: 查看指定合同
   update: 修改指定合同
   uploadpath: 导入合同的路径
-  PIMCONTRACTID: 合同信息标识
-  CREATEMAN: 建立人  
-  CREATEDATE: 建立时间  
-  UPDATEDATE: 更新时间  
-  PIMCONTRACTNAME: 合同信息名称  
-  UPDATEMAN: 更新人  
-  ENABLE: int DEFAULT NULL 
-  HTBH: 合同编号  
-  HTLX: 合同类别  
-  QSRQ: 起始日期  
-  JSRQ: 结束日期  
-  HTZT: 合同状态  
-  SSLWPQGS: 劳务派遣公司  
-  PIMPERSONID: 人员信息标识  
-  PIMLABOURCAMPANYID: 劳务派遣公司管理标识  
-  ORMORGID: 合同管理单位标识  
-  ORMORGNAME: 所属单位  
-  CONTRACTNUM: int DEFAULT NULL 
-  CONTRACTTYPE: 合同类型  
-  JOBCONTENT: 工作内容  
-  DURATION: int DEFAULT NULL 
-  LEGALORG: 合同签订单位  
-  ISFIRSTSIGN: int DEFAULT NULL 
-  CONTRACTSIGNORGID: 签约主体单位标识  
-  DEMO: t备注  
-  ISYEMP: Y类员工  
-  SYDQSJ: 试用到期时间  
-  ACTION: 操作  
-  ORMSIGNORGID: 合同签订单位  
-  CZ: 操作 
+  filed:   
+    name: 员工姓名
+    id: 员工编号
+    type: 合同类别
+    variety: 合同类型
+    date: 起始日期
+    condition: 合同状态
+    department_m: 合同管理单位
+    department_c: 合同签订单位
+    try_end: 试用到期时间
+    tip: 备注
+    infoid: 合同信息标识
+    date_end: 合同到期时间
+    name_example: 韩**
   export:
     rows: 导出数据条数
     sequence: 导出数据顺序

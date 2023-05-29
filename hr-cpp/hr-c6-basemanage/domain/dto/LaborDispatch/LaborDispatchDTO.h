@@ -24,11 +24,16 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 传输对象
+ * 查询传输对象
  */
 class LaborDispatchDTO : public oatpp::DTO
 {
 	DTO_INIT(LaborDispatchDTO, DTO);
+
+	DTO_FIELD(String, enable);
+	DTO_FIELD_INFO(enable) {
+		info->description = "ENABLE";
+	}
 	//劳务派遣公司管理名称
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
@@ -105,6 +110,20 @@ class LaborDispatchDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("ldconpany.field.LEGALPERSON");
 	}
 };
+
+/**
+ * 删除传输对象
+ */
+class LaborDispatchRemoveDTO : public oatpp::DTO
+{
+	DTO_INIT(LaborDispatchRemoveDTO, DTO);
+	//劳务派遣公司管理标识
+	DTO_FIELD(List<String>, id);
+	DTO_FIELD_INFO(id) {
+		info->description = ZH_WORDS_GETTER("ldconpany.field.PIMLABOURCAMPANYID");
+	}
+};
+
 
 /**
  * 分页传输对象

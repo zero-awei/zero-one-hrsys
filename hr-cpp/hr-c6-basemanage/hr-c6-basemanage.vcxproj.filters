@@ -100,6 +100,8 @@
     <ClInclude Include="uselib\excel\TerminationRemidner\ChangeToExcel.h" />
     <ClInclude Include="uselib\fastdfs\TerminationReminder\TerminationRemidnerFastdfs.h" />
     <ClInclude Include="domain\dto\ContractDTO\ContractDTO_.h" />
+    <ClInclude Include="domain\do\contractInfoakie\ContractInfoDO.h" />
+    <ClInclude Include="dao\ContractInfo\ContractInfoMapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />

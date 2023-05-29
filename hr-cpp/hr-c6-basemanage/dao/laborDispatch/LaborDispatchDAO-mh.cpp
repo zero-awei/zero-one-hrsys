@@ -21,9 +21,14 @@
 #include "LaborDispatchDAO-mh.h"
 #include "LaborDispatchMapper-mh.h"
 
+
 #define SAMPLE_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
+if (query->enable) { \
+	sql << " AND `ENABLE`=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->enable.getValue("")); \
+} \
 if (query->name) { \
 	sql << " AND `PIMLABOURCAMPANYNAME`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); \
@@ -94,10 +99,10 @@ uint64_t LaborDispatchDAO::count_ld(const LaborDispatchQuery::Wrapper& query)
 	return sqlSession->executeQueryNumerical(sqlStr, params);
 }
 
-std::list<LaborDispatchDO> LaborDispatchDAO::selectWrithPage_ld(const LaborDispatchQuery::Wrapper& query)
+std::list<LaborDispatchDO> LaborDispatchDAO::selectWrithPage_Query(const LaborDispatchQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT * FROM t_pimlabourcampany";
+	sql << "SELECT * FROM `t_pimlabourcampany`";
 	SAMPLE_TERAM_PARSE(query, sql);
 
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
@@ -105,3 +110,28 @@ std::list<LaborDispatchDO> LaborDispatchDAO::selectWrithPage_ld(const LaborDispa
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<LaborDispatchDO, LaborDispatchMapper>(sqlStr, mapper, params);
 }
+
+std::list<LaborDispatchDO> LaborDispatchDAO::selectWrithPage_Export(const LaborDispatchQuery::Wrapper& query)
+{
+	stringstream sql;
+	sql << "SELECT * FROM `t_pimlabourcampany`";
+	SAMPLE_TERAM_PARSE(query, sql);
+	sql << " LIMIT 50000";
+	LaborDispatchMapper mapper;
+	string sqlStr = sql.str();
+	return sqlSession->executeQuery<LaborDispatchDO, LaborDispatchMapper>(sqlStr, mapper, params);
+}
+
+uint64_t LaborDispatchDAO::insert_ld(const LaborDispatchDO& iobj)
+{
+	string sql = "INSERT INTO `t_pimlabourcampany` (`ENABLE`,`PIMLABOURCAMPANYNAME`,`PIMLABOURCAMPANYID`,`CREATEDATE`,`CREATEMAN`,`UPDATEMAN`,`UPDATEDATE`,`JYFW`,`LXDZ`,`LXR`,`LXFS`,`GSJJ`,`PIMPERSONID`,`ORMORGID`,`LEGALPEROSN`,`REGCAPITAL`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s", iobj.get_Enable(), iobj.getName(), iobj.getId(), iobj.getCreatedate(), iobj.getCreateman(), iobj.getUpdateman(), iobj.getUpdatedate(), iobj.getJyfw(), iobj.getLxdz(), iobj.getLxr(), iobj.getLxfs(), iobj.getGsjj(), iobj.getPimpersonid(), iobj.getOrmorgid(), iobj.getRegcapital(), iobj.getLegalperson());
+}
+
+int LaborDispatchDAO::deleteById_ld(string id)
+{
+	string sql = "DELETE FROM `t_pimlabourcampany` WHERE `PIMLABOURCAMPANYID`=?";
+	return sqlSession->executeUpdate(sql, "%s", id);
+}
+

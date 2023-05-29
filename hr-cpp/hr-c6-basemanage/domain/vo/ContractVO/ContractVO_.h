@@ -19,6 +19,9 @@ class DownloadPathJsonVO : public JsonVO<DownloadPathDTO::Wrapper>
 
 };
 
+class ContractInfoPageJsonVO : public JsonVO<ContractDTO_::Wrapper> {
+	DTO_INIT(ContractInfoPageJsonVO, JsonVO<ContractDTO_::Wrapper>);
+};
 
 
 #include OATPP_CODEGEN_END(DTO)
