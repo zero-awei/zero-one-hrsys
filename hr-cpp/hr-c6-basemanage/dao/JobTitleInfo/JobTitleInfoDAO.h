@@ -12,7 +12,8 @@ public:
 	uint64_t count(const JobTitleInfoDTO::Wrapper& query);
 	// 导出所有数据（查询所有数据）
 	std::list<JobTitleDo> selectAll(const JobTitleInfoDTO::Wrapper& query);
-	int update(const JobTitleInfoDTO& uObj);
+
+	int update(const JobTitleDo& uObj);
 };
 
 #endif // !_JOB_TITLE_INFO_DAO_H_

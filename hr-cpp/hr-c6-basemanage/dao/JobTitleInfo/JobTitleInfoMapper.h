@@ -12,7 +12,7 @@ public:
 		JobTitleDo data;
 		data.setId(resultSet->getInt64(0));
 		data.setName(resultSet->getString(1));
-		data.setCertId(resultSet->getInt64(2));
+		data.setCertId(resultSet->getString(2));
 		data.setGrades(resultSet->getString(3));
 		data.setJobType(resultSet->getString(4));
 		data.setCategory(resultSet->getString(5));

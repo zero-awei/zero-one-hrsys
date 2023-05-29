@@ -37,33 +37,31 @@ std::list<JobTitleDo> JobTitleInfoDAO::selectAll(const JobTitleInfoDTO::Wrapper&
 	return sqlSession->executeQuery<JobTitleDo,JobTitleInfoMapper>(sqlStr,mapper, params);
 }
 
-int JobTitleInfoDAO::update(const JobTitleInfoDTO& uObj)
+int JobTitleInfoDAO::update(const JobTitleDo& uObj)
 {
 	stringstream sql;
 	stringstream fmts;
 	sql << "UPDATE `bis_professoranalysis_t` SET ";
-	SQLPARAMS_UPDATE_INT(EMPLOYEEID);
-	SQLPARAMS_UPDATE_INT(CREDENTIALS_NUM);
-	SQLPARAMS_UPDATE_STRING(EMPLOYEENAME);
-	SQLPARAMS_UPDATE_STRING(ORGANIZATION_NAME);
-	SQLPARAMS_UPDATE_STRING(PROFESSORANALYSIS_NAME);
-	SQLPARAMS_UPDATE_STRING(PROFESSOR_GRADES);
-	SQLPARAMS_UPDATE_STRING(PROFESSOR_DATE);
-	SQLPARAMS_UPDATE_STRING(PROFESSIONAL_CATEGORY);
-	SQLPARAMS_UPDATE_STRING(issuing_authority);
-	SQLPARAMS_UPDATE_STRING(judging_unit);
-	SQLPARAMS_UPDATE_PUSH_FINAL(b_highest_professional_title, "%b", id);
+	SQLPARAMS_UPDATE_STRING(name);
+	SQLPARAMS_UPDATE_STRING(certid);
+	SQLPARAMS_UPDATE_STRING(grades);
+	SQLPARAMS_UPDATE_STRING(jobtype);
+	SQLPARAMS_UPDATE_STRING(category);
+	SQLPARAMS_UPDATE_STRING(getdate);
+	SQLPARAMS_UPDATE_STRING(employeeid);
+	SQLPARAMS_UPDATE_STRING(employeename);
+	SQLPARAMS_UPDATE_STRING(orgname);
+	SQLPARAMS_UPDATE_PUSH_FINAL(orgid, "%s", id);
 	return sqlSession->executeUpdate(sql.str(), fmts.str().c_str(),
 		uObj.getName(),
-		uObj.getUpdateman(),
-		uObj.getCreatedate(),
-		uObj.getCreateman(),
-		uObj.getUpdatedate(),
-		uObj.getFylb(),
-		uObj.getFyje(),
-		uObj.getFfrs(),
-		uObj.getFfsj(),
-		uObj.getFybz(),
-		uObj.getBz(),
+		uObj.getCertId(),
+		uObj.getGrades(),
+		uObj.getJobType(),
+		uObj.getCategory(),
+		uObj.getGetDate(),
+		uObj.getEmployeeId(),
+		uObj.getEmployeeName(),
+		uObj.getOrgName(),
+		uObj.getOrgId(),
 		uObj.getId());
 }
