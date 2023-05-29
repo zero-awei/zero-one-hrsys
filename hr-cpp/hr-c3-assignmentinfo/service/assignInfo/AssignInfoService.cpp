@@ -81,16 +81,19 @@ AssignInfoDTO::Wrapper AssignInfoService::QueryDetail(const AssignInfoDTO::Wrapp
 	//auto page = AssignInfoDTO::createShared();
 
 	//// ½«DO×ª»»³ÉDTO
-	AssignInfoDO sub;
-	//	dto->id = sub.getId();
-	//	dto->assign = sub.getAssign();
-	//	dto->etype = sub.getEtype();
-	//	dto->organize = sub.getOrganize();
-		//dto->depart = sub.getDepart();
-		//dto->job = sub.getJob();
-		//dto->post= sub.getPost();
-		//dto->startTime = sub.getStartTime();
-		//dto->endTime = sub.getEndTime();
-	ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id, assign, Assign, etype, Etype, organize, Organize, depart, Depart, job, Job, post, Post, startTime, StartTime, endTime, EndTime)
+	AssignInfoDAO dao;
+	list<AssignInfoDO> result = dao.selectById(dto->id);
+	for (AssignInfoDO sub : result) {
+		//	dto->id = sub.getId();
+		//	dto->assign = sub.getAssign();
+		//	dto->etype = sub.getEtype();
+		//	dto->organize = sub.getOrganize();
+			//dto->depart = sub.getDepart();
+			//dto->job = sub.getJob();
+			//dto->post= sub.getPost();
+			//dto->startTime = sub.getStartTime();
+			//dto->endTime = sub.getEndTime();
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id, assign, Assign, etype, Etype, organize, Organize, depart, Depart, job, Job, post, Post, startTime, StartTime, endTime, EndTime)
+	}
 		return dto;
 }
