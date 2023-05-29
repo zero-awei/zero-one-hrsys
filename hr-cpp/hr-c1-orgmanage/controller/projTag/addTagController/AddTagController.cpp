@@ -29,26 +29,11 @@ Uint64JsonVO::Wrapper AddTagController::execAddProjTag(const ProjTagDTO::Wrapper
 	ProjTagService service;
 
 	// 执行数据新增 
+	// 执行成功后返回项目标签id值
 	uint64_t id = service.saveData(dto);
 
 	//响应结果
 	jvo->success(UInt64(id));
-
-	return jvo;
-}
-
-Uint64JsonVO::Wrapper AddTagController::execAddProjTag(const ProjTagDTO::Wrapper& dto)
-{
-	auto jvo = Uint64JsonVO::createShared();
-
-	// 校验dto数据
-
-
-	// 执行数据新增
-	//uint64_t id = service.saveData(dto);
-
-	//响应结果
-	jvo->success(UInt64(155149));
 
 	return jvo;
 }

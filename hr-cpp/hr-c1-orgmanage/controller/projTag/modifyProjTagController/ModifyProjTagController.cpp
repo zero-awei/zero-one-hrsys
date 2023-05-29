@@ -26,7 +26,7 @@ StringJsonVO::Wrapper ModifyProjTagController::execModifyTag(const ModifyTagDTO:
 	// 创建返回参数
 	auto jvo = StringJsonVO::createShared();
 	// 参数校验
-	if (!dto->id || dto->id->empty())
+	if (!dto->tagId || dto->tagId->empty())
 	{
 		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
@@ -36,11 +36,11 @@ StringJsonVO::Wrapper ModifyProjTagController::execModifyTag(const ModifyTagDTO:
 	ProjTagService service;
 	if (service.updateProjTag(dto, payload))
 	{
-		jvo->success(dto->id);
+		jvo->success(dto->tagId);
 	}
 	else
 	{
-		jvo->fail(dto->id);
+		jvo->fail(dto->tagId);
 	}
 
 	return jvo;

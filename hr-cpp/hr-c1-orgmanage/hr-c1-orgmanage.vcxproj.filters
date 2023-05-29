@@ -29,6 +29,10 @@
     <ClCompile Include="service\jobSet\JobSetService.cpp" />
     <ClCompile Include="dao\jobSet\JobSetDAO.cpp" />
     <ClCompile Include="controller\jobSet\addJobController\AddJobController.cpp" />
+    <ClCompile Include="uselib\excel\ExportExcel.cpp" />
+    <ClCompile Include="uselib\fastdfs\UseFastDfs.cpp" />
+    <ClCompile Include="dao\projTag\DeleteProjTagDAO.cpp" />
+    <ClCompile Include="service\projTag\deleteProjTagService\DeleteProjTagService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -90,11 +94,17 @@
     <ClInclude Include="domain\do\projTag\OrgListDO.h" />
     <ClInclude Include="dao\projTag\OrgListMapper.h" />
     <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
-    <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
     <ClInclude Include="service\jobSet\JobSetService.h" />
     <ClInclude Include="dao\jobSet\JobSetDAO.h" />
     <ClInclude Include="controller\jobSet\addJobController\AddJobController.h" />
     <ClInclude Include="domain\dto\addJob\AddJobDTO.h" />
     <ClInclude Include="dao\projTag\ProjTagMapper.h" />
+    <ClInclude Include="dao\projTag\ProjTagListMapper.h" />
+    <ClInclude Include="uselib\excel\ExportExcel.h" />
+    <ClInclude Include="uselib\fastdfs\UseFastDfs.h" />
+    <ClInclude Include="dao\projTag\DeleteProjTagDAO.h" />
+    <ClInclude Include="domain\vo\projTag\DeleteProjTagBatchVO.h" />
+    <ClInclude Include="service\projTag\deleteProjTagService\DeleteProjTagService.h" />
+    <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
   </ItemGroup>
 </Project>

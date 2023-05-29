@@ -44,8 +44,9 @@ PullListDTO::Wrapper TypeContractService::listAll()
 			hash[code] = item.getTypeContract();
 		}
 
-		// TODO: 将获取的数据更新到Redis缓存
-		UseLibRedis::updateRedis("type-contract", hash);
+		if (res.size())
+			// TODO: 将获取的数据更新到Redis缓存
+			UseLibRedis::updateRedis("type-contract", hash);
 	}
 	// 否则组装缓存数据到DTO
 	else

@@ -18,14 +18,18 @@
 */
 #include "stdafx.h"
 #include "CertTypeListController.h"
-//#include "../../service/sample/SampleService.h"
+#include "../../../service/certs/certTypeService/CertTypeService.h"
 
 CertTypeListJsonVO::Wrapper CertTypeListController::execQueryCertTypeList()
 {
 	auto vo = CertTypeListJsonVO::createShared();
-	auto dto = CertTypeListDTO::createShared();
-	dto->rows->push_back(CertTypeDTO::createShared());
-	// TODO:µ÷ÓÃservice·µ»ØPullListDTO
-	vo->success(dto);
+	CertTypeService certTypeService;
+	auto dto = certTypeService.listAll();
+	if (dto->rows->size() <= 1){
+		vo->fail(dto);
+	}
+	else {
+		vo->success(dto);
+	}
 	return vo;
 }

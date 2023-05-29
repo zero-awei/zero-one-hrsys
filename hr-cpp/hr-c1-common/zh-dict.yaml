@@ -42,6 +42,7 @@ common:
   code: 值
   type: 类型
  dto:
+  pimQualTypeName: 岗位（技能）证书
   certTypeId: 证书类型ID
   certTypeName: 证书类型名称
   certTypeCode: 证书类型代号
@@ -85,19 +86,19 @@ common:
   contractType: 合同类型下拉列表
   armyLevelType: 军转级别下拉列表 
   contractStatus: 合同状态下拉列表
-  fileStatus: 档案借阅状态
-  fileReservation: 档案保管地
+  fileStatus: 档案借阅状态下拉列表
+  fileReservation: 档案保管地下拉列表
   jobLevelType: 职称级别类型下拉列表
   costType: 费用类别下拉列表
   certTypeList: 证书类型下拉列表
   profCertsList: 职业资格证书类型下拉列表
   declareType: 申报类型下拉列表
   archivesLevel: 档案室层级下拉列表
-  JobCategory: 工作岗位
-  leaveReason: 离职理由
-  dismissReason: 解聘理由
-  evaluationTypes: 评价类型 
-  auditStatus: 审阅状态
+  JobCategory: 工作岗位下拉列表
+  leaveReason: 离职理由下拉列表
+  dismissReason: 解聘理由下拉列表
+  evaluationTypes: 评价类型下拉列表
+  auditStatus: 审阅状态下拉列表
   typecontract: 查询合同类别下拉列表
 
 fileReservation:

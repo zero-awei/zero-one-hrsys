@@ -24,7 +24,7 @@
 #include "domain/do/projTag/ProjTagDO.h"
 
 /**
- * 项目标签字段映射类
+ * 项目标签字段映射类（用于）
  * 负责人：Andrew
  */
 class ProjTagMapper : public Mapper<ProjTagDO>

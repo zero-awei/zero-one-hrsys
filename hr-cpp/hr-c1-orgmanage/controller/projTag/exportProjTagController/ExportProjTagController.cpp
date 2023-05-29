@@ -26,15 +26,15 @@ StringJsonVO::Wrapper ExportProjTagController::execExportProjTag(const ExportPro
 	auto vo = StringJsonVO::createShared();
 
 	// 参数校验
-	if (query->sequence->empty() || query->sequence != "DESC" && query->sequence != "DESC")
+	if (query->order->empty() || query->order != "DESC" && query->order != "ASC")
 	{
 		vo->init("", RS_PARAMS_INVALID);
 		return vo;
 	}
 
 	// 最大5000条
-	if (query->rows > 5000) 
-		query->rows = 5000;
+	if (query->line > 5000) 
+		query->line = 5000;
 
 	// TODO: 调用service获取导出文件下载链接
 	ProjTagService service;

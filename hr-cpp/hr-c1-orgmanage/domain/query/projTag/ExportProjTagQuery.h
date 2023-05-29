@@ -32,15 +32,15 @@ class ExportProjTagQuery : public oatpp::DTO
 {
 	DTO_INIT(ExportProjTagQuery, DTO);
 	// 导出行数
-	DTO_FIELD_INFO(rows) {
-		info->description = ZH_WORDS_GETTER("projTag.export.rows");
+	DTO_FIELD(UInt32, line);
+	DTO_FIELD_INFO(line) {
+		info->description = ZH_WORDS_GETTER("projTag.export.line");
 	}
-	DTO_FIELD(UInt8, rows);
 	// 顺序
-	DTO_FIELD_INFO(sequence) {
-		info->description = ZH_WORDS_GETTER("projTag.export.sequence");
+	DTO_FIELD(String, order);
+	DTO_FIELD_INFO(order) {
+		info->description = ZH_WORDS_GETTER("projTag.export.order");
 	}
-	DTO_FIELD(String, sequence);
 };
 
 #include OATPP_CODEGEN_END(DTO)

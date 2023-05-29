@@ -18,12 +18,18 @@
 */
 #include "stdafx.h"
 #include "profCertsListController.h"
-//#include "../../service/sample/SampleService.h"
+#include "../../../service/certs/profCertsService/ProfCertsService.h"
 
 ProfCertsListJsonVO::Wrapper ProfCertsListController::execQueryProfCertsList(const ProfCertsQuery::Wrapper& query)
 {	
-	auto dto = ProfCertsListDTO::createShared();
 	auto vo = ProfCertsListJsonVO::createShared();
-	vo->success(dto);
+	ProfCertsService profCertsService;
+	auto dto = profCertsService.listAll(query);
+	if (dto->rows->size() <= 0) {
+		vo->fail(dto);
+	}
+	else {
+		vo->success(dto);
+	}
 	return vo;
 }

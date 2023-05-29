@@ -45,8 +45,9 @@ PullListDTO::Wrapper ArmyLevelTypeService::listAll()
 			dto->pullList->push_back(ItemDTO::createShared(atoi(code.c_str()), item.getArmyLevelType()));
 		}
 
-		// TODO: 将获取的数据更新到Redis缓存
-		UseLibRedis::updateRedis("army-level-type", dao.getMapList());
+		if (res.size())
+			// TODO: 将获取的数据更新到Redis缓存
+			UseLibRedis::updateRedis("army-level-type", dao.getMapList());
 	}
 	// 否则组装缓存数据到DTO
 	else
