@@ -110,11 +110,14 @@ public class CommonController implements CommonApis {
         return JsonVO.success(zzmmDTOList);
     }
 
+    @Resource
+    private IBloodTypeService bloodTypeService;
+
     @ApiOperation(value = "血型下拉列表")
     @GetMapping("query-blood-type")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryBloodType() {
-        return null;
+        return JsonVO.success(bloodTypeService.listBloodType());
     }
 
     @Resource
