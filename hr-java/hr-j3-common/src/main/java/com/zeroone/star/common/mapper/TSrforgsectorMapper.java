@@ -1,6 +1,6 @@
 package com.zeroone.star.common.mapper;
 
-import com.zeroone.star.common.entity.TOrgsector;
+import com.zeroone.star.common.entity.TSrforgsector;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -9,10 +9,10 @@ import org.apache.ibatis.annotations.Mapper;
  * 组织部门 Mapper 接口
  * </p>
  *
- * @author breezelr
- * @since 2023-05-27
+ * @author lr
+ * @since 2023-05-29
  */
 @Mapper
-public interface TOrgsectorMapper extends BaseMapper<TOrgsector> {
+public interface TSrforgsectorMapper extends BaseMapper<TSrforgsector> {
 
 }

@@ -17,8 +17,8 @@ import lombok.EqualsAndHashCode;
 @Data
 @ApiModel("通过组织id和部门名称查询部门名称")
 public class SectorNameQuery {
-    @ApiModelProperty(value = "组织id", example = "ASDWEQSAD")
+    @ApiModelProperty(value = "组织id", example = "A2493B92-BADB-4922-9FCF-A569D905868F")
     private String orgId;
-    @ApiModelProperty(value = "部门名称", example = "技术部门")
+    @ApiModelProperty(value = "部门名称", example = "人力资源部")
     private String name;
 }

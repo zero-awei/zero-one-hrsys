@@ -1,7 +1,7 @@
 package com.zeroone.star.common.controller;
 
-import com.zeroone.star.common.service.impl.TOrgsectorServiceImpl;
-import com.zeroone.star.common.service.impl.TSrfcodeitemServiceImpl;
+import com.zeroone.star.common.service.ITSrfcodeitemService;
+import com.zeroone.star.common.service.ITSrforgsectorService;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.common.CommonApis;
 import com.zeroone.star.project.j3.dto.DropdownListDTO;
@@ -12,7 +12,9 @@ import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -35,9 +37,9 @@ import java.util.List;
 public class CommonController implements CommonApis {
 
     @Resource
-    private TOrgsectorServiceImpl tOrgsectorService;
+    private ITSrforgsectorService itSrforgsectorService;
     @Resource
-    private TSrfcodeitemServiceImpl tSrfcodeitemService;
+    private ITSrfcodeitemService itSrfcodeitemService;
 
     @GetMapping("query-start-position-title")
     @ApiOperation("职务名称下拉列表")
@@ -93,7 +95,7 @@ public class CommonController implements CommonApis {
     @ApiOperation("部门名称下拉列表")
     @Override
     public JsonVO<List<DropdownListDTO>> querySectorName(SectorNameQuery sectorNameQuery) {
-        return JsonVO.success(tOrgsectorService.listSectorName(sectorNameQuery));
+        return JsonVO.success(itSrforgsectorService.listSectorName(sectorNameQuery));
     }
 
     @GetMapping("queryList")
@@ -107,14 +109,14 @@ public class CommonController implements CommonApis {
     @ApiOperation("学习形式下拉列表")
     @Override
     public JsonVO<List<DropdownListDTO>> queryLearningForms() {
-        return JsonVO.success(tSrfcodeitemService.listLearningForms());
+        return JsonVO.success(itSrfcodeitemService.listLearningForms());
     }
 
     @GetMapping("query-school-nature")
     @ApiOperation("学校性质下拉列表")
     @Override
     public JsonVO<List<DropdownListDTO>> querySchoolNature() {
-        return JsonVO.success(tSrfcodeitemService.listSchoolNature());
+        return JsonVO.success(itSrfcodeitemService.listSchoolNature());
     }
 
     @GetMapping("query-common-discipline")
