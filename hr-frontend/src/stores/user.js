@@ -3,7 +3,7 @@ import Request from '@/apis/request'
 // 测试菜单数据
 let testMenus = [
   {
-    id: 1,
+    id: '1',
     text: '系统管理',
     icon: 'IconSetting',
     children: [
@@ -45,7 +45,7 @@ let testMenus = [
     ]
   },
   {
-    id: 2,
+    id: '2',
     text: '用户管理',
     icon: 'IconUser',
     children: [
@@ -87,7 +87,7 @@ let testMenus = [
     ]
   },
   {
-    id: 3,
+    id: '3',
     text: '订单管理',
     icon: 'IconTickets',
     children: [
