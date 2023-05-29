@@ -14,7 +14,7 @@ class ContractQuery : public PageQuery
 	// 初始化定义
 	DTO_INIT(ContractQuery, PageQuery);
 	// 编号
-	DTO_FIELD(UInt64, id);
+	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("contract.field.id");
 	}

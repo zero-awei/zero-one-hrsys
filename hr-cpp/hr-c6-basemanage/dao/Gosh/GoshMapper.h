@@ -14,7 +14,7 @@ public:
 	ContractDO mapper(ResultSet* resultSet) const override
 	{
 		ContractDO data;
-		data.setId(resultSet->getUInt64(1));
+		data.setId(resultSet->getString(1));
 		data.setName(resultSet->getString(2));
 		data.setType(resultSet->getString(3));
 		data.setVariety(resultSet->getString(4));
