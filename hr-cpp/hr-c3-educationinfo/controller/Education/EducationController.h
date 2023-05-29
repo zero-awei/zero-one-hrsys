@@ -50,7 +50,7 @@ public: // 接口
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述：根据员工id和姓名查询
-		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("education.id");
+		/*info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("education.id");
 		info->queryParams["pimpersonid"].addExample("default", String("02A0F00B-506C-4F02-B4A1-9524F4043CF9"));
 		info->queryParams["pimpersonid"].required = false;
 		info->queryParams.add<String>("pimpersonname").description = ZH_WORDS_GETTER("gueryEducationPage");
@@ -58,7 +58,7 @@ public: // 接口
 		info->queryParams["pimpersonname"].required = false;
 		info->queryParams.add<String>("sort").description = ZH_WORDS_GETTER("t_pimperson.sort");
 		info->queryParams["sort"].addExample("default", String("asc"));
-		info->queryParams["sort"].required = false;
+		info->queryParams["sort"].required = false;*/
 	}
 	// 功能1 分页查询指定员工的教育信息：接口处理
 	ENDPOINT(API_M_GET, "/education/guery-education-page", gueryEducationPage, API_HANDLER_AUTH_PARAME,  QUERIES(QueryParams, queryParams)) {
@@ -79,7 +79,7 @@ public: // 接口
 		//API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 定义其他表单参数描述：根据教育标识查询
 		info->queryParams.add<String>("PIMEDUCATIONID").description = ZH_WORDS_GETTER("t_pimperson.PIMEDUCATIONID");
-		info->queryParams["PIMEDUCATIONID"].addExample("default", String("02798294-EF8D-41B0-9C7A-8717819D5CE7"));
+		info->queryParams["PIMEDUCATIONID"].addExample("default", String("0A81C08A-DAEE-4B2A-A586-18C5F22D0EB7"));
 		info->queryParams["PIMEDUCATIONID"].required = false;
 		//info->queryParams.add<String>("pimpersonname").description = ZH_WORDS_GETTER("getEducationPageQuery");
 		//info->queryParams["pimpersonname"].addExample("default", String("ChenJun"));

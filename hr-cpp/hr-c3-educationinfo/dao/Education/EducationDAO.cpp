@@ -9,24 +9,25 @@
 #define EDUCATIONPAGE_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
-if (query->pimpersonid) { \
-	sql << " AND `pimpersonid`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->pimpersonid.getValue("")); \
-} \
-if (query->pimpersonname) { \
-	sql << " AND pimpersonname=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->pimpersonname.getValue("")); \
-} \
-if (query->sort) { \
-	sql << " AND sort=?"; \
-	SQLPARAMS_PUSH(params, "i", std::string, query->sort.getValue("")); \
-}
+//if (query->pimpersonid) { \
+//	sql << " AND `pimpersonid`=?"; \
+//	SQLPARAMS_PUSH(params, "s", std::string, query->pimpersonid.getValue("")); \
+//} \
+//if (query->pimpersonname) { \
+//	sql << " AND pimpersonname=?"; \
+//	SQLPARAMS_PUSH(params, "s", std::string, query->pimpersonname.getValue("")); \
+//} \
+//if (query->sort) { \
+//	sql << " AND sort=?"; \
+//	SQLPARAMS_PUSH(params, "i", std::string, query->sort.getValue("")); \
+//}
 
 
 std::list<EducationDO> EducationDAO::selectEducationPage(const EducationPageQuery::Wrapper& query)
 {
 	stringstream sql;
 	sql << "SELECT `PIMEDUCATIONID`, `XL`, `QSSJ`, `JSSJ`, `BYYX`, `XKML`, `SXZY`, `XLLX`, `XXXZ`, `SFDYXL`, `SFZGXL`, `BTZ`, `XWZ`, `XLCX`, `FJ` FROM t_pimeducation";
+	//sql << "SELECT * FROM t_pimeducation";
 	EDUCATIONPAGE_TERAM_PARSE(query, sql);
 	
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
@@ -58,10 +59,15 @@ std::list<EducationDO> EducationDAO::selectEducationSingle(const EducationSingle
 
 uint64_t EducationDAO::insertEducation(const EducationDO& iObj)
 {
-	string sql = "INSERT INTO `t_pimeducation` (`PIMEDUCATIONID`, `XL`, `QSSJ`, `JSSJ`, `BYYX`, `XKML`, `SXZY`, `XLLX`, `XXXZ`, `SFDYXL`, `SFZGXL`, `BTZ`, `XWZ`, `XLCX`, `FJ`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%i%i%s%s%s%s%s%i%i%s%s%s", iObj.getFunPIMEDUCATIONID(), iObj.getFunXL(), iObj.getFunQSSJ(), 
+	string sql = "INSERT INTO `t_pimeducation` \
+		(`PIMEDUCATIONID`, `XL`, `QSSJ`, `JSSJ`, `BYYX`,\
+		 `XKML`, `SXZY`, `XLLX`, `XXXZ`, `SFDYXL`, \
+		`SFZGXL`, `BTZ`, `XWZ`, `XLCX`, `FJ`)\
+		 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	return sqlSession->executeInsert(sql, "%s%s%i%i%s%s%s%s%s%i%i%s%s%s%s", iObj.getFunPIMEDUCATIONID(), iObj.getFunXL(), iObj.getFunQSSJ(),
 		iObj.getFunJSSJ(), iObj.getFunBYYX(), iObj.getFunXKML(), iObj.getFunSXZY(), iObj.getFunXLLX(), iObj.getFunXXXZ(), iObj.getFunSFDYXL(),
 		iObj.getFunSFZGXL(), iObj.getFunBTZ(), iObj.getFunXWZ(), iObj.getFunXLCX(), iObj.getFunFJ());// %s%s&i£º×Ö·û´®¡¢×Ö·û´®¡¢int
+	
 }
 
 bool EducationDAO::updateEducaiton(const EducationDO& data)

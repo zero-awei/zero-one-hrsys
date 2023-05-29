@@ -31,11 +31,6 @@ public:
 		data.setFunXWZ(resultSet->getString(13));		// 学位证
 		data.setFunXLCX(resultSet->getString(14));		// 学历验证
 		data.setFunFJ(resultSet->getString(15));// 其他附件
-
-
-
-
-		
 		return data;
 	}
 };

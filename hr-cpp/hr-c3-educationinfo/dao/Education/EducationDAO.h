@@ -10,6 +10,7 @@
 #include "domain/do/Education/EducationDO.h"
 #include "domain/query/EducationPage/EducationPageQuery.h"
 #include "domain/query/EducationSingle/EducationSingleQuery.h"
+#include "domain/dto/Education/EducationDTO.h"
 
 class EducationDAO : public BaseDAO
 {

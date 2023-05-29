@@ -4,9 +4,10 @@
 
 EducationPageJsonVO::Wrapper EducationController::execQueryEducationPage(const EducationPageQuery::Wrapper& query, const PayloadDTO& payload)
 {
-	auto vo = EducationPageJsonVO::createShared();
+	
 	EducationService service;
 	auto dto = service.listEducationPage(query);
+	auto vo = EducationPageJsonVO::createShared();
 	vo->success(dto);
 	return vo;
 }
@@ -37,9 +38,15 @@ Uint64JsonVO::Wrapper EducationController::execAddEducationSingle(const Educatio
 
 	// 执行数据新增 
 	uint64_t id = service.saveEducation(dto);
-
 	//响应结果
-	vo->success(UInt64(id));
+	if (id > 0) {
+		vo->success(UInt64(id));
+	}
+	else {
+		vo->fail(UInt64(id));
+	}
+	
+
 	
 
 	return vo;

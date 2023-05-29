@@ -16,20 +16,20 @@ class EducationPageQuery : public PageQuery
 {
 	DTO_INIT(EducationPageQuery, PageQuery);
 	// 员工id pimpersonid
-	DTO_FIELD(String, pimpersonid);
+	/*DTO_FIELD(String, pimpersonid);
 	DTO_FIELD_INFO(pimpersonid) {
 		info->description = ZH_WORDS_GETTER("t_pimperson.pimpersonid");
-	}
+	}*/
 	// 员工姓名pimpersonname
-	DTO_FIELD(String, pimpersonname);
+	/*DTO_FIELD(String, pimpersonname);
 	DTO_FIELD_INFO(pimpersonname) {
 		info->description = ZH_WORDS_GETTER("t_pimperson.pimpersonname");
-	}
+	}*/
 	// 排序类别:排序方式,(asc/desc)
-	DTO_FIELD(String, sort);
-	DTO_FIELD_INFO(sort) {
-		info->description = ZH_WORDS_GETTER("t_pimperson.sort");
-	}
+	//DTO_FIELD(String, sort);
+	//DTO_FIELD_INFO(sort) {
+	//	info->description = ZH_WORDS_GETTER("t_pimperson.sort");
+	//}
 };
 
 #include OATPP_CODEGEN_END(DTO)
