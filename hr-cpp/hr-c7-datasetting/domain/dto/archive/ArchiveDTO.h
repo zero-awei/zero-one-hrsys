@@ -11,29 +11,29 @@ class ArchiveDTO : public oatpp::DTO
 {
 	DTO_INIT(ArchiveDTO, DTO);
 	// ÅÅÐòºÅ
-	DTO_FIELD(Int32, sortID);
-	DTO_FIELD_INFO(sortID) {
-		info->description = ZH_WORDS_GETTER("archive.field.sortID");
+	DTO_FIELD(UInt64, sortid);
+	DTO_FIELD_INFO(sortid) {
+		info->description = ZH_WORDS_GETTER("archive.field.sortid");
 	}
 	// µµ°¸ÊÒÃû³Æ
-	DTO_FIELD(String,archiveName);
-	DTO_FIELD_INFO(archiveName) {
-		info->description = ZH_WORDS_GETTER("archive.field.archiveName");
+	DTO_FIELD(String,archivename);
+	DTO_FIELD_INFO(archivename) {
+		info->description = ZH_WORDS_GETTER("archive.field.archivename");
 	}
 	// ¹ñºÅ
-	DTO_FIELD(Int32, cabinetNum);
-	DTO_FIELD_INFO(cabinetNum) {
-		info->description = ZH_WORDS_GETTER("archive.field.cabinetNum");
+	DTO_FIELD(Int32, cabinetnum);
+	DTO_FIELD_INFO(cabinetnum) {
+		info->description = ZH_WORDS_GETTER("archive.field.cabinetnum");
 	}
 	//²ãºÅ
-	DTO_FIELD(Int32, layerNum);
-	DTO_FIELD_INFO(layerNum) {
-		info->description = ZH_WORDS_GETTER("archive.field.layerNum");
+	DTO_FIELD(Int32, layernum);
+	DTO_FIELD_INFO(layernum) {
+		info->description = ZH_WORDS_GETTER("archive.field.layernum");
 	}
 	//±àºÅ
-	DTO_FIELD(Int32, numID);
-	DTO_FIELD_INFO(numID) {
-		info->description = ZH_WORDS_GETTER("archive.field.numID");
+	DTO_FIELD(Int32, numid);
+	DTO_FIELD_INFO(numid) {
+		info->description = ZH_WORDS_GETTER("archive.field.numid");
 	}
 };
 

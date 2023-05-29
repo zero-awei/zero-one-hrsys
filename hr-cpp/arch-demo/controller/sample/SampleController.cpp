@@ -54,7 +54,7 @@ Uint64JsonVO::Wrapper SampleController::execAddSample(const SampleDTO::Wrapper& 
 	SampleService service;
 	// 执行数据新增
 	uint64_t id = service.saveData(dto);
-	if (id > 0) {
+	if (id >0) {
 		jvo->success(UInt64(id));
 	}
 	else
