@@ -89,9 +89,17 @@ labordispatch_mug:
   summary: 修改指定公司信息
  field:
   corporatename: 公司名称
-  corporateaddress: 公司名称
+  corporateaddress: 公司地址
   corporatecontact: 公司联系人
   corporatenumber: 公司联系电话
+  PIMLABOURCAMPANYNAME: 公司名称
+  PIMLABOURCAMPANYID: 公司标识
+  LXDZ: 联系地址
+  LXR: 联系人
+  LXFS: 联系方式
+  REGCAPITAL: 注册本金
+  LEGALPERSON: 法人
+  UPDATEDATE: 更新时间
 
 expenseledger_mug:
  get:
@@ -110,7 +118,6 @@ expenseledger_mug:
   REGCAPITAL: 注册本金
   LEGALPERSON: 法人
   UPDATEDATE: 更新时间
-  summary: 删除一条合同数据
  filed:   
   name: 员工姓名
   id: 合同编号

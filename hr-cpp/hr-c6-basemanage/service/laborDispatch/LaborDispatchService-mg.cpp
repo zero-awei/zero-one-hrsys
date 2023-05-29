@@ -37,7 +37,7 @@ LaborDispatchPageDTO::Wrapper LaborDispatchMService::ListAll(const LaborDispatch
 	//分页插叙数据
 	pages->total = count;
 	pages->calcPages();
-	list<LaborDispatchDO> result = dao.selectByCorporateName(query);
+	list<LaborDispatchDO> result = dao.selectByCorporateID(query);
 	//将DO转换成DTO
 	for (LaborDispatchDO sub : result)
 	{
