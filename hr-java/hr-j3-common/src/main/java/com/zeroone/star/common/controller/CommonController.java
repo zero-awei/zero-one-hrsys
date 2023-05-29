@@ -11,6 +11,7 @@ import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -69,8 +70,8 @@ public class CommonController implements CommonApis {
         return null;
     }
 
-    @Resource
-    private TSrfcodeitemServiceImpl TSrfcodeitemService;
+    @Autowired
+    private ITSrfcodeitemService TSrfcodeitemService;
 
     @GetMapping("query-distribution-status")
     @ApiOperation("分配状态下拉列表")

@@ -19,7 +19,7 @@ import lombok.Data;
 @Data
 public class DropdownListOptionDTO {
     @ApiModelProperty(value = "列表项编号", example = "1")
-    private Integer key;
+    private String key;
     @ApiModelProperty(value = "列表项值", example = "身份证")
     private String value;
 }

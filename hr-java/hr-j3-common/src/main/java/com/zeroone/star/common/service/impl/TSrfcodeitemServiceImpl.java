@@ -21,7 +21,7 @@ import java.util.List;
  */
 @Service
 public class TSrfcodeitemServiceImpl extends ServiceImpl<TSrfcodeitemMapper, TSrfcodeitem> implements ITSrfcodeitemService {
-    @Resource
+    @Autowired
     private TSrfcodeitemMapper mapper;
 
     @Override
