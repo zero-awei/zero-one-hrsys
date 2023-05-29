@@ -118,7 +118,7 @@ public interface CommonApis {
     /**
      * 分页查询某人的语言能力
      */
-    JsonVO<PageDTO<List<LanguageAbilityDTO>>> queryLanguageAbilityList(LanguageAbilityQuery personId);
+//    JsonVO<PageDTO<List<LanguageAbilityDTO>>> queryLanguageAbilityList(LanguageAbilityQuery personId);
 
 
     /**
@@ -153,9 +153,16 @@ public interface CommonApis {
 
 /**
  *  语种类型下拉列表
- * @return {@link JsonVO< List< DropdownListOptionDTO>>}
+ * @return {@link JsonVO< List< String>>}
  * @Author H_lzu
  * @Date 22:09 2023/5/24
+ * @Date 2023/5/29 /loop
  */
-    JsonVO<List<DropdownListOptionDTO>> queryLanguageType();
+    JsonVO<List<String>> queryLanguageType();
+
+    /**
+     * 外语等级下拉列表
+     * @return
+     */
+    public JsonVO<List<String>> queryLanguageLevel();
 }

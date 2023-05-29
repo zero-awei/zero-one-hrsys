@@ -1,5 +1,6 @@
 package com.zeroone.star.common.controller;
 
+import com.zeroone.star.common.service.ITPimlanguageabilityService;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.common.CommonApis;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
@@ -9,6 +10,7 @@ import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,6 +31,8 @@ import java.util.List;
 @RequestMapping("common")
 @Api(tags = "通用接口")
 public class CommonController implements CommonApis {
+    @Autowired
+    ITPimlanguageabilityService languageabilityService;
 
     @GetMapping("query-start-position-title")
     @ApiOperation("职务名称下拉列表")
@@ -87,12 +91,12 @@ public class CommonController implements CommonApis {
         return null;
     }
 
-    @GetMapping("queryList")
-    @ApiOperation("分页查询某人的语言能力")
-    @Override
-    public JsonVO<PageDTO<List<LanguageAbilityDTO>>> queryLanguageAbilityList(LanguageAbilityQuery personId) {
-        return null;
-    }
+//    @GetMapping("query-languageAbility-list")
+//    @ApiOperation("分页查询某人的语言能力")
+//    @Override
+//    public JsonVO<PageDTO<List<LanguageAbilityDTO>>> queryLanguageAbilityList(LanguageAbilityQuery personId) {
+//        return null;
+//    }
 
     @GetMapping("query-learning-forms")
     @ApiOperation("学习形式下拉列表")
@@ -143,9 +147,17 @@ public class CommonController implements CommonApis {
     public JsonVO<List<DropdownListOptionDTO>> queryAllocation() {
         return null;
     }
-@GetMapping("query-language-type")
-@ApiOperation("语种类型下拉列表")
-    public JsonVO<List<DropdownListOptionDTO>> queryLanguageType() {
-        return null;
+    @GetMapping("query-language-type")
+    @ApiOperation("语种类型下拉列表")
+    public JsonVO<List<String>> queryLanguageType() {
+        String id = "4AD0B58B-E3E7-44B2-8F67-302C8F95C7E9"; //语种类型id
+        return JsonVO.success(languageabilityService.queryLanguageType(id));
+    }
+
+    @GetMapping("query-language-level")
+    @ApiOperation("外语等级下拉列表")
+    public JsonVO<List<String>> queryLanguageLevel(){
+        String id = "F1990A43-1ED9-4001-BA4A-1F3B221653A4";
+        return  JsonVO.success(languageabilityService.queryLanguageLevel(id));//外语等级id
     }
 }
