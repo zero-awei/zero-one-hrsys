@@ -1,5 +1,7 @@
 package com.zeroone.star.common.controller;
 
+import com.zeroone.star.common.service.ITSrfcodeitemService;
+import com.zeroone.star.common.service.impl.TSrfcodeitemServiceImpl;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.common.CommonApis;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
@@ -11,6 +13,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -66,11 +69,14 @@ public class CommonController implements CommonApis {
         return null;
     }
 
+    @Resource
+    private ITSrfcodeitemService TSrfcodeitemService;
+
     @GetMapping("query-distribution-status")
     @ApiOperation("分配状态下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryDistributionStatus() {
-        return null;
+        return JsonVO.success(TSrfcodeitemService.listDistributionStatus());
     }
 
     @GetMapping("query-name-of-association")
