@@ -37,7 +37,7 @@ class EmployeePageController : public oatpp::web::server::api::ApiController
 	// 定义控制器访问入口
 	API_ACCESS_DECLARE(EmployeePageController);
 public: // 定义接口
-	// 3.1 定义查询接口描述
+	    //定义查询接口描述
 	ENDPOINT_INFO(queryEmployeePage) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("employee.get.summary");
@@ -48,12 +48,9 @@ public: // 定义接口
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("EMPLOYEEID").description = ZH_WORDS_GETTER("employee.field.employeeid");
-		info->queryParams["EMPLOYEEID"].addExample("default", String("N"));
-		info->queryParams["EMPLOYEEID"].required = false;
-		info->queryParams.add<String>("EMPLOYEENAME").description = ZH_WORDS_GETTER("employee.field.employeename");
-		info->queryParams["EMPLOYEENAME"].addExample("default", String("li ming"));
-		info->queryParams["EMPLOYEENAME"].required = false;
+		info->queryParams.add<String>("idAndName").description = ZH_WORDS_GETTER("employee.field.idAndName");
+		info->queryParams["idAndName"].addExample("default", String("张**"));
+		info->queryParams["idAndName"].required = false;
 		
 	}
 	// 3.2 定义查询接口处理

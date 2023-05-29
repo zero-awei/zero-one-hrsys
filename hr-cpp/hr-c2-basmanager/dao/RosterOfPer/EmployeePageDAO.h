@@ -20,7 +20,7 @@
 #ifndef _EMPLOYEEPAGE_DAO_
 #define _EMPLOYEEPAGE_DAO_
 #include "BaseDAO.h"
-#include "../../domain/do/RosterOfPer/EmployeePageDO.h"
+#include "../../domain/do/RosterOfPer/RosterPersonDO.h"
 #include "../../domain/query/RosterOfPer/EmployeePageQuery.h"
 
 /**
@@ -33,7 +33,7 @@ public:
 	uint64_t count(const EmployeePageQuery::Wrapper& query);
 	
 	// 分页查询数据
-	list<EmployeePageDO> selectWithPage(const EmployeePageQuery::Wrapper& query);
+	list<RosterPersonDO> selectWithPage(const EmployeePageQuery::Wrapper& query);
 
 	//// 通过姓名查询数据
 	//list<EmployeePageDO> selectByName(const string& name);

@@ -118,8 +118,7 @@ employee:
  get:
   summary: （人员花名册-人员花名册-分页查询员工数据）--洛洛
  field:
-  employeeid: 员工编号
-  employeename: 员工姓名
+  idAndName: 员工编号和员工姓名，模糊查询
  export:
   summary: （人员花名册-人员花名册-导出员工（导出本页在前端完成））--洛洛
 certif:
@@ -137,3 +136,79 @@ loanedperpage:
   employeename: 员工姓名
  export:
   summary: （人员花名册-借调人员-导出员工（导出本页在前端完成））--洛洛
+
+
+employeeDTO:
+ field:
+  ormOrgName: 工作单位
+  orgsetorName: 部门名称 t_srforgsector
+  ygbh: 员工编号
+  pimpersonName: 员工姓名
+  xb: 性别
+  mz: 民族
+  csrq: 出生日期
+  nl: 年龄
+  hyzk: 婚姻状况
+  jg: 籍贯
+  zzmm: 政治面貌
+  rdsj: 入党时间
+  zjhm: 证件号码
+  hkxz: 户口性质
+  hjdz: 户籍地址
+  sbcjd: 社保参缴地
+  dyxl: 第一学历
+  xxlb: 第一学历学校类别
+  xxlx: 第一学历学习形式
+  dyxlsxzy: 第一学历所学专业
+  dyxlbysj: 第一学历毕业时间
+  dyxlbyyx: 第一学历毕业院校
+  zgxlbyyx: 最高学历毕业院校
+  zgxl: 最高学历
+  zgxxlb: 最高学历学校类别
+  zgxllx: 最高学历学习形式
+  zgxljssj: 最高学历毕业时间
+  zgxlsxzy: 最高学历所学专业
+  cjgzsj: 参加工作时间
+  gznx: 工作年限
+  tozjdate: 建筑系统工作时间
+  zjxtgznx: 建筑系统工作年限
+  dzjbjsj: 局工作时间
+  bjgznx: 局工作年限
+  dbdwsj: 本单位工作时间
+  bdwgznx: 本单位工作年限
+  pimMajorseTypeName: 所属业务系统
+  rank: 职级
+  zw: 职务
+  gw: 岗位
+  gwType: 岗位类别
+  jxkhcj: 绩效考核成绩（近两年）
+  pimQualTypeName: 岗位证书
+  careerName: 专业技术资格（职称）
+  zcbh: 职称编号
+  sfzckjs: 是否注册会计师
+  zgzsbh: 注册会计师证书编号
+  pimVocationalCatalogName: 执（职）业资格证书 
+  rzqd: 入职渠道
+  htlb: 合同类别
+  contractType: 劳动合同性质
+  qsrq: 签订日期
+  jsrq: 结束日期
+  htsyq: 合同试用期
+  htqx: 合同期限
+  lxdh: 联系方式
+  yglx: 员工类型
+  PCMDETAILID: 人员明细表标识
+  PCMDETAILNAME: 人员明细表名称
+  CREATEMAN: 建立人
+  ENABLE: ENABLE
+  CREATEDATE: 建立时间
+  UPDATEMAN: 更新人
+  UPDATEDATE: 更新时间
+  ORMORGID: 组织标识
+  ORMORGSECTORID: 部门标识
+  FIRSTEDUCATION: FIRSTEDUCATION
+  SFZGXL: SFZGXL
+  BZ: 备注
+  KSTGKMS: 注册会计师专业阶段考试已通过科目数
+  PX: 培训
+  FIELD: 属性

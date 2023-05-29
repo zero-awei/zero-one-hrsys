@@ -38,18 +38,19 @@ EmployeePageDTO::Wrapper EmployeePageService::listAll(const EmployeePageQuery::W
 	// 分页查询数据
 	pages->total = count;
 	pages->calcPages();
-	list<EmployeePageDO> result = dao.selectWithPage(query);
+	list<RosterPersonDO> result = dao.selectWithPage(query);
 	// 将DO转换成DTO
-	for (EmployeePageDO sub : result)
+	for (RosterPersonDO sub : result)
 	{
-		auto dto = EmployeeDTO::createShared();
+		auto dto = EmployeePageDTO::createShared();
 		
 		// 		dto->id = sub.getId();
 		// 		dto->name = sub.getName();
 		// 		dto->sex = sub.getSex();
 		// 		dto->age = sub.getAge();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, EMPLOYEENAME, EMPLOYEENAME, EMPLOYEEID, EMPLOYEEID)
-			pages->addData(dto);
+		
+		EMPLOYEEPAGE_DTO_TO_DO;
+		pages->addData(dto);
 
 	}
 	return pages;

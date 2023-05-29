@@ -17,6 +17,9 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+/*
+（人员花名册-人员花名册-分页查询员工列表）--洛洛
+*/
 #ifndef _EMPLOYEE_PAGE_QUERY_ 
 #define _EMPLOYEE_PAGE_QUERY_
 
@@ -31,17 +34,12 @@
 class EmployeePageQuery : public PageQuery
 {
 	DTO_INIT(EmployeePageQuery, PageQuery);
-	// 员工姓名
-	DTO_FIELD(String, EMPLOYEENAME);
-	DTO_FIELD_INFO(EMPLOYEENAME) {
-		info->description = ZH_WORDS_GETTER("employee.field.employeename");
-	}
-	// 员工编号
-	DTO_FIELD(String, EMPLOYEEID);
-	DTO_FIELD_INFO(EMPLOYEEID) {
-		info->description = ZH_WORDS_GETTER("employee.field.employeeid");
+	// 员工姓名和员工编号 模糊查询
+	DTO_FIELD(String, idAndName);
+	DTO_FIELD_INFO(idAndName) {
+		info->description = ZH_WORDS_GETTER("employee.field.idAndName");
 	}
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_SAMPLE_QUERY_
+#endif // !_EMPLOYEE_PAGE_QUERY_

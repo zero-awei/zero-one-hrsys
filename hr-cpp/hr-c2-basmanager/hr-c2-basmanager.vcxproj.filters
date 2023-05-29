@@ -243,9 +243,6 @@
     <ClInclude Include="dao\RosterOfPer\ExportEmployeeMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\RosterOfPer\EmployeePageDO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\dto\CertificateManage\ExportCertifDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>

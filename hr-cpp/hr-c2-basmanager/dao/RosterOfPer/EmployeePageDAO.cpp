@@ -18,7 +18,6 @@
 */
 #include "stdafx.h"
 #include "EmployeePageDAO.h"
-
 #include "EmployeePageMapper.h"
 #include <sstream>
 
@@ -26,32 +25,32 @@
 #define EMPLOYEEPAGE_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
-if (query->EMPLOYEEID) { \
-	sql << " AND `EMPLOYEENAME`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->EMPLOYEEID.getValue("")); \
+if (query->idAndName) { \
+	sql << " AND `ygbh`=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->idAndName.getValue("")); \
 } \
-if (query->EMPLOYEENAME) { \
-	sql << " AND EMPLOYEEID=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->EMPLOYEENAME.getValue("")); \
+if (query->idAndName) { \
+	sql << " AND `pimpersonName`=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->idAndName.getValue("")); \
 } \
 
 uint64_t EmployeePageDAO::count(const EmployeePageQuery::Wrapper & query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM sample";
+	sql << "SELECT COUNT(*) FROM t_pcmdetail";
 	EMPLOYEEPAGE_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
 }
 
-std::list<EmployeePageDO> EmployeePageDAO::selectWithPage(const EmployeePageQuery::Wrapper& query)
+std::list<RosterPersonDO> EmployeePageDAO::selectWithPage(const EmployeePageQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT * FROM ?";
+	sql << "SELECT * FROM t_pcmdetail";
 	EMPLOYEEPAGE_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	EmployeePageMapper mapper;
 	string sqlStr = sql.str();
-	return sqlSession->executeQuery<EmployeePageDO, EmployeePageMapper>(sqlStr, mapper, params);
+	return sqlSession->executeQuery<RosterPersonDO, EmployeePageMapper>(sqlStr, mapper, params);
 }
 

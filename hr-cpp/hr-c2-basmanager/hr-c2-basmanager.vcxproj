@@ -216,7 +216,6 @@
     <ClInclude Include="domain\do\CertificateManage\EmployeeInfoDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\RosterOfPer\CommonRosterOfPerDO.h" />
-    <ClInclude Include="domain\do\RosterOfPer\EmployeePageDO.h" />
     <ClInclude Include="domain\do\RosterOfPer\RraineeDO.h" />
     <ClInclude Include="domain\do\RosterOfPer\ProbationaryEmployeeDO.h" />
     <ClInclude Include="domain\do\RosterOfPer\ExportEmployeeDO.h" />
