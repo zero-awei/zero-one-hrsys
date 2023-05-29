@@ -100,7 +100,7 @@ paperinfo:
  post:
   summary: 新增指定员工论文信息
  delete:
-  summary: 删除指定员工论文信息
+  summary: 删除指定员工论文信息(支持批量删除)
 #pimpaper的中英词典
 pimpaper:
  post:
