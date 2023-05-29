@@ -36,7 +36,7 @@ public:
 	 * 项目标签 - 新增项目标签DAO实现
 	 * 负责人：远翔
 	 */
-	uint64_t insert(const ProjTagDO& iObj);
+	bool insert(const ProjTagDO& iObj);
 	/**
 	 * 项目标签 - 分页查询组织列表DAO实现
 	 * 功能：查询组织列表，进行数据分页

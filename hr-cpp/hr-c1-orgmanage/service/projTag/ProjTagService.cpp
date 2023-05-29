@@ -32,7 +32,7 @@
 #define ZO_STAR_FILE_TO_DO(target, src, ...) \
 ZO_STAR_EXPAND(ZO_STAR_PASTE(target, src, FILE_TO_DO, __VA_ARGS__))
 
-uint64_t ProjTagService::saveData(const ProjTagDTO::Wrapper& dto)
+string ProjTagService::saveData(const ProjTagDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	ProjTagDO data;
@@ -47,10 +47,16 @@ uint64_t ProjTagService::saveData(const ProjTagDTO::Wrapper& dto)
 	);
 	// 生成雪花ID
 	SnowFlake f(1, 1);
-	data.setId(std::to_string(f.nextId()));
+	auto id = std::to_string(f.nextId());
+	data.setId(id);
 	// 执行插入操作
 	ProjTagDAO dao;
-	return dao.insert(data);
+	if (dao.insert(data)) {
+		return id;
+	}
+	else {
+		return "-1";
+	}
 }
 
 OrgListPageDTO::Wrapper ProjTagService::listOrgList(const OrgListQuery::Wrapper& query)

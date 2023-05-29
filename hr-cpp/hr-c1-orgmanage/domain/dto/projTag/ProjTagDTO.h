@@ -40,37 +40,37 @@ class ProjTagDTO : public oatpp::DTO
 	// 建立人
 	DTO_FIELD(String, createman);
 	DTO_FIELD_INFO(createman) {
-		info->description = ZH_WORDS_GETTER("projTag.field.createman");
+		info->description = ZH_WORDS_GETTER("projTag.filed.createman");
 	}
 
 	// 项目标签
 	DTO_FIELD(String, ormxmbqname);
 	DTO_FIELD_INFO(ormxmbqname) {
-		info->description = ZH_WORDS_GETTER("projTag.field.ormxmbqname");
+		info->description = ZH_WORDS_GETTER("projTag.filed.ormxmbqname");
 	}
 
 	// 更新人
 	DTO_FIELD(String, updateman);
 	DTO_FIELD_INFO(updateman) {
-		info->description = ZH_WORDS_GETTER("projTag.field.updateman");
+		info->description = ZH_WORDS_GETTER("projTag.filed.updateman");
 	}
 
 	// 建立时间
 	DTO_FIELD(String, createdate);
 	DTO_FIELD_INFO(createdate) {
-		info->description = ZH_WORDS_GETTER("projTag.field.createtime");
+		info->description = ZH_WORDS_GETTER("projTag.filed.createtime");
 	}
 
 	// 更新时间
 	DTO_FIELD(String, updatedate);
 	DTO_FIELD_INFO(updatedate) {
-		info->description = ZH_WORDS_GETTER("projTag.field.updatetime");
+		info->description = ZH_WORDS_GETTER("projTag.filed.updatetime");
 	}
 
 	// 组织id
 	DTO_FIELD(String, ormorgid);
 	DTO_FIELD_INFO(ormorgid) {
-		info->description = ZH_WORDS_GETTER("projTag.field.ormorgid");
+		info->description = ZH_WORDS_GETTER("projTag.filed.ormorgid");
 	}
 public:
 	ProjTagDTO() {

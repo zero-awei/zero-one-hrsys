@@ -3,16 +3,16 @@
 #include <iostream>
 #include "service/projTag/ProjTagService.h"
 #include "SimpleDateTimeFormat.h"
-Uint64JsonVO::Wrapper AddTagController::execAddProjTag(const ProjTagDTO::Wrapper& dto, const PayloadDTO& payload)
+StringJsonVO::Wrapper AddTagController::execAddProjTag(const ProjTagDTO::Wrapper& dto, const PayloadDTO& payload)
 {
-	auto jvo = Uint64JsonVO::createShared();
+	auto jvo = StringJsonVO::createShared();
 
 	// 校验dto数据
 	// 参数校验
-	// 检验项目标签标识是否为空
-	if (!dto->ormorgid || !dto->ormxmbqid)
+	// 检验组织标识是否为空
+	if (!dto->ormorgid)
 	{
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		jvo->init("-1", RS_PARAMS_INVALID);
 		return jvo;
 	}
 	
@@ -30,10 +30,16 @@ Uint64JsonVO::Wrapper AddTagController::execAddProjTag(const ProjTagDTO::Wrapper
 
 	// 执行数据新增 
 	// 执行成功后返回项目标签id值
-	uint64_t id = service.saveData(dto);
+	String id = service.saveData(dto);
 
 	//响应结果
-	jvo->success(UInt64(id));
-
+	if (id != "-1")
+	{
+		jvo->init(id, RS_SUCCESS);
+	}
+	else
+	{
+		jvo->init(id, RS_FAIL);
+	}
 	return jvo;
 }
