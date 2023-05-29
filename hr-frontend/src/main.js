@@ -5,6 +5,8 @@ import * as echarts from 'echarts'
 
 import App from './App.vue'
 import router from './router'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 import 'element-plus/theme-chalk/src/message.scss'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import './assets/main.css'
@@ -14,6 +16,7 @@ import ECharts from './components/echarts/ECharts.vue'
 const app = createApp(App)
 app.use(createPinia())
 app.use(router)
+app.use(ElementPlus)
 
 app.config.globalProperties.$echarts = echarts
 app.component('echarts', ECharts) //注册 ECharts 组件
@@ -27,7 +30,6 @@ installHttp(router)
 // 安装ElIcon
 import installElIcon from './plugins/el-icon'
 installElIcon(app)
-
 
 // 全局事件总线
 import mitt from 'mitt'

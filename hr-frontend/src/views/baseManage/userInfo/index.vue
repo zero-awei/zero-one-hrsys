@@ -1,25 +1,101 @@
 <template>
-  <!-- 演示案例 -->
-  <!-- 传入 表格设计数据 和 表格主体数据  -->
-  <MainTable :tableData="tableData" :xmlData="xmlData"></MainTable>
+  <!-- 测试页面可以删除 -->
+  <div class="useInfoWrapper">
+    <div class="aside">
+      <Aside :menus="menus"></Aside>
+    </div>
+    <div class="mainTable">
+      <MainTable :tableData="tableData" :xmlData="xmlData"></MainTable>
+    </div>
+  </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
+import Aside from '@/components/aside/Aside.vue'
 import MainTable from '@/components/MainTable.vue'
 
-interface User {
-  //自定义数据
-  id: number
-  name: string
-  age: number
-  organization: string
-  department: string
-  position: string
-  job: string
-  certificateId: number
-  phoneNumber: number
-  state: string
-}
+const menus = reactive([
+  {
+    path: '/sample',
+    text: '空白页',
+    icon: 'user'
+  },
+  {
+    path: '/sample/excel',
+    text: 'Excel演示',
+    icon: 'user'
+  },
+  {
+    path: '/sample/print',
+    text: '打印演示',
+    icon: 'user'
+  },
+  {
+    path: '/sample/edit',
+    text: '信息编辑页',
+    icon: 'user'
+  },
+  {
+    path: '/sample/sass',
+    text: 'sass演示',
+    icon: 'user'
+  },
+  {
+    path: '/sample/communication',
+    text: '兄弟组件通信',
+    icon: 'user'
+  },
+  {
+    path: '/sample/pagination',
+    text: '分页',
+    icon: 'user'
+  },
+  {
+    path: '/sample/sass',
+    text: 'sass演示',
+    icon: 'user'
+  },
+  {
+    path: '/sample/communication',
+    text: '兄弟组件通信',
+    icon: 'user'
+  },
+  {
+    path: '/sample/pagination',
+    text: '分页',
+    icon: 'user'
+  },
+  {
+    path: '/sample/sass',
+    text: 'sass演示',
+    icon: 'user'
+  },
+  {
+    path: '/sample/communication',
+    text: '兄弟组件通信',
+    icon: 'user'
+  },
+  {
+    path: '/sample/pagination',
+    text: '分页',
+    icon: 'user'
+  },
+  {
+    path: '/sample/sass',
+    text: 'sass演示',
+    icon: 'user'
+  },
+  {
+    path: '/sample/communication',
+    text: '兄弟组件通信',
+    icon: 'user'
+  },
+  {
+    path: '/sample/pagination',
+    text: '分页',
+    icon: 'user'
+  }
+])
 
 // 定义表单数据
 const xmlData = [
@@ -36,7 +112,7 @@ const xmlData = [
   { id: 11, name: '员工状态', prop: 'state' }
 ]
 // 注入表格数据
-const tableData: User[] = [
+const tableData = [
   {
     id: 10001,
     name: '彭于晏',
@@ -640,4 +716,17 @@ const tableData: User[] = [
 ]
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.useInfoWrapper {
+  display: flex;
+  height: 100%;
+  .aside {
+    width: 241px;
+    height: 100%;
+    background-color: red;
+  }
+  .mainTable {
+    width: 100%;
+  }
+}
+</style>
