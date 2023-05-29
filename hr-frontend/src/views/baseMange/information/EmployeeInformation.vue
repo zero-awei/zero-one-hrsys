@@ -1,7 +1,7 @@
 <template>
    <el-container>
     <el-aside width="200px">
-        <Aside :menus="menus" style="height: 95vh"></Aside>
+        <Aside :menus="menus" style="height: calc(100%-60px)"></Aside>
     </el-aside>
     <el-container>
       <el-header>
@@ -795,7 +795,7 @@ const addData = reactive([
 ])
 </script>
 
-<style lang='less' scoped>
+<style lang='scss' scoped>
 
 .search {
   flex: 0 0 auto; /* 不伸缩、不收缩，固定高度 */

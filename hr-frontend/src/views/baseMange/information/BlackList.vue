@@ -707,7 +707,7 @@ const addData = reactive([
 ])
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 .container {
   display: flex; /* 使用一个 flex 容器实现布局 */
   flex-direction: column; /* 竖直方向排列 */
