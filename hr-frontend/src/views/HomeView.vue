@@ -24,7 +24,7 @@
   text-indent: 1.5em;
 }
 .el-main {
-  padding: 20px;
+  padding: 0;
 }
 .el-header {
   background-color: #fff;

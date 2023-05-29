@@ -1,5 +1,10 @@
 <template>
-  <TableHead :tableTitle="tableTitle" :addTitle="addTitle" :tableOperations ="tableOperations" :addData="addData"/>
+  <TableHead
+    :tableTitle="tableTitle"
+    :addTitle="addTitle"
+    :tableOperations="tableOperations"
+    :addData="addData"
+  />
 </template>
 
 <script setup>
@@ -13,40 +18,39 @@ const addTitle = ref('人员列表编辑')
 //功能按键需求配置
 const tableOperations = reactive([
   {
-    name:'新增'
+    name: '新增'
   },
   {
-    name:'导入'
-  },  
+    name: '导入'
+  }
 ])
 //新增表单所需栏目配置
 const addData = reactive([
   {
-    label:'员工姓名',
-    name:'name',
-    type:String,
+    label: '员工姓名',
+    name: 'name',
+    type: String
   },
   {
-    label:'员工编号',
-    name:'ID',
-    type:Array,
+    label: '员工编号',
+    name: 'ID',
+    type: Array,
     //如果是选项请配置以下属性
-    options:[
+    options: [
       {
-        id:1,
-        optionData:"111"
+        id: 1,
+        optionData: '111'
       },
       {
-        id:2,
-        optionData:"222"
-      },
-    ]   
+        id: 2,
+        optionData: '222'
+      }
+    ]
   },
   {
-    label:'备注',
-    name:'remark',
-    type:'Text',
-  },
+    label: '备注',
+    name: 'remark',
+    type: 'Text'
+  }
 ])
-
 </script>

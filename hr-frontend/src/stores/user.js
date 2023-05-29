@@ -10,41 +10,41 @@ let testMenus = [
   },
   {
     id: 1,
-    text: '系统管理',
+    text: '人员信息',
     icon: 'IconSetting',
     children: [
       {
         id: 2,
-        text: '系统管理1',
-        path: '/un-1',
+        text: '员工信息',
+        path: '/employee',
         icon: 'IconSetting',
         pid: 1
       },
       {
         id: 3,
-        text: '系统管理2',
-        path: '/un-2',
+        text: '自助信息审核',
+        path: '/review',
         icon: 'IconSetting',
         pid: 1
       },
       {
         id: 4,
-        text: '系统管理3',
-        path: '/un-3',
+        text: '黑名单',
+        path: '/blacklist',
         icon: 'IconSetting',
         pid: 1
       },
       {
         id: 5,
-        text: '系统管理4',
-        path: '/un-4',
+        text: '人员花名册',
+        path: '/roster',
         icon: 'IconSetting',
         pid: 1
       },
       {
         id: 6,
-        text: '系统管理5',
-        path: '/un-5',
+        text: '见习员工',
+        path: '/trainee',
         icon: 'IconSetting',
         pid: 1
       }

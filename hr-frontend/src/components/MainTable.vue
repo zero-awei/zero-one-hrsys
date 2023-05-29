@@ -5,7 +5,7 @@
       ref="multipleTableRef"
       max-height="calc(95vh - 40px)"
       :data="tableData"
-      style="width: 100%"
+      style="width: 100%;text-align: center;"
       @selection-change="handleSelectionChange"
       @row-dblclick="handleClick"
       :default-sort="{ prop: 'id', order: 'ascending' }"
