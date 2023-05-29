@@ -29,6 +29,7 @@ sample:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+
 ldcompany:
  get:
   summary: 分页查询劳务公司列表
@@ -41,10 +42,22 @@ ldcompany:
  export:
   summary: 导出劳务遣派公司信息
  field:
-  id: 编号
-  age: 年龄
-  name: 姓名
-  sex: 性别，如：男
+  PIMLABOURCAMPANYNAME: 劳务派遣公司管理名称
+  PIMLABOURCAMPANYID: 劳务派遣公司管理标识
+  CREATEDATE: 建立时间
+  CREATEMAN: 建立人
+  UPDATEMAN: 更新人
+  JYFW: 经营范围 
+  LXDZ: 联系地址
+  LXR: 联系人
+  LXFS: 联系方式
+  GSJJ: 公司简介
+  PIMPERSONID: 人员信息标识
+  ORMORGID: 组织标识
+  LEGALPEROSN: 法人
+  REGCAPITAL: 注册本金
+  UPDATEDATE: 更新时间
+
 contract_gs:
  get:
   summary: 分页查询合同信息
@@ -53,21 +66,35 @@ contract_gs:
  put:
   summary: 修改一条合同数据
  delete:
-  summary: 删除一条合同信息
+  summary: 删除多条合同数据
 title:
  query:
   summary: "分页查询职称列表"
   search-box: "分页查询职称列表(用于输入框搜索使用)"
+  param: "模糊查询参数-编号或名称"
  delete:
   summary: "删除职称-根据请求体删除职务信息"
+  list_jobtitle_id: "职称信息id--唯一标识"
  add:
   summary: "新增职务-根据请求体传入新增职务信息"
  field:
-  id: "职称编号"
-  name: "职称名称"
-  grades: "职称等级"
-  type: "职称类型"
-  category: "专业类别"
+  id: 表id-主键
+  employee_id: 员工编号
+  employee_state: 员工状态
+  certificate_id: 证书编号
+  employee_name: 员工姓名
+  org_name: 组织名称
+  jobtitle_name: 职称名称
+  get_time: 获取日期
+  professional_cate: 专业类别
+  professional_name: 专业名称
+  jobtitle_grades: 职称等级
+  issuing_authority: 签发机构
+  judging_unit: 评审单位
+  employment_time: 职称聘用时间
+  title_employee_time: 职称获取时间
+  b_highest_professional_title: 是否最高职称
+
 labordispatch_mug:
  get:
   summary: 查看指定公司信息
@@ -75,9 +102,18 @@ labordispatch_mug:
   summary: 修改指定公司信息
  field:
   corporatename: 公司名称
-  corporateaddress: 公司名称
+  corporateaddress: 公司地址
   corporatecontact: 公司联系人
   corporatenumber: 公司联系电话
+  PIMLABOURCAMPANYNAME: 公司名称
+  PIMLABOURCAMPANYID: 公司标识
+  LXDZ: 联系地址
+  LXR: 联系人
+  LXFS: 联系方式
+  REGCAPITAL: 注册本金
+  LEGALPERSON: 法人
+  UPDATEDATE: 更新时间
+
 expenseledger_mug:
  get:
   summary: 分页查询费别列表
@@ -85,29 +121,26 @@ expenseledger_mug:
   summary: 新增费别
  delete:
   summary: 删除费别
+
+expenseledger:
  field:
-  expenseCategory: 费用类别
-  PIMLABOURCAMPANYNAME: 公司名称
-  PIMLABOURCAMPANYID: 所属单位
-  LXDZ: 联系地址
-  LXR: 联系人
-  LXFS: 联系方式
-  REGCAPITAL: 注册本金
-  LEGALPERSON: 法人
+  PIMEXPACCOUNTNAME: 费用台账名称
+  PIMEXPACCOUNTID: 费用台账标识
+  UPDATEMAN: 更新人
+  CREATEDATE: 建立时间
+  CREATEMAN: 建立人
   UPDATEDATE: 更新时间
-  summary: 删除一条合同数据
- filed:   
-  name: 员工姓名
-  id: 合同编号
-  type: 合同类别
-  variety: 合同类型
-  date: 起始日期
-  condition: 合同状态
-  department_m: 合同管理单位
-  department_c: 合同签订单位
-  date_end: 合同到期时间
-  tip: 备注
-person:
+  FYLB: 费用类别
+  FYJE: 费用金额
+  FFRS: 发放人数
+  FFSJ: 发放时间
+  FFYBZ: 费用标准
+  BZ: 备注
+  ORMORGID: 组织标识 
+  IDS: 费用台账标识集合
+
+
+person_gosh:
  get:
   summary: 分页查询个人信息
  post:
@@ -116,15 +149,24 @@ person:
   summary: 修改一条个人数据
  delete:
   summary: 删除一条个人数据
+
 retirement_gan:
  get:
   summary: 分页查询离退休列表
+  summary1: 分页查询合同管理列表
  post:
   summary: 新增离退休列表
  delete:
   summary: 删除离退休列表
  update:
   summary: 更新离退休列表
+ query:
+  name: 员工姓名
+  number: 员工编号
+  idcard: 证件号码
+  department: 部门
+  organization: 组织
+
 contract:
   upload: 导入合同
   download: 导出合同
@@ -164,20 +206,28 @@ contract:
   export:
     rows: 导出数据条数
     sequence: 导出数据顺序
+
 jobtitle:
  field:
+  employee_id: 员工编号
+  certificate_id: 证书编号
   employee_name: 员工姓名
   org_name: 组织名称
   jobtitle_name: 职称名称
   get_time: 获取日期
   professional_cate: 专业类别
+  professional_name: 专业名称
   professor_grades: 职称等级
+  issuing_authority: 签发机构
+  judging_unit: 评审单位
+  b_highest_professional_title: 是否最高职称
  get: 
   summary: 查询指定职称详情
  export:
   summary: 导出职称
  update:
   summary: 更新职称
+
 expense:
  field:
   expense_name: 费别类型
@@ -191,3 +241,18 @@ expense:
   summary: 导出费别
  update:
   summary: 更新费别
+
+reminder:
+ name:
+  contract_termination_reminder: 合同终止提醒
+  export_all: 导出全部
+ condition:
+  employee_id: 员工编号
+  employee_name: 员工姓名
+  employee_status: 员工状态
+  contract_id: 合同编号
+  contract_lb: 合同类别
+  contract_status: 合同状态
+  begin_time: 起始日期（>=）
+  deadline: 结束日期（<=）
+  contract_lx: 合同类型

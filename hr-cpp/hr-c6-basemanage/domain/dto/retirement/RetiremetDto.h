@@ -2,7 +2,11 @@
 #ifndef _RETIREMETDTO_H_
 #define _RETIREMETDTO_H_
 
+
+#include "stdafx.h"
 #include "../../GlobalInclude.h"
+#include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 class RetirementDTO : public oatpp::DTO
@@ -34,9 +38,9 @@ class RetirementDTO : public oatpp::DTO
 /**
  * 示例分页传输对象
  */
-class ContractPageDTO : public PageDTO<RetirementDTO::Wrapper>
+class RetirementPageDTO : public PageDTO<RetirementDTO::Wrapper>
 {
-	DTO_INIT(ContractPageDTO, PageDTO<RetirementDTO::Wrapper>);
+	DTO_INIT(RetirementPageDTO, PageDTO<RetirementDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

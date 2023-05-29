@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\include;</IncludePath>
-    <LibraryPath>D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\include;D:\vs studio\VC\Tools\MSVC\14.35.32215\atlmfc\include</IncludePath>
+    <LibraryPath>D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\lib\x86;D:\vs studio\VC\Tools\MSVC\14.35.32215\atlmfc\include;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -80,7 +80,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\include;F:\big program\zero-one-hrsys\hr-cpp\arch-demo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
@@ -88,7 +88,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib\debug;..\lib-common\lib\debug;..\lib-mysql\lib\vs14\debug;D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib\debug;..\lib-common\lib\debug;..\lib-mysql\lib\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -100,7 +100,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>F:\big program\zero-one-hrsys\hr-cpp\arch-demo;.\;..\lib-mysql\include;..\lib-oatpp\include;F:\big program\zero-one-hrsys\hr-cpp\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
@@ -124,7 +124,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>F:\big program\zero-one-hrsys\hr-cpp\arch-demo;.\;..\lib-mysql\include;..\lib-oatpp\include;F:\big program\zero-one-hrsys\hr-cpp\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
@@ -132,7 +132,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64;F:\big program\zero-one-hrsys\hr-cpp\lib-common\lib64\debug;..\lib-common\lib64;..\lib-mysql\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64\debug;..\lib-common\lib64\debug;..\lib-mysql\lib64\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -144,7 +144,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>F:\big program\zero-one-hrsys\hr-cpp\arch-demo;.\;..\lib-mysql\include;..\lib-oatpp\include;F:\big program\zero-one-hrsys\hr-cpp\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
@@ -163,52 +163,90 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="controller\ContractManagement\Contractmanagement.cpp" />
     <ClCompile Include="controller\ExpenseLedge\ExpenseLedgeController.cpp" />
     <ClCompile Include="controller\JobTitleInfo\JobTitleInfoController.cpp" />
     <ClCompile Include="controller\ContractController\ContractController.cpp" />
     <ClCompile Include="controller\JobTitle\JobTitleController.cpp" />
     <ClCompile Include="controller\GoshController\TestController.cpp" />
-    <ClCompile Include="controller\Muggle\expense_ledger-Muggle.cpp" />
-    <ClCompile Include="controller\Muggle\labor_dispatch-Muggle.cpp" />
     <ClCompile Include="controller\LaborDispatch\LaborDispatchConstroller.cpp" />
+    <ClCompile Include="controller\muggle\ExpenseLedgerController.cpp" />
+    <ClCompile Include="controller\LaborDispatch\LaborDispatchController-mg.cpp" />
     <ClCompile Include="controller\Router.cpp" />
-    <ClCompile Include="controller\SelectController\retirement.cpp" />
+    <ClCompile Include="controller\retirementController\retirement.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\ContractInfo\ContractInfoDAO.cpp" />
+    <ClCompile Include="dao\expenseLedger\ExpenseLedgerDAO.cpp" />
+    <ClCompile Include="dao\Gosh\GoshDAO.cpp" />
+    <ClCompile Include="controller\TerminationReminder\terminationReminder.cpp" />
+    <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mg.cpp" />
+    <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mh.cpp" />
+    <ClCompile Include="dao\TerminationReminder\TerminationReminderDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="dao\Sample\ContractDao.cpp" />
+    <ClCompile Include="service\akieService\ContractInfoService.cpp" />
+    <ClCompile Include="service\expenseLedger\ExpenseLedgerService.cpp" />
+    <ClCompile Include="service\laborDispatch\LaborDispatchService-mg.cpp" />
+    <ClCompile Include="service\laborDispatch\LaborDispatchService-mh.cpp" />
+    <ClCompile Include="service\Gosh\GoshService.cpp" />
+    <ClCompile Include="service\TerminationReminder\TerminationReminderServicecpp.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="uselib\excel\TerminationRemidner\ChangeToExcel.cpp" />
+    <ClCompile Include="uselib\fastdfs\TerminationReminder\TerminationRemidnerFastdfs.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="controller\ContractManagement\Contractmanagement.h" />
     <ClInclude Include="controller\ExpenseLedge\ExpenseLedgeController.h" />
     <ClInclude Include="controller\JobTitleInfo\JobTitleInfoController.h" />
     <ClInclude Include="controller\ContractController\ContractController.h" />
     <ClInclude Include="controller\GoshController\TestController.h" />
     <ClInclude Include="controller\JobTitle\JobTitleController.h" />
-    <ClInclude Include="controller\Muggle\expense_ledger-Muggle.h" />
-    <ClInclude Include="controller\Muggle\labor_dispatch-Muggle.h" />
     <ClInclude Include="controller\LaborDispatch\LaborDispatchConstroller.h" />
+    <ClInclude Include="controller\muggle\ExpenseLedgerController.h" />
+    <ClInclude Include="controller\LaborDispatch\LaborDispatchController-mg.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\ContractInfo\ContractInfoDAO.h" />
+    <ClInclude Include="dao\expenseLedger\ExpenseLedgerDAO.h" />
+    <ClInclude Include="dao\expenseLedger\ExpenseLedgerMapper.h" />
+    <ClInclude Include="dao\Gosh\GoshDAO.h" />
+    <ClInclude Include="dao\Gosh\GoshMapper.h" />
+    <ClInclude Include="controller\TerminationReminder\terminationReminder.h" />
+    <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mg.h" />
+    <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mh.h" />
+    <ClInclude Include="dao\laborDispatch\LaborDispatchMapper-mh.h" />
+    <ClInclude Include="dao\TerminationReminder\TerminationReminderDAO.h" />
+    <ClInclude Include="dao\TerminationReminder\TerminationReminderMapper.h" />
+    <ClInclude Include="domain\do\expenseLedger\ExpenseLedgerDO.h" />
+    <ClInclude Include="domain\do\ExpenseLedge\ExpenseLedge.h" />
+    <ClInclude Include="domain\do\laborDispatch\LaborDispatchDO.h" />
+    <ClInclude Include="domain\do\TerminationReminder\TerminationReminderDO.h" />
+    <ClInclude Include="domain\dto\ExpenseLedger\ExpenseLedgerDTO.h" />
     <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
     <ClInclude Include="domain\dto\JobTitleInfo\JobTitleInfoDTO.h" />
+    <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO-mg.h" />
+    <ClInclude Include="domain\dto\TerminationReminderDTO\TerminationReminderDTO.h" />
+    <ClInclude Include="domain\query\ExpenseLedger\ExpenseLedgerQuery.h" />
+    <ClInclude Include="domain\query\LaborDispatch\LaborDispatchQuery-mg.h" />
+    <ClInclude Include="domain\query\RetirementQuery\RetirementQuery.h" />
+    <ClInclude Include="domain\query\TerminationReminder\TerminationReminderQuery.h" />
     <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h" />
+    <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgerVO.h" />
     <ClInclude Include="domain\vo\JobTitleInfo\JobTitleInfoVO.h" />
-    <ClInclude Include="controller\SelectController\retirement.h" />
+    <ClInclude Include="controller\retirementController\retirement.h" />
     <ClInclude Include="dao\Sample\ContractDao.h" />
     <ClInclude Include="dao\Sample\ContractMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\Gosh\ContractDO.h" />
     <ClInclude Include="domain\do\JobTitle\JobTitleDo.h" />
     <ClInclude Include="domain\dto\ContractDTO.h" />
     <ClInclude Include="domain\dto\ContractDTO\ContractDTO.h" />
-    <ClInclude Include="domain\dto\ContractDTO\ContractDTO_.h" />
     <ClInclude Include="domain\dto\JobTitle\JobTitleDTO.h" />
-    <ClInclude Include="domain\dto\Muggle\expenseLedgerDTO.h" />
-    <ClInclude Include="domain\dto\Muggle\laborDispatchDTO.h" />
     <ClInclude Include="domain\dto\Gosh\ContractDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\ContractQuery.h" />
@@ -219,25 +257,31 @@
     <ClInclude Include="domain\vo\ContractVO.h" />
     <ClInclude Include="domain\vo\ContractVO\ContractVO.h" />
     <ClInclude Include="domain\vo\ContractVO\ContractVO_.h" />
-    <ClInclude Include="domain\query\Muggle\expenseLedgerQuery.h" />
-    <ClInclude Include="domain\query\Muggle\laborDispatchQuery.h" />
     <ClInclude Include="domain\vo\JobTitle\JobTitleJsonVO.h" />
-    <ClInclude Include="domain\vo\Muggle\laborDispatchJsonVO.h" />
     <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO.h" />
     <ClInclude Include="domain\dto\retirement\RetiremetDto.h" />
     <ClInclude Include="domain\query\LaborDispatch\LaborDispatchQuery.h" />
+    <ClInclude Include="domain\vo\LaborDispatch\LaborDispatchJsonVO-mg.h" />
     <ClInclude Include="domain\vo\LaborDispatch\LaborDispatchVO.h" />
     <ClInclude Include="domain\query\Gosh\ContractQuery.h" />
     <ClInclude Include="domain\vo\Gosh\ContractVO.h" />
+    <ClInclude Include="domain\vo\RetirementVo\RetirementVo.h" />
+    <ClInclude Include="domain\vo\TerminationReminderVO\TerminationReminderVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\akieService\ContractInfoService.h" />
+    <ClInclude Include="service\expenseLedger\ExpenseLedgerService.h" />
+    <ClInclude Include="service\laborDispatch\LaborDispatchService-mg.h" />
+    <ClInclude Include="service\laborDispatch\LaborDispatchService-mh.h" />
+    <ClInclude Include="service\Gosh\GoshService.h" />
     <ClInclude Include="service\sample\ContractService.h" />
+    <ClInclude Include="domain\vo\muggle\LaborDispatchJsonVO.h" />
+    <ClInclude Include="service\TerminationReminder\TerminationReminderService.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\excel\TerminationRemidner\ChangeToExcel.h" />
+    <ClInclude Include="uselib\fastdfs\TerminationReminder\TerminationRemidnerFastdfs.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\arch-demo\arch-demo.vcxproj">
-      <Project>{14c5b354-692f-4dd3-901c-35756cf336b8}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\lib-common\lib-common.vcxproj">
       <Project>{213f58ad-9943-4155-8a45-1b2dab0bb8f9}</Project>
     </ProjectReference>
@@ -250,9 +294,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="conf\data-source.yaml" />
-    <None Include="zh-dict.yaml" />
     <None Include="domain\dto\.keep" />
-    <None Include="zh-dict.yaml.bak" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

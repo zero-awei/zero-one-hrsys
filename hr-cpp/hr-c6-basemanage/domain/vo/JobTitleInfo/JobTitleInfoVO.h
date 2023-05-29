@@ -15,8 +15,8 @@ class JobTitleInfoJsonVO : public JsonVO<JobTitleInfoDTO::Wrapper> {
 	DTO_INIT(JobTitleInfoJsonVO, JsonVO<JobTitleInfoDTO::Wrapper>);
 };
 
-class ExportJobTitleJsonVO : public JsonVO<Vector<JobTitleInfoDTO::Wrapper>> {
-	DTO_INIT(ExportJobTitleJsonVO, JsonVO<Vector<JobTitleInfoDTO::Wrapper>>)
+class ExportJobTitleJsonVO : public JsonVO<String> {
+	DTO_INIT(ExportJobTitleJsonVO, JsonVO<String>)
 };
 #include OATPP_CODEGEN_END(DTO)
 

@@ -18,34 +18,90 @@
 */
 #include "stdafx.h"
 #include "LaborDispatchConstroller.h"
+#include "service/laborDispatch/LaborDispatchService-mh.h"
 
 
 
-StringJsonVO::Wrapper LaborDispatchConstroller::executeQueryAll(const PageQuery::Wrapper& query)
+
+LaborDispatchPageJsonVO::Wrapper LaborDispatchConstroller::executeQueryAll_ld(const LaborDispatchQuery::Wrapper& query)
 {
-	auto vo = StringJsonVO::createShared();
-	vo->success("export success");
-	return vo;
+	//定义一个Service
+	LaborDispatchService service;
+	//查询数据
+	auto result = service.listAll_ld(query);
+	//响应结果
+	auto jvo = LaborDispatchPageJsonVO::createShared();
+	jvo->success(result);
+	return jvo;
 }
 
-Uint64JsonVO::Wrapper LaborDispatchConstroller::execAddLaborDispatch(const LaborDispatchDTO::Wrapper& dto)
-{
-	auto vo =Uint64JsonVO::createShared();
-	vo->init(UInt64(1), RS_SUCCESS);
-	return vo;
-}
-
-Uint64JsonVO::Wrapper LaborDispatchConstroller::execRemoveLaborDispatch(const LaborDispatchDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper LaborDispatchConstroller::execAddLaborDispatch_ld(const LaborDispatchDTO::Wrapper& dto)
 {
 	auto vo = Uint64JsonVO::createShared();
-	vo->init(UInt64(1), RS_SUCCESS);
+	//参数校验
+	//1.非空校验
+	if (!dto->name || !dto->id || !dto->pimpersonid || !dto->ormorgid) {
+		vo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return vo;
+	}
+	//2.有效值校验
+	if (dto->name->empty() || dto->id->empty() || dto->pimpersonid->empty() || dto->ormorgid->empty()) {
+		vo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return vo;
+	}
+	//定一个Service
+	LaborDispatchService service;
+	//执行数据新增
+	uint64_t id = service.saveData_ld(dto);
+	if (id > 0) {
+		vo->success(UInt64(id));
+	}
+	else {
+		vo->fail(UInt64(id));
+	}
 	return vo;
 }
 
-StringJsonVO::Wrapper LaborDispatchConstroller::execExportLaborDispatch(const LaborDispatchDTO::Wrapper& dto)
+StringJsonVO::Wrapper LaborDispatchConstroller::execRemoveLaborDispatch_ld(const LaborDispatchRemoveDTO::Wrapper& dto)
 {
+	// 定义返回数据对象
 	auto vo = StringJsonVO::createShared();
-	vo->success("export success");
+	// 参数校验
+	if (!dto->id || dto->id->empty())
+	{
+		vo->fail("parameter is empty");
+		return vo;
+	}
+	// 定义一个Service
+	LaborDispatchService service;
+	// 执行数据删除
+	auto it = dto->id->begin();
+	while (it != dto->id->end()) {
+		if (service.removeData_ld(it->getValue(""))) {
+			vo->success("delete success");
+		}
+		else
+		{
+			vo->fail("delete fail");
+		}
+		it++;
+	}
+	return vo;
+}
+
+StringJsonVO::Wrapper LaborDispatchConstroller::execExportLaborDispatch_ld(const LaborDispatchQuery::Wrapper& query)
+{
+	//定义返回数据对象
+	auto vo = StringJsonVO::createShared();
+	LaborDispatchService service;
+	string filedName = service.LaborDispatchExport_ld(query);
+	//响应结果
+	if (filedName.empty()) {
+		vo->fail("export failed!");
+	}
+	else {
+		vo->success(filedName);
+	}
 	return vo;
 }
 

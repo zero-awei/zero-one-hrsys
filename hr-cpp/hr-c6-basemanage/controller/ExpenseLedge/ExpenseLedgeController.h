@@ -40,7 +40,7 @@ public:
 		info->queryParams["expense_name"].required = true;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/query-expense", queryExpense, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/retirement-management/query-expense", queryExpense, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, ExpenseLedgeDTO, queryParams);
 		// 响应结果
@@ -54,14 +54,14 @@ public:
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(ExportExpenseJsonV0);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("expense_name").description = ZH_WORDS_GETTER("expense.field.expense_name");
 		info->queryParams["expense_name"].addExample("default", String("MedicalExpenses"));
 		info->queryParams["expense_name"].required = true;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/export-expense", getExpense, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/retirement-management/export-expense", getExpense, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, ExpenseLedgeDTO, queryParams);
 		// 响应结果
@@ -76,14 +76,14 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/modify-expense", modifyExpense, BODY_DTO(ExpenseLedgeDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/retirement-management/modify-expense", modifyExpense, BODY_DTO(ExpenseLedgeDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyExpense(dto));
 	}
 private:
 	// 3.3 演示查询数据
 	ExpenseLedgeJsonVO::Wrapper execQueryExpense(const ExpenseLedgeDTO::Wrapper& query, const PayloadDTO& payload);
-	ExportExpenseJsonV0::Wrapper execGetExpense(const ExpenseLedgeDTO::Wrapper& query, const PayloadDTO& payload);
+	StringJsonVO::Wrapper execGetExpense(const ExpenseLedgeDTO::Wrapper& query, const PayloadDTO& payload);
 	Uint64JsonVO::Wrapper execModifyExpense(const ExpenseLedgeDTO::Wrapper& dto);
 };
 

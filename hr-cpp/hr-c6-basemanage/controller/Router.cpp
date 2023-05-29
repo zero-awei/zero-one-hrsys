@@ -18,25 +18,26 @@
 */
 #include "stdafx.h"
 #include "Router.h"
+#include "controller/GoshController/TestController.h"
 
 #include "GoshController/TestController.h"
 #include "JobTitleInfo/JobTitleInfoController.h"
 #include "ExpenseLedge/ExpenseLedgeController.h"
 #include "./ContractController/ContractController.h"
 #include "../uselib/ws/WSController.h"
-#include "SelectController/retirement.h"
+#include "./retirementController/retirement.h"
 #include "./JobTitle/JobTitleController.h"
-
+#include "./ContractManagement/Contractmanagement.h"
 
 #ifdef HTTP_SERVER_DEMO
 #include "./ContractController/ContractController.h"
 #include "../uselib/ws/WSController.h"
 #endif
-#include "Muggle/labor_dispatch-Muggle.h"
-#include "Muggle/expense_ledger-Muggle.h"
+#include "LaborDispatch/LaborDispatchController-mg.h"
+#include "muggle/ExpenseLedgerController.h"
 #include "LaborDispatch/LaborDispatchConstroller.h"
 #include "GoshController/TestController.h"
-
+#include "TerminationReminder/terminationReminder.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -63,16 +64,19 @@ void Router::initRouter()
 
 	//#TIP :系统扩展路由定义，写在这个后面
 	createJobAndExpenseRouter();
-
 	ROUTER_SIMPLE_BIND(ContractController);
 	ROUTER_SIMPLE_BIND(LaborDispatchMController);
 	ROUTER_SIMPLE_BIND(ExpenseLedgerMController);
 	ROUTER_SIMPLE_BIND(LaborDispatchConstroller);
-	ROUTER_SIMPLE_BIND(TestController);
+	ROUTER_SIMPLE_BIND(RetirementController);
 	ROUTER_SIMPLE_BIND(JobTitleController);
 	ROUTER_SIMPLE_BIND(GoshController);
 	ROUTER_SIMPLE_BIND(GoshController);
-}
+	ROUTER_SIMPLE_BIND(TerminationReminderController);
+	ROUTER_SIMPLE_BIND(ContractmanageController);
+}	
+
+
 void Router::createJobAndExpenseRouter()
 {
 	ROUTER_SIMPLE_BIND(JobTitleInfoController);
