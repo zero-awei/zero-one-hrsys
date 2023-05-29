@@ -6,9 +6,6 @@ import com.zeroone.star.project.dto.orm.OrmBmkqdzDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.zeroone.star.orgmanager.entity.TOrmbmkqdz;
-import org.apache.ibatis.annotations.Mapper;
-
 /**
  * <p>
  * 部门地址维护 Mapper 接口
@@ -23,10 +20,4 @@ public interface TOrmbmkqdzMapper extends BaseMapper<Ormbmkqdz> {
     int updateAttendanceAddress(@Param("OrmBmkqdzDTO") OrmBmkqdzDTO ormBmkqdzDTO);
 
 
-
- * @author wxs
- * @since 2023-05-19
- */
-@Mapper
-public interface TOrmbmkqdzMapper extends BaseMapper<TOrmbmkqdz> {
 }
