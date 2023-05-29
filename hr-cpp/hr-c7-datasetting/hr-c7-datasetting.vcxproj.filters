@@ -10,6 +10,7 @@
     <ClCompile Include="controller\contract\ContractController.cpp" />
     <ClCompile Include="controller\Qualification\QualificationController.cpp" />
     <ClCompile Include="controller\ContractCategory\ContractCategoryController.cpp" />
+    <ClCompile Include="service\ContractCategory\ContractCategoryService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\OtherComponent.hpp" />
@@ -42,10 +43,11 @@
     <ClInclude Include="controller\Certificate\CertificateController.h" />
     <ClInclude Include="controller\archive\ArchiveController.h" />
     <ClInclude Include="controller\contract\ContractController.h" />
-    <ClInclude Include="domain\do\contractcategory\ContractCategoryDO.h" />
+    <ClInclude Include="domain\do\ContractCategory\ContractCategoryDO.h" />
     <ClInclude Include="controller\Qualification\QualificationController.h" />
     <ClInclude Include="domain\dto\Qualification\QualificationDTO.h" />
     <ClInclude Include="domain\vo\Qualification\QualificationVO.h" />
     <ClInclude Include="controller\ContractCategory\ContractCategoryController.h" />
+    <ClInclude Include="service\ContractCategory\ContractCategoryService.h" />
   </ItemGroup>
 </Project>
