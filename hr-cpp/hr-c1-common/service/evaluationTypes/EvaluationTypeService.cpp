@@ -2,7 +2,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: Andrew211vibe
- @Date: 2023/05/23 19:26:11
+ @Date: 2023/05/29 14:18:47
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,39 +17,36 @@
  limitations under the License.
 */
 #include "stdafx.h"
-#include "Macros.h"
-#include "ArmyLevelTypeService.h"
+#include "EvaluationTypeService.h"
 #include "uselib/pullListRedis/UseLibRedis.h"
-#include "dao/armyLevelType/ArmyLevelTypeDAO.h"
+#include "dao/EvaluationType/EvaluationTypeDAO.h"
 
-PullListDTO::Wrapper ArmyLevelTypeService::listAll()
+PullListDTO::Wrapper EvaluationTypeService::listAll()
 {
 	// 构建返回对象
 	auto dto = PullListDTO::createShared();
 
 	// TODO: 查询缓存
-	// 从缓存中获取军转列表
-	auto hash = UseLibRedis::queryRedis("army-level-type");
+	// 访问Redis查询，返回评价类型哈希表
+	auto hash = UseLibRedis::queryRedis("evaluation-type");
 
-	// 如果为空则调用dao查询数据库
+	// 如果缓存为空则调用数据库
 	if (hash.empty())
 	{
-		// TODO: 调用dao查询数据库
-		ArmyLevelTypeDAO dao;
+		// 调用DAO进行数据库查询
+		EvaluationTypeDAO dao;
 		auto res = dao.selectAll();
-		
-		// 组装成DTO返回
+
 		for (auto item : res)
 		{
-			string code = item.getCode();
-			dto->pullList->push_back(ItemDTO::createShared(atoi(code.c_str()), item.getArmyLevelType()));
+			auto code = atoi(item.first.c_str());
+			dto->pullList->push_back(ItemDTO::createShared(code, item.second));
 		}
 
-		if (res.size())
-			// TODO: 将获取的数据更新到Redis缓存
-			UseLibRedis::updateRedis("army-level-type", dao.getMapList());
+		// 放入缓存
+		UseLibRedis::updateRedis("evaluation-type", res);
 	}
-	// 否则组装缓存数据到DTO
+	// 缓存不为空则查出转换成DTO
 	else
 	{
 		for (auto item : hash)
@@ -58,6 +55,6 @@ PullListDTO::Wrapper ArmyLevelTypeService::listAll()
 			dto->pullList->push_back(ItemDTO::createShared(code, item.second));
 		}
 	}
+
 	return dto;
 }
-

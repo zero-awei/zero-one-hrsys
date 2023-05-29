@@ -55,12 +55,12 @@ public:
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("query").description = u8"查询岗位";
-		info->queryParams["name"].addExample("default", String(u8"网络工程师"));
-		info->queryParams["name"].required = false;
-		info->queryParams.add<String>("sort").description = u8"排序类别以及升序或降序";
-		info->queryParams["sex"].addExample("default", String(u8"nx,asc"));
-		info->queryParams["sex"].required = false;
+		info->queryParams.add<String>("queryPostName").description = u8"查询岗位";
+		info->queryParams["queryPostName"].addExample("default", String(u8"人事管理岗"));
+		info->queryParams["queryPostName"].required = true;
+		info->queryParams.add<String>("sortTypeAndMethod").description = u8"排序类别以及升序或降序";
+		info->queryParams["sortTypeAndMethod"].addExample("default", String(u8"xh,ASC"));
+		info->queryParams["sortTypeAndMethod"].required = true;
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, PATH_TO_JOBSET("/query-by-query-sort"), queryByQuerySort, QUERIES(QueryParams, queryParams)) {

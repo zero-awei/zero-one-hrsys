@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: rice
- @Date: 2023/5/17 8:30:04
+ @Date: 2023/5/24 14:30:55
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,20 +17,28 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "profCertsListController.h"
-#include "../../../service/certs/profCertsService/ProfCertsService.h"
+#ifndef _CERTTYPE_MAPPER_
+#define _CERTTYPE_MAPPER_
 
-ProfCertsListJsonVO::Wrapper ProfCertsListController::execQueryProfCertsList(const ProfCertsQuery::Wrapper& query)
-{	
-	auto vo = ProfCertsListJsonVO::createShared();
-	ProfCertsService profCertsService;
-	auto dto = profCertsService.listAll(query);
-	if (dto->rows->size() <= 0) {
-		vo->fail(dto);
+#include "Mapper.h"
+#include "../../../domain/do/certs/CertTypeDO.h"
+
+/**
+ * 证书类型下拉列表表字段匹配映射
+ * 负责人 : rice
+ */
+class CertTypeMapper : public Mapper<CertTypeDO>
+{
+public:
+	CertTypeDO mapper(ResultSet* resultSet) const override
+	{
+		CertTypeDO data;
+		data.setCertTypeId(resultSet->getString(1));
+		data.setCertTypeName(resultSet->getString(2));
+		data.setCertTypeCode(resultSet->getString(3));
+		data.setCertTypeValidity(resultSet->getInt(4));
+		return data;
 	}
-	else {
-		vo->success(dto);
-	}
-	return vo;
-}
+};
+
+#endif // !_CERTTYPE_MAPPER_

@@ -179,11 +179,13 @@
     <ClCompile Include="dao\jobSet\JobSetDAO.cpp" />
     <ClCompile Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.cpp" />
     <ClCompile Include="dao\jobSet\postQueryDAO\PostQueryDAO.cpp" />
+    <ClCompile Include="dao\projTag\DeleteProjTagDAO.cpp" />
     <ClCompile Include="dao\projTag\ProjTagDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\jobSet\JobSetService.cpp" />
     <ClCompile Include="service\jobSet\postDeleteService\PostDeleteService.cpp" />
     <ClCompile Include="service\jobSet\postQueryService\PostQueryService.cpp" />
+    <ClCompile Include="service\projTag\deleteProjTagService\DeleteProjTagService.cpp" />
     <ClCompile Include="service\projTag\ProjTagService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -217,6 +219,7 @@
     <ClInclude Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.h" />
     <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryDAO.h" />
     <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryMapper.h" />
+    <ClInclude Include="dao\projTag\DeleteProjTagDAO.h" />
     <ClInclude Include="dao\projTag\OrgListMapper.h" />
     <ClInclude Include="dao\projTag\ProjTagDAO.h" />
     <ClInclude Include="dao\projTag\ProjTagListMapper.h" />
@@ -252,6 +255,7 @@
     <ClInclude Include="domain\vo\postSet\PostDetailVO.h" />
     <ClInclude Include="domain\query\projTag\ExportProjTagQuery.h" />
     <ClInclude Include="domain\vo\jobSet\ImportJobVO.h" />
+    <ClInclude Include="domain\vo\projTag\DeleteProjTagBatchVO.h" />
     <ClInclude Include="domain\vo\projTag\ImportTagVO.h" />
     <ClInclude Include="domain\vo\projTag\OrgListVO.h" />
     <ClInclude Include="domain\vo\projTag\ProjTagVO.h" />
@@ -260,6 +264,7 @@
     <ClInclude Include="service\jobSet\JobSetService.h" />
     <ClInclude Include="service\jobSet\postDeleteService\PostDeleteService.h" />
     <ClInclude Include="service\jobSet\postQueryService\PostQueryService.h" />
+    <ClInclude Include="service\projTag\deleteProjTagService\DeleteProjTagService.h" />
     <ClInclude Include="service\projTag\ProjTagService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="uselib\excel\ExportExcel.h" />

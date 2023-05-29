@@ -2,7 +2,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: rice
- @Date: 2023/5/17 8:30:04
+ @Date: 2023/5/24 14:26:52
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,19 +17,15 @@
  limitations under the License.
 */
 #include "stdafx.h"
-#include "profCertsListController.h"
-#include "../../../service/certs/profCertsService/ProfCertsService.h"
+#include "CertTypeDAO.h"
+#include "CertTypeMapper.h"
+#include <sstream>
 
-ProfCertsListJsonVO::Wrapper ProfCertsListController::execQueryProfCertsList(const ProfCertsQuery::Wrapper& query)
-{	
-	auto vo = ProfCertsListJsonVO::createShared();
-	ProfCertsService profCertsService;
-	auto dto = profCertsService.listAll(query);
-	if (dto->rows->size() <= 0) {
-		vo->fail(dto);
-	}
-	else {
-		vo->success(dto);
-	}
-	return vo;
+list<CertTypeDO> CertTypeDAO::selectAll()
+{
+	stringstream sql;
+	sql << "SELECT * FROM zo_credentialtype";
+	CertTypeMapper certTypeMapper;
+	string sqlStr = sql.str();
+	return sqlSession->executeQuery<CertTypeDO, CertTypeMapper>(sqlStr, certTypeMapper);
 }

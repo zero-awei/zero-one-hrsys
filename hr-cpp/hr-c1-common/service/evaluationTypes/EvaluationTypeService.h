@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: rice
- @Date: 2023/5/17 8:30:04
+ @Author: Andrew211vibe
+ @Date: 2023/05/29 14:18:47
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,20 +17,19 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "profCertsListController.h"
-#include "../../../service/certs/profCertsService/ProfCertsService.h"
+#ifndef _EVALUATIONTYPESERVICE_H_
+#define _EVALUATIONTYPESERVICE_H_
 
-ProfCertsListJsonVO::Wrapper ProfCertsListController::execQueryProfCertsList(const ProfCertsQuery::Wrapper& query)
-{	
-	auto vo = ProfCertsListJsonVO::createShared();
-	ProfCertsService profCertsService;
-	auto dto = profCertsService.listAll(query);
-	if (dto->rows->size() <= 0) {
-		vo->fail(dto);
-	}
-	else {
-		vo->success(dto);
-	}
-	return vo;
-}
+#include "domain/dto/pullList/PullListDTO.h"
+
+/**
+ * 评价类型下拉列表服务实现
+ * 负责人：Andrew
+ */
+class EvaluationTypeService
+{
+public:
+	PullListDTO::Wrapper listAll();
+};
+
+#endif // !_EVALUATIONTYPESERVICE_H_
