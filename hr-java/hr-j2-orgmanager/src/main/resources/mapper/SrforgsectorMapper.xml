@@ -7,4 +7,6 @@
             #{id}
         </foreach>
     </delete>
+
+
 </mapper>

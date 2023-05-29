@@ -2,9 +2,14 @@ package com.zeroone.star.orgmanager.mapper;
 
 import com.zeroone.star.orgmanager.entity.Srforgsector;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zeroone.star.project.dto.orgmanager.DepartmentDTO;
 import com.zeroone.star.project.dto.orgmanager.DeptDTO;
+import com.zeroone.star.project.query.orgmanager.DepartmentQuery;
 import com.zeroone.star.project.query.orgmanager.DeptQuery2;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * <p>
@@ -24,4 +29,10 @@ public interface SrforgsectorMapper extends BaseMapper<Srforgsector> {
      * @date 2023/5/22 0:02
      */
     int deleteDepts(DeptQuery2 deptQuery2);
+
+    /**
+     * 分页查询部门信息
+     * @return
+     */
+    List<DepartmentDTO> selectAllDepartment(DepartmentQuery query);
 }

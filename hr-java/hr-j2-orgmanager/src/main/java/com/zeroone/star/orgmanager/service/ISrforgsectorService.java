@@ -2,8 +2,13 @@ package com.zeroone.star.orgmanager.service;
 
 import com.zeroone.star.orgmanager.entity.Srforgsector;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zeroone.star.project.dto.PageDTO;
+import com.zeroone.star.project.dto.orgmanager.DepartmentDTO;
+import com.zeroone.star.project.query.orgmanager.DepartmentQuery;
 import com.zeroone.star.project.query.orgmanager.DeptQuery1;
 import com.zeroone.star.project.query.orgmanager.DeptQuery2;
+
+import java.util.List;
 
 /**
  * <p>
@@ -31,4 +36,12 @@ public interface ISrforgsectorService extends IService<Srforgsector> {
      * @date 2023/5/22 0:04
      */
     Boolean removeDepts(DeptQuery2 deptQuery2);
+
+    /**
+     * 分页查询部门信息
+     * @author wxs
+     * @param query
+     * @return
+     */
+    PageDTO<DepartmentDTO> listAllDepartment(DepartmentQuery query);
 }
