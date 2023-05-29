@@ -21,7 +21,9 @@ PullListVO::Wrapper DismissReasonController::execQueryDismissReason()
 		for (auto subptr = dto->pullList->begin(); subptr != dto->pullList->end(); subptr++) {
 			dismissReasonList.insert(std::make_pair(std::to_string(*subptr->get()->key), *subptr->get()->val));
 		}
-		redisExm.updateRedis(tableName, dismissReasonList);
+		if (!dismissReasonList.empty()) {
+			redisExm.updateRedis(tableName, dismissReasonList);
+		}
 	}
 	else // »º´æÓÐÊý¾Ý
 	{
