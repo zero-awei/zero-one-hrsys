@@ -42,6 +42,8 @@
     <ClCompile Include="dao\certs\profCertsDAO\ProfCertsDAO.cpp" />
     <ClCompile Include="service\evaluationTypes\EvaluationTypeService.cpp" />
     <ClCompile Include="dao\EvaluationType\EvaluationTypeDAO.cpp" />
+    <ClCompile Include="service\auditStatus\AuditStatusService.cpp" />
+    <ClCompile Include="dao\auditStatus\AuditStatusDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -128,6 +130,10 @@
     <ClInclude Include="dao\certs\profCertsDAO\ProfCertsMapper.h" />
     <ClInclude Include="service\evaluationTypes\EvaluationTypeService.h" />
     <ClInclude Include="dao\EvaluationType\EvaluationTypeDAO.h" />
+    <ClInclude Include="service\auditStatus\AuditStatusService.h" />
+    <ClInclude Include="dao\auditStatus\AuditStatusDAO.h" />
+    <ClInclude Include="domain\do\auditStatus\AuditStatusDO.h" />
+    <ClInclude Include="dao\auditStatus\AuditStatusMapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
