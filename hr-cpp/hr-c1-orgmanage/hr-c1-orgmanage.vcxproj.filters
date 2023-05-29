@@ -96,5 +96,7 @@
     <ClInclude Include="controller\jobSet\addJobController\AddJobController.h" />
     <ClInclude Include="domain\dto\addJob\AddJobDTO.h" />
     <ClInclude Include="dao\projTag\ProjTagMapper.h" />
+    <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
+    <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
   </ItemGroup>
 </Project>
