@@ -27,11 +27,11 @@ class LaborDispatchMQuery : public PageQuery
 {
 	DTO_INIT(LaborDispatchMQuery, PageQuery);
 	/**
-	 * 公司名称
+	 * 公司ID
 	 */
-	DTO_FIELD(String, corporateName);
-	DTO_FIELD_INFO(corporateName) {
-		info->description = ZH_WORDS_GETTER("labordispatch_mug.field.corporatename");
+	DTO_FIELD(String, corporateID);
+	DTO_FIELD_INFO(corporateID) {
+		info->description = ZH_WORDS_GETTER("labordispatch_mug.field.PIMLABOURCAMPANYID");
 	}
 
 };

@@ -2,20 +2,22 @@
 #include "terminationReminder.h"
 
 
-StringJsonVO::Wrapper TerminationReminderController::execQueryLimit(const PageQuery::Wrapper& query)
+TerminationReminderPageJsonVO::Wrapper TerminationReminderController::execQueryLimit(const TerminationReminderQuery::Wrapper& query)
 {
 	// 定义一个Service
-	//SampleService service;
+	TerminationReminderService service;
 	// 查询数据
-	//auto result = service.listAll(query);
-	auto vo = StringJsonVO::createShared();
-	vo->success("success");
+	auto result = service.listAll(query);
+	auto vo = TerminationReminderPageJsonVO::createShared();
+	vo->success(result);
 	return vo;
 }
 
 StringJsonVO::Wrapper TerminationReminderController::execExportAll(const PageQuery::Wrapper& query)
 {
+	TerminationReminderService service;
+	auto  result = service.exportAll();
 	auto vo = StringJsonVO::createShared();
-	vo->success("success");
+	vo->success(result);
 	return vo;
 }

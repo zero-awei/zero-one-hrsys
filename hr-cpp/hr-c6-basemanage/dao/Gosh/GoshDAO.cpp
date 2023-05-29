@@ -15,34 +15,34 @@ if (query->type) { \
 	sql << " AND type=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->type.getValue("")); \
 } \
-//if (query->variety) { \
-//	sql << " AND variety=?"; \
-//	SQLPARAMS_PUSH(params, "i", int, query->variety.getValue("")); \
-//}\
-//if (query->date) { \
-//	sql << " AND date=?"; \
-//	SQLPARAMS_PUSH(params, "i", int, query->date.getValue("")); \
-//}\
-//if (query->condition) { \
-//	sql << " AND condition=?"; \
-//	SQLPARAMS_PUSH(params, "i", int, query->condition.getValue("")); \
-//}\
-//if (query->department_m) { \
-//	sql << " AND department_m=?"; \
-//	SQLPARAMS_PUSH(params, "i", int, query->department_m.getValue("")); \
-//}\
-//if (query->department_c) { \
-//	sql << " AND department_c=?"; \
-//	SQLPARAMS_PUSH(params, "i", int, query->department_c.getValue("")); \
-//}\
-//if (query->date_end) { \
-//	sql << " AND date_end=?"; \
-//	SQLPARAMS_PUSH(params, "i", int, query->date_end.getValue("")); \
-//}\
-//if (query->tip) { \
-//	sql << " AND tip=?"; \
-//	SQLPARAMS_PUSH(params, "i", int, query->tip.getValue("")); \
-//}
+if (query->variety) { \
+	sql << " AND variety=?"; \
+	SQLPARAMS_PUSH(params, "i", int, query->variety.getValue("")); \
+}\
+if (query->date) { \
+	sql << " AND date=?"; \
+	SQLPARAMS_PUSH(params, "i", int, query->date.getValue("")); \
+}\
+if (query->condition) { \
+	sql << " AND condition=?"; \
+	SQLPARAMS_PUSH(params, "i", int, query->condition.getValue("")); \
+}\
+if (query->department_m) { \
+	sql << " AND department_m=?"; \
+	SQLPARAMS_PUSH(params, "i", int, query->department_m.getValue("")); \
+}\
+if (query->department_c) { \
+	sql << " AND department_c=?"; \
+	SQLPARAMS_PUSH(params, "i", int, query->department_c.getValue("")); \
+}\
+if (query->date_end) { \
+	sql << " AND date_end=?"; \
+	SQLPARAMS_PUSH(params, "i", int, query->date_end.getValue("")); \
+}\
+if (query->tip) { \
+	sql << " AND tip=?"; \
+	SQLPARAMS_PUSH(params, "i", int, query->tip.getValue("")); \
+}
 
 uint64_t GoshDAO::count(const ContractQuery::Wrapper & query)
 {
@@ -56,7 +56,7 @@ uint64_t GoshDAO::count(const ContractQuery::Wrapper & query)
 std::list<ContractDO> GoshDAO::selectWithPage(const ContractQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT * FROM Gosh";
+	sql << "SELECT * FROM t_pimcontract";
 	SAMPLE_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	GoshMapper mapper;
@@ -66,19 +66,19 @@ std::list<ContractDO> GoshDAO::selectWithPage(const ContractQuery::Wrapper& quer
 
 std::list<ContractDO> GoshDAO::selectByName(const string& name)
 {
-	string sql = "SELECT * FROM sample WHERE `name` LIKE CONCAT('%',?,'%')";
+	string sql = "SELECT * FROM t_pimcontract WHERE `name` LIKE CONCAT('%',?,'%')";
 	GoshMapper mapper;
 	return sqlSession->executeQuery<ContractDO, GoshMapper>(sql, mapper, "%s", name);
 }
 
 uint64_t GoshDAO::insert(const ContractDO& iObj)
 {
-	string sql = "INSERT INTO `Gosh` (`name`, `type`, `variety`,`date`,`condition`,`department_m`,`department_c`,`date_end`,`tip`) VALUES (?, ?, ?,?,?,?,?,?,?)";
+	string sql = "INSERT INTO `t_pimcontract` (`name`, `type`, `variety`,`date`,`condition`,`department_m`,`department_c`,`date_end`,`tip`) VALUES (?, ?, ?,?,?,?,?,?,?)";
 	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%s%s", iObj.getName(), iObj.getType(), iObj.getVariety(), iObj.getDate(), iObj.getCondition(), iObj.getDepartment_m(), iObj.getDepartment_c(), iObj.getDate_end(), iObj.getTip());
 }
 
 int GoshDAO::deleteById(std::string id)
 {
-	string sql = "DELETE FROM `Gosh` WHERE `id`=?";
+	string sql = "DELETE FROM `t_pimcontract` WHERE `id`=?";
 	return sqlSession->executeUpdate(sql, "%s", id);
 }

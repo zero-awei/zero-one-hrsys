@@ -29,7 +29,7 @@ public:
 	// 统计数据条数
 	uint64_t count(const LaborDispatchMQuery::Wrapper& query);
 	// 根据公司名称查询数据
-	std::list<LaborDispatchDO> selectByCorporateName(const LaborDispatchMQuery::Wrapper& query);
+	std::list<LaborDispatchDO> selectByCorporateID(const LaborDispatchMQuery::Wrapper& query);
 
 	int update(const LaborDispatchDO& uDo);
 protected:

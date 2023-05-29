@@ -27,9 +27,16 @@ LaborDispatchJsonMVO::Wrapper LaborDispatchMController::execQueryLaborDispatch(c
 	// service执行并返回数据
 	auto result = service.ListAll(query);
 	// 响应结果
-	auto vo = LaborDispatchJsonMVO::createShared();
-	vo->success(result);
-	return vo;
+	auto jvo = LaborDispatchJsonMVO::createShared();
+	if (result->rows->empty())
+	{
+		jvo->fail(result);
+	}
+	else
+	{
+		jvo->success(result);
+	}
+	return jvo;
 }
 
 StringJsonVO::Wrapper LaborDispatchMController::execModifyLaborDispatch(const LaborDispatchUpdateDTO::Wrapper& dto)
@@ -38,7 +45,7 @@ StringJsonVO::Wrapper LaborDispatchMController::execModifyLaborDispatch(const La
 
 	if (!dto->corporateName)
 	{
-		jvo->init(String(-1), RS_PARAMS_INVALID);
+		jvo->init("-1", RS_PARAMS_INVALID);
 		return jvo;
 	}
 	LaborDispatchMService service;
