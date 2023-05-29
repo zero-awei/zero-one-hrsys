@@ -37,7 +37,44 @@ if (query->id) { \
 if (query->age) { \
 	sql << " AND age=?"; \
 	SQLPARAMS_PUSH(params, "i", int, query->age.getValue(0)); \
+}\
+if (query->organize) { \
+	sql << " AND organize=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->organize.getValue("")); \
+}\
+if (query->depart) { \
+	sql << " AND depart=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->depart.getValue("")); \
+}\
+if (query->depart) { \
+	sql << " AND depart=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->depart.getValue("")); \
+}\
+if (query->job) { \
+	sql << " AND job=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->job.getValue("")); \
+}\
+if (query->post) { \
+	sql << " AND post=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->post.getValue("")); \
+}\
+if (query->idMum) { \
+	sql << " AND idMum=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->idMum.getValue("")); \
+}\
+if (query->birthday) { \
+	sql << " AND birthday=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->birthday.getValue("")); \
+}\
+if (query->phone) { \
+	sql << " AND phone=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->phone.getValue("")); \
+}\
+if (query->state) { \
+	sql << " AND state=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->state.getValue("")); \
 }
+
 
 // 统计数据条数
 uint64_t EmployeeInformationDAO::count(const EmployeeInformationPageQuery::Wrapper& query)
@@ -58,13 +95,6 @@ std::list<EmployeeInformationPageDO> EmployeeInformationDAO::selectWithPage(cons
 	EmployeeInformationMapper mapper;
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<EmployeeInformationPageDO, EmployeeInformationMapper>(sqlStr, mapper, params);
-}
-// 通过姓名查询数据
-std::list<EmployeeInformationPageDO> EmployeeInformationDAO::selectByName(const string& name)
-{
-	string sql = "SELECT * FROM sample WHERE `name` LIKE CONCAT('%',?,'%')";
-	EmployeeInformationMapper mapper;
-	return sqlSession->executeQuery<EmployeeInformationPageDO, EmployeeInformationMapper>(sql, mapper, "%s", name);
 }
 // 插入数据
 uint64_t EmployeeInformationDAO::insert(const EmployeeInformationPageDO& iObj)
