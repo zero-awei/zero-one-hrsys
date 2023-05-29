@@ -26,10 +26,7 @@
 #include "uselib/ws/WSController.h"
 #endif
 #include "LegalEntityMai/LegalEntityMaiController.h"
-#include "LegalEntitySet/ExportLegalerSetingController.h"
-#include "LegalEntitySet/LegalerNamePullDownListController.h"
-#include "LegalEntitySet/UpdateLegalerSetingMessageController.h"
-#include "LegalEntitySet/AddLegalerSetingController.h"
+#include "LegalEntitySet/LegalEntitySetController.h"
 #include "LegalEntitySet/ImportLeagalPerSettingController.h"
 
 // 如果定义了关闭Swagger文档宏
@@ -56,12 +53,9 @@ void Router::initRouter()
 #endif
 	//#TIP :系统扩展路由定义，写在这个后面
 	ROUTER_SIMPLE_BIND(LegalEntityMaiController); 
-	ROUTER_SIMPLE_BIND(ExportLegalerSetingController);
-	ROUTER_SIMPLE_BIND(LegalerNamePullDownListController);
-	ROUTER_SIMPLE_BIND(UpdateLegalerSetingMessageController);
 	ROUTER_SIMPLE_BIND(LegalEntityMaiController);
 	ROUTER_SIMPLE_BIND(ImportLeagalPerSettingController);
-	ROUTER_SIMPLE_BIND(AddLegalerSetingController);
+	ROUTER_SIMPLE_BIND(LegalEntitySetController);
 }
 
 #ifdef HTTP_SERVER_DEMO

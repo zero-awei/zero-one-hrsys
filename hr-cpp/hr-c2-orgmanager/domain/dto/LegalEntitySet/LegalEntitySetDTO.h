@@ -1,13 +1,25 @@
 #pragma once
-#ifndef _EXPORTLEGALERSETTING_DTO_
-#define _EXPORTLEGALERSETTING_DTO_
+
+/*
+*  组织管理 ——法人主体设置  -- cpt
+法人主体名称下拉列表 `LegalerNamePullDownList`
+
+更新指定法人设置信息  `UpdateLegalerSettingMessage`
+
+导出法人设置 `ExportLegalerSeting`
+
+**新增法人设置（支持批量新增）** `LegalEntitySet`
+*/
+
+#ifndef _LEGALENTITYSET_DTO_
+#define _LEGALENTITYSET_DTO_
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 
-class ExportLegalerSetingDTO : public oatpp::DTO {
-	DTO_INIT(ExportLegalerSetingDTO, DTO);
+class LegalEntitySetDTO : public oatpp::DTO {
+	DTO_INIT(LegalEntitySetDTO, DTO);
 	// 编号
 	DTO_FIELD(UInt64, id);
 	DTO_FIELD_INFO(id) {
@@ -33,9 +45,9 @@ class ExportLegalerSetingDTO : public oatpp::DTO {
 /**
  * 示例分页传输对象
  */
-class ExportLegalerSetingPageDTO : public PageDTO<ExportLegalerSetingDTO::Wrapper> {
-	DTO_INIT(ExportLegalerSetingPageDTO, PageDTO<ExportLegalerSetingDTO::Wrapper>);
+class LegalEntitySetPageDTO : public PageDTO<LegalEntitySetDTO::Wrapper> {
+	DTO_INIT(LegalEntitySetPageDTO, PageDTO<LegalEntitySetDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_EXPORTLEGALERSETTING_DTO_
+#endif // !_LEGALENTITYSET_DTO_

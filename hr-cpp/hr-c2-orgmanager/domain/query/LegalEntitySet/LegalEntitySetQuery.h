@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _LEGALERNAMEPULLDOWNLISTQUERY_CONTROLLER_
-#define _LEGALERNAMEPULLDOWNLISTQUERY_CONTROLLER_
+#ifndef _LEGALENTITYSETQUERY_CONTROLLER_
+#define _LEGALENTITYSETQUERY_CONTROLLER_
 
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
@@ -11,9 +11,9 @@
 /**
  * 示例分页查询对象
  */
-class LegalerNamePullDownListQuery : public PageQuery
+class LegalEntitySetQuery : public PageQuery
 {
-	DTO_INIT(LegalerNamePullDownListQuery, PageQuery);
+	DTO_INIT(LegalEntitySetQuery, PageQuery);
 	// 法人主体标识
 	DTO_FIELD(String, ORMSIGNORGID);
 	DTO_FIELD_INFO(ORMSIGNORGID) {
@@ -57,4 +57,4 @@ class LegalerNamePullDownListQuery : public PageQuery
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_LEGALERNAMEPULLDOWNLISTQUERY_CONTROLLER_s
+#endif // !_LEGALENTITYSETQUERY_CONTROLLER_
