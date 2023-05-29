@@ -30,6 +30,7 @@ public class DashboardController implements DashboardApis, OrgDistributeApis {
 
     @Resource
     IPimoutputService iPimoutputService;
+
     @GetMapping("pim-title-zcdj")
     @ApiOperation(value = "职称等级分布")
     @Override
@@ -73,6 +74,9 @@ public class DashboardController implements DashboardApis, OrgDistributeApis {
         return JsonVO.success(dtoList);
     }
 
+    @Resource
+    private ITPimpersonService pimpersonService;
+
     /**
      * 描述：年龄分布
      * 创建者：C.C.
@@ -80,7 +84,7 @@ public class DashboardController implements DashboardApis, OrgDistributeApis {
     @ApiOperation(value = "年龄分布")
     @GetMapping("/query-age-distribution")
     public JsonVO<List<AgeDTO>> queryAgeDistribution() {
-        return null;
+        return JsonVO.success(pimpersonService.listAgeDistribution());
     }
 
     @Resource
