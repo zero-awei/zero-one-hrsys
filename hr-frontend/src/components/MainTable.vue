@@ -92,15 +92,21 @@ interface TableCell {
   @include element(form) {
     background-color: white;
     @include modifier(cell) {
-      max-height: 30px;
+      max-height: 48px;
       cursor: pointer;
+    }
+    :deep(.el-scrollbar__view) {
+      display: block !important;
     }
   }
 }
-.el-table__header-wrapper {
+:deep(.el-table__header) {
   height: 58px;
 }
-.el-table__header-wrapper thead {
+:deep(.el-table .el-table__cell) {
+  height: 48px !important;
+}
+:deep(.el-table__header-wrapper thead) {
   font-weight: bolder;
   color: #304265;
   font-size: 16px;

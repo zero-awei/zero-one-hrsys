@@ -9,39 +9,8 @@ let testMenus = [
     path: '/pimportalview'
   },
   {
-    id: '0',
-    text: '门户首页',
-    icon: 'DataAnalysis',
-    path: '/pimportalview'
-  },
-  {
-<<<<<<< HEAD
-    id: '1',
-    text: '人员信息',
-    icon: 'DataAnalysis',
-    children: [
-      {
-        id: 2,
-        text: '员工信息',
-        path: '/userInfo',
-        icon: 'IconSetting',
-        pid: 1
-      }
-    ]
-  },
-  {
-    id: '2',
-    text: '系统管理',
-=======
-    id: 0,
-    text: '门户首页',
-    icon: 'DataAnalysis',
-    path: '/pimportalview'
-  },
-  {
     id: 0,
     text: '人员花名册',
->>>>>>> 508b3317f7a7e9e3a27018cd60c10ba4c88bc8d6
     icon: 'IconSetting',
     children: [
       {
@@ -87,6 +56,12 @@ let testMenus = [
         text: '挂职员工',
         icon: 'IconSetting',
         path: '/gzryhmcgridview'
+      },
+      {
+        id: 5,
+        text: '人员信息测试页面',
+        icon: 'IconSetting',
+        path: '/userInfo'
       }
     ]
   },

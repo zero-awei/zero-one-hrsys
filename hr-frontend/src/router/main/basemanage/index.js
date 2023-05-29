@@ -77,6 +77,11 @@ const routes = [
     path: '/gzryhmcgridview',
     name: '挂职员工',
     component: () => import('@/views/baseManage/roster/Gzyg.vue')
+  },
+  {
+    path: '/userInfo',
+    name: '用户信息',
+    component: () => import('@/views/baseManage/userInfo/index.vue')
   }
 ]
 
