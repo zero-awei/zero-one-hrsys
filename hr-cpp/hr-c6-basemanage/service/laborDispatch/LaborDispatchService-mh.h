@@ -29,9 +29,9 @@ public:
 	LaborDispatchPageDTO::Wrapper listAll_ld(const LaborDispatchQuery::Wrapper& query);
 	//保存数据
 	uint64_t saveData_ld(const LaborDispatchDTO::Wrapper& dto);
-	//修改数据
-	bool updataData_ld(const LaborDispatchDTO::Wrapper& dto);
 	//通过ID删除数据
-
+	bool removeData_ld(string id);
+	//导出数据
+	string LaborDispatchExport_ld(const LaborDispatchQuery::Wrapper& query);
 };
 #endif // !_LABORDISPATCHSERVICE_H_
