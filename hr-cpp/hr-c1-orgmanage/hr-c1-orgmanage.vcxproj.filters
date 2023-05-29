@@ -29,6 +29,8 @@
     <ClCompile Include="service\jobSet\JobSetService.cpp" />
     <ClCompile Include="dao\jobSet\JobSetDAO.cpp" />
     <ClCompile Include="controller\jobSet\addJobController\AddJobController.cpp" />
+    <ClCompile Include="service\projTag\deleteProjTagService\DeleteProjTagService.cpp" />
+    <ClCompile Include="dao\projTag\DeleteProjTagDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -119,6 +121,9 @@
     <ClInclude Include="domain\vo\jobSet\JobUpdateVO\JobUpdateVO.h" />
     <ClInclude Include="domain\vo\projTag\PageQueryProjTagVO.h" />
     <ClInclude Include="dao\projTag\ProjTagListMapper.h" />
+    <ClInclude Include="service\projTag\deleteProjTagService\DeleteProjTagService.h" />
+    <ClInclude Include="dao\projTag\DeleteProjTagDAO.h" />
+    <ClInclude Include="domain\vo\projTag\DeleteProjTagBatchVO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
