@@ -41,7 +41,7 @@ public interface CommonApis {
      *
      * @return
      */
-    JsonVO<PageDTO<StatusListDTO>> queryEmployeeStatus();
+    JsonVO<List<StatusListDTO>> queryEmployeeStatus();
 
     /**
      * 查询部门类型信息

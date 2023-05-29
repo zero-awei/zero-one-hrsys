@@ -1,6 +1,7 @@
 package com.zeroone.star.orgmanager.controller;
 
 import com.zeroone.star.orgmanager.service.ITOrmbmkqdzService;
+import com.zeroone.star.orgmanager.service.ISrforgsectorService;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.orgmanager.DepartmentDTO;
 import com.zeroone.star.project.dto.orgmanager.ExportDTO;
@@ -47,11 +48,14 @@ public class DepartmentController implements DepartmentApis {
         return null;
     }
 
+    @Resource
+    ISrforgsectorService iSrforgsectorService;
+
     @GetMapping("org-list")
     @ApiOperation(value = "分页查询部门信息")
     @Override
     public JsonVO<PageDTO<DepartmentDTO>> queryAllDepartment(DepartmentQuery query) {
-        return null;
+        return JsonVO.success(iSrforgsectorService.listAllDepartment(query));
     }
 
     @Resource

@@ -43,5 +43,11 @@ public class TOrmbmkqdzServiceImpl extends ServiceImpl<TOrmbmkqdzMapper, Ormbmkq
         return JsonVO.success("更新成功");
         //return res == 1 ? JsonVO.success("更新成功"):JsonVO.fail("更新失败");
     }
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.zeroone.star.orgmanager.entity.TOrmbmkqdz;
+import com.zeroone.star.orgmanager.mapper.TOrmbmkqdzMapper;
+import com.zeroone.star.orgmanager.service.ITOrmbmkqdzService;
+
+public class TOrmbmkqdzServiceImpl extends ServiceImpl<TOrmbmkqdzMapper, TOrmbmkqdz> implements ITOrmbmkqdzService {
 
 }
