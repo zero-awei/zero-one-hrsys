@@ -38,7 +38,7 @@ public:
 	// 导入文件
 	// bool importFile();
 	// 导出文件
-	// bool exportFile();
+	std::string exportFile(const LegalEntityMaiQuery::Wrapper& query);
 };
 
 #endif // !_LEGALENTITYMAISERVICE_H_

@@ -40,63 +40,88 @@ StringJsonVO::Wrapper LegalEntityMaiController::execUpdateLEM(const LegalEntityM
 
 Uint64JsonVO::Wrapper LegalEntityMaiController::execAddLEM(const LegalEntityMaiDTO::Wrapper& dto)
 {
-	// 定义返回数据对象
-	auto jvo = Uint64JsonVO::createShared();
-	/* 参数校验 */
-	// 非空检验
-	if (!dto->ORMSIGNORGNAME || !dto->ORGCODE) {
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-		return jvo;
-	}
-	// 有效值检验
-	if (dto->ORMSIGNORGNAME->empty() || dto->ORGCODE->empty()) {
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-		return jvo;
-	}
+	/*oatpp::List<Uint64JsonVO::Wrapper> jvoList;
+	int size = dtoList->size();
+	for (auto it = dtoList->begin(); it != dtoList->end(); it++) {*/
+		// 定义返回数据对象
+		auto jvo = Uint64JsonVO::createShared();
+		/*auto dto = *it;*/
+		/* 参数校验 */
+		// 非空检验
+		if (!dto->ORMSIGNORGNAME || !dto->ORGCODE) {
+			jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+			return jvo;
+		}
+		// 有效值检验
+		if (dto->ORMSIGNORGNAME->empty() || dto->ORGCODE->empty()) {
+			jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+			return jvo;
+		}
 
-	// 定义一个Service
-	LegalEntityMaiService service;
-	// 执行数据新增
-	uint64_t id = service.saveData(dto);
-	if (id > 0) {
-		jvo->success(UInt64(id));
-	}
-	else {
-		jvo->fail(UInt64(id));
-	}
+		// 定义一个Service
+		LegalEntityMaiService service;
+		// 执行数据新增
+		uint64_t id = service.saveData(dto);
+		if (id > 0) {
+			jvo->success(UInt64(id));
+		}
+		else {
+			jvo->fail(UInt64(id));
+		}
+		//jvoList.push_back(jvo);
+	//}
 	// 响应结果
-	return jvo;
+		return jvo;
 }
 
 StringJsonVO::Wrapper LegalEntityMaiController::execRemoveLEM(const LegalEntityMaiDTO::Wrapper& dto)
 {
-	// 定义返回数据对象
-	auto jvo = StringJsonVO::createShared();
-	// 参数校验
-	if (!dto->ORMSIGNORGID || dto->ORMSIGNORGID == "") {
-		jvo->init(String(-1), RS_PARAMS_INVALID);
-		return jvo;
-	}
-	// 定义一个Service
-	LegalEntityMaiService service;
-	// 执行数据删除
-	if (service.removeData(dto->ORMSIGNORGID.getValue(""))) {
-		jvo->success(dto->ORMSIGNORGID);
-	}
-	else {
-		jvo->fail(dto->ORMSIGNORGID);
-	}
+	/*std::list<StringJsonVO::Wrapper> jvoList;
+	for (auto dto : dtoList) {*/
+		// 定义返回数据对象
+		auto jvo = StringJsonVO::createShared();
+		// 参数校验
+		if (!dto->ORMSIGNORGID || dto->ORMSIGNORGID == "") {
+			jvo->init(String(-1), RS_PARAMS_INVALID);
+			return jvo;
+		}
+		// 定义一个Service
+		LegalEntityMaiService service;
+		// 执行数据删除
+		if (service.removeData(dto->ORMSIGNORGID.getValue(""))) {
+			jvo->success(dto->ORMSIGNORGID);
+		}
+		else {
+			jvo->fail(dto->ORMSIGNORGID);
+		}
+	//}
 	// 响应结果
 	return jvo;
 }
 
-BooleanJsonVO::Wrapper LegalEntityMaiController::execImportLEM(const LegalEntityMaiDTO::Wrapper& dto)
+StringJsonVO::Wrapper LegalEntityMaiController::execImportLEM(const LegalEntityMaiDTO::Wrapper& dto)
 {
-	return BooleanJsonVO::createShared();
+	// 定义返回数据对象
+	auto jvo = StringJsonVO::createShared();
+	// 响应结果
+	return jvo;
 }
 
-BooleanJsonVO::Wrapper LegalEntityMaiController::execExportLEM(const LegalEntityMaiQuery::Wrapper& legalEntityMaiQuery)
+StringJsonVO::Wrapper LegalEntityMaiController::execExportLEM(const LegalEntityMaiQuery::Wrapper& query)
 {
-	return BooleanJsonVO::createShared();
+	// 定义返回数据对象
+	auto jvo = StringJsonVO::createShared();
+	// 定义一个Service
+	LegalEntityMaiService service;
+	// 执行文件导出
+	std::string fileName = service.exportFile(query);
+	if (fileName.empty()) {
+		jvo->fail("fail to export");
+	}
+	else {
+		jvo->success(fileName);
+	}
+	// 响应结果
+	return jvo;
 }
 

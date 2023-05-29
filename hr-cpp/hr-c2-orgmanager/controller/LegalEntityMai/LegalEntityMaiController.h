@@ -94,11 +94,12 @@ public: // 定义接口
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("LegalEntityMai.post.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	ENDPOINT(API_M_POST, "/org/add-LEM", addLEM, BODY_DTO(LegalEntityMaiDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddLEM(dto));
+
 	}
 
 	// 定义删除法人主体接口描述
@@ -119,7 +120,7 @@ public: // 定义接口
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("LegalEntityMai.import.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(BooleanJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	ENDPOINT(API_M_POST, "/org/import-LEM", importLEM, BODY_DTO(LegalEntityMaiDTO::Wrapper, dto)) {
 		// 响应结果
@@ -133,24 +134,16 @@ public: // 定义接口
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(BooleanJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他查询参数描述
-		info->queryParams.add<String>("ORMSIGNORGID").description = ZH_WORDS_GETTER("LegalEntityMai.field.id");
-		info->queryParams["ORMSIGNORGID"].addExample("default", String("11F28C41-1D50-4503-B925-D86D1F70A1D2"));
-		info->queryParams.add<String>("UPDATEMAN").description = ZH_WORDS_GETTER("LegalEntityMai.field.updateman");
-		info->queryParams["UPDATEMAN"].addExample("default", String("guest"));
-		info->queryParams.add<String>("CREATEMAN").description = ZH_WORDS_GETTER("LegalEntityMai.field.createman");
-		info->queryParams["CREATEMAN"].addExample("default", String("1944DE89-8E28-4D10-812C-CAEEAAE8A927"));
-		info->queryParams.add<String>("CREATEDATE").description = ZH_WORDS_GETTER("LegalEntityMai.field.createdate");
-		info->queryParams["CREATEDATE"].addExample("default", String("2019-09-10 20:45:00"));
 		info->queryParams.add<String>("ORMSIGNORGNAME").description = ZH_WORDS_GETTER("LegalEntityMai.field.name");
 		info->queryParams["ORMSIGNORGNAME"].addExample("default", String(ZH_WORDS_GETTER("LegalEntityMai.sample.name")));
-		info->queryParams.add<String>("UPDATEDATE").description = ZH_WORDS_GETTER("LegalEntityMai.field.updatedate");
-		info->queryParams["UPDATEDATE"].addExample("default", String("2020-05-29 10:49:53"));
+		info->queryParams["ORMSIGNORGNAME"].required = false;
 		info->queryParams.add<String>("ORGCODE").description = ZH_WORDS_GETTER("LegalEntityMai.field.orgcode");
 		info->queryParams["ORGCODE"].addExample("default", String("104"));
+		info->queryParams["ORGCODE"].required = false;
 	}
 	ENDPOINT(API_M_GET, "/org/export-LEM", exportLEM, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
@@ -169,9 +162,9 @@ private: // 定义接口执行函数
 	// 删除数据
 	StringJsonVO::Wrapper execRemoveLEM(const LegalEntityMaiDTO::Wrapper& dto);
 	// 导入数据
-	BooleanJsonVO::Wrapper execImportLEM(const LegalEntityMaiDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execImportLEM(const LegalEntityMaiDTO::Wrapper& dto);
 	// 导出数据
-	BooleanJsonVO::Wrapper execExportLEM(const LegalEntityMaiQuery::Wrapper& legalEntityMaiQuery);
+	StringJsonVO::Wrapper execExportLEM(const LegalEntityMaiQuery::Wrapper& legalEntityMaiQuery);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
