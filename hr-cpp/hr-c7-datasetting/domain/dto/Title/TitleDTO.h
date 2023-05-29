@@ -3,26 +3,34 @@
 #ifndef _TITLEDTO_H_
 #define _TITLEDTO_H_
 #include "../../GlobalInclude.h"
-
+#include "ApiHelper.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
 /**
  * 定义一个可修改职称目录信息的传输对象
  */
 class TitleDTO : public oatpp::DTO
 {
-
+public:
+	TitleDTO() {};
 	DTO_INIT(TitleDTO, DTO);
 
-	//员工编号
-	DTO_FIELD(String, id);
+
+	//排序号
+	DTO_FIELD(Int32, id);
 	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("title.field.id");
+		info->description = ZH_WORDS_GETTER("Title.field.id");
 	}
-	//员工姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("title.field.name");
-	}
+	//职称代码
+	DTO_FIELD(String, num);
+	DTO_FIELD_INFO(num) {
+		info->description = ZH_WORDS_GETTER("Title.field.num");
+		//职称目录名称
+
+	}API_DTO_FIELD_DEFAULT(String, name, ZH_WORDS_GETTER("Title.field.name"));
+	//职称目录类型
+	API_DTO_FIELD_DEFAULT(String, dtype, ZH_WORDS_GETTER("Title.field.dtype"));
+	//职称类型
+	API_DTO_FIELD_DEFAULT(String, Ttype, ZH_WORDS_GETTER("Title.field.type"));
 };
 
 /**
