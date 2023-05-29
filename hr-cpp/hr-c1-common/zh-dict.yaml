@@ -42,6 +42,7 @@ common:
   code: 值
   type: 类型
  dto:
+  pimQualTypeName: 岗位（技能）证书
   certTypeId: 证书类型ID
   certTypeName: 证书类型名称
   certTypeCode: 证书类型代号
