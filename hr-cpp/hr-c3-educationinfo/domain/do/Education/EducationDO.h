@@ -59,7 +59,24 @@ class EducationDO
 
 	// ÆäËû¸½¼þ
 	CC_SYNTHESIZE(string, FJ, FunFJ);
-	
+public:
+	EducationDO() {
+		PIMEDUCATIONID = "";
+		XL = "";
+		QSSJ = 2000 - 01 - 01;
+		JSSJ = 2000 - 01 - 01;
+		BYYX = "";
+		XKML = "";
+		SXZY = "";
+		XLLX = "";
+		XXXZ = "";
+		SFDYXL = 2000 - 01 - 01;
+		BTZ = "";
+		XWZ = "";
+		XLCX = "";
+		FJ = "";
+
+	}
 };
 
 #include OATPP_CODEGEN_END(DTO)

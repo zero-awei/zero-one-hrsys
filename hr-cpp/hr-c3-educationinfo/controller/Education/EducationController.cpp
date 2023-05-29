@@ -1,23 +1,26 @@
 #include "stdafx.h"
 #include "EducationController.h"
+#include "service/Education/EducationService.h"
 
 EducationPageJsonVO::Wrapper EducationController::execQueryEducationPage(const EducationPageQuery::Wrapper& query, const PayloadDTO& payload)
-//StringJsonVO::Wrapper EducationController::execQueryEducationPage(const EducationPageQuery::Wrapper& query, const PayloadDTO& payload, const PayloadDTO& payload)
 {
 	auto vo = EducationPageJsonVO::createShared();
+	EducationService service;
+	auto dto = service.listEducationPage(query);
+	vo->success(dto);
 	return vo;
 }
 
 EducationSingleJsonVO::Wrapper EducationController::execQueryEducationSingle(const EducationSingleQuery::Wrapper& query, const PayloadDTO& payload)
-//StringJsonVO::Wrapper EducationController::execQueryEducationSingle(const EducationSingleQuery::Wrapper& query, const PayloadDTO& payload, const PayloadDTO& payload)
 {
-	
 	auto vo = EducationSingleJsonVO::createShared();
+	EducationService service;
+	auto dto = service.listEducationSingle(query);
+	vo->success(dto);
 	return vo;
 }
 
 Uint64JsonVO::Wrapper EducationController::execAddEducationSingle(const EducationSingleDTO::Wrapper& dto, const PayloadDTO& payload)
-//StringJsonVO::Wrapper EducationController::execAddEducationSingle(const EducationSingleDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto vo = Uint64JsonVO::createShared();
 	
@@ -28,6 +31,15 @@ Uint64JsonVO::Wrapper EducationController::execAddEducationSingle(const Educatio
 		return vo;
 	}
 
+
+	// 定义一个service
+	EducationService service;
+
+	// 执行数据新增 
+	uint64_t id = service.saveEducation(dto);
+
+	//响应结果
+	vo->success(UInt64(id));
 	
 
 	return vo;
@@ -44,31 +56,64 @@ Uint64JsonVO::Wrapper EducationController::execModifyEducationSingle(const Educa
 		return vo;
 	}
 
+	// 定义一个Service
+	EducationService service;
+	// 执行数据修改
+	uint64_t id = service.updateEducation(dto);
+	vo->success((uint64_t)id);
 	return vo;
 }
 
-Uint64JsonVO::Wrapper EducationController::execRemoveEducation(const EducationDeleteSingleDTO::Wrapper& dto, const PayloadDTO& payload)
-//StringJsonVO::Wrapper EducationController::execRemoveEducation(const EducationDeleteSingleDTO::Wrapper& dto, const PayloadDTO& payload)
+StringJsonVO::Wrapper EducationController::execRemoveEducation(const EducationDeleteSingleDTO::Wrapper& dto, const PayloadDTO& payload)
 {
-	auto vo = Uint64JsonVO::createShared();
+	auto vo = StringJsonVO::createShared();
 	// 参数校验
 	if (!dto->deleteId) {
-		vo->init(UInt64(-1), RS_PARAMS_INVALID);
+		vo->init(String(""), RS_PARAMS_INVALID);
 		return vo;
 	}
+
+	EducationService Service;
+	//// 执行数据删除
+	//if (Service.removeEducation(dto->deleteId)) {
+	//	vo->success(dto->deleteId);
+	//}
+	//else
+	//{
+	//	vo->fail(dto->deleteId);
+	//}
+	Service.removeEducation(dto->deleteId);
+	vo->success(dto->deleteId);
 	return vo;
-	//return Uint64JsonVO::Wrapper();
+
+
 }
 
-Uint64JsonVO::Wrapper EducationController::execRemoveEducationNotSingle(const EducationDeleteNotSingleDTO::Wrapper& dto, const PayloadDTO& payload)
-//StringJsonVO::Wrapper EducationController::execRemoveEducationNotSingle(const EducationDeleteNotSingleDTO::Wrapper& dto, const PayloadDTO& payload)
+EducationDeleteNotSingleJsonVO::Wrapper EducationController::execRemoveEducationNotSingle(const EducationDeleteNotSingleDTO::Wrapper& dto, const PayloadDTO& payload)
 {
-	auto vo = Uint64JsonVO::createShared();
-	if (!dto->deleteIds) {
-		vo->init(UInt64(-1), RS_PARAMS_INVALID);
-		return vo;
+	
+
+	// 定义返回数据对象
+	auto jvo = EducationDeleteNotSingleJsonVO::createShared();
+	// 参数校验
+	if (!dto->deleteIds)
+	{
+		jvo->init(dto, RS_PARAMS_INVALID);
+		return jvo;
 	}
-	return vo;
+	EducationService Service;
+
+	// 执行数据删除
+	/*if (Service.removeEducationNotSingle(dto)) {
+		jvo->success(dto);
+	}
+	else
+	{
+		jvo->fail(dto);
+	}*/
+	Service.removeEducationNotSingle(dto);
+	jvo->success(dto);
+	return jvo;
 	
 }
 
@@ -76,7 +121,6 @@ Uint64JsonVO::Wrapper EducationController::execRemoveEducationNotSingle(const Ed
 return __VO__;
 
 EudacationImportJsonVO::Wrapper EducationController::execImportEducation(const EducationImportDTO::Wrapper& dto, const PayloadDTO& payload)
-//StringJsonVO::Wrapper EducationController::execImportEducation(const EducationImportDTO::Wrapper& dto)
 {
 
 	/*auto vo = StringJsonVO::createShared();
