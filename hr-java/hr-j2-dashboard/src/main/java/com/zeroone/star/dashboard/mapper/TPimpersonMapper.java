@@ -19,6 +19,6 @@ import java.util.List;
 @Mapper
 public interface TPimpersonMapper extends BaseMapper<TPimperson> {
 
-    @Select("SELECT agetype, count(1) AS countnum FROM (SELECT CASE WHEN age <= 30 THEN '30以下' WHEN age >= 31 AND age <= 35 THEN '31-35' WHEN age >= 36 AND age <= 40 THEN '36-40' WHEN age >= 41 AND age <= 45 THEN '41-45' WHEN age >= 46 AND age <= 50 THEN '46-50' WHEN age >= 51 AND age <= 55 THEN '51-55' ELSE '55以上' END agetype FROM (SELECT timestampdiff(YEAR, t1.CSRQ, sysdate()) AS age FROM t_pimperson t1 WHERE YGZT NOT IN ('40', '50', '60', '130', '51') AND jlss = '10' AND ENABLE = 1) x) y GROUP BY agetype ORDER BY agetype")
+    @Select("SELECT agetype AS agerange, count(1) AS agenum FROM (SELECT CASE WHEN age <= 30 THEN '30以下' WHEN age >= 31 AND age <= 35 THEN '31-35' WHEN age >= 36 AND age <= 40 THEN '36-40' WHEN age >= 41 AND age <= 45 THEN '41-45' WHEN age >= 46 AND age <= 50 THEN '46-50' WHEN age >= 51 AND age <= 55 THEN '51-55' ELSE '55以上' END agetype FROM (SELECT timestampdiff(YEAR, t1.CSRQ, sysdate()) AS age FROM t_pimperson t1 WHERE YGZT NOT IN ('40', '50', '60', '130', '51') AND jlss = '10' AND ENABLE = 1) x) y GROUP BY agetype ORDER BY agetype")
     List<AgeDTO> selectAgeDistribution();
 }
