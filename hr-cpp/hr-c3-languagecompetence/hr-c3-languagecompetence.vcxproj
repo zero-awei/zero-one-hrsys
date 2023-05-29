@@ -167,6 +167,8 @@
     <ClInclude Include="controller\LanguageCompetence\LanguageCompetenceController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\Language\LanguageDAO.h" />
+    <ClInclude Include="dao\Language\LanguageMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\Language\LanguageDO.h" />
     <ClInclude Include="domain\dto\DownloadLanguage\DownloadLanguageDTO.h" />
@@ -188,6 +190,7 @@
     <ClCompile Include="controller\LanguageCompetence\LanguageCompetenceController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\Language\LanguageDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\Language\LanguageService.cpp" />
     <ClCompile Include="stdafx.cpp">

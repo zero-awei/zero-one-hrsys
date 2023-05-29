@@ -28,12 +28,12 @@
 class LanguagePageQuery : public PageQuery
 {
 	DTO_INIT(LanguagePageQuery, PageQuery);
-	//语言标识能力
+	//语言标识能力ID
 	API_DTO_FIELD_DEFAULT(String, languageAbilityID, u8"语言标识能力");
 	//外语等级获取时间
 	API_DTO_FIELD_DEFAULT(String, gainTime, u8"外语等级获取时间");
 	//授权
-	API_DTO_FIELD_DEFAULT(UInt32, enable, u8"授权");
+	API_DTO_FIELD_DEFAULT(Int32, permission, u8"授权");
 	//附件
 	API_DTO_FIELD_DEFAULT(String, attachment, u8"附件");
 	//语种
@@ -48,8 +48,6 @@ class LanguagePageQuery : public PageQuery
 	API_DTO_FIELD_DEFAULT(String, createTime, u8"创建时间");
 	//人员信息标识
 	API_DTO_FIELD_DEFAULT(String, personID, u8"人员信息标识");
-	//姓名
-	API_DTO_FIELD_DEFAULT(String, name, u8"人员姓名");
 	//记录所属
 	API_DTO_FIELD_DEFAULT(String, jlss, u8"记录所属");
 	//记录管理编号

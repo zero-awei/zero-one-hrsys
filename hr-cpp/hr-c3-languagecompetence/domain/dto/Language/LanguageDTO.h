@@ -30,6 +30,10 @@
 class LanguageDTO : public oatpp::DTO
 {
 	DTO_INIT(LanguageDTO, DTO);
+	//语言能力标识Id
+	API_DTO_FIELD_DEFAULT(String, languageAbilityID, u8"语言标识能力Id");
+	//许可的
+	API_DTO_FIELD_DEFAULT(Int32, permission, u8"授权");
 	//外语等级获取时间
 	API_DTO_FIELD_DEFAULT(String, gainTime, u8"外语等级获取时间");
 	//附件
@@ -44,6 +48,14 @@ class LanguageDTO : public oatpp::DTO
 	API_DTO_FIELD_DEFAULT(String, languageLevel, u8"语言等级");
 	//人员信息标识
 	API_DTO_FIELD_DEFAULT(String, personID, u8"人员信息标识");
+	//记录所属
+	API_DTO_FIELD_DEFAULT(String, jlss, u8"记录所属");
+	//记录管理编号
+	API_DTO_FIELD_DEFAULT(String, jlglbh, u8"记录管理编号");
+	//记录审批状态
+	API_DTO_FIELD_DEFAULT(String, jlspzt, u8"记录审批状态");
+	//记录操作者
+	API_DTO_FIELD_DEFAULT(String, jlczz, u8"记录操作者");
 };
 /**
  * 语言模块分页传输对象
