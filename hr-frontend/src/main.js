@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-
 import * as echarts from 'echarts'
 
 import App from './App.vue'
@@ -19,7 +18,6 @@ app.config.globalProperties.$echarts = echarts
 app.component('echarts', ECharts) //注册 ECharts 组件
 
 app.mount('#app')
-
 // 安装HTTP中间件
 import installHttp from './plugins/http'
 installHttp(router)

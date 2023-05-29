@@ -136,6 +136,10 @@ const menus = reactive([
   {
     path: '/sample/employees',
     text: '人员信息'
+  },
+  {
+    path: '/sample/filter',
+    text: '过滤器'
   }
 ])
 </script>

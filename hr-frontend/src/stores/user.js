@@ -3,42 +3,90 @@ import Request from '@/apis/request'
 // 测试菜单数据
 let testMenus = [
   {
+<<<<<<< HEAD
     id: '1',
     text: '系统管理',
+=======
+    id: 0,
+    text: '门户首页',
+    icon: 'DataAnalysis',
+    path: '/pimportalview'
+  },
+  {
+    id: 0,
+    text: '人员花名册',
+>>>>>>> 508b3317f7a7e9e3a27018cd60c10ba4c88bc8d6
     icon: 'IconSetting',
     children: [
       {
-        id: 2,
-        text: '系统管理1',
-        path: '/un-1',
-        icon: 'IconSetting',
-        pid: 1
-      },
-      {
-        id: 3,
-        text: '系统管理2',
-        path: '/un-2',
-        icon: 'IconSetting',
-        pid: 1
-      },
-      {
-        id: 4,
-        text: '系统管理3',
-        path: '/un-3',
-        icon: 'IconSetting',
-        pid: 1
-      },
-      {
         id: 5,
-        text: '系统管理4',
-        path: '/un-4',
+        text: '人员花名册',
+        path: '/roster',
         icon: 'IconSetting',
         pid: 1
       },
       {
         id: 6,
-        text: '系统管理5',
-        path: '/un-5',
+        text: '见习员工',
+        path: '/trainee',
+        icon: 'IconSetting',
+        pid: 1
+      },
+      {
+        id: 0,
+        text: '试用员工',
+        icon: 'IconSetting',
+        path: '/syqyggridview'
+      },
+      {
+        id: 1,
+        text: '离(退)休人员',
+        icon: 'IconSetting',
+        path: '/ltxyggridview'
+      },
+      {
+        id: 2,
+        text: '离职人员',
+        icon: 'IconSetting',
+        path: '/lzyghmcgridview'
+      },
+      {
+        id: 3,
+        text: '借调员工',
+        icon: 'IconSetting',
+        path: '/jdryhmcgridview'
+      },
+      {
+        id: 4,
+        text: '挂职员工',
+        icon: 'IconSetting',
+        path: '/gzryhmcgridview'
+      }
+    ]
+  },
+  {
+    id: 1,
+    text: '人员信息',
+    icon: 'IconSetting',
+    children: [
+      {
+        id: 2,
+        text: '员工信息',
+        path: '/employee',
+        icon: 'IconSetting',
+        pid: 1
+      },
+      {
+        id: 3,
+        text: '自助信息审核',
+        path: '/review',
+        icon: 'IconSetting',
+        pid: 1
+      },
+      {
+        id: 4,
+        text: '黑名单',
+        path: '/blacklist',
         icon: 'IconSetting',
         pid: 1
       }
@@ -125,6 +173,48 @@ let testMenus = [
         path: '/un-25',
         icon: 'IconTickets',
         pid: 3
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: '标准化数据设置',
+    icon: 'IconTickets',
+    children: [
+      {
+        id: 2,
+        text: '订单管理1',
+        path: '/un-31',
+        icon: 'IconTickets',
+        pid: 4
+      },
+      {
+        id: 3,
+        text: '订单管理2',
+        path: '/un-32',
+        icon: 'IconTickets',
+        pid: 4
+      },
+      {
+        id: 4,
+        text: '岗位(技能)证书',
+        path: '/postcertificateview',
+        icon: 'IconTickets',
+        pid: 4
+      },
+      {
+        id: 5,
+        text: '职称目录',
+        path: '/jobtitlecatalog',
+        icon: 'IconTickets',
+        pid: 4
+      },
+      {
+        id: 6,
+        text: '档案室',
+        path: '/archives',
+        icon: 'IconTickets',
+        pid: 4
       }
     ]
   }

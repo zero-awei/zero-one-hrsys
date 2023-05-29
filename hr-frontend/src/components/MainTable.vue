@@ -5,7 +5,7 @@
       ref="multipleTableRef"
       max-height="calc(95vh - 40px)"
       :data="tableData"
-      style="width: 100%"
+      style="width: 100%; text-align: center"
       @selection-change="handleSelectionChange"
       @row-dblclick="handleClick"
       :default-sort="{ prop: 'id', order: 'ascending' }"
@@ -19,7 +19,6 @@
         :prop="item.prop"
         width="150"
         sortable
-        @dbclick=""
       />
     </el-table>
   </div>
@@ -66,6 +65,18 @@ interface User {
   certificateId?: number
   phoneNumber?: number
   state?: string
+  //类型不一样报错了，我瞎改一点
+  sex?: string
+  address?: string
+  retirePlace?: string
+  familyContact?: string
+  familyContactNumber?: string
+  level?: string
+  preRetirePosition?: string
+  preRetireJob?: string
+  retireTime?: string
+  realRetireTime?: string
+  money?: number
 }
 //表单数据定义
 interface TableCell {
