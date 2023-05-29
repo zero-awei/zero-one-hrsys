@@ -70,7 +70,7 @@ public class CommonController implements CommonApis {
     }
 
     @Resource
-    private ITSrfcodeitemService TSrfcodeitemService;
+    private TSrfcodeitemServiceImpl TSrfcodeitemService;
 
     @GetMapping("query-distribution-status")
     @ApiOperation("分配状态下拉列表")
