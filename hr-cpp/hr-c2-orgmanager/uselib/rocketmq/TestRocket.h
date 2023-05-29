@@ -20,6 +20,7 @@
 #ifndef _TESTROCKET_H_
 #define _TESTROCKET_H_
 #include "RocketClient.h"
+#include "oatpp/core/Types.hpp"
 #include <memory>
 
 /**

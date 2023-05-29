@@ -143,5 +143,14 @@
     <ClInclude Include="dao\LegalEntityMai\LegalEntityMaiMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiMqDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDelDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiAddDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

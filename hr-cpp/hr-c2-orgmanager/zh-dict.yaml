@@ -36,10 +36,13 @@ LegalEntityMai:
   summary: （法人主体维护-更新指定法人主体信息）--TripleGold
  post:
   summary: （法人主体维护-新增法人主体（支持批量新增））--TripleGold
+  info: 新增数据数组
  delete:
   summary: （法人主体维护-删除法人主体（支持批量删除））--TripleGold
+  cnt: 删除数据ID数组
  import:
   summary: （法人主体维护-导入法人主体）--TripleGold
+  suffix: 文件后缀
  export:
   summary: （法人主体维护-导出法人主体）--TripleGold
  field:
@@ -51,5 +54,7 @@ LegalEntityMai:
   updatedate: 更新时间
   orgcode: 组织编号
   short: 简称
+  body: 文件名称
+  creatName: 创建名称
  sample:
   name: 东北公司

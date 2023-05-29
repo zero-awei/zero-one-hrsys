@@ -4,6 +4,7 @@
 #include "CharsetConvertHepler.h"
 #include "ExcelComponent.h"
 #include "FastDfsClient.h"
+#include "SnowFlake.h"
 
 /* 法人主体维护Service层具体实现--（组织管理-数据设置-法人主体维护）--TripleGold */
 LegalEntityMaiPageDTO::Wrapper LegalEntityMaiService::listAll(const LegalEntityMaiQuery::Wrapper& query)
@@ -51,29 +52,77 @@ bool LegalEntityMaiService::updateData(const LegalEntityMaiDTO::Wrapper& dto)
 	return dao.update(data) == 1;
 }
 
-uint64_t LegalEntityMaiService::saveData(const LegalEntityMaiDTO::Wrapper& dto)
+uint64_t LegalEntityMaiService::saveData(const LegalEntityMaiAddDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	OrmsignorgDO data;
 	/*data.setName(dto->ORMSIGNORGNAME.getValue(""));
 	data.setCode(dto->ORGCODE.getValue(""));*/
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Id, ORMSIGNORGID, Name, ORMSIGNORGNAME, Code, ORGCODE);
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Name, ORMSIGNORGNAME, Code, ORGCODE);
+	
+	// 雪花算法生成唯一标识ID
+	SnowFlake f2(1, 2);
+	data.setId(to_string(f2.nextId()));
+
 	// 执行数据添加
 	LegalEntityMaiDAO dao;
 	return dao.insert(data);
 }
 
-bool LegalEntityMaiService::removeData(string id)
+uint64_t LegalEntityMaiService::savaBatchDataWithFile(const std::string fileName)
 {
+	FastDfsClient client("192.168.241.128");
+
+	std::string name;
+	if (!fileName.empty()) {
+		std::string path = "./public/excel/";
+		name = client.downloadFile(fileName, &path);
+		std::cout << "download savepath is: " << name << std::endl;
+	}
+
+	// 保存到文件
+	ExcelComponent excel;
+	std::string sheetName = CharsetConvertHepler::ansiToUtf8("法人主体表");
+	// 从文件中读取
+	auto readData = excel.readIntoVector(name, sheetName);
+
 	LegalEntityMaiDAO dao;
-	return dao.deleteById(id) == 1;
+
+	SnowFlake f2(1, 2);
+
+	bool temp = true;	// 防止把表头也加入数据库
+	for (auto row : readData)
+	{
+		// 判断文件中是否有数据
+		for (int j = 0; j < row.size(); ++j)
+		{
+			if (row[j].empty()) return -1;
+			std::cout << CharsetConvertHepler::utf8ToAnsi(row[j]) << " ";
+		}
+
+		std::cout << std::endl;
+		if (temp) {
+			temp = false;
+			continue;
+		}
+		OrmsignorgDO data(row);
+		// 雪花算法生成唯一标识ID
+		data.setId(to_string(f2.nextId()));
+
+		// 插入数据
+		dao.insert(data);
+	}
 }
 
-//bool LegalEntityMaiService::importFile()
-//{
-//	return true;
-//}
-//
+bool LegalEntityMaiService::deleteById(const LegalEntityMaiDelDTO::Wrapper& dto)
+{
+	LegalEntityMaiDAO dao;
+	// 迭代器循环删除数据
+	for (auto it = dto->cnt->begin(); it != dto->cnt->end(); it++) {
+		dao.deleteById(*it);
+	}
+	return true;
+}
 
 std::string LegalEntityMaiService::exportFile(const LegalEntityMaiQuery::Wrapper& query)
 {
@@ -94,8 +143,9 @@ std::string LegalEntityMaiService::exportFile(const LegalEntityMaiQuery::Wrapper
 	std::vector<std::vector<std::string>> data;
 	// 构建Excel表头
 	std::vector<std::string> row;
-	row.push_back("法人主体组织");
-	row.push_back("组织编号");
+	row.push_back(CharsetConvertHepler::ansiToUtf8("法人主体组织"));
+	row.push_back(CharsetConvertHepler::ansiToUtf8("组织编号"));
+	data.push_back(row);
 	// 根据查询结果构建Excel数据
 	for (auto info : res)
 	{
@@ -138,7 +188,7 @@ std::string LegalEntityMaiService::exportFile(const LegalEntityMaiQuery::Wrapper
 	remove(fileName.c_str());
 	// 构建下载路径
 	std::string url;
-	url = "http://192.168.241.128:8888/" + fileName;
+	url = "http://192.168.241.128:8888/" + fieldName;
 	return url;
 }
 

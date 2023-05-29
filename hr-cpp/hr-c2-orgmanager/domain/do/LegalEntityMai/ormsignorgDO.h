@@ -55,6 +55,12 @@ public:
 		name = "";
 		orgcode = "";
 	}
+	OrmsignorgDO(std::vector<std::string> vec)
+	{
+		int i = 0;
+		setName(vec[i++]);
+		setCode(vec[i++]);
+	}
 	/*OrmsignorgDO(string id, string updateman, string createman, string createdate,
 		string name, string updatedate, string orgcode, string shortForm) {
 		this->id = id;

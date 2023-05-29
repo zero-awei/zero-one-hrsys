@@ -29,6 +29,9 @@
 #include "oatpp/web/mime/multipart/Reader.hpp"
 #include "oatpp/web/mime/multipart/PartList.hpp"
 #include "ExcelComponent.h"
+#include "oatpp-swagger/Types.hpp"
+#include "domain/dto/LegalEntityMai/LegalEntityMaiDelDTO.h"
+#include "domain/dto/LegalEntityMai/LegalEntityMaiAddDTO.h"
 
 using namespace oatpp;
 
@@ -96,10 +99,9 @@ public: // 定义接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	ENDPOINT(API_M_POST, "/org/add-LEM", addLEM, BODY_DTO(LegalEntityMaiDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/org/add-LEM", addLEM, BODY_DTO(List<LegalEntityMaiAddDTO::Wrapper>, dtoList)) {
 		// 响应结果
-		API_HANDLER_RESP_VO(execAddLEM(dto));
-
+		API_HANDLER_RESP_VO(execAddLEM(dtoList));
 	}
 
 	// 定义删除法人主体接口描述
@@ -109,7 +111,7 @@ public: // 定义接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	ENDPOINT(API_M_DEL, "/org/remove-LEM", removeLEM, BODY_DTO(LegalEntityMaiDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/org/remove-LEM", removeLEM, BODY_DTO(LegalEntityMaiDelDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveLEM(dto));
 	}
@@ -117,14 +119,20 @@ public: // 定义接口
 	// 文件操作
 	// 文件导入
 	ENDPOINT_INFO(importLEM) {
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("LegalEntityMai.import.summary");
+		info->addConsumes<oatpp::swagger::Binary>("application/octet-stream");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		API_DEF_ADD_RSP_JSON(StringJsonVO::Wrapper);
+		info->queryParams["suffix"].description = ZH_WORDS_GETTER("LegalEntityMai.import.suffix");
+		info->queryParams["suffix"].addExample("xlsx", String(".xlsx"));
 	}
-	ENDPOINT(API_M_POST, "/org/import-LEM", importLEM, BODY_DTO(LegalEntityMaiDTO::Wrapper, dto)) {
-		// 响应结果
-		API_HANDLER_RESP_VO(execImportLEM(dto));
+	ENDPOINT(API_M_POST, "/org/import-LEM", importLEM, API_HANDLER_AUTH_PARAME, 
+		BODY_STRING(String, body), QUERY(String, suffix)) {
+		// 执行文件保存逻辑
+		API_HANDLER_RESP_VO(execImportLEM(body, suffix, authObject->getPayload()));
 	}
 
 	// 文件导出
@@ -147,9 +155,9 @@ public: // 定义接口
 	}
 	ENDPOINT(API_M_GET, "/org/export-LEM", exportLEM, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
-		API_HANDLER_QUERY_PARAM(legalEntityMaiQuery, LegalEntityMaiQuery, queryParams);
+		API_HANDLER_QUERY_PARAM(query, LegalEntityMaiQuery, queryParams);
 		// 响应结果
-		API_HANDLER_RESP_VO(execExportLEM(legalEntityMaiQuery));
+		API_HANDLER_RESP_VO(execExportLEM(query));
 	}
 	
 private: // 定义接口执行函数
@@ -157,12 +165,12 @@ private: // 定义接口执行函数
 	LegalEntityMaiPageJsonVO::Wrapper execQueryLEM(const LegalEntityMaiQuery::Wrapper& legalEntityMaiQuery);
 	// 更新数据
 	StringJsonVO::Wrapper execUpdateLEM(const LegalEntityMaiDTO::Wrapper& dto);
-	// 新增数据
-	Uint64JsonVO::Wrapper execAddLEM(const LegalEntityMaiDTO::Wrapper& dto);
+	// 批量新增数据
+	Uint64JsonVO::Wrapper execAddLEM(const List<LegalEntityMaiAddDTO::Wrapper>& dtoList);
 	// 删除数据
-	StringJsonVO::Wrapper execRemoveLEM(const LegalEntityMaiDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execRemoveLEM(const LegalEntityMaiDelDTO::Wrapper& dto);
 	// 导入数据
-	StringJsonVO::Wrapper execImportLEM(const LegalEntityMaiDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execImportLEM(const String& body, const String& suffix, const PayloadDTO& payload);
 	// 导出数据
 	StringJsonVO::Wrapper execExportLEM(const LegalEntityMaiQuery::Wrapper& legalEntityMaiQuery);
 };

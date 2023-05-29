@@ -211,7 +211,10 @@
     <ClInclude Include="dao\LegalEntityMai\LegalEntityMaiMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\LegalEntityMai\OrmsignorgDO.h" />
+    <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiAddDTO.h" />
+    <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDelDTO.h" />
     <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDTO.h" />
+    <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiMqDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\LegalEntityMai\LegalEntityMaiQuery.h" />
     <ClInclude Include="domain\vo\LegalEntityMai\LegalEntityMaiVO.h" />

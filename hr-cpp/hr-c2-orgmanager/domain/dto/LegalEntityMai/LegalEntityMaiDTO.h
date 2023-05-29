@@ -100,6 +100,7 @@ class LegalEntityMaiPageDTO : public PageDTO<LegalEntityMaiDTO::Wrapper>
 {
 	DTO_INIT(LegalEntityMaiPageDTO, PageDTO<LegalEntityMaiDTO::Wrapper>);
 };
+
 #include OATPP_CODEGEN_END(DTO)
 
 #endif // !_LEGALENTITYMAI_H_
