@@ -68,13 +68,7 @@ public class SrforgsectorServiceImpl extends ServiceImpl<SrforgsectorMapper, Srf
 
     @Override
     public PageDTO<DepartmentDTO> listAllDepartment(DepartmentQuery query) {
-/*        List<DepartmentDTO> departmentDTOS = baseMapper.selectAllDepartment();
-        Page<DepartmentDTO> page = new Page<>(query.getPageIndex(),query.getPageSize());
-        List<DepartmentDTO> departments = null;
-        for (DepartmentDTO department: departmentDTOS){
-            LambdaQueryWrapper<DepartmentDTO> queryWrapper = new LambdaQueryWrapper<>(department);
 
-        }*/
         Page<Srforgsector> page = new Page<>(query.getPageIndex(),query.getPageSize());
         LambdaQueryWrapper<Srforgsector> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         lambdaQueryWrapper.orderByAsc(Srforgsector::getOrdervalue);
