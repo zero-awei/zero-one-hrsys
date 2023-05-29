@@ -20,10 +20,32 @@
 #ifndef _EMPLOYEEINFODAO_H_
 #define _EMPLOYEEINFODAO_H_
 #include "BaseDAO.h"
+#include "../../domain/do/employeeInfo/EmployeeInfoDO.h"
+#include "../../domain/dto/employeeInfo/EmployeeInfoAddDTO.h"
+#include "../../domain/dto/employeeInfo/EmployeeInfoDTO.h"
+#include "../../domain/query/employeeInfo/EmployeeInfoQuery.h"
 
+/* *
+* 员工信息DAO
+* 执行人：Detachment
+*/
 class EmployeeInfoDAO : public BaseDAO
 {
-	
+	/* *
+	* 修改指定员工员工信息
+	* 执行人：Detachment
+	*/
+	int updateEmployee(const EmployeeInfoDTO::Wrapper& edo);
+	/* *
+	* 新增员工信息
+	* 执行人：Detachment
+	*/
+	int insertEmployee(const EmployeeInfoAddDTO::Wrapper& eadto, string pimid);
+	/* *
+	* 查询指定员工员工信息
+	* 执行人：Detachment
+	*/
+	list<EmployeeInfoDO> selectEmployee(const EmployeeInfoQuery::Wrapper& query);
 };
 
 #endif // !_EMPLOYEEINFODAO_H_

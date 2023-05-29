@@ -22,12 +22,15 @@
 
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
+#include "ApiHelper.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 //查询具体员工信息
 class EmployeeInfoQuery : public PageQuery
 {
 	DTO_INIT(EmployeeInfoQuery, PageQuery);
+	//人员信息标识
+	API_DTO_FIELD_DEFAULT(String, pimpersonid, ZH_WORDS_GETTER("employee.field.pimpersonid"));
 	//员工编号
 	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {

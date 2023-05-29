@@ -31,6 +31,8 @@
 class EmployeeInfoDTO : public oatpp::DTO
 {
 	DTO_INIT(EmployeeInfoDTO, DTO);
+	//人员信息标识
+	API_DTO_FIELD_DEFAULT(String, pimpersonid, ZH_WORDS_GETTER("employee.field.pimpersonid"));
 	//员工编号
 	DTO_FIELD(String, empid);
 	DTO_FIELD_INFO(empid) {
@@ -72,6 +74,22 @@ class EmployeeInfoDTO : public oatpp::DTO
 	}
 	//血型
 	API_DTO_FIELD_DEFAULT(String, blood, ZH_WORDS_GETTER("employee.field.blood"));
+	//手机号码
+	DTO_FIELD(String, phone);
+	DTO_FIELD_INFO(phone) {
+		info->description = ZH_WORDS_GETTER("employee.field.phone");
+		info->required = true;
+	}
+	// 电子邮箱
+	DTO_FIELD(String, email);
+	DTO_FIELD_INFO(email) {
+		info->description = ZH_WORDS_GETTER("employee.field.email");
+	}
+	// 婚姻状况
+	DTO_FIELD(String, marriage);
+	DTO_FIELD_INFO(marriage) {
+		info->description = ZH_WORDS_GETTER("employee.field.marriage");
+	}
 	// 民族
 	DTO_FIELD(String, nation);
 	DTO_FIELD_INFO(nation) {
@@ -98,21 +116,15 @@ class EmployeeInfoDTO : public oatpp::DTO
 	API_DTO_FIELD_DEFAULT(String, hobby, ZH_WORDS_GETTER("employee.field.hobby"));
 	// 健康状况
 	API_DTO_FIELD_DEFAULT(String, health, ZH_WORDS_GETTER("employee.field.health"));
-	// 婚姻状况
-	DTO_FIELD(String, marriage);
-	DTO_FIELD_INFO(marriage) {
-		info->description = ZH_WORDS_GETTER("employee.field.marriage");
-	}
+	
 	// 政治面貌
 	DTO_FIELD(String, politic);
 	DTO_FIELD_INFO(politic) {
 		info->description = ZH_WORDS_GETTER("employee.field.politic");
 	}
-	// 职级
-	DTO_FIELD(String, rank);
-	DTO_FIELD_INFO(rank) {
-		info->description = ZH_WORDS_GETTER("employee.field.rank");
-	}
+	API_DTO_FIELD_DEFAULT(String, state, ZH_WORDS_GETTER("employee.field.state"));
+	API_DTO_FIELD_DEFAULT(String, workstate, ZH_WORDS_GETTER("employee.field.workstate"));
+	API_DTO_FIELD_DEFAULT(String, inway, ZH_WORDS_GETTER("employee.field.inway"));
 	// 参加工作时间
 	DTO_FIELD(String, workTime);
 	DTO_FIELD_INFO(workTime) {
@@ -123,41 +135,11 @@ class EmployeeInfoDTO : public oatpp::DTO
 	DTO_FIELD_INFO(inTime) {
 		info->description = ZH_WORDS_GETTER("employee.field.inTime");
 	}
-	// 电子邮箱
-	DTO_FIELD(String, email);
-	DTO_FIELD_INFO(email) {
-		info->description = ZH_WORDS_GETTER("employee.field.email");
-	}
-	// 技术职称
-	DTO_FIELD(String, techTitle);
-	DTO_FIELD_INFO(techTitle) {
-		info->description = ZH_WORDS_GETTER("employee.field.techTitle");
-	}
-	// 最高学历
-	DTO_FIELD(String, acaCredit);
-	DTO_FIELD_INFO(acaCredit) {
-		info->description = ZH_WORDS_GETTER("employee.field.acaCredit");
-	}
-	// 第一学历
-	DTO_FIELD(String, firAcaCredit);
-	DTO_FIELD_INFO(firAcaCredit) {
-		info->description = ZH_WORDS_GETTER("employee.field.firAcaCredit");
-	}
-	// 执业证书
-	DTO_FIELD(String, pracCertificate);
-	DTO_FIELD_INFO(pracCertificate) {
-		info->description = ZH_WORDS_GETTER("employee.field.pracCertificate");
-	}
+	API_DTO_FIELD_DEFAULT(Int32, blacklist, ZH_WORDS_GETTER("employee.field.blacklist"));
 	// 照片路径
 	DTO_FIELD(String, photo);
 	DTO_FIELD_INFO(photo) {
 		info->description = ZH_WORDS_GETTER("employee.field.photo");
-	}
-	//手机号码
-	DTO_FIELD(String, phone);
-	DTO_FIELD_INFO(phone) {
-		info->description = ZH_WORDS_GETTER("employee.field.phone");
-		info->required = true;
 	}
 };
 

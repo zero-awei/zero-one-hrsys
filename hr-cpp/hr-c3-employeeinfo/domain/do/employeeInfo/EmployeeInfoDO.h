@@ -26,7 +26,6 @@
 */
 class EmployeeInfoDO
 {
-protected:
 	CC_SYNTHESIZE(string, id, Id)
 	CC_SYNTHESIZE(string, name, Name)
 	CC_SYNTHESIZE(string, idType, IdType)

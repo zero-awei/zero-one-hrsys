@@ -19,6 +19,7 @@ user:
   menusub: 子菜单
 employee:
  field:
+  pimpersonid: 员工信息标识
   id: 员工编号
   name: 员工姓名
   idType: 证件类型
@@ -50,6 +51,9 @@ employee:
   photo: 照片路径
   phone: 手机号码
   state: 员工状态
+  workstate: 工作状态
+  inway: 入职渠道
+  blacklist: 黑名单
   jobList: 岗位
   assign: 分配
   type: 类型

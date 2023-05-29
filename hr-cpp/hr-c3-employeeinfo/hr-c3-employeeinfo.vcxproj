@@ -164,11 +164,16 @@
     <ClInclude Include="controller\organizationDepartmentTreeStructure\organizationDepartmentTreeStructure.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\EmployeeInformation\EmployeeInformationDAO.h" />
+    <ClInclude Include="dao\EmployeeInformation\EmployeeInformationMapper.h" />
     <ClInclude Include="dao\employeeInfo\EmployeeInfoDAO.h" />
     <ClInclude Include="dao\employeeInfo\EmployeeInfoMapper.h" />
+    <ClInclude Include="dao\jobList\JobListDAO.h" />
+    <ClInclude Include="dao\jobList\JobListMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\EmployeeInformationPage\EmployeeInformationPageDO.h" />
     <ClInclude Include="domain\do\employeeInfo\EmployeeInfoDO.h" />
+    <ClInclude Include="domain\do\jobList\JobListDO.h" />
     <ClInclude Include="domain\do\Org\RootOrgDO.h" />
     <ClInclude Include="domain\do\Org\SectorDO.h" />
     <ClInclude Include="domain\do\Org\ValidOrgDO.h" />
@@ -204,7 +209,9 @@
     <ClCompile Include="controller\organizationDepartmentTreeStructure\organizationDepartmentTreeStructure.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\EmployeeInformation\EmployeeInformationDAO.cpp" />
     <ClCompile Include="dao\employeeInfo\EmployeeInfoDAO.cpp" />
+    <ClCompile Include="dao\jobList\JobListDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\employeeInfo\EmployeeInfoService.cpp" />
     <ClCompile Include="stdafx.cpp">

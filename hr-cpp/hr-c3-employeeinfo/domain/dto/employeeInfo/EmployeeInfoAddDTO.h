@@ -34,11 +34,13 @@ class EmployeeInfoAddDTO : public oatpp::DTO
 	DTO_FIELD(String, empid);
 	DTO_FIELD_INFO(empid) {
 		info->description = ZH_WORDS_GETTER("employee.field.id");
+		info->required = true;
 	}
 	//员工姓名
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
 		info->description = ZH_WORDS_GETTER("employee.field.name");
+		info->required = true;
 	}
 	//证件类型
 	DTO_FIELD(String, idType);
@@ -49,16 +51,19 @@ class EmployeeInfoAddDTO : public oatpp::DTO
 	DTO_FIELD(String, idNum);
 	DTO_FIELD_INFO(idNum) {
 		info->description = ZH_WORDS_GETTER("employee.field.idnum");
+		info->required = true;
 	}
 	//手机号码
 	DTO_FIELD(String, phoneNum);
 	DTO_FIELD_INFO(phoneNum) {
 		info->description = ZH_WORDS_GETTER("employee.field.phone");
+		info->required = true;
 	}
 	//员工状态
 	DTO_FIELD(String, state);
 	DTO_FIELD_INFO(state) {
 		info->description = ZH_WORDS_GETTER("employee.field.state");
+		info->required = true;
 	}
 };
 

@@ -17,3 +17,59 @@
  limitations under the License.
 */
 #include"stdafx.h"
+#include"EmployeeInfoDAO.h"
+#include"EmployeeInfoMapper.h"
+
+
+int EmployeeInfoDAO::updateEmployee(const EmployeeInfoDTO::Wrapper& edto)
+{
+	stringstream sql;
+	sql << "UPDATE `t_pimperson` SET `YGBH`=?,`PIMPERSONNAME`=?,`ZJLX`=?,";
+	sql << "`ZJHM`=?,`CSRQ`=?,`NL`=?,`XB`=?,`XX`=?,`LXDH`=?,`DZYX`=?,`HYZK`=?,";
+	sql << "`MZ`=?,`HKLX`=?,`JG`=?,`HJSZD`=?,`HJDZ`=?,`CSD`=?,`POSTALADDRESS`=?,";
+	sql << "`SFDSZN`=?,`AHTC`=?,`JKZK`=?,`ZZMM`=?,`YGZT`=?,`WORKSTATE=?`,";
+	sql << "`RZQD`=?,`CJGZSJ`=?,`DBDWSJ`=?,`HMD`=?,`ZP`=? WHERE `PIMPERSONID`=?";
+	string sqlStr = sql.str();
+	return sqlSession->executeUpdate(sqlStr, "%s%s%s%s%s%i%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%i%s%s"
+		, edto->empid, edto->name,edto->idtype,edto->idnum,edto->bthdate,edto->age, edto->sex, edto->blood,
+		edto->phone, edto->email,edto->marriage, edto->nation, edto->residentType, edto->native, edto->residentPlace,
+		edto->residentLocate, edto->birthPlace, edto->comPlace, edto->onlyCredit, edto->hobby, edto->health,
+		edto->politic, edto->state, edto->workstate, edto->inway, edto->workTime, edto->inTime, edto->blacklist,
+		edto->photo,edto->pimpersonid);
+}
+
+int EmployeeInfoDAO::insertEmployee(const EmployeeInfoAddDTO::Wrapper& eadto,string pimid)
+{
+	stringstream sql;
+	sql << "INSERT INTO `t_pimperson` (`PIMPERSONID`,`YGBH`,`PIMPERSONNAME`,`ZJLX`,";
+	sql << "`ZJHM`,`LXDH`,`YGZT`) VALUE(?,?,?,?,?,?,?)";
+	string sqlStr = sql.str();
+	return sqlSession->executeUpdate(sqlStr, "%s%s%s%s%s%s%s", pimid, eadto->empid,
+		eadto->name, eadto->idType, eadto->idNum, eadto->phoneNum, eadto->state);
+}
+
+std::list<EmployeeInfoDO> EmployeeInfoDAO::selectEmployee(const EmployeeInfoQuery::Wrapper& query)
+{
+	stringstream sql;
+	SqlParams par;
+	sql << "SELECT `YGBH`,`PIMPERSONNAME`,`ZJLX`,`ZJHM`,`CSRQ`,`NL`,`XB`,";
+	sql << "`MZ`,`JG`,`HYZK`,`ZZMM`,`RANK`,`CJGZSJ`,`DBDWSJ`,`DZYX`,`HIGHTITLE`,";
+	sql<< "`HIGHEDUCATION`,`FIRSTEDUCATION`,`CRERRIFICATE`,`ZP`,`LXDH` ";
+	sql<<"FROM t_pimperson WHERE 1 = 1";
+	if (query->pimpersonid)
+	{
+		sql << " AND PIMPERSONID=?";
+		SQLPARAMS_PUSH(par, "s", std::string, query->pimpersonid.getValue(""));
+	}
+	if (query->id) {
+		sql << " AND YGBH=?";
+		SQLPARAMS_PUSH(par, "s", std::string, query->id.getValue(""));
+	}
+	if (query->name) {
+		sql << " AND PIMPERSONNAME=?";
+		SQLPARAMS_PUSH(par, "s", std::string, query->name.getValue(""));
+	}
+	EmployeeInfoMapper mapper;
+	string sqlStr = sql.str();
+	return sqlSession->executeQuery<EmployeeInfoDO, EmployeeInfoMapper>(sqlStr, mapper, par);
+}
