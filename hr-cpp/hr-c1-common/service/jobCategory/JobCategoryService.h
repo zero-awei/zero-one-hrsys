@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: xubuxi
- @Date: 2023/05/25 0:52:24
+ @Author: yuanchen
+ @Date: 2023/05/27 20:26:11
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,23 +17,20 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _ARCHIVESLEVELSDO_H_
-#define _ARCHIVESLEVELSDO_H_
-#include "../DoInclude.h"
-class ArchivesLevelsDO
-{
-	
-	//获奖情况标识
-	CC_SYNTHESIZE(string, pcmawardswonsid, Pcmawardswonsid);
-	//获奖等级
-	CC_SYNTHESIZE(string, awardlevel, Awardlevel);
+#ifndef _JOBCATEGORYSERVICE_H_
+#define _JOBCATEGORYSERVICE_H_
 
+#include "domain/dto/pullList/PullListDTO.h"
+
+/**
+ * 岗位类别下拉列表服务实现
+ * 负责人：yuanchen
+ */
+class JobCategoryService
+{
 public:
-	ArchivesLevelsDO() {
-		
-		pcmawardswonsid = "";
-		awardlevel = "";
-	}
+	// 查询岗位类别别列表
+	PullListDTO::Wrapper listAll();
 };
 
-#endif // !_ARCHIVESLEVELSDO_H_
+#endif // !_ARMYLEVELTYPESERVICE_H_#pragma once

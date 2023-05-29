@@ -181,8 +181,11 @@
     <ClInclude Include="controller\typeContract\TypeContractListController.h" />
     <ClInclude Include="dao\armyLevelType\ArmyLevelMapper.h" />
     <ClInclude Include="dao\armyLevelType\ArmyLevelTypeDAO.h" />
+    <ClInclude Include="dao\awardLevel\AwardLevelDAO.h" />
+    <ClInclude Include="dao\awardLevel\AwardLevelMapper.h" />
     <ClInclude Include="dao\dismissReason\DismissReasonDAO.h" />
     <ClInclude Include="dao\dismissReason\DismissReasonMapper.h" />
+    <ClInclude Include="dao\jobCategory\JobCategoryDAO.h" />
     <ClInclude Include="dao\leaveReason\LeaveReasonDAO.h" />
     <ClInclude Include="dao\leaveReason\LeaveReasonMapper.h" />
     <ClInclude Include="dao\typeContract\TypeContractDAO.h" />
@@ -198,6 +201,7 @@
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\fileReservation\FileReservationDO.h" />
     <ClInclude Include="domain\do\fileStatus\FileStatusDO.h" />
+    <ClInclude Include="domain\do\jobCategory\JobCategoryDO.h" />
     <ClInclude Include="domain\do\jobLevelTypeList\JobLevelTypeDO.h" />
     <ClInclude Include="domain\do\pimArchives\PimArchivesDO.h" />
     <ClInclude Include="domain\do\pimType\PimTypeDO.h" />
@@ -222,7 +226,9 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\armyLevelType\ArmyLevelTypeService.h" />
+    <ClInclude Include="service\awardLevel\AwardLevelService.h" />
     <ClInclude Include="service\dismissReason\DismissReasonService.h" />
+    <ClInclude Include="service\jobCategory\JobCategoryService.h" />
     <ClInclude Include="service\leaveReason\LeaveReasonService.h" />
     <ClInclude Include="service\typeContractList\TypeContractService.h" />
     <ClInclude Include="stdafx.h" />
@@ -250,12 +256,16 @@
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\typeContract\TypeContractListController.cpp" />
     <ClCompile Include="dao\armyLevelType\ArmyLevelTypeDAO.cpp" />
+    <ClCompile Include="dao\awardLevel\AwardLevelDAO.cpp" />
     <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
+    <ClCompile Include="dao\jobCategory\JobCategoryDAO.cpp" />
     <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
     <ClCompile Include="dao\typeContract\TypeContractDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\armyLevelType\ArmyLevelTypeService.cpp" />
+    <ClCompile Include="service\awardLevel\AwardLevelService.cpp" />
     <ClCompile Include="service\dismissReason\DismissReasonService.cpp" />
+    <ClCompile Include="service\jobCategory\jobCategoryService.cpp" />
     <ClCompile Include="service\leaveReason\LeaveReasonService.cpp" />
     <ClCompile Include="service\typeContractList\TypeContractService.cpp" />
     <ClCompile Include="stdafx.cpp">

@@ -1,9 +1,8 @@
-#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: xubuxi
- @Date: 2023/05/25 0:52:24
+ @Author: Andrew211vibe
+ @Date: 2023/05/23 23:42:52
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,23 +16,25 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _ARCHIVESLEVELSDO_H_
-#define _ARCHIVESLEVELSDO_H_
-#include "../DoInclude.h"
-class ArchivesLevelsDO
+#include "stdafx.h"
+#include "JobCategoryDAO.h"
+
+std::list<JobCategoryDO> JobCategoryDAO::selectAll()
 {
-	
-	//获奖情况标识
-	CC_SYNTHESIZE(string, pcmawardswonsid, Pcmawardswonsid);
-	//获奖等级
-	CC_SYNTHESIZE(string, awardlevel, Awardlevel);
+	/*string str = "SELECT `LEVELTYPE` FROM `t_pimarmycadres` GROUP BY `LEVELTYPE`";
+	ArmyLevelMapper mapper;
+	return sqlSession->executeQuery<ArmyLevelTypeDO, ArmyLevelMapper>(str, mapper);*/
 
-public:
-	ArchivesLevelsDO() {
-		
-		pcmawardswonsid = "";
-		awardlevel = "";
+	list<JobCategoryDO> res;
+	for (auto item : jobCategory)
+	{
+		JobCategoryDO tmp(item.first, item.second);
+		res.push_back(tmp);
 	}
-};
+	return res;
+}
 
-#endif // !_ARCHIVESLEVELSDO_H_
+unordered_map<string, string> JobCategoryDAO::getMapList()
+{
+	return jobCategory;
+}

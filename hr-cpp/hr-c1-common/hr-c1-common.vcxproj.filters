@@ -32,6 +32,10 @@
     <ClCompile Include="controller\contractStatus\ContractStatusController.cpp" />
     <ClCompile Include="service\typeContractList\TypeContractService.cpp" />
     <ClCompile Include="dao\typeContract\TypeContractDAO.cpp" />
+    <ClCompile Include="service\jobCategory\jobCategoryService.cpp" />
+    <ClCompile Include="dao\jobCategory\JobCategoryDAO.cpp" />
+    <ClCompile Include="service\awardLevel\AwardLevelService.cpp" />
+    <ClCompile Include="dao\awardLevel\AwardLevelDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -103,6 +107,12 @@
     <ClInclude Include="service\typeContractList\TypeContractService.h" />
     <ClInclude Include="dao\typeContract\TypeContractDAO.h" />
     <ClInclude Include="dao\typeContract\TypeContractMapper.h" />
+    <ClInclude Include="service\awardLevel\AwardLevelService.h" />
+    <ClInclude Include="service\jobCategory\JobCategoryService.h" />
+    <ClInclude Include="dao\jobCategory\JobCategoryDAO.h" />
+    <ClInclude Include="domain\do\jobCategory\JobCategoryDO.h" />
+    <ClInclude Include="dao\awardLevel\AwardLevelDAO.h" />
+    <ClInclude Include="dao\awardLevel\AwardLevelMapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
