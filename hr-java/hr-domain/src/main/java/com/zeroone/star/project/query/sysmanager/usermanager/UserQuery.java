@@ -5,8 +5,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.util.Date;
 
 /**
@@ -16,7 +14,7 @@ import java.util.Date;
  * <p>版权：&copy;01星球</p>
  * <p>地址：01星球总部</p>
  *
- * @author
+ * @author axiao
  * @version 1.0.0
  */
 
@@ -25,23 +23,24 @@ import java.util.Date;
 @ApiModel("用户分页查询")
 public class UserQuery extends PageQuery {
 
+    @ApiModelProperty(value = "id", example = "abc1")
+    private String id;
+
     @ApiModelProperty(value = "用户名", example = "张三")
     private String username;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @ApiModelProperty(value = "注册时间", example = "2023-11-12")
-    private Date joinDate;
+
+    @ApiModelProperty(value = "注册时间", example = "2023-11-12 12:12:12")
+    private Date registTime;
 
     @ApiModelProperty(value = "电子邮件", example = "2132123113@qq.com")
-    private String email;
+    private String mail;
 
     @ApiModelProperty(value = "电话", example = "1234656")
     private String phone;
 
-    @ApiModelProperty(value = "是否激活", example = "1")
-    private Integer state;
 
-    @ApiModelProperty(value = "角色", example = "管理员")
-    private String userAndRole;
+    @ApiModelProperty(value = "已激活", example = "1")
+    private Integer isEnable;
 
 }
