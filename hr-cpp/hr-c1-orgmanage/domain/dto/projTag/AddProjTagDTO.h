@@ -1,9 +1,9 @@
 #pragma once
-/*
+ /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: Andrew211vibe
- @Date: 2023/05/17 22:56:57
+ @Author: yuanxiang
+ @Date: 2023/05/29 21:39:17
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,20 +17,29 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _PULLLISTVO_H_
-#define _PULLLISTVO_H_
+#ifndef _ADDPROJTAGDTO_H_
+#define _ADDPROJTAGDTO_H_
 
 #include "../../GlobalInclude.h"
-#include "../../dto/pullList/PullListDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class PullListVO : public JsonVO<PullListDTO::Wrapper>
+class AddProjTagDTO : public oatpp::DTO
 {
-	DTO_INIT(PullListVO, JsonVO<PullListDTO::Wrapper>);
+	DTO_INIT(AddProjTagDTO, DTO);
+	
+	// 项目标签
+	DTO_FIELD(String, ormxmbqname);
+	DTO_FIELD_INFO(ormxmbqname) {
+		info->description = ZH_WORDS_GETTER("projTag.filed.ormxmbqname");
+	}
+	// 组织id
+	DTO_FIELD(String, ormorgid);
+	DTO_FIELD_INFO(ormorgid) {
+		info->description = ZH_WORDS_GETTER("projTag.filed.ormorgid");
+	}
 };
-
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif // !_PULLLISTVO_H_
+#endif // !_ADDPROJTAGDTO_H_

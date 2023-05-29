@@ -28,6 +28,7 @@
 #include "domain/dto/projTag/ImportTagDTO.h"
 #include "domain/vo/projTag/ImportTagVO.h"
 #include "domain/query/projTag/ExportProjTagQuery.h"
+#include "domain/do/projTag/ProjTagDO.h"
 /**
  * 项目标签Service
  */
@@ -36,9 +37,12 @@ class ProjTagService
 public:
 	/**
 	 * 新增项目标签
+	 * 返回值：
+	 *	成功：项目标签id
+	 *  失败：-1
 	 * 负责人：远翔
 	 */
-	uint64_t saveData(const ProjTagDTO::Wrapper& dto);
+	string saveData(ProjTagDO& data);
 	/**
 	 * 分页查询组织列表
 	 * 负责人：Andrew
@@ -52,6 +56,10 @@ public:
 
 	/**
 	 * 导入项目标签
+	 * 返回值：
+	 *	成功：返回项目id列表
+	 *  失败:  -1，数据量过大，超过5000
+	 *        -2，数据不符合数据库限制
 	 * 负责人：远翔
 	 */
 	ImportTagVO::Wrapper addMultiTag(const ImportTagDTO::Wrapper& dto, const PayloadDTO& payload);
