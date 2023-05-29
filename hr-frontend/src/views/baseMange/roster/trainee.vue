@@ -707,7 +707,7 @@
   ])
   </script>
   
-  <style scoped lang="less">
+  <style scoped lang="scss">
   .search {
     flex: 0 0 auto; /* 不伸缩、不收缩，固定高度 */
     float: right;
