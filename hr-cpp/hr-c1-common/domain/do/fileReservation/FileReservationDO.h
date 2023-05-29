@@ -30,7 +30,7 @@ class FileReservationDO
 	// 代码项名称
 	CC_SYNTHESIZE(string, fileReservation, FileReservation);
 	// 代码项值
-	CC_SYNTHESIZE(string, code, Code);
+	CC_SYNTHESIZE(int, code, Code);
 };
 
 #endif // !_FILERESERVATIONDO_H_

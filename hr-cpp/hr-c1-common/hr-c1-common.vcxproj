@@ -192,6 +192,8 @@
     <ClInclude Include="dao\dismissReason\DismissReasonDAO.h" />
     <ClInclude Include="dao\dismissReason\DismissReasonMapper.h" />
     <ClInclude Include="dao\EvaluationType\EvaluationTypeDAO.h" />
+    <ClInclude Include="dao\fileReservation\FileReservationDAO.h" />
+    <ClInclude Include="dao\fileStatus\FileStatusDAO.h" />
     <ClInclude Include="dao\jobLevelTypeList\JobLevelMapper.h" />
     <ClInclude Include="dao\jobLevelTypeList\JobLevelTypeListDAO.h" />
     <ClInclude Include="dao\leaveReason\LeaveReasonDAO.h" />
@@ -241,6 +243,8 @@
     <ClInclude Include="service\costTypeList\CostTypeListService.h" />
     <ClInclude Include="service\dismissReason\DismissReasonService.h" />
     <ClInclude Include="service\evaluationTypes\EvaluationTypeService.h" />
+    <ClInclude Include="service\fileReservation\FileReservationService.h" />
+    <ClInclude Include="service\fileStatus\FileStatusService.h" />
     <ClInclude Include="service\jobLevelTypeList\JobLevelTypeListService.h" />
     <ClInclude Include="service\leaveReason\LeaveReasonService.h" />
     <ClInclude Include="service\typeContractList\TypeContractService.h" />
@@ -275,6 +279,8 @@
     <ClCompile Include="dao\costTypeList\CostTypeListDAO.cpp" />
     <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
     <ClCompile Include="dao\EvaluationType\EvaluationTypeDAO.cpp" />
+    <ClCompile Include="dao\fileReservation\FileReservationDAO.cpp" />
+    <ClCompile Include="dao\fileStatus\FileStatusDAO.cpp" />
     <ClCompile Include="dao\jobLevelTypeList\JobLevelTypeListDAO.cpp" />
     <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
     <ClCompile Include="dao\typeContract\TypeContractDAO.cpp" />
@@ -286,6 +292,8 @@
     <ClCompile Include="service\costTypeList\CostTypeListService.cpp" />
     <ClCompile Include="service\dismissReason\DismissReasonService.cpp" />
     <ClCompile Include="service\evaluationTypes\EvaluationTypeService.cpp" />
+    <ClCompile Include="service\fileReservation\FileReservationService.cpp" />
+    <ClCompile Include="service\fileStatus\FileStatusService.cpp" />
     <ClCompile Include="service\jobLevelTypeList\JobLevelTypeListService.cpp" />
     <ClCompile Include="service\leaveReason\LeaveReasonService.cpp" />
     <ClCompile Include="service\typeContractList\TypeContractService.cpp" />

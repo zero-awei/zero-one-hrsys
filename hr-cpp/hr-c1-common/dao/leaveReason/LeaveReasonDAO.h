@@ -29,7 +29,7 @@ class LeaveReasonDAO : public BaseDAO
 {
 public:
 	// ≤È—Ø¡–±Ì
-	std::list<LeaveReasonDO> queryLeaveReasonList();
+	std::list<LeaveReasonDO> selectLeaveReasonList();
 };
 
 #endif // !_LEAVEREASONDAO_H_

@@ -44,6 +44,10 @@
     <ClCompile Include="dao\EvaluationType\EvaluationTypeDAO.cpp" />
     <ClCompile Include="service\auditStatus\AuditStatusService.cpp" />
     <ClCompile Include="dao\auditStatus\AuditStatusDAO.cpp" />
+    <ClCompile Include="service\fileReservation\FileReservationService.cpp" />
+    <ClCompile Include="service\fileStatus\FileStatusService.cpp" />
+    <ClCompile Include="dao\fileStatus\FileStatusDAO.cpp" />
+    <ClCompile Include="dao\fileReservation\FileReservationDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -134,6 +138,10 @@
     <ClInclude Include="dao\auditStatus\AuditStatusDAO.h" />
     <ClInclude Include="domain\do\auditStatus\AuditStatusDO.h" />
     <ClInclude Include="dao\auditStatus\AuditStatusMapper.h" />
+    <ClInclude Include="service\fileReservation\FileReservationService.h" />
+    <ClInclude Include="service\fileStatus\FileStatusService.h" />
+    <ClInclude Include="dao\fileStatus\FileStatusDAO.h" />
+    <ClInclude Include="dao\fileReservation\FileReservationDAO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
