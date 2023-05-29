@@ -101,5 +101,6 @@
     <ClInclude Include="dao\projTag\ProjTagListMapper.h" />
     <ClInclude Include="uselib\excel\ExportExcel.h" />
     <ClInclude Include="uselib\fastdfs\UseFastDfs.h" />
+    <ClInclude Include="domain\dto\projTag\AddProjTagDTO.h" />
   </ItemGroup>
 </Project>

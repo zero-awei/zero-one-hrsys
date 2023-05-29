@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "ProjTagService.h"
 #include "domain/do/projTag/ProjTagDO.h"
+#include "domain/dto/projTag/AddProjTagDTO.h"
 #include "dao/projTag/ProjTagDAO.h"
 #include "SimpleDateTimeFormat.h"
 #include "ExcelComponent.h"
@@ -32,19 +33,8 @@
 #define ZO_STAR_FILE_TO_DO(target, src, ...) \
 ZO_STAR_EXPAND(ZO_STAR_PASTE(target, src, FILE_TO_DO, __VA_ARGS__))
 
-string ProjTagService::saveData(const ProjTagDTO::Wrapper& dto)
+std::string ProjTagService::saveData(ProjTagDO& data)
 {
-	// 组装DO数据
-	ProjTagDO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, 
-		Id, ormxmbqid,
-		TagName, ormxmbqname,
-		Creator, createman,
-		CreateTime, createdate,
-		Updater, updateman,
-		UpdateTime, updatedate,
-		OrgId, ormorgid
-	);
 	// 生成雪花ID
 	SnowFlake f(1, 1);
 	auto id = std::to_string(f.nextId());
@@ -106,6 +96,16 @@ ImportTagVO::Wrapper ProjTagService::addMultiTag(const ImportTagDTO::Wrapper& dt
 	ExcelComponent excel;
 	// 将文件数据读取出来
 	auto data = excel.readIntoVector(std::string(dto->filePath), std::string(dto->sheetName));
+	
+	// 构建返回对象
+	auto vo = ImportTagVO::createShared();
+	
+	// 判断数据量是否超过指定值
+	if (data.size() > 5000) {
+		// 数据量过大，返回 -1
+		vo->newId->push_back("-1");
+		return vo;
+	}
 
 	// 构建字段坐标映射
 	unordered_map<string, int> hash;
@@ -119,37 +119,55 @@ ImportTagVO::Wrapper ProjTagService::addMultiTag(const ImportTagDTO::Wrapper& dt
 
 	// 生成雪花ID
 	SnowFlake f(1,1);
-
+	auto f_id = std::to_string(f.nextId());
 	// 文件数据到DO
 	list<ProjTagDO> all;
+	list<string> res;
+	// 调用DAO操作数据库
+	ProjTagDAO dao;
+	auto sqlsession = dao.getSqlSession();
+	// 开启事务
+	sqlsession->beginTransaction();
+	// 设置好插入数据后，多次执行单条数据插入
 	for (int i = 1; i < data.size(); i++)
 	{
 		ProjTagDO tmp;
 		ZO_STAR_FILE_TO_DO(tmp, data, 
-			Id, INDEX(i, hash["ORMXMBQID"]),
+			/*Id, INDEX(i, hash["ORMXMBQID"]),*/
 			TagName, INDEX(i, hash["ORMXMBQNAME"]),
 			OrgId, INDEX(i, hash["ORMORGID"])
 		);
-		tmp.setId(std::to_string(f.nextId()));
+		tmp.setId(f_id);
 		tmp.setUpdateTime(day);
 		tmp.setCreateTime(day);
 		tmp.setUpdater(name);
 		tmp.setCreator(name);
-		all.push_back(tmp);
+		// 执行单条插入
+		auto ret = dao.insert(tmp);
+		if (ret == 0) {
+			// 某条执行失败，事务回滚
+			sqlsession->rollbackTransaction();
+			res.clear();
+			// 文件中数据不符合数据库限制条件，返回 -2
+			vo->newId->push_back("-2");
+			return vo;
+		}
+		else {
+			// 执行成功，将id加入返回列表中
+			res.push_back(f_id);
+		}
+		// 生成新的雪花id
+		f_id = std::to_string(f.nextId());
 	}
 
-	// 调用DAO操作数据库
-	ProjTagDAO dao;
-	auto res = dao.insertMultiTag(all);
+	// 全部执行成功，提交事务
+	sqlsession->commitTransaction();
 
-	// 构建返回对象
-	auto vo = ImportTagVO::createShared();
 	if (res.size())
 	{
 		for (auto item : res)
 			vo->newId->push_back(item);
 	}
-
 	return vo;
 }
 
