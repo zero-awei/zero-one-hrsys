@@ -74,4 +74,22 @@ class JobTitleInfoDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("jobtitle.field.b_highest_professional_title");
 	}
 };
+
+class JobTitleInfoListDTO : public JobTitleInfoDTO
+{
+	DTO_INIT(JobTitleInfoListDTO, DTO);
+
+	// ¼ÇÂ¼List
+	DTO_FIELD(List<JobTitleInfoDTO::Wrapper>, rows) = {};
+	DTO_FIELD_INFO(rows) {
+		//TODO: Ìí¼Ó×Öµä
+		info->description = ZH_WORDS_GETTER("");
+	}
+
+public:
+	void addData(JobTitleInfoDTO &one)
+	{
+		this->rows->push_back(one);
+	}
+};
 #endif
