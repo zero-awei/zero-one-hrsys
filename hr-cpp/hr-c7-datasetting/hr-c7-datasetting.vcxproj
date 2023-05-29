@@ -193,16 +193,12 @@
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\Title\TitleDO.h" />
     <ClInclude Include="domain\dto\certificate\CertificateDTO.h" />
-    <ClInclude Include="domain\dto\contractcategory\ContractCategoryDTO.h" />
     <ClInclude Include="domain\dto\contracttype\ContractTypeCreateDTO.h" />
     <ClInclude Include="domain\dto\contracttype\ContractTypeDeleteDTO.h" />
-    <ClInclude Include="domain\dto\contracttype\ContractTypeDTO.h" />
     <ClInclude Include="domain\dto\contracttype\ContractTypeImportDTO.h" />
     <ClInclude Include="domain\dto\contracttype\ContractTypeUpdateDTO.h" />
     <ClInclude Include="domain\dto\Title\TitleDTO.h" />
     <ClInclude Include="domain\query\certificate\CertificateQuery.h" />
-    <ClInclude Include="domain\query\contractcategory\ContractCategoryQuery.h" />
-    <ClInclude Include="domain\query\contracttype\ContractTypeQuery.h" />
     <ClInclude Include="domain\query\Title\TitleQuery.h" />
     <ClInclude Include="domain\vo\certificate\CertificateVO.h" />
     <ClInclude Include="domain\vo\ContractCategory\ContractCategoryVO.h" />
@@ -218,7 +214,9 @@
     <ClInclude Include="domain\vo\Title\TitleVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\archive\ArchiveService.h" />
     <ClInclude Include="service\ContractCategory\ContractCategoryService.h" />
+    <ClInclude Include="service\contract\ContractService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -234,7 +232,9 @@
     <ClCompile Include="dao\archive\ArchiveMapper.h" />
     <ClCompile Include="dao\Title\TitleDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\archive\ArchiveService.cpp" />
     <ClCompile Include="service\ContractCategory\ContractCategoryService.cpp" />
+    <ClCompile Include="service\contract\ContractService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
