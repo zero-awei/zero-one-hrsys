@@ -82,7 +82,7 @@ bool ProjTagService::updateProjTag(const ModifyTagDTO::Wrapper& dto, const Paylo
 {
 	// 组装DO对象
 	ProjTagDO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Id, id, OrgId, orgId, TagName, tagName);
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Id, tagId, OrgId, orgId, TagName, tagName);
 	data.setUpdater(payload.getUsername());
 	data.setUpdateTime(SimpleDateTimeFormat::format());
 	// TODO: 调用dao操作数据库

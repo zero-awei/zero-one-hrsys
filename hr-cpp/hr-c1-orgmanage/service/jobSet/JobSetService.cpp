@@ -76,8 +76,31 @@ ImportJobVO::Wrapper JobSetService::addMultiJob(const ImportJobDTO::Wrapper& dto
 
 	// 调用DAO操作数据库
 	JobSetDAO dao;
-	auto res = dao.insertMultiJob(all);
+	SqlSession* ss = dao.getSqlSession();
+	// 开启事务处理
+	ss->beginTransaction();
+
+	std::list<std::string> res;
+	for (auto item : all)
+	{
+		int line = dao.insertJob(item);
+		// 新增成功则加入一个新的id
+		if (line == 1)
+		{
+			res.push_back(item.getOrmPostId());
+		}
+		// 否则清空新增id返回列表并回滚
+		else
+		{
+			ss->rollbackTransaction();
+			res.clear();
+			break;
+		}
+	}
 	
+	// 提交事务
+	ss->commitTransaction();
+
 	// 构建返回对象
 	auto vo = ImportJobVO::createShared();
 	if (res.size())

@@ -43,8 +43,9 @@ PullListDTO::Wrapper EvaluationTypeService::listAll()
 			dto->pullList->push_back(ItemDTO::createShared(code, item.second));
 		}
 
-		// 放入缓存
-		UseLibRedis::updateRedis("evaluation-type", res);
+		if (res.size())
+			// 放入缓存
+			UseLibRedis::updateRedis("evaluation-type", res);
 	}
 	// 缓存不为空则查出转换成DTO
 	else

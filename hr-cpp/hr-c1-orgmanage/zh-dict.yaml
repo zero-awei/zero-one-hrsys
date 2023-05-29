@@ -130,6 +130,10 @@ projTag:
   updatetime: 更新时间
   xh: 序号
   ormorgid: 组织ID
+ field:
+  tagId: 项目标签唯一标识
+  tagName: 项目标签名
+  orgId: 组织ID
  modify:
   summary: 更新项目标签
  tagId: 项目标签ID

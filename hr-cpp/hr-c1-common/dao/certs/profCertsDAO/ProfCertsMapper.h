@@ -51,7 +51,6 @@ public:
 		data.setGwType(resultSet->getString(15));
 		data.setGwzs(resultSet->getString(16));
 		data.setPimQualTypeName(resultSet->getString(17));
-		//cout << resultSet->getString(17) << endl;
 		return data;
 	}
 };

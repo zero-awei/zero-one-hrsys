@@ -181,6 +181,8 @@
     <ClInclude Include="controller\typeContract\TypeContractListController.h" />
     <ClInclude Include="dao\armyLevelType\ArmyLevelMapper.h" />
     <ClInclude Include="dao\armyLevelType\ArmyLevelTypeDAO.h" />
+    <ClInclude Include="dao\auditStatus\AuditStatusDAO.h" />
+    <ClInclude Include="dao\auditStatus\AuditStatusMapper.h" />
     <ClInclude Include="dao\certs\certTypeDAO\CertTypeDAO.h" />
     <ClInclude Include="dao\certs\certTypeDAO\CertTypeMapper.h" />
     <ClInclude Include="dao\certs\profCertsDAO\ProfCertsDAO.h" />
@@ -198,6 +200,7 @@
     <ClInclude Include="dao\typeContract\TypeContractMapper.h" />
     <ClInclude Include="domain\do\archivesLevel\ArchivesLevelDO.h" />
     <ClInclude Include="domain\do\armyLevelType\ArmyLevelTypeDO.h" />
+    <ClInclude Include="domain\do\auditStatus\AuditStatusDO.h" />
     <ClInclude Include="domain\do\certs\CertTypeDO.h" />
     <ClInclude Include="domain\do\certs\ProCertsDO.h" />
     <ClInclude Include="domain\do\constractStatus\ConstractStatusDO.h" />
@@ -227,10 +230,11 @@
     <ClInclude Include="domain\vo\certs\ProfCertsVO.h" />
     <ClInclude Include="domain\vo\certs\CertTypeVO.h" />
     <ClInclude Include="domain\vo\declareList\DeclareListVO.h" />
-    <ClInclude Include="domain\vo\typeContract\TypeContractVO.h" />
     <ClInclude Include="domain\vo\pullList\PullListVO.h" />
+    <ClInclude Include="domain\vo\typeContract\TypeContractVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\auditStatus\AuditStatusService.h" />
     <ClInclude Include="service\certs\certTypeService\CertTypeService.h" />
     <ClInclude Include="service\certs\profCertsService\ProfCertsService.h" />
     <ClInclude Include="service\armyLevelType\ArmyLevelTypeService.h" />
@@ -265,6 +269,7 @@
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\typeContract\TypeContractListController.cpp" />
     <ClCompile Include="dao\armyLevelType\ArmyLevelTypeDAO.cpp" />
+    <ClCompile Include="dao\auditStatus\AuditStatusDAO.cpp" />
     <ClCompile Include="dao\certs\certTypeDAO\CertTypeDAO.cpp" />
     <ClCompile Include="dao\certs\profCertsDAO\ProfCertsDAO.cpp" />
     <ClCompile Include="dao\costTypeList\CostTypeListDAO.cpp" />
@@ -274,6 +279,7 @@
     <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
     <ClCompile Include="dao\typeContract\TypeContractDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\auditStatus\AuditStatusService.cpp" />
     <ClCompile Include="service\certs\certTypeService\CertTypeService.cpp" />
     <ClCompile Include="service\certs\profCertsService\ProfCertsService.cpp" />
     <ClCompile Include="service\armyLevelType\ArmyLevelTypeService.cpp" />

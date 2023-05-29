@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "PageQueryBzController.h"
 
-PageQueryVO::Wrapper PageQueryBzController::execPageQueryBz(const PageBzQuery::Wrapper& Query)
+NoDataJsonVO::Wrapper PageQueryBzController::execPageQueryBz(const PageBzQuery::Wrapper& Query)
 {
-	auto vo = PageQueryVO::createShared();
+	auto vo = NoDataJsonVO::createShared();
 	return vo;
 }

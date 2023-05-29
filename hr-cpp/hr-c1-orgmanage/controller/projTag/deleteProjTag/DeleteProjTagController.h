@@ -34,12 +34,13 @@ public:
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
-	ENDPOINT(API_M_DEL, "/project-tag/delete-one-tag-by-tag-id/{tagId}", deleteByTagId, API_HANDLER_AUTH_PARAME, PATH(String, tagId)) {
+	ENDPOINT(API_M_DEL, PATH_TO_PROJTAG("/delete-one-tag-by-tag-id"), deleteByTagId, API_HANDLER_AUTH_PARAME, BODY_DTO(DeleteProjTagDTO::Wrapper, dto)) {
 		// 解析查询参数
-		auto deleteProjTagDTO = DeleteProjTagDTO::createShared();
-		deleteProjTagDTO->tagId = tagId;
+		/*auto deleteProjTagDTO = DeleteProjTagDTO::createShared();
+		deleteProjTagDTO->tagId = tagId;*/
 		// 响应结果
-		API_HANDLER_RESP_VO(execDeleteByTagId(deleteProjTagDTO, authObject->getPayload()));
+		//API_HANDLER_RESP_VO(execDeleteByTagId(deleteProjTagDTO, authObject->getPayload()));
+		API_HANDLER_RESP_VO(execDeleteByTagId(dto, authObject->getPayload()));
 	}
 
 	// 删除多条数据
@@ -51,17 +52,18 @@ public:
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(DeleteProjTagBatchVO);
 	}
-	ENDPOINT(API_M_DEL, "/project-tag/delete-batch-tag-by-tag-id", deleteBatchByTagId, API_HANDLER_AUTH_PARAME, BODY_STRING(String, jsonPayload)) {
-		const std::shared_ptr<ObjectMapper>& objectMapper = oatpp::parser::json::mapping::ObjectMapper::createShared();
+	ENDPOINT(API_M_DEL, PATH_TO_PROJTAG("/delete-batch-tag-by-tag-id"), deleteBatchByTagId, API_HANDLER_AUTH_PARAME, BODY_DTO(DeleteProjTagBatchDTO::Wrapper, dto)) {
+		//const std::shared_ptr<ObjectMapper>& objectMapper = oatpp::parser::json::mapping::ObjectMapper::createShared();
 		// 解析查询参数
-		auto deleteProjTagBatchDTO = DeleteProjTagBatchDTO::createShared();
-		deleteProjTagBatchDTO->tagIds = objectMapper->readFromString<oatpp::List<String>>(jsonPayload);
+		/*auto deleteProjTagBatchDTO = DeleteProjTagBatchDTO::createShared();
+		deleteProjTagBatchDTO->tagIds = objectMapper->readFromString<oatpp::List<String>>(jsonPayload);*/
 		//测试
-		for (const auto& item : *deleteProjTagBatchDTO->tagIds) {
+		/*for (const auto& item : *deleteProjTagBatchDTO->tagIds) {
 			cout << item->c_str() << endl;
-		}
+		}*/
 		// 响应结果
-		API_HANDLER_RESP_VO(execDeleteBatchByTagId(deleteProjTagBatchDTO, authObject->getPayload()));
+		//API_HANDLER_RESP_VO(execDeleteBatchByTagId(deleteProjTagBatchDTO, authObject->getPayload()));
+		API_HANDLER_RESP_VO(execDeleteBatchByTagId(dto, authObject->getPayload()));
 	}
 private:
 	// 查询指定岗位详情

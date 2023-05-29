@@ -70,7 +70,7 @@ common:
   name: 建立人
   createtime: 建立时间
   id: 获奖情况标识
-  level: 获奖等级
+  level: 获奖等级下拉列表
   updataName: 更新人
   uptime: 更新时间
   awardName: 获奖名称

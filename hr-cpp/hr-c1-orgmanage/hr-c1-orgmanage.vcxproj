@@ -232,6 +232,9 @@
     <ClInclude Include="domain\dto\addJob\AddJobDTO.h" />
     <ClInclude Include="domain\dto\itemLabel\ItemLabelDTO.h" />
     <ClInclude Include="domain\dto\jobDownload\JobDownloadDTO.h" />
+    <ClInclude Include="domain\dto\jobSet\ImportJobDTO.h" />
+    <ClInclude Include="domain\dto\jobSet\jobDownloadDto\JobDownloadDTO.h" />
+    <ClInclude Include="domain\dto\jobSet\jobUpdateDto\JobUpdateDTO.h" />
     <ClInclude Include="domain\dto\jobUpdate\JobUpdateDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDeleteDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDetailDTO.h" />
@@ -250,7 +253,6 @@
     <ClInclude Include="domain\vo\itemLabel\ItemLabelVO.h" />
     <ClInclude Include="domain\vo\jobDownload\JobDownloadVO.h" />
     <ClInclude Include="domain\vo\jobUpdate\JobUpdateVO.h" />
-    <ClInclude Include="domain\vo\pageQuery\PageQueryVO.h" />
     <ClInclude Include="domain\vo\postSet\PostDeleteBatchVO.h" />
     <ClInclude Include="domain\vo\postSet\PostDetailVO.h" />
     <ClInclude Include="domain\query\projTag\ExportProjTagQuery.h" />
@@ -258,6 +260,7 @@
     <ClInclude Include="domain\vo\projTag\DeleteProjTagBatchVO.h" />
     <ClInclude Include="domain\vo\projTag\ImportTagVO.h" />
     <ClInclude Include="domain\vo\projTag\OrgListVO.h" />
+    <ClInclude Include="domain\vo\projTag\PageQueryProjTagVO.h" />
     <ClInclude Include="domain\vo\projTag\ProjTagVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />

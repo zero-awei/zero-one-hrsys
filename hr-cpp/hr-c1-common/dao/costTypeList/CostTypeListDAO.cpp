@@ -4,10 +4,6 @@
 
 std::list<CostTypeDO> CostTypeListDAO::listAll()
 {
-	/*string str = "SELECT `LEVELTYPE` FROM `t_pimarmycadres` GROUP BY `LEVELTYPE`";
-	ArmyLevelMapper mapper;
-	return sqlSession->executeQuery<ArmyLevelTypeDO, ArmyLevelMapper>(str, mapper);*/
-
 	list<CostTypeDO> res;
 	for (auto item : costType)
 	{
