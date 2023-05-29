@@ -21,8 +21,6 @@ const tableOperations = reactive([
     name: '新增'
   },
   {
-    name: '导入'
-  }
 ])
 //新增表单所需栏目配置
 const addData = reactive([

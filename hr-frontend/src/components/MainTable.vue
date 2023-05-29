@@ -66,6 +66,18 @@ interface User {
   certificateId?: number
   phoneNumber?: number
   state?: string
+  //类型不一样报错了，我瞎改一点
+  sex?: string
+  address?: string
+  retirePlace?: string
+  familyContact?: string
+  familyContactNumber?: string
+  level?: string
+  preRetirePosition?: string
+  preRetireJob?: string
+  retireTime?: string
+  realRetireTime?: string
+  money?: number
 }
 //表单数据定义
 interface TableCell {

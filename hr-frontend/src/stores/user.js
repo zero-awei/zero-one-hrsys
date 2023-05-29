@@ -9,6 +9,43 @@ let testMenus = [
     path: '/pimportalview'
   },
   {
+    id: 0,
+    text: '人员花名册',
+    icon: 'IconSetting',
+    children: [
+      {
+        id: 0,
+        text: '试用员工',
+        icon: 'IconSetting',
+        path: '/syqyggridview'
+      },
+      {
+        id: 1,
+        text: '离(退)休人员',
+        icon: 'IconSetting',
+        path: '/ltxyggridview'
+      },
+      {
+        id: 2,
+        text: '离职人员',
+        icon: 'IconSetting',
+        path: '/lzyghmcgridview'
+      },
+      {
+        id: 3,
+        text: '借调员工',
+        icon: 'IconSetting',
+        path: '/jdryhmcgridview'
+      },
+      {
+        id: 4,
+        text: '挂职员工',
+        icon: 'IconSetting',
+        path: '/gzryhmcgridview'
+      }
+    ]
+  },
+  {
     id: 1,
     text: '人员信息',
     icon: 'IconSetting',
