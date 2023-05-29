@@ -20,8 +20,8 @@ class AddLegalerSetingJsoonVO : public JsonVO<AddLegalerSetingDTO::Wrapper> {
 /**
  * 示例分页显示JsonVO，用于响应给客户端的Json对象
  */
-class AddLegalerSetingPageJsonVO : public JsonVO<AddLegalerSetingDTO::Wrapper> {
-	DTO_INIT(AddLegalerSetingPageJsonVO, JsonVO<AddLegalerSetingDTO::Wrapper>);
+class AddLegalerSetingPageJsonVO : public JsonVO<AddLegalerSetingPageDTO::Wrapper> {
+	DTO_INIT(AddLegalerSetingPageJsonVO, JsonVO<AddLegalerSetingPageDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

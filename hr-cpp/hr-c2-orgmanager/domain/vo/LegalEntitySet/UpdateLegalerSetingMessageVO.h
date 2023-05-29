@@ -16,8 +16,8 @@ class UpdateLegalerSetingMessageJsonVO : public JsonVO<UpdateLegalerSetingMessag
 /**
  * 示例分页显示JsonVO，用于响应给客户端的Json对象
  */
-class UpdateLegalerSetingMessagePageJsonVO : public JsonVO<UpdateLegalerSetingMessageDTO::Wrapper> {
-	DTO_INIT(UpdateLegalerSetingMessagePageJsonVO, JsonVO<UpdateLegalerSetingMessageDTO::Wrapper>);
+class UpdateLegalerSetingMessagePageJsonVO : public JsonVO<UpdateLegalerSetingMessagePageDTO::Wrapper> {
+	DTO_INIT(UpdateLegalerSetingMessagePageJsonVO, JsonVO<UpdateLegalerSetingMessagePageDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

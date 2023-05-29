@@ -16,8 +16,8 @@ class ExportLegalerSetingJsoonVO : public JsonVO<ExportLegalerSetingDTO::Wrapper
 /**
  * 示例分页显示JsonVO，用于响应给客户端的Json对象
  */
-class ExportLegalerSetingPageJsonVO : public JsonVO<ExportLegalerSetingDTO::Wrapper> {
-	DTO_INIT(ExportLegalerSetingPageJsonVO, JsonVO<ExportLegalerSetingDTO::Wrapper>);
+class ExportLegalerSetingPageJsonVO : public JsonVO<ExportLegalerSetingPageDTO::Wrapper> {
+	DTO_INIT(ExportLegalerSetingPageJsonVO, JsonVO<ExportLegalerSetingPageDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

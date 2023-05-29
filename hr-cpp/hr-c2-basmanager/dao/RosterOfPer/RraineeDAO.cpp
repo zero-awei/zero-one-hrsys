@@ -20,19 +20,19 @@ if (query->age) { \
 	SQLPARAMS_PUSH(params, "i", int, query->age.getValue(0)); \
 }
 
-//uint64_t RraineeDAO::count(const RraineeQuery::Wrapper& query)
-//{
-//	stringstream sql;
-//	sql << "SELECT COUNT(*) FROM sample";
-//	SAMPLE_TERAM_PARSE(query, sql);
-//	string sqlStr = sql.str();
-//	return sqlSession->executeQueryNumerical(sqlStr, params);
-//}
+uint64_t RraineeDAO::count(const RraineeQuery::Wrapper& query)
+{
+	stringstream sql;
+	sql << "SELECT COUNT(*) FROM t_pcmjxsbdjl";
+	SAMPLE_TERAM_PARSE(query, sql);
+	string sqlStr = sql.str();
+	return sqlSession->executeQueryNumerical(sqlStr, params);
+}
 
 std::list<RraineeDO> RraineeDAO::selectWithPage(const RraineeQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT * FROM sample";
+	sql << "SELECT * FROM t_pcmjxsbdjl";
 	SAMPLE_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	RraineeMapper mapper;

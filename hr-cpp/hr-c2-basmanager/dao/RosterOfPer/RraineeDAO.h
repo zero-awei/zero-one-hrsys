@@ -30,7 +30,7 @@ class RraineeDAO : public BaseDAO
 {
 public:
 	// 统计数据条数
-	//uint64_t count(const RraineeQuery::Wrapper& query);
+	uint64_t count(const RraineeQuery::Wrapper& query);
 	// 分页查询数据
 	list<RraineeDO> selectWithPage(const RraineeQuery::Wrapper& query);
 	//// 通过姓名查询数据

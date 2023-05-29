@@ -16,8 +16,8 @@ class LegalerNamePullDownListJsonVO : public JsonVO<LegalerNamePullDownListDTO::
 /**
  * 示例分页显示JsonVO，用于响应给客户端的Json对象
  */
-class LegalerNamePullDownListPageJsonVO : public JsonVO<LegalerNamePullDownListDTO::Wrapper> {
-	DTO_INIT(LegalerNamePullDownListPageJsonVO, JsonVO<LegalerNamePullDownListDTO::Wrapper>);
+class LegalerNamePullDownListPageJsonVO : public JsonVO<LegalerNamePullDownListPageDTO::Wrapper> {
+	DTO_INIT(LegalerNamePullDownListPageJsonVO, JsonVO<LegalerNamePullDownListPageDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)
