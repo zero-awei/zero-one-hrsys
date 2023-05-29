@@ -53,14 +53,14 @@ public:
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-
 	}
-	ENDPOINT(API_M_DEL, PATH_TO_JOBSET("/delete-one-post-by-OrmPostId/{ormPostId}"), deleteByOrmPostId, API_HANDLER_AUTH_PARAME, PATH(String, ormPostId)) {
+	ENDPOINT(API_M_DEL, PATH_TO_JOBSET("/delete-one-post-by-OrmPostId"), deleteByOrmPostId, API_HANDLER_AUTH_PARAME, BODY_DTO(PostDeleteDTO::Wrapper, dto)) {
 		// 解析查询参数
-		auto postDeleteDTO = PostDeleteDTO::createShared();
-		postDeleteDTO->ormPostId = ormPostId;
+		/*auto postDeleteDTO = PostDeleteDTO::createShared();
+		postDeleteDTO->ormPostId = ormPostId;*/
 		// 响应结果
-		API_HANDLER_RESP_VO(execDeleteByOrmPostId(postDeleteDTO, authObject->getPayload()));
+		//API_HANDLER_RESP_VO(execDeleteByOrmPostId(postDeleteDTO, authObject->getPayload()));
+		API_HANDLER_RESP_VO(execDeleteByOrmPostId(dto, authObject->getPayload()));
 	}
 
 	// 删除多条数据
@@ -72,18 +72,19 @@ public:
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(PostDeleteBatchJsonVO);
 	}
-	ENDPOINT(API_M_DEL, PATH_TO_JOBSET("/delete-batch-post-by-OrmPostId"), deleteBatchByOrmPostId, API_HANDLER_AUTH_PARAME, BODY_STRING(String, jsonPayload)) {
-		const std::shared_ptr<ObjectMapper>& objectMapper = oatpp::parser::json::mapping::ObjectMapper::createShared();
+	ENDPOINT(API_M_DEL, PATH_TO_JOBSET("/delete-batch-post-by-OrmPostId"), deleteBatchByOrmPostId, API_HANDLER_AUTH_PARAME, BODY_DTO(PostDeleteBatchDTO::Wrapper, dto)) {
+		//const std::shared_ptr<ObjectMapper>& objectMapper = oatpp::parser::json::mapping::ObjectMapper::createShared();
 		// 解析查询参数
-		auto postDeleteBatchDTO = PostDeleteBatchDTO::createShared();
-		postDeleteBatchDTO->ormPostIds = objectMapper->readFromString<oatpp::List<String>>(jsonPayload);
+		/*auto postDeleteBatchDTO = PostDeleteBatchDTO::createShared();
+		postDeleteBatchDTO->ormPostIds = objectMapper->readFromString<oatpp::List<String>>(jsonPayload);*/
 		//测试
-		for (const auto& item : *postDeleteBatchDTO->ormPostIds) {
-			/*OATPP_LOGD("testEndpoint", "Item: %s", item->c_str());*/
-			cout << item->c_str() << endl;
-		}
+		//for (const auto& item : *postDeleteBatchDTO->ormPostIds) {
+		//	/*OATPP_LOGD("testEndpoint", "Item: %s", item->c_str());*/
+		//	cout << item->c_str() << endl;
+		//}
 		// 响应结果
-		API_HANDLER_RESP_VO(exeDeleteBatchByOrmPostId(postDeleteBatchDTO, authObject->getPayload()));
+		//API_HANDLER_RESP_VO(exeDeleteBatchByOrmPostId(postDeleteBatchDTO, authObject->getPayload()));
+		API_HANDLER_RESP_VO(exeDeleteBatchByOrmPostId(dto, authObject->getPayload()));
 	}
 private:
 	// 查询指定岗位详情

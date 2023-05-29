@@ -70,7 +70,6 @@
     <ClInclude Include="domain\dto\itemLabel\ItemLabelDTO.h" />
     <ClInclude Include="domain\query\itemlabel\ItemlabelQuery.h" />
     <ClInclude Include="domain\vo\itemLabel\ItemLabelVO.h" />
-    <ClInclude Include="domain\vo\pageQuery\PageQueryVO.h" />
     <ClInclude Include="domain\do\projTag\ProjTagDO.h" />
     <ClInclude Include="domain\vo\jobUpdate\JobUpdateVO.h" />
     <ClInclude Include="domain\vo\jobDownload\JobDownloadVO.h" />
@@ -106,5 +105,10 @@
     <ClInclude Include="domain\vo\projTag\DeleteProjTagBatchVO.h" />
     <ClInclude Include="service\projTag\deleteProjTagService\DeleteProjTagService.h" />
     <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
+    <ClInclude Include="domain\dto\projTag\AddProjTagDTO.h" />
+    <ClInclude Include="domain\vo\projTag\PageQueryProjTagVO.h" />
+    <ClInclude Include="domain\dto\jobSet\ImportJobDTO.h" />
+    <ClInclude Include="domain\dto\jobSet\jobUpdateDto\JobUpdateDTO.h" />
+    <ClInclude Include="domain\dto\jobSet\jobDownloadDto\JobDownloadDTO.h" />
   </ItemGroup>
 </Project>

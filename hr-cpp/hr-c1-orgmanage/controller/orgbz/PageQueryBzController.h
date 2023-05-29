@@ -25,7 +25,7 @@
 #include "Macros.h"
 #include "ServerInfo.h"
 #include "domain/query/orgbz/PageBzQuery.h"
-#include "domain/vo/pageQuery/PageQueryVO.h"
+
 //去定义query,vo
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
@@ -37,7 +37,7 @@ class PageQueryBzController : public oatpp::web::server::api::ApiController
 public: // 定义接口
 	ENDPOINT_INFO(pageQueryBz) {
 		info->summary = ZH_WORDS_GETTER("orgbz.pagequery.controller");
-		API_DEF_ADD_RSP_JSON_WRAPPER(PageQueryVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(NoDataJsonVO);
 		info->queryParams.add<UInt8>("size").description = ZH_WORDS_GETTER("orgbz.pagequery.size");
 		info->queryParams["size"].addExample("default", UInt8(20));
 		info->queryParams["size"].required = true;
@@ -55,7 +55,7 @@ public: // 定义接口
 		API_HANDLER_RESP_VO(execPageQueryBz(query));
 	}
 private: // 定义接口执行函数
-	PageQueryVO::Wrapper execPageQueryBz(const PageBzQuery::Wrapper& Query);
+	NoDataJsonVO::Wrapper execPageQueryBz(const PageBzQuery::Wrapper& Query);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
