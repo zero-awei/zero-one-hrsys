@@ -58,3 +58,6 @@ target
 
 # Visual Studio 2017 auto generated files
 Generated\ Files/
+
+.vscode
+node_modules
