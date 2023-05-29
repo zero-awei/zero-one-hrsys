@@ -3,8 +3,34 @@ import Request from '@/apis/request'
 // 测试菜单数据
 let testMenus = [
   {
+    id: '0',
+    text: '门户首页',
+    icon: 'DataAnalysis',
+    path: '/pimportalview'
+  },
+  {
+    id: '0',
+    text: '门户首页',
+    icon: 'DataAnalysis',
+    path: '/pimportalview'
+  },
+  {
 <<<<<<< HEAD
     id: '1',
+    text: '人员信息',
+    icon: 'DataAnalysis',
+    children: [
+      {
+        id: 2,
+        text: '员工信息',
+        path: '/userInfo',
+        icon: 'IconSetting',
+        pid: 1
+      }
+    ]
+  },
+  {
+    id: '2',
     text: '系统管理',
 =======
     id: 0,
@@ -93,7 +119,7 @@ let testMenus = [
     ]
   },
   {
-    id: '2',
+    id: '3',
     text: '用户管理',
     icon: 'IconUser',
     children: [
@@ -135,7 +161,7 @@ let testMenus = [
     ]
   },
   {
-    id: '3',
+    id: '4',
     text: '订单管理',
     icon: 'IconTickets',
     children: [

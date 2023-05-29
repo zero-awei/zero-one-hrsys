@@ -9,6 +9,7 @@
       @selection-change="handleSelectionChange"
       @row-dblclick="handleClick"
       :default-sort="{ prop: 'id', order: 'ascending' }"
+      :stripe="true"
     >
       <el-table-column type="selection" />
       <el-table-column
@@ -96,7 +97,7 @@ interface TableCell {
     }
   }
 }
-.el-table__header {
+.el-table__header-wrapper {
   height: 58px;
 }
 .el-table__header-wrapper thead {
