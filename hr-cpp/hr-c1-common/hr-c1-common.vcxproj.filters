@@ -124,6 +124,7 @@
     <ClInclude Include="dao\certs\certTypeDAO\CertTypeMapper.h" />
     <ClInclude Include="dao\certs\profCertsDAO\ProfCertsDAO.h" />
     <ClInclude Include="dao\certs\profCertsDAO\ProfCertsMapper.h" />
+    <ClInclude Include="domain\vo\pullList\PullListVO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
