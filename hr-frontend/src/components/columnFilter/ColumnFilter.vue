@@ -62,7 +62,7 @@ function handleCheckboxChange() {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .ColumnFilter {
   color: purple;
 }

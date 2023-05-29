@@ -8,7 +8,7 @@
 import Filter from '@/components/filter/Filter.vue'
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .filter {
   color: purple;
 }

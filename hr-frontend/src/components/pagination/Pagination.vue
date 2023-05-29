@@ -29,7 +29,7 @@ const handleCurrentChange = (val: number) => {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .Pagination {
   color: purple;
 }

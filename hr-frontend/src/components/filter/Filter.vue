@@ -179,7 +179,7 @@ const dutyStatusOptions = [
 ]
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .filter {
   background-color: #fff;
   .filter-form {
