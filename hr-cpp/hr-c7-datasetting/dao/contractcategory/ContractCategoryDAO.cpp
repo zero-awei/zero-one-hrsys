@@ -8,14 +8,18 @@
 SqlParams params; \
 sql<<" WHERE 1=1"; \
 if (query->name) { \
-    sql << " AND PIMCONTRACTTYPENAME=?"; \
+    sql << " AND `name`=?"; \
     SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); \
+} \
+if (query->description) { \
+    sql << " AND description=?"; \
+    SQLPARAMS_PUSH(params, "s", std::string, query->description.getValue("")); \
 }
 
 uint64_t ContractCategoryDAO::count(const ContractCategoryQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM t_pimcontracttype";
+	sql << "SELECT COUNT(*) FROM contract_category";
 	CONTRACT_CATEGORY_TERM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
@@ -24,52 +28,10 @@ uint64_t ContractCategoryDAO::count(const ContractCategoryQuery::Wrapper& query)
 std::list<ContractCategoryDO> ContractCategoryDAO::selectWithPage(const ContractCategoryQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT PIMCONTRACTTYPEID, PIMCONTRACTTYPENAME FROM t_pimcontracttype";
+	sql << "SELECT * FROM contract_category";
 	CONTRACT_CATEGORY_TERM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	ContractCategoryMapper mapper;
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<ContractCategoryDO, ContractCategoryMapper>(sqlStr, mapper, params);
-}
-
-ContractCategoryDO ContractCategoryDAO::selectById(const std::string& id)
-{
-	stringstream sql;
-	sql << "SELECT PIMCONTRACTTYPEID, PIMCONTRACTTYPENAME FROM t_pimcontracttype WHERE PIMCONTRACTTYPEID=?";
-	SqlParams params;
-	SQLPARAMS_PUSH(params, "s", std::string, id);
-	string sqlStr = sql.str();
-	ContractCategoryMapper mapper;
-	return sqlSession->executeQuery<ContractCategoryDO, ContractCategoryMapper>(sqlStr, mapper, params).front();
-}
-uint64_t ContractCategoryDAO::insert(const ContractCategoryDO& data)
-{
-	stringstream sql;
-	sql << "INSERT INTO t_pimcontracttype(PIMCONTRACTTYPEID, PIMCONTRACTTYPENAME) VALUES (?, ?)";
-	SqlParams params;
-	SQLPARAMS_PUSH(params, "s", std::string, data.getId());
-	SQLPARAMS_PUSH(params, "s", std::string, data.getName());
-	string sqlStr = sql.str();
-	return sqlSession->executeUpdate(sqlStr, params);
-}
-
-int ContractCategoryDAO::update(const ContractCategoryDO& data)
-{
-	stringstream sql;
-	sql << "UPDATE t_pimcontracttype SET PIMCONTRACTTYPENAME=? WHERE PIMCONTRACTTYPEID=?";
-	SqlParams params;
-	SQLPARAMS_PUSH(params, "s", std::string, data.getName());
-	SQLPARAMS_PUSH(params, "s", std::string, data.getId());
-	string sqlStr = sql.str();
-	return sqlSession->executeUpdate(sqlStr, params);
-}
-
-int ContractCategoryDAO::deleteById(const std::string& id)
-{
-	stringstream sql;
-	sql << "DELETE FROM t_pimcontracttype WHERE PIMCONTRACTTYPEID=?";
-	SqlParams params;
-	SQLPARAMS_PUSH(params, "s", std::string, id);
-	string sqlStr = sql.str();
-	return sqlSession->executeUpdate(sqlStr, params);
 }

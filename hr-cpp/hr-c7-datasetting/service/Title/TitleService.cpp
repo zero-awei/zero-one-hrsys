@@ -2,6 +2,7 @@
 #include "TitleService.h"
 #include "../../dao/Title/TitleDAO.h"
 #include "domain/dto/Title/TitleDTO.h"
+
 TitlePageDTO::Wrapper TitleService::listAll(const TitleQuery::Wrapper& query)
 {
 	auto pages = TitlePageDTO::createShared();

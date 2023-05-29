@@ -23,21 +23,21 @@
 #include "domain/do/Title/TitleDO.h"
 #include "domain/query/Title/TitleQuery.h"
 
-class TitleDAO :public BaseDAO
+class TitleDAO:public BaseDAO
 {
-public:
-	// 统计数据条数
-	uint64_t count(const TitleQuery::Wrapper& query);
-	// 分页查询数据
-	list<TitleDO> selectWithPage(const TitleQuery::Wrapper& query);
-	// 通过职称目录名称查询数据
-	list<TitleDO> selectByName(const string& name);
-	// 插入数据
-	uint64_t insert(const TitleDO& iObj);
-	// 修改数据
-	int update(const TitleDO& uObj);
-	// 通过排序号删除数据
-	int deleteById(uint32_t id);
+	public:
+		// 统计数据条数
+		uint64_t count(const TitleQuery::Wrapper& query);
+		// 分页查询数据
+		list<TitleDO> selectWithPage(const TitleQuery::Wrapper& query);
+		// 通过职称目录名称查询数据
+		list<TitleDO> selectByName(const string& name);
+		// 插入数据
+		uint64_t insert(const TitleDO& iObj);
+		// 修改数据
+		int update(const TitleDO& uObj);
+		// 通过排序号删除数据
+		int deleteById(uint32_t id);
 };
 
 #endif // !_TITLEDAO_H_

@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -23,9 +23,9 @@
 #include "../../domain/do/Title/TitleDO.h"
 
 /**
- * 
+ * Ö°³ÆÄ¿Â¼±í×Ö¶ÎÆ¥ÅäÓ³Éä
  */
-class TitleMapper :public Mapper<TitleDO>
+class TitleMapper:public Mapper<TitleDO>
 {
 public:
 	TitleDO mapper(ResultSet* resultSet)const override
@@ -38,7 +38,7 @@ public:
 		data.setTTtype(resultSet->getString(5));
 		return data;
 	}
-
+	
 };
 
 #endif // !_TITLEMAPPER_H_

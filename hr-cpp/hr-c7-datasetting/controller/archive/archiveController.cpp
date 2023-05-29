@@ -75,6 +75,7 @@ Uint64JsonVO::Wrapper ArchiveController::execRemoveArchive(const ArchiveDTO::Wra
 	// 定义一个Service
 	ArchiveService service;
 	// 执行数据删除
+	service.removeData(dto->sortid.getValue(0));
 	jvo->success(dto->sortid);
 
 	// 响应结果
