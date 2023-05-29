@@ -54,9 +54,3 @@ onBeforeUnmount(() => {
   left: 90%;
 }
 </style>
-
-.el-message--info{
-  position: absolute !important;
-  left:90%; 
-}
-</style>
