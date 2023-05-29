@@ -38,8 +38,7 @@ public:
 	ENDPOINT_INFO(queryExpenseLedger) {
 		info->summary = ZH_WORDS_GETTER("expenseledger_mug.get.summary");
 		API_DEF_ADD_PAGE_PARAMS();
-		//info->queryParams.add<String>("PIMEXPACCOUNTNAME").description = ZH_WORDS_GETTER("expenseledger_mug.field.expenseCategory");;
-		//info->queryParams["PIMEXPACCOUNTNAME"].required = false;
+		API_DEF_ADD_RSP_JSON_WRAPPER(JsonVO<ExpenseLedgerPageDTO::Wrapper>);
 	}
 	ENDPOINT(API_M_GET, "/contract-management/query-by-expense-category", queryExpenseLedger,QUERIES(QueryParams, queryParams)) {
 		API_HANDLER_QUERY_PARAM(query, ExpenseLedgerPageQuery, queryParams);

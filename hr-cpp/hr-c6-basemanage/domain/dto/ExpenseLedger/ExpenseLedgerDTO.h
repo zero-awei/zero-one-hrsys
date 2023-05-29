@@ -90,6 +90,11 @@ class ExpenseLedgerDTO : public oatpp::DTO
 	DTO_FIELD_INFO(bz) {
 		info->description = ZH_WORDS_GETTER("expenseledger.field.BZ");
 	}
+	// 组织标识
+	DTO_FIELD(String, ormorgid);
+	DTO_FIELD_INFO(ormorgid) {
+		info->description = ZH_WORDS_GETTER("expenseledger.field.ORMORGID");
+	}
 };
 /**
  * 费用台账分页传输对象

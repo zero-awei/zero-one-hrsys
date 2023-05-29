@@ -37,7 +37,9 @@ ExpenseLedgerPageJsonVO::Wrapper ExpenseLedgerMController::execQueryExpenseLedge
 	}
 	return jvo;
 }
-
+/**
+ * Returns: String StringJsonVO.data 插入费用台账的标识
+ */
 StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger(const ExpenseLedgerDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto jvo = StringJsonVO::createShared();
@@ -65,14 +67,17 @@ StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger(const Expen
 	return jvo;
 }
 
+/**
+ * Returns: Uint64 Uint64JsonVO.data 受影响的行数
+ */
 Uint64JsonVO::Wrapper ExpenseLedgerMController::execDeleteExpenseLedger(const ExpenseLedgerDelQuery::Wrapper& query)
 {
 	auto jvo = Uint64JsonVO::createShared();
 	int successTime = 0;
 	ExpenseLedgerService service;
-	for (int i=0;i<query->Ids->size();i++)
+	for (std::size_t i=0;i < query->IDlist->size();i++)
 	{
-		successTime += service.removeData(query->Ids[i]);
+		successTime += service.removeData(query->IDlist[i]);
 	}
 	if (successTime>0)
 	{

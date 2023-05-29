@@ -71,16 +71,29 @@ title:
  query:
   summary: "分页查询职称列表"
   search-box: "分页查询职称列表(用于输入框搜索使用)"
+  param: "模糊查询参数-编号或名称"
  delete:
   summary: "删除职称-根据请求体删除职务信息"
+  list_jobtitle_id: "职称信息id--唯一标识"
  add:
   summary: "新增职务-根据请求体传入新增职务信息"
  field:
-  id: "职称编号"
-  name: "职称名称"
-  grades: "职称等级"
-  type: "职称类型"
-  category: "专业类别"
+  id: 表id-主键
+  employee_id: 员工编号
+  employee_state: 员工状态
+  certificate_id: 证书编号
+  employee_name: 员工姓名
+  org_name: 组织名称
+  jobtitle_name: 职称名称
+  get_time: 获取日期
+  professional_cate: 专业类别
+  professional_name: 专业名称
+  jobtitle_grades: 职称等级
+  issuing_authority: 签发机构
+  judging_unit: 评审单位
+  employment_time: 职称聘用时间
+  title_employee_time: 职称获取时间
+  b_highest_professional_title: 是否最高职称
 
 labordispatch_mug:
  get:
@@ -108,27 +121,6 @@ expenseledger_mug:
   summary: 新增费别
  delete:
   summary: 删除费别
- field:
-  expenseCategory: 费用类别
-  PIMLABOURCAMPANYNAME: 公司名称
-  PIMLABOURCAMPANYID: 所属单位
-  LXDZ: 联系地址
-  LXR: 联系人
-  LXFS: 联系方式
-  REGCAPITAL: 注册本金
-  LEGALPERSON: 法人
-  UPDATEDATE: 更新时间
- filed:   
-  name: 员工姓名
-  id: 合同编号
-  type: 合同类别
-  variety: 合同类型
-  date: 起始日期
-  condition: 合同状态
-  department_m: 合同管理单位
-  department_c: 合同签订单位
-  date_end: 合同到期时间
-  tip: 备注
 
 expenseledger:
  field:
@@ -144,6 +136,7 @@ expenseledger:
   FFSJ: 发放时间
   FFYBZ: 费用标准
   BZ: 备注
+  ORMORGID: 组织标识 
   IDS: 费用台账标识集合
 
 

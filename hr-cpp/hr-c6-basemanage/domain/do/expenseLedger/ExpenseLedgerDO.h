@@ -48,6 +48,8 @@ class ExpenseLedgerDO
 	CC_SYNTHESIZE(string, fybz, Fybz);
 	//备注
 	CC_SYNTHESIZE(string, bz, Bz);
+	// 组织标识
+	CC_SYNTHESIZE(string, ormorgid, Ormorgid);
 public:
 	ExpenseLedgerDO() {
 		name = "";
@@ -63,7 +65,7 @@ public:
 		ffsj = "";
 		fybz = "";
 		bz = "";
-
+		ormorgid = "";
 	}
 };
 #endif

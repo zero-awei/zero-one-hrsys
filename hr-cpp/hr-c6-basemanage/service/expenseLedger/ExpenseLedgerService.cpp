@@ -57,6 +57,7 @@ ExpenseLedgerPageDTO::Wrapper ExpenseLedgerService::ListAll(const ExpenseLedgerP
 		dto->ffsj = sub.getFfsj();
 		dto->ffybz = sub.getFybz();
 		dto->bz = sub.getBz();
+		dto->ormorgid = sub.getOrmorgid();
 		pages->addData(dto);
 	}
 	return pages;
