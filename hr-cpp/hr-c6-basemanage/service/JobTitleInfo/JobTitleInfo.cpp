@@ -2,9 +2,9 @@
 #include "JobTitleInfo.h"
 #include "../../dao/JobTitleInfo/JobTitleInfoDAO.h"
 
-JobTitleInfoDTO::Wrapper JobTitleInfoService::listAllJobTitle(const JobTitleInfoDTO::Wrapper& query)
+exportJobTitleInfoDTO::Wrapper JobTitleInfoService::listAllJobTitle(const JobTitleInfoDTO::Wrapper& query)
 {
-	auto results = JobTitleInfoDTO::createShared();
+	auto results = exportJobTitleInfoDTO::createShared();
 
 	JobTitleInfoDAO dao;
 	uint64_t count = dao.count(query);
@@ -13,7 +13,19 @@ JobTitleInfoDTO::Wrapper JobTitleInfoService::listAllJobTitle(const JobTitleInfo
 		return results;
 	}
 
-	results.
+	list<JobTitleDo> resultDO = dao.selectAll(query);
+	// ½«DO×ª»»³ÉDTO
+	for (auto const& sub : resultDO)
+	{
+		auto dto = JobTitleInfoDTO::createShared();
+		/*dto->id = sub.getId();
+		dto->name = sub.getName();
+		dto->sex = sub.getSex();
+		dto->age = sub.getAge();
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id, name, Name, sex, Sex, age, Age)*/
+		results->addData(dto);
+	}
+	return pages;
 }
 
 JobTitleInfoDTO::Wrapper JobTitleInfoService::queryDataDetail(const JobTitleInfoDTO::Wrapper& query)

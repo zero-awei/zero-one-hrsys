@@ -207,6 +207,8 @@ jobtitle:
   summary: 查询指定职称详情
  export:
   summary: 导出职称
+  line: 行数
+  rows: 所有记录
  update:
   summary: 更新职称
 

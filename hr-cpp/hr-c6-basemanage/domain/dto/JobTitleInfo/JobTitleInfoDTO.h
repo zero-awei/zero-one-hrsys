@@ -75,19 +75,25 @@ class JobTitleInfoDTO : public oatpp::DTO
 	}
 };
 
-class JobTitleInfoListDTO : public JobTitleInfoDTO
+class exportJobTitleInfoDTO : public JobTitleInfoDTO
 {
-	DTO_INIT(JobTitleInfoListDTO, DTO);
+	DTO_INIT(exportJobTitleInfoDTO, DTO);
+
+	// 导出行数
+	DTO_FIELD(UInt32, line);
+	DTO_FIELD_INFO(line) {
+		info->description = ZH_WORDS_GETTER("jobtitle.export.line");
+	}
 
 	// 记录List
 	DTO_FIELD(List<JobTitleInfoDTO::Wrapper>, rows) = {};
 	DTO_FIELD_INFO(rows) {
 		//TODO: 添加字典
-		info->description = ZH_WORDS_GETTER("");
+		info->description = ZH_WORDS_GETTER("jobtitle.export.rows");
 	}
 
 public:
-	void addData(JobTitleInfoDTO &one)
+	void addData(JobTitleInfoDTO::Wrapper &one)
 	{
 		this->rows->push_back(one);
 	}

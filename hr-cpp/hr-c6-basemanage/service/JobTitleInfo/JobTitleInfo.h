@@ -12,7 +12,7 @@ class JobTitleInfoService
 {
 public:
 	// 查询所有职称信息
-	JobTitleInfoDTO::Wrapper listAllJobTitle(const JobTitleInfoDTO::Wrapper& query);
+	exportJobTitleInfoDTO::Wrapper listAllJobTitle(const JobTitleInfoDTO::Wrapper& query);
 	// 查询指定数据详细
 	JobTitleInfoDTO::Wrapper queryDataDetail(const JobTitleInfoDTO::Wrapper& query);
 	// 修改数据
