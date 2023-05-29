@@ -240,7 +240,25 @@
     <ClInclude Include="dao\RosterOfPer\ProbationaryEmployeeMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\CertificateManage\CertificateInfoDO.h">
+    <ClInclude Include="domain\do\CertificateManage\SpercificCertificateDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\CertificateManage\SpercificCertificateDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\CertificateManage\SpercificCertificateVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\CertificateManage\SpercificCertificateQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\CertificateManage\SpercificCertificateService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\CertificateManage\SpercificCertificateDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\CertificateManage\SpercificCertificateMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -309,6 +327,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="dao\RosterOfPer\ProbationaryEmployeeDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\CertificateManage\SpercificCertificateService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\CertificateManage\SpercificCertificateDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

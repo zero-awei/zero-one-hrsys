@@ -26,6 +26,11 @@ class FormerEmployeesDTO : public oatpp::DTO
 
     DTO_INIT(FormerEmployeesDTO, DTO);
     
+	// Î¨Ò»±êÊ¶
+	DTO_FIELD(String, PIMPERSONID);
+	DTO_FIELD_INFO(PIMPERSONID) {
+		info->description = ZH_WORDS_GETTER("formeremployees.field.PIMPERSONID");
+	}
 	// ±àºÅ
 	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {

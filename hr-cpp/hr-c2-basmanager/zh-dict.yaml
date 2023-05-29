@@ -56,6 +56,7 @@ formeremployees:
   summary: (人员花名册-离职员工-分页查询离职员工数据)-chumengxian
   out: (人员花名册-离职员工-导出离职员工数据)-chumengxian
  field:
+  PIMPERSONID: 人员信息唯一标识
   id: 编号
   age: 年龄
   name: 姓名
@@ -84,6 +85,31 @@ probationaryemployee:
  get:
   summary: (人员花名册-试用员工-分页查询试用员工数据)-chumengxian
   out: (人员花名册-试用员工-导出试用员工数据)-chumengxian
+spercificcertificate: 
+ get:
+  query: (证书管理-证书信息-查询指定证书详情)-chumengxian
+  update: (证书管理-证书信息-更新指定证书)-chumengxian
+ field: 
+  pimperSonName: 员工姓名
+  zgzsbh: 证书编号
+  zslx: 证书类型
+  pimVocationalName: 证书名称
+  zgsydw: 签发机构
+  REGISNUMBER: 注册编号
+  zcdw: 注册单位
+  SOCSECPAYUNIT: 社保缴纳单位
+  bcardNumber: 一建配套B证编号
+  zghqrq: 签发日期
+  CSZCSJ: 初始注册时间
+  XZCSJ: 续注册时间
+  sxrq: 失效日期
+  NSQK: 年审情况
+  SYQK: 使用情况 
+  ALTERATION: 变更情况
+  PIMVOCATIONALID: 执（职）业资格信息标识
+
+
+
 
 
 RosterOfPer:
