@@ -36,6 +36,8 @@ bool PostDeleteService::removeBatchData(const PostDeleteBatchDTO::Wrapper& postD
 	for (const auto& item : *postDeleteBatchDTO->ormPostIds) {
 		if (postDeleteDAO.deleteById(item->c_str()) != 1)
 		{
+			//»Ø¹ö
+			sqlSession->rollbackTransaction();
 			isSuccess = false;
 			return isSuccess;
 		}
