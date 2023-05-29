@@ -7,21 +7,44 @@
 #define SAMPLE_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
-if (query->name) { \
-	sql << " AND `name`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); \
+if (query->ygbh) { \
+	sql << " AND ygbh=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->ygbh.getValue("")); \
 } \
-if (query->sex) { \
-	sql << " AND sex=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->sex.getValue("")); \
+if (query->pcmjxszzkhjgjlname) { \
+	sql << " AND pcmjxszzkhjgjlname=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->pcmjxszzkhjgjlname.getValue("")); \
 } \
-if (query->age) { \
-	sql << " AND age=?"; \
-	SQLPARAMS_PUSH(params, "i", int, query->age.getValue(0)); \
-}
+if (query->zz) { \
+	sql << " AND zz=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->zz.getValue("")); \
+} \
+if (query->bm) { \
+	sql << " AND bm=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->bm.getValue("")); \
+} \
+if (query->zw) { \
+	sql << " AND zw=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->zw.getValue("")); \
+} \
+if (query->gw) { \
+	sql << " AND gw=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->gw.getValue("")); \
+} \
+if (query->duration) { \
+	sql << " AND duration=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->duration.getValue("")); \
+} \
+if (query->ksrq) { \
+	sql << " AND ksrq=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->ksrq.getValue("")); \
+} \
+if (query->jsrq) { \
+	sql << " AND jsrq=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->jsrq.getValue("")); \
+} \
 
-uint64_t RraineeDAO::count(const RraineeQuery::Wrapper& query)
-{
+uint64_t RraineeDAO::count(const RraineeQuery::Wrapper& query) {
 	stringstream sql;
 	sql << "SELECT COUNT(*) FROM t_pcmjxsbdjl";
 	SAMPLE_TERAM_PARSE(query, sql);
@@ -29,39 +52,13 @@ uint64_t RraineeDAO::count(const RraineeQuery::Wrapper& query)
 	return sqlSession->executeQueryNumerical(sqlStr, params);
 }
 
-std::list<RraineeDO> RraineeDAO::selectWithPage(const RraineeQuery::Wrapper& query)
-{
+std::list<RraineeDO> RraineeDAO::selectWithPage(const RraineeQuery::Wrapper& query) {
 	stringstream sql;
-	sql << "SELECT * FROM t_pcmjxsbdjl";
+	//sql << "SELECT ygbh, Pcmjxszzkhjgjlname, Zz, Bm, Zw, Gw, Duration, Ksrq, Jsrq From t_pcmjxszzkhjgjl, t_pcmjxsbdjl, t_pcmjxsgz, t_pcmjxsygzzsqmx";
+	sql << "SELECT * From t_pcmjxsbdjl";
 	SAMPLE_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	RraineeMapper mapper;
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<RraineeDO, RraineeMapper>(sqlStr, mapper, params);
 }
-
-/*
-std::list<RraineeDO> RraineeDAO::selectByName(const string& name)
-{
-	string sql = "SELECT * FROM sample WHERE `name` LIKE CONCAT('%',?,'%')";
-	RraineeMapper mapper;
-	return sqlSession->executeQuery<RraineeDO, RraineeMapper>(sql, mapper, "%s", name);
-}
-
-uint64_t RraineeDAO::insert(const RraineeDO& iObj)
-{
-	string sql = "INSERT INTO `sample` (`name`, `sex`, `age`) VALUES (?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%i", iObj.getName(), iObj.getSex(), iObj.getAge());
-}
-
-int RraineeDAO::update(const RraineeDO& uObj)
-{
-	string sql = "UPDATE `sample` SET `name`=?, `sex`=?, `age`=? WHERE `id`=?";
-	return sqlSession->executeUpdate(sql, "%s%s%i%ull", uObj.getName(), uObj.getSex(), uObj.getAge(), uObj.getId());
-}
-
-int RraineeDAO::deleteById(uint64_t id)
-{
-	string sql = "DELETE FROM `sample` WHERE `id`=?";
-	return sqlSession->executeUpdate(sql, "%ull", id);
-}*/
