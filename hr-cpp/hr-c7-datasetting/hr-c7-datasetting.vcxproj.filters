@@ -14,6 +14,8 @@
     <ClCompile Include="service\archive\ArchiveService.cpp" />
     <ClCompile Include="dao\archive\ArchiveDAO.cpp" />
     <ClCompile Include="dao\archive\ArchiveMapper.h" />
+    <ClCompile Include="service\Title\TitleService.cpp" />
+    <ClCompile Include="dao\Title\TitleDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\OtherComponent.hpp" />
@@ -57,5 +59,8 @@
     <ClInclude Include="controller\Title\TitleController.h" />
     <ClInclude Include="service\archive\ArchiveService.h" />
     <ClInclude Include="dao\archive\ArchiveDAO.h" />
+    <ClInclude Include="service\Title\TitleService.h" />
+    <ClInclude Include="dao\Title\TitleDAO.h" />
+    <ClInclude Include="dao\Title\TitleMapper.h" />
   </ItemGroup>
 </Project>

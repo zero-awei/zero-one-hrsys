@@ -12,7 +12,7 @@ if (query->name) { \
 }\
 
 
-uint64_t TitleDAO::count(const TitleQuery::Wrapper & query)
+uint64_t TitleDAO::count(const TitleQuery::Wrapper& query)
 {
 	stringstream sql;
 	sql << "SELECT COUNT(*) FROM title";
@@ -48,7 +48,7 @@ uint64_t TitleDAO::insert(const TitleDO& iObj)
 int TitleDAO::update(const TitleDO& uObj)
 {
 	string sql = "UPDATE `title` SET  `num`=?, `name`=? ,`dtype`=?,`Ttype`=? WHERE `id`=?";
-	return sqlSession->executeUpdate(sql, "%s%s%s%s%i", uObj.getNum(), uObj.getName(), uObj.getDtype(), uObj.getTTtype(),uObj.getId());
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%i", uObj.getNum(), uObj.getName(), uObj.getDtype(), uObj.getTTtype(), uObj.getId());
 }
 
 int TitleDAO::deleteById(uint32_t id)
