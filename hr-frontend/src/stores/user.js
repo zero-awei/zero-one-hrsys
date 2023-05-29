@@ -14,6 +14,20 @@ let testMenus = [
     icon: 'IconSetting',
     children: [
       {
+        id: 5,
+        text: '人员花名册',
+        path: '/roster',
+        icon: 'IconSetting',
+        pid: 1
+      },
+      {
+        id: 6,
+        text: '见习员工',
+        path: '/trainee',
+        icon: 'IconSetting',
+        pid: 1
+      },
+      {
         id: 0,
         text: '试用员工',
         icon: 'IconSetting',
@@ -68,20 +82,6 @@ let testMenus = [
         id: 4,
         text: '黑名单',
         path: '/blacklist',
-        icon: 'IconSetting',
-        pid: 1
-      },
-      {
-        id: 5,
-        text: '人员花名册',
-        path: '/roster',
-        icon: 'IconSetting',
-        pid: 1
-      },
-      {
-        id: 6,
-        text: '见习员工',
-        path: '/trainee',
         icon: 'IconSetting',
         pid: 1
       }
