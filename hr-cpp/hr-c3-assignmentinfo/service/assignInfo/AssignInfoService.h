@@ -4,6 +4,7 @@
 #include <list>
 #include "domain/vo/assignInfo/AssignInfoVO.h"
 #include "domain/query/assignInfo/AssignInfoQuery.h"
+#include "domain/query/assignInfo/AssignExportQuery.h"
 
 /**
  * 示例服务实现，演示基础的示例服务实现
@@ -19,6 +20,8 @@ public:
 	bool updateData(const AssignInfoDTO::Wrapper& dto);
 	// 通过ID删除数据
 	bool removeData(string id);
+
+	string exportData(const AssignExportQuery::Wrapper &query);
 };
 
 #endif //!_Assign_Info_Query_SERVICE_

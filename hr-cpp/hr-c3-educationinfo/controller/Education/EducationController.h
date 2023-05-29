@@ -18,7 +18,7 @@
 #include "domain/dto/EducationImport/EducationImportDTO.h"
 #include "domain/vo/Education/EducationJsonVO.h"
 #include "domain/vo/EducationImport/EducationImportVO.h"
-#include "charsetconvertHepler.h"
+#include "CharsetConvertHepler.h"
 
 
 
@@ -367,9 +367,6 @@ public: // 接口
 		//// 响应结果
 		API_HANDLER_RESP_VO(execImportEducation(dto, authObject->getPayload()));
 
-
-		// 响应结果
-		API_HANDLER_RESP_VO(execImportEducation(dto));
 	}
 
 
@@ -381,21 +378,18 @@ public: // 接口
 		*/
 	//功能8 导出教育信息文件 接口描述
 	ENDPOINT_INFO(exportEducation) {
-		info->summary = ZH_WORDS_GETTER("export.summary");
+		info->summary = ZH_WORDS_GETTER("sample.field.id");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-		info->queryParams.add<UInt8>("rows").description = ZH_WORDS_GETTER("export.rows");
-		info->queryParams["rows"].addExample("default", UInt8(1));
-		info->queryParams["rows"].required = true;
-		info->queryParams.add<String>("sequence").description = ZH_WORDS_GETTER("export.sequence");
-		info->queryParams["sequence"].addExample("default", String("ASC"));
-		info->queryParams["sequence"].required = true;
+		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.field.id");
+		info->queryParams["id"].addExample("default", String("0000001"));
+		info->queryParams["id"].required = true;
 	}
 	//功能8 导出教育信息文件 接口处理
 	ENDPOINT(API_M_GET, "/education/export-eudaction", exportEducation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
 		API_HANDLER_QUERY_PARAM(query, EducationExportQuery, qps);
-		API_HANDLER_RESP_VO(execExportEducation(query, authObject->getPayload()));
+		API_HANDLER_RESP_VO(execExportEducation(query));
 	}
 
 
@@ -422,7 +416,7 @@ private: // 接口执行函数
 	EudacationImportJsonVO::Wrapper execImportEducation(const EducationImportDTO::Wrapper& dto, const PayloadDTO& payload);
 	//StringJsonVO::Wrapper execImportEducation(const EducationImportDTO::Wrapper& dto, const PayloadDTO& payload);
 //功能8 导出教育信息文件:  接口执行函数
-	StringJsonVO::Wrapper execExportEducation(const EducationExportQuery::Wrapper& query, const PayloadDTO& payload);
+	StringJsonVO::Wrapper execExportEducation(const EducationExportQuery::Wrapper& query);
 
 };
 

@@ -25,6 +25,7 @@
 #include "Macros.h"
 #include "ServerInfo.h"
 #include "domain/dto/DownloadLanguage/DownloadLanguageDTO.h"
+#include "domain/query/EmployeeLanguareQuery/EmployeeLanguageExportQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 /**
@@ -38,15 +39,20 @@ class ExportLanguageController : public oatpp::web::server::api::ApiController
 public: // 定义接口
 	ENDPOINT_INFO(downloadLanguage) {
 		info->summary = ZH_WORDS_GETTER("language.get.downloadurl");
+		API_DEF_ADD_AUTH();
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		// 定义分页参数描述
+		API_DEF_ADD_PAGE_PARAMS();
+		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.field.id");
+		info->queryParams["id"].addExample("default", String("0000001"));
+		info->queryParams["id"].required = true;
 	}
-	ENDPOINT(API_M_GET, "/language/download-language", downloadLanguage) {
-		// 响应结果
-		API_HANDLER_RESP_VO(execDownloadLanguage());
-		return createResponse(Status::CODE_202, "OK");
+	ENDPOINT(API_M_GET, "/language/download-language", downloadLanguage, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
+		API_HANDLER_QUERY_PARAM(query, EmployeeLanguageExportQuery, qps);
+		API_HANDLER_RESP_VO(execDownloadLanguage(query));
 	}
 private: // 定义接口执行函数
-	StringJsonVO::Wrapper execDownloadLanguage();
+	StringJsonVO::Wrapper execDownloadLanguage(const EmployeeLanguageExportQuery::Wrapper& query);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

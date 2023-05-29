@@ -24,6 +24,7 @@
 #include "domain/query/EmployeeInformationPageQuery/EmployeeInformationPageQuery.h"
 #include "domain/vo/EmployeeInformation/EmployeeInformationVO.h"
 #include "domain/do/EmployeeInformationPage/EmployeeInformationPageDO.h"
+#include "domain/query/EmployeeInformationPageQuery/EmployeeExportQuery.h"
 
 
 class EmployeeInformationServicer
@@ -34,6 +35,7 @@ public:
 	//新增员工信息
 	uint64_t saveData(const EmployeeInformationDTO::Wrapper& dto);
 
+	string exportData(const EmployeeExportQuery::Wrapper &query);
 };
 
 #endif // !_EMPLOYEE_INFORMATION_SERVICER_

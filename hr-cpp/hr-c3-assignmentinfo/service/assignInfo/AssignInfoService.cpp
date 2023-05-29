@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "AssignInfoService.h"
 #include "../../dao/assignInfoDAO/AssignInfoDAO.h"
+#include "ExcelComponent.h"
+#include "CharsetConvertHepler.h"
+#include "FastDfsClient.h"
 
 AssignInfoPageDTO::Wrapper AssignInfoService::listAll(const AssignInfoQuery::Wrapper& query)
 {
@@ -73,4 +76,37 @@ bool AssignInfoService::removeData(string id)
 {
 	AssignInfoDAO dao;
 	return dao.deleteById(id) == 1;
+}
+
+string AssignInfoService::exportData(const AssignExportQuery::Wrapper &query) {
+	AssignInfoDAO dao;
+	auto result = dao.selectById(query->id.getValue(""));
+#ifdef LINUX
+	//定义客户端对象
+	FastDfsClient client("conf/client.conf");
+#else
+	//定义客户端对象
+	FastDfsClient client("192.168.220.128");
+#endif
+	vector<vector<std::string>> data;
+	for (auto info : result) {
+		vector<std::string> row;
+		row.emplace_back(info.getAssign());
+		row.emplace_back(info.getDepart());
+		row.emplace_back(info.getEndTime());
+		row.emplace_back(info.getId());
+		row.emplace_back(info.getJob());
+		row.emplace_back(info.getOrganize());
+		row.emplace_back(info.getPost());
+		row.emplace_back(info.getStartTime());
+		data.emplace_back(std::move(row));
+	}
+	std::string excel = "./public/excel/assigninfo.xlsx";
+	std::string sheet = "AssignInfo";
+
+	ExcelComponent ex;
+	ex.writeVectorToFile(excel, sheet, data);
+
+	std::string fieldName = client.uploadFile(excel);
+	return client.uploadFile(excel);
 }

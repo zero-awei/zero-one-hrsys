@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "FastDfsClient.h"
 #include "FamilysituationController.h"
+#include "FastDfsClient.h"
 
 // 分页查询响应
 FamilySituationPageJsonVO::Wrapper FamilysituationController::execQueryByFamilysituation(const FamilysituationQuery::Wrapper& query)
@@ -115,10 +115,18 @@ StringJsonVO::Wrapper FamilysituationController::executeImportFamilysituation(co
 
 
 // 导出响应
-StringJsonVO::Wrapper FamilysituationController::execExportFamilysituation(const String& url)
+StringJsonVO::Wrapper FamilysituationController::execExportFamilysituation(const FamilysituationQuery::Wrapper &query)
 {
-	auto vo = StringJsonVO::createShared();
-	//待补充 返回一个地址
-	return vo;
+	auto jvo = StringJsonVO::createShared();
+	// 定义一个Service
+	// AssignInfoService service;
+	// //// 查询数据
+	// auto result = service.exportData(query);
+	// if (!result.empty()) {
+	// 	jvo->success(result);
+	// } else {
+	// 	jvo->fail("export fail");
+	// }
+	return jvo;
 }
 
