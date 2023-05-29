@@ -7,6 +7,8 @@ import com.zeroone.star.project.vo.JsonVO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 /**
  * <p>
  * 学历代码表 服务类
@@ -17,5 +19,5 @@ import org.springframework.web.bind.annotation.PostMapping;
  */
 public interface IBisEducationService extends IService<BisEducation> {
     @GetMapping("/get-education-distribution")
-    JsonVO<EducationQuery> getEducationDistribution();
+    List<EducationQuery> getEducationDistribution();
 }

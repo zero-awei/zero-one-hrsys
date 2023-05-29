@@ -48,11 +48,11 @@ public interface DashboardApis {
      * @Author: Rqs
      * @Date: 2023/5/18 22:47
      */
-    JsonVO<EducationQuery> queryEducationDistribution();
-
+    JsonVO<List<EducationQuery>> queryEducationDistribution();
 
     /**
      * 查询职业资格
+     *
      * @return
      */
     JsonVO<List<PimVocationalDTO>> queryVocational();

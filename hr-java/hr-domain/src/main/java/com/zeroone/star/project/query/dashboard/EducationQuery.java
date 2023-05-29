@@ -13,9 +13,8 @@ import lombok.Data;
 @ApiModel("学历分布数据对象")
 @Data
 public class EducationQuery {
-    @ApiModelProperty(value = "最高学历",example = "1DR")
-    private String higheducation;
+    @ApiModelProperty(value = "学历名称",example = "博士")
+    private String educationname;
     @ApiModelProperty(value = "人数",example = "5")
-    private int count;
-
+    private Integer count;
 }

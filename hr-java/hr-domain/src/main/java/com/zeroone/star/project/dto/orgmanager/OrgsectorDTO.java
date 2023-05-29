@@ -7,21 +7,18 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.*;
-import java.util.Date;
+
 
 /**
- * 描述：修改指定部门基本信息数据对象
- * 文件名：ModifyDeptInfoDTO
+ * 描述：新增部门数据对象
+ * 文件名：DeptInfoDTO
  * 创建者：rqs
  * 创建时间：2023/5/19 20:18
  */
-@ApiModel("修改指定部门信息数据对象")
+@ApiModel("新增部门数据对象")
 @Data
 @TableName("t_orgsector")
-public class ModifyDeptInfoDTO {
-    @ApiModelProperty(value = "部门标识",example = "7efb38a0-5877-4c3c-81d7-269bd17af27b")
-    @TableField(value = "orgsectorid",update = "false")
-    private String orgsectorid;
+public class OrgsectorDTO {
 
     @ApiModelProperty(value = "排序",example = "1")
     @NotNull(message = "排序不能为空")
@@ -79,6 +76,6 @@ public class ModifyDeptInfoDTO {
     private String startstopsign;
 
     @ApiModelProperty(value = "所属OU",example = "欣苑")
-    @TableField(value = " ")
+    @TableField(value = "belongou")
     private String belongou;
 }

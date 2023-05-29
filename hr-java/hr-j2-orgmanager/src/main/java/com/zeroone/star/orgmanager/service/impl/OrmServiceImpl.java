@@ -1,17 +1,23 @@
 package com.zeroone.star.orgmanager.service.impl;
 
-import com.zeroone.star.orgmanager.entity.Ormorginfo;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.zeroone.star.orgmanager.entity.Orgsector;
+import com.zeroone.star.orgmanager.entity.Ormbmkqdz;
 import com.zeroone.star.orgmanager.mapper.OrmMapper;
 import com.zeroone.star.orgmanager.service.IOrmService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.zeroone.star.project.dto.orgmanager.DeptInfoDTO;
-import com.zeroone.star.project.vo.orgmanager.DeptKqdzVO;
+import com.zeroone.star.project.dto.PageDTO;
+import com.zeroone.star.project.dto.orgmanager.OrgsectorDTO;
+import com.zeroone.star.project.dto.orgmanager.DeptKqdzDTO;
 import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
-import com.zeroone.star.project.query.orgmanager.KqdzQuery;
-import com.zeroone.star.project.vo.JsonVO;
+import com.zeroone.star.project.query.orgmanager.DeptKqdzQuery;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -24,22 +30,34 @@ import java.util.List;
  */
 @Service
 @AllArgsConstructor
-public class OrmServiceImpl extends ServiceImpl<OrmMapper, Ormorginfo> implements IOrmService {
+public class OrmServiceImpl extends ServiceImpl<OrmMapper, Orgsector> implements IOrmService {
+
+    @Autowired
+    private OrmMapper ormMapper;
 
     @Override
-    public JsonVO<String> saveDept(DeptInfoDTO deptInfoDTO) {
-        return null;
+    public String saveDept(OrgsectorDTO orgsectorDTO) {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        Orgsector orgsector = new Orgsector();
+        orgsector.setCreatedate(localDateTime);
+        orgsector.setUpdatedate(localDateTime);
+        orgsector.generateOrgSectorId();
+        BeanUtils.copyProperties(orgsectorDTO, orgsector);
+        int result = ormMapper.insert(orgsector);
+        return Integer.toString(result);
     }
 
     @Override
-    public JsonVO<String> updateDept(ModifyDeptInfoDTO modifyDeptInfoDTO) {
-        return null;
+    public String updateDeptById(ModifyDeptInfoDTO modifyDeptInfoDTO) {
+        int result = ormMapper.updateDeptById(modifyDeptInfoDTO);
+        return Integer.toString(result);
     }
 
     @Override
-    public List<DeptKqdzVO> listBmKqdz(KqdzQuery kqdzQuery) {
-        return null;
+    public Page<DeptKqdzDTO> listBmKqdz(DeptKqdzQuery kqdzQuery) {
+        Page<DeptKqdzDTO> page = new Page<>(kqdzQuery.getPageIndex(), kqdzQuery.getPageSize());
+        String ormorgsectorid = kqdzQuery.getOrmorgsectorid();
+        Page<DeptKqdzDTO> deptKqdzDTOS = ormMapper.selectBmKqdzListById(page, ormorgsectorid);
+        return deptKqdzDTOS;
     }
-
-
 }

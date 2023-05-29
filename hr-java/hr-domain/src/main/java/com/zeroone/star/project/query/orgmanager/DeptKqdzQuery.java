@@ -4,9 +4,6 @@ import com.zeroone.star.project.query.PageQuery;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-import javax.validation.constraints.NotBlank;
 
 /**
  * 描述：查询指定部门考勤地址列表（分页查询）数据对象
@@ -16,7 +13,7 @@ import javax.validation.constraints.NotBlank;
  */
 @Data
 @ApiModel("查询指定部门考勤地址列表（分页查询）数据对象")
-public class KqdzQuery extends PageQuery {
-    @ApiModelProperty(value = "要修改信息的部门编码",example = "2123")
-    private String orgCode;
+public class DeptKqdzQuery extends PageQuery {
+    @ApiModelProperty(value = "部门ID",example = "21240BC7-5A3F-4823-A2BD-F2CD8331D95C")
+    private String ormorgsectorid;
 }

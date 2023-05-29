@@ -1,12 +1,15 @@
 package com.zeroone.star.project.orgmanager;
 
-import com.zeroone.star.project.dto.orgmanager.DeptInfoDTO;
-import com.zeroone.star.project.vo.orgmanager.DeptKqdzVO;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.zeroone.star.project.dto.PageDTO;
+import com.zeroone.star.project.dto.orgmanager.OrgsectorDTO;
+import com.zeroone.star.project.dto.orgmanager.DeptKqdzDTO;
 import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
-import com.zeroone.star.project.query.orgmanager.KqdzQuery;
+import com.zeroone.star.project.query.orgmanager.DeptKqdzQuery;
 import com.zeroone.star.project.vo.JsonVO;
+import org.springframework.validation.annotation.Validated;
 
-import java.util.List;
+import javax.validation.Valid;
 
 /**
  * 描述：部门信息接口
@@ -14,6 +17,7 @@ import java.util.List;
  * 创建者：rqs
  * 创建时间：2023/5/19 21:07
  */
+@Validated
 public interface OrgmanagerApis {
     /**
      * @Description: 新增部门
@@ -22,7 +26,7 @@ public interface OrgmanagerApis {
      * @Author: Rqs
      * @Date: 2023/5/19 23:43
      */
-    JsonVO<String> addDept(DeptInfoDTO deptInfoDTO);
+    JsonVO<String> addDept(@Valid OrgsectorDTO orgsectorDTO);
     /**
      * @Description: 修改指定部门信息
      * @params: [modifyDeptInfoDTO]
@@ -30,7 +34,7 @@ public interface OrgmanagerApis {
      * @Author: Rqs
      * @Date: 2023/5/19 23:43
      */
-    JsonVO<String> modifyDept(ModifyDeptInfoDTO modifyDeptInfoDTO);
+    JsonVO<String> modifyDeptById(@Valid ModifyDeptInfoDTO modifyDeptInfoDTO);
 
     /**
      * @Description: 查询指定部门考勤地址列表（分页查询）
@@ -39,5 +43,5 @@ public interface OrgmanagerApis {
      * @Author: Rqs
      * @Date: 2023/5/19 23:56
      */
-    JsonVO<List<DeptKqdzVO>> queryBmKqdzById(KqdzQuery kqdzQuery);
+    JsonVO<Page<DeptKqdzDTO>> queryBmKqdzById(@Valid DeptKqdzQuery kqdzQuery);
 }
