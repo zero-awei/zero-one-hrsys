@@ -3,10 +3,9 @@ package com.zeroone.star.project.orgmanager;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.orgmanager.DepartmentDTO;
 import com.zeroone.star.project.dto.orgmanager.ExportDTO;
+import com.zeroone.star.project.dto.orgmanager.KqdzDTO;
 import com.zeroone.star.project.dto.orm.OrmBmkqdzDTO;
-import com.zeroone.star.project.query.orgmanager.DepartmentQuery;
-import com.zeroone.star.project.query.orgmanager.ExportAttendanceAddressQuery;
-import com.zeroone.star.project.query.orgmanager.ExportDepartmentsQuery;
+import com.zeroone.star.project.query.orgmanager.*;
 import com.zeroone.star.project.vo.JsonVO;
 
 /**
@@ -46,4 +45,19 @@ public interface DepartmentApis {
     JsonVO<String> modifyAttendanceAddress(OrmBmkqdzDTO ormBmkqdzDTO);
 
 
+    /**
+     * @Description: 查询指定部门基本信息
+     * @params: [queryDeptBasicInfoByName]
+     * @return: JsonVO<DepartmentDTO>
+     * @Author: C.C.
+     */
+    JsonVO<DepartmentDTO> queryDeptBasicInfoById(DeptInfoQuery query);
+
+    /**
+     * @Description: 删除指定部门考勤地址信息
+     * @params: [deleteKqdzByName]
+     * @return: JsonVO<KqdzDTO>
+     * @Author: C.C.
+     */
+    JsonVO<KqdzDTO> deleteKqdzById(DeleteKqdzQuery query);
 }

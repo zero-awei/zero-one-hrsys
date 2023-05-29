@@ -1,22 +1,18 @@
 package com.zeroone.star.orgmanager.controller;
 
-import com.zeroone.star.orgmanager.service.ITOrmbmkqdzService;
 import com.zeroone.star.orgmanager.service.ISrforgsectorService;
+import com.zeroone.star.orgmanager.service.ITOrmbmkqdzService;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.orgmanager.DepartmentDTO;
 import com.zeroone.star.project.dto.orgmanager.ExportDTO;
+import com.zeroone.star.project.dto.orgmanager.KqdzDTO;
 import com.zeroone.star.project.dto.orm.OrmBmkqdzDTO;
 import com.zeroone.star.project.orgmanager.DepartmentApis;
-import com.zeroone.star.project.query.orgmanager.DepartmentQuery;
-import com.zeroone.star.project.query.orgmanager.ExportAttendanceAddressQuery;
-import com.zeroone.star.project.query.orgmanager.ExportDepartmentsQuery;
+import com.zeroone.star.project.query.orgmanager.*;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -68,5 +64,17 @@ public class DepartmentController implements DepartmentApis {
         return ormbmkqdzService.updateAttendanceAddress(ormBmkqdzDTO);
     }
 
+    @ApiOperation(value = "查询指定部门基本信息")
+    @GetMapping(value = "query-dept-info-by-id")
+    @Override
+    public JsonVO<DepartmentDTO> queryDeptBasicInfoById(DeptInfoQuery query) {
+        return JsonVO.success(iSrforgsectorService.queryDeptById(query));
+    }
 
+    @ApiOperation(value = "删除指定部门考勤地址信息")
+    @DeleteMapping(value = "delete-attendance-address-by-id")
+    @Override
+    public JsonVO<KqdzDTO> deleteKqdzById(DeleteKqdzQuery query) {
+        return null;
+    }
 }

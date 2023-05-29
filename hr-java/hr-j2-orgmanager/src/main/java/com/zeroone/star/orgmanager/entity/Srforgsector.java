@@ -1,5 +1,6 @@
 package com.zeroone.star.orgmanager.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -66,6 +67,7 @@ public class Srforgsector implements Serializable {
     /**
      * 部门标识：主键
      */
+    @TableId
     private String orgsectorid;
 
     /**
