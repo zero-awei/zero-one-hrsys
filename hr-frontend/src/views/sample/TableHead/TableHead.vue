@@ -23,7 +23,7 @@ const tableOperations = reactive([
   {
 ])
 //新增表单所需栏目配置
-const addData = reactive([
+const dataitem = reactive([
   {
     label: '员工姓名',
     name: 'name',
@@ -51,4 +51,7 @@ const addData = reactive([
     type: 'Text'
   }
 ])
+const saveData = (val)=>{
+  //写保存数据的逻辑
+}
 </script>
