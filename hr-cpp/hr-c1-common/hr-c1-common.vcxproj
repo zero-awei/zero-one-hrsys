@@ -230,8 +230,8 @@
     <ClInclude Include="domain\vo\certs\ProfCertsVO.h" />
     <ClInclude Include="domain\vo\certs\CertTypeVO.h" />
     <ClInclude Include="domain\vo\declareList\DeclareListVO.h" />
-    <ClInclude Include="domain\vo\typeContract\TypeContractVO.h" />
     <ClInclude Include="domain\vo\pullList\PullListVO.h" />
+    <ClInclude Include="domain\vo\typeContract\TypeContractVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\auditStatus\AuditStatusService.h" />
