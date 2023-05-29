@@ -23,7 +23,6 @@ class EvaluationTypesController : public oatpp::web::server::api::ApiController
 public:
 	// 定义查询所有用户信息接口端点描述
 	ENDPOINT_INFO(queryEvaluationTypes) {
-
 		info->summary = ZH_WORDS_GETTER("common.controller.evaluationTypes");
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}

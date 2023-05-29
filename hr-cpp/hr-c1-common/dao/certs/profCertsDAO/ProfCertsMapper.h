@@ -34,7 +34,7 @@ public:
 	{
 		ProfCertsDO data;
 		data.setPimQualMajorId(resultSet->getString(1));
-		cout << resultSet->getString(1) << endl;
+		//cout << resultSet->getString(1) << endl;
 		data.setPimQualMajorName(resultSet->getString(2));
 		data.setCreateMan(resultSet->getString(3));
 		data.setCreateDate(resultSet->getString(4));
@@ -51,7 +51,7 @@ public:
 		data.setGwType(resultSet->getString(15));
 		data.setGwzs(resultSet->getString(16));
 		data.setPimQualTypeName(resultSet->getString(17));
-		cout << resultSet->getString(17) << endl;
+		//cout << resultSet->getString(17) << endl;
 		return data;
 	}
 };
