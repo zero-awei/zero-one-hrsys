@@ -3,6 +3,12 @@ import Request from '@/apis/request'
 // 测试菜单数据
 let testMenus = [
   {
+    id: 0,
+    text: '门户首页',
+    icon: 'DataAnalysis',
+    path: '/pimportalview'
+  },
+  {
     id: 1,
     text: '系统管理',
     icon: 'IconSetting',
@@ -125,6 +131,48 @@ let testMenus = [
         path: '/un-25',
         icon: 'IconTickets',
         pid: 3
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: '标准化数据设置',
+    icon: 'IconTickets',
+    children: [
+      {
+        id: 2,
+        text: '订单管理1',
+        path: '/un-31',
+        icon: 'IconTickets',
+        pid: 4
+      },
+      {
+        id: 3,
+        text: '订单管理2',
+        path: '/un-32',
+        icon: 'IconTickets',
+        pid: 4
+      },
+      {
+        id: 4,
+        text: '岗位(技能)证书',
+        path: '/postcertificateview',
+        icon: 'IconTickets',
+        pid: 4
+      },
+      {
+        id: 5,
+        text: '职称目录',
+        path: '/jobtitlecatalog',
+        icon: 'IconTickets',
+        pid: 4
+      },
+      {
+        id: 6,
+        text: '档案室',
+        path: '/archives',
+        icon: 'IconTickets',
+        pid: 4
       }
     ]
   }
