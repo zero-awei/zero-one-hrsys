@@ -201,6 +201,7 @@
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="dao\CertificateManage\CheckCerListDAO.h" />
     <ClInclude Include="dao\CertificateManage\CheckCerListMapper.h" />
+    <ClInclude Include="dao\CertificateManage\DeleteCertifDAO.h" />
     <ClInclude Include="dao\CertificateManage\EmployeeInfoDAO.h" />
     <ClInclude Include="dao\CertificateManage\EmployeeInfoMapper.h" />
     <ClInclude Include="dao\CertificateManage\ExportCertifDAO.h" />
@@ -270,6 +271,7 @@
     <ClInclude Include="domain\vo\RosterOfPer\TemporaryStaffVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\CertificateManage\DeleteCertifService.h" />
     <ClInclude Include="service\CertificateManage\EmployeeInfoService.h" />
     <ClInclude Include="service\CertificateManage\ExportCertifService.h" />
     <ClInclude Include="service\RosterOfPer\EmployeePageService.h" />
@@ -298,12 +300,14 @@
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="dao\CertificateManage\CheckCerListDAO.cpp" />
+    <ClCompile Include="dao\CertificateManage\DeleteCertifDAO.cpp" />
     <ClCompile Include="dao\CertificateManage\EmployeeInfoDAO.cpp" />
     <ClCompile Include="dao\CertificateManage\ExportCertifDAO.cpp" />
     <ClCompile Include="dao\RosterOfPer\EmployeePageDAO.cpp" />
     <ClCompile Include="dao\RosterOfPer\ExportEmployeeDAO.cpp" />
     <ClCompile Include="dao\RosterOfPer\TemporaryStaffDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\CertificateManage\DeleteCertifService.cpp" />
     <ClCompile Include="service\CertificateManage\EmployeeInfoService.cpp" />
     <ClCompile Include="service\RosterOfPer\EmployeePageService.cpp" />
     <ClCompile Include="service\RosterOfPer\ExportEmployeeService.cpp" />

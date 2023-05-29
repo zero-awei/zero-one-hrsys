@@ -26,8 +26,6 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-
-
 /**
  * 示例传输对象
  */
@@ -180,7 +178,7 @@ class EmployeeDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("employeeDTO.field.cjgzsj");
 	}
 	// 工作年限
-	DTO_FIELD(String, gznx);
+	DTO_FIELD(Int32, gznx);
 	DTO_FIELD_INFO(gznx) {
 		info->description = ZH_WORDS_GETTER("employeeDTO.field.gznx");
 	}
@@ -190,7 +188,7 @@ class EmployeeDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("employeeDTO.field.tozjdate");
 	}
 	// 建筑系统工作年限
-	DTO_FIELD(String, zjxtgznx);
+	DTO_FIELD(Int32, zjxtgznx);
 	DTO_FIELD_INFO(zjxtgznx) {
 		info->description = ZH_WORDS_GETTER("employeeDTO.field.zjxtgznx");
 	}
@@ -260,12 +258,12 @@ class EmployeeDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("employeeDTO.field.zcbh");
 	}
 	// 是否注册会计师
-	DTO_FIELD(String, sfzckjs);
+	DTO_FIELD(Int32, sfzckjs);
 	DTO_FIELD_INFO(sfzckjs) {
 		info->description = ZH_WORDS_GETTER("employeeDTO.field.sfzckjs");
 	}
 	// 注册会计师证书编号
-	DTO_FIELD(String, zgzsbh);
+	DTO_FIELD(Int32, zgzsbh);
 	DTO_FIELD_INFO(zgzsbh) {
 		info->description = ZH_WORDS_GETTER("employeeDTO.field.zgzsbh");
 	}

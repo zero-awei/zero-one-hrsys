@@ -48,7 +48,7 @@ class RosterPersonDO {
 	//第一学历所学专业 
 	CC_SYNTHESIZE(string, dyxlsxzy, dyxlsxzy);
 	//第一学历毕业时间 
-	CC_SYNTHESIZE(string, dyxlbysj, t_pcmdetail);
+	CC_SYNTHESIZE(string, dyxlbysj, dyxlbysj);
 	//第一学历毕业院校 
 	CC_SYNTHESIZE(string, dyxlbyyx, dyxlbyyx);
 	//最高学历毕业院校 

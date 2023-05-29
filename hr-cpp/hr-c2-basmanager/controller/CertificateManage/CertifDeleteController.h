@@ -39,7 +39,7 @@ public:
 	}
 private:
 	// 3.3 演示删除数据
-	Uint64JsonVO::Wrapper execRemoveCertif(const RemoveCertifDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execRemoveCertif(const RemoveCertifDTO::Wrapper& dto);
 };
 
 // 0 取消API控制器使用宏

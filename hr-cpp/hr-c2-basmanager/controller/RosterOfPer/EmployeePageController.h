@@ -49,7 +49,7 @@ public: // 定义接口
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("idAndName").description = ZH_WORDS_GETTER("employee.field.idAndName");
-		info->queryParams["idAndName"].addExample("default", String("张**"));
+		info->queryParams["idAndName"].addExample("default", String("2032****"));
 		info->queryParams["idAndName"].required = false;
 		
 	}

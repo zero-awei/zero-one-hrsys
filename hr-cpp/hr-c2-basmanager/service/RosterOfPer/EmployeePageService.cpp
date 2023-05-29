@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "EmployeePageService.h"
 #include "../../dao/RosterOfPer/EmployeePageDAO.h"
+#include "Macros.h"
 
 EmployeePageDTO::Wrapper EmployeePageService::listAll(const EmployeePageQuery::Wrapper& query)
 {
@@ -42,17 +43,15 @@ EmployeePageDTO::Wrapper EmployeePageService::listAll(const EmployeePageQuery::W
 	// ½«DO×ª»»³ÉDTO
 	for (RosterPersonDO sub : result)
 	{
-		auto dto = EmployeePageDTO::createShared();
-		
-		// 		dto->id = sub.getId();
-		// 		dto->name = sub.getName();
-		// 		dto->sex = sub.getSex();
-		// 		dto->age = sub.getAge();
-		
-		EMPLOYEEPAGE_DTO_TO_DO;
+		auto dto = EmployeeDTO::createShared();
+
+		EMPLOYEEPAGE_DO_TO_DTO_A
+		EMPLOYEEPAGE_DO_TO_DTO_B
+		EMPLOYEEPAGE_DO_TO_DTO_C
 		pages->addData(dto);
 
 	}
+	
 	return pages;
 }
 

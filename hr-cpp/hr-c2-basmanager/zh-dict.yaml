@@ -140,6 +140,7 @@ loanedperpage:
 
 employeeDTO:
  field:
+  querysample: 张**
   ormOrgName: 工作单位
   orgsetorName: 部门名称 t_srforgsector
   ygbh: 员工编号
