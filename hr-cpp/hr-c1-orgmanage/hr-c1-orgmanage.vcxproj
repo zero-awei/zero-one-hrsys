@@ -235,6 +235,7 @@
     <ClInclude Include="domain\dto\jobUpdate\JobUpdateDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDeleteDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDetailDTO.h" />
+    <ClInclude Include="domain\dto\projTag\AddProjTagDTO.h" />
     <ClInclude Include="domain\dto\projTag\DeleteProjTagDTO.h" />
     <ClInclude Include="domain\dto\projTag\ImportTagDTO.h" />
     <ClInclude Include="domain\dto\projTag\ModifyTagDTO.h" />

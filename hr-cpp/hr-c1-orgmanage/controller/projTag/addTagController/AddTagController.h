@@ -24,7 +24,7 @@
 #include "ApiHelper.h"
 #include "domain/dto/projTag/ProjTagDTO.h"
 #include "domain/vo/projTag/ProjTagVO.h"
-
+#include "domain/dto/projTag/AddProjTagDTO.h"
 #include OATPP_CODEGEN_BEGIN(ApiController)
 /**
  * 新增项目标签Controller接口：
@@ -43,18 +43,15 @@ public: // 定义接口
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-
-		// 定义参数描述
-
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
-	ENDPOINT(API_M_POST, PATH_TO_PROJTAG("/add-proj-tag"), addTag, API_HANDLER_AUTH_PARAME, BODY_DTO(ProjTagDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, PATH_TO_PROJTAG("/add-proj-tag"), addTag, API_HANDLER_AUTH_PARAME, BODY_DTO(AddProjTagDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddProjTag(dto, authObject->getPayload()));
 	}
 
 private: // 定义接口执行函数
-	Uint64JsonVO::Wrapper execAddProjTag(const ProjTagDTO::Wrapper& dto, const PayloadDTO& payload);
+	StringJsonVO::Wrapper execAddProjTag(const AddProjTagDTO::Wrapper& dto, const PayloadDTO& payload);
 };
 
 

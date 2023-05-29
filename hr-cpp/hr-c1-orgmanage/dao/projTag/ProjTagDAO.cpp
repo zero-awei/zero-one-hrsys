@@ -64,23 +64,16 @@ if (__QUERY__->order == "DESC") { \
 		__SQL__ << " ORDER BY `XH` DESC"; \
 }
 
-uint64_t ProjTagDAO::insert(const ProjTagDO& iObj)
+bool ProjTagDAO::insert(const ProjTagDO& iObj)
 {
 	// ORMXMBQID CREATEMAN ORMXMBQNAME UPDATEMAN CREATEDATE UPDATEDATE ORMORGID
 	string sql = "INSERT INTO `t_ormxmbq` \
 				(`ORMXMBQID`, `CREATEMAN`, `ORMXMBQNAME`, `UPDATEMAN`, `CREATEDATE`, `UPDATEDATE`, `ORMORGID`)\
 				 VALUES (?, ?, ?, ?, ?, ?, ?)";
-	int isSuccess = sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s", \
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s", \
 				iObj.getId(), iObj.getCreator(), iObj.getTagName(), \
 				iObj.getUpdater(), iObj.getCreateTime(), iObj.getUpdateTime(), iObj.getOrgId());
-	if (isSuccess) {
-		// Id过长导致stoi无法处理
-		// return std::stoi(iObj.getId());
-		return std::atoi(iObj.getId().c_str());
-	}
-	else {
-		return 0;
-	}
+	
 }
 
 uint64_t ProjTagDAO::count(const OrgListQuery::Wrapper& query)

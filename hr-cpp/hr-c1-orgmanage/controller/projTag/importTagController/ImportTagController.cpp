@@ -14,13 +14,23 @@ ImportProjTagJsonVO::Wrapper ImportTagController::execImportTag(const ImportTagD
 		return vo;
 	}
 
-
 	// TODO: 调用service
 	std::list<std::string> result;
 	ProjTagService service;
 	auto res = service.addMultiTag(dto, payload);
 
-	if (res->newId->size()) vo->init(res, RS_SUCCESS);
-	else vo->init(res, RS_FAIL);
+	// -1:数据量超过5000
+	if (res->newId->front() == "-1") {
+		vo->init(res, ResultStatus("The file has lots of data.", 5001));
+	}
+	// -2:数据不符合数据库限制条件：如外键限制，主键限制
+	else if (res->newId->front() == "-2")
+	{
+		vo->init(res, ResultStatus("The data does not meet the constraints", 5002));
+	}
+	// 操作成功
+	else {
+		vo->init(res, RS_SUCCESS);
+	}
 	return vo;
 }
