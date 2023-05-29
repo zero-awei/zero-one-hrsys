@@ -26,7 +26,7 @@ public: // 定义接口
 		API_DEF_ADD_QUERY_PARAMS(String, "tagName", ZH_WORDS_GETTER("projTag.pageQuery.tagName"), "tag1", false);
 	}
 
-	ENDPOINT(API_M_GET, "/project-tag/page-query-project-tag-list", pageQueryProjTag, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, PATH_TO_PROJTAG("/page-query-project-tag-list"), pageQueryProjTag, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
 		API_HANDLER_QUERY_PARAM(query, PageProjTagQuery, qps);
 		API_HANDLER_RESP_VO(execPageQueryProjTag(query));
 	}
