@@ -25,6 +25,7 @@
 #include "domain/vo/projTag/ImportTagVO.h"
 #include "uselib/excel/ExportExcel.h"
 #include "uselib/fastdfs/UseFastDfs.h"
+#include "SnowFlake.h"
 // 文件到DO宏
 #define FILE_TO_DO(target, src, f1, f2) target.set##f1(src##f2);
 #define INDEX(x, y) [x][y]
@@ -44,11 +45,12 @@ uint64_t ProjTagService::saveData(const ProjTagDTO::Wrapper& dto)
 		UpdateTime, updatedate,
 		OrgId, ormorgid
 	);
-	
+	// 生成雪花ID
+	SnowFlake f(1, 1);
+	data.setId(std::to_string(f.nextId()));
 	// 执行插入操作
 	ProjTagDAO dao;
 	return dao.insert(data);
-
 }
 
 OrgListPageDTO::Wrapper ProjTagService::listOrgList(const OrgListQuery::Wrapper& query)
@@ -108,6 +110,10 @@ ImportTagVO::Wrapper ProjTagService::addMultiTag(const ImportTagDTO::Wrapper& dt
 
 	string name = payload.getUsername();
 	string day = SimpleDateTimeFormat::format();
+
+	// 生成雪花ID
+	SnowFlake f(1,1);
+
 	// 文件数据到DO
 	list<ProjTagDO> all;
 	for (int i = 1; i < data.size(); i++)
@@ -118,7 +124,7 @@ ImportTagVO::Wrapper ProjTagService::addMultiTag(const ImportTagDTO::Wrapper& dt
 			TagName, INDEX(i, hash["ORMXMBQNAME"]),
 			OrgId, INDEX(i, hash["ORMORGID"])
 		);
-
+		tmp.setId(std::to_string(f.nextId()));
 		tmp.setUpdateTime(day);
 		tmp.setCreateTime(day);
 		tmp.setUpdater(name);

@@ -70,9 +70,17 @@ uint64_t ProjTagDAO::insert(const ProjTagDO& iObj)
 	string sql = "INSERT INTO `t_ormxmbq` \
 				(`ORMXMBQID`, `CREATEMAN`, `ORMXMBQNAME`, `UPDATEMAN`, `CREATEDATE`, `UPDATEDATE`, `ORMORGID`)\
 				 VALUES (?, ?, ?, ?, ?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s", \
+	int isSuccess = sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s", \
 				iObj.getId(), iObj.getCreator(), iObj.getTagName(), \
 				iObj.getUpdater(), iObj.getCreateTime(), iObj.getUpdateTime(), iObj.getOrgId());
+	if (isSuccess) {
+		// Id过长导致stoi无法处理
+		// return std::stoi(iObj.getId());
+		return std::atoi(iObj.getId().c_str());
+	}
+	else {
+		return 0;
+	}
 }
 
 uint64_t ProjTagDAO::count(const OrgListQuery::Wrapper& query)

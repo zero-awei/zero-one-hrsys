@@ -28,8 +28,8 @@
 #include OATPP_CODEGEN_BEGIN(ApiController)
 /**
  * 新增项目标签Controller接口：
- * 接收内容为 ormxmbqname(项目标签)，ormorgid(组织id)，其他字段自动生成
- * 返回值：xh,数据库自增字段
+ * 接收内容为 ormxmbqname(项目标签)，ormorgid(组织id)，ormxmbqid(项目标签id，目前由随机雪花ID替代)，其他字段自动生成
+ * 返回值：项目标签ID
  * 负责人：远翔
  */
 class AddTagController : public oatpp::web::server::api::ApiController
@@ -55,7 +55,6 @@ public: // 定义接口
 
 private: // 定义接口执行函数
 	Uint64JsonVO::Wrapper execAddProjTag(const ProjTagDTO::Wrapper& dto, const PayloadDTO& payload);
-	Uint64JsonVO::Wrapper execAddProjTag(const ProjTagDTO::Wrapper& dto);
 };
 
 
