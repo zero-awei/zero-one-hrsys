@@ -23,8 +23,8 @@ public class MenuDTO {
     @ApiModelProperty(value = "图标", example = "el-icon-s-tools")
     private String icon;
 
-    @ApiModelProperty(value = "父菜单名称", example = "根菜单")
-    private String parentMenuName;
+    @ApiModelProperty(value = "父菜单id", example = "1")
+    private String parent_menu_id;
 
     @ApiModelProperty(value = "层次", example = "1")
     private Integer level;

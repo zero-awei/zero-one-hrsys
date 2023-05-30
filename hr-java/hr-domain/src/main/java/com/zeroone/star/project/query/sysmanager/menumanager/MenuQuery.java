@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  * <p>版权：&copy;01星球</p>
  * <p>地址：01星球总部</p>
- * @author
+ * @author camille
  * @version 1.0.0
  */
 
@@ -29,6 +29,15 @@ public class MenuQuery extends PageQuery {
 
     @ApiModelProperty(value = "显示级别", example = "1")
     private Integer priority;
+
+    @ApiModelProperty(value = "图标", example = "主菜单")
+    private String  icon;
+
+    @ApiModelProperty(value = "描述", example = "这是描述")
+    private String description;
+
+    @ApiModelProperty(value = "父级菜单id", example = "1")
+    private Integer parent_menu_id;
 
     @ApiModelProperty(value = "层次", example = "1")
     private Integer level;
