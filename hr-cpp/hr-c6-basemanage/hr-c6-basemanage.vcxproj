@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -214,6 +214,7 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="dao\ContractInfo\ContractInfoDAO.h" />
+    <ClInclude Include="dao\ContractInfo\ContractInfoMapper.h" />
     <ClInclude Include="dao\expenseLedger\ExpenseLedgerDAO.h" />
     <ClInclude Include="dao\expenseLedger\ExpenseLedgerMapper.h" />
     <ClInclude Include="dao\Gosh\GoshDAO.h" />
@@ -226,10 +227,12 @@
     <ClInclude Include="dao\laborDispatch\LaborDispatchMapper-mh.h" />
     <ClInclude Include="dao\TerminationReminder\TerminationReminderDAO.h" />
     <ClInclude Include="dao\TerminationReminder\TerminationReminderMapper.h" />
+    <ClInclude Include="domain\do\contractInfoakie\ContractInfoDO.h" />
     <ClInclude Include="domain\do\expenseLedger\ExpenseLedgerDO.h" />
     <ClInclude Include="domain\do\ExpenseLedge\ExpenseLedge.h" />
     <ClInclude Include="domain\do\laborDispatch\LaborDispatchDO.h" />
     <ClInclude Include="domain\do\TerminationReminder\TerminationReminderDO.h" />
+    <ClInclude Include="domain\dto\ContractDTO\ContractDTO_.h" />
     <ClInclude Include="domain\dto\ExpenseLedger\ExpenseLedgerDTO.h" />
     <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
     <ClInclude Include="domain\dto\JobTitleInfo\JobTitleInfoDTO.h" />
