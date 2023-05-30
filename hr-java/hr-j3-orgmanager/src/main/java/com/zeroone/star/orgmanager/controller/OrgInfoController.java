@@ -1,5 +1,6 @@
 package com.zeroone.star.orgmanager.controller;
 
+import com.zeroone.star.orgmanager.service.ITOrmorgdzService;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sample.SampleDTO;
 import com.zeroone.star.project.j3.dto.DeleteDTO;
@@ -12,6 +13,7 @@ import com.zeroone.star.project.j3.query.OrgQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,6 +33,9 @@ import java.util.List;
 @RequestMapping("orginfo")
 @Api(tags = "组织信息管理")
 public class OrgInfoController implements OrgInfoApis {
+
+    @Autowired
+    private ITOrmorgdzService itOrmorgdzService;
 
     @DeleteMapping("remove-org-address")
     @ApiOperation("删除组织地址")
@@ -64,7 +69,7 @@ public class OrgInfoController implements OrgInfoApis {
     @ApiOperation("删除指定组织地址信息（支持批量）")
     @Override
     public JsonVO<Boolean> deleteOrgAddress(@RequestBody OrgAddressDto ids) {
-        return null;
+        return JsonVO.success(itOrmorgdzService.deleteOrgAddress(ids));
     }
 
     @GetMapping("export-org-address")
