@@ -13,12 +13,12 @@ if (query->pimpersonid) { \
 	SQLPARAMS_PUSH(params, "s", std::string, query->pimpersonid.getValue("")); \
 }
 
-int t_pimpaperDAO::insert(const t_pimpaperDO& iObj, string idStr)
+int t_pimpaperDAO::insert(const t_pimpaperDO& iObj, string idStr, string datetime)
 {
-	string sql = "INSERT INTO `t_pimpaper` (`FBSJ`, `CBS`, `KWQS`, `FJ`, `GRZLWZZZDPM`, `KWMC`, `PIMPAPERNAME`, `PIMPAPERID`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+	string sql = "INSERT INTO `t_pimpaper` (`FBSJ`, `CBS`, `KWQS`, `FJ`, `GRZLWZZZDPM`, `KWMC`, `PIMPAPERNAME`, `PIMPAPERID`, `CBSHKWMC`, `CREATEDATE`, `UPDATEDATE`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-	return sqlSession->executeUpdate(sql, "%s%s%i%s%i%s%s%s", iObj.getFbsj(), iObj.getCbs(), iObj.getKwqs(), iObj.getFj(),
-												iObj.getGrzlwzzzdpm(), iObj.getKwmc(), iObj.getPimpapername(), idStr);
+	return sqlSession->executeUpdate(sql, "%s%s%i%s%i%s%s%s%s%s%s", iObj.getFbsj(), iObj.getCbs(), iObj.getKwqs(), iObj.getFj(),
+												iObj.getGrzlwzzzdpm(), iObj.getKwmc(), iObj.getPimpapername(), idStr, iObj.getCbs(), datetime, datetime);
 }
 
 uint64_t t_pimpaperDAO::count(const PaperQuery::Wrapper& query)

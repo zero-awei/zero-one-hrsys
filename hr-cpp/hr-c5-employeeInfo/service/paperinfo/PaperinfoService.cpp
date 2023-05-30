@@ -45,9 +45,17 @@ int PaperinfoService::saveData(const PaperDTO::Wrapper& dto)
 	SnowFlake snowFlake(1, 5);
 	uint64_t id = snowFlake.nextId();
 	string idStr = to_string(id);
+	// 生成当前时间
+	time_t rawtime;
+	struct tm* info;
+	char buffer[80];
+	time(&rawtime);
+	info = localtime(&rawtime);
+	strftime(buffer, 80, "%Y-%m-%d %H:%M:%S", info);
+	string datetime(buffer);
 	// 执行数据添加
 	t_pimpaperDAO dao;
-	return dao.insert(data, idStr);
+	return dao.insert(data, idStr, datetime);
 }
 
 bool PaperinfoService::removeData(string pimpaperid)
