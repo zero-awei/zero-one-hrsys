@@ -8,26 +8,20 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 示例分页查询对象
- * (后面要拍改成新增证书)
+人员花名册-离退休人员-分页查询员工列表--pine
  */
 class CheckRetiresListQuery : public PageQuery
 {
 	DTO_INIT(CheckRetiresListQuery, PageQuery);
-	// 姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("sample.field.name");
+	// 员工编号
+	DTO_FIELD(UInt64, ygbh);
+	DTO_FIELD_INFO(ygbh) {
+		info->description = ZH_WORDS_GETTER("rosterofper.field.ygbh");
 	}
-	// 性别
-	DTO_FIELD(String, sex);
-	DTO_FIELD_INFO(sex) {
-		info->description = ZH_WORDS_GETTER("sample.field.sex");
-	}
-	// 年龄
-	DTO_FIELD(UInt32, age);
-	DTO_FIELD_INFO(age) {
-		info->description = ZH_WORDS_GETTER("sample.field.age");
+	// 员工姓名
+	DTO_FIELD(String, pimpersonname);
+	DTO_FIELD_INFO(pimpersonname) {
+		info->description = ZH_WORDS_GETTER("rosterofper.field.pimpersonname");
 	}
 };
 

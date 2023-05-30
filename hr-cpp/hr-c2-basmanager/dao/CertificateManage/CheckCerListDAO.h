@@ -9,7 +9,7 @@
 #include "../../domain/query/CertificateManage/CheckCerListQuery.h"
 
 /**
- * 示例表数据库操作实现
+ * 示例表数据库操作实现（员工编号、员工姓名、证书名称）
  */
 class CheckCerListDAO : public BaseDAO
 {
@@ -18,7 +18,7 @@ public:
 	uint64_t count(const CheckCerListQuery::Wrapper& query);
 	// 分页查询数据
 	list<CertificateDO> selectWithPage(const CheckCerListQuery::Wrapper& query);
-	// 通过姓名查询数据
-	list<CertificateDO> selectByName(const string& name);
+	// 通过证书名称查询数据
+	list<CertificateDO> selectByName(const string& pimVocationalName);
 };
 #endif // !_SAMPLE_DAO_

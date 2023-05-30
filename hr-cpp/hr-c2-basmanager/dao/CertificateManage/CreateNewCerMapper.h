@@ -1,9 +1,9 @@
 #pragma once
 /*
-证书管理-分页查询证书列表--pine
+证书管理-新建证书--pine
 */
-#ifndef  _CHECK_CER_LIST_MAPPER_
-#define  _CHECK_CER_LIST_MAPPER_
+#ifndef  _CREATE_NEW_CER_MAPPER_
+#define  _CREATE_NEW_CER_MAPPER_
 
 #include "Mapper.h"
 #include "../../domain/do/CertificateManage/CertificateDO.h"
@@ -11,15 +11,15 @@
 /**
  * 示例表字段匹配映射
  */
-class ChechCerListMapper : public Mapper<CertificateDO>
+class CreateNewCerMapper : public Mapper<CertificateDO>
 {
 public:
 	CertificateDO mapper(ResultSet* resultSet) const override
 	{
 		CertificateDO data;
 		data.setYgbh(resultSet->getUInt64(1));//this
-		data.setPimperSonName(resultSet->getString(2));//要连表查询//this
-		data.setPimVocationalName(resultSet->getString(3));//this
+		data.setPimVocationalName(resultSet->getString(2));//this
+
 
 		//data.setYgzt(resultSet->getString(3));
 		//data.setOrganizationName(resultSet->getString(3));

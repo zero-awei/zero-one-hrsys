@@ -7,27 +7,28 @@
 #include <sstream>
 
 //定义条件解析宏，减少重复代码
-#define SAMPLE_TERAM_PARSE(query, sql) \
+#define CERLIST_TERAM_PARSE(query, sql) \
 SqlParams params; \
-sql<<" WHERE 1=1"; \
-if (query->name) { \
-	sql << " AND `name`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); \
+sql << " WHERE 1=1"; \
+if (query->ygbh) { \
+    sql << " AND CAST(t1.ygbh AS CHAR) LIKE CONCAT('%', ?, '%')"; \
+    SQLPARAMS_PUSH(params, "i", uint64_t, query->ygbh.getValue(0)); \
 } \
-if (query->sex) { \
-	sql << " AND sex=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->sex.getValue("")); \
+if (query->pimperSonName) { \
+    sql << " AND t2.pimperSonName?"; \
+    SQLPARAMS_PUSH(params, "s", std::string, query->pimperSonName.getValue("")); \
 } \
-if (query->age) { \
-	sql << " AND age=?"; \
-	SQLPARAMS_PUSH(params, "i", int, query->age.getValue(0)); \
+if (query->pimVocationalName) { \
+    sql << " AND t1.pimVocationalName=?"; \
+    SQLPARAMS_PUSH(params, "s", std::string, query->pimVocationalName.getValue("")); \
 }
 
 uint64_t CheckCerListDAO::count(const CheckCerListQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM sample";
-	SAMPLE_TERAM_PARSE(query, sql);
+	sql << "SELECT COUNT(*) FROM t_pimvocational t1 LEFT JOIN t_pimperson t2 ON t1.ygbh = t2.ygbh";
+
+	CERLIST_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
 }
@@ -35,17 +36,20 @@ uint64_t CheckCerListDAO::count(const CheckCerListQuery::Wrapper& query)
 std::list<CertificateDO> CheckCerListDAO::selectWithPage(const CheckCerListQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT * FROM sample";
-	SAMPLE_TERAM_PARSE(query, sql);
+	sql << "SELECT t1.ygbh, t2.pimperSonName, t1.pimVocationalName FROM t_pimvocational t1 LEFT JOIN t_pimperson t2 ON t1.ygbh = t2.ygbh";
+
+	CERLIST_TERAM_PARSE(query, sql);
+
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
-	CertificateMapper mapper;
+
+	ChechCerListMapper mapper;
 	string sqlStr = sql.str();
-	return sqlSession->executeQuery<CertificateDO, CertificateMapper>(sqlStr, mapper, params);
+	return sqlSession->executeQuery<CertificateDO, ChechCerListMapper>(sqlStr, mapper, params);
 }
 
-std::list<CertificateDO> CheckCerListDAO::selectByName(const string& name)
+std::list<CertificateDO> CheckCerListDAO::selectByName(const string& pimVocationalName)
 {
-	string sql = "SELECT * FROM sample WHERE `name` LIKE CONCAT('%',?,'%')";
-	CertificateMapper mapper;
-	return sqlSession->executeQuery<CertificateDO, CertificateMapper>(sql, mapper, "%s", name);
+	string sql = "SELECT * FROM t_pimvocational WHERE `pimVocationalName` LIKE CONCAT('%',?,'%')";
+	ChechCerListMapper mapper;
+	return sqlSession->executeQuery<CertificateDO, ChechCerListMapper>(sql, mapper, "%s", pimVocationalName);
 }

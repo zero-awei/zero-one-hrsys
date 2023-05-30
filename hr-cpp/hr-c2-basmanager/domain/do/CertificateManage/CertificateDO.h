@@ -35,7 +35,7 @@ class CertificateDO
 	// 组织   t_srforg 需要连表操作获取组织名称
 	CC_SYNTHESIZE(string, organizationName, OrganizationName);
 	// 证书编号
-	CC_SYNTHESIZE(string, zgzsbh, Zgzsbh);
+	CC_SYNTHESIZE(string, pimvocationalid, Pimvocationalid);
 	// 一建配套B证编号
 	CC_SYNTHESIZE(string, bcardNumber, BcardNumber);
 	// 证书名称
@@ -67,7 +67,7 @@ public:
 		pimperSonName = "";
 		ygzt = "";
 		organizationName = "";
-		zgzsbh = "";
+		pimvocationalid = "";
 		bcardNumber = "";
 		pimVocationalName = "";
 		zslx = "";

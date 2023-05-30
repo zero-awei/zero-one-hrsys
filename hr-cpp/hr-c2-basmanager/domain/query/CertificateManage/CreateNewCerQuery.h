@@ -9,26 +9,20 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 示例分页查询对象
- *
+证书管理-证书信息-新建证书--pine
  */
 class CreateNewCerQuery : public PageQuery
 {
 	DTO_INIT(CreateNewCerQuery, PageQuery);
-	// 姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER(".field.name");
+	// 员工编号
+	DTO_FIELD(UInt64, ygbh);
+	DTO_FIELD_INFO(ygbh) {
+		info->description = ZH_WORDS_GETTER("cermanage.field.ygbh");
 	}
-	// 性别
-	DTO_FIELD(String, sex);
-	DTO_FIELD_INFO(sex) {
-		info->description = ZH_WORDS_GETTER("sample.field.sex");
-	}
-	// 年龄
-	DTO_FIELD(UInt32, age);
-	DTO_FIELD_INFO(age) {
-		info->description = ZH_WORDS_GETTER("sample.field.age");
+	// 证书名称
+	DTO_FIELD(String, pimVocationalName);
+	DTO_FIELD_INFO(pimVocationalName) {
+		info->description = ZH_WORDS_GETTER("cermanage.field.pimVocationalName");
 	}
 };
 

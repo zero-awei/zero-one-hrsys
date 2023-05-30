@@ -1,17 +1,16 @@
 
 #include "stdafx.h"
 #include "CheckRetiresListController.h"
-//#include "../../service/sample/SampleService.h"
+#include "../../service/RosterOfPer/CheckRetiresListService.h"
 
-CheckRetiresListPageJsonVO::Wrapper CheckRetiresListController::execQueryCheckRetiresList(const PageQuery::Wrapper& query)
+CheckRetiresListPageJsonVO::Wrapper CheckRetiresListController::execQueryCheckRetiresList(const CheckRetiresListQuery::Wrapper& query, const PayloadDTO& payload)
 {
-	//创建响应对象
-	auto vo = CheckRetiresListPageJsonVO::createShared();
-	//创建分页对象
-	auto pdto = CheckRetiresListPageDTO::createShared();
-	pdto->addData(CheckRetiresListDTO::createShared(3, "zs"));
-	pdto->addData(CheckRetiresListDTO::createShared(4, "ls"));
-	//响应结果
-	vo->success(pdto);
-	return vo;
+	// 定义一个Service
+	CheckRetiresListService service;
+	// 查询数据
+	auto result = service.listAll(query);
+	// 响应结果
+	auto jvo = CheckRetiresListPageJsonVO::createShared();
+	jvo->success(result);
+	return jvo;
 }

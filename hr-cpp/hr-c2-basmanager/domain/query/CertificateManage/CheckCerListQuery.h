@@ -1,22 +1,7 @@
 #pragma once
-/*
- Copyright Zero One Star. All rights reserved.
-
- @Author: awei
- @Date: 2022/10/25 11:36:29
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-	  https://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
+/**
+* 分页查询证书列表--(证书管理-分页查询证书列表)--pine
+ */
 #ifndef _CHECK_CER_QUERY_
 #define _CHECK_CER_QUERY_
 
@@ -25,28 +10,28 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/**
- * 示例分页查询对象
- * (后面要拍改成新增证书)
- */
+ /**
+ 证书管理-分页查询证书列表--pine
+  */
 class CheckCerListQuery : public PageQuery
 {
 	DTO_INIT(CheckCerListQuery, PageQuery);
-	// 姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("sample.field.name");
+	// 员工编号
+	DTO_FIELD(UInt64, ygbh);
+	DTO_FIELD_INFO(ygbh) {
+		info->description = ZH_WORDS_GETTER("cermanage.field.ygbh");
 	}
-	// 性别
-	DTO_FIELD(String, sex);
-	DTO_FIELD_INFO(sex) {
-		info->description = ZH_WORDS_GETTER("sample.field.sex");
+	// 员工姓名
+	DTO_FIELD(String, pimperSonName);
+	DTO_FIELD_INFO(pimperSonName) {
+		info->description = ZH_WORDS_GETTER("cermanage.field.pimperSonName");
 	}
-	// 年龄
-	DTO_FIELD(UInt32, age);
-	DTO_FIELD_INFO(age) {
-		info->description = ZH_WORDS_GETTER("sample.field.age");
+	// 证书名称
+	DTO_FIELD(String, pimVocationalName);
+	DTO_FIELD_INFO(pimVocationalName) {
+		info->description = ZH_WORDS_GETTER("cermanage.field.pimVocationalName");
 	}
+
 };
 
 #include OATPP_CODEGEN_END(DTO)

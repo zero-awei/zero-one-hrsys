@@ -39,23 +39,23 @@ public://  定义接口（定义接口描述与接口端点）
 		//定义分页查询参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		//添加其他查询参数，required表示是否必须
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("rosterofper.field.name");
-		info->queryParams["name"].addExample("default", String("li ming"));
-		info->queryParams["name"].required = false;
-		info->queryParams.add<String>("sex").description = ZH_WORDS_GETTER("rosterofper.field.sex");
-		info->queryParams["sex"].addExample("default", String("N"));
-		info->queryParams["sex"].required = false;
+		info->queryParams.add<UInt64>("ygbh").description = ZH_WORDS_GETTER("rosterofper.field.ygbh");
+		info->queryParams["ygbh"].addExample("default", String(""));
+		info->queryParams["ygbh"].required = false;
+		info->queryParams.add<String>("pimpersonname").description = ZH_WORDS_GETTER("rosterofper.field.pimpersonname");
+		info->queryParams["pimpersonname"].addExample("default", String(""));
+		info->queryParams["pimpersonname"].required = false;
 	}
 	//4 定义新增接口处理
 	ENDPOINT(API_M_GET, "/bas/query-CheckRetiresList", queryCheckRetiresList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		API_HANDLER_QUERY_PARAM(query, CheckRetiresListQuery, queryParams);
 		// 响应结果
-		API_HANDLER_RESP_VO(execQueryCheckRetiresList(query));
+		API_HANDLER_RESP_VO(execQueryCheckRetiresList(query, authObject->getPayload()));
 	}
 
 private://定义执行函数
 	// 分页查询数据
-	CheckRetiresListPageJsonVO::Wrapper execQueryCheckRetiresList(const PageQuery::Wrapper& query);
+	CheckRetiresListPageJsonVO::Wrapper execQueryCheckRetiresList(const CheckRetiresListQuery::Wrapper& query, const PayloadDTO& payload);
 
 };
 
