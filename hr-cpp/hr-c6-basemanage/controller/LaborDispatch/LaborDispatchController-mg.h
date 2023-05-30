@@ -44,7 +44,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(LaborDispatchMDTO);
 		
 		// 定义输入参数描述
-		info->queryParams.add<String>("corporateID").description = ZH_WORDS_GETTER("labordispatch_mug.field.PIMLABOURCAMPANYID");;
+		info->queryParams.add<String>("corporateID").description = ZH_WORDS_GETTER("labordispatch_mug.field.PIMLABOURCAMPANYID");
 	}
 
 	ENDPOINT(API_M_GET, "/contract-management/query-by-corporate-name", queryLaborDispatch,QUERIES(QueryParams, queryParams)) {
