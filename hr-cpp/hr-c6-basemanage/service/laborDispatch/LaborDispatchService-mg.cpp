@@ -43,17 +43,17 @@ LaborDispatchPageDTO::Wrapper LaborDispatchMService::ListAll(const LaborDispatch
 	{
 		auto dto = LaborDispatchDTO::createShared();
 		dto->name = sub.getName();
-		dto->id = sub.getId();
-		dto->createdate = sub.getCreatedate();
-		dto->createman = sub.getCreateman();
+		/*dto->id = sub.getId();*/
+		/*dto->createdate = sub.getCreatedate();*/
+		/*dto->createman = sub.getCreateman();*/
 		dto->updatedate = sub.getUpdatedate();
-		dto->jyfw = sub.getJyfw();
+		/*dto->jyfw = sub.getJyfw();*/
 		dto->lxdz = sub.getLxdz();
 		dto->lxfs = sub.getLxfs();
 		dto->lxr = sub.getLxr();
-		dto->gsjj = sub.getGsjj();
-		dto->pimpersonid = sub.getPimpersonid();
-		dto->ormorgid = sub.getOrmorgid();
+		/*dto->gsjj = sub.getGsjj();*/
+		/*dto->pimpersonid = sub.getPimpersonid();*/
+		/*dto->ormorgid = sub.getOrmorgid();*/
 		dto->regcapital = sub.getRegcapital();
 		dto->legalperson = sub.getLegalperson();
 		pages->addData(dto);

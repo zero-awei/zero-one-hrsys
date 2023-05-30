@@ -170,8 +170,8 @@
     <ClCompile Include="controller\JobTitle\JobTitleController.cpp" />
     <ClCompile Include="controller\GoshController\TestController.cpp" />
     <ClCompile Include="controller\LaborDispatch\LaborDispatchConstroller.cpp" />
-    <ClCompile Include="controller\muggle\ExpenseLedgerController.cpp" />
     <ClCompile Include="controller\LaborDispatch\LaborDispatchController-mg.cpp" />
+    <ClCompile Include="controller\muggle\ExpenseLedgerController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\retirementController\retirement.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
@@ -191,6 +191,7 @@
     <ClCompile Include="service\laborDispatch\LaborDispatchService-mg.cpp" />
     <ClCompile Include="service\laborDispatch\LaborDispatchService-mh.cpp" />
     <ClCompile Include="service\Gosh\GoshService.cpp" />
+    <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
     <ClCompile Include="service\TerminationReminder\TerminationReminderServicecpp.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -209,8 +210,8 @@
     <ClInclude Include="controller\GoshController\TestController.h" />
     <ClInclude Include="controller\JobTitle\JobTitleController.h" />
     <ClInclude Include="controller\LaborDispatch\LaborDispatchConstroller.h" />
-    <ClInclude Include="controller\muggle\ExpenseLedgerController.h" />
     <ClInclude Include="controller\LaborDispatch\LaborDispatchController-mg.h" />
+    <ClInclude Include="controller\muggle\ExpenseLedgerController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="dao\ContractInfo\ContractInfoDAO.h" />

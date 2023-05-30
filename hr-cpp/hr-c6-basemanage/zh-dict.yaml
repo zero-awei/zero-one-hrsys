@@ -48,8 +48,9 @@ ldcompany:
  export:
   summary: 导出劳务遣派公司信息
  field:
-  PIMLABOURCAMPANYNAME: 劳务派遣公司管理名称
-  PIMLABOURCAMPANYID: 劳务派遣公司管理标识
+  PIMLABOURCAMPANYNAME: 公司名称
+  ORGNAME: 所属单位
+  PIMLABOURCAMPANYID: 公司标识
   CREATEDATE: 建立时间
   CREATEMAN: 建立人
   UPDATEMAN: 更新人
@@ -63,6 +64,7 @@ ldcompany:
   LEGALPEROSN: 法人
   REGCAPITAL: 注册本金
   UPDATEDATE: 更新时间
+
 
 contract_gs:
  get:

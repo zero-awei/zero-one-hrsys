@@ -35,17 +35,17 @@ LaborDispatchPageJsonVO::Wrapper LaborDispatchConstroller::executeQueryAll_ld(co
 	return jvo;
 }
 
-Uint64JsonVO::Wrapper LaborDispatchConstroller::execAddLaborDispatch_ld(const LaborDispatchDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper LaborDispatchConstroller::execAddLaborDispatch_ld(const LaborDispatchModifyDTO::Wrapper& dto)
 {
 	auto vo = Uint64JsonVO::createShared();
 	//参数校验
 	//1.非空校验
-	if (!dto->name || !dto->id || !dto->pimpersonid || !dto->ormorgid) {
+	if (!dto->name || !dto->unit ) {
 		vo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return vo;
 	}
 	//2.有效值校验
-	if (dto->name->empty() || dto->id->empty() || dto->pimpersonid->empty() || dto->ormorgid->empty()) {
+	if (dto->name->empty() || dto->unit->empty() ) {
 		vo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return vo;
 	}
