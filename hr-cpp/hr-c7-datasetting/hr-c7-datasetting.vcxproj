@@ -188,10 +188,13 @@
     <ClInclude Include="dao\archive\ArchiveDAO.h" />
     <ClInclude Include="dao\contractcategory\ContractCategoryDAO.h" />
     <ClInclude Include="dao\contractcategory\ContractCategoryMapper.h" />
+    <ClInclude Include="dao\contractType\ContractTypeDAO.h" />
+    <ClInclude Include="dao\contractType\ContractTypeMapper.h" />
     <ClInclude Include="dao\Title\TitleDAO.h" />
     <ClInclude Include="dao\Title\TitleMapper.h" />
     <ClInclude Include="domain\do\archive\ArchiveDO.h" />
     <ClInclude Include="domain\do\contractcategory\ContractCategoryDO.h" />
+    <ClInclude Include="domain\do\ContractType\ContractTypeDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\Title\TitleDO.h" />
     <ClInclude Include="domain\dto\certificate\CertificateDTO.h" />
@@ -202,6 +205,7 @@
     <ClInclude Include="domain\dto\contracttype\ContractTypeImportDTO.h" />
     <ClInclude Include="domain\dto\contracttype\ContractTypeUpdateDTO.h" />
     <ClInclude Include="domain\dto\Title\TitleDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\certificate\CertificateQuery.h" />
     <ClInclude Include="domain\query\contractcategory\ContractCategoryQuery.h" />
     <ClInclude Include="domain\query\contracttype\ContractTypeQuery.h" />
@@ -222,6 +226,7 @@
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\archive\ArchiveService.h" />
     <ClInclude Include="service\ContractCategory\ContractCategoryService.h" />
+    <ClInclude Include="service\contractType\ContractTypeService.h" />
     <ClInclude Include="service\Title\TitleService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
@@ -237,10 +242,12 @@
     <ClCompile Include="dao\archive\ArchiveDAO.cpp" />
     <ClCompile Include="dao\archive\ArchiveMapper.h" />
     <ClCompile Include="dao\contractcategory\ContractCategoryDAO.cpp" />
+    <ClCompile Include="dao\contractType\ContractTypeDAO.cpp" />
     <ClCompile Include="dao\Title\TitleDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\archive\ArchiveService.cpp" />
     <ClCompile Include="service\ContractCategory\ContractCategoryService.cpp" />
+    <ClCompile Include="service\contractType\ContractTypeService.cpp" />
     <ClCompile Include="service\Title\TitleService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
