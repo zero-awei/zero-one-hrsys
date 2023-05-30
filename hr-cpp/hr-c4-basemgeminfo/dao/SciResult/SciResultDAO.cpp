@@ -25,7 +25,7 @@ list<SciResultDO> SciResultDAO::selectWithPage(const SciResultQuery::Wrapper& qu
 {
 	stringstream sql;
 	//这里需要修改
-	sql << "select PIMRESEARCHFINDINGSNAME,FJ,PIMRESEARCHFINDINGSID,PIMPERSONID,HQSJ from `t_pimresearchfindings`";
+	sql << "select UPDATEMAN,PIMRESEARCHFINDINGSNAME,FJ,ENABLE,CREATEDATE,UPDATEDATE,CREATEMAN,PIMRESEARCHFINDINGSID,PIMPERSONID,HQSJ,JLSS,JLSPZT,JLGLBH,JLCZZ,REASON from `t_pimresearchfindings`";
 	SciResult_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	SciResultMapper mapper;
