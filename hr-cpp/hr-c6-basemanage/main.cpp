@@ -27,8 +27,6 @@ bool getStartArg(int argc, char* argv[]) {
 	std::string dbUsername = "root";
 	std::string dbPassword = "123";
 	std::string dbName = "01xinqiu";
-	std::string dbPassword = "root";
-	std::string dbName = "01xinqiu";
 	std::string dbHost = "127.0.0.1";
 	int dbPort = 3306;
 	int dbMax = 25;
