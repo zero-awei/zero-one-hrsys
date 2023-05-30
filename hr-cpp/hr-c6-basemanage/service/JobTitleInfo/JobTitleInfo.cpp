@@ -2,49 +2,41 @@
 #include "JobTitleInfo.h"
 #include "../../dao/JobTitleInfo/JobTitleInfoDAO.h"
 
-exportJobTitleInfoDTO::Wrapper JobTitleInfoService::listAllJobTitle(const JobTitleInfoDTO::Wrapper& query)
+StringJsonVO::Wrapper JobTitleInfoService::listAllJobTitle(const JobTitleInfoDTO::Wrapper& query)
 {
-	auto results = exportJobTitleInfoDTO::createShared();
+	auto result = StringJsonVO::createShared();
 
 	JobTitleInfoDAO dao;
 	uint64_t count = dao.count(query);
 	if (count < 0)
 	{
-		return results;
+		return result;
 	}
 
 	list<JobTitleDo> resultDO = dao.selectAll(query);
-	// 将DO转换成DTO
+	vector<vector<string>> data;
+	// 将DO转换成二维数组
 	for (auto const& sub : resultDO)
 	{
-		auto dto = JobTitleInfoDTO::createShared();
-		dto->EMPLOYEEID = sub.getEmployeeId();
-		dto->EMPLOYEENAME = sub.getEmployeeName();
-		dto->CREDENTIALS_NUM = sub.getCertId();
-		dto->ORGANIZATION_NAME = sub.getOrgName();
-		dto->PROFESSORANALYSIS_NAME = sub.getName();
-		dto->PROFESSOR_GRADES = sub.getGrades();
-		dto->PROFESSOR_DATE = sub.getGetDate();
-		dto->PROFESSIONAL_CATEGORY = sub.getCategory();
-		dto->professional_name = sub.getPro_Name();
-		dto->issuing_authority = sub.getIssuing_Authority();
-		dto->judging_unit = sub.getJudging_Unit();
-		dto->b_highest_professional_title = sub.getB_Highest_Professional_Title();
-		/*ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, 
-			EMPLOYEEID, EmployeeId,
-			EMPLOYEENAME, EmployeeName,
-			CREDENTIALS_NUM, CertId,
-			ORGANIZATION_NAME, OrgName,
-			PROFESSORANALYSIS_NAME, Name,
-			PROFESSOR_GRADES, Grades,
-			PROFESSOR_DATE, GetDate,
-			PROFESSIONAL_CATEGORY, Category,
-			professional_name, Pro_Name,
-			issuing_authority, Issuing_Authority,
-			judging_unit, Judging_Unit,
-			b_highest_professional_title, B_Highest_Professional_Title)*/
-		results->addData(dto);
+		vector<string> temp;
+		temp.push_back(sub.getEmployeeId());
+		temp.push_back(sub.getEmployeeName());
+		temp.push_back(sub.getCertId());
+		temp.push_back(sub.getOrgName());
+		temp.push_back(sub.getName());
+		temp.push_back(sub.getGrades());
+		temp.push_back(sub.getGetDate());
+		temp.push_back(sub.getCategory());
+		temp.push_back(sub.getPro_Name());
+		temp.push_back(sub.getIssuing_Authority());
+		temp.push_back(sub.getJudging_Unit());
+		temp.push_back(sub.getB_Highest_Professional_Title()?"t":"f");
+		data.push_back(temp);
 	}
+
+	// 生成数据表表头
+	vector<string> head = dao.getHead();
+	head.erase(head.begin() + 6);
 	return results;
 }
 
