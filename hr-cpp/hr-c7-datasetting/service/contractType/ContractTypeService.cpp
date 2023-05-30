@@ -25,6 +25,8 @@ ContractTypePageDTO::Wrapper ContractTypeService::listAll(const ContractTypeQuer
 	for (ContractTypeDO sub : result)
 	{
 		auto dto = ContractTypeDTO::createShared();
+		dto->id = sub.getId();
+		dto->name = sub.getName();
 		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id, name, Name);
 		pages->addData(dto);
 
@@ -34,16 +36,31 @@ ContractTypePageDTO::Wrapper ContractTypeService::listAll(const ContractTypeQuer
 
 uint64_t ContractTypeService::saveData(const ContractTypeDTO::Wrapper& dto)
 {
-	throw std::logic_error("The method or operation is not implemented.");
+	// 组装DO数据
+	ContractTypeDO data;
+	/*data.setId(dto->id.getValue({}));
+	data.setName(dto->name.getValue({}));*/
+	data.setId(dto->id.getValue({}));
+	data.setName(dto->name.getValue(""));
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Id, id, Name, name)
+	ContractTypeDAO dao;
+	return dao.insert(data);
 }
 
 bool ContractTypeService::updateData(const ContractTypeDTO::Wrapper& dto)
 {
-	throw std::logic_error("The method or operation is not implemented.");
+	ContractTypeDO data;
+	data.setId(dto->id.getValue(""));
+	data.setName(dto->name.getValue(""));
+	//ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Id, id, Name, name)
+	// 执行数据修改
+	ContractTypeDAO dao;
+	return dao.update(data) == 1;
 }
 
 bool ContractTypeService::removeData(uint64_t id)
 {
-	throw std::logic_error("The method or operation is not implemented.");
+	ContractTypeDAO dao;
+	return dao.deleteById(id) == 1;
 }
 

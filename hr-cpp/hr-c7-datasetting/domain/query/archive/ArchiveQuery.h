@@ -1,4 +1,4 @@
-#ifndef _ARCHIVEQUERY_
+ï»¿#ifndef _ARCHIVEQUERY_
 #define _ARCHIVEQUERY_
 
 #include "../../GlobalInclude.h"
@@ -7,19 +7,37 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * Ê¾Àýµµ°¸ÊÒ²éÑ¯¶ÔÏó
+ * åˆ»ì ˆë„ê°­æ†ê¿´ç’‚ëš¤è¹¶
  */
 class ArchiveQuery : public PageQuery
 {
 	DTO_INIT(ArchiveQuery, PageQuery);
-	// ÐÕÃû
-	DTO_FIELD(String, ArchiveName);
-	DTO_FIELD_INFO(ArchiveName) {
-		info->description = ZH_WORDS_GETTER("archive.field.ArchiveName");
+	// íƒ¤åŸ¼ëµ€
+	DTO_FIELD(Int64, sortid);
+	DTO_FIELD_INFO(sortid) {
+		info->description = ZH_WORDS_GETTER("archive.field.sortid");
 	}
-
+	// ë„ê°­æ†ì¸°ëƒ”
+	DTO_FIELD(String, archivename);
+	DTO_FIELD_INFO(archivename) {
+		info->description = ZH_WORDS_GETTER("archive.field.archivename");
+	}
+	// ë±‰ëµ€
+	DTO_FIELD(Int32, cabinetnum);
+	DTO_FIELD_INFO(cabinetnum) {
+		info->description = ZH_WORDS_GETTER("archive.field.cabinetnum");
+	}
+	//ê¿”ëµ€
+	DTO_FIELD(Int32, layernum);
+	DTO_FIELD_INFO(layernum) {
+		info->description = ZH_WORDS_GETTER("archive.field.layernum");
+	}
+	//ê¸ëµ€
+	DTO_FIELD(Int32, numid);
+	DTO_FIELD_INFO(numid) {
+		info->description = ZH_WORDS_GETTER("archive.field.numid");
+	}
 };
 
 #include OATPP_CODEGEN_END(DTO)
 #endif //
-
