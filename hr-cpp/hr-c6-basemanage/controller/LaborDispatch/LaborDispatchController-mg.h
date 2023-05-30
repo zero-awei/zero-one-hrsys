@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
@@ -36,17 +36,15 @@ class LaborDispatchMController : public oatpp::web::server::api::ApiController
 {
 	API_ACCESS_DECLARE(LaborDispatchMController);
 public:
-	// ¸ù¾Ý¹«Ë¾Ãû³Æ²éÑ¯Ö¸¶¨¹«Ë¾ÐÅÏ¢
+	// æ ¹æ®å…¬å¸åç§°æŸ¥è¯¢æŒ‡å®šå…¬å¸ä¿¡æ¯
 	ENDPOINT_INFO(queryLaborDispatch) {
-		// ¶¨Òå½Ó¿Ú±êÌâ
+		// å®šä¹‰æŽ¥å£æ ‡é¢˜
 		info->summary = ZH_WORDS_GETTER("labordispatch_mug.get.summary");
 		API_DEF_ADD_PAGE_PARAMS();
 		API_DEF_ADD_RSP_JSON_WRAPPER(LaborDispatchMDTO);
 		
-		// ¶¨ÒåÊäÈë²ÎÊýÃèÊö
-		info->queryParams.add<String>("corporateName").description = ZH_WORDS_GETTER("labordispatch_mug.field.corporatename");
-		info->queryParams["corporateName"].addExample("default", String("PDD"));
-		info->queryParams["corporateName"].required = false;
+		// å®šä¹‰è¾“å…¥å‚æ•°æè¿°
+		info->queryParams.add<String>("corporateID").description = ZH_WORDS_GETTER("labordispatch_mug.field.PIMLABOURCAMPANYID");;
 	}
 
 	ENDPOINT(API_M_GET, "/contract-management/query-by-corporate-name", queryLaborDispatch,QUERIES(QueryParams, queryParams)) {
@@ -54,7 +52,7 @@ public:
 		API_HANDLER_RESP_VO(execQueryLaborDispatch(query));
 	}
 
-	// ÐÞ¸ÄÖ¸¶¨¹«Ë¾ÐÅÏ¢
+	// ä¿®æ”¹æŒ‡å®šå…¬å¸ä¿¡æ¯
 	ENDPOINT_INFO(modifyLaborDispatch) {
 		info->summary = ZH_WORDS_GETTER("labordispatch_mug.modify.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);

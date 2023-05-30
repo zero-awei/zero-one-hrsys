@@ -1,4 +1,4 @@
-/*
+﻿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
@@ -19,50 +19,76 @@
 #include "stdafx.h"
 #include "ExpenseLedgerController.h"
 #include "service/expenseLedger/ExpenseLedgerService.h"
-
+#include "SimpleDateTimeFormat.h"
+#include "SnowFlake.h"
 
 ExpenseLedgerPageJsonVO::Wrapper ExpenseLedgerMController::execQueryExpenseLedger(const ExpenseLedgerPageQuery::Wrapper& query)
 {
+	auto jvo = ExpenseLedgerPageJsonVO::createShared();
 	ExpenseLedgerService service;
 	auto result = service.ListAll(query);
-
-	auto jvo = ExpenseLedgerPageJsonVO::createShared();
-	jvo->success(result);
+	if (result->rows->empty())
+	{
+		jvo->fail(result);
+	} 
+	else
+	{
+		jvo->success(result);
+	}
 	return jvo;
 }
-
-StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger(const ExpenseLedgerDTO::Wrapper& dto)
+/**
+ * Returns: String StringJsonVO.data 插入费用台账的标识
+ */
+StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger(const ExpenseLedgerDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto jvo = StringJsonVO::createShared();
-	if (!dto->pimexpaccountname || !dto->pimexpaccountid || !dto->fyje || !dto->ffrs || !dto->ffybz) 
+	if ( dto->fyje<=0 || dto->ffrs<=0 ) 
 	{
-		jvo->init(String(-1), RS_PARAMS_INVALID);
-		return jvo;
+		jvo->init("0", RS_PARAMS_INVALID);
+		//jvo->init(String(-1), RS_SERVER_BUSY);
 	}
-
-	if (dto->pimexpaccountname->empty() || dto->ffybz->empty())
-	{
-		jvo->init(String(-1), RS_PARAMS_INVALID);
-		return jvo;
+	else {
+		// 时间类设置记录创建和更新时间
+		SimpleDateTimeFormat datesevice;
+		dto->createdate = datesevice.format();
+		dto->updatedate = datesevice.format();
+		dto->createman = payload.getUsername();
+		dto->updateman = payload.getUsername();
+		SnowFlake uidservice(1,6);
+		dto->pimexpaccountid = to_string(uidservice.nextId());
+		ExpenseLedgerService service;
+		if (service.saveData(dto))
+		{
+			jvo->success(dto->pimexpaccountname);
+		}
+		else {
+			jvo->fail(dto->pimexpaccountname);
+		}
 	}
-
-	ExpenseLedgerService service;
-	service.saveData(dto);
-	jvo->success(dto->pimexpaccountname);
 	return jvo;
 }
 
+/**
+ * Returns: Uint64 Uint64JsonVO.data 受影响的行数
+ */
 Uint64JsonVO::Wrapper ExpenseLedgerMController::execDeleteExpenseLedger(const ExpenseLedgerDelQuery::Wrapper& query)
 {
 	auto jvo = Uint64JsonVO::createShared();
-	int success = 0;
+	int successTime = 0;
 	ExpenseLedgerService service;
-	for (int i=0;i<query->Ids->size();i++)
+	for (std::size_t i=0;i < query->IDlist->size();i++)
 	{
-		success += service.removeData(query->Ids[i]);
-		cout << query->Ids[i].getPtr() << endl;
+		successTime += service.removeData(query->IDlist[i]);
 	}
-	jvo->success(success);
+	if (successTime>0)
+	{
+		jvo->success(successTime);
+	} 
+	else
+	{
+		jvo->init(uint64_t(0), RS_PARAMS_INVALID);
+	}
 	return jvo;
 }
 

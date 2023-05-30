@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
@@ -34,28 +34,28 @@ class ExpenseLedgerMController : public oatpp::web::server::api::ApiController
 {
 	API_ACCESS_DECLARE(ExpenseLedgerMController);
 public:
-	// ²éÑ¯·Ñ±ð
+	// æŸ¥è¯¢è´¹åˆ«
 	ENDPOINT_INFO(queryExpenseLedger) {
 		info->summary = ZH_WORDS_GETTER("expenseledger_mug.get.summary");
 		API_DEF_ADD_PAGE_PARAMS();
-		info->queryParams.add<String>("PIMEXPACCOUNTNAME").description = ZH_WORDS_GETTER("expenseledger_mug.field.expenseCategory");;
-		info->queryParams["PIMEXPACCOUNTNAME"].required = false;
+		API_DEF_ADD_RSP_JSON_WRAPPER(JsonVO<ExpenseLedgerPageDTO::Wrapper>);
 	}
 	ENDPOINT(API_M_GET, "/contract-management/query-by-expense-category", queryExpenseLedger,QUERIES(QueryParams, queryParams)) {
 		API_HANDLER_QUERY_PARAM(query, ExpenseLedgerPageQuery, queryParams);
 		API_HANDLER_RESP_VO(execQueryExpenseLedger(query));
 	}
 
-	// ÐÂÔö·Ñ±ð
+	// æ–°å¢žè´¹åˆ«
 	ENDPOINT_INFO(addExpenseLedger) {
 		info->summary = ZH_WORDS_GETTER("expenseledger_mug.post.summary");
+		API_DEF_ADD_AUTH();
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
-	ENDPOINT(API_M_POST, "/contract-management/add-expense-category", addExpenseLedger, BODY_DTO(ExpenseLedgerDTO::Wrapper, dto)) {
-		API_HANDLER_RESP_VO(execAddExpenseLedger(dto));
+	ENDPOINT(API_M_POST, "/contract-management/add-expense-category", addExpenseLedger, API_HANDLER_AUTH_PARAME, BODY_DTO(ExpenseLedgerDTO::Wrapper, dto)) {
+		API_HANDLER_RESP_VO(execAddExpenseLedger(dto,authObject->getPayload()));
 	}
 	
-	// É¾³ý·Ñ±ð
+	// åˆ é™¤è´¹åˆ«
 	ENDPOINT_INFO(deleteExpenseLedger) {
 		info->summary = ZH_WORDS_GETTER("expenseledger_mug.delete.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
@@ -66,7 +66,7 @@ public:
 private:
 	ExpenseLedgerPageJsonVO::Wrapper execQueryExpenseLedger(const ExpenseLedgerPageQuery::Wrapper& query);
 
-	StringJsonVO::Wrapper execAddExpenseLedger(const ExpenseLedgerDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execAddExpenseLedger(const ExpenseLedgerDTO::Wrapper& dto, const PayloadDTO& payload);
 
 	Uint64JsonVO::Wrapper execDeleteExpenseLedger(const ExpenseLedgerDelQuery::Wrapper& query);
 };

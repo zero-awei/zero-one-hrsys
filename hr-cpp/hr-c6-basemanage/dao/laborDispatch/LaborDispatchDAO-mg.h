@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
@@ -26,10 +26,10 @@
 class LaborDispatchMDAO : public BaseDAO
 {
 public:
-	// Í³¼ÆÊı¾İÌõÊı
+	// ç»Ÿè®¡æ•°æ®æ¡æ•°
 	uint64_t count(const LaborDispatchMQuery::Wrapper& query);
-	// ¸ù¾İ¹«Ë¾Ãû³Æ²éÑ¯Êı¾İ
-	std::list<LaborDispatchDO> selectByCorporateName(const LaborDispatchMQuery::Wrapper& query);
+	// æ ¹æ®å…¬å¸åç§°æŸ¥è¯¢æ•°æ®
+	std::list<LaborDispatchDO> selectByCorporateID(const LaborDispatchMQuery::Wrapper& query);
 
 	int update(const LaborDispatchDO& uDo);
 protected:

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
@@ -22,14 +22,21 @@
 
 LaborDispatchJsonMVO::Wrapper LaborDispatchMController::execQueryLaborDispatch(const LaborDispatchMQuery::Wrapper& query)
 {
-	// ¶¨ÒåService
+	// å®šä¹‰Service
 	LaborDispatchMService service;
-	// serviceÖ´ÐÐ²¢·µ»ØÊý¾Ý
+	// serviceæ‰§è¡Œå¹¶è¿”å›žæ•°æ®
 	auto result = service.ListAll(query);
-	// ÏìÓ¦½á¹û
-	auto vo = LaborDispatchJsonMVO::createShared();
-	vo->success(result);
-	return vo;
+	// å“åº”ç»“æžœ
+	auto jvo = LaborDispatchJsonMVO::createShared();
+	if (result->rows->empty())
+	{
+		jvo->fail(result);
+	}
+	else
+	{
+		jvo->success(result);
+	}
+	return jvo;
 }
 
 StringJsonVO::Wrapper LaborDispatchMController::execModifyLaborDispatch(const LaborDispatchUpdateDTO::Wrapper& dto)
@@ -38,7 +45,7 @@ StringJsonVO::Wrapper LaborDispatchMController::execModifyLaborDispatch(const La
 
 	if (!dto->corporateName)
 	{
-		jvo->init(String(-1), RS_PARAMS_INVALID);
+		jvo->init("-1", RS_PARAMS_INVALID);
 		return jvo;
 	}
 	LaborDispatchMService service;

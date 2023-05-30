@@ -10,7 +10,7 @@
 class ContractDO
 {
 	// 编号
-	CC_SYNTHESIZE(uint64_t, id, Id);
+	CC_SYNTHESIZE(string, id, Id);
 	// 姓名
 	CC_SYNTHESIZE(string, name, Name);
 	//合同类别
@@ -31,7 +31,7 @@ class ContractDO
 	CC_SYNTHESIZE(string, tip, Tip);
 public:
 	ContractDO() {
-		id = 0;
+		id = "";
 		name = "";
 		type = "";
 		variety = "";

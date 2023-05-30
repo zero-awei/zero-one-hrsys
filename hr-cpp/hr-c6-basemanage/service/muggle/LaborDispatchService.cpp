@@ -17,13 +17,12 @@
  limitations under the License.
 */
 #include "stdafx.h"
-#include "laborDispatchService.h"
-#include "../../dao/muggle/LaborDispatchDAO.h"
-#include "domain/dto/Muggle/LaborDispatchDTO.h"
+#include "domain/query/LaborDispatch/LaborDispatchQuery-mg.h"
+#include "domain/dto/LaborDispatch/LaborDispatchDTO-mg.h"
 
-LaborDispatchMDTO::Wrapper LaborDispatchMService::ListData(const LaborDispatchMQuery::Wrapper& query)
-{
-	auto reply = LaborDispatchMDTO::createShared();
+// LaborDispatchMDTO::Wrapper LaborDispatchMService::ListData(const LaborDispatchMQuery::Wrapper& query)
+// {
+// 	auto reply = LaborDispatchMDTO::createShared();
 // 	LaborDispatchMDAO dao;
 // 	auto result = dao.selectByCorporateName(query);
 // 	reply->corporateName = result.getCorporateName();
@@ -34,10 +33,10 @@ LaborDispatchMDTO::Wrapper LaborDispatchMService::ListData(const LaborDispatchMQ
 	//reply->corporateContact = "muggle";
 	//reply->corporateName = "zerone";
 	//reply->corporateNumber = "8848";
-	return reply;
-}
-
-bool LaborDispatchMService::modifyData(const LaborDispatchMDTO::Wrapper& dto)
-{
-	return true;//啊对对对对
-}
+// 	return reply;
+// }
+// 
+// bool LaborDispatchMService::modifyData(const LaborDispatchMDTO::Wrapper& dto)
+// {
+// 	return true;//啊对对对对
+// }

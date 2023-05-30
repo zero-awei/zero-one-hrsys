@@ -20,6 +20,8 @@
 #include "Router.h"
 #include "controller/GoshController/TestController.h"
 
+#include "ApiHelper.h"`
+#include "controller/GoshController/TestController.h"
 #include "GoshController/TestController.h"
 #include "JobTitleInfo/JobTitleInfoController.h"
 #include "ExpenseLedge/ExpenseLedgeController.h"
@@ -39,13 +41,13 @@
 #include "GoshController/TestController.h"
 #include "TerminationReminder/terminationReminder.h"
 
-// 如果定义了关闭Swagger文档宏
+// ��������˹ر�Swagger�ĵ���
 #ifdef CLOSE_SWAGGER_DOC
-// 简化绑定控制器宏定义
+// �򻯰󶨿������궨��
 #define ROUTER_SIMPLE_BIND(__CLASS__) \
 router->addController(__CLASS__::createShared())
 #else
-// 简化绑定控制器宏定义
+// �򻯰󶨿������궨��
 #define ROUTER_SIMPLE_BIND(__CLASS__) \
 BIND_CONTROLLER(docEndpoints, router, __CLASS__)
 #endif
@@ -62,7 +64,7 @@ void Router::initRouter()
 	createSampleRouter();
 #endif
 
-	//#TIP :系统扩展路由定义，写在这个后面
+	//#TIP :ϵͳ��չ·�ɶ��壬д���������
 	createJobAndExpenseRouter();
 	ROUTER_SIMPLE_BIND(ContractController);
 	ROUTER_SIMPLE_BIND(LaborDispatchMController);
@@ -71,10 +73,9 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(RetirementController);
 	ROUTER_SIMPLE_BIND(JobTitleController);
 	ROUTER_SIMPLE_BIND(GoshController);
-	ROUTER_SIMPLE_BIND(GoshController);
 	ROUTER_SIMPLE_BIND(TerminationReminderController);
 	ROUTER_SIMPLE_BIND(ContractmanageController);
-}
+}	
 
 
 void Router::createJobAndExpenseRouter()
@@ -86,11 +87,11 @@ void Router::createJobAndExpenseRouter()
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
-	// 绑定合同控制器
+	// �󶨺�ͬ������
 	ROUTER_SIMPLE_BIND(ContractController);
 
-
-	// 绑定WebSocket控制器
+	
+	// ��WebSocket������
 	router->addController(WSContorller::createShared());
 }
 

@@ -1,4 +1,4 @@
-/*
+﻿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
@@ -25,9 +25,9 @@
 #define LABORDISPATCH_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
-if (query->corporateName) { \
-	sql << " AND `PIMLABOURCAMPANYNAME`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->corporateName.getValue("")); \
+if (query->corporateID) { \
+	sql << " AND `PIMLABOURCAMPANYID`=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->corporateID.getValue("")); \
 } \
 //if(query->id) { \
 //	sql << " AND `PIMLABOURCAMPANYID`=?"; \
@@ -43,7 +43,7 @@ uint64_t LaborDispatchMDAO::count(const LaborDispatchMQuery::Wrapper& query)
 	return sqlSession->executeQueryNumerical(sqlStr, params);
 }
 
-std::list<LaborDispatchDO> LaborDispatchMDAO::selectByCorporateName(const LaborDispatchMQuery::Wrapper& query)
+std::list<LaborDispatchDO> LaborDispatchMDAO::selectByCorporateID(const LaborDispatchMQuery::Wrapper& query)
 {
 	stringstream sql;
 	sql << "SELECT * FROM t_pimlabourcampany";

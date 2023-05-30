@@ -22,6 +22,7 @@
 
 class LaborDispatchDO
 {
+	CC_SYNTHESIZE(string, enable, _Enable);
 	//劳务派遣公司管理名称
 	CC_SYNTHESIZE(string, name, Name);
 	//劳务派遣公司管理标识
@@ -52,9 +53,10 @@ class LaborDispatchDO
 	CC_SYNTHESIZE(string, regcapital, Regcapital);
 	//法人
 	CC_SYNTHESIZE(string, legalperson, Legalperson);
-	
+
 public:
 	LaborDispatchDO() {
+		enable = "";
 		name = "";
 		id = "";
 		createdate = "";

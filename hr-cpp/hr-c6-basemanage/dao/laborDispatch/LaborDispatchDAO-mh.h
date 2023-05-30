@@ -23,6 +23,7 @@
 #include "BaseDAO.h"
 #include "domain/query/LaborDispatch/LaborDispatchQuery.h"
 #include "domain/do/laborDispatch/LaborDispatchDO.h"
+#include <string>
 
 class LaborDispatchDAO : public BaseDAO
 {
@@ -30,8 +31,13 @@ public:
 	// 统计数据条数
 	uint64_t count_ld(const LaborDispatchQuery::Wrapper& query);
 	//分页查询数据
-	list<LaborDispatchDO> selectWrithPage_ld(const LaborDispatchQuery::Wrapper& query);
+	list<LaborDispatchDO> selectWrithPage_Query(const LaborDispatchQuery::Wrapper& query);
 	//插入数据
 	uint64_t insert_ld(const LaborDispatchDO& iobj);
+	// 通过ID删除数据
+	int deleteById_ld(string id);
+	//查询所有数据
+	list<LaborDispatchDO> selectWrithPage_Export(const LaborDispatchQuery::Wrapper& query);
 };
+
 #endif // !_LABORDISPATCHDAO_H_

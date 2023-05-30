@@ -25,8 +25,12 @@
     <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mg.cpp" />
     <ClCompile Include="dao\expenseLedger\ExpenseLedgerDAO.cpp" />
     <ClCompile Include="service\expenseLedger\ExpenseLedgerService.cpp" />
-    <ClCompile Include="service\JobTitle\JobTitleService.cpp" />
-    <ClCompile Include="dao\JobTitle\JobTitleDAO.cpp" />
+    <ClCompile Include="dao\ContractInfo\ContractInfoDAO.cpp" />
+    <ClCompile Include="service\akieService\ContractInfoService.cpp" />
+    <ClCompile Include="dao\TerminationReminder\TerminationReminderDAO.cpp" />
+    <ClCompile Include="service\TerminationReminder\TerminationReminderServicecpp.cpp" />
+    <ClCompile Include="uselib\excel\TerminationRemidner\ChangeToExcel.cpp" />
+    <ClCompile Include="uselib\fastdfs\TerminationReminder\TerminationRemidnerFastdfs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -84,9 +88,17 @@
     <ClInclude Include="domain\do\expenseLedger\ExpenseLedgerDO.h" />
     <ClInclude Include="domain\dto\ExpenseLedger\ExpenseLedgerDTO.h" />
     <ClInclude Include="domain\query\ExpenseLedger\ExpenseLedgerQuery.h" />
-    <ClInclude Include="service\JobTitle\JobTitleService.h" />
-    <ClInclude Include="dao\JobTitle\JobTitleDAO.h" />
-    <ClInclude Include="dao\JobTitle\JobTitleMapper.h" />
+    <ClInclude Include="dao\ContractInfo\ContractInfoDAO.h" />
+    <ClInclude Include="service\akieService\ContractInfoService.h" />
+    <ClInclude Include="dao\TerminationReminder\TerminationReminderDAO.h" />
+    <ClInclude Include="dao\TerminationReminder\TerminationReminderMapper.h" />
+    <ClInclude Include="domain\do\TerminationReminder\TerminationReminderDO.h" />
+    <ClInclude Include="domain\dto\TerminationReminderDTO\TerminationReminderDTO.h" />
+    <ClInclude Include="domain\query\TerminationReminder\TerminationReminderQuery.h" />
+    <ClInclude Include="domain\vo\TerminationReminderVO\TerminationReminderVO.h" />
+    <ClInclude Include="service\TerminationReminder\TerminationReminderService.h" />
+    <ClInclude Include="uselib\excel\TerminationRemidner\ChangeToExcel.h" />
+    <ClInclude Include="uselib\fastdfs\TerminationReminder\TerminationRemidnerFastdfs.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />

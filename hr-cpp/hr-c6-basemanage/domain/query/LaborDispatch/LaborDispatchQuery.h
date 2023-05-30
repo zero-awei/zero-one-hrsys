@@ -27,6 +27,11 @@
 class LaborDispatchQuery : public PageQuery
 {
 	DTO_INIT(LaborDispatchQuery, PageQuery);
+
+	DTO_FIELD(String, enable);
+	DTO_FIELD_INFO(enable) {
+		info->description = "ENABLE";
+	}
 	//劳务派遣公司管理名称
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
@@ -102,7 +107,7 @@ class LaborDispatchQuery : public PageQuery
 	DTO_FIELD_INFO(legalperson) {
 		info->description = ZH_WORDS_GETTER("ldconpany.field.LEGALPERSON");
 	}
-	
+
 };
 
 #include OATPP_CODEGEN_END(DTO)

@@ -23,12 +23,18 @@ sample:
  put:
   summary: 修改一条示例数据
  delete:
-  summary: 删除一条示例数据
- field:
-  id: 编号
-  age: 年龄
-  name: 姓名
-  sex: 性别，如：男
+  summary: 删除多条合同数据
+ filed:   
+  name: 员工姓名
+  id: 合同编号
+  type: 合同类别
+  variety: 合同类型
+  date: 起始日期
+  condition: 合同状态
+  department_m: 合同管理单位
+  department_c: 合同签订单位
+  date_end: 合同到期时间
+  tip: 备注
 
 ldcompany:
  get:
@@ -102,9 +108,17 @@ labordispatch_mug:
   summary: 修改指定公司信息
  field:
   corporatename: 公司名称
-  corporateaddress: 公司名称
+  corporateaddress: 公司地址
   corporatecontact: 公司联系人
   corporatenumber: 公司联系电话
+  PIMLABOURCAMPANYNAME: 公司名称
+  PIMLABOURCAMPANYID: 公司标识
+  LXDZ: 联系地址
+  LXR: 联系人
+  LXFS: 联系方式
+  REGCAPITAL: 注册本金
+  LEGALPERSON: 法人
+  UPDATEDATE: 更新时间
 
 expenseledger_mug:
  get:
@@ -113,28 +127,6 @@ expenseledger_mug:
   summary: 新增费别
  delete:
   summary: 删除费别
- field:
-  expenseCategory: 费用类别
-  PIMLABOURCAMPANYNAME: 公司名称
-  PIMLABOURCAMPANYID: 所属单位
-  LXDZ: 联系地址
-  LXR: 联系人
-  LXFS: 联系方式
-  REGCAPITAL: 注册本金
-  LEGALPERSON: 法人
-  UPDATEDATE: 更新时间
-  summary: 删除一条合同数据
- filed:   
-  name: 员工姓名
-  id: 合同编号
-  type: 合同类别
-  variety: 合同类型
-  date: 起始日期
-  condition: 合同状态
-  department_m: 合同管理单位
-  department_c: 合同签订单位
-  date_end: 合同到期时间
-  tip: 备注
 
 expenseledger:
  field:
@@ -150,6 +142,7 @@ expenseledger:
   FFSJ: 发放时间
   FFYBZ: 费用标准
   BZ: 备注
+  ORMORGID: 组织标识 
   IDS: 费用台账标识集合
 
 
