@@ -18,16 +18,14 @@
 */
 #include "stdafx.h"
 #include "AwardLevelController.h"
-
-AwardLevelPageJsonVO::Wrapper AwardLevelController::execQueryAwardLevel()
+#include "service/awardLevel/AwardLevelService.h"
+PullListVO::Wrapper AwardLevelController::execQueryAwardLevel()
 {
 	// 创建响应对象
-	auto vo = AwardLevelPageJsonVO::createShared();
-	// 创建分页对象
-	auto pdto = AwardLevelPageDTO::createShared();
-	//pdto->addData(AwardLevelDTO::createShared("qwe", "zs"));
-	//pdto->addData(AwardLevelDTO::createShared("asd", "ls"));
-	// 响应结果
-	vo->success(pdto);
+	auto vo = PullListVO::createShared();
+	AwardLevelService service;
+	auto dto = service.listAll();
+
+	vo->success(dto);
 	return vo;
 }

@@ -22,7 +22,7 @@
 #include "ServerInfo.h"
 #include "domain/vo/BaseJsonVO.h"
 #include "ApiHelper.h"
-#include "domain/vo/awardLevel/AwardLevelVO.h"
+#include "domain/vo/pullList/PullListVO.h"
 #include "Macros.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
@@ -37,7 +37,7 @@ public: // 定义接口
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("common.dto.level");
 		// 定义响应参数类型
-		API_DEF_ADD_RSP_JSON_WRAPPER(AwardLevelPageJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
 	// 4 定义接口端点
 	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/award-level"), queryAwardLevel) {
@@ -46,7 +46,7 @@ public: // 定义接口
 	}
 private: // 定义接口执行函数
 	// 5 定义接口的执行函数
-	AwardLevelPageJsonVO::Wrapper execQueryAwardLevel();
+	PullListVO::Wrapper execQueryAwardLevel();
 };
 
 #include OATPP_CODEGEN_END(ApiController) // 0
