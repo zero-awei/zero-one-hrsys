@@ -28,20 +28,13 @@ public:
 	ContractDO mapper(ResultSet* resultSet) const override
 	{
 		ContractDO data;
-		data.setId(resultSet->getString(1));
-		data.setName(resultSet->getString(2));
-		data.setUnit(resultSet->getString(3));
-		data.setState(resultSet->getString(4));
-		data.setUnitTime(resultSet->getString(5));
-		data.setContractID(resultSet->getString(6));
-		data.setContractUnit(resultSet->getString(7));
-		data.setContractCategory(resultSet->getString(8));
-		data.setContractType(resultSet->getString(9));
-		data.setStartDate(resultSet->getString(10));
-		data.setEndDate(resultSet->getString(11));
-		data.setContractStatus(resultSet->getString(12));
-		data.setRemaining(resultSet->getString(13));
-		data.setTrialExpiration(resultSet->getString(14));
+		data.set_HTBH(resultSet->getString(1));
+		data.set_HTLX(resultSet->getString(2));
+		data.set_CONTRACTTYPE(resultSet->getString(3));
+		data.set_QSRQ(resultSet->getString(4));
+		data.set_JSRQ(resultSet->getString(5));
+		data.set_HTZT(resultSet->getString(6));
+		data.set_SYDQSJ(resultSet->getString(7));
 		return data;
 	}
 };

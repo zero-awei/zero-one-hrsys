@@ -25,7 +25,7 @@ ContractPageDTO::Wrapper ContractService::listAll(const ContractQuery::Wrapper& 
 	for (ContractDO sub : result)
 	{
 		auto dto = ContractDTO::createShared();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id, name, Name, unit, Unit, state, State, unitTime, UnitTime, contractID, ContractID, contractUnit, ContractUnit, contractCategory, ContractCategory, contractType, ContractType, startDate, StartDate, endDate, EndDate, contractStatus, ContractStatus, remaining, Remaining, trialExpiration, TrialExpiration);
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, PIMPERSONID, _PIMPERSONID, HTBH, _HTBH, HTLX, _HTLX, CONTRACTTYPE, _CONTRACTTYPE, QSRQ, _QSRQ, JSRQ, _JSRQ, HTZT, _HTZT, SYDQSJ, _SYDQSJ);
 		pages->addData(dto);
 
 	}

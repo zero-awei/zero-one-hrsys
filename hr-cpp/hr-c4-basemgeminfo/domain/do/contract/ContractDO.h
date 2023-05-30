@@ -24,20 +24,14 @@
 
 class ContractDO
 {
-	CC_SYNTHESIZE(string, id, Id);
-	CC_SYNTHESIZE(string, name, Name);
-	CC_SYNTHESIZE(string, unit, Unit);
-	CC_SYNTHESIZE(string, state, State);
-	CC_SYNTHESIZE(string, unitTime, UnitTime);
-	CC_SYNTHESIZE(string, contractID, ContractID);
-	CC_SYNTHESIZE(string, contractUnit, ContractUnit);
-	CC_SYNTHESIZE(string, contractCategory, ContractCategory);
-	CC_SYNTHESIZE(string, contractType, ContractType);
-	CC_SYNTHESIZE(string, startDate, StartDate);
-	CC_SYNTHESIZE(string, endDate, EndDate);
-	CC_SYNTHESIZE(string, contractStatus, ContractStatus);
-	CC_SYNTHESIZE(string, remaining, Remaining);
-	CC_SYNTHESIZE(string, trialExpiration, TrialExpiration);
+	CC_SYNTHESIZE(string, PIMPERSONID, _PIMPERSONID);
+	CC_SYNTHESIZE(string, HTBH, _HTBH);
+	CC_SYNTHESIZE(string, HTLX, _HTLX);
+	CC_SYNTHESIZE(string, CONTRACTTYPE, _CONTRACTTYPE);
+	CC_SYNTHESIZE(string, QSRQ, _QSRQ);
+	CC_SYNTHESIZE(string, JSRQ, _JSRQ);
+	CC_SYNTHESIZE(string, HTZT, _HTZT);
+	CC_SYNTHESIZE(string, SYDQSJ, _SYDQSJ);
 };
 
 #endif // !_CONTRACTDO_H_

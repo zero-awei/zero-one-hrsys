@@ -90,20 +90,15 @@ sciresult:
   suffix: 文件名
 contract:
  get:
-  summary: 分页查询合同数据
- id: 合同编号
- unit: 员工所属单位
- state: 员工状态
- unitTime: 员工到本单位时间
- contractID: 合同编号
- contractUnit: 合同签订单位
- contractCategory: 合同类别
- contractType: 合同类型
- startDate: 合同起始日期
- endDate: 合同结束日期
- contractStatus: 合同状态
- remaining: 合同剩余天数
- trialExpiration: 合同试用到期时间
+  summary: 查看指定员工合同信息(分页查询列表)
+ PIMPERSONID: 人员信息标识
+ HTBH: 合同编号
+ HTLX: 合同类别
+ CONTRACTTYPE: 合同类型
+ QSRQ: 起始日期
+ JSRQ: 结束日期
+ HTZT: 合同状态
+ SYDQSJ: 试用到期时间
 military:
  get: 
   summary: 查看指定员工军转干部(指定军转干部详情)

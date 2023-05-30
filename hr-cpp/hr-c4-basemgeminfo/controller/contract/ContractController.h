@@ -46,9 +46,8 @@ public: // 定义接口
 		// 定义分页查询参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 添加其他查询参数
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("sample.field.name");
-		info->queryParams["name"].addExample("default", String("t**"));
-		info->queryParams["name"].required = false;
+		info->queryParams.add<String>("PIMPERSONID").description = ZH_WORDS_GETTER("contract.PIMPERSONID");
+		info->queryParams["PIMPERSONID"].addExample("default", String("105CB946-F5CF-4A8E-88D5-CFFA5B1B4A4C"));
 	}
 	// 4 定义接口端点
 	ENDPOINT(API_M_GET,"/contract/select", queryContract, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
