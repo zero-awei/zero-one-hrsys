@@ -65,7 +65,31 @@ public:
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.field.id");
 		info->queryParams["id"].addExample("default", String("114514"));
-		info->queryParams["id"].required = true;
+		info->queryParams["id"].required = false;
+		info->queryParams.add<String>("assign").description = ZH_WORDS_GETTER("employee.field.assign");
+		info->queryParams["assign"].addExample("default", String(""));
+		info->queryParams["assign"].required = false;
+		info->queryParams.add<String>("etype").description = ZH_WORDS_GETTER("employee.field.etype");
+		info->queryParams["etype"].addExample("default", String(""));
+		info->queryParams["etype"].required = false;
+		info->queryParams.add<String>("organize").description = ZH_WORDS_GETTER("employee.field.organize");
+		info->queryParams["organize"].addExample("default", String(""));
+		info->queryParams["organize"].required = false;
+		info->queryParams.add<String>("depart").description = ZH_WORDS_GETTER("employee.field.depart");
+		info->queryParams["depart"].addExample("default", String(""));
+		info->queryParams["depart"].required = false;
+		info->queryParams.add<String>("job").description = ZH_WORDS_GETTER("employee.field.job");
+		info->queryParams["job"].addExample("default", String(""));
+		info->queryParams["job"].required = false;
+		info->queryParams.add<String>("post").description = ZH_WORDS_GETTER("employee.field.post");
+		info->queryParams["post"].addExample("default", String(""));
+		info->queryParams["post"].required = false;
+		info->queryParams.add<String>("startTime").description = ZH_WORDS_GETTER("employee.field.startTime");
+		info->queryParams["startTime"].addExample("default", String(""));
+		info->queryParams["startTime"].required = false;
+		info->queryParams.add<String>("endTime").description = ZH_WORDS_GETTER("employee.field.endTime");
+		info->queryParams["endTime"].addExample("default", String(""));
+		info->queryParams["endTime"].required = false;
 	}
 	ENDPOINT(API_M_GET, "/query-assign-info", assignQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
