@@ -240,8 +240,6 @@ uint64_t SqlSession::executeQueryNumerical(const string& sql)
 uint64_t SqlSession::executeQueryNumerical(const string& sql, const SqlParams& params)
 {
 	uint64_t result = 0;
-	std::shared_ptr<string> ptr = static_pointer_cast<string>(params.front().value);
-	cout << "打印第一个params:" << *ptr << endl;
 	TryFinally(
 		[&] {
 			NULL_PTR_CHECK(conn, "connection is null");
