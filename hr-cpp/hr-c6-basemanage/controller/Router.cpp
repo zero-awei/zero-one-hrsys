@@ -18,8 +18,8 @@
 */
 #include "stdafx.h"
 #include "Router.h"
+#include "ApiHelper.h"`
 #include "controller/GoshController/TestController.h"
-
 #include "GoshController/TestController.h"
 #include "JobTitleInfo/JobTitleInfoController.h"
 #include "ExpenseLedge/ExpenseLedgeController.h"
@@ -39,13 +39,13 @@
 #include "GoshController/TestController.h"
 #include "TerminationReminder/terminationReminder.h"
 
-// Èç¹û¶¨ÒåÁË¹Ø±ÕSwaggerÎÄµµºê
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¹Ø±ï¿½Swaggerï¿½Äµï¿½ï¿½ï¿½
 #ifdef CLOSE_SWAGGER_DOC
-// ¼ò»¯°ó¶¨¿ØÖÆÆ÷ºê¶¨Òå
+// ï¿½ò»¯°ó¶¨¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¶¨ï¿½ï¿½
 #define ROUTER_SIMPLE_BIND(__CLASS__) \
 router->addController(__CLASS__::createShared())
 #else
-// ¼ò»¯°ó¶¨¿ØÖÆÆ÷ºê¶¨Òå
+// ï¿½ò»¯°ó¶¨¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¶¨ï¿½ï¿½
 #define ROUTER_SIMPLE_BIND(__CLASS__) \
 BIND_CONTROLLER(docEndpoints, router, __CLASS__)
 #endif
@@ -62,7 +62,7 @@ void Router::initRouter()
 	createSampleRouter();
 #endif
 
-	//#TIP :ÏµÍ³À©Õ¹Â·ÓÉ¶¨Òå£¬Ð´ÔÚÕâ¸öºóÃæ
+	//#TIP :ÏµÍ³ï¿½ï¿½Õ¹Â·ï¿½É¶ï¿½ï¿½å£¬Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	createJobAndExpenseRouter();
 	ROUTER_SIMPLE_BIND(ContractController);
 	ROUTER_SIMPLE_BIND(LaborDispatchMController);
@@ -70,7 +70,6 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(LaborDispatchConstroller);
 	ROUTER_SIMPLE_BIND(RetirementController);
 	ROUTER_SIMPLE_BIND(JobTitleController);
-	ROUTER_SIMPLE_BIND(GoshController);
 	ROUTER_SIMPLE_BIND(GoshController);
 	ROUTER_SIMPLE_BIND(TerminationReminderController);
 	ROUTER_SIMPLE_BIND(ContractmanageController);
@@ -86,11 +85,11 @@ void Router::createJobAndExpenseRouter()
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
-	// °ó¶¨ºÏÍ¬¿ØÖÆÆ÷
+	// ï¿½ó¶¨ºï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	ROUTER_SIMPLE_BIND(ContractController);
 
 	
-	// °ó¶¨WebSocket¿ØÖÆÆ÷
+	// ï¿½ï¿½WebSocketï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	router->addController(WSContorller::createShared());
 }
 

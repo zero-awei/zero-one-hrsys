@@ -47,16 +47,16 @@ public:
 	// 3.1 定义查询合同接口描述
 	ENDPOINT_INFO(queryContract) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("contract_gs.get.summary");
+		info->summary = ZH_WORDS_GETTER("contract_gosh.get.summary");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
-		API_DEF_ADD_AUTH();		
+		API_DEF_ADD_AUTH();
 		// 定义响应参数类型
 		API_DEF_ADD_RSP_JSON_WRAPPER(ContractPageJsonVO);
 		// 定义分页查询参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 	}
 	 //3.2 定义查询合同接口端点
-	ENDPOINT(API_M_GET, "/query-contract", queryContract, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/contract-management/query-contract", queryContract, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, ContractQuery, qps);		
 		// 响应结果
@@ -65,7 +65,7 @@ public:
 	//3.1 定义查询个人信息接口描述
 	ENDPOINT_INFO(queryPerson) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("person_gosh.get.summary");
+		info->summary = ZH_WORDS_GETTER("contract_gosh.get.summary");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数类型
@@ -76,7 +76,7 @@ public:
 		info->queryParams["name"].required = false;
 	}
 	//3.2 定义查询个人信息接口处理
-	ENDPOINT(API_M_GET, "/query-person", queryPerson, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/contract-management/query-person", queryPerson, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, ContractQuery, qps);
 		// 响应结果
@@ -85,24 +85,24 @@ public:
 	// 3.1 定义新增合同接口描述
 	ENDPOINT_INFO(addContract) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("contract_gs.post.summary");
+		info->summary = ZH_WORDS_GETTER("contract_gosh.post.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增合同接口处理
-	ENDPOINT(API_M_POST, "/add-contract", addContract, BODY_DTO(ContractDTO_gs::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/contract-management/add-contract", addContract, BODY_DTO(ContractDTO_gs::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddContract(dto));
 	}
 	// 3.1 定义删除合同接口描述
 	ENDPOINT_INFO(removeContract) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("contract_gs.delete.summary");
+		info->summary = ZH_WORDS_GETTER("contract_gosh.delete.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义删除合同接口处理
-	ENDPOINT(API_M_DEL, "/remove-contract", removeContract, BODY_DTO(ContractDTO_gs_delete::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/contract-management/remove-contract", removeContract, BODY_DTO(ContractDTO_gs_delete::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveContract(dto));
 	}

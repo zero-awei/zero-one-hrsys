@@ -38,7 +38,6 @@ ContractPageDTO_gs::Wrapper GoshService::listContract(const ContractQuery::Wrapp
 		dto->date_end = sub.getDate_end();
 		dto->tip = sub.getTip();
 		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id, name, Name, type, Type,variety,Variety,date,Date, condition, Condition, department_m, Department_m, department_c, Department_c, date_end, Date_end, tip,Tip);
-		//ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub,name, Name, type, Type, variety, Variety, date, Date, condition, Condition, department_m, Department_m, department_c, Department_c, date_end, Date_end, tip, Tip);
 		pages->addData(dto);
 
 	}

@@ -1,3 +1,4 @@
+#pragma once
 #ifndef _CONTRACT_DTO_
 #define _CONTRACT_DTO_
 #include "../../GlobalInclude.h"
@@ -11,7 +12,7 @@ class ContractDTO_gs : public oatpp::DTO
 {
 	DTO_INIT(ContractDTO_gs, DTO);
 	// ±àºÅ
-	DTO_FIELD(UInt64, id);
+	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("contract.field.id");
 	}

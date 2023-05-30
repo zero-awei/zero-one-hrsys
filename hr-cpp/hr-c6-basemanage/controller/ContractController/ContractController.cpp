@@ -40,11 +40,11 @@ Uint64JsonVO::Wrapper ContractController::execUpdateContract(const ContractDTO_:
 
 	// 执行数据修改
 	if (service.updateContract(dto)) {
-		jvo->success(dto->id);
+		jvo->success(1);
 	}
 	else
 	{
-		jvo->fail(dto->id);
+		jvo->fail(1);
 	}
 	return jvo;
 }
@@ -91,7 +91,7 @@ StringJsonVO::Wrapper ContractController::execUploadContract(const String& fileB
 		cout << endl;
 		dto->name = row[0];
 		string tmp = row[1];
-		dto->id = atoi(tmp.c_str());
+		dto->id = tmp.c_str();
 		dto->type = row[2];
 		dto->variety = row[3];
 		dto->date = row[4];

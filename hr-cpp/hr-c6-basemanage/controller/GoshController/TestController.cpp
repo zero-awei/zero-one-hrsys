@@ -2,6 +2,7 @@
 #include "controller/GoshController/TestController.h"
 #include "service/Gosh/GoshService.h"
 #include "domain/vo/Gosh/ContractVO.h"
+
 //演示查询合同信息
 ContractPageJsonVO::Wrapper GoshController::execQueryContract(const ContractQuery::Wrapper& query, const PayloadDTO& payload)
 {
@@ -13,7 +14,8 @@ ContractPageJsonVO::Wrapper GoshController::execQueryContract(const ContractQuer
 	auto jvo = ContractPageJsonVO::createShared();
 	jvo->success(result);
 	return jvo;
-}//演示查询个人信息
+}
+//演示查询个人信息
 ContractPageJsonVO::Wrapper GoshController::execQueryPerson(const ContractQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	// 定义一个Service
@@ -24,7 +26,8 @@ ContractPageJsonVO::Wrapper GoshController::execQueryPerson(const ContractQuery:
 	auto jvo = ContractPageJsonVO::createShared();
 	jvo->success(result);
 	return jvo;
-}//演示新增合同数据
+}
+//演示新增合同数据
 Uint64JsonVO::Wrapper GoshController::execAddContract(const ContractDTO_gs::Wrapper& dto)
 {
 	// 定义返回数据对象
@@ -50,6 +53,30 @@ Uint64JsonVO::Wrapper GoshController::execAddContract(const ContractDTO_gs::Wrap
 	//响应结果
 	return jvo;
 }
+//演示删除合同数据
+//Uint64JsonVO::Wrapper GoshController::execRemoveContract(const ContractDTO_gs_delete::Wrapper& dto)
+//{
+//	// 定义返回数据对象
+//	auto jvo = Uint64JsonVO::createShared();
+//	//// 参数校验
+//	if (!dto->id)
+//	{
+//		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+//		return jvo;
+//	}
+//	// 定义一个Service
+//	GoshService service;
+//	// 执行数据删除
+//	if (service.removeData(dto->id.getValue(0))) {
+//		jvo->success(dto->id);
+//	}
+//	else
+//	{
+//		jvo->fail(dto->id);
+//	}
+//	// 响应结果
+//	return jvo;
+//}
 //演示批量删除合同数据
 Uint64JsonVO::Wrapper GoshController::execRemoveContract(const ContractDTO_gs_delete::Wrapper& dto)
 {
@@ -62,8 +89,7 @@ Uint64JsonVO::Wrapper GoshController::execRemoveContract(const ContractDTO_gs_de
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	int count = 0;
-	for (auto it = dto->deleteById->begin(); it != dto->deleteById->end(); ++it,++count)
+	for (auto it = dto->deleteById->begin(); it != dto->deleteById->end(); ++it)
 	{
 		if (!(*it))
 		{
@@ -75,7 +101,7 @@ Uint64JsonVO::Wrapper GoshController::execRemoveContract(const ContractDTO_gs_de
 	GoshService service;
 	if (service.removeData(dto))
 	{
-		jvo->success(count);
+		jvo->success(1);
 	}
 	else
 	{

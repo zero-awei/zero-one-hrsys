@@ -99,7 +99,7 @@ std::string ContractInfoService::downloadContract(const ContractDownloadQuery::W
 	{
 		data.push_back(vector<string>());
 		data[i].push_back(sub.getName());
-		string tmp = std::to_string(sub.getId());
+		string tmp = sub.getId();
 		oatpp::String s = tmp;
 		data[i].push_back(s);
 		data[i].push_back(sub.getType());
@@ -138,7 +138,7 @@ uint64_t ContractInfoService::saveData(const ContractDTO_::Wrapper& dto)
 {
 	// 组装DO数据
 	ContractDO data;
-	data.setId(dto->id.getValue(1));
+	data.setId(dto->id.getValue(""));
 	data.setName(dto->name.getValue(""));
 	data.setType(dto->type.getValue(""));
 	data.setVariety(dto->variety.getValue(""));

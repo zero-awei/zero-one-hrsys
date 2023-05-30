@@ -1,34 +1,23 @@
-user:
- query-all: 
-  summary: 查询所有用户
-  nickname: 昵称
- file:
-  summary: 文件上传
-  suffix: 文件后缀
- query-menu:
-  summary: 查询所有菜单
- field:
-  age: 年龄
-  nickname: 昵称
-  idCard: 身份证号码
-  menuname: 菜单名称
-  menuicon: 图标名称
-  menuhref: 路由地址
-  menusub: 子菜单
-sample:
+contract_gosh:
  get:
-  summary: 分页查询示例数据
+  summary: 分页查询合同信息
  post:
-  summary: 新增一条示例数据
+  summary: 新增一条合同信息
  put:
-  summary: 修改一条示例数据
+  summary: 修改一条合同数据
  delete:
-  summary: 删除一条示例数据
- field:
-  id: 编号
-  age: 年龄
-  name: 姓名
-  sex: 性别，如：男
+  summary: 删除多条合同数据
+ filed:   
+  name: 员工姓名
+  id: 合同编号
+  type: 合同类别
+  variety: 合同类型
+  date: 起始日期
+  condition: 合同状态
+  department_m: 合同管理单位
+  department_c: 合同签订单位
+  date_end: 合同到期时间
+  tip: 备注
 
 ldcompany:
  get:

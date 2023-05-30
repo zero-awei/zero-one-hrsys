@@ -13,7 +13,7 @@ public:
 
 	DTO_INIT(ContractDTO_, DTO);
 
-	DTO_FIELD(UInt64, id);
+	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.id");
 	}
