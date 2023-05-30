@@ -12,15 +12,20 @@
 class LoanedPerPageQuery : public PageQuery
 {
 	DTO_INIT(LoanedPerPageQuery, PageQuery);
+	// 编号和姓名 模糊查询
+	DTO_FIELD(String, idAndName);
+	DTO_FIELD_INFO(idAndName) {
+		info->description = ZH_WORDS_GETTER("loanedperpage.field.name");
+	}
 	// 姓名
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("sample.field.name");
+		info->description = ZH_WORDS_GETTER("loanedperpage.field.name");
 	}
 	// 编号
 	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("sample.field.id");
+		info->description = ZH_WORDS_GETTER("loanedperpage.field.id");
 	}
 	// 组织
 	DTO_FIELD(String, zz);

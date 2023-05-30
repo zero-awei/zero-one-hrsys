@@ -3,24 +3,55 @@
 #include "LoanedPerDAO.h"
 #include "LoanedPerMapper.h"
 #include <sstream>
-//这里估计都要改动
-//定义条件解析宏---这里要拓展，具体看query里的条件改动，阿伟学长刚说的
+
 #define LOANEDPER_TERAM_PARSE(query,sql)\
 SqlParams params; \
 sql<<" WHERE 1=1"; \
-if(query->id){ \
-	sql << " AND `YGBH`LIKE CONCAT('%',?,'%')"; \
+if(query->idAndName){ \
+	sql << " AND `distir.YGBH`=？"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
 } \
 if(query->name){ \
-	sql << " AND `PIMPERSONNAME`LIKE CONCAT('%',?,'%')"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); \
+	sql << " OR `person.PIMPERSONNAME`=？"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
 } \
-//查询语句有问题，表也不对
+if(query->id){ \
+	sql << " OR `person.PIMPERSONNAME`=？"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
+} \
+if(query->zz){ \
+	sql << " OR `person.PIMPERSONNAME`=？"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
+} \
+if(query->bm){ \
+	sql << " OR `person.PIMPERSONNAME`=？"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
+} \
+if(query->zw){ \
+	sql << " OR `person.PIMPERSONNAME`=？"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
+} \
+if(query->gw){ \
+	sql << " OR `person.PIMPERSONNAME`=？"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
+} \
+if(query->fp){ \
+	sql << " OR `person.PIMPERSONNAME`=？"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
+} \
+if(query->lx){ \
+	sql << " OR `person.PIMPERSONNAME`=？"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
+} \
+if(query->fpzt){ \
+	sql << " OR `person.PIMPERSONNAME`=？"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
+} \
+
 uint64_t LoanedPerDAO::count(const LoanedPerPageQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM t_pimperson";
+	sql << "SELECT COUNT(*) FROM t_pimdistirbution";
 
 	LOANEDPER_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
@@ -30,28 +61,23 @@ uint64_t LoanedPerDAO::count(const LoanedPerPageQuery::Wrapper& query)
 //查询语句有问题
 list<SecondedPersonnelDO> LoanedPerDAO::selectWithPage(const LoanedPerPageQuery::Wrapper& query)
 {
-	stringstream sql;
-	sql << "SELECT t_pcmydmx.YGBH,t_pimperson.PIMPERSONNAME,t_pcmydmx.ZZ,t_pcmydmx.BM,YZW,YGW,t_srforg.ORGNAME,ORMORGSECTORNAME,ORMDUTYNAME,t_ormpost.ORMPOSTNAME,t_pcmydjdmx.PCMYDJDMXID  \
-				,t_pcmydjdmx.JDKSRQ,t_pcmydjdmx.JDJSRQ "
-		<<" FROM t_pcmydmx,t_pimperson,t_pcmydjdmx,t_srforg,t_srforgsector,t_ormduty,t_ormpost ";
-
-	SqlParams params; 
-	sql << " WHERE t_pcmydmx.YGBH=t_pimperson.YGBH and t_pcmydmx.PCMYDMXID=t_pcmydjdmx.PCMYDJDMXID "
-		<< " and t_srforg.ORGID = t_pcmydjdmx.JDORMORGID and t_pcmydjdmx.ORMORGSECTORID = t_srforgsector.ORGSECTORID "
-		<< " and t_pcmydjdmx.ORMDUTYID=t_ormduty.ORMDUTYID and t_ormpost.ORMPOSTID=t_pcmydjdmx.ORMPOSTID"; 
-	if (query->id) {
-				sql << " AND `t_pcmydmx.YGBH`LIKE CONCAT('%',?,'%')";
-			SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue(""));
-	} 
-	if (query->name) {
-			sql << " AND `t_pimperson.PIMPERSONNAME`LIKE CONCAT('%',?,'%')"; 
-			SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); 
-	} 
+	//stringstream sql;
+	//sql<< "	SELECT"
+	//	<< "person.PIMPERSONNAME,distir.YGBH,distir.YZZ,distir.YBM,duty.ORMDUTYNAME,gw.ORMPOSTNAME,distir.ORMORGNAME,"
+	//	<< "distir.ORMORGSECTORNAME,distir.ORMPOSTNAME,distir.YDZT,jdmx.JDJSRQ,jdmx.JDKSRQ"
+	//	<< "FROM"
+	//	<< "t_pimperson AS person"
+	//	<< "INNER JOIN t_pimdistirbution AS distir ON person.PIMPERSONID = distir.PIMPERSONID"
+	//	<< "INNER JOIN t_pcmydjdmx AS jdmx ON distir.PIMDISTIRBUTIONID = jdmx.PIMDISTIRBUTIONID"
+	//	<< "INNER JOIN t_ormpost AS gw ON distir.ORMPOSTID = gw.ORMPOSTID"
+	//	<< "INNER JOIN t_ormduty AS duty ON distir.ORMDUTYID = duty.ORMDUTYID"
 
 	//LOANEDPER_TERAM_PARSE(query, sql);
-	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
-	LoanedPerMapper mapper;
-	string sqlStr = sql.str();
-	return sqlSession->executeQuery<SecondedPersonnelDO, LoanedPerMapper>(sqlStr, mapper, params);
+	//sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
+	//LoanedPerMapper mapper;
+	//string sqlStr = sql.str();
+	//return sqlSession->executeQuery<SecondedPersonnelDO, LoanedPerMapper>(sqlStr, mapper, params);
+	//list<SecondedPersonnelDO> temp;
+	return list<SecondedPersonnelDO>();
 }
 
