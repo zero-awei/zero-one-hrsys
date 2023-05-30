@@ -48,6 +48,10 @@
     <ClCompile Include="service\fileStatus\FileStatusService.cpp" />
     <ClCompile Include="dao\fileStatus\FileStatusDAO.cpp" />
     <ClCompile Include="dao\fileReservation\FileReservationDAO.cpp" />
+    <ClCompile Include="dao\statusContract\StatusContractDAO.cpp" />
+    <ClCompile Include="service\statusContract\StatusContractService.cpp" />
+    <ClCompile Include="dao\leaveAndDismissReason\LeaveAndDismissReasonDAO.cpp" />
+    <ClCompile Include="service\leaveAndDismissReason\LeaveAndDismissReasonService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -142,6 +146,12 @@
     <ClInclude Include="service\fileStatus\FileStatusService.h" />
     <ClInclude Include="dao\fileStatus\FileStatusDAO.h" />
     <ClInclude Include="dao\fileReservation\FileReservationDAO.h" />
+    <ClInclude Include="dao\statusContract\StatusContractDAO.h" />
+    <ClInclude Include="service\statusContract\StatusContractService.h" />
+    <ClInclude Include="dao\leaveAndDismissReason\LeaveAndDismissReasonDAO.h" />
+    <ClInclude Include="domain\do\leaveAndDismissReason\LeaveAndDismissReasonDO.h" />
+    <ClInclude Include="dao\leaveAndDismissReason\LeaveAndDismissReasonMapper.h" />
+    <ClInclude Include="service\leaveAndDismissReason\LeaveAndDismissReasonService.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

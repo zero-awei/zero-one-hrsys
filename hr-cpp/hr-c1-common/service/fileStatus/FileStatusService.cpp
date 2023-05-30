@@ -8,7 +8,7 @@ PullListDTO::Wrapper FileStatusService::listAll()
 {
 	auto ret = PullListDTO::createShared();
 	UseLibRedis redisExm;
-	std::string tableName = "file-reservation-pull-list";
+	std::string tableName = "file-status-pull-list";
 	std::unordered_map<std::string, std::string> fileStatusList;
 	std::unordered_map<std::string, std::string> redisResult = redisExm.queryRedis(tableName);
 	if (redisResult.empty()) {
@@ -25,7 +25,9 @@ PullListDTO::Wrapper FileStatusService::listAll()
 		for (auto subptr = ret->pullList->begin(); subptr != ret->pullList->end(); subptr++) {
 			fileStatusList.insert(std::make_pair(std::to_string(*subptr->get()->key), *subptr->get()->val));
 		}
-		redisExm.updateRedis(tableName, fileStatusList);
+		if (result.size()) {
+			redisExm.updateRedis(tableName, fileStatusList);
+		}
 	}
 	else // »º´æÓÐÊý¾Ý
 	{

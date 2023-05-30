@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: Andrew211vibe
- @Date: 2023/05/24 17:41:08
+ @Author: yuanxiang
+ @Date: 2023/05/30 23:22:40
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,20 +17,24 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "ContractStatusController.h"
-#include "uselib/pullListRedis/UseLibRedis.h"
-#include "service/statusContract/StatusContractService.h"
+#ifndef _LEAVEANDDISMISSREASONMAPPER_H_
+#define _LEAVEANDDISMISSREASONMAPPER_H_
+#include "Mapper.h"
+#include "domain/do/leaveAndDismissReason/LeaveAndDismissReasonDO.h"
 /**
- * 实现合同状态下拉列表
+ * 离职/解聘原因Mapper
  * 负责人：远翔
  */
-PullListVO::Wrapper ConstractStatusController::execQueryContractStatus()
+class LeaveAndDismissReasonMapper : public Mapper<LeaveAndDismissReasonDO>
 {
-	auto dto = PullListDTO::createShared();
-	StatusContractService service;
-	dto = service.listAll();
-	auto vo = PullListVO::createShared();
-	vo->success(dto);
-	return vo;
-}
+public:
+	LeaveAndDismissReasonDO mapper(ResultSet* resultSet) const override
+	{
+		LeaveAndDismissReasonDO data;
+		data.setReason(resultSet->getString(1));
+		data.setCode(resultSet->getInt(2));
+		return data;
+	}
+};
+
+#endif // !_LEAVEANDDISMISSREASONMAPPER_H_

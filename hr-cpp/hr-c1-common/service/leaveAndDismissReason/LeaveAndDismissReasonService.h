@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: Andrew211vibe
- @Date: 2023/05/24 17:41:08
+ @Author: yuanxiang
+ @Date: 2023/05/30 23:26:22
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,20 +17,17 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "ContractStatusController.h"
-#include "uselib/pullListRedis/UseLibRedis.h"
-#include "service/statusContract/StatusContractService.h"
+#ifndef _LEAVEANDDISMISSREASONSERVICE_H_
+#define _LEAVEANDDISMISSREASONSERVICE_H_
+#include "domain/dto/pullList/PullListDTO.h"
 /**
- * 实现合同状态下拉列表
+ * 离职/解聘原因Service
  * 负责人：远翔
  */
-PullListVO::Wrapper ConstractStatusController::execQueryContractStatus()
+class LeaveAndDismissReasonService
 {
-	auto dto = PullListDTO::createShared();
-	StatusContractService service;
-	dto = service.listAll();
-	auto vo = PullListVO::createShared();
-	vo->success(dto);
-	return vo;
-}
+public:
+	PullListDTO::Wrapper listAll();
+};
+
+#endif // !_LEAVEANDDISMISSREASONSERVICE_H_

@@ -23,7 +23,9 @@ PullListDTO::Wrapper FileReservationService::listAll()
 		for (auto subptr = ret->pullList->begin(); subptr != ret->pullList->end(); subptr++) {
 			fileReservationList.insert(std::make_pair(std::to_string(*subptr->get()->key), *subptr->get()->val));
 		}
-		redisExm.updateRedis(tableName, fileReservationList);
+		if (result.size()) {
+			redisExm.updateRedis(tableName, fileReservationList);
+		}
 	}
 	else // »º´æÓÐÊý¾Ý
 	{

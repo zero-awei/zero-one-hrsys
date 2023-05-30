@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: Andrew211vibe
- @Date: 2023/05/24 17:41:08
+ @Author: yuanxiang
+ @Date: 2023/05/30 22:49:43
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,20 +17,19 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "ContractStatusController.h"
-#include "uselib/pullListRedis/UseLibRedis.h"
-#include "service/statusContract/StatusContractService.h"
+#ifndef _STATUSCONTRACTDAO_H_
+#define _STATUSCONTRACTDAO_H_
+#include "BaseDAO.h"
+#include "domain/do/constractStatus/ConstractStatusDO.h"
 /**
- * 实现合同状态下拉列表
+ * 合同状态DAO
  * 负责人：远翔
  */
-PullListVO::Wrapper ConstractStatusController::execQueryContractStatus()
+class StatusContractDAO : public BaseDAO
 {
-	auto dto = PullListDTO::createShared();
-	StatusContractService service;
-	dto = service.listAll();
-	auto vo = PullListVO::createShared();
-	vo->success(dto);
-	return vo;
-}
+public:
+	// 查询列表
+	std::list<ConstractStatusDO> selectConstractStatusList();
+};
+
+#endif // !_STATUSCONTRACTDAO_H_
