@@ -32,10 +32,10 @@ class ContractQuery : public PageQuery
 {
 	DTO_INIT(ContractQuery, PageQuery);
 
-	// 员工姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("sample.field.name");
+	// 人员信息标识
+	DTO_FIELD(String, PIMPERSONID);
+	DTO_FIELD_INFO(PIMPERSONID) {
+		info->description = ZH_WORDS_GETTER("contract.PIMPERSONID");
 	}
 	
 };
