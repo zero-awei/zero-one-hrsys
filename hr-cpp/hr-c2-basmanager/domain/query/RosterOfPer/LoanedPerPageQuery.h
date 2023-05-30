@@ -9,10 +9,6 @@
 #include "domain/query/PageQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
-
-/**
- * 示例分页查询对象
- */
 class LoanedPerPageQuery : public PageQuery
 {
 	DTO_INIT(LoanedPerPageQuery, PageQuery);
@@ -21,16 +17,16 @@ class LoanedPerPageQuery : public PageQuery
 	DTO_FIELD_INFO(name) {
 		info->description = ZH_WORDS_GETTER("sample.field.name");
 	}
-	// 性别
-	DTO_FIELD(String, sex);
-	DTO_FIELD_INFO(sex) {
-		info->description = ZH_WORDS_GETTER("sample.field.sex");
+	// 编号
+	DTO_FIELD(String, id);
+	DTO_FIELD_INFO(id) {
+		info->description = ZH_WORDS_GETTER("sample.field.id");
 	}
-	// 年龄
-	DTO_FIELD(UInt32, age);
-	DTO_FIELD_INFO(age) {
-		info->description = ZH_WORDS_GETTER("sample.field.age");
-	}
+	//// 年龄
+	//DTO_FIELD(UInt32, age);
+	//DTO_FIELD_INFO(age) {
+	//	info->description = ZH_WORDS_GETTER("sample.field.age");
+	//}
 };
 
 #include OATPP_CODEGEN_END(DTO)

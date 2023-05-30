@@ -135,5 +135,18 @@ loanedperpage:
  field:
   employeeid: 员工编号
   employeename: 员工姓名
+  id: 员工编号
+  name: 员工姓名
+  zz: 原组织
+  bm: 原部门
+  yzw: 原职务
+  ygw: 原岗位
+  ormName: 新组织
+  ormOrgSectorName: 新部门
+  ormDutyName: 新职务
+  ormPostName: 新岗位
+  pcmydjdmxId: 借调状态
+  jdksrq: 借调开始时间
+  jdjsrq: 借调结束时间
  export:
   summary: （人员花名册-借调人员-导出员工（导出本页在前端完成））--洛洛

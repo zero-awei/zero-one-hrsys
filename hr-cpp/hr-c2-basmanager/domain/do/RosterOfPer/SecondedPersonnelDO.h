@@ -28,7 +28,7 @@
 class SecondedPersonnelDO
 {
 	// 员工编号
-	CC_SYNTHESIZE(uint64_t, ygbh, ygbh);
+	CC_SYNTHESIZE(string, ygbh, ygbh);
 	// 员工姓名
 	CC_SYNTHESIZE(string, pimPersonName, pimPersonName);
 	// 原组织
@@ -40,15 +40,15 @@ class SecondedPersonnelDO
 	// 原岗位
 	CC_SYNTHESIZE(string, ygw, ygw);
 	// 新组织
-	CC_SYNTHESIZE(string, ormOrgId, ormOrgId);
+	CC_SYNTHESIZE(string, ormName, ormName);
 	// 新部门
-	CC_SYNTHESIZE(string, ormOrgSectorId, ormOrgSectorId);
+	CC_SYNTHESIZE(string, ormOrgSectorName, ormOrgSectorName);
 	// 新职务
-	CC_SYNTHESIZE(string, ormDutyId, ormDutyId);
+	CC_SYNTHESIZE(string, ormDutyName, ormDutyName);
 	// 新岗位
-	CC_SYNTHESIZE(string, ormPostId, ormPostId);
+	CC_SYNTHESIZE(string, ormPostName, ormPostName);
 	// 借调状态（异动借调明细标识）
-	CC_SYNTHESIZE(string, pcmydjdmxId, pcmydjdmxid);
+	CC_SYNTHESIZE(string, pcmydjdmxId, pcmydjdmxId);
 	//借调开始时间
 	CC_SYNTHESIZE(string, jdksrq, jdksrq);
 	//借调结束时间
@@ -62,10 +62,10 @@ public:
 		bm = "";
 		yzw = "";
 		ygw = "";
-		ormOrgId = "";
-		ormOrgSectorId = "";
-		ormDutyId = "";
-		ormPostId = "";
+		ormName = "";
+		ormOrgSectorName = "";
+		ormDutyName = "";
+		ormPostName = "";
 		pcmydjdmxId = "";
 		jdksrq = "";
 		jdjsrq = "";

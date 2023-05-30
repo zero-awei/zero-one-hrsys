@@ -16,6 +16,8 @@ class LoanedPerPageService
 public:
 	// 分页查询所有数据
 	LoanedPerPageDTO::Wrapper listAll(const LoanedPerPageQuery::Wrapper& query);
+	//导出功能，返回fastdfs路径
+	std::string exportData(const LoanedPerPageQuery::Wrapper& query);
 };
 
 #endif // !_LOANEDPERPAGE_SERVICE_
