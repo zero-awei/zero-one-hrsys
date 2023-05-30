@@ -23,9 +23,9 @@ public://定义接口
 		// 定义分页查询参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 添加其他查询参数
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("sample.field.name");
-		info->queryParams["name"].addExample("default", String("li ming"));
-		info->queryParams["name"].required = false;
+		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("sample.field.id");
+		info->queryParams["pimpersonid"].addExample("default", String("DE3C6578-C046-4911-838D-7C95BCD9231F"));
+		info->queryParams["pimpersonid"].required = false;
 	}
 
 	// 4 定义接口端点
