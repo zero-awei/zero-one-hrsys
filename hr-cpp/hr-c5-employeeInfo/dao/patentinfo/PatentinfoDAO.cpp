@@ -17,9 +17,11 @@ std::list<PatentinfoDO> PatentinfoDAO::selectByPIMPATENTID(const PatentinfoQuery
 
 	stringstream sql;
 	sql << "SELECT * FROM t_pimpatent";
-	SqlParams params;
+	//sql << " WHERE PIMPATENTID = ?";
 	sql << " WHERE 1=1";
 	sql << " AND `pimpatentid` LIKE CONCAT('%',?,'%')";
+	//FROM `t_pimvocational` INNER JOIN  t_pimperson ON t_pimvocational.PIMPERSONID = t_pimperson.PIMPERSONID  WHERE PIMVOCATIONALID = ? ";
+	SqlParams params;
 	SQLPARAMS_PUSH(params, "s", std::string, query->pimpatentid.getValue(""));
 	PatentinfoMapper mapper;
 	string sqlStr = sql.str();
