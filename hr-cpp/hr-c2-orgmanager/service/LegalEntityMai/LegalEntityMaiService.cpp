@@ -5,6 +5,7 @@
 #include "ExcelComponent.h"
 #include "FastDfsClient.h"
 #include "SnowFlake.h"
+#include "SimpleDateTimeFormat.h"
 
 /* 法人主体维护Service层具体实现--（组织管理-数据设置-法人主体维护）--TripleGold */
 LegalEntityMaiPageDTO::Wrapper LegalEntityMaiService::listAll(const LegalEntityMaiQuery::Wrapper& query)
@@ -52,7 +53,7 @@ bool LegalEntityMaiService::updateData(const LegalEntityMaiDTO::Wrapper& dto)
 	return dao.update(data) == 1;
 }
 
-uint64_t LegalEntityMaiService::saveData(const LegalEntityMaiAddDTO::Wrapper& dto)
+uint64_t LegalEntityMaiService::saveData(const LegalEntityMaiAddDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	// 组装DO数据
 	OrmsignorgDO data;
@@ -63,13 +64,19 @@ uint64_t LegalEntityMaiService::saveData(const LegalEntityMaiAddDTO::Wrapper& dt
 	// 雪花算法生成唯一标识ID
 	SnowFlake f2(1, 2);
 	data.setId(to_string(f2.nextId()));
+	// 更新时间
+	SimpleDateTimeFormat time;
+	data.setCreateman(payload.getUsername());
+	data.setCreateDate(time.format());
+	data.setUpdateman(payload.getUsername());
+	data.setUpdatedate(time.format());
 
 	// 执行数据添加
 	LegalEntityMaiDAO dao;
 	return dao.insert(data);
 }
 
-uint64_t LegalEntityMaiService::savaBatchDataWithFile(const std::string fileName)
+uint64_t LegalEntityMaiService::savaBatchDataWithFile(const std::string fileName, const PayloadDTO& payload)
 {
 	FastDfsClient client("192.168.241.128");
 
@@ -108,6 +115,12 @@ uint64_t LegalEntityMaiService::savaBatchDataWithFile(const std::string fileName
 		OrmsignorgDO data(row);
 		// 雪花算法生成唯一标识ID
 		data.setId(to_string(f2.nextId()));
+		// 更新时间
+		SimpleDateTimeFormat time;
+		data.setCreateman(payload.getUsername());
+		data.setCreateDate(time.format());
+		data.setUpdateman(payload.getUsername());
+		data.setUpdatedate(time.format());
 
 		// 插入数据
 		dao.insert(data);

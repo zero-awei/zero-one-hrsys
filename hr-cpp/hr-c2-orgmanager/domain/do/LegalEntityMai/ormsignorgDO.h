@@ -32,23 +32,16 @@ class OrmsignorgDO
 	CC_SYNTHESIZE(string, name, Name);
 	// 组织编号
 	CC_SYNTHESIZE(string, orgcode, Code);
-
-	//// 法人主体标识
-	//CC_SYNTHESIZE(string, id, ORMSIGNORGID);
-	//// 更新人
-	//CC_SYNTHESIZE(string, updateman, UPDATEMAN);
-	//// 建立人
-	//CC_SYNTHESIZE(string, createman, CREATEMAN);
-	//// 建立时间
-	//CC_SYNTHESIZE(string, createdate, CREATEDATE);
-	//// 法人主体名称
-	//CC_SYNTHESIZE(string, name, ORMSIGNORGNAME);
-	//// 更新时间
-	//CC_SYNTHESIZE(string, updatedate, UPDATEDATE);
-	//// 组织编号
-	//CC_SYNTHESIZE(string, orgcode, ORGCODE);
-	//// 简称
-	//CC_SYNTHESIZE(string, shortForm, ZZJC);
+	// 更新人
+	CC_SYNTHESIZE(string, updateman, Updateman);
+	// 建立人
+	CC_SYNTHESIZE(string, createman, Createman);
+	// 建立时间
+	CC_SYNTHESIZE(string, createdate, CreateDate);
+	// 更新时间
+	CC_SYNTHESIZE(string, updatedate, Updatedate);
+	// 简称
+	CC_SYNTHESIZE(string, shortForm, Zzjc);
 public:
 	OrmsignorgDO() {
 		id = "";

@@ -45,9 +45,7 @@ StringJsonVO::Wrapper LegalEntityMaiController::execUpdateLEM(const LegalEntityM
 	return jvo;
 }
 
-// --------------------新增的批量操作还未实现------------------------------------------------------
-
-Uint64JsonVO::Wrapper LegalEntityMaiController::execAddLEM(const List<LegalEntityMaiAddDTO::Wrapper>& dtoList)
+Uint64JsonVO::Wrapper LegalEntityMaiController::execAddLEM(const List<LegalEntityMaiAddDTO::Wrapper>& dtoList, const PayloadDTO& payload)
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
@@ -70,7 +68,7 @@ Uint64JsonVO::Wrapper LegalEntityMaiController::execAddLEM(const List<LegalEntit
 	bool res = true;
 	for (auto it = dtoList->begin(); it != dtoList->end(); it++)
 	{
-		if (!service.saveData(*it)) {
+		if (!service.saveData(*it, payload)) {
 			res = false;
 		}
 	}
@@ -160,7 +158,7 @@ StringJsonVO::Wrapper LegalEntityMaiController::execImportLEM(const String& body
 
 	// 定义一个Service
 	LegalEntityMaiService service;
-	service.savaBatchDataWithFile(fieldName);
+	service.savaBatchDataWithFile(fieldName, payload);
 	// 响应结果
 	jvo->success(String(ss.str().c_str()));
 	return jvo;

@@ -34,9 +34,9 @@ public:
 	// 修改数据
 	bool updateData(const LegalEntityMaiDTO::Wrapper& dto);
 	// 增加数据
-	uint64_t saveData(const LegalEntityMaiAddDTO::Wrapper& dto);
+	uint64_t saveData(const LegalEntityMaiAddDTO::Wrapper& dto, const PayloadDTO& payload);
 	// 导入文件
-	uint64_t savaBatchDataWithFile(const std::string fileName);
+	uint64_t savaBatchDataWithFile(const std::string fileName, const PayloadDTO& payload);
 	// 通过ID批量删除数据
 	bool deleteById(const LegalEntityMaiDelDTO::Wrapper& dto);
 	// 导出文件

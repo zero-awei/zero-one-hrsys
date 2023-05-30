@@ -94,14 +94,16 @@ public: // 定义接口
 
 	// 定义新增法人主体接口描述
 	ENDPOINT_INFO(addLEM) {
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("LegalEntityMai.post.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	ENDPOINT(API_M_POST, "/org/add-LEM", addLEM, BODY_DTO(List<LegalEntityMaiAddDTO::Wrapper>, dtoList)) {
+	ENDPOINT(API_M_POST, "/org/add-LEM", addLEM, API_HANDLER_AUTH_PARAME, BODY_DTO(List<LegalEntityMaiAddDTO::Wrapper>, dtoList)) {
 		// 响应结果
-		API_HANDLER_RESP_VO(execAddLEM(dtoList));
+		API_HANDLER_RESP_VO(execAddLEM(dtoList, authObject->getPayload()));
 	}
 
 	// 定义删除法人主体接口描述
@@ -166,7 +168,7 @@ private: // 定义接口执行函数
 	// 更新数据
 	StringJsonVO::Wrapper execUpdateLEM(const LegalEntityMaiDTO::Wrapper& dto);
 	// 批量新增数据
-	Uint64JsonVO::Wrapper execAddLEM(const List<LegalEntityMaiAddDTO::Wrapper>& dtoList);
+	Uint64JsonVO::Wrapper execAddLEM(const List<LegalEntityMaiAddDTO::Wrapper>& dtoList, const PayloadDTO& payload);
 	// 删除数据
 	Uint64JsonVO::Wrapper execRemoveLEM(const LegalEntityMaiDelDTO::Wrapper& dto);
 	// 导入数据

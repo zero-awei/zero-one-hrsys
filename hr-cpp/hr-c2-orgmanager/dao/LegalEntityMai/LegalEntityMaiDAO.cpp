@@ -41,8 +41,8 @@ int LegalEntityMaiDAO::update(const OrmsignorgDO& uObj)
 
 uint64_t LegalEntityMaiDAO::insert(const OrmsignorgDO& iObj)
 {
-	string sql = "INSERT INTO t_ormsignorg (ORMSIGNORGID, ORMSIGNORGNAME, ORGCODE) VALUES (?, ?, ?)";
-	return sqlSession->executeUpdate(sql, "%s%s%s", iObj.getId(), iObj.getName(), iObj.getCode());
+	string sql = "INSERT INTO t_ormsignorg (ORMSIGNORGID, ORMSIGNORGNAME, ORGCODE, CREATEMAN, CREATEDATE, UPDATEMAN, UPDATEDATE) VALUES (?, ?, ?, ?, ?, ?, ?)";
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s", iObj.getId(), iObj.getName(), iObj.getCode(), iObj.getCreateman(), iObj.getCreateDate(), iObj.getUpdateman(), iObj.getUpdatedate());
 }
 
 int LegalEntityMaiDAO::deleteById(string id)
