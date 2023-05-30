@@ -29,7 +29,7 @@ public:
 	// 3.1 定义查询接口描述
 	ENDPOINT_INFO(queryQualification) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("Qualification.get.summary");
+		info->summary = ZH_WORDS_GETTER("qualification.get.summary");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
@@ -38,7 +38,7 @@ public:
 		API_DEF_ADD_PAGE_PARAMS();
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/Qualification/query-qualification", queryQualification, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/qualification/query-qualification", queryQualification, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, QualificationQuery, queryParams);
 		// 响应结果
@@ -47,36 +47,36 @@ public:
 	// 3.1 定义新增接口描述
 	ENDPOINT_INFO(addQualification) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("Qualification.post.summary");
+		info->summary = ZH_WORDS_GETTER("qualification.post.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/Qualification/add-qualification", addQualification, BODY_DTO(QualificationDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/qualification/add-qualification", addQualification, BODY_DTO(QualificationDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddQualification(dto));
 	}
 	// 3.1 定义修改接口描述
 	ENDPOINT_INFO(modifyQualification) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("Qualification.put.summary");
+		info->summary = ZH_WORDS_GETTER("qualification.put.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/Qualification/modify-qualification", modifyQualification, BODY_DTO(QualificationDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/qualification/modify-qualification", modifyQualification, BODY_DTO(QualificationDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyQualification(dto));
 	}
 	// 3.1 定义删除接口描述
 	ENDPOINT_INFO(removeQualification) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("Qualification.delete.summary");
+		info->summary = ZH_WORDS_GETTER("qualification.delete.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/Qualification/delete-qualification", removeQualification, BODY_DTO(QualificationDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/qualification/remove-qualification", removeQualification, BODY_DTO(QualificationDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveQualification(dto));
 	}

@@ -20,6 +20,10 @@
     <ClCompile Include="controller\contract\ContractController.cpp" />
     <ClCompile Include="dao\contractType\ContractTypeDAO.cpp" />
     <ClCompile Include="service\contractType\ContractTypeService.cpp" />
+    <ClCompile Include="dao\Certificate\CertificateDAO.cpp" />
+    <ClCompile Include="dao\Qualification\QualificationDAO.cpp" />
+    <ClCompile Include="service\Qualification\QualificationService.cpp" />
+    <ClCompile Include="service\Certificate\CertificateService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\OtherComponent.hpp" />
@@ -74,5 +78,13 @@
     <ClInclude Include="domain\do\ContractType\ContractTypeDO.h" />
     <ClInclude Include="service\contractType\ContractTypeService.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="dao\Certificate\CertificateMapper.h" />
+    <ClInclude Include="dao\Certificate\CertificateDAO.h" />
+    <ClInclude Include="domain\do\Certificate\CertificateDO.h" />
+    <ClInclude Include="domain\do\Qualification\QualificationDO.h" />
+    <ClInclude Include="dao\Qualification\QualificationDAO.h" />
+    <ClInclude Include="dao\Qualification\QualificationMapper.h" />
+    <ClInclude Include="service\Qualification\QualificationService.h" />
+    <ClInclude Include="service\Certificate\CertificateService.h" />
   </ItemGroup>
 </Project>
