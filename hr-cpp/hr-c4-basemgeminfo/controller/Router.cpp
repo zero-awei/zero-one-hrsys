@@ -83,7 +83,7 @@ void Router::initRouter()
 	//°ó¶¨RewardAndPunishController
 	ROUTER_SIMPLE_BIND(RewardAndPunishController);
 
-	//°ó¶¨
+	//°ó¶¨TrainingRecordController
 	ROUTER_SIMPLE_BIND(TrainingRecordController);
 
 }
