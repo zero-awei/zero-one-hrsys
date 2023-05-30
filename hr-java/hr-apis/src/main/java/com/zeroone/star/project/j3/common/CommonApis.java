@@ -105,7 +105,7 @@ public interface CommonApis {
      * @param discipline
      * @return 集合
      */
-    JsonVO<List<String>> listDisciplineType();
+    JsonVO<List<String>> listDisciplineType(DisciplineTypeQuery discipline);
 
     /**
      * 学校性质下拉列表
@@ -124,10 +124,10 @@ public interface CommonApis {
     /**
      * 学历类型下拉列表
      *
-     * @param
+     * @param  education
      * @return 集合
      */
-    JsonVO<List<String>> listEducationType();
+    JsonVO<List<String>> listEducationType(EducationTypeQuery education);
 
     /**
      * 获取与本人关系

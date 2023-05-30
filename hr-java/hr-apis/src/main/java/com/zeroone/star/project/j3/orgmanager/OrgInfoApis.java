@@ -5,17 +5,11 @@ import com.zeroone.star.project.dto.sample.SampleDTO;
 import com.zeroone.star.project.j3.dto.DeleteDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.ModifyOrgAddressDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
-import cn.hutool.http.server.HttpServerResponse;
-import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
-import com.zeroone.star.project.j3.query.OrgQuery;
-import com.zeroone.star.project.query.sample.SampleQuery;
-import com.zeroone.star.project.j3.dto.orgmanager.ExportOrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgAddressDto;
+import com.zeroone.star.project.j3.query.OrgQuery;
+import com.zeroone.star.project.j3.dto.orgmanager.ExportOrgAddressDto;
 import com.zeroone.star.project.vo.JsonVO;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.List;
 import java.util.List;
 
 /**
@@ -64,13 +58,6 @@ public interface OrgInfoApis {
      * @param ids
      */
     JsonVO<Boolean> deleteOrgAddress(OrgAddressDto ids);
-
-    /**
-     * 导出组织地址接口
-     *
-     * @param ids,ids
-     */
-    JsonVO<Boolean> exportOrgAddress(OrgAddressDto ids);
 
 
     /**

@@ -1,7 +1,6 @@
 package com.zeroone.star.common.controller;
 
 import com.zeroone.star.common.service.ITSrfcodeitemService;
-import com.zeroone.star.common.service.impl.TSrfcodeitemServiceImpl;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.common.CommonApis;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
@@ -33,6 +32,9 @@ import java.util.List;
 @RequestMapping("common")
 @Api(tags = "通用接口")
 public class CommonController implements CommonApis {
+
+    @Autowired
+    private ITSrfcodeitemService itSrfcodeitemService;
 
     @GetMapping("query-start-position-title")
     @ApiOperation("职务名称下拉列表")
@@ -70,14 +72,12 @@ public class CommonController implements CommonApis {
         return null;
     }
 
-    @Autowired
-    private ITSrfcodeitemService TSrfcodeitemService;
 
     @GetMapping("query-distribution-status")
     @ApiOperation("分配状态下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryDistributionStatus() {
-        return JsonVO.success(TSrfcodeitemService.listDistributionStatus());
+        return null;
     }
 
     @GetMapping("query-name-of-association")
@@ -118,15 +118,15 @@ public class CommonController implements CommonApis {
     @GetMapping("query-common-discipline")
     @ApiOperation("获取学科下拉列表")
     @Override
-    public JsonVO<List<String>> listDisciplineType() {
-        return null;
+    public JsonVO<List<String>> listDisciplineType(@RequestBody DisciplineTypeQuery discipline) {
+        return JsonVO.success(itSrfcodeitemService.listDisciplineType(discipline));
     }
 
     @GetMapping("query-common-education")
     @ApiOperation("获取学历下拉列表")
     @Override
-    public JsonVO<List<String>> listEducationType() {
-        return null;
+    public JsonVO<List<String>> listEducationType(@RequestBody EducationTypeQuery education) {
+        return JsonVO.success(itSrfcodeitemService.listEducationType(education));
     }
 
 

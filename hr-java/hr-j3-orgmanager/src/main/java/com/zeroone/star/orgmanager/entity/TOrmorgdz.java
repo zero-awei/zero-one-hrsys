@@ -8,28 +8,28 @@ import lombok.Setter;
 
 /**
  * <p>
- * 职务管理
+ * 组织地址维护
  * </p>
  *
- * @author H
- * @since 2023-05-25
+ * @author wutong
+ * @since 2023-05-30
  */
 @Getter
 @Setter
-@TableName("t_ormduty")
-public class TOrmduty implements Serializable {
+@TableName("t_ormorgdz")
+public class TOrmorgdz implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 职务标识
+     * 组织地址维护标识
      */
-    private String ormdutyid;
+    private String ormorgdzid;
 
     /**
-     * 更新人
+     * 组织地址
      */
-    private String updateman;
+    private String ormorgdzname;
 
     /**
      * 更新时间
@@ -47,35 +47,21 @@ public class TOrmduty implements Serializable {
     private LocalDateTime createdate;
 
     /**
-     * 职务
+     * 更新人
      */
-    private String ormdutyname;
+    private String updateman;
+
+    /**
+     * 组织ID
+     */
+    private String ormorgid;
 
     private Integer xh;
 
     /**
-     * 层级
+     * 默认组织地址
      */
-    private String zwlb;
-
-    /**
-     * 职务编码
-     */
-    private String fglx;
-
-    /**
-     * 对应职级
-     */
-    private String dyzj;
-
-    private Integer nx;
-
-    private Integer bxjlnx;
-
-    /**
-     * 职务级别
-     */
-    private String zwjb;
+    private String deforgaddress;
 
 
 }
