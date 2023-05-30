@@ -1,7 +1,5 @@
 #pragma once
-/*
-（人员花名册-借调人员-分页查询员工列表（导出本页在前端完成））--luoluo
-*/
+
 #ifndef _LOANEDPERPAGE_CONTROLLER_
 #define _LOANEDPERPAGE_CONTROLLER_
 
@@ -21,10 +19,9 @@ namespace multipart = oatpp::web::mime::multipart;
 
 // 0 定义API控制器使用宏
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
-
-/**
- * 示例控制器，演示基础接口的使用
- */
+/*
+（人员花名册-借调人员-分页查询员工列表（导出本页在前端完成））--luoluo
+*/
 class LoanedPerPageController : public oatpp::web::server::api::ApiController // 1 继承控制器
 {
 	// 2 定义控制器访问入口
