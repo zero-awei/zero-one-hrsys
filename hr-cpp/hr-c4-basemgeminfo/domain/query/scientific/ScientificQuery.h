@@ -11,9 +11,9 @@ class ScientificViewQuery : public oatpp::DTO
 	DTO_INIT(ScientificViewQuery, DTO);
 
 	// 科研成果标识(主键)
-	DTO_FIELD(String, PIMRESEARCHFINDINGSID);
-	DTO_FIELD_INFO(PIMRESEARCHFINDINGSID) {
-		info->description = ZH_WORDS_GETTER("scientific.PIMRESEARCHFINDINGSID");
+	DTO_FIELD(String, pimresearchfindingsid);
+	DTO_FIELD_INFO(pimresearchfindingsid) {
+		info->description = ZH_WORDS_GETTER("scientific.Pimresearchfindingsid");
 	}
 };
 
@@ -22,9 +22,9 @@ class ScientificDownloadQuery : public oatpp::DTO
 	DTO_INIT(ScientificDownloadQuery, DTO);
 
 	// 科研成果人员信息标识
-	DTO_FIELD(String, PIMPERSONID);
-	DTO_FIELD_INFO(PIMPERSONID) {
-		info->description = ZH_WORDS_GETTER("military.PIMPERSONID");
+	DTO_FIELD(String, pimpersonid);
+	DTO_FIELD_INFO(pimpersonid) {
+		info->description = ZH_WORDS_GETTER("scientific.pimpersonid");
 	}
 };
 

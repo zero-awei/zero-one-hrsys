@@ -177,9 +177,11 @@
     <ClInclude Include="controller\scientific\ScientificController.h" />
     <ClInclude Include="dao\archives\ArchivesDAO.h" />
     <ClInclude Include="dao\archives\ArchivesMapper.h" />
+    <ClInclude Include="dao\scientific\ScientificDAO.h" />
+    <ClInclude Include="dao\scientific\ScientificMapper.h" />
     <ClInclude Include="domain\do\archives\ArchivesDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\do\scientific\Scientific.h" />
+    <ClInclude Include="domain\do\scientific\ScientificDO.h" />
     <ClInclude Include="domain\dto\archives\ArchivesDTO.h" />
     <ClInclude Include="domain\dto\scientific\ScientificDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
@@ -190,16 +192,19 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\archives\ArchivesService.h" />
+    <ClInclude Include="service\scientific\ScientificService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\archives\ArchivesController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
-    <ClCompile Include="controller\scientific\ScientficController.cpp" />
+    <ClCompile Include="controller\scientific\ScientificController.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="dao\archives\ArchivesDAO.cpp" />
+    <ClCompile Include="dao\scientific\ScientificDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\archives\ArchivesService.cpp" />
+    <ClCompile Include="service\scientific\ScientificService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

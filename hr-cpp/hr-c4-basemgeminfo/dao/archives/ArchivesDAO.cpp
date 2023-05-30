@@ -6,15 +6,15 @@
 #define CONTRACT_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
-if (query->name) { \
-	sql << " AND `PIMPERSONNAME`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); \
+if (query->pimpersonid) { \
+	sql << " AND `PIMPERSONID`=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->pimpersonid.getValue("")); \
 }
 
 uint64_t ArchivesDAO::count(const ArchivesQuery::Wrapper & query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM `t_pimarchives` a INNER JOIN `t_pimperson` b ON a.PIMPERSONID=b.PIMPERSONID ";
+	sql << "SELECT COUNT(*) FROM t_pimarchives";
 	CONTRACT_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
@@ -23,7 +23,8 @@ uint64_t ArchivesDAO::count(const ArchivesQuery::Wrapper & query)
 list<ArchivesDO> ArchivesDAO::selectWithPage(const ArchivesQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT YGBH,PIMPERSONNAME,DABH,ORMORGID3,DABGD,ARCHIVESCENTERID,EDUCATION,DATEOFBIRTH,JOINPARTYDATE,STARTWORKDATAE,DAZT FROM `t_pimarchives` as a, `t_pimperson` as b where a.PIMPERSONID=b.PIMPERSONID";
+	sql << "SELECT DABH,ORMORGID3,DABGD,ARCHIVESCENTERID,EDUCATION,DATEOFBIRTH,JOINPARTYDATE,STARTWORKDATAE,DAZT FROM `t_pimarchives` ";
+	//sql << "SELECT * FROM t_pimarchives";
 	CONTRACT_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	ArchivesMapper mapper;

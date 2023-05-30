@@ -9,6 +9,11 @@ class ScientificJsonVO :public JsonVO<ScientificDTO::Wrapper> {
 	DTO_INIT(ScientificJsonVO, JsonVO<ScientificDTO::Wrapper>);
 };
 
+class ScientificPageJsonVO : public JsonVO<ScientificPageDTO::Wrapper>
+{
+	DTO_INIT(ScientificPageJsonVO, JsonVO<ScientificPageDTO::Wrapper>);
+};
+
 #include OATPP_CODEGEN_END(DTO)
 
 #endif // !_SCIENTIFICVO_H_

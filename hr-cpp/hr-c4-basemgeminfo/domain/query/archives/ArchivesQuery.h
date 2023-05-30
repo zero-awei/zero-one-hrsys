@@ -19,6 +19,12 @@ class ArchivesQuery : public PageQuery
 		info->description = ZH_WORDS_GETTER("sample.field.name");
 	}
 
+	//人员信息id
+	DTO_FIELD(String, pimpersonid);
+	DTO_FIELD_INFO(pimpersonid) {
+		info->description = ZH_WORDS_GETTER("sample.field.pimpersionid");
+	}
+
 };
 
 #include OATPP_CODEGEN_END(DTO)

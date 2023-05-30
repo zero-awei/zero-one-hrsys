@@ -26,6 +26,12 @@ class ScientificDTO : public oatpp::DTO {
 		info->description = ZH_WORDS_GETTER("scientific.fj");
 	}
 
+	// ENABLE
+	DTO_FIELD(String, enable);
+	DTO_FIELD_INFO(enable) {
+		info->description = ZH_WORDS_GETTER("scientific.enable");
+	}
+
 	//建立时间
 	DTO_FIELD(String, createdate);
 	DTO_FIELD_INFO(createdate) {
@@ -87,7 +93,11 @@ class ScientificDTO : public oatpp::DTO {
 	DTO_FIELD_INFO(reason) {
 		info->description = ZH_WORDS_GETTER("scientific.reason");
 	}
+};
 
+class ScientificPageDTO : public PageDTO<ScientificDTO::Wrapper>
+{
+	DTO_INIT(ScientificPageDTO, PageDTO<ScientificDTO::Wrapper>);
 };
 
 
