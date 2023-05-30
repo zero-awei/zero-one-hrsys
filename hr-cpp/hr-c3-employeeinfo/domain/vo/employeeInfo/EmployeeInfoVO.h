@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: Detachment
- @Date: 2023/05/29 22:00:52
+ @Date: 2023/05/30 20:53:07
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,22 +17,24 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _JOBLISTMAPPER_H_
-#define _JOBLISTMAPPER_H_
-#include "Mapper.h"
-#include "../../domain/do/jobList/JobListDO.h"
+#ifndef _EMPLOYEEINFOVO_H_
+#define _EMPLOYEEINFOVO_H_
 
+#include "../../GlobalInclude.h"
+#include "../../dto/employeeInfo/EmployeeInfoDTO.h"
+#include "../../dto/employeeInfo/EmployeeInfoAddDTO.h"
 
-class JobListMapper : public Mapper<JobListDO>
+#include OATPP_CODEGEN_BEGIN(DTO)
+/* *
+* 指定员工员工信息导出vo
+* 执行人：Detachment
+*/
+class EmployeeInfoVO : public JsonVO<EmployeeInfoQuery::Wrapper>
 {
-public:
-	JobListDO mapper(ResultSet* res)const override
-	{
-		JobListDO data;
-		data.setJboName(res->getString(1));
-		return data;
-	}
-
+	DTO_INIT(EmployeeInfoVO, JsonVO<EmployeeInfoQuery::Wrapper>);
 };
 
-#endif // !_JOBLISTMAPPER_H_
+
+#include OATPP_CODEGEN_END(DTO)
+
+#endif // !_EMPLOYEEINFOVO_H_

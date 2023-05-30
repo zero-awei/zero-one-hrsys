@@ -30,6 +30,8 @@
 class EmployeeInfoAddDTO : public oatpp::DTO
 {
 	DTO_INIT(EmployeeInfoAddDTO, DTO);
+	//人员信息标识
+	API_DTO_FIELD_DEFAULT(String, pimpersonid, ZH_WORDS_GETTER("employee.field.pimpersonid"));
 	//员工编号
 	DTO_FIELD(String, empid);
 	DTO_FIELD_INFO(empid) {

@@ -34,7 +34,11 @@ class EmployeeInfoDO
 	CC_SYNTHESIZE(int, age, Age)
 	CC_SYNTHESIZE(string, sex, Sex)
 	CC_SYNTHESIZE(string, blood, Blood)
+	CC_SYNTHESIZE(string, phone, Phone)
+	CC_SYNTHESIZE(string, email, Email)
+	CC_SYNTHESIZE(string, marriage, Marriage)
 	CC_SYNTHESIZE(string, nation, Nation)
+	CC_SYNTHESIZE(string, residentType, ResidentType)
 	CC_SYNTHESIZE(string, native, Native)
 	CC_SYNTHESIZE(string, residentPlace, ResidentPlace)
 	CC_SYNTHESIZE(string, residentLocate, ResidentLocate)
@@ -43,20 +47,26 @@ class EmployeeInfoDO
 	CC_SYNTHESIZE(string, onlyCredit, OnlyCredit)
 	CC_SYNTHESIZE(string, hobby, Hobby)
 	CC_SYNTHESIZE(string, health, Health)
-	CC_SYNTHESIZE(string, marriage, Marriage)
 	CC_SYNTHESIZE(string, politic, Politic)
-	CC_SYNTHESIZE(string, rank, Rank)
+	CC_SYNTHESIZE(string, estate, eState)
+	CC_SYNTHESIZE(string, workState, WorkState)
+	CC_SYNTHESIZE(string, inWay, InWay)
 	CC_SYNTHESIZE(string, workTime, WorkTime)
 	CC_SYNTHESIZE(string, inTime, InTime)
-	CC_SYNTHESIZE(string, email, Email)
-	CC_SYNTHESIZE(string, techTitle, TechTitle)
-	CC_SYNTHESIZE(string, acaCredit, AcaCredit)
-	CC_SYNTHESIZE(string, firAcaCredit, FirAcaCredit)
-	CC_SYNTHESIZE(string, pracCerfigicate, PracCerfigicate)
 	CC_SYNTHESIZE(string, photo, Photo)
-	CC_SYNTHESIZE(string, phone, Phone)
+	CC_SYNTHESIZE(string, rank, Rank)
+	CC_SYNTHESIZE(string, techtitle, TechTitle)
+	CC_SYNTHESIZE(string, acaCredit, AcaCredit)
+	CC_SYNTHESIZE(string, friAcaCredit, FirAcaCredit)
+    CC_SYNTHESIZE(string, pracCerfigicate,PracCerfigicate)
+
 public:
 	EmployeeInfoDO() {
+		rank = "";
+		techtitle = "";
+		acaCredit = "";
+		friAcaCredit = "";
+		pracCerfigicate = "";
 		id = "";
 		name = "";
 		idType = "";
@@ -65,7 +75,11 @@ public:
 		age = 0;
 		sex = "";
 		blood = "";
+		phone = "";
+		email = "";
+		marriage = "";
 		nation = "";
+		residentType = "";
 		native = "";
 		residentPlace = "";
 		residentLocate = "";
@@ -74,17 +88,12 @@ public:
 		onlyCredit = "";
 		hobby = "";
 		health = "";
-		marriage = "";
 		politic = "";
-		rank = "";
+		estate = "";
+		workState = "";
+		inWay = "";
 		workTime = "";
 		inTime = "";
-		email = "";
-		techTitle = "";
-		acaCredit = "";
-		firAcaCredit = "";
-		pracCerfigicate = "";
-		phone = "";
 		photo = "";
 	}
 };

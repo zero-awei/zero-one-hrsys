@@ -19,10 +19,24 @@
 */
 #ifndef _EMPLOYEEINFOSERVICE_H_
 #define _EMPLOYEEINFOSERVICE_H_
+#include <list>
+#include "domain/query/employeeInfo/EmployeeInfoQuery.h"
+#include "domain/dto/employeeInfo/EmployeeInfoDTO.h"
+#include "domain/dto/employeeInfo/EmployeeInfoAddDTO.h"
 
+/* *
+* 员工信息service
+* 执行人：Detachment
+*/
 class EmployeeInfoService
 {
-
+public:
+	//查询指定员工员工信息
+	EmployeeInfoQuery::Wrapper listEmployee(const EmployeeInfoQuery::Wrapper& query);
+	//新增员工信息
+	bool insertEmployee(const EmployeeInfoAddDTO::Wrapper& edto);
+	//修改指定员工员工信息
+	bool updateEmployee(const EmployeeInfoDTO::Wrapper& edto);
 };
 
 #endif // !_EMPLOYEEINFOSERVICE_H_

@@ -31,6 +31,7 @@
 */
 class EmployeeInfoDAO : public BaseDAO
 {
+public:
 	/* *
 	* 修改指定员工员工信息
 	* 执行人：Detachment
@@ -40,7 +41,7 @@ class EmployeeInfoDAO : public BaseDAO
 	* 新增员工信息
 	* 执行人：Detachment
 	*/
-	int insertEmployee(const EmployeeInfoAddDTO::Wrapper& eadto, string pimid);
+	int insertEmployee(const EmployeeInfoAddDTO::Wrapper& eadto, string pimid,string dt);
 	/* *
 	* 查询指定员工员工信息
 	* 执行人：Detachment

@@ -20,49 +20,68 @@
 #include "stdafx.h"
 #include "EmployeeInfoController.h"
 
-StringJsonVO::Wrapper EmployeeInfoController::execEmployeeQuery(const EmployeeInfoQuery::Wrapper& query) {
-	auto vo = StringJsonVO::createShared();
-	vo->success("Employee information query success");
-	return vo;
+
+EmployeeInfoVO::Wrapper EmployeeInfoController::execEmployeeQuery(const EmployeeInfoQuery::Wrapper& query)
+{
+	EmployeeInfoService service;
+	auto result = service.listEmployee(query);
+	auto jvo = EmployeeInfoVO::createShared();
+	jvo->success(result);
+	return jvo;
 }
-Uint64JsonVO::Wrapper EmployeeInfoController::execEmployeeModify(const EmployeeInfoDTO::Wrapper& dto) {
+
+StringJsonVO::Wrapper EmployeeInfoController::execEmployeeModify(const EmployeeInfoDTO::Wrapper& dto) {
 	//auto vo = StringJsonVO::createShared();
-	auto jvo = Uint64JsonVO::createShared();
+	auto jvo = StringJsonVO::createShared();
 	if (!dto->empid || !dto->name || !dto->idtype || !dto->idnum)
 	{
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 	if (dto->age < 0 || dto->name->empty() || dto->idtype->empty() || dto->idnum->empty())
 	{
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 	if (dto->idtype != nullptr && (dto->idtype != "10" || dto->idtype != "20" || dto->idtype != "30"))
 	{
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 	//vo->success("Employee information modify success");
+	EmployeeInfoService service;
+	if (service.updateEmployee(dto)) {
+		jvo->success(dto->pimpersonid);
+	}
+	else{
+		jvo->fail(dto->pimpersonid);
+	}
 	return jvo;
 }
-Uint64JsonVO::Wrapper EmployeeInfoController:: execEmployeePut(const EmployeeInfoAddDTO::Wrapper& dto){
+StringJsonVO::Wrapper EmployeeInfoController:: execEmployeePut(const EmployeeInfoAddDTO::Wrapper& dto){
 	//auto vo = StringJsonVO::createShared();
-	auto jvo = Uint64JsonVO::createShared();
+	auto jvo = StringJsonVO::createShared();
 	if (!dto->empid || !dto->name || !dto->idType || !dto->idNum)
 	{
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 	if (dto->idType!=nullptr&&(dto->idType!="10"|| dto->idType != "20"|| dto->idType != "30"))
 	{
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 	if(dto->phoneNum.get()->length() != 11 || dto->state!="10"||dto->state!="20"||dto->state!="30")
 	{
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
+	}
+	EmployeeInfoService service;
+	if (service.insertEmployee(dto)) {
+		jvo->success(dto->pimpersonid);
+	}
+	else {
+		jvo->fail(dto->pimpersonid);
 	}
 	//vo->success("Job list information query success");
 	return jvo;

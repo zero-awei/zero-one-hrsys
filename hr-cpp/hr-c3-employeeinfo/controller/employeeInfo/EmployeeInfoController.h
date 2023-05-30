@@ -32,7 +32,9 @@
 #include "../../domain/dto/employeeInfo/EmployeeInfoDTO.h"
 #include "../../domain/query/jobList/JobListQuery.h"
 #include "../../domain/dto/employeeInfo/EmployeeInfoAddDTO.h"
-
+#include "../../service/employeeInfo/EmployeeInfoService.h"
+#include "../../service/jobList/JobListService.h"
+#include "../../domain/vo/employeeInfo/EmployeeInfoVO.h"
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
 class EmployeeInfoController : public oatpp::web::server::api::ApiController
@@ -47,7 +49,7 @@ public:
 		info->summary = ZH_WORDS_GETTER("employee.get.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		API_DEF_ADD_QUERY_PARAMS(String, "pimpersonid", ZH_WORDS_GETTER("employee.field.pimpersonid"), "ffffff", true);
-		API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("employee.field.id"), "666", true);
+		/*API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("employee.field.id"), "666", true);
 		API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("employee.field.name"), u8"徐梓炎", true);
 		API_DEF_ADD_QUERY_PARAMS(String, "idType", ZH_WORDS_GETTER("employee.field.idType"), "10", true);
 		API_DEF_ADD_QUERY_PARAMS(String, "idNum", ZH_WORDS_GETTER("employee.field.idNum"), "666", true);
@@ -67,7 +69,7 @@ public:
 		API_DEF_ADD_QUERY_PARAMS(String, "firAcaCredit", ZH_WORDS_GETTER("employee.field.firAcaCredit"), u8"北海道小学", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "pracCertificate", ZH_WORDS_GETTER("employee.field.pracCertificate"), u8"专业清洁工", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "photo", ZH_WORDS_GETTER("employee.field.photo"), u8"[{\"name\":\"组织管理.png\",\"id\":\"4d3c48ea78cc1d4a04bdb2142f136d28\"}]", false);
-		API_DEF_ADD_QUERY_PARAMS(String, "phone", ZH_WORDS_GETTER("employee.field.phone"), "6666", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "phone", ZH_WORDS_GETTER("employee.field.phone"), "6666", false);*/
 	}
 	API_HANDLER_ENDPOINT_QUERY(API_M_GET, "/employee-info/employee-query", employeeQuery, EmployeeInfoQuery, execEmployeeQuery(query));
 	/* *
@@ -139,17 +141,17 @@ private: // 定义接口执行函数
 	* 查询指定员工员工信息执行接口
 	* 执行人：Detachment
 	*/
-	StringJsonVO::Wrapper execEmployeeQuery(const EmployeeInfoQuery::Wrapper& query);
+	EmployeeInfoVO::Wrapper execEmployeeQuery(const EmployeeInfoQuery::Wrapper& query);
 	/* *
 	* 修改指定员工员工信息执行接口
 	* 执行人：Detachment
 	*/
-	Uint64JsonVO::Wrapper execEmployeeModify(const EmployeeInfoDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execEmployeeModify(const EmployeeInfoDTO::Wrapper& dto);
 	/* *
 	* 增加员工信息执行接口
 	* 执行人：Detachment
 	*/
-	Uint64JsonVO::Wrapper execEmployeePut(const EmployeeInfoAddDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execEmployeePut(const EmployeeInfoAddDTO::Wrapper& dto);
 	/* *
 	* 岗位列表查询执行接口
 	* 执行人：Detachment

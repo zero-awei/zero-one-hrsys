@@ -17,3 +17,47 @@
  limitations under the License.
 */
 #include "stdafx.h"
+#include "EmployeeInfoService.h"
+#include "../../dao/employeeInfo/EmployeeInfoDAO.h"
+#include "Macros.h"
+#include "SnowFlake.h"
+#include "SimpleDateTimeFormat.h"
+
+EmployeeInfoQuery::Wrapper EmployeeInfoService::listEmployee(const EmployeeInfoQuery::Wrapper& query)
+{
+	EmployeeInfoDAO dao;
+	auto dto=EmployeeInfoQuery::createShared();
+	list<EmployeeInfoDO> res = dao.selectEmployee(query);
+	for (EmployeeInfoDO c : res)
+	{
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, c, id, Id, name, Name, idType, IdType, idNum, IdNum,
+			birthday, Birthday, age, Age, sex, Sex, phone, Phone, email,
+			Email, marriage, Marriage, nation, Nation, native,
+			Native,politic, Politic,workTime, WorkTime,inTime, InTime, photo, Photo);
+	}
+	return dto;
+}
+
+bool EmployeeInfoService::insertEmployee(const EmployeeInfoAddDTO::Wrapper& edto)
+{
+	/*EmployeeInfoDO data;
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, edto, Id, empid, Name, name, IdType, idType, IdNum, idNum, Phone, phoneNum, eState, state);
+	*/
+	SimpleDateTimeFormat sdtf;
+	string dt = sdtf.format();
+	EmployeeInfoDAO dao;
+	SnowFlake sf(1, 3);
+	return dao.insertEmployee(edto, to_string(sf.nextId()),dt);
+}
+
+bool EmployeeInfoService::updateEmployee(const EmployeeInfoDTO::Wrapper& edto)
+{
+	/*EmployeeInfoDO data;
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, edto, Id, empid, Name, name, IdType, idtype, IdNum, idnum, Birthday,
+		bthdate, Age, age, Sex, sex, Blood, blood, Phone, phone, Email, email, Marriage, marriage,
+		Nation, nation, ResidentType, residentType, Native, native, ResidentPlace, residentPlace,
+		ResidentLocate, residentLocate, BirthPlace, birthPlace, ComePlace, comPlace, OnlyCredit, onlyCredit,
+		Hobby, hobby, Health, health, Politic, politic, WorkTime, workTime, InTime, inTime, Photo, photo);*/
+	EmployeeInfoDAO dao;
+	return dao.updateEmployee(edto);
+}

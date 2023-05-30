@@ -38,14 +38,14 @@ int EmployeeInfoDAO::updateEmployee(const EmployeeInfoDTO::Wrapper& edto)
 		edto->photo,edto->pimpersonid);
 }
 
-int EmployeeInfoDAO::insertEmployee(const EmployeeInfoAddDTO::Wrapper& eadto,string pimid)
+int EmployeeInfoDAO::insertEmployee(const EmployeeInfoAddDTO::Wrapper& eadto,string pimid,string dt)
 {
 	stringstream sql;
 	sql << "INSERT INTO `t_pimperson` (`PIMPERSONID`,`YGBH`,`PIMPERSONNAME`,`ZJLX`,";
-	sql << "`ZJHM`,`LXDH`,`YGZT`) VALUE(?,?,?,?,?,?,?)";
+	sql << "`ZJHM`,`LXDH`,`YGZT`,`UPDATEDATE`,`CREATEDATE`) VALUE(?,?,?,?,?,?,?)";//,`CREATEMAN`,`UPDATEMAN`
 	string sqlStr = sql.str();
-	return sqlSession->executeUpdate(sqlStr, "%s%s%s%s%s%s%s", pimid, eadto->empid,
-		eadto->name, eadto->idType, eadto->idNum, eadto->phoneNum, eadto->state);
+	return sqlSession->executeUpdate(sqlStr, "%s%s%s%s%s%s%s%s%s%s%s", pimid, eadto->empid,
+		eadto->name, eadto->idType, eadto->idNum, eadto->phoneNum, eadto->state,dt,dt);
 }
 
 std::list<EmployeeInfoDO> EmployeeInfoDAO::selectEmployee(const EmployeeInfoQuery::Wrapper& query)

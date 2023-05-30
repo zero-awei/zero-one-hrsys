@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: Detachment
- @Date: 2023/05/29 22:00:52
+ @Date: 2023/05/30 11:13:19
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,22 +17,12 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _JOBLISTMAPPER_H_
-#define _JOBLISTMAPPER_H_
-#include "Mapper.h"
-#include "../../domain/do/jobList/JobListDO.h"
+#ifndef _JOBLISTSERVICE_H_
+#define _JOBLISTSERVICE_H_
 
-
-class JobListMapper : public Mapper<JobListDO>
+class JobListService
 {
-public:
-	JobListDO mapper(ResultSet* res)const override
-	{
-		JobListDO data;
-		data.setJboName(res->getString(1));
-		return data;
-	}
-
+	
 };
 
-#endif // !_JOBLISTMAPPER_H_
+#endif // !_JOBLISTSERVICE_H_

@@ -153,6 +153,12 @@
     <ClInclude Include="dao\jobList\JobListMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="service\jobList\JobListService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\employeeInfo\EmployeeInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -186,6 +192,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="dao\jobList\JobListDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\jobList\JobListService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

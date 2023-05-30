@@ -22,5 +22,11 @@
 
 std::list<JobListDO> JobListDAO::selectJobList(const JobListQuery::Wrapper& query)
 {
-
+	stringstream sql;
+	SqlParams par;
+	sql << "SELECT `` FROM `` ";
+	sql << " LIMIT " << ((query->pageIndex - 1)*query->pageSize)<<","<<query->pageSize;
+	JobListMapper mapper;
+	string sqlStr = sql.str();
+	return sqlSession->executeQuery<JobListDO, JobListMapper>(sqlStr, mapper, par);
 }
