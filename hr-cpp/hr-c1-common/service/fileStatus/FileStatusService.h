@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: yuanxiang
- @Date: 2023/05/23 15:50:51
+ @Date: 2023/05/30 0:26:52
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,13 +17,18 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "LeaveReasonDAO.h"
-#include "dao/leaveReason/LeaveReasonMapper.h"
-
-std::list<LeaveReasonDO> LeaveReasonDAO::selectLeaveReasonList()
+#ifndef _FILESTATUSSERVICE_H_
+#define _FILESTATUSSERVICE_H_
+#include "domain/dto/pullList/PullListDTO.h"
+/**
+ * 文档借阅状态Service
+ * 负责人：远翔
+ */
+class FileStatusService
 {
-	string sql = "SELECT DISTINCT PCMREASONNAME, PX FROM t_pcmreason";
-	LeaveReasonMapper mapper;
-	return sqlSession->executeQuery<LeaveReasonDO, LeaveReasonMapper>(sql, mapper);
-}
+public:
+	// 查询下拉列表数据
+	PullListDTO::Wrapper listAll();
+};
+
+#endif // !_FILESTATUSSERVICE_H_

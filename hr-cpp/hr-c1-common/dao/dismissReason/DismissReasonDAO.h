@@ -30,7 +30,7 @@
 class DismissReasonDAO : public BaseDAO{
 public:
 	// ≤È—Ø¡–±Ì
-	std::list<DismissReasonDO> queryDismissReasonList();
+	std::list<DismissReasonDO> selectDismissReasonList();
 };
 
 

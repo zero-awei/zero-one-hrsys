@@ -48,6 +48,10 @@
     <ClCompile Include="service\jobCategory\jobCategoryService.cpp" />
     <ClCompile Include="dao\awardLevel\AwardLevelDAO.cpp" />
     <ClCompile Include="dao\jobCategory\JobCategoryDAO.cpp" />
+    <ClCompile Include="service\fileReservation\FileReservationService.cpp" />
+    <ClCompile Include="service\fileStatus\FileStatusService.cpp" />
+    <ClCompile Include="dao\fileReservation\FileReservationDAO.cpp" />
+    <ClCompile Include="dao\fileStatus\FileStatusDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -148,6 +152,10 @@
     <ClInclude Include="domain\do\certs\ProfCertsDO.h" />
     <ClInclude Include="domain\vo\JobUpdateVO\JobUpdateVO.h" />
     <ClInclude Include="domain\vo\JobDownloadVO\JobDownloadVO.h" />
+    <ClInclude Include="service\fileReservation\FileReservationService.h" />
+    <ClInclude Include="service\fileStatus\FileStatusService.h" />
+    <ClInclude Include="dao\fileReservation\FileReservationDAO.h" />
+    <ClInclude Include="dao\fileStatus\FileStatusDAO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
