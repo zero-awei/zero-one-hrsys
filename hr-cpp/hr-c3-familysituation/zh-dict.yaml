@@ -45,6 +45,8 @@ familysituation:
  export:
   summary: 导出家庭情况文件
  field:
+  personid: 员工编号
+  id: 家庭情况编号
   name: 姓名
   gender: 性别
   age: 年龄

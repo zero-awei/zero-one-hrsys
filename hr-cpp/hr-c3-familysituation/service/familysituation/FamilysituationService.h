@@ -26,7 +26,17 @@
 
 class FamilysituationService
 {
-	
+public:
+	// 分页查询所有数据
+	FamilysituationPageDTO::Wrapper listAll(const FamilysituationQuery::Wrapper& query);
+	// 指定查询数据
+	FamilysituationDTO::Wrapper getOne(const FamilysituationQuery::Wrapper& query);
+	// 保存数据
+	uint64_t saveData(const FamilysituationDTO::Wrapper& dto);
+	// 修改数据
+	bool updateData(const FamilysituationDTO::Wrapper& dto);
+	// 通过ID删除数据
+	bool removeData(const FamilysituationDTO::Wrapper& dto);
 };
 
 #endif // !_FAMILYSITUATIONSERVICE_H_

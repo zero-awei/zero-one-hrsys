@@ -32,9 +32,13 @@
 class FamilysituationDTO : public oatpp::DTO
 {
 	DTO_INIT(FamilysituationDTO, DTO);
-	//关系
+	// 员工编号
+	API_DTO_FIELD_DEFAULT(String, personid, ZH_WORDS_GETTER("familysituation.field.personid"));
+	//家庭情况编号
+	API_DTO_FIELD_DEFAULT(String, id, ZH_WORDS_GETTER("familysituation.field.id"));
+	// 关系
 	API_DTO_FIELD_DEFAULT(String, frelationship, ZH_WORDS_GETTER("familysituation.field.relationship"));
-	//姓名
+	// 姓名
 	API_DTO_FIELD_DEFAULT(String, name, ZH_WORDS_GETTER("familysituation.field.name"));
 	// 性别
 	API_DTO_FIELD_DEFAULT(String, gender, ZH_WORDS_GETTER("familysituation.field.gender"));
@@ -54,7 +58,11 @@ class FamilysituationDTO : public oatpp::DTO
 	DTO_FIELD_INFO(politicalstatus) {
 		info->description = ZH_WORDS_GETTER("familysituation.field.politicalstatus");
 	}
-
+	// 证件类型
+	DTO_FIELD(String, doctype);
+	DTO_FIELD_INFO(doctype) {
+		info->description = ZH_WORDS_GETTER("familysituation.field.identification");
+	}
 	// 证件号
 	DTO_FIELD(String, identification);
 	DTO_FIELD_INFO(identification) {
@@ -68,13 +76,13 @@ class FamilysituationDTO : public oatpp::DTO
 	}
 
 	// 是否遗嘱
-	DTO_FIELD(UInt8, testament);
+	DTO_FIELD(Int8, testament);
 	DTO_FIELD_INFO(testament) {
 		info->description = ZH_WORDS_GETTER("familysituation.field.testament");
 	}
 
 	// 是否紧急联系人
-	DTO_FIELD(UInt8, ice);
+	DTO_FIELD(String, ice);
 	DTO_FIELD_INFO(ice) {
 		info->description = ZH_WORDS_GETTER("familysituation.field.ice");
 	}
