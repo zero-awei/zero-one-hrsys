@@ -25,6 +25,6 @@ public interface TSrfcodeitemMapper extends BaseMapper<TSrfcodeitem> {
      * @Author H_lzu
      * @Date 21:52 2023/5/28
      */
-    @Select("select `codeitemid` AS `key`, `codeitemname` AS `value` from t_srfcodeitem;")
-    List<DropdownListOptionDTO> selectDistributionStatus();
+//    @Select("select `codeitemid` AS `key`, `codeitemname` AS `value` from t_srfcodeitem;")
+    List<DropdownListOptionDTO> selectDistributionStatus(String codeitem);
 }

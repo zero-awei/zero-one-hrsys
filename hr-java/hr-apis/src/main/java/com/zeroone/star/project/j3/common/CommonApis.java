@@ -63,7 +63,8 @@ public interface CommonApis {
      * @Author H_lzu
      * @Date 20:45 2023/5/19
      */
-    JsonVO<List<DropdownListOptionDTO>> queryDistributionForm();
+    JsonVO<List<DropdownListOptionDTO>> queryDistributionForm(String codeitem);
+
 
     /**
      * 分配状态下拉列表

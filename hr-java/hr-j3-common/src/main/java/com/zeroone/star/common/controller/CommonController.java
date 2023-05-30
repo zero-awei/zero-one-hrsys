@@ -1,7 +1,6 @@
 package com.zeroone.star.common.controller;
 
 import com.zeroone.star.common.service.ITSrfcodeitemService;
-import com.zeroone.star.common.service.impl.TSrfcodeitemServiceImpl;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.common.CommonApis;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
@@ -14,7 +13,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -52,7 +50,8 @@ public class CommonController implements CommonApis {
     @ApiOperation("奖惩级别下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryRewardPenaltyLevels() {
-        return null;
+
+        return JsonVO.success(TSrfcodeitemService.listDistributionStatus("奖惩级别"));
     }
 
 
@@ -60,13 +59,16 @@ public class CommonController implements CommonApis {
     @GetMapping("query-type-of-military-transfer")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryTypeofMilitaryTransfer() {
-        return null;
+        return JsonVO.success(TSrfcodeitemService.listDistributionStatus("军转类型"));
     }
+
+
 
     @GetMapping("query-distribution-form")
     @ApiOperation("分配形式下拉列表")
     @Override
-    public JsonVO<List<DropdownListOptionDTO>> queryDistributionForm() {
+    public JsonVO<List<DropdownListOptionDTO>> queryDistributionForm(String codeitem) {
+
         return null;
     }
 
@@ -77,7 +79,7 @@ public class CommonController implements CommonApis {
     @ApiOperation("分配状态下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryDistributionStatus() {
-        return JsonVO.success(TSrfcodeitemService.listDistributionStatus());
+        return JsonVO.success(TSrfcodeitemService.listDistributionStatus("分配状态"));
     }
 
     @GetMapping("query-name-of-association")
@@ -141,14 +143,14 @@ public class CommonController implements CommonApis {
     @ApiOperation("入职渠道下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryEntryChannel() {
-        return null;
+        return JsonVO.success(TSrfcodeitemService.listDistributionStatus("入职渠道"));
     }
 
     @GetMapping("query-allocation")
     @ApiOperation(("分配方式下拉列表"))
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryAllocation() {
-        return null;
+        return JsonVO.success(TSrfcodeitemService.listDistributionStatus("分配类型"));
     }
 @GetMapping("query-language-type")
 @ApiOperation("语种类型下拉列表")

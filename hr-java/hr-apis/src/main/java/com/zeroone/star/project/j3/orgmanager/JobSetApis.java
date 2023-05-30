@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -36,7 +37,7 @@ public interface JobSetApis {
      * @Author H_lzu
      * @Date 2023/5/19
      */
-    JsonVO<ExportDTO> exportAllJobs();
+    JsonVO<ExportDTO> exportAllJobs() throws Exception;
 
     /**
      * 导入职务
@@ -83,11 +84,5 @@ public interface JobSetApis {
     @PostMapping("add-position")
     @ApiOperation("批量新增组织信息(支持批量)")
     JsonVO<Boolean> AddPosition(@RequestBody AddPositionDTO addPositionDTO);
-/**
- *  导出组织（导出本页在前端完成）
- * @return {@link com.zeroone.star.project.vo.JsonVO<com.zeroone.star.project.j3.dto.ExportDTO>}
- * @Author H_lzu
- * @Date 16:27 2023/5/24
- */
-    JsonVO<ExportDTO> exportAllOrgs();
+
 }

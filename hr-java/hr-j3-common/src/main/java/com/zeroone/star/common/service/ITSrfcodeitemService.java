@@ -16,5 +16,6 @@ import java.util.List;
  */
 public interface ITSrfcodeitemService extends IService<TSrfcodeitem> {
 
-    List<DropdownListOptionDTO> listDistributionStatus();
+    List<DropdownListOptionDTO> listDistributionStatus(String codeitem);
+
 }

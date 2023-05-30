@@ -1,5 +1,9 @@
 package com.zeroone.star.orgmanager.controller;
 
+import cn.hutool.core.date.DateTime;
+import com.zeroone.star.orgmanager.entity.TOrmduty;
+import com.zeroone.star.orgmanager.service.ITOrmdutyService;
+import com.zeroone.star.project.components.easyexcel.EasyExcelComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsClientComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
 import com.zeroone.star.project.dto.PageDTO;
@@ -14,11 +18,20 @@ import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.SneakyThrows;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,11 +55,35 @@ public class JobSetController implements JobSetApis {
     @Value("${fastdfs.nginx-servers}")
     private String fileServerUrl;
 
+
+    @Resource
+    EasyExcelComponent component;
+    @Autowired
+    private ITOrmdutyService service;
+
     @GetMapping("expor-all-jobs")
     @ApiOperation("导出所有职务")
     @Override
-    public JsonVO<ExportDTO> exportAllJobs() {
-        return null;
+    public JsonVO<ExportDTO> exportAllJobs() throws Exception {
+        //查询数据
+        List<TOrmduty> tOrmduties = service.getBaseMapper().selectList(null);
+        // 创建输出流
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        // 导出数据到输出流
+        component.export("测试", out, TOrmduty.class, tOrmduties);
+        //上传FastDfs
+        FastDfsFileInfo fastDfsFileInfo = fastDfsClientComponent.uploadFile(out.toByteArray(), "xlsx");
+        System.out.println(fastDfsFileInfo.toString());
+        //验证
+        if (fastDfsFileInfo == null) {
+            return JsonVO.fail(null);
+        }
+        // 返回下载地址
+        ExportDTO exportDTO = new ExportDTO();
+        exportDTO.setUrl(fastDfsClientComponent.fetchUrl(fastDfsFileInfo, "http://", true));
+        System.out.println(exportDTO.toString());
+
+        return JsonVO.success(exportDTO);
     }
 
     @SneakyThrows
@@ -66,6 +103,7 @@ public class JobSetController implements JobSetApis {
         // 返回下载地址
         return JsonVO.success(fastDfsClientComponent.fetchUrl(fastDfsFileInfo, "http://" + fileServerUrl, true));
     }
+
     @GetMapping("queryJobList")
     @ApiOperation("查询职务")
     @Override
@@ -88,22 +126,21 @@ public class JobSetController implements JobSetApis {
         System.out.println(condition.getName());
         return null;
     }
+
     @DeleteMapping("delete-position")
     @ApiOperation("删除组织信息(支持批量)")
     @Override
     public JsonVO<Boolean> DeletePosition(@RequestBody DeletePositionDTO deletePositionDTO) {
         return null;
     }
-    @PostMapping ("add-position")
+
+    @PostMapping("add-position")
     @ApiOperation("批量新增组织信息(支持批量)")
     @Override
     public JsonVO<Boolean> AddPosition(@RequestBody AddPositionDTO addPositionDTO) {
         return null;
     }
 
-    @Override
-    public JsonVO<ExportDTO> exportAllOrgs() {
-        return null;
-    }
+
 }
 

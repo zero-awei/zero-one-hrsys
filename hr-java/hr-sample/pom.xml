@@ -61,7 +61,6 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
         </dependency>
-
         <!--seata-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
