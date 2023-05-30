@@ -14,12 +14,12 @@ class CertificateDTO : public oatpp::DTO
 {
 public:
 	CertificateDTO(){};
-	CertificateDTO(String certificateId, String certificateName) :certificateId(certificateId), certificateName(certificateName) {};
+	CertificateDTO(String seialno, String pimqualtypename) :seialno(seialno), pimqualtypename(pimqualtypename) {};
 	DTO_INIT(CertificateDTO, DTO);
 	//排序号
-	API_DTO_FIELD_DEFAULT(String, certificateId, ZH_WORDS_GETTER("certificate.field.id"));
-	//岗位证书
-	API_DTO_FIELD_DEFAULT(String, certificateName, ZH_WORDS_GETTER("certificate.field.certificateName"));
+	API_DTO_FIELD_DEFAULT(String, seialno, ZH_WORDS_GETTER("certificate.field.seialno"));
+	//岗位技能证书
+	API_DTO_FIELD_DEFAULT(String, pimqualtypename, ZH_WORDS_GETTER("certificate.field.pimqualtypename"));
 	
 	
 };

@@ -10,10 +10,12 @@
 class QualificationQuery :public PageQuery
 {
 	DTO_INIT(QualificationQuery, PageQuery);
-	//执业资格名称
-	API_DTO_FIELD_DEFAULT(String, QualificationName, ZH_WORDS_GETTER("qualification.field.qualificationName"));
-	//岗位类型
-	API_DTO_FIELD_DEFAULT(String, practicingQualification, ZH_WORDS_GETTER("qualification.field.practicingQualification"));
+	//级别
+	API_DTO_FIELD_DEFAULT(String, qualevel, ZH_WORDS_GETTER("qualification.field.qualevel"));
+	//执业资格
+	API_DTO_FIELD_DEFAULT(String, pimqualmajorname, ZH_WORDS_GETTER("qualification.field.pimqualmajorname"));
+	//专业
+	API_DTO_FIELD_DEFAULT(String, quamajor, ZH_WORDS_GETTER("qualification.field.quamajor"));
 };
 
 #include OATPP_CODEGEN_END(DTO)

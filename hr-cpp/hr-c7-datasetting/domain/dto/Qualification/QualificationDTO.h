@@ -15,14 +15,12 @@ class QualificationDTO : public oatpp::DTO
 public:
 	QualificationDTO() {};
 	DTO_INIT(QualificationDTO, DTO);
-	//执业资格名称
-	API_DTO_FIELD_DEFAULT(String, qualificationName, ZH_WORDS_GETTER("qualification.field.qualificationName"));
 	//级别
-	API_DTO_FIELD_DEFAULT(String, rank, ZH_WORDS_GETTER("qualification.field.rank"));
+	API_DTO_FIELD_DEFAULT(String, qualevel, ZH_WORDS_GETTER("qualification.field.qualevel"));
 	//执业资格
-	API_DTO_FIELD_DEFAULT(String, practicingqualification, ZH_WORDS_GETTER("qualification.field.practicingqualification"));
+	API_DTO_FIELD_DEFAULT(String, pimqualmajorname, ZH_WORDS_GETTER("qualification.field.pimqualmajorname"));
 	//专业
-	API_DTO_FIELD_DEFAULT(String, profession, ZH_WORDS_GETTER("qualification.field.profession"));
+	API_DTO_FIELD_DEFAULT(String, quamajor, ZH_WORDS_GETTER("qualification.field.quamajor"));
 
 };
 /*

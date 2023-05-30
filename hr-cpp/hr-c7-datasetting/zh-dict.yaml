@@ -39,8 +39,8 @@ certificate:
  delete: 
   summary: 删除证书类型
  field:
-  id: 排序号
-  certificateName: 证书名称
+  seialno: 排序号
+  pimqualtypename: 岗位技能证书
 contractType:
  get:
   summary: 分页查询合同数据
@@ -100,7 +100,7 @@ archive:
   layernum: 层数
   numid: 编号    
   ids: 编号列表
-Qualification:
+qualification:
  get:
   summary: 分页查询证书数据
  post:
@@ -110,11 +110,9 @@ Qualification:
  delete: 
   summary: 删除证书类型
  filed:
-  qualificationName: 执业资格名称
-  rank: 级别
-  practicingQualification: 执业资格
-  profession: 专业    
-  ids: 编号列表
+  qualevel: 级别
+  pimqualmajorname: 执业资格
+  quamajor: 专业    
 Title:
  get:
   summary: 分页查询职称数据
