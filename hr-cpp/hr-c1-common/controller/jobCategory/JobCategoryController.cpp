@@ -18,18 +18,20 @@
 //*/
 #include"stdafx.h"
 #include"JobCategoryController.h"
-
+#include "service/jobCategory/JobCategoryService.h"
 PullListVO::Wrapper JobCategoryController::execQueryJobCategory()
 {
 	auto vo = PullListVO::createShared();
-	auto dto = PullListDTO::createShared();
+	/*auto dto = PullListDTO::createShared();
 	dto->pullList->push_back(ItemDTO::createShared(1, u8"房屋建筑类"));
 	dto->pullList->push_back(ItemDTO::createShared(2, u8"基础设施类"));
 	dto->pullList->push_back(ItemDTO::createShared(3, u8"金融投资类"));
 	dto->pullList->push_back(ItemDTO::createShared(4, u8"勘察设计类"));
-	dto->pullList->push_back(ItemDTO::createShared(5, u8"职能管理类"));
+	dto->pullList->push_back(ItemDTO::createShared(5, u8"职能管理类"));*/
 
 	// TODO:调用service返回PullListDTO
+	JobCategoryService service;
+	auto dto = service.listAll();
 
 	vo->success(dto);
 	return vo;

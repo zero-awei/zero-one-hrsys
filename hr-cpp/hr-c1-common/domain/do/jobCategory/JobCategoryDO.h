@@ -1,9 +1,10 @@
 #pragma once
+
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: xubuxi
- @Date: 2023/05/25 0:52:24
+ @Author: yuanchen
+ @Date: 2023/05/27 21:26:49
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,23 +18,29 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _ARCHIVESLEVELSDO_H_
-#define _ARCHIVESLEVELSDO_H_
+#ifndef _JOBCATEGORYDO_H_
+#define _JOBCATEGORYDO_H_
 #include "../DoInclude.h"
-class ArchivesLevelsDO
+/**
+ * 岗位类型下拉列表
+ * 负责人：yuanchen
+ */
+class JobCategoryDO
 {
+	CC_SYNTHESIZE(string, jobCategory, JobCategory);
+	CC_SYNTHESIZE(string, code, Code);
 	
-	//获奖情况标识
-	CC_SYNTHESIZE(string, pcmawardswonsid, Pcmawardswonsid);
-	//获奖等级
-	CC_SYNTHESIZE(string, awardlevel, Awardlevel);
-
 public:
-	ArchivesLevelsDO() {
-		
-		pcmawardswonsid = "";
-		awardlevel = "";
+	JobCategoryDO()
+	{
+		jobCategory = "";
+		code = "";
+	}
+	JobCategoryDO(string code_, string jobCategory_)
+	{
+		code = code_;
+		jobCategory = jobCategory_;
 	}
 };
 
-#endif // !_ARCHIVESLEVELSDO_H_
+#endif // !_JOBCATEGORYDO_H_

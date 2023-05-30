@@ -44,6 +44,10 @@
     <ClCompile Include="dao\EvaluationType\EvaluationTypeDAO.cpp" />
     <ClCompile Include="service\auditStatus\AuditStatusService.cpp" />
     <ClCompile Include="dao\auditStatus\AuditStatusDAO.cpp" />
+    <ClCompile Include="service\awardLevel\AwardLevelService.cpp" />
+    <ClCompile Include="service\jobCategory\jobCategoryService.cpp" />
+    <ClCompile Include="dao\awardLevel\AwardLevelDAO.cpp" />
+    <ClCompile Include="dao\jobCategory\JobCategoryDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -134,6 +138,16 @@
     <ClInclude Include="dao\auditStatus\AuditStatusDAO.h" />
     <ClInclude Include="domain\do\auditStatus\AuditStatusDO.h" />
     <ClInclude Include="dao\auditStatus\AuditStatusMapper.h" />
+    <ClInclude Include="service\awardLevel\AwardLevelService.h" />
+    <ClInclude Include="service\jobCategory\JobCategoryService.h" />
+    <ClInclude Include="dao\awardLevel\AwardLevelDAO.h" />
+    <ClInclude Include="dao\awardLevel\AwardLevelMapper.h" />
+    <ClInclude Include="dao\jobCategory\JobCategoryDAO.h" />
+    <ClInclude Include="domain\do\awardLevels\ArchivesLevelsDO.h" />
+    <ClInclude Include="domain\do\jobCategory\JobCategoryDO.h" />
+    <ClInclude Include="domain\do\certs\ProfCertsDO.h" />
+    <ClInclude Include="domain\vo\JobUpdateVO\JobUpdateVO.h" />
+    <ClInclude Include="domain\vo\JobDownloadVO\JobDownloadVO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -1,9 +1,8 @@
-#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: xubuxi
- @Date: 2023/05/25 0:52:24
+ @Author: yuanchen
+ @Date: 2023/05/29 20:52:33
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,23 +16,14 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _ARCHIVESLEVELSDO_H_
-#define _ARCHIVESLEVELSDO_H_
-#include "../DoInclude.h"
-class ArchivesLevelsDO
+#include "stdafx.h"
+#include "AwardLevelDAO.h"
+#include "domain/do/awardLevels/ArchivesLevelsDO.h"
+#include "AwardLevelMapper.h"
+std::list<ArchivesLevelsDO> AwardLevelDAO::selectAll()
 {
-	
-	//获奖情况标识
-	CC_SYNTHESIZE(string, pcmawardswonsid, Pcmawardswonsid);
-	//获奖等级
-	CC_SYNTHESIZE(string, awardlevel, Awardlevel);
-
-public:
-	ArchivesLevelsDO() {
-		
-		pcmawardswonsid = "";
-		awardlevel = "";
-	}
-};
-
-#endif // !_ARCHIVESLEVELSDO_H_
+	// 构建SQL查询语句
+	string str = "SELECT `PCMAWARDSWONSID`, `AWARDLEVEL` FROM `t_pcmawardswons`";
+	AwardLevelMapper mapper;
+	return sqlSession->executeQuery<ArchivesLevelsDO, AwardLevelMapper>(str, mapper);
+}
