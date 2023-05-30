@@ -23,6 +23,6 @@
 
 int DeleteCertifDAO::deleteById(string id)
 {
-	string sql = "DELETE FROM `t_pimvocational` WHERE `ZGZSBH`=?";
+	string sql = "DELETE FROM `t_pimvocational` WHERE `PIMVOCATIONALID`=?";
 	return sqlSession->executeUpdate(sql,"s",id);
 }

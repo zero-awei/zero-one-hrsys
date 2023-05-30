@@ -8,17 +8,21 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/**
- * 示例传输对象
- */
+
 class RemoveCertifDTO : public oatpp::DTO
 {
 	DTO_INIT(RemoveCertifDTO, DTO);
+	DTO_FIELD(List<String>, idByBatch) = {};
+	DTO_FIELD_INFO(idByBatch) {
+		info->description= ZH_WORDS_GETTER("certif.field.idByBatch");
+	}
+	/*
 	// 编号
 	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("certif.field.id");
 	}
+	*/
 };
 
 #include OATPP_CODEGEN_END(DTO)

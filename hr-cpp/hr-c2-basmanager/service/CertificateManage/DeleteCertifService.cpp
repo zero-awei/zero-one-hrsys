@@ -20,8 +20,12 @@
 #include "DeleteCertifService.h"
 #include "../../dao/CertificateManage/DeleteCertifDAO.h"
 
-bool DeleteCertifService::removeData(string id)
+bool DeleteCertifService::removeData(const RemoveCertifDTO::Wrapper& dto)
 {
 	DeleteCertifDAO dao;
-	return dao.deleteById(id) == 1;
+	for (auto it=dto->idByBatch->begin(); it!=dto->idByBatch->end(); ++it)
+	{
+		dao.deleteById(*it);
+	}
+	return true;
 }

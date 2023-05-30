@@ -125,7 +125,8 @@ certif:
  delete:
   summary: （证书管理-证书信息-删除证书）--洛洛
  field:
-  id: 证书编号
+  id: 证书编号 （PIMVOCATIONALID）
+  idByBatch: 批量删除证书编号 （PIMVOCATIONALID）
  export:
   summary: （证书管理-证书信息-导出证书）--洛洛
 loanedperpage:

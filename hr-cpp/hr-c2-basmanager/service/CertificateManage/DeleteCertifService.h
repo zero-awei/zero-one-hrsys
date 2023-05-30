@@ -21,7 +21,7 @@
 #define _DELETECERTIF_SERVICE_
 #include <list>
 
-
+#include "../../domain/dto/CertificateManage/RemoveCertifDTO.h"
 /**
  * 示例服务实现，演示基础的示例服务实现
  */
@@ -29,7 +29,7 @@ class DeleteCertifService
 {
 public:
 	// 通过ID删除数据
-	bool removeData(string id);
+	bool removeData(const RemoveCertifDTO::Wrapper& dto);
 };
 
 #endif // !_DELETECERTIF_SERVICE_
