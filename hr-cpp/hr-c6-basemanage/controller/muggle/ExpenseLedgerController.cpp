@@ -20,7 +20,7 @@
 #include "ExpenseLedgerController.h"
 #include "service/expenseLedger/ExpenseLedgerService.h"
 #include "SimpleDateTimeFormat.h"
-
+#include "SnowFlake.h"
 
 ExpenseLedgerPageJsonVO::Wrapper ExpenseLedgerMController::execQueryExpenseLedger(const ExpenseLedgerPageQuery::Wrapper& query)
 {
@@ -43,7 +43,7 @@ ExpenseLedgerPageJsonVO::Wrapper ExpenseLedgerMController::execQueryExpenseLedge
 StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger(const ExpenseLedgerDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto jvo = StringJsonVO::createShared();
-	if ( !dto->pimexpaccountid || dto->fyje<=0 || dto->ffrs<=0 ) 
+	if ( dto->fyje<=0 || dto->ffrs<=0 ) 
 	{
 		jvo->init("0", RS_PARAMS_INVALID);
 		//jvo->init(String(-1), RS_SERVER_BUSY);
@@ -55,6 +55,8 @@ StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger(const Expen
 		dto->updatedate = datesevice.format();
 		dto->createman = payload.getUsername();
 		dto->updateman = payload.getUsername();
+		SnowFlake uidservice(1,6);
+		dto->pimexpaccountid = to_string(uidservice.nextId());
 		ExpenseLedgerService service;
 		if (service.saveData(dto))
 		{
