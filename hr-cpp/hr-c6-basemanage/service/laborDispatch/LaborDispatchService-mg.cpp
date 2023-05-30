@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
@@ -34,11 +34,11 @@ LaborDispatchPageDTO::Wrapper LaborDispatchMService::ListAll(const LaborDispatch
 	{
 		return pages;
 	}
-	//·ÖÒ³²åÐðÊý¾Ý
+	//åˆ†é¡µæ’å™æ•°æ®
 	pages->total = count;
 	pages->calcPages();
 	list<LaborDispatchDO> result = dao.selectByCorporateID(query);
-	//½«DO×ª»»³ÉDTO
+	//å°†DOè½¬æ¢æˆDTO
 	for (LaborDispatchDO sub : result)
 	{
 		auto dto = LaborDispatchDTO::createShared();
@@ -63,7 +63,7 @@ LaborDispatchPageDTO::Wrapper LaborDispatchMService::ListAll(const LaborDispatch
 
 bool LaborDispatchMService::updateData(const LaborDispatchUpdateDTO::Wrapper& dto)
 {
-	// ×é×°DOÊý¾Ý
+	// ç»„è£…DOæ•°æ®
 	LaborDispatchDO data;
 	data.setName(dto->corporateName.getValue(""));
 	data.setLxdz(dto->contactAddress.getValue(""));

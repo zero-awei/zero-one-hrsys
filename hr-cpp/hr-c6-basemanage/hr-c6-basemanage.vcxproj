@@ -29,7 +29,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -179,6 +179,7 @@
     <ClCompile Include="dao\expenseLedger\ExpenseLedgerDAO.cpp" />
     <ClCompile Include="dao\Gosh\GoshDAO.cpp" />
     <ClCompile Include="controller\TerminationReminder\terminationReminder.cpp" />
+    <ClCompile Include="dao\JobTitle\JobTitleDAO.cpp" />
     <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mg.cpp" />
     <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mh.cpp" />
     <ClCompile Include="dao\TerminationReminder\TerminationReminderDAO.cpp" />
@@ -186,6 +187,7 @@
     <ClCompile Include="dao\Sample\ContractDao.cpp" />
     <ClCompile Include="service\akieService\ContractInfoService.cpp" />
     <ClCompile Include="service\expenseLedger\ExpenseLedgerService.cpp" />
+    <ClCompile Include="service\JobTitle\JobTitleService.cpp" />
     <ClCompile Include="service\laborDispatch\LaborDispatchService-mg.cpp" />
     <ClCompile Include="service\laborDispatch\LaborDispatchService-mh.cpp" />
     <ClCompile Include="service\Gosh\GoshService.cpp" />
@@ -217,6 +219,8 @@
     <ClInclude Include="dao\Gosh\GoshDAO.h" />
     <ClInclude Include="dao\Gosh\GoshMapper.h" />
     <ClInclude Include="controller\TerminationReminder\terminationReminder.h" />
+    <ClInclude Include="dao\JobTitle\JobTitleDAO.h" />
+    <ClInclude Include="dao\JobTitle\JobTitleMapper.h" />
     <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mg.h" />
     <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mh.h" />
     <ClInclude Include="dao\laborDispatch\LaborDispatchMapper-mh.h" />
@@ -271,6 +275,7 @@
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\akieService\ContractInfoService.h" />
     <ClInclude Include="service\expenseLedger\ExpenseLedgerService.h" />
+    <ClInclude Include="service\JobTitle\JobTitleService.h" />
     <ClInclude Include="service\laborDispatch\LaborDispatchService-mg.h" />
     <ClInclude Include="service\laborDispatch\LaborDispatchService-mh.h" />
     <ClInclude Include="service\Gosh\GoshService.h" />

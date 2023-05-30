@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
@@ -89,7 +89,7 @@ std::list<ExpenseLedgerDO> ExpenseLedgerDAO::selectByPageQuery(const ExpenseLedg
 	stringstream sql;
 	sql << "SELECT * FROM t_pimexpaccount";
 	EXPENSELEDGER_TERAM_PARSE(query, sql);
-	// ·ÖÒ³²éÕÒ
+	// åˆ†é¡µæŸ¥æ‰¾
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	ExpenseLedgerMapper mapper;
 	string sqlStr = sql.str();

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
@@ -34,7 +34,7 @@ class ExpenseLedgerMController : public oatpp::web::server::api::ApiController
 {
 	API_ACCESS_DECLARE(ExpenseLedgerMController);
 public:
-	// ²éÑ¯·Ñ±ð
+	// æŸ¥è¯¢è´¹åˆ«
 	ENDPOINT_INFO(queryExpenseLedger) {
 		info->summary = ZH_WORDS_GETTER("expenseledger_mug.get.summary");
 		API_DEF_ADD_PAGE_PARAMS();
@@ -58,7 +58,7 @@ public:
 		API_HANDLER_RESP_VO(execQueryExpenseLedger(query));
 	}
 
-	// ÐÂÔö·Ñ±ð
+	// æ–°å¢žè´¹åˆ«
 	ENDPOINT_INFO(addExpenseLedger) {
 		info->summary = ZH_WORDS_GETTER("expenseledger_mug.post.summary");
 		API_DEF_ADD_AUTH();
@@ -68,7 +68,7 @@ public:
 		API_HANDLER_RESP_VO(execAddExpenseLedger(dto,authObject->getPayload()));
 	}
 	
-	// É¾³ý·Ñ±ð
+	// åˆ é™¤è´¹åˆ«
 	ENDPOINT_INFO(deleteExpenseLedger) {
 		info->summary = ZH_WORDS_GETTER("expenseledger_mug.delete.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);

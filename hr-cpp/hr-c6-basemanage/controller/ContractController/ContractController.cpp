@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "ContractController.h"
 #include "service/akieService/ContractInfoService.h"
 #include "FastDfsClient.h"
@@ -6,11 +6,11 @@
 #include "CharsetConvertHepler.h"
 ContractJsonVO_::Wrapper ContractController::execQueryContract(const ContractQuery_::Wrapper& query)
 {
-	// ´´½¨ÏìÓ¦¶ÔÏó
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
 	auto vo = ContractJsonVO_::createShared();
 
 	auto data = ContractDTO_::createShared();
-	// ·Ç¿ÕĞ£Ñé
+	// éç©ºæ ¡éªŒ
 	if (!query->id)
 	{
 		vo->init(data, RS_PARAMS_INVALID);
@@ -20,78 +20,78 @@ ContractJsonVO_::Wrapper ContractController::execQueryContract(const ContractQue
 
 	auto dto = service.listContract(query);
 
-	// ÏìÓ¦½á¹û
+	// å“åº”ç»“æœ
 	vo->success(dto);
 	return vo;
 }
 
 Uint64JsonVO::Wrapper ContractController::execUpdateContract(const ContractDTO_::Wrapper& dto)
 {
-	// ¶¨Òå·µ»ØÊı¾İ¶ÔÏó
+	// ï¿½ï¿½ï¿½å·µï¿½ï¿½ï¿½ï¿½ï¿½İ¶ï¿½ï¿½ï¿½
 	auto jvo = Uint64JsonVO::createShared();
-	// ·Ç¿ÕĞ£Ñé
+	// éç©ºæ ¡éªŒ
 	if (!dto->id || !dto->name || !dto->type || !dto->variety || !dto->date || !dto->condition || !dto->department_m || !dto->department_c || !dto->date_end)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	//´´½¨service¶ÔÏó
+	//åˆ›å»ºserviceå¯¹è±¡
 	ContractInfoService service;
 
-	// Ö´ĞĞÊı¾İĞŞ¸Ä
+	// æ‰§è¡Œæ•°æ®ä¿®æ”¹
 	if (service.updateContract(dto)) {
-		jvo->success(dto->id);
+		jvo->success(1);
 	}
 	else
 	{
-		jvo->fail(dto->id);
+		jvo->fail(1);
 	}
 	return jvo;
 }
 
 StringJsonVO::Wrapper ContractController::execUploadContract(const String& fileBody, const String& suffix)
 {
-	// ¸ù¾İÊ±¼ä´ÁÉú³ÉÒ»¸öÁÙÊ±ÎÄ¼şÃû³Æ
+	// æ ¹æ®æ—¶é—´æˆ³ç”Ÿæˆä¸€ä¸ªä¸´æ—¶æ–‡ä»¶åç§°
 	std::stringstream ss;
 	ss << "public/static/file/";
 
-	// ¼ÆËãÊ±¼ä´Á
+	// è®¡ç®—æ—¶é—´æˆ³
 	auto now = std::chrono::system_clock::now();
 	auto tm_t = std::chrono::system_clock::to_time_t(now);
 	ss << std::put_time(std::localtime(&tm_t), "%Y%m%d%H%M%S");
-	// »ñÈ¡ºÁÃë
+	// è·å–æ¯«ç§’
 	auto tSeconds = std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch());
 	auto tMilli = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
 	auto ms = tMilli - tSeconds;
 	ss << std::setfill('0') << std::setw(3) << ms.count();
-	// Æ´½Óºó×ºÃû
+	// æ‹¼æ¥åç¼€å
 	ss << suffix.getValue("");
-	// ÁÙÊ±ÎÄ¼şÃû³Æ
+	// ä¸´æ—¶æ–‡ä»¶åç§°
 	std::string fileName = ss.str();
-	// ±£´æÎÄ¼şµ½ÁÙÊ±Ä¿Â¼
+	// ä¿å­˜æ–‡ä»¶åˆ°ä¸´æ—¶ç›®å½•
 	fileBody.saveToFile(fileName.c_str());
 
-	//¶ÁÈ¡excel
+	//è¯»å–excel
 	std::string sheetName = CharsetConvertHepler::ansiToUtf8("Sheet1");
 	ExcelComponent excel;
 	auto readData = excel.readIntoVector(fileName, sheetName);
 
-	//´´½¨dto
+	//åˆ›å»ºdto
 	auto dto = ContractDTO_::createShared();
-	//´´½¨service
+	//åˆ›å»ºservice
 	ContractInfoService service;
-	//ÏÔÊ¾excelÊı¾İ
+	//æ˜¾ç¤ºexcelæ•°æ®
 	for (auto row : readData)
 	{
 		for (auto cellVal : row)
 		{
-			// ×¢Òâ£ºÕâÀïÊ¹ÓÃÁË±àÂë×ª»»£¬Ä¿µÄÊÇÎªÁËÔÚ¿ØÖÆÌ¨´òÓ¡ÏÔÊ¾²»ÂÒÂë£¬Èç¹ûÊÇ½«Êı¾İĞ´ÈëÊı¾İ¿â£¬ÄÇÃ´¾Í²»ĞèÒªÔÙ½øĞĞ±àÂë×ª»»ÁË
+			// æ³¨æ„ï¼šè¿™é‡Œä½¿ç”¨äº†ç¼–ç è½¬æ¢ï¼Œç›®çš„æ˜¯ä¸ºäº†åœ¨æ§åˆ¶å°æ‰“å°æ˜¾ç¤ºä¸ä¹±ç ï¼Œå¦‚æœæ˜¯å°†æ•°æ®å†™å…¥æ•°æ®åº“ï¼Œé‚£ä¹ˆå°±ä¸éœ€è¦å†è¿›è¡Œç¼–ç è½¬æ¢äº†
 			cout << CharsetConvertHepler::utf8ToAnsi(cellVal) << ",";
 		}
 		cout << endl;
 		dto->name = row[0];
 		string tmp = row[1];
-		dto->id = atoi(tmp.c_str());
+		dto->id = tmp.c_str();
 		dto->type = row[2];
 		dto->variety = row[3];
 		dto->date = row[4];
@@ -116,23 +116,23 @@ StringJsonVO::Wrapper ContractController::execDownloadContract(const ContractDow
 	auto vo = StringJsonVO::createShared();
 
 
-	// Ğ£Ñé
+	// æ ¡éªŒ
 	if (query->sequence->empty() || query->sequence != "ASC" && query->sequence != "DESC")
 	{
 		vo->init("error(contact akie)", RS_PARAMS_INVALID);
 		return vo;
 	}
 
-	// ×î´ó5000Ìõ
+	// æœ€å¤§5000æ¡
 	if (query->rows > 5000)
 		query->rows = 5000;
 
-	//´´½¨service¶ÔÏó
+	//åˆ›å»ºserviceå¯¹è±¡
 	ContractInfoService service;
 	string url = service.downloadContract(query);
 
 	std::cout << url;
-	//ÅĞ¶ÏurlÊÇ·ñÎª¿Õ
+	//åˆ¤æ–­urlæ˜¯å¦ä¸ºç©º
 	if (url.empty())
 		vo->fail(url);
 	else

@@ -1,4 +1,4 @@
-/*
+﻿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle

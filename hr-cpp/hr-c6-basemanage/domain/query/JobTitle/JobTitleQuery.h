@@ -14,21 +14,20 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 
-class RetirementQuery :public PageQuery {
-	DTO_INIT(RetirementQuery, PageQuery);
+class JobTitleQuery :public PageQuery {
+	DTO_INIT(JobTitleQuery, PageQuery);
 	// 查询的第一个参数，职称编号
-	DTO_FIELD(UInt64, id);
-	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("title.field.id");
+	DTO_FIELD(String, param);
+	DTO_FIELD_INFO(param) {
+		info->description = ZH_WORDS_GETTER("title.query.param");
 	}
-	DTO_FIELD(String, name);
-	// 查询的第二个参数，职称名称
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("title.field.name");
-	}
+	//DTO_FIELD(String, name);
+	//// 查询的第二个参数，职称名称
+	//DTO_FIELD_INFO(name) {
+	//	info->description = ZH_WORDS_GETTER("title.field.name");
+	//}
 };
 
 #include OATPP_CODEGEN_END(DTO)
 
 #endif // !_JOBTITLE_QUERY_
- 

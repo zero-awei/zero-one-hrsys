@@ -1,74 +1,74 @@
-#ifndef JOBTITLEYDTO_H
+ï»¿#ifndef JOBTITLEYDTO_H
 #define JOBTITLEYDTO_H
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * Ö°³ÆDTO
+ * èŒç§°DTO
  */
 class JobTitleInfoDTO : public oatpp::DTO
 {
 	DTO_INIT(JobTitleInfoDTO, DTO);
-	
-	// Ô±¹¤±àºÅ
+
+	// å‘˜å·¥ç¼–å·
 	DTO_FIELD(UInt32, employee_id);
 	DTO_FIELD_INFO(employee_id) {
 		info->description = ZH_WORDS_GETTER("jobtitle.field.employee_id");
 	}
 
-	// Ö¤Êé±àºÅ
+	// è¯ä¹¦ç¼–å·
 	DTO_FIELD(UInt32, certificate_id);
 	DTO_FIELD_INFO(certificate_id) {
 		info->description = ZH_WORDS_GETTER("jobtitle.field.certificate_id");
 	}
 
-	// Ô±¹¤ÐÕÃû
+	// å‘˜å·¥å§“å
 	DTO_FIELD(String, employee_name);
 	DTO_FIELD_INFO(employee_name) {
 		info->description = ZH_WORDS_GETTER("jobtitle.field.employee_name");
 	}
-	// ×éÖ¯Ãû³Æ
+	// ç»„ç»‡åç§°
 	DTO_FIELD(String, org_name);
 	DTO_FIELD_INFO(org_name) {
 		info->description = ZH_WORDS_GETTER("jobtitle.field.org_name");
 	}
-	// Ö°³ÆÃû³Æ
+	// èŒç§°åç§°
 	DTO_FIELD(String, jobtitle_name);
 	DTO_FIELD_INFO(jobtitle_name) {
 		info->description = ZH_WORDS_GETTER("jobtitle.field.jobtitle_name");
 	}
-	// Ö°³ÆµÈ¼¶
+	// èŒç§°ç­‰çº§
 	DTO_FIELD(String, professor_grades);
 	DTO_FIELD_INFO(professor_grades) {
 		info->description = ZH_WORDS_GETTER("jobtitle.field.professor_grades");
 	}
-	// »ñÈ¡ÈÕÆÚ
+	// èŽ·å–æ—¥æœŸ
 	DTO_FIELD(String, get_time);
 	DTO_FIELD_INFO(get_time) {
 		info->description = ZH_WORDS_GETTER("jobtitle.field.get_time");
 	}
-	// ×¨ÒµÀà±ð
+	// ä¸“ä¸šç±»åˆ«
 	DTO_FIELD(String, professional_cate);
 	DTO_FIELD_INFO(professional_cate) {
 		info->description = ZH_WORDS_GETTER("jobtitle.field.professional_cate");
 	}
-	// ×¨ÒµÃû³Æ
+	// ä¸“ä¸šåç§°
 	DTO_FIELD(String, professional_name);
 	DTO_FIELD_INFO(professional_name) {
 		info->description = ZH_WORDS_GETTER("jobtitle.field.professional_name");
 	}
-	// Ç©·¢»ú¹¹
+	// ç­¾å‘æœºæž„
 	DTO_FIELD(String, issuing_authority);
 	DTO_FIELD_INFO(issuing_authority) {
 		info->description = ZH_WORDS_GETTER("jobtitle.field.issuing_authority");
 	}
-	// ÆÀÉóµ¥Î»
+	// è¯„å®¡å•ä½
 	DTO_FIELD(String, judging_unit);
 	DTO_FIELD_INFO(judging_unit) {
 		info->description = ZH_WORDS_GETTER("jobtitle.field.judging_unit");
 	}
-	// ÊÇ·ñ×î¸ßÖ°³Æ
+	// æ˜¯å¦æœ€é«˜èŒç§°
 	DTO_FIELD(Boolean, b_highest_professional_title);
 	DTO_FIELD_INFO(b_highest_professional_title) {
 		info->description = ZH_WORDS_GETTER("jobtitle.field.b_highest_professional_title");

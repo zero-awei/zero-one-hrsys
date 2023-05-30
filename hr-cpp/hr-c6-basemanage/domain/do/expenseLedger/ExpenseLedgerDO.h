@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
@@ -23,32 +23,32 @@
 
 class ExpenseLedgerDO
 {
-	//·ÑÓÃÌ¨ÕËÃû³Æ
+	//è´¹ç”¨å°è´¦åç§°
 	CC_SYNTHESIZE(string, name, Name);
-	//·ÑÓÃÌ¨ÕË±êÊ¶
+	//è´¹ç”¨å°è´¦æ ‡è¯†
 	CC_SYNTHESIZE(string, id, Id);
-	//¸üĞÂÈË
+	//æ›´æ–°äºº
 	CC_SYNTHESIZE(string, updateman, Updateman);
-	//½¨Á¢Ê±¼ä
+	//å»ºç«‹æ—¶é—´
 	CC_SYNTHESIZE(string, createdate, Createdate);
-	//½¨Á¢ÈË
+	//å»ºç«‹äºº
 	CC_SYNTHESIZE(string, createman, Createman);
-	//¸üĞÂÊ±¼ä
+	//æ›´æ–°æ—¶é—´
 	CC_SYNTHESIZE(string, updatedate, Updatedate);
 
-	//·ÑÓÃÀà±ğ
+	//è´¹ç”¨ç±»åˆ«
 	CC_SYNTHESIZE(string, fylb, Fylb);
-	//·ÑÓÃ½ğ¶î
+	//è´¹ç”¨é‡‘é¢
 	CC_SYNTHESIZE(double, fyje, Fyje);
-	//·¢·ÅÈËÊı
+	//å‘æ”¾äººæ•°
 	CC_SYNTHESIZE(int, ffrs, Ffrs);
-	//·¢·ÅÊ±¼ä
+	//å‘æ”¾æ—¶é—´
 	CC_SYNTHESIZE(string, ffsj, Ffsj);
-	//·ÑÓÃ±ê×¼
+	//è´¹ç”¨æ ‡å‡†
 	CC_SYNTHESIZE(string, fybz, Fybz);
-	//±¸×¢
+	//å¤‡æ³¨
 	CC_SYNTHESIZE(string, bz, Bz);
-	// ×éÖ¯±êÊ¶
+	// ç»„ç»‡æ ‡è¯†
 	CC_SYNTHESIZE(string, ormorgid, Ormorgid);
 public:
 	ExpenseLedgerDO() {

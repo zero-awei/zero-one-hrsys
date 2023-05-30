@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
@@ -38,7 +38,7 @@ ExpenseLedgerPageJsonVO::Wrapper ExpenseLedgerMController::execQueryExpenseLedge
 	return jvo;
 }
 /**
- * Returns: String StringJsonVO.data ²åÈë·ÑÓÃÌ¨ÕËµÄ±êÊ¶
+ * Returns: String StringJsonVO.data æ’å…¥è´¹ç”¨å°è´¦çš„æ ‡è¯†
  */
 StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger(const ExpenseLedgerDTO::Wrapper& dto, const PayloadDTO& payload)
 {
@@ -49,7 +49,7 @@ StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger(const Expen
 		//jvo->init(String(-1), RS_SERVER_BUSY);
 	}
 	else {
-		// Ê±¼äÀàÉèÖÃ¼ÇÂ¼´´½¨ºÍ¸üĞÂÊ±¼ä
+		// æ—¶é—´ç±»è®¾ç½®è®°å½•åˆ›å»ºå’Œæ›´æ–°æ—¶é—´
 		SimpleDateTimeFormat datesevice;
 		dto->createdate = datesevice.format();
 		dto->updatedate = datesevice.format();
@@ -70,7 +70,7 @@ StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger(const Expen
 }
 
 /**
- * Returns: Uint64 Uint64JsonVO.data ÊÜÓ°ÏìµÄĞĞÊı
+ * Returns: Uint64 Uint64JsonVO.data å—å½±å“çš„è¡Œæ•°
  */
 Uint64JsonVO::Wrapper ExpenseLedgerMController::execDeleteExpenseLedger(const ExpenseLedgerDelQuery::Wrapper& query)
 {

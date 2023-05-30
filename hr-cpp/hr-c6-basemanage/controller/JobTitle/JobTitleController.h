@@ -49,14 +49,14 @@ public:
 		// 无其他参数描述---返回职称信息表中所有数据
 	}
 	// 职称查询(分页查询)接口
-	ENDPOINT(API_M_GET, "/title-management/query-jobtitle", queryJobTitle, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/job-title-management/query-jobtitle", queryJobTitle, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数 , 将解析的查询参数给queryPage
-		API_HANDLER_QUERY_PARAM(queryPage, PageQuery, queryParams);
+		API_HANDLER_QUERY_PARAM(queryPage, JobTitleQuery, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryPage(queryPage));
 	}
 
-	// 职称查询(分页查询-用于搜索框-需要传递两个参数)接口描述
+	// 职称查询(分页查询-用于搜索框执行模糊查询)
 	ENDPOINT_INFO(queryJobTitleSB) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("title.query.search-box");
@@ -64,18 +64,16 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(JTQueryPageJsonVO);
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
-		// 含有两个参数
-		info->queryParams.add<UInt64>("id").description = ZH_WORDS_GETTER("title.field.id");
-		info->queryParams["id"].addExample("default", UInt64(1));
-		info->queryParams["id"].required = false;
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("title.field.name");
-		info->queryParams["name"].addExample("default", String(""));
-		info->queryParams["name"].required = false;
+		// 包含一个参数，用于模糊查询
+		info->queryParams.add<String>("param").description = ZH_WORDS_GETTER("title.query.param");
+		info->queryParams["param"].addExample("default", NULL);
+		info->queryParams["param"].required = false;
+
 	}
 	// 职称查询(分页查询)接口
-	ENDPOINT(API_M_GET, "/title-management/query-jobtitle-searchbox", queryJobTitleSB, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/job-title-management/query-jobtitle-searchbox", queryJobTitleSB, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数 , 将解析的查询参数给queryPage
-		API_HANDLER_QUERY_PARAM(queryPage, RetirementQuery, queryParams);
+		API_HANDLER_QUERY_PARAM(queryPage, JobTitleQuery, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryPageSB(queryPage));
 	}
@@ -86,13 +84,9 @@ public:
 		info->summary = ZH_WORDS_GETTER("title.delete.summary");
 		// 定义响应参数格式 -- 返回删除成功与否
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-		// 定义参数,根据id移除植职务
-		info->queryParams.add<UInt64>("id").description = ZH_WORDS_GETTER("title.field.id");
-		info->queryParams["id"].addExample("default", UInt64(1));
-		info->queryParams["id"].required = false;
 	}
 	// 删除职称接口
-	ENDPOINT(API_M_DEL, "/title-management/remove-jobtitle", removeJobTitle, BODY_DTO(JobTitleDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/job-title-management/remove-jobtitle", removeJobTitle, BODY_DTO(JobTitleDeleteDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveJobTitle(dto));
 	}
@@ -101,19 +95,18 @@ public:
 	ENDPOINT_INFO(addJobTitle) {
 		info->summary = ZH_WORDS_GETTER("title.add.summary");
 		// 定于响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	// 新增职称接口
-	ENDPOINT(API_M_POST, "/title-management/add-jobtitle", addJobTitle, BODY_DTO(JobTitleDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/job-title-management/add-jobtitle", addJobTitle, BODY_DTO(JobTitleAddDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddJobTitle(dto));
-
 	}
 private:
-	JTQueryPageJsonVO::Wrapper execQueryPage(const PageQuery::Wrapper& query);
-	JTQueryPageJsonVO::Wrapper execQueryPageSB(const RetirementQuery::Wrapper& query);
-	Uint64JsonVO::Wrapper execRemoveJobTitle(const JobTitleDTO::Wrapper& dto);
-	Uint64JsonVO::Wrapper execAddJobTitle(const JobTitleDTO::Wrapper& dto);
+	JTQueryPageJsonVO::Wrapper execQueryPage(const JobTitleQuery::Wrapper& query);
+	JTQueryPageJsonVO::Wrapper execQueryPageSB(const JobTitleQuery::Wrapper& query);
+	Uint64JsonVO::Wrapper execRemoveJobTitle(const JobTitleDeleteDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execAddJobTitle(const JobTitleAddDTO::Wrapper& dto);
 };
 
 
