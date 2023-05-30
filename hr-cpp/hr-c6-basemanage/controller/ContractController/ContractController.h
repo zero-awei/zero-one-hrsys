@@ -14,45 +14,12 @@
 #include "oatpp/web/mime/multipart/PartList.hpp"
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
-//修改合同所需参数
-#define UPDATECONTRACTINFO \
-info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("expenseledger_mug.filed.id");\
-info->queryParams["id"].addExample("default", UInt64(114514));\
-info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("expenseledger_mug.filed.name");\
-info->queryParams["name"].addExample("default", String("xiaoming"));\
-info->queryParams["name"].required = false;\
-info->queryParams.add<String>("type").description = ZH_WORDS_GETTER("expenseledger_mug.filed.type");\
-info->queryParams["type"].addExample("default", String("A"));\
-info->queryParams["type"].required = false;\
-info->queryParams.add<String>("variety").description = ZH_WORDS_GETTER("expenseledger_mug.filed.variety");\
-info->queryParams["variety"].addExample("default", String("a"));\
-info->queryParams["variety"].required = false;\
-info->queryParams.add<String>("date").description = ZH_WORDS_GETTER("expenseledger_mug.filed.date");\
-info->queryParams["date"].addExample("default", String("2023-05-02 19:57:59"));\
-info->queryParams["date"].required = false;\
-info->queryParams.add<String>("condition").description = ZH_WORDS_GETTER("expenseledger_mug.filed.condition"); \
-info->queryParams["condition"].addExample("default", String("ok")); \
-info->queryParams["condition"].required = false;\
-info->queryParams.add<String>("department_m").description = ZH_WORDS_GETTER("expenseledger_mug.filed.department_m"); \
-info->queryParams["department_m"].addExample("default", String("ok")); \
-info->queryParams["department_m"].required = false;\
-info->queryParams.add<String>("department_c").description = ZH_WORDS_GETTER("expenseledger_mug.filed.department_c"); \
-info->queryParams["department_c"].addExample("default", String("ok")); \
-info->queryParams["department_c"].required = false;\
-info->queryParams.add<String>("date_end").description = ZH_WORDS_GETTER("expenseledger_mug.filed.date_end"); \
-info->queryParams["date_end"].addExample("default", String("2023-05-02 19:57:59")); \
-info->queryParams["date_end"].required = false;\
-info->queryParams.add<String>("tip").description = ZH_WORDS_GETTER("expenseledger_mug.filed.tip"); \
-info->queryParams["tip"].addExample("default", String("ok")); \
-info->queryParams["tip"].required = false
-
-
 
 
 //查询合同所需参数
 #define QUERYCONTRACTINFO \
-info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("expenseledger_mug.filed.id");\
-info->queryParams["id"].addExample("default", String("114514"))
+info->queryParams.add<String>("infoid").description = ZH_WORDS_GETTER("contract.filed.infoid");\
+info->queryParams["infoid"].addExample("default", String("2632DB4D-6440-4699-8584-5F944BABAA40"))
 
 
 using namespace oatpp;
@@ -107,9 +74,7 @@ public:
 		info->addConsumes<oatpp::swagger::Binary>("application/octet-stream");
 		API_DEF_ADD_RSP_JSON(StringJsonVO::Wrapper);
 		info->queryParams["suffix"].description = ZH_WORDS_GETTER("user.file.suffix");
-		info->queryParams["suffix"].addExample("png", String(".png"));
-		info->queryParams["suffix"].addExample("xls", String(".xls"));
-		info->queryParams["suffix"].addExample("txt", String(".txt"));
+		info->queryParams["suffix"].addExample("xlsx", String(".xlsx"));
 	}
 	// 3.3.2 定义接口端点
 	// 定义文件上传端点处理

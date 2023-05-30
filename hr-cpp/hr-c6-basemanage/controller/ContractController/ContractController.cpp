@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "ContractController.h"
 #include "service/akieService/ContractInfoService.h"
 #include "FastDfsClient.h"
@@ -6,106 +6,113 @@
 #include "CharsetConvertHepler.h"
 ContractJsonVO_::Wrapper ContractController::execQueryContract(const ContractQuery_::Wrapper& query)
 {
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
+
+	// ´´½¨ÏìÓ¦¶ÔÏó
 	auto vo = ContractJsonVO_::createShared();
 
 	auto data = ContractDTO_::createShared();
-	// éç©ºæ ¡éªŒ
-	if (!query->id)
+
+	// ·Ç¿ÕĞ£Ñé
+	if (!query->infoid)
 	{
 		vo->init(data, RS_PARAMS_INVALID);
 		return vo;
 	}
+	
 	ContractInfoService service;
 
 	auto dto = service.listContract(query);
 
-	// å“åº”ç»“æœ
+	// ÏìÓ¦½á¹û
 	vo->success(dto);
 	return vo;
 }
 
 Uint64JsonVO::Wrapper ContractController::execUpdateContract(const ContractDTO_::Wrapper& dto)
 {
-	// ï¿½ï¿½ï¿½å·µï¿½ï¿½ï¿½ï¿½ï¿½İ¶ï¿½ï¿½ï¿½
+	// ¶¨Òå·µ»ØÊı¾İ¶ÔÏó
 	auto jvo = Uint64JsonVO::createShared();
-	// éç©ºæ ¡éªŒ
-	if (!dto->id || !dto->name || !dto->type || !dto->variety || !dto->date || !dto->condition || !dto->department_m || !dto->department_c || !dto->date_end)
+	// ·Ç¿ÕĞ£Ñé
+	if (!dto->id || !dto->name || !dto->type || !dto->variety || !dto->date || !dto->condition || !dto->department_m || !dto->department_c || !dto->date_end || !dto->tip)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	//åˆ›å»ºserviceå¯¹è±¡
+	//´´½¨service¶ÔÏó
 	ContractInfoService service;
 
-	// æ‰§è¡Œæ•°æ®ä¿®æ”¹
+	string tmp = dto->id;
+	//std::cout << tmp;
+	// Ö´ĞĞÊı¾İĞŞ¸Ä
 	if (service.updateContract(dto)) {
-		jvo->success(1);
+		jvo->success(atoi(tmp.c_str()));
 	}
 	else
 	{
-		jvo->fail(1);
+		jvo->fail(atoi(tmp.c_str()));
 	}
 	return jvo;
 }
 
 StringJsonVO::Wrapper ContractController::execUploadContract(const String& fileBody, const String& suffix)
 {
-	// æ ¹æ®æ—¶é—´æˆ³ç”Ÿæˆä¸€ä¸ªä¸´æ—¶æ–‡ä»¶åç§°
+	// ¸ù¾İÊ±¼ä´ÁÉú³ÉÒ»¸öÁÙÊ±ÎÄ¼şÃû³Æ
 	std::stringstream ss;
 	ss << "public/static/file/";
-
-	// è®¡ç®—æ—¶é—´æˆ³
+	// ¼ÆËãÊ±¼ä´Á
 	auto now = std::chrono::system_clock::now();
 	auto tm_t = std::chrono::system_clock::to_time_t(now);
 	ss << std::put_time(std::localtime(&tm_t), "%Y%m%d%H%M%S");
-	// è·å–æ¯«ç§’
+	// »ñÈ¡ºÁÃë
 	auto tSeconds = std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch());
 	auto tMilli = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
 	auto ms = tMilli - tSeconds;
 	ss << std::setfill('0') << std::setw(3) << ms.count();
-	// æ‹¼æ¥åç¼€å
+	// Æ´½Óºó×ºÃû
 	ss << suffix.getValue("");
-	// ä¸´æ—¶æ–‡ä»¶åç§°
+	// ÁÙÊ±ÎÄ¼şÃû³Æ
 	std::string fileName = ss.str();
-	// ä¿å­˜æ–‡ä»¶åˆ°ä¸´æ—¶ç›®å½•
+	// ±£´æÎÄ¼şµ½ÁÙÊ±Ä¿Â¼
 	fileBody.saveToFile(fileName.c_str());
-
-	//è¯»å–excel
+	//¶ÁÈ¡excel
 	std::string sheetName = CharsetConvertHepler::ansiToUtf8("Sheet1");
 	ExcelComponent excel;
 	auto readData = excel.readIntoVector(fileName, sheetName);
-
-	//åˆ›å»ºdto
-	auto dto = ContractDTO_::createShared();
-	//åˆ›å»ºservice
-	ContractInfoService service;
-	//æ˜¾ç¤ºexcelæ•°æ®
+	
+	//ÏÔÊ¾ÔÚÖÕ¶Ë
 	for (auto row : readData)
 	{
 		for (auto cellVal : row)
 		{
-			// æ³¨æ„ï¼šè¿™é‡Œä½¿ç”¨äº†ç¼–ç è½¬æ¢ï¼Œç›®çš„æ˜¯ä¸ºäº†åœ¨æ§åˆ¶å°æ‰“å°æ˜¾ç¤ºä¸ä¹±ç ï¼Œå¦‚æœæ˜¯å°†æ•°æ®å†™å…¥æ•°æ®åº“ï¼Œé‚£ä¹ˆå°±ä¸éœ€è¦å†è¿›è¡Œç¼–ç è½¬æ¢äº†
+			// ×¢Òâ£ºÕâÀïÊ¹ÓÃÁË±àÂë×ª»»£¬Ä¿µÄÊÇÎªÁËÔÚ¿ØÖÆÌ¨´òÓ¡ÏÔÊ¾²»ÂÒÂë£¬Èç¹ûÊÇ½«Êı¾İĞ´ÈëÊı¾İ¿â£¬ÄÇÃ´¾Í²»ĞèÒªÔÙ½øĞĞ±àÂë×ª»»ÁË
 			cout << CharsetConvertHepler::utf8ToAnsi(cellVal) << ",";
 		}
 		cout << endl;
-		dto->name = row[0];
-		string tmp = row[1];
-		dto->id = tmp.c_str();
-		dto->type = row[2];
-		dto->variety = row[3];
-		dto->date = row[4];
-		dto->condition = row[5];
-		dto->department_m = row[6];
-		dto->department_c = row[7];
-		dto->date_end = row[8];
-		dto->tip = row[9];
+	}
+	//´´½¨dto
+	auto dto = ContractDTO_::createShared();
+	//´´½¨service
+	ContractInfoService service;
+
+	//±£´æexcelÊı¾İ
+	for (size_t i = 1; i < readData.size(); i++)
+	{
+		dto->id = readData[i][0];
+		dto->name = readData[i][1];
+		dto->type = readData[i][2];
+		dto->variety = readData[i][3];
+		dto->date = readData[i][4];
+		dto->condition = readData[i][5];
+		dto->department_m = readData[i][6];
+		dto->department_c = readData[i][7];
+		dto->try_end = readData[i][8];
+		dto->tip = readData[i][9];
+		dto->infoid = readData[i][10];
+		dto->date_end = readData[i][11];
 		service.saveData(dto);
 	}
-
 	auto vo = StringJsonVO::createShared();
 	vo->success(String(ss.str().c_str()));
-
 	return vo;
 }
 
@@ -116,23 +123,23 @@ StringJsonVO::Wrapper ContractController::execDownloadContract(const ContractDow
 	auto vo = StringJsonVO::createShared();
 
 
-	// æ ¡éªŒ
+	// Ğ£Ñé
 	if (query->sequence->empty() || query->sequence != "ASC" && query->sequence != "DESC")
 	{
 		vo->init("error(contact akie)", RS_PARAMS_INVALID);
 		return vo;
 	}
 
-	// æœ€å¤§5000æ¡
+	// ×î´ó5000Ìõ
 	if (query->rows > 5000)
 		query->rows = 5000;
 
-	//åˆ›å»ºserviceå¯¹è±¡
+	//´´½¨service¶ÔÏó
 	ContractInfoService service;
 	string url = service.downloadContract(query);
 
 	std::cout << url;
-	//åˆ¤æ–­urlæ˜¯å¦ä¸ºç©º
+	//ÅĞ¶ÏurlÊÇ·ñÎª¿Õ
 	if (url.empty())
 		vo->fail(url);
 	else

@@ -2,8 +2,8 @@
 #ifndef _Contract_Info_DAO_
 #define _Contract_Info_DAO_
 #include "BaseDAO.h"
-#include "domain/do/Gosh/ContractDO.h"
-#include "domain/query/Gosh/ContractQuery.h"
+#include "domain/do/contractInfoakie/ContractInfoDO.h"
+#include "domain/query/ContractQuery/ContractQuery_.h"
 
 /**
  * 示例表数据库操作实现
@@ -11,16 +11,16 @@
 class ContractInfoDAO : public BaseDAO
 {
 public:
-	// 通过ID查询合同信息
-	list<ContractDO> selectById(const string& Id);
+	// 通过id查询合同信息
+	list<ContractInfoDO> selectByInfoid(const string& infoid);
 
 	//更新指定合同
-	int update(const ContractDO& uObj);
+	int update(const ContractInfoDO& uObj);
 
 	//按rows导出数据
-	std::list<ContractDO> downloadByRows(oatpp::String sequence, UInt64 rows);
+	std::list<ContractInfoDO> downloadByRows(oatpp::String sequence, UInt64 rows);
 
 	// 插入数据
-	uint64_t insert(const ContractDO& iObj);
+	uint64_t insert(const ContractInfoDO& iObj);
 };
 #endif // !_SAMPLE_DAO_

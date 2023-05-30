@@ -11,54 +11,64 @@ class ContractQuery_ : public PageQuery
 {
 	DTO_INIT(ContractQuery_, PageQuery);
 
-	DTO_FIELD(UInt64, id);
+	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.id");
+		info->description = ZH_WORDS_GETTER("contract.filed.id");
 	}
 
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.name");
+		info->description = ZH_WORDS_GETTER("contract.filed.name");
 	}
 
 	DTO_FIELD(String, type);
 	DTO_FIELD_INFO(type) {
-		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.type");
+		info->description = ZH_WORDS_GETTER("contract.filed.type");
 	}
 
 	DTO_FIELD(String, variety);
 	DTO_FIELD_INFO(variety) {
-		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.variety");
+		info->description = ZH_WORDS_GETTER("contract.filed.variety");
 	}
 
 	DTO_FIELD(String, date);
 	DTO_FIELD_INFO(date) {
-		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.date");
+		info->description = ZH_WORDS_GETTER("contract.filed.date");
 	}
 
 	DTO_FIELD(String, condition);
 	DTO_FIELD_INFO(condition) {
-		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.condition");
+		info->description = ZH_WORDS_GETTER("contract.filed.condition");
 	}
 
 	DTO_FIELD(String, department_m);
 	DTO_FIELD_INFO(department_m) {
-		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.department_m");
+		info->description = ZH_WORDS_GETTER("contract.filed.department_m");
 	}
 
 	DTO_FIELD(String, department_c);
 	DTO_FIELD_INFO(department_c) {
-		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.department_c");
+		info->description = ZH_WORDS_GETTER("contract.filed.department_c");
 	}
 
-	DTO_FIELD(String, date_end);
-	DTO_FIELD_INFO(date_end) {
-		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.date_end");
+	DTO_FIELD(String, try_end);
+	DTO_FIELD_INFO(try_end) {
+		info->description = ZH_WORDS_GETTER("contract.filed.try_end");
 	}
 
 	DTO_FIELD(String, tip);
 	DTO_FIELD_INFO(tip) {
-		info->description = ZH_WORDS_GETTER("expenseledger_mug.filed.tip");
+		info->description = ZH_WORDS_GETTER("contract.filed.tip");
+	}
+
+	DTO_FIELD(String, infoid);
+	DTO_FIELD_INFO(infoid) {
+		info->description = ZH_WORDS_GETTER("contract.filed.infoid");
+	}
+
+	DTO_FIELD(String, date_end);
+	DTO_FIELD_INFO(date_end) {
+		info->description = ZH_WORDS_GETTER("contract.filed.date_end");
 	}
 
 };
