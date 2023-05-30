@@ -57,3 +57,4 @@ target
 
 # Visual Studio 2017 auto generated files
 Generated\ Files/
+/hr-cpp/hr-c1-common

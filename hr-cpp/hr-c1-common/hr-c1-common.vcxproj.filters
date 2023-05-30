@@ -34,7 +34,6 @@
     <ClCompile Include="dao\typeContract\TypeContractDAO.cpp" />
     <ClCompile Include="dao\costTypeList\CostTypeListDAO.cpp" />
     <ClCompile Include="dao\jobLevelTypeList\JobLevelTypeListDAO.cpp" />
-    <ClCompile Include="service\costTypeList\CostTypeListService.cpp" />
     <ClCompile Include="service\jobLevelTypeList\JobLevelTypeListService.cpp" />
     <ClCompile Include="service\certs\certTypeService\CertTypeService.cpp" />
     <ClCompile Include="service\certs\profCertsService\ProfCertsService.cpp" />
@@ -44,6 +43,8 @@
     <ClCompile Include="dao\EvaluationType\EvaluationTypeDAO.cpp" />
     <ClCompile Include="service\auditStatus\AuditStatusService.cpp" />
     <ClCompile Include="dao\auditStatus\AuditStatusDAO.cpp" />
+    <ClCompile Include="service\contractType\ContractTypeService.cpp" />
+    <ClCompile Include="dao\contractType\ContractTypeDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -120,7 +121,6 @@
     <ClInclude Include="dao\jobLevelTypeList\JobLevelMapper.h" />
     <ClInclude Include="dao\jobLevelTypeList\JobLevelTypeListDAO.h" />
     <ClInclude Include="domain\do\certs\ProCertsDO.h" />
-    <ClInclude Include="service\costTypeList\CostTypeListService.h" />
     <ClInclude Include="service\jobLevelTypeList\JobLevelTypeListService.h" />
     <ClInclude Include="service\certs\certTypeService\CertTypeService.h" />
     <ClInclude Include="service\certs\profCertsService\ProfCertsService.h" />
@@ -134,6 +134,9 @@
     <ClInclude Include="dao\auditStatus\AuditStatusDAO.h" />
     <ClInclude Include="domain\do\auditStatus\AuditStatusDO.h" />
     <ClInclude Include="dao\auditStatus\AuditStatusMapper.h" />
+    <ClInclude Include="service\contractType\ContractTypeService.h" />
+    <ClInclude Include="dao\contractType\ContractTypeDAO.h" />
+    <ClInclude Include="dao\contractType\ContractTypeMapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

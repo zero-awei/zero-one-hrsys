@@ -18,9 +18,14 @@
 */
 #include "stdafx.h"
 #include "ContractTypeController.h"
+#include "service/ContractType/ContractTypeService.h"
 
-//还有些注释没补
+PullListVO::Wrapper ContractTypeController::execQueryContractType()
+{
+	auto vo = PullListVO::createShared();
 
-TypeContractJsonVO::Wrapper ContractTypeController::execQueryContractType() {
-	return TypeContractJsonVO::Wrapper();
+	ContractTypeService service;
+	auto dto = service.listAll();
+	vo->success(dto);
+	return vo;
 }
