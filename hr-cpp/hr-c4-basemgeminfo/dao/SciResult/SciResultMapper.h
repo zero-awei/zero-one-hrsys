@@ -29,11 +29,21 @@ public:
 	SciResultDO mapper(ResultSet* resultSet) const override
 	{
 		SciResultDO data;
-		data.set_PIMRESEARCHFINDINGSNAME(resultSet->getString(1));
-		data.set_FJ(resultSet->getString(2));
-		data.set_PIMRESEARCHFINDINGSID(resultSet->getString(3));
-		data.set_PIMPERSONID(resultSet->getString(4));
-		data.set_HQSJ(resultSet->getString(5));
+		data.set_UPDATEMAN(resultSet->getString(1));
+		data.set_PIMRESEARCHFINDINGSNAME(resultSet->getString(2));
+		data.set_FJ(resultSet->getString(3));
+		data.set_ENABLE(resultSet->getString(4));
+		data.set_CREATEDATE(resultSet->getString(5));
+		data.set_UPDATEDATE(resultSet->getString(6));
+		data.set_CREATEMAN(resultSet->getString(7));
+		data.set_PIMRESEARCHFINDINGSID(resultSet->getString(8));
+		data.set_PIMPERSONID(resultSet->getString(9));
+		data.set_HQSJ(resultSet->getString(10));
+		data.set_JLSS(resultSet->getString(11));
+		data.set_JLSPZT(resultSet->getString(12));
+		data.set_JLGLBH(resultSet->getString(13));
+		data.set_JLCZZ(resultSet->getString(14));
+		data.set_REASON(resultSet->getString(15));
 		return data;
 	}
 };
