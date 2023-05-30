@@ -32,30 +32,22 @@ public: // 定义接口
 
 
 
-
+	//查看指定员工专利信息（指定专利信息详情）
 	// 3 定义接口描述
 	ENDPOINT_INFO(queryPatentinfo) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("patentInformation.select.summary");
 		// 定义响应参数类型
 		API_DEF_ADD_RSP_JSON_WRAPPER(PatentinfoJsonVO);
-		// 定义分页查询参数描述
-		//API_DEF_ADD_PAGE_PARAMS();
-		// 添加其他查询参数
-		//info->queryParams.add<String>("ZLH").description = ZH_WORDS_GETTER("patentInformation.field.ZLH");
-		//info->queryParams["ZLH"].addExample("default", String("patentInformation"));
-
-		//员工编号
+		//专利信息编码
 		info->queryParams.add<String>("pimpatentid").description = ZH_WORDS_GETTER("patentInformation.pimpatent.pimpatentid");
 		info->queryParams["pimpatentid"].addExample("default", String("123456789"));
 		info->queryParams["pimpatentid"].required = true;
 	}
 	// 4 定义接口端点
-	ENDPOINT(API_M_GET, "/employee-info/query-by-pimpatentid", queryPatentinfo, QUERIES(QueryParams, qps)) {
-		// 解析查询参数（解析成领域模型对象）
-		API_HANDLER_QUERY_PARAM(query, PatentinfoQuery, qps);
+	ENDPOINT(API_M_GET, "/employee-info/query-by-pimpatentid", queryPatentinfo, QUERY(String, pimpatentid)) {
 		// 响应结果
-		API_HANDLER_RESP_VO(execQueryPatentinfo(query));
+		API_HANDLER_RESP_VO(execQueryPatentinfo(pimpatentid));
 	}
 
 	// 3.1 定义查询接口描述
@@ -134,8 +126,7 @@ private: // 定义接口执行函数
 	Uint64JsonVO::Wrapper execRemovePatent(const PatentinfoDTO::Wrapper& dto);
 
 	//查看指定员工专利信息（指定专利信息详情）
-
-	PatentinfoJsonVO::Wrapper execQueryPatentinfo(const PatentinfoQuery::Wrapper& query);
+	PatentinfoJsonVO::Wrapper execQueryPatentinfo(const String& query);
 
 	//修改指定员工专利信息（单条修改）
 	Uint64JsonVO::Wrapper execModifyPatentinfo(const PatentinfoDTO::Wrapper& dto);

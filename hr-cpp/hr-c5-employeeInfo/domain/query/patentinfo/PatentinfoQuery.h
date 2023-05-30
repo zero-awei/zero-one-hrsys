@@ -19,7 +19,7 @@ class PatentinfoQuery : public PageQuery
 	// 专利信息编码
 	DTO_FIELD(String, pimpatentid);
 	DTO_FIELD_INFO(pimpatentid) {
-		info->description = ZH_WORDS_GETTER("patentInformation.field.PIMPATENTID");
+		info->description = ZH_WORDS_GETTER("patentInformation.field.pimpatentid");
 	}
 
 
