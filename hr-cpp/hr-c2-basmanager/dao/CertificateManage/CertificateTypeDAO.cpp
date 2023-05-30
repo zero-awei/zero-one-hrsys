@@ -28,7 +28,7 @@ uint64_t CertificateTypeDAO::count(const CertificateTypeQuery::Wrapper& query)
 list<CertificateTypeDO> CertificateTypeDAO::selectWithPage(const CertificateTypeQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT name FROM zo_credentialtype";
+	sql << "SELECT name,id FROM zo_credentialtype";
 	CERTIFICATETYPE_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	CertificateTypeMapper mapper;

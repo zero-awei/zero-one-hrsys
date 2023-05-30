@@ -15,7 +15,11 @@ class CertificateTypeDTO : public oatpp::DTO
 	DTO_FIELD_INFO(certype) {
 		info->description = ZH_WORDS_GETTER("EmpInfo.field.name");
 	}
-
+	//证书唯一标识
+	DTO_FIELD(String, id);
+	DTO_FIELD_INFO(id) {
+		info->description = ZH_WORDS_GETTER("EmpInfo.field.id");
+	}
 };
 
 

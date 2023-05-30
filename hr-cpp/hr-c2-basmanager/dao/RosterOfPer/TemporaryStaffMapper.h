@@ -21,6 +21,7 @@ public:
 		data.setgzbm(resultSet->getString(6));
 		data.setgzkssj(resultSet->getString(7));
 		data.setgzjssj(resultSet->getString(8));
+		data.setpimpersonId(resultSet->getString(9));
 		return data;
 	}
 };

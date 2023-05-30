@@ -28,7 +28,7 @@ CertificateTypePageDTO::Wrapper CertificateTypeService::listAll(const Certificat
 	for (CertificateTypeDO sub : result)
 	{
 		auto dto = CertificateTypeDTO::createShared();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, certype, CerType);
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, certype, CerType,id,Id);
 		pages->addData(dto);
 	}
 	return pages;

@@ -28,7 +28,7 @@ EmployeeInfoPageDTO::Wrapper EmployeeInfoService::listAll(const EmployeeInfoQuer
 	for (EmployeeInfoDO sub : result)
 	{
 		auto dto = EmployeeInfoDTO::createShared();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, name, Name);
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, name, Name,id,Id);
 		pages->addData(dto);
 	}
 	return pages;

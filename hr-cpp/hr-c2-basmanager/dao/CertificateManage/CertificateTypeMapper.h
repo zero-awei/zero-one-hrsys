@@ -15,6 +15,7 @@ public:
 	{
 		CertificateTypeDO data;
 		data.setCerType(resultSet->getString(1));
+		data.setId(resultSet->getString(2));
 		return data;
 	}
 };

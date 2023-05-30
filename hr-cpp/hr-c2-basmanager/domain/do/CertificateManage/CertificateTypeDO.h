@@ -8,9 +8,12 @@
 class CertificateTypeDO {
 	//证书类型
 	CC_SYNTHESIZE(string, cerType, CerType);
+	//唯一标识
+	CC_SYNTHESIZE(string, id, Id);
 public:
 	CertificateTypeDO() {
 		cerType = "";
+		id = "";
 	}
 };
 

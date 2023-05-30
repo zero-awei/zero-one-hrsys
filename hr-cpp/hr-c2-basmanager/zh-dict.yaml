@@ -41,6 +41,7 @@ TempStaff:
   tempDept: 挂职部门
   tempStartTime: 挂职开始时间
   tempEndTime: 挂职结束时间
+  pimpersonId: 挂职人员唯一标识
  get: 
   summary: (人员花名册-挂职员工-分页查询挂职员工信息)-weixiaoman
 EmpInfo:
@@ -48,8 +49,10 @@ EmpInfo:
   summary: (证书管理-分页查询员工信息)-weixiaoman
   summary1: (证书管理-查询证书类型)-weixiaoman
  field:
+  id: 证书类型唯一标识
   name: 姓名
   certype: 证书类型
+  pimpersonId: 唯一标识
 
 formeremployees: 
  get:

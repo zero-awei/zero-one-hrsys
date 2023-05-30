@@ -15,6 +15,11 @@ class EmployeeInfoDTO : public oatpp::DTO
 	DTO_FIELD_INFO(name) {
 		info->description = ZH_WORDS_GETTER("EmpInfo.field.name");
 	}
+	//Î¨Ò»±êÊ¶
+	DTO_FIELD(String, id);
+	DTO_FIELD_INFO(id) {
+		info->description = ZH_WORDS_GETTER("EmpInfo.field.pimpersonId");
+	}
 
 };
 
