@@ -43,7 +43,7 @@ public class User implements Serializable {
     /**
      * 是否启用
      */
-    private int isEnable;
+//    private int isEnable;
 
     /**
      * 邮箱

@@ -15,6 +15,6 @@
     </resultMap>
 
     <select id="selectByRoleName" resultMap="BaseResultMap">
-      SELECT id,`name`,path,icon,parent_menu_id FROM menu WHERE path IS NOT NULL AND id IN (SELECT menu_id FROM role_menu WHERE role_id=(SELECT id FROM role WHERE keyword=#{roleName})) ORDER BY priority
+      SELECT id,`name`,path,icon,parent_menu_id FROM zo_menu WHERE path IS NOT NULL AND id IN (SELECT menu_id FROM zo_role_menu WHERE role_id=(SELECT id FROM zo_role WHERE keyword=#{roleName})) ORDER BY priority
     </select>
 </mapper>

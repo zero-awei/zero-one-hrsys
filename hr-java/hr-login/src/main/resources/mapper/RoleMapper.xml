@@ -11,7 +11,7 @@
     </resultMap>
     <select id="selectByUserId" resultMap="BaseResultMap">
         select id, `name`, keyword, description
-        from role
+        from zo_role
         where id in (select role_id from zo_user_role where user_id = #{userId})
     </select>
     <select id="selectByMenuPath" resultMap="BaseResultMap">
