@@ -24,8 +24,7 @@ class Add2SciResultDTO : public oatpp::DTO
 	//附件
 	DTO_INIT_(String, FJ, "sciresult.FJ");
 	//人员信息标识
-	DTO_INIT_(String, pimpersonid, "sciresult.PIMPERSONID");
-	DTO_INIT_(String, PIMRESEARCHFINDINGSID, "sciresult.PIMRESEARCHFINDINGSID");
+	DTO_INIT_(String, PIMPERSONID, "sciresult.PIMPERSONID");
 	
 };
 

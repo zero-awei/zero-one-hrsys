@@ -34,8 +34,8 @@ list<SciResultDO> SciResultDAO::selectWithPage(const SciResultQuery::Wrapper& qu
 }
 int SciResultDAO::insert(const SciResultDO& iObj)
 {
-	string sql = "INSERT INTO `t_pimresearchfindings` (`PIMRESEARCHFINDINGSNAME`, `HQSJ`, `FJ`,`PIMRESEARCHFINDINGSID`,`PIMPERSONID`) VALUES (?, ?, ?, ?,?)";
-	return sqlSession->executeUpdate(sql, "%s%s%s%s%s", iObj.get_PIMRESEARCHFINDINGSNAME(),iObj.get_HQSJ(), iObj.get_FJ(),iObj.get_PIMRESEARCHFINDINGSID(),iObj.get_pimpersonid());
+	string sql = "INSERT INTO `t_pimresearchfindings` (`PIMRESEARCHFINDINGSNAME`, `HQSJ`, `FJ`,`PIMRESEARCHFINDINGSID`,`PIMPERSONID`,`UPDATEDATE`,`CREATEDATE`,`CREATEMAN`,`UPDATEMAN`) VALUES (?, ?, ?, ?,?,?,?,?,?)";
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s", iObj.get_PIMRESEARCHFINDINGSNAME(),iObj.get_HQSJ(), iObj.get_FJ(),iObj.get_PIMRESEARCHFINDINGSID(),iObj.get_PIMPERSONID(),iObj.get_UPDATEDATE(),iObj.get_CREATEDATE(),iObj.get_CREATEMAN(), iObj.get_UPDATEMAN());
 }
 int SciResultDAO::deleteById(std::string pimpersonid, std::string pimsciresultid)
 {
