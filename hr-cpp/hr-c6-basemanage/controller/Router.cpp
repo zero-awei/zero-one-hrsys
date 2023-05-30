@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
@@ -39,13 +39,13 @@
 #include "GoshController/TestController.h"
 #include "TerminationReminder/terminationReminder.h"
 
-// Èç¹û¶¨ÒåÁË¹Ø±ÕSwaggerÎÄµµºê
+// å¦‚æžœå®šä¹‰äº†å…³é—­Swaggeræ–‡æ¡£å®
 #ifdef CLOSE_SWAGGER_DOC
-// ¼ò»¯°ó¶¨¿ØÖÆÆ÷ºê¶¨Òå
+// ç®€åŒ–ç»‘å®šæŽ§åˆ¶å™¨å®å®šä¹‰
 #define ROUTER_SIMPLE_BIND(__CLASS__) \
 router->addController(__CLASS__::createShared())
 #else
-// ¼ò»¯°ó¶¨¿ØÖÆÆ÷ºê¶¨Òå
+// ç®€åŒ–ç»‘å®šæŽ§åˆ¶å™¨å®å®šä¹‰
 #define ROUTER_SIMPLE_BIND(__CLASS__) \
 BIND_CONTROLLER(docEndpoints, router, __CLASS__)
 #endif
@@ -62,7 +62,7 @@ void Router::initRouter()
 	createSampleRouter();
 #endif
 
-	//#TIP :ÏµÍ³À©Õ¹Â·ÓÉ¶¨Òå£¬Ð´ÔÚÕâ¸öºóÃæ
+	//#TIP :ç³»ç»Ÿæ‰©å±•è·¯ç”±å®šä¹‰ï¼Œå†™åœ¨è¿™ä¸ªåŽé¢
 	createJobAndExpenseRouter();
 	ROUTER_SIMPLE_BIND(ContractController);
 	ROUTER_SIMPLE_BIND(LaborDispatchMController);
@@ -74,7 +74,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(GoshController);
 	ROUTER_SIMPLE_BIND(TerminationReminderController);
 	ROUTER_SIMPLE_BIND(ContractmanageController);
-}	
+}
 
 
 void Router::createJobAndExpenseRouter()
@@ -86,11 +86,11 @@ void Router::createJobAndExpenseRouter()
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
-	// °ó¶¨ºÏÍ¬¿ØÖÆÆ÷
+	// ç»‘å®šåˆåŒæŽ§åˆ¶å™¨
 	ROUTER_SIMPLE_BIND(ContractController);
 
-	
-	// °ó¶¨WebSocket¿ØÖÆÆ÷
+
+	// ç»‘å®šWebSocketæŽ§åˆ¶å™¨
 	router->addController(WSContorller::createShared());
 }
 
