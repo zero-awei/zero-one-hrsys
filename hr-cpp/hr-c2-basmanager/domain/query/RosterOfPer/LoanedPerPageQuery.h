@@ -22,11 +22,41 @@ class LoanedPerPageQuery : public PageQuery
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("sample.field.id");
 	}
-	//// 年龄
-	//DTO_FIELD(UInt32, age);
-	//DTO_FIELD_INFO(age) {
-	//	info->description = ZH_WORDS_GETTER("sample.field.age");
-	//}
+	// 组织
+	DTO_FIELD(String, zz);
+	DTO_FIELD_INFO(zz) {
+		info->description = ZH_WORDS_GETTER("loanedperpage.field.zz1");
+	}
+	// 部门
+	DTO_FIELD(String, bm);
+	DTO_FIELD_INFO(bm) {
+		info->description = ZH_WORDS_GETTER("loanedperpage.field.bm1");
+	}
+	// 职务
+	DTO_FIELD(String, zw);
+	DTO_FIELD_INFO(zw) {
+		info->description = ZH_WORDS_GETTER("loanedperpage.field.zw1");
+	}
+	// 岗位
+	DTO_FIELD(String, gw);
+	DTO_FIELD_INFO(gw) {
+		info->description = ZH_WORDS_GETTER("loanedperpage.field.gw1");
+	}
+	// 分配
+	DTO_FIELD(String, fp);
+	DTO_FIELD_INFO(fp) {
+		info->description = ZH_WORDS_GETTER("loanedperpage.field.fp");
+	}
+	// 类型
+	DTO_FIELD(String, lx);
+	DTO_FIELD_INFO(lx) {
+		info->description = ZH_WORDS_GETTER("loanedperpage.field.lx");
+	}
+	// 分配状态
+	DTO_FIELD(String, fpzt);
+	DTO_FIELD_INFO(fpzt) {
+		info->description = ZH_WORDS_GETTER("loanedperpage.field.fpzt");
+	}
 };
 
 #include OATPP_CODEGEN_END(DTO)

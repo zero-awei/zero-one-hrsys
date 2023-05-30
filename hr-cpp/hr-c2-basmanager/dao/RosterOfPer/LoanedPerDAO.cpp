@@ -3,8 +3,8 @@
 #include "LoanedPerDAO.h"
 #include "LoanedPerMapper.h"
 #include <sstream>
-
-//定义条件解析宏
+//这里估计都要改动
+//定义条件解析宏---这里要拓展，具体看query里的条件改动，阿伟学长刚说的
 #define LOANEDPER_TERAM_PARSE(query,sql)\
 SqlParams params; \
 sql<<" WHERE 1=1"; \
@@ -16,7 +16,7 @@ if(query->name){ \
 	sql << " AND `PIMPERSONNAME`LIKE CONCAT('%',?,'%')"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); \
 } \
-
+//查询语句有问题，表也不对
 uint64_t LoanedPerDAO::count(const LoanedPerPageQuery::Wrapper& query)
 {
 	stringstream sql;

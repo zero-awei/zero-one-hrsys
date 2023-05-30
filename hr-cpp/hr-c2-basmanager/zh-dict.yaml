@@ -148,5 +148,12 @@ loanedperpage:
   pcmydjdmxId: 借调状态
   jdksrq: 借调开始时间
   jdjsrq: 借调结束时间
+  zz1: 组织
+  bm1: 部门
+  zw1: 职务
+  gw1: 岗位
+  fp: 分配
+  lx: 类型
+  fpzt: 分配状态
  export:
   summary: （人员花名册-借调人员-导出员工（导出本页在前端完成））--洛洛

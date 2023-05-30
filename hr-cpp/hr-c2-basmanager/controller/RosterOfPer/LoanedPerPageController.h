@@ -44,11 +44,32 @@ public:
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("sample.field.name");
-		info->queryParams["name"].addExample("default", String("li ming"));
+		info->queryParams["name"].addExample("default", String(""));
 		info->queryParams["name"].required = false;
 		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("sample.field.id");
 		info->queryParams["id"].addExample("default", String(""));
 		info->queryParams["id"].required = false;
+		info->queryParams.add<String>("zz").description = ZH_WORDS_GETTER("loanedperpage.field.zz1");
+		info->queryParams["zz"].addExample("default", String(""));
+		info->queryParams["zz"].required = false;
+		info->queryParams.add<String>("bm").description = ZH_WORDS_GETTER("loanedperpage.field.bm1");
+		info->queryParams["bm"].addExample("default", String(""));
+		info->queryParams["bm"].required = false;
+		info->queryParams.add<String>("zw").description = ZH_WORDS_GETTER("loanedperpage.field.zw1");
+		info->queryParams["zw"].addExample("default", String(""));
+		info->queryParams["zw"].required = false;
+		info->queryParams.add<String>("gw").description = ZH_WORDS_GETTER("loanedperpage.field.gw1");
+		info->queryParams["gw"].addExample("default", String(""));
+		info->queryParams["gw"].required = false;
+		info->queryParams.add<String>("fp").description = ZH_WORDS_GETTER("loanedperpage.field.fp");
+		info->queryParams["fp"].addExample("default", String(""));
+		info->queryParams["fp"].required = false;
+		info->queryParams.add<String>("lx").description = ZH_WORDS_GETTER("loanedperpage.field.lx");
+		info->queryParams["lx"].addExample("default", String(""));
+		info->queryParams["lx"].required = false;
+		info->queryParams.add<String>("fpzt").description = ZH_WORDS_GETTER("loanedperpage.field.fpzt");
+		info->queryParams["fpzt"].addExample("default", String(""));
+		info->queryParams["fpzt"].required = false;
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/query-LoanedPerPage", queryLoanedPerPage, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
