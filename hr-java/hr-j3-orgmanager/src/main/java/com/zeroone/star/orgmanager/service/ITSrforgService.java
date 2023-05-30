@@ -1,18 +1,18 @@
 package com.zeroone.star.orgmanager.service;
 
+import com.zeroone.star.orgmanager.entity.TSrforg;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.zeroone.star.orgmanager.entity.TOrmorginfo;
 import com.zeroone.star.project.j3.dto.AddOrgInfoDTO;
 
 /**
  * <p>
- * 组织信息 服务类
+ * 组织机构 服务类
  * </p>
  *
- * @author breezelr
- * @since 2023-05-27
+ * @author lr
+ * @since 2023-05-29
  */
-public interface ITOrmorginfoService extends IService<TOrmorginfo> {
+public interface ITSrforgService extends IService<TSrforg> {
 
     /**
      * 添加组织信息

@@ -56,6 +56,7 @@ public class TOrmdutyServiceImpl extends ServiceImpl<TOrmdutyMapper, TOrmduty> i
         wrapper.like(StringUtils.isNotBlank(condition.getName()),"ORMDUTYNAME", condition.getName());
         // 执行分页查询
         Page<TOrmduty> pageResult = baseMapper.selectPage(page, wrapper);
+        //照葫芦画瓢
         return PageDTO.create(pageResult, TOrmduty -> msJobMapper.TOrmdutyToJobDto(TOrmduty));
     }
 }

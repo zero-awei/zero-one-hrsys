@@ -26,11 +26,14 @@ public class TSrforgsectorServiceImpl extends ServiceImpl<TSrforgsectorMapper, T
 
     @Override
     public List<DropdownListDTO> listSectorName(SectorNameQuery sectorNameQuery) {
+        //构造条件
         LambdaQueryWrapper<TSrforgsector> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.like(StringUtils.isNotBlank(sectorNameQuery.getName()),TSrforgsector::getOrgsectorname,sectorNameQuery.getName());
         queryWrapper.eq(StringUtils.isNotBlank(sectorNameQuery.getOrgId()),TSrforgsector::getOrgid,sectorNameQuery.getOrgId());
         queryWrapper.select(TSrforgsector::getOrgsectorname,TSrforgsector::getOrgsectorid);
+        //执行查询
         List<TSrforgsector> tSrforgsectors = baseMapper.selectList(queryWrapper);
+        //转换成所需要的内容
         List<DropdownListDTO> list = new ArrayList<>();
         for (TSrforgsector i : tSrforgsectors){
             DropdownListDTO dto = new DropdownListDTO();

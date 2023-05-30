@@ -1,6 +1,6 @@
 package com.zeroone.star.orgmanager.controller;
 
-import com.zeroone.star.orgmanager.service.ITOrmorginfoService;
+import com.zeroone.star.orgmanager.service.ITSrforgService;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sample.SampleDTO;
 import com.zeroone.star.project.j3.dto.AddOrgInfoDTO;
@@ -35,7 +35,7 @@ import java.util.List;
 public class OrgInfoController implements OrgInfoApis {
 
     @Resource
-    ITOrmorginfoService itOrmorginfoService;
+    ITSrforgService itSrforgService;
 
     @DeleteMapping("remove-org-address")
     @ApiOperation("删除组织地址")
@@ -84,7 +84,7 @@ public class OrgInfoController implements OrgInfoApis {
     @Override
     public JsonVO<String> addOryData(@RequestBody AddOrgInfoDTO addOrgInfoDTO){
         try {
-            itOrmorginfoService.saveOryData(addOrgInfoDTO);
+            itSrforgService.saveOryData(addOrgInfoDTO);
             return JsonVO.success("添加成功");
         }catch (Exception e){
             return JsonVO.fail("添加失败");
