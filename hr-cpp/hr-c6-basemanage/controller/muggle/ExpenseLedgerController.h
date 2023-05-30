@@ -38,19 +38,32 @@ public:
 	ENDPOINT_INFO(queryExpenseLedger) {
 		info->summary = ZH_WORDS_GETTER("expenseledger_mug.get.summary");
 		API_DEF_ADD_PAGE_PARAMS();
-		info->queryParams.add<String>("pimexpaccountname").description = ZH_WORDS_GETTER("labordispatch_mug.field.PIMEXPACCOUNTNAME");
-		info->queryParams.add<String>("pimexpaccountid").description = ZH_WORDS_GETTER("labordispatch_mug.field.PIMEXPACCOUNTID");
-		info->queryParams.add<String>("updateman").description = ZH_WORDS_GETTER("labordispatch_mug.field.UPDATEMAN");
-		info->queryParams.add<String>("createdate").description = ZH_WORDS_GETTER("labordispatch_mug.field.CREATEDATE");
-		info->queryParams.add<String>("createman").description = ZH_WORDS_GETTER("labordispatch_mug.field.CREATEMAN");
-		info->queryParams.add<String>("updatedate").description = ZH_WORDS_GETTER("labordispatch_mug.field.UPDATEDATE");
-		info->queryParams.add<String>("fylb").description = ZH_WORDS_GETTER("labordispatch_mug.field.FYLB");
-		info->queryParams.add<String>("fyje").description = ZH_WORDS_GETTER("labordispatch_mug.field.FYJE");
-		info->queryParams.add<String>("ffrs").description = ZH_WORDS_GETTER("labordispatch_mug.field.FFRS");
-		info->queryParams.add<String>("ffsj").description = ZH_WORDS_GETTER("labordispatch_mug.field.FFSJ");
-		info->queryParams.add<String>("ffybz").description = ZH_WORDS_GETTER("labordispatch_mug.field.FFYBZ");
-		info->queryParams.add<String>("bz").description = ZH_WORDS_GETTER("labordispatch_mug.field.BZ");
-		info->queryParams.add<String>("ormorgid").description = ZH_WORDS_GETTER("labordispatch_mug.field.PIMLABOURCAMPANYID");
+		info->queryParams.add<String>("pimexpaccountname").description = ZH_WORDS_GETTER("expenseledger.field.PIMEXPACCOUNTNAME");
+		info->queryParams["pimexpaccountname"].required = false;
+		info->queryParams.add<String>("pimexpaccountid").description = ZH_WORDS_GETTER("expenseledger.field.PIMEXPACCOUNTID");
+		info->queryParams["pimexpaccountid"].required = false;
+		info->queryParams.add<String>("updateman").description = ZH_WORDS_GETTER("expenseledger.field.UPDATEMAN");
+		info->queryParams["updateman"].required = false;
+		info->queryParams.add<String>("createdate").description = ZH_WORDS_GETTER("expenseledger.field.CREATEDATE");
+		info->queryParams["createdate"].required = false;
+		info->queryParams.add<String>("createman").description = ZH_WORDS_GETTER("expenseledger.field.CREATEMAN");
+		info->queryParams["createman"].required = false;
+		info->queryParams.add<String>("updatedate").description = ZH_WORDS_GETTER("expenseledger.field.UPDATEDATE");
+		info->queryParams["updatedate"].required = false;
+		info->queryParams.add<String>("fylb").description = ZH_WORDS_GETTER("expenseledger.field.FYLB");
+		info->queryParams["fylb"].required = false;
+		info->queryParams.add<String>("fyje").description = ZH_WORDS_GETTER("expenseledger.field.FYJE");
+		info->queryParams["fyje"].required = false;
+		info->queryParams.add<String>("ffrs").description = ZH_WORDS_GETTER("expenseledger.field.FFRS");
+		info->queryParams["ffrs"].required = false;
+		info->queryParams.add<String>("ffsj").description = ZH_WORDS_GETTER("expenseledger.field.FFSJ");
+		info->queryParams["ffsj"].required = false;
+		info->queryParams.add<String>("ffybz").description = ZH_WORDS_GETTER("expenseledger.field.FFYBZ");
+		info->queryParams["ffybz"].required = false;
+		info->queryParams.add<String>("bz").description = ZH_WORDS_GETTER("expenseledger.field.BZ");
+		info->queryParams["bz"].required = false;
+		info->queryParams.add<String>("ormorgid").description = ZH_WORDS_GETTER("expenseledger.field.ORMORGID");
+		info->queryParams["ormorgid"].required = false;
 		API_DEF_ADD_RSP_JSON_WRAPPER(JsonVO<ExpenseLedgerPageDTO::Wrapper>);
 	}
 	ENDPOINT(API_M_GET, "/contract-management/query-by-expense-category", queryExpenseLedger,QUERIES(QueryParams, queryParams)) {
