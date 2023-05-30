@@ -53,7 +53,7 @@ public: // 定义接口
 		// 添加其他查询参数
 		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("sample.field.pimpersonid");
 		info->queryParams["pimpersonid"].addExample("default", String("111"));
-		info->queryParams["pimpersonid"].required = false;
+		info->queryParams["pimpersonid"].required = true;
 	}
 	// 4 定义接口端点
 	ENDPOINT(API_M_GET, "/SciResult", querySciResult, QUERIES(QueryParams, qps)) {
@@ -67,13 +67,14 @@ public: // 定义接口
 	ENDPOINT_INFO(AddSciResult) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("sample.post.summary");
+		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/SciResult/add", AddSciResult, BODY_DTO(Add2SciResultDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/SciResult/add", AddSciResult, API_HANDLER_AUTH_PARAME, BODY_DTO(Add2SciResultDTO::Wrapper, dto,)) {
 		// 响应结果
-		API_HANDLER_RESP_VO(execAddSciResult(dto));
+		API_HANDLER_RESP_VO(execAddSciResult(dto,authObject->getPayload()));
 	}
 
 
@@ -92,22 +93,23 @@ public: // 定义接口
 
 	//导入指定员工科研成果
 	ENDPOINT_INFO(postFile) {
-		info->summary = ZH_WORDS_GETTER("sciresult.file.summary");
+		info->summary = ZH_WORDS_GETTER("sciresult.into.summary");
+		API_DEF_ADD_AUTH();
 		info->addConsumes<oatpp::swagger::Binary>("application/octet-stream");
 		API_DEF_ADD_RSP_JSON(StringJsonVO::Wrapper);
-		info->queryParams["suffix"].description = ZH_WORDS_GETTER("sciresult.file.suffix");
+		info->queryParams["suffix"].description = ZH_WORDS_GETTER("sciresult.into.suffix");
 		info->queryParams["suffix"].addExample("xlsx", String(".xlsx"));
 
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("sciresult.field.pimpersonid");
+		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("sciresult.field.PIMPERSONID");
 		info->queryParams["pimpersonid"].addExample("default", String("111"));
-		info->queryParams["pimpersonid"].required = false;
+		info->queryParams["pimpersonid"].required = true;
 
 	}
 	// 定义文件上传端点处理
-	ENDPOINT(API_M_POST, "/sciresult/file", postFile, BODY_STRING(String, body), QUERY(String, suffix), QUERY(String, pimpersonid)) {
+	ENDPOINT(API_M_POST, "/sciresult/file", postFile, API_HANDLER_AUTH_PARAME, BODY_STRING(String, body), QUERY(String, suffix), QUERY(String, pimpersonid)) {
 		// 执行文件保存逻辑
-		API_HANDLER_RESP_VO(execIntoSciResult(body, suffix, pimpersonid));
+		API_HANDLER_RESP_VO(execIntoSciResult(body, suffix, pimpersonid, authObject->getPayload()));
 	}
 
 
@@ -120,11 +122,11 @@ private: // 定义接口执行函数
 	//定义查询执行函数
 	SciResultPageJsonVO::Wrapper execQueryTest(const SciResultQuery::Wrapper& query);
 	//定义新增试行函数
-	Uint64JsonVO::Wrapper execAddSciResult(const Add2SciResultDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execAddSciResult(const Add2SciResultDTO::Wrapper& dto, const PayloadDTO& payload);
 	//定义删除执行函数
 	Uint64JsonVO::Wrapper execDelSciResult(const DelSciResultDTO::Wrapper& dto);
 	//定义导入执行函数
-	StringJsonVO::Wrapper execIntoSciResult(const String& body, const String& suffix, const String& pimpersonid);
+	StringJsonVO::Wrapper execIntoSciResult(const String& body, const String& suffix, const String& pimpersonid, const PayloadDTO& payload);
 };
 
 #include OATPP_CODEGEN_END(ApiController) // 0

@@ -47,6 +47,10 @@ public:
 	DTO_FIELD_INFO(FJ) {
 		info->description = ZH_WORDS_GETTER("sciresult.FJ");
 	}
+	DTO_FIELD(String, ENABLE);
+	DTO_FIELD_INFO(ENABLE) {
+		info->description = ZH_WORDS_GETTER("sciresult.ENABLE");
+	}
 	
 	//建立时间
 	DTO_FIELD(String, CREATEDATE);
@@ -69,8 +73,8 @@ public:
 		info->description = ZH_WORDS_GETTER("sciresult.PIMRESEARCHFINDINGSID");
 	}
 	//人员信息标识
-	DTO_FIELD(String, pimpersonid);
-	DTO_FIELD_INFO(pimpersonid) {
+	DTO_FIELD(String, PIMPERSONID);
+	DTO_FIELD_INFO(PIMPERSONID) {
 		info->description = ZH_WORDS_GETTER("sciresult. PIMPERSONID");
 	}
 	//获取时间

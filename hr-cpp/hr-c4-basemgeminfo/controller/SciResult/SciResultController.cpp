@@ -38,18 +38,18 @@ SciResultPageJsonVO::Wrapper SciResultController::execQueryTest(const SciResultQ
 
 
 //新增
-Uint64JsonVO::Wrapper SciResultController::execAddSciResult(const Add2SciResultDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper SciResultController::execAddSciResult(const Add2SciResultDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto jvo = Uint64JsonVO::createShared();
 
-	if (!dto->PIMRESEARCHFINDINGSNAME || !dto->HQSJ || !dto->pimpersonid)
+	if (!dto->PIMRESEARCHFINDINGSNAME || !dto->HQSJ || !dto->PIMPERSONID)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 
 	//有效值效验
-	if (dto->PIMRESEARCHFINDINGSNAME->empty() || dto->HQSJ->empty()  || dto->pimpersonid->empty())
+	if (dto->PIMRESEARCHFINDINGSNAME->empty() || dto->HQSJ->empty()  || dto->PIMPERSONID->empty())
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
@@ -58,7 +58,7 @@ Uint64JsonVO::Wrapper SciResultController::execAddSciResult(const Add2SciResultD
 	// TODO : 处理附件上传
 
 	SciResultService service;
-	uint64_t id = service.saveData(dto);
+	uint64_t id = service.saveData(dto,payload);
 	if (id > 0) {
 		jvo->success(UInt64(id));
 	}
@@ -104,7 +104,7 @@ Uint64JsonVO::Wrapper SciResultController::execDelSciResult(const DelSciResultDT
 	return jvo;
 }
 //导入
-StringJsonVO::Wrapper SciResultController::execIntoSciResult(const String& body, const String& suffix, const String& pimpersonid)
+StringJsonVO::Wrapper SciResultController::execIntoSciResult(const String& body, const String& suffix, const String& pimpersonid, const PayloadDTO& payload)
 {
 	auto jvo = StringJsonVO::createShared();
 	if (!pimpersonid || !body || !suffix)
@@ -116,7 +116,7 @@ StringJsonVO::Wrapper SciResultController::execIntoSciResult(const String& body,
 		jvo->fail("导入失败,没有数据");
 	}
 	SciResultService service;
-	service.saveManyData(body, suffix, pimpersonid);
+	service.saveManyData(body, suffix, pimpersonid,payload);
 	jvo->success("文件导入成功");
 	return jvo;
 }

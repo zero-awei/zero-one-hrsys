@@ -7,7 +7,7 @@
 #include "FastDfsClient.h"
 #include "CharsetConvertHepler.h"
 #include "domain/do/SciResult/SciResultDO.h"
-
+using namespace oatpp;
 SciResultPageDTO::Wrapper SciResultService::listAll(const SciResultQuery::Wrapper& query)
 {
 	// 构建返回对象
@@ -32,17 +32,17 @@ SciResultPageDTO::Wrapper SciResultService::listAll(const SciResultQuery::Wrappe
 	{
 		auto dto = SciResultDTO::createShared();
 
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, PIMRESEARCHFINDINGSNAME, _PIMRESEARCHFINDINGSNAME, FJ, _FJ, PIMRESEARCHFINDINGSID, _PIMRESEARCHFINDINGSID, pimpersonid, _pimpersonid, HQSJ, _HQSJ);
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, PIMRESEARCHFINDINGSNAME, _PIMRESEARCHFINDINGSNAME, FJ, _FJ, PIMRESEARCHFINDINGSID, _PIMRESEARCHFINDINGSID, PIMPERSONID, _PIMPERSONID, HQSJ, _HQSJ);
 		pages->addData(dto);
 
 	}
 	return pages;
 }
-uint64_t SciResultService::saveData(const Add2SciResultDTO::Wrapper& dto)
+uint64_t SciResultService::saveData(const Add2SciResultDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	// 组装DO数据
 	SciResultDO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, _PIMRESEARCHFINDINGSNAME, PIMRESEARCHFINDINGSNAME, _HQSJ, HQSJ, _FJ, FJ, _pimpersonid, pimpersonid);
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, _PIMRESEARCHFINDINGSNAME, PIMRESEARCHFINDINGSNAME, _HQSJ, HQSJ, _FJ, FJ, _PIMPERSONID, PIMPERSONID);
 	// 生成唯一标识
 	SnowFlake sf(1, 4);
 	auto id = sf.nextId();
@@ -51,7 +51,8 @@ uint64_t SciResultService::saveData(const Add2SciResultDTO::Wrapper& dto)
 	data.set_UPDATEDATE(SimpleDateTimeFormat::format());
 	data.set_CREATEDATE(data.get_UPDATEDATE());
 	// 从负载数据中获取创建人
-	
+	data.set_CREATEMAN(payload.getUsername());
+	data.set_UPDATEMAN(payload.getUsername());
 	// 执行数据添加
 	SciResultDAO dao;
 	if (dao.insert(data)) {
@@ -75,7 +76,7 @@ bool SciResultService::removeData(const DelSciResultDTO::Wrapper& dto)
 	}
 	return true;
 }
-uint64_t SciResultService::saveManyData(const String& fileBody, const oatpp::data::mapping::type::String& suffix, const oatpp::data::mapping::type::String& pimpersonid)
+uint64_t SciResultService::saveManyData(const String& fileBody, const oatpp::data::mapping::type::String& suffix, const oatpp::data::mapping::type::String& pimpersonid, const PayloadDTO& payload)
 {
 	// 根据时间戳生成一个临时文件名称
 	std::stringstream ss;
@@ -131,15 +132,19 @@ uint64_t SciResultService::saveManyData(const String& fileBody, const oatpp::dat
 			continue;
 		}
 		SciResultDO data(row);
-		//雪花算法生产履历id
+		//雪花算法生产id
 		data.set_PIMRESEARCHFINDINGSID(to_string(sf.nextId()));
 
-		//判断是谁的工作履历
-		data.set_pimpersonid(pimpersonid);
+		//判断是谁的科研成果
+		data.set_PIMPERSONID(pimpersonid);
 
 		//更新时间
 		SimpleDateTimeFormat times;
-
+		data.set_UPDATEDATE(SimpleDateTimeFormat::format());
+		data.set_CREATEDATE(data.get_UPDATEDATE());
+		// 从负载数据中获取创建人
+		data.set_CREATEMAN(payload.getUsername());
+		data.set_UPDATEMAN(payload.getUsername());
 
 		//插入数据
 		dao.insert(data);

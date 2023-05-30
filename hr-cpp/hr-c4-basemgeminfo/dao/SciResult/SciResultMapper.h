@@ -32,7 +32,7 @@ public:
 		data.set_PIMRESEARCHFINDINGSNAME(resultSet->getString(1));
 		data.set_FJ(resultSet->getString(2));
 		data.set_PIMRESEARCHFINDINGSID(resultSet->getString(3));
-		data.set_pimpersonid(resultSet->getString(4));
+		data.set_PIMPERSONID(resultSet->getString(4));
 		data.set_HQSJ(resultSet->getString(5));
 		return data;
 	}

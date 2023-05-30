@@ -81,10 +81,10 @@ sciresult:
   REASON: 拒绝原因
   list<delSciResult>: 用来批量删除的
   listsciresult: 导入
- file:
+ into: 
+  summary: 科研成果导入
+  fileinto: 导入科研成果
   suffix: 文件名
-Into: 
- fileinto: 导入科研成果
 contract:
  get:
   summary: 分页查询合同数据

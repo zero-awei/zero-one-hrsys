@@ -44,7 +44,7 @@ class SciResultDO
 		//科研成果标识
 	CC_SYNTHESIZE(string, PIMRESEARCHFINDINGSID, _PIMRESEARCHFINDINGSID);
 		//人员信息标识
-	CC_SYNTHESIZE(string, pimpersonid, _pimpersonid);
+	CC_SYNTHESIZE(string, PIMPERSONID, _PIMPERSONID);
 		//获取时间
 	CC_SYNTHESIZE(string, HQSJ, _HQSJ);
 		//记录所属
