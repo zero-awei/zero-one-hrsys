@@ -1,4 +1,22 @@
 #pragma once
+/*
+ Copyright Zero One Star. All rights reserved.
+
+ @Author: awei
+ @Date: 2023/05/15 21:03:55
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+	  https://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 #ifndef _SCIENTIFICCONTROLLER_H_
 #define _SCIENTIFICCONTROLLER_H_
 
@@ -21,8 +39,8 @@ public: // 定义接口
 		// 定义响应参数类型
 		API_DEF_ADD_RSP_JSON_WRAPPER(ScientificJsonVO);
 		// 添加其他查询参数
-		info->queryParams.add<String>("PIMARMYCADRESID").description = ZH_WORDS_GETTER("scientific.PIMARMYCADRESID");
-		info->queryParams["PIMARMYCADRESID"].addExample("default", String("QWER-ASFD"));
+		info->queryParams.add<String>("pimresearchfindingsid").description = ZH_WORDS_GETTER("scientific.pimresearchfindingsid");
+		info->queryParams["pimresearchfindingsid"].addExample("default", String("167CEAAD-F15E-45E1-B1C4-50DAD227B3BF"));
 	}
 	ENDPOINT(API_M_GET, "/scientific", queryScientific, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
@@ -48,8 +66,8 @@ public: // 定义接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 添加其他查询参数
-		info->queryParams.add<String>("PIMPERSONID").description = ZH_WORDS_GETTER("scientific.PIMPERSONID");
-		info->queryParams["PIMPERSONID"].addExample("default", String("0000-QWDE"));
+		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("scientific.pimpersonid");
+		info->queryParams["pimpersonid"].addExample("default", String("EA3AE5AA-2318-4C84-AAF7-99CBDE9BA27B"));
 	}
 	ENDPOINT(API_M_POST, "/scientific", downloadScientific, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
@@ -59,7 +77,7 @@ public: // 定义接口
 	}
 private: // 定义接口执行函数
 	ScientificJsonVO::Wrapper execQueryScientific(const ScientificViewQuery::Wrapper& query);
-	Uint64JsonVO::Wrapper execModifyScientific(const ScientificDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execModifyScientific(const ScientificDTO::Wrapper& dto);
 	StringJsonVO::Wrapper execDownloadScientific(const ScientificDownloadQuery::Wrapper& query);
 };
 

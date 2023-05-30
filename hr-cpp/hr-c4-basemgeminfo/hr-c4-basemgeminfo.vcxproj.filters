@@ -360,6 +360,18 @@
     <ClInclude Include="controller\trainingrecord\TrainingRecordController.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="dao\scientific\ScientificDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\scientific\ScientificMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\scientific\ScientificDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\scientific\ScientificService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -459,6 +471,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\trainingrecord\TrainingRecordController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\scientific\ScientificController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\scientific\ScientificDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\scientific\ScientificService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
