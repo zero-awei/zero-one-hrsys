@@ -12,13 +12,13 @@ class JobTitleInfoDTO : public oatpp::DTO
 	DTO_INIT(JobTitleInfoDTO, DTO);
 	
 	// 员工编号
-	DTO_FIELD(UInt32, EMPLOYEEID);
+	DTO_FIELD(String, EMPLOYEEID);
 	DTO_FIELD_INFO(EMPLOYEEID) {
 		info->description = ZH_WORDS_GETTER("jobtitle.field.employee_id");
 	}
 
 	// 证书编号
-	DTO_FIELD(UInt32, CREDENTIALS_NUM);
+	DTO_FIELD(String, CREDENTIALS_NUM);
 	DTO_FIELD_INFO(CREDENTIALS_NUM) {
 		info->description = ZH_WORDS_GETTER("jobtitle.field.certificate_id");
 	}

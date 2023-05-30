@@ -12,7 +12,7 @@
 class JobTitleDo {
 private:
 	// 员工编号
-	CC_SYNTHESIZE(uint64_t, employeeid, EmployeeId);
+	CC_SYNTHESIZE(string, employeeid, EmployeeId);
 	// 员工姓名
 	CC_SYNTHESIZE(string, employeename, EmployeeName);
 	// 组织名称
