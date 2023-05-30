@@ -11,7 +11,7 @@ EmployeeInformationPageJsonVO::Wrapper EmployeeInformationController::execEmploy
 	auto result = service.listAll(query);
 	// ÏìÓ¦½á¹û
 	auto jvo = EmployeeInformationPageJsonVO::createShared();
-	jvo->success(result);
+	jvo->success(result); 
 	return jvo;
 
 }

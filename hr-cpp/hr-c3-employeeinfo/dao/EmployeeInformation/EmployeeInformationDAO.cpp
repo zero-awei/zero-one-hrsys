@@ -27,51 +27,47 @@
 SqlParams params; \
 sql<<" WHERE 1=1"; \
 if (query->name) { \
-	sql << " AND `name`=?"; \
+	sql << " AND `PIMPERSONNAME`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); \
 } \
 if (query->id) { \
-	sql << " AND `id`=?"; \
+	sql << " AND `YGBH`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
 } \
 if (query->age) { \
-	sql << " AND age=?"; \
+	sql << " AND `NL`=?"; \
 	SQLPARAMS_PUSH(params, "i", int, query->age.getValue(0)); \
 }\
 if (query->organize) { \
-	sql << " AND organize=?"; \
+	sql << " AND `ZZ`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->organize.getValue("")); \
 }\
 if (query->depart) { \
-	sql << " AND depart=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->depart.getValue("")); \
-}\
-if (query->depart) { \
-	sql << " AND depart=?"; \
+	sql << " AND `BM`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->depart.getValue("")); \
 }\
 if (query->job) { \
-	sql << " AND job=?"; \
+	sql << " AND `ZW`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->job.getValue("")); \
 }\
 if (query->post) { \
-	sql << " AND post=?"; \
+	sql << " AND `GW`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->post.getValue("")); \
 }\
 if (query->idMum) { \
-	sql << " AND idMum=?"; \
+	sql << " AND `ZJHM`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->idMum.getValue("")); \
 }\
 if (query->birthday) { \
-	sql << " AND birthday=?"; \
+	sql << " AND `CSRQ`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->birthday.getValue("")); \
 }\
 if (query->phone) { \
-	sql << " AND phone=?"; \
+	sql << " AND `LXDH`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->phone.getValue("")); \
 }\
 if (query->state) { \
-	sql << " AND state=?"; \
+	sql << " AND `YGZT`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->state.getValue("")); \
 }
 
@@ -80,7 +76,7 @@ if (query->state) { \
 uint64_t EmployeeInformationDAO::count(const EmployeeInformationPageQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM sample";
+	sql << "SELECT COUNT(*) FROM t_pimperson";
 	SAMPLE_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
@@ -89,7 +85,7 @@ uint64_t EmployeeInformationDAO::count(const EmployeeInformationPageQuery::Wrapp
 std::list<EmployeeInformationPageDO> EmployeeInformationDAO::selectWithPage(const EmployeeInformationPageQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT * FROM sample";
+	sql << "SELECT * FROM t_pimperson";
 	SAMPLE_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	EmployeeInformationMapper mapper;
@@ -99,7 +95,6 @@ std::list<EmployeeInformationPageDO> EmployeeInformationDAO::selectWithPage(cons
 // ²åÈëÊý¾Ý
 uint64_t EmployeeInformationDAO::insert(const EmployeeInformationPageDO& iObj)
 {
-
-	string sql= "INSERT INTO `sample` (`name`,`age`,`id`,`organize`,`depart`,`job`,`post`,`idMum`,`birthday`,`phone`,`state`,) VALUES (?, ?, ?)";
-	return sqlSession->executeInsert(sql,"%s&i%s%s%s%s%s%s%s%s%s",iObj.getName(),iObj.getAge(),iObj.getId(),iObj.getOrganize(),iObj.getDepart(),iObj.getJob(), iObj.getPost(),iObj.getIdMum(),iObj.getBirthday(),iObj.getPhone(),iObj.getState());
+	string sql= "INSERT INTO `t_pimperson` (`PIMPERSONNAME`,`NL`,`YGBH`,`ZZ`,`BM`,`ZW`,`GW`,`ZJHM`,`CSRQ`,`LXDH`,`YGZT`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	return sqlSession->executeUpdate(sql,"%s&i%s%s%s%s%s%s%s%s%s",iObj.getName(),iObj.getAge(),iObj.getId(),iObj.getOrganize(),iObj.getDepart(),iObj.getJob(), iObj.getPost(),iObj.getIdMum(),iObj.getBirthday(),iObj.getPhone(),iObj.getState());
 }
