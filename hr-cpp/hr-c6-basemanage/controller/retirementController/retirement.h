@@ -46,7 +46,7 @@ public:
 		queryTest：接口名字
 		QUERIES(QueryParams, qp1)：表示请求是表单数据，请求的参数都放到qp1中
 		*/
-	ENDPOINT(API_M_GET, "/Retirement-management/Page-query-retirement", retirement_Page_query, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qp1))
+	ENDPOINT(API_M_GET, "/retirement-management/Page-query-retirement", retirement_Page_query, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qp1))
 	{
 		/* 
 		解析查询参数(解析为领域模型对象) 也就是query与dto
