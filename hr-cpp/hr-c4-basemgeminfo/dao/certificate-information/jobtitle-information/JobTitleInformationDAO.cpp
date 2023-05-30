@@ -23,7 +23,7 @@ uint64_t JobTitleInformationDAO::count(const JobTitleInformationPageQuery::Wrapp
 list<JobTitleInformationDO> JobTitleInformationDAO::selectWithPage(const JobTitleInformationPageQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT a.professoranalysis_name,a.credentials_num,a.professor_grades,a.major,b.zchqrq,b.reviewbody,b.lssuingagency,b.employtime,b.enable FROM `bis_professoranalysis_t` a left join `t_pimtitle` b on a.professoranalysis_name=b.pimtitlename  ";
+	sql << "SELECT a.professoranalysis_name,a.credentials_num,a.professor_grades,a.major,b.zchqrq,b.reviewbody,b.lssuingagency,b.employtime,b.enable,a.employeeid FROM `bis_professoranalysis_t` a left join `t_pimtitle` b on a.credentials_num=b.zcbh   ";
 	JOBTITLE_INFORMATION_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	JobTitleInformationMapper mapper;

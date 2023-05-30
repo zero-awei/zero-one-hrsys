@@ -37,6 +37,12 @@ class WorkHistoryPageQuery : public PageQuery
 	DTO_INIT(WorkHistoryPageQuery, PageQuery);
 	
 
+	//人员信息id
+	DTO_FIELD(String, pimpersonid);
+	DTO_FIELD_INFO(pimpersonid) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.pimpersonid");
+	}
+
 	//任职开始时间
 	DTO_FIELD(String, rzkssj);
 	DTO_FIELD_INFO(rzkssj) {
@@ -76,11 +82,11 @@ class WorkHistoryPageQuery : public PageQuery
 	DTO_FIELD_INFO(experience) {
 		info->description = ZH_WORDS_GETTER("workhistory.field.experience");
 	}
-
-	//人员信息id
-	DTO_FIELD(String, pimpersonid);
-	DTO_FIELD_INFO(pimpersonid) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.pimpersionid");
+	
+	//人员标识信息id
+	DTO_FIELD(String, pimworkhistoryid);
+	DTO_FIELD_INFO(pimworkhistoryid) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.pimworkhistoryid");
 	}
 };
 

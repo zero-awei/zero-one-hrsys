@@ -6,14 +6,13 @@
 
 class CertificateInformationDO
 {
-	
-	CC_SYNTHESIZE(string, ygbh, Ygbh);
 	CC_SYNTHESIZE(string, zgzsbh, Zgzsbh);
 	CC_SYNTHESIZE(string, pimvocationalname, Pimvocationalname);
 	CC_SYNTHESIZE(string, zslx, Zslx);
 	CC_SYNTHESIZE(string, zghqrq, Zghqrq);
 	CC_SYNTHESIZE(string, zgsydw, Zgsydw);
 	CC_SYNTHESIZE(string, fzyxq, Fzyxq);
+	CC_SYNTHESIZE(string, pimpersonid, Pimpersonid);
 };
 
 #endif

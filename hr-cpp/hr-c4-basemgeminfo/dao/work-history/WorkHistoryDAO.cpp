@@ -42,13 +42,11 @@ if (query->experience) { \
 if (query->pimpersonid) { \
 		sql << " AND PIMPERSONID=?"; \
 		SQLPARAMS_PUSH(params, "s", std::string, query->pimpersonid.getValue("")); \
-}
-/*
-if (query->pimworkhistoryid) {
-	\
+}\
+if (query->pimworkhistoryid) {\
 		sql << " AND PIMWORKHISTORYID=?"; \
 		SQLPARAMS_PUSH(params, "i", std::string, query->pimworkhistoryid.getValue(0)); \
-}\*/
+}\
 
 
 
@@ -120,10 +118,9 @@ std::list<WorkHistoryFindDO> WorkHistoryDAO::selectAllData(const WorkHistoryExpo
 list<WorkHistoryDO> WorkHistoryDAO::selectDetail(const WorkHistoryQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "select rzkssj,rzjssj,ormorgname,ormorgsectorname,ormdutyname,ormpostname,cfplx,experience,enable from t_pimdistirbution WHERE `PIMPERSONID`=? AND `ORMORGNAME`=?";
+	sql << "select rzkssj,rzjssj,ormorgname,ormorgsectorname,ormdutyname,ormpostname,cfplx,experience,pimpersonid,pimworkhistoryid from `t_pimworkhistory` WHERE `pimworkhistoryid`=?";
 	SqlParams params;
-	SQLPARAMS_PUSH(params, "s", std::string, query->pimpersonid.getValue(""));
-	SQLPARAMS_PUSH(params, "s", std::string, query->ormorgname.getValue(""));
+	SQLPARAMS_PUSH(params, "s", std::string, query->pimworkhistoryid.getValue(""));
 	
 	WorkHistoryMapper mapper;
 	string sqlStr = sql.str();
@@ -132,6 +129,6 @@ list<WorkHistoryDO> WorkHistoryDAO::selectDetail(const WorkHistoryQuery::Wrapper
 
 int WorkHistoryDAO::update(const WorkHistoryDO& uObj)
 {
-	string sql = "UPDATE `t_pimdistirbution` SET `rzkssj`=?, `rzjssj`=?, `ormorgname`=? ,`ormdutyname`=? ,`ormpostname`=? ,`cfplx`=? ,`enable`=? WHERE `PIMPERSONID`=?";
-	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s", uObj.getRzkssj(), uObj.getRzjssj(), uObj.getOrmorgname(), uObj.getOrmdutyname(), uObj.getOrmpostname(), uObj.getCfplx(), uObj.getEnable());
+	string sql = "UPDATE `t_pimworkhistory` SET `rzkssj`=?, `rzjssj`=?, `ormorgname`=? ,`ormorgsectorname`=?,`ormdutyname`=? ,`ormpostname`=? ,`cfplx`=? ,`experience`=? WHERE `pimworkhistoryid`=?";
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s", uObj.getRzkssj(), uObj.getRzjssj(), uObj.getOrmorgname(), uObj.getOrmorgsectorname(), uObj.getOrmdutyname(), uObj.getOrmpostname(), uObj.getCfplx(), uObj.getExperience(), uObj.getPimworkhistoryid());
 }

@@ -12,10 +12,10 @@
 class CertificateInformationPageQuery : public PageQuery
 {
 	DTO_INIT(CertificateInformationPageQuery, PageQuery);
-	//ygbh:员工编号
-	DTO_FIELD(String, ygbh);
-	DTO_FIELD_INFO(ygbh) {
-		info->description = ZH_WORDS_GETTER("certificateinformation.field.ygbh");
+	//pimpersonid:人员信息标识
+	DTO_FIELD(String, pimpersonid);
+	DTO_FIELD_INFO(pimpersonid) {
+		info->description = ZH_WORDS_GETTER("certificateinformation.field.pimpersonid");
 	}
 	//zgzsbh: 证书编号
 	DTO_FIELD(String, zgzsbh);

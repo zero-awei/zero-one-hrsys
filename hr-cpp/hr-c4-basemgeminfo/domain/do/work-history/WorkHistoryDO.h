@@ -5,7 +5,6 @@
 
 class WorkHistoryDO
 {
-	CC_SYNTHESIZE(string, pimpersionid,Pimpersionid);
 	CC_SYNTHESIZE(string, rzkssj, Rzkssj);
 	CC_SYNTHESIZE(string, rzjssj, Rzjssj);
 	CC_SYNTHESIZE(string, ormorgname, Ormorgname);
@@ -13,7 +12,9 @@ class WorkHistoryDO
 	CC_SYNTHESIZE(string, ormdutyname, Ormdutyname);
 	CC_SYNTHESIZE(string, ormpostname, Ormpostname);
 	CC_SYNTHESIZE(string, cfplx, Cfplx);
-	CC_SYNTHESIZE(string, enable, Enable);
+	CC_SYNTHESIZE(int, experience, Experience);
+	CC_SYNTHESIZE(string, pimpersonid, Pimpersonid);
+	CC_SYNTHESIZE(string, pimworkhistoryid, Pimworkhistoryid);
 	
 };
 

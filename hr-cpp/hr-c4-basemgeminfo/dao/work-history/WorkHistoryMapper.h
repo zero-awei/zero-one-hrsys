@@ -61,10 +61,13 @@ public:
 		data.setRzkssj(resultSet->getString(1));
 		data.setRzjssj(resultSet->getString(2));
 		data.setOrmorgname(resultSet->getString(3));
-		data.setOrmdutyname(resultSet->getString(4));
-		data.setOrmpostname(resultSet->getString(5));
-		data.setCfplx(resultSet->getString(6));
-		data.setEnable(resultSet->getString(7));
+		data.setOrmorgsectorname(resultSet->getString(4));
+		data.setOrmdutyname(resultSet->getString(5));
+		data.setOrmpostname(resultSet->getString(6));
+		data.setCfplx(resultSet->getString(7));
+		data.setExperience(resultSet->getUInt64(8));
+		data.setPimpersonid(resultSet->getString(9));
+		data.setPimworkhistoryid(resultSet->getString(10));
 
 		return data;
 	}

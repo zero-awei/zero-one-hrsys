@@ -9,12 +9,6 @@
 class ModWorkHistoryDTO : public oatpp::DTO
 {
 	DTO_INIT(ModWorkHistoryDTO, DTO);
-	//员工id
-	DTO_FIELD(String, pimpersonid);
-	DTO_FIELD_INFO(pimpersonid) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.pimpersionid");
-	}
-
 	// rzkssj: 任职开始时间
 	DTO_FIELD(String, rzkssj);
 	DTO_FIELD_INFO(rzkssj) {
@@ -50,10 +44,20 @@ class ModWorkHistoryDTO : public oatpp::DTO
 	DTO_FIELD_INFO(cfplx) {
 		info->description = ZH_WORDS_GETTER("cfplx");
 	}
-	//enable: 是否主要经历
-	DTO_FIELD(String, enable);
-	DTO_FIELD_INFO(enable) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.enable");
+	//experience: 是否主要经历
+	DTO_FIELD(UInt64, experience);
+	DTO_FIELD_INFO(experience) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.experience");
+	}
+	//员工pimpersonid
+	DTO_FIELD(String, pimpersonid);
+	DTO_FIELD_INFO(pimpersonid) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.pimpersionid");
+	}
+	//员工id
+	DTO_FIELD(String, pimworkhistoryid);
+	DTO_FIELD_INFO(pimworkhistoryid) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.pimworkhistoryid");
 	}
 
 };

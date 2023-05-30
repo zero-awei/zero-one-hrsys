@@ -180,7 +180,7 @@ WorkHistoryJsonVO::Wrapper WorkHistoryController::execQueryWorkHistory(const Wor
 	auto result = service.listDetail(query);
 	// 响应结果
 	auto jvo = WorkHistoryJsonVO::createShared();
-	if (result->ormorgname.getValue("").empty()) {
+	if (result->pimworkhistoryid.getValue("").empty()) {
 		cout << "No details were found" << endl;
 		jvo->fail(result);
 	}
@@ -190,35 +190,27 @@ WorkHistoryJsonVO::Wrapper WorkHistoryController::execQueryWorkHistory(const Wor
 	return jvo;
 }
 //定义修改指定员工工作履历函数execModifyWorkHistory
-StringJsonVO::Wrapper WorkHistoryController::execModifyWorkHistory(const WorkHistoryDTO::Wrapper& dto,const PayloadDTO& payload)
+StringJsonVO::Wrapper WorkHistoryController::execModifyWorkHistory(const WorkHistoryDTO::Wrapper& dto)
 {
-	////获取修改人id
-	//dto->update = payload.getId();
-	////获取当前时间
-	//time_t timep;
-	//time(&timep);
-	//char tmp[256];
-	//strftime(tmp, sizeof(tmp), "%Y-%m-%d %H:%M:%S", localtime(&timep));
-	////更改更新时间
-	//dto->update = tmp;
+	
 	// 定义返回数据对象
 	auto jvo = StringJsonVO::createShared();
 	// 参数校验
-	if (dto->rzkssj.getValue("").empty())
+	if (dto->pimworkhistoryid.getValue("").empty())
 	{
-		jvo->init(String("Rzkssj must be not null"), RS_PARAMS_INVALID);
+		jvo->init(String("pimworkhistoryid must be not null"), RS_PARAMS_INVALID);
 		return jvo;
 	}
 	// 定义一个Service
 	WorkHistoryService service;
 	// 执行数据修改
 	if (service.updateData(dto)) {
-		jvo->success(dto->rzkssj);	
+		jvo->success(dto->pimworkhistoryid);
 	}
 	else
 	{
 		cout << "The primary key is not found or the data is consistent before and after the modification!" << endl;
-		jvo->fail(dto->rzkssj);		
+		jvo->fail(dto->pimworkhistoryid);
 	}
 	// 响应结果
 	return jvo;
