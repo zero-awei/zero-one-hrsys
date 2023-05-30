@@ -20,10 +20,12 @@ class EducationDO
 	CC_SYNTHESIZE(string, XL, FunXL);
 
 	// 入学时间
-	CC_SYNTHESIZE(uint64_t, QSSJ, FunQSSJ);
+	//CC_SYNTHESIZE(uint64_t, QSSJ, FunQSSJ);
+	CC_SYNTHESIZE(string, QSSJ, FunQSSJ);
 	
 	// 毕业时间
-	CC_SYNTHESIZE(uint64_t, JSSJ, FunJSSJ);
+	//CC_SYNTHESIZE(uint64_t, JSSJ, FunJSSJ);
+	CC_SYNTHESIZE(string, JSSJ, FunJSSJ);
 
 	// 毕业院校
 	CC_SYNTHESIZE(string, BYYX, FunBYYX);
@@ -42,11 +44,11 @@ class EducationDO
 	CC_SYNTHESIZE(string, XXXZ, FunXXXZ);
 
 	// 是否第一学历
-	CC_SYNTHESIZE(int16_t, SFDYXL, FunSFDYXL);
+	CC_SYNTHESIZE(uint64_t, SFDYXL, FunSFDYXL);
 
 
 	//是否最高学历
-	CC_SYNTHESIZE(int16_t, SFZGXL, FunSFZGXL);
+	CC_SYNTHESIZE(uint64_t, SFZGXL, FunSFZGXL);
 
 	// 毕业证
 	CC_SYNTHESIZE(string, BTZ, FunBTZ);
@@ -63,14 +65,17 @@ public:
 	EducationDO() {
 		PIMEDUCATIONID = "";
 		XL = "";
-		QSSJ = 2000 - 01 - 01;
-		JSSJ = 2000 - 01 - 01;
+		QSSJ = "";
+		JSSJ = "";
 		BYYX = "";
+
 		XKML = "";
 		SXZY = "";
 		XLLX = "";
 		XXXZ = "";
-		SFDYXL = 2000 - 01 - 01;
+		SFDYXL = 1;
+
+		SFZGXL = 1;
 		BTZ = "";
 		XWZ = "";
 		XLCX = "";

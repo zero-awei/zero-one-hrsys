@@ -18,8 +18,10 @@ public:
 		EducationDO data;
 		data.setFunPIMEDUCATIONID(resultSet->getString(1));	// 教育信息标识 （必填）
 		data.setFunXL(resultSet->getString(2));	// 学历
-		data.setFunQSSJ(resultSet->getUInt64(3));	// 入学时间
-		data.setFunJSSJ(resultSet->getUInt64(4));	// 毕业时间
+		//data.setFunQSSJ(resultSet->getUInt64(3));	// 入学时间
+		data.setFunQSSJ(resultSet->getString(3));	// 入学时间
+		//data.setFunJSSJ(resultSet->getUInt64(4));	// 毕业时间
+		data.setFunJSSJ(resultSet->getString(4));	// 毕业时间
 		data.setFunBYYX(resultSet->getString(5));	// 毕业院校
 		data.setFunXKML(resultSet->getString(6));	// 	// 一级学科
 		data.setFunSXZY(resultSet->getString(7));		// 所学专业

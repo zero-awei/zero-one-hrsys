@@ -57,17 +57,19 @@ std::list<EducationDO> EducationDAO::selectEducationSingle(const EducationSingle
 	return sqlSession->executeQuery<EducationDO, EducationMapper>(sqlStr, mapper, params);
 }
 
-uint64_t EducationDAO::insertEducation(const EducationDO& iObj)
+uint64_t EducationDAO::insertEducation(const EducationDO& iObj)//ÐÂÔöÊý¾Ý
 {
 	string sql = "INSERT INTO `t_pimeducation` \
 		(`PIMEDUCATIONID`, `XL`, `QSSJ`, `JSSJ`, `BYYX`,\
 		 `XKML`, `SXZY`, `XLLX`, `XXXZ`, `SFDYXL`, \
 		`SFZGXL`, `BTZ`, `XWZ`, `XLCX`, `FJ`)\
 		 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%i%i%s%s%s%s%s%i%i%s%s%s%s", iObj.getFunPIMEDUCATIONID(), iObj.getFunXL(), iObj.getFunQSSJ(),
+	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%s%s%i%i%s%s%s%s", iObj.getFunPIMEDUCATIONID(), iObj.getFunXL(), iObj.getFunQSSJ(),
 		iObj.getFunJSSJ(), iObj.getFunBYYX(), iObj.getFunXKML(), iObj.getFunSXZY(), iObj.getFunXLLX(), iObj.getFunXXXZ(), iObj.getFunSFDYXL(),
 		iObj.getFunSFZGXL(), iObj.getFunBTZ(), iObj.getFunXWZ(), iObj.getFunXLCX(), iObj.getFunFJ());// %s%s&i£º×Ö·û´®¡¢×Ö·û´®¡¢int
-	
+	//return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%i%i%s%s%s%s", iObj.getFunPIMEDUCATIONID(), iObj.getFunXL(), iObj.getFunQSSJ(),
+	//	iObj.getFunJSSJ(), iObj.getFunBYYX(), iObj.getFunXKML(), iObj.getFunSXZY(), iObj.getFunXLLX(), iObj.getFunXXXZ(), iObj.getFunSFDYXL(),
+	//	iObj.getFunSFZGXL(), iObj.getFunBTZ(), iObj.getFunXWZ(), iObj.getFunXLCX(), iObj.getFunFJ());// %s%s&i£º×Ö·û´®¡¢×Ö·û´®¡¢int
 }
 
 bool EducationDAO::updateEducaiton(const EducationDO& data)

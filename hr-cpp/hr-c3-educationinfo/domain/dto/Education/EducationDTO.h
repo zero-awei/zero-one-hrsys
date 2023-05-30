@@ -29,12 +29,14 @@ class EducationSingleDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("education.XL");
 	}
 	// 入学时间
-	DTO_FIELD(UInt64, QSSJ);
+	//DTO_FIELD(UInt64, QSSJ);
+	DTO_FIELD(String, QSSJ);
 	DTO_FIELD_INFO(QSSJ) {
 		info->description = ZH_WORDS_GETTER("education.QSSJ");
 	}
 	// 毕业时间
-	DTO_FIELD(UInt64, JSSJ);
+	//DTO_FIELD(UInt64, JSSJ);
+	DTO_FIELD(String, JSSJ);
 	DTO_FIELD_INFO(JSSJ) {
 		info->description = ZH_WORDS_GETTER("education.JSSJ");
 	}

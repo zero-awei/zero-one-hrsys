@@ -58,11 +58,10 @@ uint64_t EducationService::saveEducation(const EducationSingleDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	EducationDO data;
-	ZO_STAR_DOMAIN_DO_TO_DTO(dto, data, PIMEDUCATIONID, FunPIMEDUCATIONID, XL, FunXL,
-		QSSJ, FunQSSJ, JSSJ, FunJSSJ, BYYX, FunBYYX, XKML, FunXKML, SXZY, FunSXZY,
-		XLLX, FunXLLX, XXXZ, FunXXXZ, SFDYXL, FunSFDYXL, SFZGXL, FunSFZGXL, BTZ, FunBTZ,
-		XWZ, FunXWZ, XLCX, FunXLCX, FJ, FunFJ);
-
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, FunPIMEDUCATIONID, PIMEDUCATIONID, FunXL, XL,
+		FunQSSJ, QSSJ, FunJSSJ, JSSJ, FunBYYX, BYYX, FunXKML, XKML, FunSXZY, SXZY,
+		FunXLLX, XLLX, FunXXXZ, XXXZ, FunSFDYXL, SFDYXL, FunSFZGXL, SFZGXL, FunBTZ, BTZ,
+		FunXWZ, XWZ, FunXLCX, XLCX, FunFJ, FJ);
 
 	// 执行数据添加
 	EducationDAO dao;
@@ -73,10 +72,14 @@ bool EducationService::updateEducation(const EducationSingleDTO::Wrapper& dto)
 {
 	// 组装DO对象
 	EducationDO data;
-	ZO_STAR_DOMAIN_DO_TO_DTO(dto, data, PIMEDUCATIONID, FunPIMEDUCATIONID, XL, FunXL,
-		QSSJ, FunQSSJ, JSSJ, FunJSSJ, BYYX, FunBYYX, XKML, FunXKML, SXZY, FunSXZY,
-		XLLX, FunXLLX, XXXZ, FunXXXZ, SFDYXL, FunSFDYXL, SFZGXL, FunSFZGXL, BTZ, FunBTZ,
-		XWZ, FunXWZ, XLCX, FunXLCX, FJ, FunFJ);
+	//ZO_STAR_DOMAIN_DO_TO_DTO(dto, data, PIMEDUCATIONID, FunPIMEDUCATIONID, XL, FunXL,
+	//	QSSJ, FunQSSJ, JSSJ, FunJSSJ, BYYX, FunBYYX, XKML, FunXKML, SXZY, FunSXZY,
+	//	XLLX, FunXLLX, XXXZ, FunXXXZ, SFDYXL, FunSFDYXL, SFZGXL, FunSFZGXL, BTZ, FunBTZ,
+	//	XWZ, FunXWZ, XLCX, FunXLCX, FJ, FunFJ);
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, FunPIMEDUCATIONID, PIMEDUCATIONID, FunXL, XL,
+		FunQSSJ, QSSJ, FunJSSJ, JSSJ, FunBYYX, BYYX, FunXKML, XKML, FunSXZY, SXZY,
+		FunXLLX, XLLX, FunXXXZ, XXXZ, FunSFDYXL, SFDYXL, FunSFZGXL, SFZGXL, FunBTZ, BTZ,
+		FunXWZ, XWZ, FunXLCX, XLCX, FunFJ, FJ);
 	//data.setUpdater(payload.getUsername());
 	//data.setUpdateTime(SimpleDateTimeFormat::format());
 	// TODO: 调用dao操作数据库
