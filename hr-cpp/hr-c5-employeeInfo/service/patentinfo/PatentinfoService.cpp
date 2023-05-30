@@ -3,7 +3,7 @@
 #include "../../dao/patentinfo/PatentinfoDAO.h"
 
 //查询所有数据
-PatentinfoDTO::Wrapper PatentinfoService::listAll(const PatentinfoQuery::Wrapper& query)
+PatentinfoDTO::Wrapper PatentinfoService::listAll(const string& query)
 {
 	// 构建返回对象
 	PatentinfoDAO dao;

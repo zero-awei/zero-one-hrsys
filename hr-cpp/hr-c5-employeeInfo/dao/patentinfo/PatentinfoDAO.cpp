@@ -6,7 +6,7 @@
 
 
 // 查看指定员工专利信息（指定专利信息详情）
-std::list<PatentinfoDO> PatentinfoDAO::selectByPIMPATENTID(const PatentinfoQuery::Wrapper& query)
+std::list<PatentinfoDO> PatentinfoDAO::selectByPIMPATENTID(const string& query)
 {
 
 
@@ -15,7 +15,7 @@ std::list<PatentinfoDO> PatentinfoDAO::selectByPIMPATENTID(const PatentinfoQuery
 	//return sqlSession->executeQuery<PatentinfoDO, PatentinfoMapper>(sql, mapper, "%s", PIMPATENTID);
 
 
-	stringstream sql;
+	//stringstream sql;
 
 
 
@@ -25,17 +25,17 @@ std::list<PatentinfoDO> PatentinfoDAO::selectByPIMPATENTID(const PatentinfoQuery
 	//sql << " AND PIMPATENTID LIKE CONCAT('%',?,'%')";
 	////FROM `t_pimvocational` INNER JOIN  t_pimperson ON t_pimvocational.PIMPERSONID = t_pimperson.PIMPERSONID  WHERE PIMVOCATIONALID = ? ";
 
-	sql << "SELECT ZLH,UPDATEDATE,PIMPATENTID,ZLHQSJ,PIMPATENTNAME,\
+	string sql = "SELECT ZLH,UPDATEDATE,PIMPATENTID,ZLHQSJ,PIMPATENTNAME,\
 					UPDATEMAN,CREATEMAN,CREATEDATE,ZLPZGB,PIMPERSONID,\
 					JLSS,JLSPZT,JLGLBH,JLCZZ,ENCLOLURE,\
 					REASON\
 		FROM t_pimpatent WHERE 1 = 1 AND PIMPATENTID LIKE CONCAT('%', ?, '%')";
-	SqlParams params;
-	SQLPARAMS_PUSH(params, "s", std::string, query->pimpatentid.getValue(""));
+	//SqlParams params;
+	//SQLPARAMS_PUSH(params, "s", std::string, query->pimpatentid.getValue(""));
 	PatentinfoMapper mapper;
-	string sqlStr = sql.str();
-	return sqlSession->executeQuery<PatentinfoDO, PatentinfoMapper>(sqlStr, mapper, params);
-
+	//string sqlStr = sql.str();
+	//return sqlSession->executeQuery<PatentinfoDO, PatentinfoMapper>(sqlStr, mapper, params);
+	return sqlSession->executeQuery<PatentinfoDO, PatentinfoMapper>(sql, mapper, "%s", query);
 
 
 
