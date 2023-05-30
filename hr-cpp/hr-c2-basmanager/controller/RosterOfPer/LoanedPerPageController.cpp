@@ -8,11 +8,24 @@
 LoanedPerPageVO::Wrapper LoanedPerPageController::execQueryLoanedPerPage(const LoanedPerPageQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	// 定义一个Service
-	//LoanedPerPageService service;
+	LoanedPerPageService service;
 	//// 查询数据
-	//auto result = service.listAll(query);
+	auto result = service.listAll(query);
 	// 响应结果
 	auto jvo = LoanedPerPageVO::createShared();
-	//jvo->success(result);
+	jvo->success(result);
+	return jvo;
+}
+
+StringJsonVO::Wrapper LoanedPerPageController::execExportLoanedPer(const LoanedPerPageQuery::Wrapper& query, const PayloadDTO& payload)
+{
+	auto jvo = StringJsonVO::createShared();
+	LoanedPerPageService service;
+	std::string fileName = service.exportData(query);
+	if (fileName.empty()) {
+		jvo->fail("导出失败");
+	}
+	else jvo->success(fileName);
+
 	return jvo;
 }

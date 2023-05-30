@@ -210,6 +210,8 @@
     <ClInclude Include="dao\RosterOfPer\EmployeePageMapper.h" />
     <ClInclude Include="dao\RosterOfPer\ExportEmployeeDAO.h" />
     <ClInclude Include="dao\RosterOfPer\ExportEmployeeMapper.h" />
+    <ClInclude Include="dao\RosterOfPer\LoanedPerDAO.h" />
+    <ClInclude Include="dao\RosterOfPer\LoanedPerMapper.h" />
     <ClInclude Include="dao\RosterOfPer\TemporaryStaffDAO.h" />
     <ClInclude Include="dao\RosterOfPer\TemporaryStaffMapper.h" />
     <ClInclude Include="domain\do\CertificateManage\CertificateDO.h" />
@@ -305,6 +307,7 @@
     <ClCompile Include="dao\CertificateManage\ExportCertifDAO.cpp" />
     <ClCompile Include="dao\RosterOfPer\EmployeePageDAO.cpp" />
     <ClCompile Include="dao\RosterOfPer\ExportEmployeeDAO.cpp" />
+    <ClCompile Include="dao\RosterOfPer\LoanedPerDAO.cpp" />
     <ClCompile Include="dao\RosterOfPer\TemporaryStaffDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\CertificateManage\DeleteCertifService.cpp" />
@@ -312,6 +315,7 @@
     <ClCompile Include="service\RosterOfPer\EmployeePageService.cpp" />
     <ClCompile Include="service\RosterOfPer\ExportEmployeeService.cpp" />
     <ClCompile Include="service\RosterOfPer\FormerEmployeesService.cpp" />
+    <ClCompile Include="service\RosterOfPer\LoanedPerPageService.cpp" />
     <ClCompile Include="service\RosterOfPer\TemporaryStaffService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
