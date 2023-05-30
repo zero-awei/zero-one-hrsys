@@ -101,11 +101,11 @@ ImportTagVO::Wrapper ProjTagService::addMultiTag(const ImportTagDTO::Wrapper& dt
 	auto vo = ImportTagVO::createShared();
 	
 	// 判断数据量是否超过指定值
-	if (data.size() > 5000) {
-		// 数据量过大，返回 -1
-		vo->newId->push_back("-1");
-		return vo;
-	}
+	//if (data.size() > 5000) {
+	//	// 数据量过大，返回 -1
+	//	vo->newId->push_back("-1");
+	//	return vo;
+	//}
 
 	// 构建字段坐标映射
 	unordered_map<string, int> hash;
@@ -129,7 +129,7 @@ ImportTagVO::Wrapper ProjTagService::addMultiTag(const ImportTagDTO::Wrapper& dt
 	// 开启事务
 	sqlsession->beginTransaction();
 	// 设置好插入数据后，多次执行单条数据插入
-	for (int i = 1; i < data.size(); i++)
+	for (int i = 1; i < data.size() && i <= 5000; i++)
 	{
 		ProjTagDO tmp;
 		ZO_STAR_FILE_TO_DO(tmp, data, 

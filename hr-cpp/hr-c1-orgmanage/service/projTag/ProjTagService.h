@@ -55,11 +55,10 @@ public:
 	bool updateProjTag(const ModifyTagDTO::Wrapper& dto, const PayloadDTO& payload);
 
 	/**
-	 * 导入项目标签
+	 * 导入项目标签：数据量超过5000时，只导入<=5000条数据
 	 * 返回值：
 	 *	成功：返回项目id列表
-	 *  失败:  -1，数据量过大，超过5000
-	 *        -2，数据不符合数据库限制
+	 *  失败: -2，数据不符合数据库限制
 	 * 负责人：远翔
 	 */
 	ImportTagVO::Wrapper addMultiTag(const ImportTagDTO::Wrapper& dto, const PayloadDTO& payload);
