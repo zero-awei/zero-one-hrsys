@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "JobTitleInfo.h"
 #include "../../dao/JobTitleInfo/JobTitleInfoDAO.h"
+#include "ExcelComponent.h"
 
 StringJsonVO::Wrapper JobTitleInfoService::listAllJobTitle(const JobTitleInfoDTO::Wrapper& query)
 {
@@ -36,6 +37,9 @@ StringJsonVO::Wrapper JobTitleInfoService::listAllJobTitle(const JobTitleInfoDTO
 
 	// 生成数据表表头
 	vector<string> head = dao.getHead();
+	data.insert(data.begin(), head);
+	ExportExcel excel;
+	string filename = excel.exportExcel(data);
 	head.erase(head.begin() + 6);
 	return results;
 }

@@ -18,7 +18,9 @@ StringJsonVO::Wrapper JobTitleInfoController::execGetJobTitle(const JobTitleInfo
 	auto result = service.listAllJobTitle(query);
 	if (result)
 		jvo->success()
-	std::string data = ()result;
+	else
+		jvo->fail();
+
 	jvo->success(result);
 	return jvo;
 }
