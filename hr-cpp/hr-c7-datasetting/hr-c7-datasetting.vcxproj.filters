@@ -7,7 +7,6 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="controller\Certificate\CertificateController.cpp" />
     <ClCompile Include="controller\archive\ArchiveController.cpp" />
-    <ClCompile Include="controller\contract\ContractController.cpp" />
     <ClCompile Include="controller\Qualification\QualificationController.cpp" />
     <ClCompile Include="controller\ContractCategory\ContractCategoryController.cpp" />
     <ClCompile Include="controller\Title\TitleController.cpp" />
@@ -16,6 +15,9 @@
     <ClCompile Include="dao\archive\ArchiveMapper.h" />
     <ClCompile Include="service\Title\TitleService.cpp" />
     <ClCompile Include="dao\Title\TitleDAO.cpp" />
+    <ClCompile Include="service\ContractCategory\ContractCategoryService.cpp" />
+    <ClCompile Include="dao\contractcategory\ContractCategoryDAO.cpp" />
+    <ClCompile Include="controller\contract\ContractController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\OtherComponent.hpp" />
@@ -47,7 +49,6 @@
     <ClInclude Include="domain\vo\Title\TitleVO.h" />
     <ClInclude Include="controller\Certificate\CertificateController.h" />
     <ClInclude Include="controller\archive\ArchiveController.h" />
-    <ClInclude Include="controller\contract\ContractController.h" />
     <ClInclude Include="domain\do\contractcategory\ContractCategoryDO.h" />
     <ClInclude Include="controller\Qualification\QualificationController.h" />
     <ClInclude Include="domain\dto\Qualification\QualificationDTO.h" />
@@ -62,5 +63,9 @@
     <ClInclude Include="service\Title\TitleService.h" />
     <ClInclude Include="dao\Title\TitleDAO.h" />
     <ClInclude Include="dao\Title\TitleMapper.h" />
+    <ClInclude Include="service\ContractCategory\ContractCategoryService.h" />
+    <ClInclude Include="dao\contractcategory\ContractCategoryDAO.h" />
+    <ClInclude Include="dao\contractcategory\ContractCategoryMapper.h" />
+    <ClInclude Include="controller\contract\ContractController.h" />
   </ItemGroup>
 </Project>
