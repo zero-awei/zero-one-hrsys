@@ -38,12 +38,12 @@ class ImportLanguageDTO : public PageDTO<LanguageDTO::Wrapper>
 	DTO_FIELD_INFO(fileType) {
 		info->description = ZH_WORDS_GETTER("language.post.fileType");
 	}
-	// ±àºÅ
+	//±àºÅ
 	DTO_FIELD(String, sheetName);
 	DTO_FIELD_INFO(sheetName) {
 		info->description = ZH_WORDS_GETTER("language.post.sheetName");
 	}
-	// ÐÕÃû
+	//Â·¾¶
 	DTO_FIELD(String, file);
 	DTO_FIELD_INFO(file) {
 		info->description = ZH_WORDS_GETTER("language.post.path");

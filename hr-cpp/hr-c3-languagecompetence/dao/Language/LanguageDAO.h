@@ -16,6 +16,8 @@ class LanguageDAO : public BaseDAO
 public:
 	// 统计数据条数
 	uint64_t count(const LanguageQuery::Wrapper& query);
+	// 分页查询query统计数据条数
+	uint64_t countPage(const LanguagePageQuery::Wrapper& query);
 	//分页查找数据
 	list<LanguageDO> selectWithPage(const LanguagePageQuery::Wrapper& query);
 	// 通过姓名查询数据

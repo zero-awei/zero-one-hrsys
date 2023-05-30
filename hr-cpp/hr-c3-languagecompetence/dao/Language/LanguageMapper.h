@@ -15,18 +15,19 @@ public:
 	LanguageDO mapper(ResultSet* resultSet) const override 
 	{
 		LanguageDO data;
-		data.setPermission(resultSet->getInt(1));
-		data.setGainTime(resultSet->getString(2));
-		data.setAttachment(resultSet->getString(3));
-		data.setLanguageType(resultSet->getString(4));
-		data.setCreateMan(resultSet->getString(5));
-		data.setUpdateMan(resultSet->getString(6));
-		data.setLanguageLevel(resultSet->getString(7));
-		data.setPersonID(resultSet->getString(8));
-		data.setJLSS(resultSet->getString(9));
-		data.setJLGLBH(resultSet->getString(10));
-		data.setJLSPZT(resultSet->getString(11));
-		data.setJLCZZ(resultSet->getString(12));
+		data.setLanguageAbilityID(resultSet->getString(1));
+		data.setPermission(resultSet->getInt(2));
+		data.setGainTime(resultSet->getString(3));
+		data.setAttachment(resultSet->getString(4));
+		data.setLanguageType(resultSet->getString(5));
+		data.setCreateMan(resultSet->getString(6));
+		data.setUpdateMan(resultSet->getString(7));
+		data.setLanguageLevel(resultSet->getString(8));
+		data.setPersonID(resultSet->getString(9));
+		data.setJLSS(resultSet->getString(10));
+		data.setJLGLBH(resultSet->getString(11));
+		data.setJLSPZT(resultSet->getString(12));
+		data.setJLCZZ(resultSet->getString(13));
 		return data;
 	}
 };

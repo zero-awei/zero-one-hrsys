@@ -48,7 +48,7 @@ Int32JsonVO::Wrapper LanguageCompetenceController::execAddLanguage(const Languag
 	// 定义一个Service
 	LanguageService service;
 	// 执行数据新增
-	uint64_t count = service.saveData(dto);
+	int count = service.saveData(dto);
 	if (count > 0) {
 		jvo->success(Int32(count));
 	}

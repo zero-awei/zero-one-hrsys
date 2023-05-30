@@ -16,7 +16,7 @@ LanguagePageDTO::Wrapper LanguageService::listAll(const LanguagePageQuery::Wrapp
 
 	//查询数据总条数
 	LanguageDAO dao;
-	uint64_t count = dao.count(query);
+	uint64_t count = dao.countPage(query);
 	if (count <= 0)
 	{
 		return pages;

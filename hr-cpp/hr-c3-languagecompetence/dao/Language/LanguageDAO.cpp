@@ -10,7 +10,7 @@
 #include <ctime>
 
  //定义条件解析宏，减少重复代码
-#define SAMPLE_TERAM_PARSE(query, sql) \
+#define LANGUAGE_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
 if (query->languageAbilityID) { \
@@ -58,11 +58,20 @@ if (query->jlczz) { \
 	SQLPARAMS_PUSH(params, "s", std::string, query->jlczz.getValue("")); \
 } \
 
-uint64_t LanguageDAO::count(const LanguageQuery::Wrapper & query)
+uint64_t LanguageDAO::count(const LanguageQuery::Wrapper& query)
 {
 	stringstream sql;
 	sql << "SELECT COUNT(*) FROM t_pimlanguageability";
-	SAMPLE_TERAM_PARSE(query, sql);
+	LANGUAGE_TERAM_PARSE(query, sql);
+	string sqlStr = sql.str();
+	return sqlSession->executeQueryNumerical(sqlStr, params);
+}
+
+uint64_t LanguageDAO::countPage(const LanguagePageQuery::Wrapper& query)
+{
+	stringstream sql;
+	sql << "SELECT COUNT(*) FROM t_pimlanguageability";
+	LANGUAGE_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
 }
@@ -70,10 +79,11 @@ uint64_t LanguageDAO::count(const LanguageQuery::Wrapper & query)
 std::list<LanguageDO> LanguageDAO::selectWithPage(const LanguagePageQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT * FROM t_pimlanguageability";
-	SAMPLE_TERAM_PARSE(query, sql);
-	//sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
-	sql << " LIMIT " << query->pageSize << "OFFSET" << ((query->pageIndex - 1) * query->pageSize) ;
+	sql << "SELECT `PIMLANGUAGEABILITYID`, `ENABLE`, `WYDJHQSJ`, `FJ`, `WYYZ`, `CREATEMAN`, `UPDATEMAN`, `WYDJ`, ";
+	sql << "`PIMPERSONID`, `JLSS`, `JLGLBH`, `JLSPZT`, `JLCZZ`";
+	sql << "FROM t_pimlanguageability";
+	LANGUAGE_TERAM_PARSE(query, sql);
+	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	LanguageMapper mapper;
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<LanguageDO, LanguageMapper>(sqlStr, mapper, params);
@@ -81,7 +91,9 @@ std::list<LanguageDO> LanguageDAO::selectWithPage(const LanguagePageQuery::Wrapp
 
 std::list<LanguageDO> LanguageDAO::selectOneById(const string& id)
 {
-	string sql = "SELECT * FROM t_pimlanguageability WHERE `PIMPERSONID` = ? LIMIT 1";
+	string sql = "SELECT `PIMLANGUAGEABILITYID`, `ENABLE`, `WYDJHQSJ`, `FJ`, `WYYZ`, `CREATEMAN`, `UPDATEMAN`, ";
+	sql += "`WYDJ`, `PIMPERSONID`, `JLSS`, `JLGLBH`, `JLSPZT`, `JLCZZ`";
+	sql += "FROM t_pimlanguageability WHERE `PIMPERSONID` = ? LIMIT 1";
 	LanguageMapper mapper;
 	return sqlSession->executeQuery<LanguageDO, LanguageMapper>(sql, mapper, "%s", id);
 }
