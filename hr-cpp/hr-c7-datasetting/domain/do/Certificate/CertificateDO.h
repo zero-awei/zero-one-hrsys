@@ -9,17 +9,17 @@
 class CertificateDO
 {
 	// 排序号
-	CC_SYNTHESIZE(string, seialno, seialNo);
+	CC_SYNTHESIZE(int32_t, seialno, seialNo);
 	// 岗位技能证书
 	CC_SYNTHESIZE(string, pimqualtypename, pimQualTypeName);
 public:
 	CertificateDO() 
 	{
-		seialno = "";
+		seialno = 0;
 		pimqualtypename = "";
 	}
 	//分别为排序号，岗位技能证书
-	CertificateDO(string seialno, string pimqualtypename)
+	CertificateDO(int seialno, string pimqualtypename)
 	{
 		this->seialno = seialno;
 		this->pimqualtypename = pimqualtypename;

@@ -9,7 +9,7 @@ SqlParams params; \
 sql<<" WHERE 1=1"; \
 if (query->seialno) { \
 	sql << " AND `seialno`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->seialno.getValue("")); \
+	SQLPARAMS_PUSH(params, "i", int, query->seialno.getValue(11)); \
 } \
 if (query->pimqualtypename) { \
 	sql << " AND pimqualtypename=?"; \
@@ -46,13 +46,13 @@ std::list<CertificateDO> CertificateDAO::selectByName(const string& name)
 uint64_t CertificateDAO::insert(const CertificateDO& iObj)
 {
 	string sql = "INSERT INTO `Certificate` (`seialno`, `pimqualtypename`) VALUES (?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s", iObj.getseialNo(), iObj.getpimQualTypeName());
+	return sqlSession->executeInsert(sql, "%i%s", iObj.getseialNo(), iObj.getpimQualTypeName());
 }
 
 int CertificateDAO::update(const CertificateDO& uObj)
 {
 	string sql = "UPDATE `Certificate` SET `pimqualtypename`=? WHERE `seialno`=?";
-	return sqlSession->executeUpdate(sql, "%s%s", uObj.getseialNo(), uObj.getpimQualTypeName());
+	return sqlSession->executeUpdate(sql, "%i%s", uObj.getseialNo(), uObj.getpimQualTypeName());
 }
 
 int CertificateDAO::deleteById(uint64_t id)

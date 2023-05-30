@@ -24,10 +24,11 @@ QualificationPageDTO::Wrapper QualificationService::listAll(const QualificationQ
 	for (QualificationDO sub : result)
 	{
 		auto dto = QualificationDTO::createShared();
+		dto->pimqualmajorid = sub.getpimQualMajorId();
 		dto->qualevel = sub.getquaLevel();
 		dto->pimqualmajorname = sub.getpimQualMajorName();
 		dto->quamajor = sub.getquaMajor();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, qualevel, quaLevel, pimqualmajorname, pimQualMajorName, 
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, pimqualmajorid, pimQualMajorId, qualevel, quaLevel, pimqualmajorname, pimQualMajorName,
 			quamajor, quaMajor);
 		pages->addData(dto);
 
@@ -39,10 +40,11 @@ uint64_t QualificationService::saveData(const QualificationDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	QualificationDO data;
+	data.setpimQualMajorId(dto->pimqualmajorid.getValue(""));
 	data.setquaLevel(dto->qualevel.getValue(""));
 	data.setpimQualMajorName(dto->pimqualmajorname.getValue(""));
 	data.setquaMajor(dto->quamajor.getValue(""));
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, quaLevel, qualevel, pimQualMajorName, pimqualmajorname, 
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, pimQualMajorId, pimqualmajorid, quaLevel, qualevel, pimQualMajorName, pimqualmajorname,
 		quaMajor, quamajor);
 	// 执行数据添加
 	QualificationDAO dao;
@@ -53,18 +55,19 @@ bool QualificationService::updateData(const QualificationDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	QualificationDO data;
+	data.setpimQualMajorId(dto->pimqualmajorid.getValue(""));
 	data.setquaLevel(dto->qualevel.getValue(""));
 	data.setpimQualMajorName(dto->pimqualmajorname.getValue(""));
 	data.setquaMajor(dto->quamajor.getValue(""));
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, quaLevel, qualevel, pimQualMajorName, pimqualmajorname,
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, pimQualMajorId, pimqualmajorid, quaLevel, qualevel, pimQualMajorName, pimqualmajorname,
 		quaMajor, quamajor);
 	// 执行数据修改
 	QualificationDAO dao;
 	return dao.update(data) == 1;
 }
 
-//bool QualificationService::removeData(uint64_t id)
-//{
-//	QualificationDAO dao;
-//	return dao.deleteById(id) == 1;
-//}
+bool QualificationService::removeData(uint64_t id)
+{
+	QualificationDAO dao;
+	return dao.deleteById(id) == 1;
+}

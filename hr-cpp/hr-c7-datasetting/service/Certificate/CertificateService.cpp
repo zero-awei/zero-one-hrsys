@@ -37,7 +37,7 @@ uint64_t CertificateService::saveData(const CertificateDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	CertificateDO data;
-	data.setseialNo(dto->seialno.getValue(""));
+	data.setseialNo(dto->seialno.getValue(1));
 	data.setpimQualTypeName(dto->pimqualtypename.getValue(""));
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, seialNo, seialno, pimQualTypeName, pimqualtypename);
 	// 执行数据添加
@@ -49,7 +49,7 @@ bool CertificateService::updateData(const CertificateDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	CertificateDO data;
-	data.setseialNo(dto->seialno.getValue(""));
+	data.setseialNo(dto->seialno.getValue(1));
 	data.setpimQualTypeName(dto->pimqualtypename.getValue(""));
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, seialNo, seialno, pimQualTypeName, pimqualtypename);
 	// 执行数据修改

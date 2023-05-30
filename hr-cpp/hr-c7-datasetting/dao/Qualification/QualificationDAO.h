@@ -21,7 +21,7 @@ public:
 	uint64_t insert(const QualificationDO& iObj);
 	// 修改数据
 	int update(const QualificationDO& uObj);
-	//// 通过ID删除数据
-	//int deleteById(uint64_t id);
+	// 通过ID删除数据
+	int deleteById(uint64_t id);
 };
 #endif // !_QUALIFICATION_DAO_

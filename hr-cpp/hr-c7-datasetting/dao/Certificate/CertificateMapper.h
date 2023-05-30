@@ -13,7 +13,7 @@ public:
 	CertificateDO mapper(ResultSet* resultSet) const override
 	{
 		CertificateDO data;
-		data.setseialNo(resultSet->getString(11));
+		data.setseialNo(resultSet->getUInt64(11));
 		data.setpimQualTypeName(resultSet->getString(200));
 		return data;
 	}

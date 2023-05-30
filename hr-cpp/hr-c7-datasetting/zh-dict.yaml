@@ -31,13 +31,13 @@ sample:
   sex: 性别，如：男
 certificate:
  get:
-  summary: 分页查询证书数据
+  summary: 分页查询岗位技能证书数据
  post:
-  summary: 新增证书类型
+  summary: 新增岗位技能证书
  put:
-  summary: 修改证书类型
+  summary: 修改岗位技能证书
  delete: 
-  summary: 删除证书类型
+  summary: 删除岗位技能证书
  field:
   seialno: 排序号
   pimqualtypename: 岗位技能证书
@@ -102,14 +102,15 @@ archive:
   ids: 编号列表
 qualification:
  get:
-  summary: 分页查询证书数据
+  summary: 分页查询执业资格证书数据
  post:
-  summary: 新增证书类型
+  summary: 新增执业资格证书
  put:
-  summary: 修改证书类型
+  summary: 修改执业资格证书
  delete: 
-  summary: 删除证书类型
+  summary: 删除执业资格证书
  filed:
+  pimqualmajorid: 执业资格专业编码
   qualevel: 级别
   pimqualmajorname: 执业资格
   quamajor: 专业    

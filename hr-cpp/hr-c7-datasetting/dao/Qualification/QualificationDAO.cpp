@@ -7,6 +7,10 @@
 #define QUALIFICATION_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
+if (query->pimqualmajorid) { \
+	sql << " AND `pimqualmajorid`=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->pimqualmajorid.getValue("")); \
+} \
 if (query->qualevel) { \
 	sql << " AND `qualevel`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->qualevel.getValue("")); \
@@ -42,25 +46,25 @@ std::list<QualificationDO> QualificationDAO::selectWithPage(const QualificationQ
 
 std::list<QualificationDO> QualificationDAO::selectByName(const string& name)
 {
-	string sql = "SELECT * FROM Qualification WHERE `Qualificationname` LIKE CONCAT('%',?,'%')";
+	string sql = "SELECT * FROM Qualification WHERE `pimqualmajorname` LIKE CONCAT('%',?,'%')";
 	QualificationMapper mapper;
 	return sqlSession->executeQuery<QualificationDO, QualificationMapper>(sql, mapper, "%s", name);
 }
 
 uint64_t QualificationDAO::insert(const QualificationDO& iObj)
 {
-	string sql = "INSERT INTO `Qualification` (`qualevel`, `pimqualmajorname`, `quamajor`) VALUES (?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%s", iObj.getquaMajor(), iObj.getpimQualMajorName(), iObj.getquaMajor());
+	string sql = "INSERT INTO `Qualification` (`pimqualmajorid`, `qualevel`, `pimqualmajorname`, `quamajor`) VALUES (?, ?, ?, ?)";
+	return sqlSession->executeInsert(sql, "%s%s%s%s", iObj.getpimQualMajorId(), iObj.getquaMajor(), iObj.getpimQualMajorName(), iObj.getquaMajor());
 }
 
 int QualificationDAO::update(const QualificationDO& uObj)
 {
-	string sql = "UPDATE `Qualification` SET `qualevel`=?, `pimqualmajorname`=? ,`quamajor`=?";
-	return sqlSession->executeUpdate(sql, "%s%s%s", uObj.getquaMajor(), uObj.getpimQualMajorName(), uObj.getquaMajor());
+	string sql = "UPDATE `Qualification` SET `qualevel`=?, `pimqualmajorname`=? ,`quamajor`=? WHERE `pimqualmajorid`= ? ";
+	return sqlSession->executeUpdate(sql, "%s%s%s", uObj.getquaMajor(), uObj.getpimQualMajorName(), uObj.getquaMajor(), uObj.getpimQualMajorId());
 }
 
-//int QualificationDAO::deleteById(uint64_t id)
-//{
-//	string sql = "DELETE FROM `archive` WHERE `sortid`=?";
-//	return sqlSession->executeUpdate(sql, "%ull", id);
-//}
+int QualificationDAO::deleteById(uint64_t id)
+{
+	string sql = "DELETE FROM `Qualification` WHERE `pimqualmajorid`=?";
+	return sqlSession->executeUpdate(sql, "%s", id);
+}

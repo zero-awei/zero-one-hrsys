@@ -73,10 +73,10 @@ public:
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("qualification.delete.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/qualification/delete-qualification", removeQualification, BODY_DTO(QualificationDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/qualification/remove-qualification", removeQualification, BODY_DTO(QualificationDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveQualification(dto));
 	}

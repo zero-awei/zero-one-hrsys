@@ -8,6 +8,8 @@
  */
 class QualificationDO
 {
+	// 执业资格专业编码
+	CC_SYNTHESIZE(string, pimqualmajorid, pimQualMajorId);
 	// 级别
 	CC_SYNTHESIZE(string, qualevel, quaLevel);
 	// 执业资格
@@ -16,14 +18,16 @@ class QualificationDO
 	CC_SYNTHESIZE(string, quamajor, quaMajor);
 public:
 	QualificationDO() 
-	{
+	{ 
+		pimqualmajorid = "";
 		qualevel = "";
 		pimqualmajorname = "";
 		quamajor = "";
 	}
-	//分别为级别，执业资格，专业
-	QualificationDO(string qualevel, string pimqualmajorname, string quamajor)
+	//分别为执业资格专业编码，级别，执业资格，专业
+	QualificationDO(string pimqualmajorid, string qualevel, string pimqualmajorname, string quamajor)
 	{
+		this->pimqualmajorid = pimqualmajorid;
 		this->qualevel = qualevel;
 		this->pimqualmajorname = pimqualmajorname;
 		this->quamajor = quamajor;
