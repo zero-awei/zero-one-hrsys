@@ -437,9 +437,6 @@
     <ClCompile Include="controller\archives\ArchivesController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\scientific\ScientficController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="dao\archives\ArchivesDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>

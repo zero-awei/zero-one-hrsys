@@ -300,7 +300,6 @@
     <ClCompile Include="controller\Pimarmycadres\PimarmycadresController.cpp" />
     <ClCompile Include="controller\rewardandpunish\RewardAndPunishController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
-    <ClCompile Include="controller\scientific\ScientficController.cpp" />
     <ClCompile Include="controller\scientific\ScientificController.cpp" />
     <ClCompile Include="controller\SciResult\SciResultController.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
