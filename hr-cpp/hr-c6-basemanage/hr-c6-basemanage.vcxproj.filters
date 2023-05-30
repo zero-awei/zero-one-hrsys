@@ -27,6 +27,8 @@
     <ClCompile Include="service\expenseLedger\ExpenseLedgerService.cpp" />
     <ClCompile Include="service\JobTitleInfo\JobTitleInfo.cpp" />
     <ClCompile Include="dao\JobTitleInfo\JobTitleInfoDAO.cpp" />
+    <ClCompile Include="uselib\excel\ExportExcel.cpp" />
+    <ClCompile Include="uselib\fastdfs\UseFastDfs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -86,6 +88,8 @@
     <ClInclude Include="dao\JobTitleInfo\JobTitleInfoMapper.h" />
     <ClInclude Include="dao\JobTitleInfo\JobTitleInfoDAO.h" />
     <ClInclude Include="dao\dao-sql-macro\macro.h" />
+    <ClInclude Include="uselib\excel\ExportExcel.h" />
+    <ClInclude Include="uselib\fastdfs\UseFastDfs.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "JobTitleInfoController.h"
-#include "../../service/JobTitleInfo/JobTitleInfo.h"
+#include "service/JobTitleInfo/JobTitleInfo.h"
 
 JobTitleInfoJsonVO::Wrapper JobTitleInfoController::execQueryJobTitle(const JobTitleInfoDTO::Wrapper& query, const PayloadDTO& payload)
 {
@@ -16,12 +16,10 @@ StringJsonVO::Wrapper JobTitleInfoController::execGetJobTitle(const JobTitleInfo
 	auto jvo = StringJsonVO::createShared();
 	JobTitleInfoService service;
 	auto result = service.listAllJobTitle(query);
-	if (result)
-		jvo->success()
+	if (!result.empty())
+		jvo->success(result);
 	else
-		jvo->fail();
-
-	jvo->success(result);
+		jvo->fail(result);
 	return jvo;
 }
 

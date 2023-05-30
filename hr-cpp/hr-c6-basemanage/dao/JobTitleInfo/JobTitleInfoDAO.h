@@ -12,7 +12,9 @@ public:
 	uint64_t count(const JobTitleInfoDTO::Wrapper& query);
 	// 导出所有数据（查询所有数据）
 	std::list<JobTitleDo> selectAll(const JobTitleInfoDTO::Wrapper& query);
-
+	// 拿到表头
+	std::vector<std::string> getHead();
+	// 更新数据
 	int update(const JobTitleDo& uObj);
 };
 

@@ -1,17 +1,17 @@
 #include "stdafx.h"
 #include "JobTitleInfo.h"
 #include "../../dao/JobTitleInfo/JobTitleInfoDAO.h"
-#include "ExcelComponent.h"
+#include "../../uselib/excel/ExportExcel.h"
+#include "../../uselib/fastdfs/UseFastDfs.h"
 
-StringJsonVO::Wrapper JobTitleInfoService::listAllJobTitle(const JobTitleInfoDTO::Wrapper& query)
+std::string JobTitleInfoService::listAllJobTitle(const JobTitleInfoDTO::Wrapper& query)
 {
-	auto result = StringJsonVO::createShared();
-
+	std::string url;
 	JobTitleInfoDAO dao;
 	uint64_t count = dao.count(query);
 	if (count < 0)
 	{
-		return result;
+		return url;
 	}
 
 	list<JobTitleDo> resultDO = dao.selectAll(query);
@@ -37,11 +37,14 @@ StringJsonVO::Wrapper JobTitleInfoService::listAllJobTitle(const JobTitleInfoDTO
 
 	// 生成数据表表头
 	vector<string> head = dao.getHead();
+	head.erase(head.begin() + 13);
 	data.insert(data.begin(), head);
+	// 生成Excel
 	ExportExcel excel;
 	string filename = excel.exportExcel(data);
-	head.erase(head.begin() + 6);
-	return results;
+	UseFastDfs dfs("8.130.87.15");
+	url = dfs.uploadWithNacos(filename);
+	return url;
 }
 
 JobTitleInfoDTO::Wrapper JobTitleInfoService::queryDataDetail(const JobTitleInfoDTO::Wrapper& query)

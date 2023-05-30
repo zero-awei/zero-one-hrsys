@@ -37,6 +37,29 @@ std::list<JobTitleDo> JobTitleInfoDAO::selectAll(const JobTitleInfoDTO::Wrapper&
 	return sqlSession->executeQuery<JobTitleDo,JobTitleInfoMapper>(sqlStr,mapper, params);
 }
 
+std::vector<std::string> JobTitleInfoDAO::getHead()
+{
+	// 构建返回对象
+	vector<std::string> head;
+
+	string sql = "SELECT COLUMN_NAME	\
+		FROM INFORMATION_SCHEMA.COLUMNS	\
+		WHERE TABLE_NAME = 'bis_professoranalysis_t'";
+	
+	Statement* st = sqlSession->getConnection()->createStatement();
+	ResultSet* res;
+
+	res = st->executeQuery(sql);
+	while (res->next())
+	{
+		head.push_back(res->getString(1));
+	}
+
+	st->close();
+	res->close();
+	return head;
+}
+
 int JobTitleInfoDAO::update(const JobTitleDo& uObj)
 {
 	stringstream sql;

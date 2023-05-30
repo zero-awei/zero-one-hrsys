@@ -80,7 +80,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\include;F:\big program\zero-one-hrsys\hr-cpp\arch-demo;D:\vs studio\VC\Tools\MSVC\14.35.32215\atlmfc\include;D:\bigproject\c6\zero-one-hrsys\hr-cpp\arch-demo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
@@ -194,6 +194,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="uselib\excel\ExportExcel.cpp" />
+    <ClCompile Include="uselib\fastdfs\UseFastDfs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractManagement\Contractmanagement.h" />
@@ -267,6 +269,8 @@
     <ClInclude Include="service\sample\ContractService.h" />
     <ClInclude Include="domain\vo\muggle\LaborDispatchJsonVO.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\excel\ExportExcel.h" />
+    <ClInclude Include="uselib\fastdfs\UseFastDfs.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\lib-common\lib-common.vcxproj">
