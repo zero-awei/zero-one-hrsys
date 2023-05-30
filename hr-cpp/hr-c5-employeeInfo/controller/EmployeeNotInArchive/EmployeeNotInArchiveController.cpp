@@ -1,11 +1,21 @@
 #include "stdafx.h"
 #include "EmployeeNotInArchiveController.h"
+#include "service/EmployeeNotInArchive/EmployeeNotInArchiveService.h"
 
 EmployeeNotInArchivePageJsonVO::Wrapper EmployeeNotInArchiveController::execQueryTest(const EmployeeNotInArchiveQuery::Wrapper& query)
 {
-	auto vo = EmployeeNotInArchivePageJsonVO::createShared();
+	/*auto vo = EmployeeNotInArchivePageJsonVO::createShared();
 	vo->success("test query success");
-	return vo;
+	return vo;*/
+
+	// 定义一个Service
+	ArchivesService service;
+	// 查询数据
+	auto result = service.listAll(query);
+	// 响应结果
+	auto jvo = EmployeeNotInArchivePageJsonVO::createShared();
+	jvo->success(result);
+	return jvo;
 	/*
 	// 定义一个JsonVO对象
 	auto vo = EmployeeNotInArchivePageJsonVO::createShared();
@@ -39,6 +49,6 @@ EmployeeNotInArchivePageJsonVO::Wrapper EmployeeNotInArchiveController::execQuer
 ArchiveOutPageJsonVO::Wrapper EmployeeNotInArchiveController::QueryTest(const ArchiveOutQuery::Wrapper& query)
 {
 	auto v = ArchiveOutPageJsonVO::createShared();
-	v->success("test query success");
+	//v->success("test query success");
 	return v;
 }

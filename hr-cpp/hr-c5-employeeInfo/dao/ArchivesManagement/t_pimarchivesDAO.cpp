@@ -14,7 +14,7 @@ if (query->pimpersonid) { \
 
 uint64_t t_pimarchivesDAO::count(const EmployeeNotInArchiveQuery::Wrapper & query) {
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM t_pimarchive";
+	sql << "SELECT COUNT(*) FROM t_pimarchives";
 	SAMPLE_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
@@ -24,10 +24,16 @@ uint64_t t_pimarchivesDAO::count(const EmployeeNotInArchiveQuery::Wrapper & quer
 list<t_pimarchivesDO> t_pimarchivesDAO::selectWithPage(const EmployeeNotInArchiveQuery::Wrapper& query) {
 	stringstream sql;
 	sql << "SELECT DABH, COALESCE(t_srforg.ORGNAME, '') AS ORGNAME, DABGD, COALESCE(t_archivescenter.ARCHIVESCENTERNAME, '') AS ARCHIVESCENTERNAME, DAZT, t_pimperson.YGBH, t_pimperson.PIMPERSONNAME, COALESCE(t_pimarchives.ORMORGNAME, '') AS ORMORGNAME, t_pimperson.YGZT, OPERATIONS FROM t_pimarchives LEFT JOIN t_srforg ON t_pimarchives.ormorgid3 = t_srforg.ORGID LEFT JOIN t_archivescenter ON t_pimarchives.archivescenterid = t_archivescenter.archivescenterid LEFT JOIN t_pimperson ON t_pimarchives.pimpersonid = t_pimperson.pimpersonid  WHERE  DAZT is NULL AND (YGZT = 20 OR YGZT = 10 OR YGZT = 30)";
-	SAMPLE_TERAM_PARSE(query, sql);
+	//SAMPLE_TERAM_PARSE(query, sql);
+	SqlParams params;
+	if (query->pimpersonid) {
+			sql << " AND `pimpersonid`=?"; 
+			SQLPARAMS_PUSH(params, "s", std::string, query->pimpersonid.getValue("")); 
+	}
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	t_pimarchivesMapper mapper;
 	string sqlStr = sql.str();
+	std::cout << sqlStr;
 	return sqlSession->executeQuery<t_pimarchivesDO, t_pimarchivesMapper>(sqlStr, mapper, params);
 }
 // 调入档案  把ygzt从NULL改为"10"

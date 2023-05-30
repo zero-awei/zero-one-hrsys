@@ -19,13 +19,13 @@ class EmployeeNotInArchiveJsonVO : public JsonVO<EmployeeNotInArchiveDto::Wrappe
 /**
  * 示例分页显示JsonVO，用于响应给客户端的Json对象
  */
-class EmployeeNotInArchivePageJsonVO : public JsonVO <String>
+class EmployeeNotInArchivePageJsonVO : public JsonVO <EmployeeNotInArchivePageDTO::Wrapper>
 {
-	DTO_INIT(EmployeeNotInArchivePageJsonVO, JsonVO<String>);
+	DTO_INIT(EmployeeNotInArchivePageJsonVO, JsonVO<EmployeeNotInArchivePageDTO::Wrapper>);
 };
 
-class ArchiveOutPageJsonVO : public JsonVO<String> {
-	DTO_INIT(ArchiveOutPageJsonVO, JsonVO<String>);
+class ArchiveOutPageJsonVO : public JsonVO<ArchiveOutPageDTO::Wrapper> {
+	DTO_INIT(ArchiveOutPageJsonVO, JsonVO<ArchiveOutPageDTO::Wrapper>);
 };
 #include OATPP_CODEGEN_END(DTO)
 
