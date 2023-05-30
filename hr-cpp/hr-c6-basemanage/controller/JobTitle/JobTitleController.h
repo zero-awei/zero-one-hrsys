@@ -49,7 +49,7 @@ public:
 		// 无其他参数描述---返回职称信息表中所有数据
 	}
 	// 职称查询(分页查询)接口
-	ENDPOINT(API_M_GET, "/title-management/query-jobtitle", queryJobTitle, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/job-title-management/query-jobtitle", queryJobTitle, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数 , 将解析的查询参数给queryPage
 		API_HANDLER_QUERY_PARAM(queryPage, JobTitleQuery, queryParams);
 		// 响应结果
@@ -71,7 +71,7 @@ public:
 
 	}
 	// 职称查询(分页查询)接口
-	ENDPOINT(API_M_GET, "/title-management/query-jobtitle-searchbox", queryJobTitleSB, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/job-title-management/query-jobtitle-searchbox", queryJobTitleSB, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数 , 将解析的查询参数给queryPage
 		API_HANDLER_QUERY_PARAM(queryPage, JobTitleQuery, queryParams);
 		// 响应结果
@@ -86,7 +86,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 删除职称接口
-	ENDPOINT(API_M_DEL, "/title-management/remove-jobtitle", removeJobTitle, BODY_DTO(JobTitleDeleteDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/job-title-management/remove-jobtitle", removeJobTitle, BODY_DTO(JobTitleDeleteDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveJobTitle(dto));
 	}
@@ -98,7 +98,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	// 新增职称接口
-	ENDPOINT(API_M_POST, "/title-management/add-jobtitle", addJobTitle, BODY_DTO(JobTitleAddDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/job-title-management/add-jobtitle", addJobTitle, BODY_DTO(JobTitleAddDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddJobTitle(dto));
 	}

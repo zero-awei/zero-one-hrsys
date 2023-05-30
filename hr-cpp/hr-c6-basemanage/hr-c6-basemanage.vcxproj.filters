@@ -31,6 +31,8 @@
     <ClCompile Include="service\TerminationReminder\TerminationReminderServicecpp.cpp" />
     <ClCompile Include="uselib\excel\TerminationRemidner\ChangeToExcel.cpp" />
     <ClCompile Include="uselib\fastdfs\TerminationReminder\TerminationRemidnerFastdfs.cpp" />
+    <ClCompile Include="dao\JobTitle\JobTitleDAO.cpp" />
+    <ClCompile Include="service\JobTitle\JobTitleService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -99,6 +101,9 @@
     <ClInclude Include="service\TerminationReminder\TerminationReminderService.h" />
     <ClInclude Include="uselib\excel\TerminationRemidner\ChangeToExcel.h" />
     <ClInclude Include="uselib\fastdfs\TerminationReminder\TerminationRemidnerFastdfs.h" />
+    <ClInclude Include="dao\JobTitle\JobTitleDAO.h" />
+    <ClInclude Include="dao\JobTitle\JobTitleMapper.h" />
+    <ClInclude Include="service\JobTitle\JobTitleService.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />
