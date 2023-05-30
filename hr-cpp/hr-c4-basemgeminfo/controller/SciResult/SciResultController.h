@@ -56,7 +56,7 @@ public: // 定义接口
 		info->queryParams["pimpersonid"].required = true;
 	}
 	// 4 定义接口端点
-	ENDPOINT(API_M_GET, "/SciResult", querySciResult, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/sciresult/pagecheck", querySciResult, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, SciResultQuery, qps);
 		// 响应结果
@@ -72,7 +72,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/SciResult/add", AddSciResult, API_HANDLER_AUTH_PARAME, BODY_DTO(Add2SciResultDTO::Wrapper, dto,)) {
+	ENDPOINT(API_M_POST, "/sciresult/add", AddSciResult, API_HANDLER_AUTH_PARAME, BODY_DTO(Add2SciResultDTO::Wrapper, dto,)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddSciResult(dto,authObject->getPayload()));
 	}
@@ -86,7 +86,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 定义批量删除接口处理
-	ENDPOINT(API_M_POST, "/SciResult/del", DelSciResult, BODY_DTO(DelSciResultDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/sciresult/del", DelSciResult, BODY_DTO(DelSciResultDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execDelSciResult(dto));
 	}
@@ -107,7 +107,7 @@ public: // 定义接口
 
 	}
 	// 定义文件上传端点处理
-	ENDPOINT(API_M_POST, "/sciresult/file", postFile, API_HANDLER_AUTH_PARAME, BODY_STRING(String, body), QUERY(String, suffix), QUERY(String, pimpersonid)) {
+	ENDPOINT(API_M_POST, "/sciresult/fileinto", postFile, API_HANDLER_AUTH_PARAME, BODY_STRING(String, body), QUERY(String, suffix), QUERY(String, pimpersonid)) {
 		// 执行文件保存逻辑
 		API_HANDLER_RESP_VO(execIntoSciResult(body, suffix, pimpersonid, authObject->getPayload()));
 	}
