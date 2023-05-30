@@ -5,7 +5,6 @@
 #include "stdafx.h"
 #include "LanguageDAO.h"
 #include "LanguageMapper.h"
-#include "SnowFlake.h"
 #include <sstream>
 #include <ctime>
 
@@ -93,49 +92,36 @@ std::list<LanguageDO> LanguageDAO::selectOneById(const string& id)
 {
 	string sql = "SELECT `PIMLANGUAGEABILITYID`, `ENABLE`, `WYDJHQSJ`, `FJ`, `WYYZ`, `CREATEMAN`, `UPDATEMAN`, ";
 	sql += "`WYDJ`, `PIMPERSONID`, `JLSS`, `JLGLBH`, `JLSPZT`, `JLCZZ`";
-	sql += "FROM t_pimlanguageability WHERE `PIMPERSONID` = ? LIMIT 1";
+	sql += "FROM t_pimlanguageability WHERE `PIMLANGUAGEABILITYID` = ?";
 	LanguageMapper mapper;
 	return sqlSession->executeQuery<LanguageDO, LanguageMapper>(sql, mapper, "%s", id);
 }
 
 int LanguageDAO::insert(const LanguageDO& iObj)
 {
-	//获取当前时间
-	std::time_t currentTime = std::time(nullptr);
-	// 将时间戳转换为字符串格式
-	char formattedTime[20];
-	std::strftime(formattedTime, sizeof(formattedTime), "%Y-%m-%d %H:%M:%S", std::localtime(&currentTime));
-	//使用雪花Id生成工具生成Id
-	SnowFlake f3(1, 3);
-	string id = to_string(f3.nextId());
 	//数据库插入语句
 	string sql = "INSERT INTO `t_pimlanguageability` ";
 	sql += "(`PIMLANGUAGEABILITYID`, `UPDATEDATE`, `ENABLE`, `WYDJHQSJ`, `FJ`, ";
 	sql += "`WYYZ`, `CREATEMAN`, `UPDATEMAN`, `WYDJ`, `CREATEDATE`, `PIMPERSONID`) ";
-	sql += "VALUES(? , ? , 0, ? , ? , ? , ? , ? , ? , ? , ? )";
-	return sqlSession->executeUpdate(sql, "%s%dt%i%dt%s%s%s%s%dt%s",id, formattedTime, iObj.getGainTime(), 
+	sql += "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	return sqlSession->executeUpdate(sql, "%s%s%i%s%s%s%s%s%s%s%s",iObj.getLanguageAbilityID(), iObj.getCreateDate(), 0, iObj.getGainTime(), 
 		iObj.getAttachment(), iObj.getLanguageType(), iObj.getCreateMan(), iObj.getCreateMan(), 
-		iObj.getLanguageLevel(), formattedTime, iObj.getPersonID());
+		iObj.getLanguageLevel(), iObj.getCreateDate(), iObj.getPersonID());
 }
 
 int LanguageDAO::update(const LanguageDO& uObj)
 {
-	//获取当前时间
-	std::time_t currentTime = std::time(nullptr);
-	// 将时间戳转换为字符串格式
-	char formattedTime[20];
-	std::strftime(formattedTime, sizeof(formattedTime), "%Y-%m-%d %H:%M:%S", std::localtime(&currentTime));
 	//数据库修改语句
 	string sql = "UPDATE `t_pimlanguageability` ";
 	sql += "SET `UPDATEDATE` = ?, `ENABLE` = ?, `WYDJHQSJ` = ?, `FJ` = ?, `WYYZ` = ?, `UPDATEMAN` = ?, `WYDJ` = ? ";
-	sql += "WHERE `PIMPERSONID` = ?";
-	return sqlSession->executeUpdate(sql, "%dt%i%dt%s%s%s%s", formattedTime, uObj.getPermission(), uObj.getGainTime(), 
-		uObj.getAttachment(), uObj.getLanguageType(), uObj.getUpdateMan(), uObj.getLanguageLevel());
+	sql += "WHERE `PIMLANGUAGEABILITYID` = ?";
+	return sqlSession->executeUpdate(sql, "%s%i%s%s%s%s%s%s", uObj.getUpdateDate(), uObj.getPermission(), uObj.getGainTime(), 
+		uObj.getAttachment(), uObj.getLanguageType(), uObj.getUpdateMan(), uObj.getLanguageLevel(), uObj.getLanguageAbilityID());
 }
 
-int LanguageDAO::deleteById(string id, string languageType)
+int LanguageDAO::deleteById(string id)
 {
 	//数据库删除语句
-	string sql = "DELETE FROM `t_pimlanguageability` WHERE `PIMPERSONID` = ? AND `WYYZ` = ?";
-	return sqlSession->executeUpdate(sql, "%s%s", id, languageType);
+	string sql = "DELETE FROM `t_pimlanguageability` WHERE `PIMLANGUAGEABILITYID` = ?";
+	return sqlSession->executeUpdate(sql, "%s", id);
 }

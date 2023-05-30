@@ -18,7 +18,7 @@ public:
 	uint64_t count(const LanguageQuery::Wrapper& query);
 	// 分页查询query统计数据条数
 	uint64_t countPage(const LanguagePageQuery::Wrapper& query);
-	//分页查找数据
+	// 分页查找数据
 	list<LanguageDO> selectWithPage(const LanguagePageQuery::Wrapper& query);
 	// 通过姓名查询数据
 	list<LanguageDO> selectOneById(const string& id);
@@ -27,7 +27,7 @@ public:
 	// 修改数据
 	int update(const LanguageDO& uObj);
 	// 通过ID删除数据
-	int deleteById(string id, string languageType);
+	int deleteById(string id);
 };
 
 #endif  // !_LANGUAGE_DAO_

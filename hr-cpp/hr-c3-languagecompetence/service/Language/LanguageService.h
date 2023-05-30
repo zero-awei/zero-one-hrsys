@@ -41,6 +41,6 @@ public:
 	// 修改数据
 	bool updateData(const LanguageDTO::Wrapper& dto);
 	// 通过ID删除数据
-	bool removeData(string id, string languageType);
+	bool removeData(string id);
 };
 #endif // !_LANGUAGE_SERVICE_

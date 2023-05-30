@@ -29,6 +29,8 @@ class LanguageDO
 {
 	//语言标识能力ID
 	CC_SYNTHESIZE(string, languageAbilityID, LanguageAbilityID);
+	//更新时间
+	CC_SYNTHESIZE(string, updateDate, UpdateDate);
 	//许可的
 	CC_SYNTHESIZE(int, permission, Permission);
 	//外语等级获取时间
@@ -43,6 +45,8 @@ class LanguageDO
 	CC_SYNTHESIZE(string, updateMan, UpdateMan);
 	//语言等级
 	CC_SYNTHESIZE(string, languageLevel, LanguageLevel);
+	//创建时间
+	CC_SYNTHESIZE(string, createDate, CreateDate)
 	//人员信息标识
 	CC_SYNTHESIZE(string, personID, PersonID);
 	//记录所属

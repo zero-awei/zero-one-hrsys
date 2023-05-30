@@ -2,6 +2,8 @@
 #include "LanguageService.h"
 #include "../../domain/do/Language/LanguageDO.h"
 #include "../../dao/Language/LanguageDAO.h"
+#include "SnowFlake.h"
+#include "SimpleDateTimeFormat.h"
 
 /**
  * 语言能力service层实现
@@ -52,7 +54,7 @@ LanguageDTO::Wrapper LanguageService::queryOneDataById(const LanguageQuery::Wrap
 	}
 
 	//获取查询数据
-	list<LanguageDO> result = dao.selectOneById(query->personID);
+	list<LanguageDO> result = dao.selectOneById(query->languageAbilityID);
 	//将DO转换成DTO
 	//list迭代器
 	std::list<LanguageDO>::iterator it = result.begin();
@@ -71,7 +73,16 @@ int LanguageService::saveData(const LanguageDTO::Wrapper& dto)
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, GainTime, gainTime, Attachment, attachment, LanguageType, languageType,
 		CreateMan, createMan, LanguageLevel, languageLevel, PersonID, personID);
 
-	// 执行数据添加
+	//使用SimpleDateTimeFormat工具生成当前时间的字符串
+	string currentTime = SimpleDateTimeFormat::format();
+	data.setCreateDate(currentTime);
+
+	//使用雪花Id生成工具生成Id
+	SnowFlake f3(1, 3);
+	string id = to_string(f3.nextId());
+	data.setLanguageAbilityID(id);
+
+	// 执行数据添加;
 	LanguageDAO dao;
 	return dao.insert(data);
 }
@@ -80,19 +91,23 @@ bool LanguageService::updateData(const LanguageDTO::Wrapper& dto)
 {
 	//组装DO数据
 	LanguageDO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Permission, permission, GainTime, gainTime, Attachment, attachment,
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, LanguageAbilityID, languageAbilityID, Permission, permission, GainTime, gainTime, Attachment, attachment,
 		LanguageType, languageType, UpdateMan, updateMan, LanguageLevel, languageLevel);
+
+	//使用SimpleDateTimeFormat工具生成当前时间的字符串
+	string currentTime = SimpleDateTimeFormat::format();
+	data.setUpdateDate(currentTime);
 
 	//执行数据修改
 	LanguageDAO dao;
 	return dao.update(data) == 1;
 }
 
-bool LanguageService::removeData(string id, string languageType)
+bool LanguageService::removeData(string id)
 {
 	//组装DO数据
 	LanguageDO data;
 	//执行数据删除
 	LanguageDAO dao;
-	return dao.deleteById(id,languageType);
+	return dao.deleteById(id);
 }

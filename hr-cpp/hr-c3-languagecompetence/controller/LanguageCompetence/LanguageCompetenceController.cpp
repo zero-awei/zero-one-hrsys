@@ -41,7 +41,7 @@ Int32JsonVO::Wrapper LanguageCompetenceController::execAddLanguage(const Languag
 		return jvo;
 	}
 	//有效值校验
-	if (dto->languageType->empty() || dto->languageLevel->empty()) {
+	if (dto->personID->empty() || dto->languageType->empty() || dto->languageLevel->empty()) {
 		jvo->init(Int32(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
@@ -65,7 +65,7 @@ BooleanJsonVO::Wrapper LanguageCompetenceController::execDeleteLanguage(const La
 	//定义一个返回对象
 	auto jvo = BooleanJsonVO::createShared();
 	// 参数校验
-	if (!dto->personID)
+	if (!dto->languageAbilityID)
 	{
 		jvo->init(false, RS_PARAMS_INVALID);
 		return jvo;
@@ -73,7 +73,7 @@ BooleanJsonVO::Wrapper LanguageCompetenceController::execDeleteLanguage(const La
 	// 定义一个Service
 	LanguageService service;
 	// 执行数据删除
-	if (service.removeData(dto->personID.getValue(0),dto->languageType.getValue(0))) {
+	if (service.removeData(dto->languageAbilityID.getValue({}))) {
 		jvo->success(true);
 	}
 	else
@@ -89,7 +89,7 @@ BooleanJsonVO::Wrapper LanguageCompetenceController::execUpdateLanguage(const La
 	//定义一个返回对象
 	auto jvo = BooleanJsonVO::createShared();
 	//参数校验
-	if (!dto->personID) {
+	if (!dto->languageAbilityID) {
 		jvo->init(false, RS_PARAMS_INVALID);
 		return jvo;
 	}
