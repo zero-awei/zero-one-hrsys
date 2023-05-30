@@ -102,6 +102,7 @@ public class LoginController implements LoginApis {
         //4.将授权token存储到Redis中，记录登录状态
 
         if (oauth2TokenDTO.getData() == null) {
+            System.out.println("******oauth2TokenDTO为空！********");
             return fail(null, ResultStatus.SERVER_ERROR);
         }
 

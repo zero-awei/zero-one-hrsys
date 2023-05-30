@@ -2,6 +2,7 @@ package com.zeroone.star.oauth2.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,13 +10,14 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 菜单
+ * zo_menu 菜单表
  * </p>
  *
- * @author 阿伟
+ * @author 风月
  */
 @Getter
 @Setter
+@TableName("zo_menu")
 public class Menu implements Serializable {
 
     private static final long serialVersionUID = 1L;

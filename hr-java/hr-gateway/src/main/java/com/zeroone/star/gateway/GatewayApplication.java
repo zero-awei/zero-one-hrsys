@@ -3,7 +3,7 @@ package com.zeroone.star.gateway;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-
+import org.springframework.context.annotation.ComponentScan;
 /**
  * <p>
  * 描述：服务器启动入口

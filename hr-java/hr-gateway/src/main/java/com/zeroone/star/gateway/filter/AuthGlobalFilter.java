@@ -4,8 +4,8 @@ import cn.hutool.core.util.StrUtil;
 import com.nimbusds.jose.JWSObject;
 
 import com.zeroone.star.gateway.handler.CommonSender;
-import com.zeroone.star.login.utils.RedisUtils;
 import com.zeroone.star.project.constant.RedisConstant;
+import com.zeroone.star.project.utils.redis.RedisCommonUtil;
 import com.zeroone.star.project.vo.ResultStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -34,7 +34,7 @@ import java.text.ParseException;
 @Slf4j
 public class AuthGlobalFilter implements GlobalFilter, Ordered {
     @Resource
-    private RedisUtils redisUtils;
+    private RedisCommonUtil redisUtils;
 
 
     @Override

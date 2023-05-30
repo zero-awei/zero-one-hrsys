@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Mapper;
  * 用户表 Mapper 接口
  * </p>
  *
- * @author 阿伟
+ * @author 风月
  */
 @Mapper
 public interface UserMapper extends BaseMapper<User> {

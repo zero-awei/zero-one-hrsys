@@ -44,7 +44,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (AuthConstant.CLIENT_MANAGER.equals(clientId)) {
             //1 通过用户名查找用户对象
             User user = new User();
-            System.out.println("loadUserByUsername创建新对象拉！！");
             user.setUsername(username);
             user = userService.getOne(new QueryWrapper<>(user));
             if (user == null) {
@@ -52,6 +51,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             }
             //2 通过用户ID获取角色列表
             List<Role> roles = roleService.listRoleByUserId(user.getId());
+            System.out.println("*********roles.stream().toArray() = " + roles.stream().toArray());
             //3 将数据库角色转换成Security权限对象
             List<GrantedAuthority> authorities = new ArrayList<>();
             roles.forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getKeyword())));

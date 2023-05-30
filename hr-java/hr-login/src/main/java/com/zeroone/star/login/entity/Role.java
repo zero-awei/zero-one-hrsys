@@ -2,6 +2,7 @@ package com.zeroone.star.login.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,6 +17,7 @@ import java.io.Serializable;
  */
 @Getter
 @Setter
+@TableName("zo_role")
 public class Role implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,6 +42,11 @@ public class Role implements Serializable {
      * 角色描述
      */
     private String description;
+
+    /**
+     *  是否启用 0 禁用 1 启用
+     */
+    private Integer isEnable;
 
 
 }
