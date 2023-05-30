@@ -7,17 +7,19 @@ const routes = [
   {
     path: '/postcertificateview',
     name: '岗位证书',
-    component: () => import('@/views/baseManage/standardSetting/PostCertificate.vue')   
+    component: () =>
+      import('@/views/baseManage/standardSetting/PostCertificate.vue')
   },
   {
     path: '/jobtitlecatalog',
     name: '职称目录',
-    component: () => import('@/views/baseManage/standardSetting/JobTitleCataloge.vue')   
+    component: () =>
+      import('@/views/baseManage/standardSetting/JobTitleCataloge.vue')
   },
   {
     path: '/archives',
     name: '档案室',
-    component: () => import('@/views/baseManage/standardSetting/Archives.vue')   
+    component: () => import('@/views/baseManage/standardSetting/Archives.vue')
   },
   {
     path: '/syqyggridview',
@@ -75,6 +77,11 @@ const routes = [
     path: '/gzryhmcgridview',
     name: '挂职员工',
     component: () => import('@/views/baseManage/roster/Gzyg.vue')
+  },
+  {
+    path: '/userInfo',
+    name: '用户信息',
+    component: () => import('@/views/baseManage/userInfo/index.vue')
   }
 ]
 

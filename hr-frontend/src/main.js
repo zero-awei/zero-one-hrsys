@@ -4,6 +4,7 @@ import * as echarts from 'echarts'
 
 import App from './App.vue'
 import router from './router'
+import 'element-plus/dist/index.css'
 import 'element-plus/theme-chalk/src/message.scss'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import './assets/main.css'
@@ -25,7 +26,6 @@ installHttp(router)
 // 安装ElIcon
 import installElIcon from './plugins/el-icon'
 installElIcon(app)
-
 
 // 全局事件总线
 import mitt from 'mitt'

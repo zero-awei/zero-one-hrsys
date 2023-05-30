@@ -3,7 +3,7 @@ import Request from '@/apis/request'
 // 测试菜单数据
 let testMenus = [
   {
-    id: 0,
+    id: '0',
     text: '门户首页',
     icon: 'DataAnalysis',
     path: '/pimportalview'
@@ -56,6 +56,12 @@ let testMenus = [
         text: '挂职员工',
         icon: 'IconSetting',
         path: '/gzryhmcgridview'
+      },
+      {
+        id: 5,
+        text: '人员信息测试页面',
+        icon: 'IconSetting',
+        path: '/userInfo'
       }
     ]
   },

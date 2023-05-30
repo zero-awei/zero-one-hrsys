@@ -5,10 +5,11 @@
       ref="multipleTableRef"
       max-height="calc(95vh - 40px)"
       :data="tableData"
-      style="width: 100%;text-align: center;"
+      style="width: 100%; text-align: center"
       @selection-change="handleSelectionChange"
       @row-dblclick="handleClick"
       :default-sort="{ prop: 'id', order: 'ascending' }"
+      :stripe="true"
     >
       <el-table-column type="selection" />
       <el-table-column
@@ -19,7 +20,6 @@
         :prop="item.prop"
         width="150"
         sortable
-        @dbclick=""
       />
     </el-table>
   </div>
@@ -92,15 +92,21 @@ interface TableCell {
   @include element(form) {
     background-color: white;
     @include modifier(cell) {
-      max-height: 30px;
+      max-height: 48px;
       cursor: pointer;
+    }
+    :deep(.el-scrollbar__view) {
+      display: block !important;
     }
   }
 }
-.el-table__header {
+:deep(.el-table__header) {
   height: 58px;
 }
-.el-table__header-wrapper thead {
+:deep(.el-table .el-table__cell) {
+  height: 48px !important;
+}
+:deep(.el-table__header-wrapper thead) {
   font-weight: bolder;
   color: #304265;
   font-size: 16px;
