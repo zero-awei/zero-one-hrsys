@@ -34,6 +34,7 @@ JTQueryPageJsonVO::Wrapper JobTitleController::execQueryPageSB(const JobTitleQue
 
 Uint64JsonVO::Wrapper JobTitleController::execRemoveJobTitle(const JobTitleDeleteDTO::Wrapper& dto)
 {
+	cout << "执行删除" << endl;
 	//auto
 	auto jvo = Uint64JsonVO::createShared();
 	// 进行数据校验-- 非空校验
@@ -56,30 +57,30 @@ Uint64JsonVO::Wrapper JobTitleController::execRemoveJobTitle(const JobTitleDelet
 }
 
 // 添加职称信息
-Uint64JsonVO::Wrapper JobTitleController::execAddJobTitle(const JobTitleDTO::Wrapper& dto)
+StringJsonVO::Wrapper JobTitleController::execAddJobTitle(const JobTitleAddDTO::Wrapper& dto)
 {
-	auto jvo = Uint64JsonVO::createShared();
-	cout << "id: " << dto->employee_id << endl;
+	auto jvo = StringJsonVO::createShared();
+	//cout << "id: " << dto->employee_id << endl;
 	//cout << "employee_name:" << dto->employee_name << endl;
 	// 判断数据是否合法
 	// 非空判断--有一个为空，则返回false
 	if (!dto->employee_id || !dto->employee_name || !dto->jobtitle_name || !dto->get_time) {
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		jvo->init(String(-1), RS_PARAMS_INVALID);
 	}
 	// 有效值检验--有一个无效则返回false
-	if (dto->employee_id < 0 || dto->employee_name->empty() || dto->employee_name->empty() || dto->get_time->empty()) {
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+	if (dto->employee_id->empty() || dto->employee_name->empty() || dto->employee_name->empty() || dto->get_time->empty()) {
+		jvo->init(String(-1), RS_PARAMS_INVALID);
 	}
-	cout << "接收id为：" << dto->employee_id << endl;
+	//cout << "接收id为：" << dto->employee_id << endl;
 	// 值有效，进入添加
 	// 创建server
 	JobTitleService service;
 	// 添加成功
 	if (service.addData(dto)) {
-		jvo->success(UInt64(dto->employee_id));
+		jvo->success(String(dto->employee_id));
 	}
 	else {
-		jvo->fail(UInt64(-1));
+		jvo->fail(String(-1));
 	}
 	return jvo;
 }

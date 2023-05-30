@@ -2,6 +2,7 @@
 #include "JobTitleService.h"
 #include "./dao/JobTitle/JobTitleDao.h"
 #include "Macros.h"
+#include "SnowFlake.h"
 
 JobTitlePageDTO::Wrapper JobTitleService::listAll(const JobTitleQuery::Wrapper& query)
 {
@@ -34,8 +35,9 @@ JobTitlePageDTO::Wrapper JobTitleService::listAll(const JobTitleQuery::Wrapper& 
 			org_name, Org_Name, jobtitle_name, Jobtitle_Name,
 			get_time, Get_Time, certificate_id, Certificate_Id,
 			professional_cate, Professional_Cate,
-			professional_name, Professional_Name,
+			//employment_month, Employment_Month,
 			jobtitle_grades, Jobtitle_Grades,
+			title_employment_time, Title_Employment_Time,
 			issuing_authority, Issuing_Authority,
 			judging_unit, Judging_Unit,
 			b_highest_professional_title, B_Highest_Professional_Title
@@ -77,8 +79,9 @@ JobTitlePageDTO::Wrapper JobTitleService::listByParams(const JobTitleQuery::Wrap
 			org_name, Org_Name, jobtitle_name, Jobtitle_Name,
 			get_time, Get_Time, certificate_id, Certificate_Id,
 			professional_cate, Professional_Cate,
-			professional_name, Professional_Name,
+			//employment_month, Employment_Month,
 			jobtitle_grades, Jobtitle_Grades,
+			title_employment_time, Title_Employment_Time,
 			issuing_authority, Issuing_Authority,
 			judging_unit, Judging_Unit,
 			b_highest_professional_title, B_Highest_Professional_Title
@@ -89,18 +92,20 @@ JobTitlePageDTO::Wrapper JobTitleService::listByParams(const JobTitleQuery::Wrap
 	return pages;
 }
 
-uint64_t JobTitleService::addData(const JobTitleDTO::Wrapper& dto)
+uint64_t JobTitleService::addData(const JobTitleAddDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	JobTitleDO data;
-	data.setId(dto->id.getValue(0));
-	data.setEmployee_Id(dto->employee_id.getValue(0));
+
+	SnowFlake sf(1, 1);
+	string id = std::to_string(sf.nextId());
+	cout << id << endl;
+	data.setId(id);
+	data.setEmployee_Id(dto->employee_id.getValue(""));
 	data.setEmployee_Name(dto->employee_name.getValue(""));
 	data.setJobtitle_Name(dto->jobtitle_name.getValue(""));
-	data.setEmployee_State(dto->employee_state.getValue(""));
-	data.setOrg_Name(dto->org_name.getValue(""));
 	data.setGet_Time(dto->get_time.getValue(""));
-	data.setCertificate_Id(dto->certificate_id.getValue(0));
+	data.setCertificate_Id(dto->certificate_id.getValue(""));
 	data.setJobtitle_Grades(dto->jobtitle_grades.getValue(""));
 	data.setProfessional_Cate(dto->professional_cate.getValue(""));
 	data.setProfessional_Name(dto->professional_name.getValue(""));

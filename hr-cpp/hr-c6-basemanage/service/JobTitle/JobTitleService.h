@@ -15,7 +15,7 @@ public:
 	// 分页查询通过id或name进行模糊查询
 	JobTitlePageDTO::Wrapper listByParams(const JobTitleQuery::Wrapper& query);
 	// 需新增职称
-	uint64_t addData(const JobTitleDTO::Wrapper& dto);
+	uint64_t addData(const JobTitleAddDTO::Wrapper& dto);
 	// 删除职称，支持批量删除
 	uint64_t removeData(const JobTitleDeleteDTO::Wrapper& dto);
 };

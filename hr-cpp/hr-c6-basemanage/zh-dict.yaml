@@ -92,6 +92,7 @@ title:
   issuing_authority: 签发机构
   judging_unit: 评审单位
   employment_time: 职称聘用时间
+  employment_month: 职称聘用月数
   title_employee_time: 职称获取时间
   b_highest_professional_title: 是否最高职称
 labordispatch_mug:

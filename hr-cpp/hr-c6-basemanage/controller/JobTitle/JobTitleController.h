@@ -95,10 +95,10 @@ public:
 	ENDPOINT_INFO(addJobTitle) {
 		info->summary = ZH_WORDS_GETTER("title.add.summary");
 		// 定于响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	// 新增职称接口
-	ENDPOINT(API_M_POST, "/title-management/add-jobtitle", addJobTitle, BODY_DTO(JobTitleDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/title-management/add-jobtitle", addJobTitle, BODY_DTO(JobTitleAddDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddJobTitle(dto));
 	}
@@ -106,7 +106,7 @@ private:
 	JTQueryPageJsonVO::Wrapper execQueryPage(const JobTitleQuery::Wrapper& query);
 	JTQueryPageJsonVO::Wrapper execQueryPageSB(const JobTitleQuery::Wrapper& query);
 	Uint64JsonVO::Wrapper execRemoveJobTitle(const JobTitleDeleteDTO::Wrapper& dto);
-	Uint64JsonVO::Wrapper execAddJobTitle(const JobTitleDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execAddJobTitle(const JobTitleAddDTO::Wrapper& dto);
 };
 
 
