@@ -2,7 +2,7 @@ package com.zeroone.star.sysmanager.service;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.usermanager.UserDTO;
-import com.zeroone.star.project.query.PageQuery;
+import com.zeroone.star.project.query.sysmanager.usermanager.UserConditionalQuery;
 import com.zeroone.star.project.query.sysmanager.usermanager.UserQuery;
 import com.zeroone.star.sysmanager.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -17,9 +17,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IUserService extends IService<User> {
 
-    PageDTO<UserDTO> listAllUsers(PageQuery pageInfo);
+    PageDTO<UserDTO> listAllUsers(UserQuery query);
 
-    PageDTO<UserDTO> selectUser(UserQuery condition);
+    PageDTO<UserDTO> selectUser(UserConditionalQuery condition);
 
     Boolean saveUser(UserDTO dto);
 

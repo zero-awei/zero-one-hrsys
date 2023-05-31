@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.usermanager.UserDTO;
 import com.zeroone.star.project.query.PageQuery;
+import com.zeroone.star.project.query.sysmanager.usermanager.UserConditionalQuery;
 import com.zeroone.star.project.query.sysmanager.usermanager.UserQuery;
 import com.zeroone.star.sysmanager.entity.User;
 import com.zeroone.star.sysmanager.mapper.UserMapper;
@@ -16,7 +17,10 @@ import org.apache.logging.log4j.util.Strings;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import java.lang.reflect.Field;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -31,24 +35,36 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
 
     @Override
-    public PageDTO<UserDTO> listAllUsers(@Validated PageQuery pageInfo) {
-        Page<User> page = new Page<>(pageInfo.getPageIndex(),pageInfo.getPageSize());
-        Page<User> result = baseMapper.selectPage(page, new QueryWrapper<>());
-        return PageDTO.create(result,UserDTO.class);
+    public PageDTO<UserDTO> listAllUsers(@Validated UserQuery query) {
+        Page<User> page = new Page<>(query.getPageIndex(), query.getPageSize());
+
+        LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(Strings.isNotBlank(query.getId()), User::getId, query.getId());
+        wrapper.eq(Strings.isNotBlank(query.getMail()), User::getMail, query.getMail());
+        wrapper.eq(Strings.isNotBlank(query.getUsername()), User::getUsername, query.getUsername());
+        wrapper.eq(Strings.isNotBlank(query.getPhone()), User::getPhone, query.getPhone());
+        wrapper.eq(query.getRegistTime() != null, User::getRegistTime, query.getRegistTime());
+
+        Page<User> result = baseMapper.selectPage(page, wrapper);
+        return PageDTO.create(result, UserDTO.class);
     }
 
     @Override
-    public PageDTO<UserDTO> selectUser(UserQuery query) {
-        Page<User> page = new Page<>(query.getPageIndex(),query.getPageSize());
+    public PageDTO<UserDTO> selectUser(UserConditionalQuery query) {
+        Page<User> page = new Page<>(query.getPageIndex(), query.getPageSize());
         LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
 
-        wrapper.like(Strings.isNotBlank(query.getId()),User::getId,query.getId());
-        wrapper.like(Strings.isNotBlank(query.getMail()),User::getMail,query.getMail());
-        wrapper.like(Strings.isNotBlank(query.getUsername()),User::getUsername,query.getUsername());
-        wrapper.like(Strings.isNotBlank(query.getPhone()),User::getPhone,query.getPhone());
-        wrapper.like(query.getRegistTime()!=null,User::getRegistTime,query.getRegistTime());
+        String condition = query.getCondition();
+        if (!condition.equals("")) {
+            wrapper.like(User::getId, condition).or()
+                    .like(User::getUsername, condition).or()
+                    .like(User::getPhone, condition).or()
+                    .like(User::getMail, condition).or()
+                    .like(User::getIsEnable, condition).or()
+                    .like(User::getRegistTime, condition);
+        }
         Page<User> result = baseMapper.selectPage(page, wrapper);
-        return PageDTO.create(result,UserDTO.class);
+        return PageDTO.create(result, UserDTO.class);
     }
 
     @Override
