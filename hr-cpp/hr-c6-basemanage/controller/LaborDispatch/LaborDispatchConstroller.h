@@ -69,7 +69,7 @@ public:
 		info->queryParams["updatedate"].required = false;
 	}
 	// 3.2 定义接口端点
-	ENDPOINT(API_M_GET, "/contrac-management/queryPages-laborDispatch-Information", queryLDCorlist, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/contract-management/queryPages-laborDispatch-Information", queryLDCorlist, QUERIES(QueryParams, queryParams)) {
 		//解析查询参数
 		API_HANDLER_QUERY_PARAM(labordispatchquery, LaborDispatchQuery, queryParams);
 		//响应结果
@@ -84,7 +84,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/contrac-management/add-laborDispatchInformation", addLDCor, BODY_DTO(LaborDispatchModifyDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/contract-management/add-laborDispatchInformation", addLDCor, BODY_DTO(LaborDispatchModifyDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddLaborDispatch_ld(dto));
 	}
@@ -97,7 +97,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/contrac-management/remove-laborDispatchInformation", removeCor, BODY_DTO(LaborDispatchRemoveDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/contract-management/remove-laborDispatchInformation", removeCor, BODY_DTO(LaborDispatchRemoveDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveLaborDispatch_ld(dto));
 	}
@@ -110,7 +110,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	// 3.2 定义导出接口处理
-	ENDPOINT(API_M_POST, "/contrac-management/export-laborDispatchInformation", exportCor, QUERIES(QueryParams, queryExport)) {
+	ENDPOINT(API_M_POST, "/contract-management/export-laborDispatchInformation", exportCor, QUERIES(QueryParams, queryExport)) {
 		//解析查询参数
 		API_HANDLER_QUERY_PARAM(query, LaborDispatchQuery, queryExport);
 		//响应结果
