@@ -47,26 +47,8 @@ public:
 		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("ldcompany.field.PIMLABOURCAMPANYNAME");
 		info->queryParams["name"].required = false;
 
-		info->queryParams.add<String>("unit").description = ZH_WORDS_GETTER("ldcompany.field.ORGNAME");
-		info->queryParams["unit"].required = false;
-
-		info->queryParams.add<String>("lxdz").description = ZH_WORDS_GETTER("ldcompany.field.LXDZ");
-		info->queryParams["lxdz"].required = false;
-
-		info->queryParams.add<String>("lxr").description = ZH_WORDS_GETTER("ldcompany.field.LXR");
-		info->queryParams["lxr"].required = false;
-
 		info->queryParams.add<String>("lxfs").description = ZH_WORDS_GETTER("ldcompany.field.LXFS");
 		info->queryParams["lxfs"].required = false;
-
-		info->queryParams.add<String>("legalperson").description = ZH_WORDS_GETTER("ldcompany.field.LEGALPEROSN");
-		info->queryParams["legalperson"].required = false;
-
-		info->queryParams.add<String>("regcapital").description = ZH_WORDS_GETTER("ldcompany.field.REGCAPITAL");
-		info->queryParams["regcapital"].required = false;
-
-		info->queryParams.add<String>("updatedate").description = ZH_WORDS_GETTER("ldcompany.field.UPDATEDATE");
-		info->queryParams["updatedate"].required = false;
 	}
 	// 3.2 定义接口端点
 	ENDPOINT(API_M_GET, "/contract-management/queryPages-laborDispatch-Information", queryLDCorlist, QUERIES(QueryParams, queryParams)) {
@@ -108,6 +90,11 @@ public:
 		info->summary = ZH_WORDS_GETTER("ldcompany.export.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("ldcompany.field.PIMLABOURCAMPANYNAME");
+		info->queryParams["name"].required = false;
+
+		info->queryParams.add<String>("lxfs").description = ZH_WORDS_GETTER("ldcompany.field.LXFS");
+		info->queryParams["lxfs"].required = false;
 	}
 	// 3.2 定义导出接口处理
 	ENDPOINT(API_M_POST, "/contract-management/export-laborDispatchInformation", exportCor, QUERIES(QueryParams, queryExport)) {
