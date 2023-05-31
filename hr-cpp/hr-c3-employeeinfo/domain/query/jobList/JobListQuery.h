@@ -37,7 +37,10 @@ class JobListQuery : public PageQuery
 		info->description = ZH_WORDS_GETTER("employee.field.jobList");
 	}
 };
-
+class JobListPageQuery : public PageDTO<JobListQuery::Wrapper>
+{
+	DTO_INIT(JobListPageQuery, PageDTO<JobListQuery::Wrapper>);
+};
 #include OATPP_CODEGEN_END(DTO)
 
 #endif // !_JOBLISTQUERY_H_

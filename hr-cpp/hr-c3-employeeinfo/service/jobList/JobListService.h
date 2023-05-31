@@ -22,7 +22,8 @@
 
 class JobListService
 {
-	
+public:
+
 };
 
 #endif // !_JOBLISTSERVICE_H_
