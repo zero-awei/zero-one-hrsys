@@ -58,12 +58,9 @@ public:
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		info->queryParams.add<UInt64>("id").description = ZH_WORDS_GETTER("formeremployees.field.id");
-		info->queryParams["id"].addExample("default", String("1"));
-		info->queryParams["id"].required = false;
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("formeremployees.field.name");
-		info->queryParams["name"].addExample("default", String("li ming"));
-		info->queryParams["name"].required = false;
+		info->queryParams.add<String>("id_or_name").description = ZH_WORDS_GETTER("formeremployees.field.id_or_name");
+		info->queryParams["id_or_name"].addExample("default", String("1"));
+		info->queryParams["id_or_name"].required = false;
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/query-all-FormerEmployees", queryFormerEmployees, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {

@@ -57,12 +57,38 @@ public:
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		info->queryParams.add<UInt64>("id").description = ZH_WORDS_GETTER("formeremployees.field.id");
-		info->queryParams["id"].addExample("default", String("1"));
+		info->queryParams.add<String>("id_or_name").description = ZH_WORDS_GETTER("formeremployees.field.id_or_name");
+		info->queryParams["id_or_name"].addExample("default", String("1"));
+		info->queryParams["id_or_name"].required = false;
+
+		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("sample.field.id");
+		info->queryParams["id"].addExample("default", String(""));
 		info->queryParams["id"].required = false;
+
 		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("formeremployees.field.name");
 		info->queryParams["name"].addExample("default", String("li ming"));
 		info->queryParams["name"].required = false;
+
+		info->queryParams.add<String>("zjhm").description = ZH_WORDS_GETTER("probationaryemployee.field.zjhm");
+		info->queryParams["zjhm"].addExample("default", String(""));
+		info->queryParams["zjhm"].required = false;
+
+		info->queryParams.add<String>("organization").description = ZH_WORDS_GETTER("probationaryemployee.field.organization");
+		info->queryParams["organization"].addExample("default", String(""));
+		info->queryParams["organization"].required = false;
+
+		info->queryParams.add<String>("bm").description = ZH_WORDS_GETTER("probationaryemployee.field.bm");
+		info->queryParams["bm"].addExample("default", String(""));
+		info->queryParams["bm"].required = false;
+
+		info->queryParams.add<String>("ygzt").description = ZH_WORDS_GETTER("probationaryemployee.field.ygzt");
+		info->queryParams["ygzt"].addExample("default", String(""));
+		info->queryParams["ygzt"].required = false;
+
+		info->queryParams.add<String>("zgzt").description = ZH_WORDS_GETTER("probationaryemployee.field.zgzt");
+		info->queryParams["zgzt"].addExample("default", String(""));
+		info->queryParams["zgzt"].required = false;
+
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/query-all-ProbationaryEmployee", queryProbationaryEmployee, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
@@ -80,15 +106,38 @@ public:
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-		//// 定义分页参数描述
-		//API_DEF_ADD_PAGE_PARAMS();
-		//// 定义其他表单参数描述
-		//info->queryParams.add<UInt64>("outbenye").description = ZH_WORDS_GETTER("formeremployees.field.outbenye");
-		//info->queryParams["outbenye"].addExample("default", String("1"));
-		//info->queryParams["outbenye"].required = false;
-		//info->queryParams.add<UInt64>("outall").description = ZH_WORDS_GETTER("formeremployees.field.outall");
-		//info->queryParams["outall"].addExample("default", String("0"));
-		//info->queryParams["outall"].required = false;
+		// 定义其他表单参数描述
+		info->queryParams.add<String>("id_or_name").description = ZH_WORDS_GETTER("formeremployees.field.id_or_name");
+		info->queryParams["id_or_name"].addExample("default", String("1"));
+		info->queryParams["id_or_name"].required = false;
+
+		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("sample.field.id");
+		info->queryParams["id"].addExample("default", String(""));
+		info->queryParams["id"].required = false;
+
+		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("formeremployees.field.name");
+		info->queryParams["name"].addExample("default", String("li ming"));
+		info->queryParams["name"].required = false;
+
+		info->queryParams.add<String>("zjhm").description = ZH_WORDS_GETTER("probationaryemployee.field.zjhm");
+		info->queryParams["zjhm"].addExample("default", String(""));
+		info->queryParams["zjhm"].required = false;
+
+		info->queryParams.add<String>("organization").description = ZH_WORDS_GETTER("probationaryemployee.field.organization");
+		info->queryParams["organization"].addExample("default", String(""));
+		info->queryParams["organization"].required = false;
+
+		info->queryParams.add<String>("bm").description = ZH_WORDS_GETTER("probationaryemployee.field.bm");
+		info->queryParams["bm"].addExample("default", String(""));
+		info->queryParams["bm"].required = false;
+
+		info->queryParams.add<String>("ygzt").description = ZH_WORDS_GETTER("probationaryemployee.field.ygzt");
+		info->queryParams["ygzt"].addExample("default", String(""));
+		info->queryParams["ygzt"].required = false;
+
+		info->queryParams.add<String>("zgzt").description = ZH_WORDS_GETTER("probationaryemployee.field.zgzt");
+		info->queryParams["zgzt"].addExample("default", String(""));
+		info->queryParams["zgzt"].required = false;
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/get-ProbationaryEmployee", exportProbationaryEmployee, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {

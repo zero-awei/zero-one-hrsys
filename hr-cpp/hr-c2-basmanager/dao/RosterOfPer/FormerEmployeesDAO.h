@@ -16,8 +16,4 @@ public:
 	list<FormerEmployeesDO> selectWithPage(const FormerEmployeesQuery::Wrapper& query);
 	// 查询离职员工数据
 	list<FormerEmployeesDO> selectAll(const FormerEmployeesQuery::Wrapper& query);
-	// 通过姓名查询数据
-	list<FormerEmployeesDO> selectByName(const string& name);
-	// 通过编号查询数据
-	list<FormerEmployeesDO> selectById(const string& id);
 };

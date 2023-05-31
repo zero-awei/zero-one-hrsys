@@ -57,6 +57,7 @@ formeremployees:
   out: (人员花名册-离职员工-导出离职员工数据)-chumengxian
  field:
   PIMPERSONID: 人员信息唯一标识
+  id_or_name: 员工编号或员工姓名(用于搜索框查询)
   id: 编号
   age: 年龄
   name: 姓名
@@ -82,6 +83,10 @@ probationaryemployee:
   rzsj: 任职时间
   time: 试用到期时间
   bm: 部门
+  zjhm: 证件号码
+  zzmc: 组织名称
+  ygzt: 员工状态
+  zgzt: 在岗状态
  get:
   summary: (人员花名册-试用员工-分页查询试用员工数据)-chumengxian
   out: (人员花名册-试用员工-导出试用员工数据)-chumengxian

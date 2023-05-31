@@ -7,19 +7,17 @@
 #define FORMER_EMPLOYEES_PARSE(query,sql)\
 SqlParams params; \
 sql<<" WHERE 1=1 "; \
-if(query->id){ \
-	sql << " AND `LZMTRID`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue(""));\
+if(query->id_or_name){ \
+	sql << " AND (`YGBH` LIKE ? OR `PIMPERSONNAME` LIKE ?)";\
+	SQLPARAMS_PUSH(params, "s", std::string, "%" + query->id_or_name.getValue("") + "%");\
+	SQLPARAMS_PUSH(params, "s", std::string, "%" + query->id_or_name.getValue("") + "%");\
 }\
-if(query->name){ \
-	sql << " AND `PIMPERSONNAME`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue(""));\
-} 
 
 uint64_t FormerEmployeesDAO::count(const FormerEmployeesQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM t_pcmydlzmx";
+	sql << "SELECT COUNT(*) FROM t_pimperson INNER JOIN t_pcmydlzmx \
+		ON t_pimperson.PIMPERSONID = t_pcmydlzmx.lzmtrId";
 
 	FORMER_EMPLOYEES_PARSE(query, sql);
 	string sqlStr = sql.str();

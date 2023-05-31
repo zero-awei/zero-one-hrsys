@@ -7,19 +7,48 @@
 #define PROBATIONARY_EMPLOYEE_PARSE(query,sql)\
 SqlParams params; \
 sql<<" WHERE 1 = 1"; \
-if(query->id){ \
-	sql << " AND `YGBH`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue(""));\
+if(query->id_or_name){ \
+	sql << " AND (`t_pimperson`.YGBH LIKE ? OR `PIMPERSONNAME` LIKE ?)";\
+	SQLPARAMS_PUSH(params, "s", std::string, "%" + query->id_or_name.getValue("") + "%");\
+	SQLPARAMS_PUSH(params, "s", std::string, "%" + query->id_or_name.getValue("") + "%");\
 }\
-if(query->name){ \
-	sql << " AND `PIMPERSONNAME`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue(""));\
-} 
+else{\
+	if(query->id){ \
+		sql << " AND `t_pimperson`.YGBH LIKE ?"; \
+		SQLPARAMS_PUSH(params, "s", std::string, "%" + query->id.getValue("") + "%");\
+	}\
+	if(query->name){ \
+		sql << " AND `PIMPERSONNAME` LIKE ?"; \
+		SQLPARAMS_PUSH(params, "s", std::string, "%" + query->name.getValue("") + "%");\
+	}\
+	if(query->zjhm){ \
+		sql << " AND `ZJHM` LIKE ?"; \
+		SQLPARAMS_PUSH(params, "s", std::string, "%" + query->zjhm.getValue("") + "%");\
+	}\
+	if(query->organization){ \
+		sql << " AND `ORMORGNAME` LIKE ?"; \
+		SQLPARAMS_PUSH(params, "s", std::string, "%" + query->organization.getValue("") + "%");\
+	} \
+	if(query->bm){ \
+		sql << " AND `BM` LIKE ?"; \
+		SQLPARAMS_PUSH(params, "s", std::string, "%" + query->bm.getValue("") + "%");\
+	}\
+	if(query->ygzt){ \
+		sql << " AND `YGZT` LIKE ?"; \
+		SQLPARAMS_PUSH(params, "s", std::string, "%" + query->ygzt.getValue("") + "%");\
+	}\
+	if(query->zgzt){ \
+		sql << " AND `ZGZT` LIKE ?"; \
+		SQLPARAMS_PUSH(params, "s", std::string, "%" + query->zgzt.getValue("") + "%");\
+	}\
+}\
+
 
 uint64_t ProbationaryEmployeeDAO::count(const ProbationaryEmployeeQuery::Wrapper & query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM t_pcmsgqmgr";
+	sql << "SELECT COUNT(*) FROM t_pcmsgqmgr INNER JOIN t_pimperson \
+		ON t_pcmsgqmgr.PIMPERSONID = t_pimperson.PIMPERSONID";
 
 	PROBATIONARY_EMPLOYEE_PARSE(query, sql);
 

@@ -31,17 +31,27 @@
 
 class FormerEmployeesQuery : public PageQuery
 {
-	DTO_INIT(FormerEmployeesQuery, PageQuery);
-	// 编号
-	DTO_FIELD(String, id);
-	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("sample.field.id");
+	DTO_INIT(FormerEmployeesQuery, PageQuery); 
+	// 编号或名称
+	DTO_FIELD(String, id_or_name);
+	DTO_FIELD_INFO(id_or_name) {
+		info->description = ZH_WORDS_GETTER("sample.field.id_or_name");
 	}
-	// 姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("sample.field.name");
-	}
+	//// 编号
+	//DTO_FIELD(String, id);
+	//DTO_FIELD_INFO(id) {
+	//	info->description = ZH_WORDS_GETTER("sample.field.id");
+	//}
+	//// 编号
+	//DTO_FIELD(String, id);
+	//DTO_FIELD_INFO(id) {
+	//	info->description = ZH_WORDS_GETTER("sample.field.id");
+	//}
+	//// 姓名
+	//DTO_FIELD(String, name);
+	//DTO_FIELD_INFO(name) {
+	//	info->description = ZH_WORDS_GETTER("sample.field.name");
+	//}
 	//// 年龄
 	//DTO_FIELD(Int32, age);
 	//DTO_FIELD_INFO(age) {
