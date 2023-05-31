@@ -159,6 +159,36 @@
     <ClInclude Include="domain\vo\employeeInfo\EmployeeInfoVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="service\EmployeeInformation\EmployeeInformationServicer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\org\MemberDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\org\OrgDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\org\OrgSectorDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\EmployeeInformationPageQuery\EmployeeExportQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\org\OrgDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\org\OrgMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\org\OrgSectorDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\org\OrgSectorMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\org\OrgService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -195,6 +225,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="service\jobList\JobListService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\EmployeeInformation\EmployeeInformationServicer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\org\OrgDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\org\OrgSectorDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\org\OrgService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
