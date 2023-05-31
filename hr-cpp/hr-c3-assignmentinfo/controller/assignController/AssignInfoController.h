@@ -38,7 +38,6 @@ namespace multipart = oatpp::web::mime::multipart;
 /*
 	判断string是否为自然数
 */
-bool isNum(string str1);
 
 // 0 定义API控制器使用宏
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen

@@ -21,14 +21,7 @@
 #include "AssignInfoController.h"
 #include "../../service/assignInfo/AssignInfoService.h"
 
-bool isNum(string str1) {
-	for (auto i : str1) {
-		if (i < 48 || i > 57) {
-			return false;
-		}
-	}
-	return true;
-}
+
 StringJsonVO::Wrapper AssignInfoController::execAddAssignInfo(const AssignInfoDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
@@ -41,7 +34,7 @@ StringJsonVO::Wrapper AssignInfoController::execAddAssignInfo(const AssignInfoDT
 		return jvo;
 	}
 	// 有效值校验
-	if (dto->id->empty() && !isNum(dto->id))
+	if (dto->id->empty())
 	{
 		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
@@ -72,12 +65,7 @@ StringJsonVO::Wrapper AssignInfoController::execDeleteAssignInfo(const AssignInf
 		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	// 有效值校验
-	if (!isNum(dto->id))
-	{
-		jvo->init(String(-1), RS_PARAMS_INVALID);
-		return jvo;
-	}
+
 	// 定义一个Service
 	AssignInfoService service;
 	// 执行数据删除
@@ -110,12 +98,7 @@ StringJsonVO::Wrapper AssignInfoController::execModifyAssignInfo(const AssignInf
 		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	// 有效值校验
-	if (!isNum(dto->id))
-	{
-		jvo->init(String(-1), RS_PARAMS_INVALID);
-		return jvo;
-	}
+
 	// 定义一个Service
 	AssignInfoService service;
 	// 执行数据修改
