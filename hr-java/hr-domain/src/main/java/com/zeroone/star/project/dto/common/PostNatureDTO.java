@@ -13,8 +13,8 @@ import lombok.Data;
 @Data
 @ApiModel("岗位性质数据对象")
 public class PostNatureDTO {
-    @ApiModelProperty(value = "岗位标识", example = "1ED4D76B-8470-405C-90CA-147A399B3050")
-    private String ormPostId;
-    @ApiModelProperty(value = "岗位性质", example = "10")
-    private String jobDesc;
+    @ApiModelProperty(value = "岗位性质ID", example = "1")
+    private String id;
+    @ApiModelProperty(value = "岗位性质", example = "标准工时制")
+    private String postNature;
 }
