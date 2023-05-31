@@ -46,28 +46,28 @@ EmployeeInformationPageDTO::Wrapper EmployeeInformationServicer::listAll(const E
 	for (EmployeeInformationPageDO sub : result)
 	{
 		auto dto = EmployeeInformationDTO::createShared();
-		// 姓名
-		dto->name = sub.getName();
-		// 年龄
-		dto->age = sub.getAge();
-		//编号
-		dto->id = sub.getId();
-		//组织
-		dto->organize = sub.getOrganize();
-		//部门
-		dto->depart = sub.getDepart();
-		//职务
-		dto->job = sub.getJob();
-		//岗位
-		dto->post = sub.getPost();
-		//证件号
-		dto->idMum = sub.getIdMum();
-		//出生日期
-		dto->birthday = sub.getBirthday();
-		//手机号码
-		dto->phone = sub.getPhone();
-		//员工状态
-		dto->state = sub.getState();
+		//// 姓名
+		//dto->name = sub.getName();
+		//// 年龄
+		//dto->age = sub.getAge();
+		////编号
+		//dto->id = sub.getId();
+		////组织
+		//dto->organize = sub.getOrganize();
+		////部门
+		//dto->depart = sub.getDepart();
+		////职务
+		//dto->job = sub.getJob();
+		////岗位
+		//dto->post = sub.getPost();
+		////证件号
+		//dto->idMum = sub.getIdMum();
+		////出生日期
+		//dto->birthday = sub.getBirthday();
+		////手机号码
+		//dto->phone = sub.getPhone();
+		////员工状态
+		//dto->state = sub.getState();
 		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, name, Name, age, Age, id, Id, organize, Organize, depart, Depart, job, Job, post, Post, idMum, IdMum, birthday, Birthday, phone, Phone, state, State);
 		pages->addData(dto);
 
@@ -105,7 +105,7 @@ uint64_t EmployeeInformationServicer::saveData(const EmployeeInformationDTO::Wra
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, PersonId, personId, Name, name, Age, age, Id, id, Organize, organize, Depart, depart, Job, job, Post, post, IdMum, idMum, Birthday, birthday, Phone, phone, State, state);
 	
 	// 生成主键
-	SnowFlake sf(1, 3);
+	SnowFlake sf(1, 3);//雪花算法
 	data.setPersonId(to_string(sf.nextId()));
 	
 	// 需要再服务器生成的数据

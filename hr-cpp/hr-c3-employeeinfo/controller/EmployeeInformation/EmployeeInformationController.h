@@ -58,9 +58,11 @@ public: // 定义接口
 		//编号
 		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.field.id");
 		info->queryParams["id"].addExample("default", String("10001"));
+		info->queryParams["id"].required = false;
 		//姓名
 		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("employee.field.name");
 		info->queryParams["name"].addExample("default", String("li ming"));
+		info->queryParams["name"].required = false;
 		//组织
 		info->queryParams.add<String>("organize").description = ZH_WORDS_GETTER("employee.field.organize");
 		info->queryParams["organize"].addExample("default", String("N"));
@@ -83,7 +85,7 @@ public: // 定义接口
 		info->queryParams["idMum"].required = false;
 		//出生日期
 		info->queryParams.add<String>("birthday").description = ZH_WORDS_GETTER("employee.field.birthday");
-		info->queryParams["birthday"].addExample("default", String("20000-00-00"));
+		info->queryParams["birthday"].addExample("default", String("1992-10-18 00:00:00"));
 		info->queryParams["birthday"].required = false;
 		// 年龄
 		info->queryParams.add<UInt32>("age").description = ZH_WORDS_GETTER("employee.field.age");
