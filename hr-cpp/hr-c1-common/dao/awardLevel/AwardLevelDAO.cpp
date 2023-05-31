@@ -23,7 +23,20 @@
 std::list<ArchivesLevelsDO> AwardLevelDAO::selectAll()
 {
 	// ¹¹½¨SQL²éÑ¯Óï¾ä
-	string str = "SELECT `PCMAWARDSWONSID`, `AWARDLEVEL` FROM `t_pcmawardswons`";
+	/*string str = "SELECT `PCMAWARDSWONSID`, `AWARDLEVEL` FROM `t_pcmawardswons`";
 	AwardLevelMapper mapper;
-	return sqlSession->executeQuery<ArchivesLevelsDO, AwardLevelMapper>(str, mapper);
+	return sqlSession->executeQuery<ArchivesLevelsDO, AwardLevelMapper>(str, mapper);*/
+
+	std::list<ArchivesLevelsDO> res;
+	for (auto level : awardLevel)
+	{
+		ArchivesLevelsDO tmp(level.first, level.second);
+		res.push_back(tmp);
+	}
+	return res;
+}
+
+std::unordered_map<std::string, std::string> AwardLevelDAO::getAwardLevel()
+{
+	return awardLevel;
 }

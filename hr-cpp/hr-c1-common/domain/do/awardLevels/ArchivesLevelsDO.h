@@ -34,6 +34,11 @@ public:
 		pcmawardswonsid = "";
 		awardlevel = "";
 	}
+	ArchivesLevelsDO(string code, string val) {
+
+		pcmawardswonsid = code;
+		awardlevel = val;
+	}
 };
 
 #endif // !_ARCHIVESLEVELSDO_H_
