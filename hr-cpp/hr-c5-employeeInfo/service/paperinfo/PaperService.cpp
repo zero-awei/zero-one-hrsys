@@ -45,26 +45,7 @@ bool PaperService::updateData(const PaperDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	t_pimpaperDO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto,
-		GRZLWZZZDPM, grzlwzzzdpm,
-		UPDATEMAN, updateman,
-		PIMPAPERID, pimpaperid,
-		CREATEDATE, createdate,
-		UPDATEDATE, updatedate,
-		CREATEMAN, createman,
-		FBSJ, fbsj,
-		PIMPAPERNAME, pimpapername,
-		CBSHKWMC, cbshkwmc,
-		PIMPERSONID, pimpersonid,
-		FJ, fj,
-		JLSPZT, jlspzt,
-		JLGLBH, jlglbh,
-		JLCZZ, jlczz,
-		JLSS, jlss,
-		CBS, cbs,
-		KWMC, kwmc,
-		KWQS, kwqs,
-		REASON, reason)
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, PIMPAPERNAME, pimpapername, CBS, cbs, KWMC, kwmc, KWQS, kwqs, FBSJ, fbsj, GRZLWZZZDPM, grzlwzzzdpm, FJ, fj, PIMPAPERID, pimpaperid)
 		// 执行数据修改
 		PaperinfoDAO dao;
 	return dao.update(data) == 1;

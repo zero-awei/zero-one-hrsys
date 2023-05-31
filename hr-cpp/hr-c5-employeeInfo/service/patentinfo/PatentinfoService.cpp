@@ -40,22 +40,7 @@ bool PatentinfoService::updateData(const PatentinfoDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	PatentinfoDO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ZLH, zlh,
-										UPDATEDATE, updatedate,
-										PIMPATENTID, pimpatentid,
-										ZLHQSJ, zlhqsj,
-										PIMPATENTNAME, pimpatentname,
-										UPDATEMAN, updateman,
-										CREATEMAN, createman,
-										CREATEDATE, createdate,
-										ZLPZGB, zlpzgb,
-										PIMPERSONID, pimpersonid,
-										JLSS, jlss,
-										JLSPZT, jlspzt,
-										JLGLBH, jlglbh,
-										JLCZZ, jlczz,
-										ENCLOLURE, enclolure,
-										REASON, reason)
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ZLH, zlh, PIMPATENTNAME, pimpatentname, ZLHQSJ, zlhqsj, ZLPZGB, zlpzgb, ENCLOLURE, enclolure, PIMPATENTID, pimpatentid)
 		// 执行数据修改
 		PatentinfoDAO dao;
 	return dao.update(data) == 1;
