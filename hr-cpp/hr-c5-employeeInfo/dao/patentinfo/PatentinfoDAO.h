@@ -14,7 +14,7 @@ public:
 
 
 	// 通过专利信息编码查询数据
-	list<PatentinfoDO> selectByPIMPATENTID(const string& query);
+	list<PatentinfoDO> selectByPIMPATENTID(const string& pimpatent);
 
 	//list<PatentinfoDO> selectByPIMPATENTID(const string& PIMPATENTID);
 

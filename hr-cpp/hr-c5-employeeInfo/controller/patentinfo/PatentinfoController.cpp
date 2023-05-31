@@ -41,13 +41,13 @@ Uint64JsonVO::Wrapper PatentinfoController::execModifyPatentinfo(const Patentinf
 	// 定义一个Service
 	PatentinfoService service;
 	// 执行数据修改
-	/*if (service.updateData(dto)) {
+	if (service.updateData(dto)) {
 		jvo->success({});
 	}
 	else
 	{
 		jvo->fail({});
-	}*/
+	}
 	//jvo->success(dto->pimpatentid);
 	return jvo;
 }
