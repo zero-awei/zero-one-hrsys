@@ -29,8 +29,8 @@ public:
 	uint64_t insert(const LegalEntitySetDO& iObj);
 	// 修改数据
 	int update(const LegalEntitySetDO& uObj);
-	// 法人主体名称下拉列表 `LegalerNamePullDownList`    
-	list<LegalEntitySetDO> selectByName(const string& name);
+	// 法人主体名称下拉列表  
+	list<LegalEntitySetDO> legalerNamePullDownList(const string& name);
 	
 };
 #endif // !_LEGALENTITYSET_DAO_

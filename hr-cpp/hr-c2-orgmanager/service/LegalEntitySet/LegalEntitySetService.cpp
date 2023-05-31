@@ -13,14 +13,15 @@
 新增法人设置（支持批量新增）** `LegalEntitySet`
 */
 
-uint64_t LegalEntitySetService::saveData(const LegalEntitySetDTO::Wrapper& dto)
+uint64_t LegalEntitySetService::insertData(const LegalEntitySetDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	LegalEntitySetDO data;
-	// 	data.setName(dto->name.getValue(""));
-	// 	data.setSex(dto->sex.getValue(""));
-	// 	data.setAge(dto->age.getValue(1));
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGID, ormsignorgid, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME, contractsignorgname)
+	/*data.setORMSIGNORGID(dto->ormsignorgid.getValue(""));
+	data.setORMSIGNORGNAME(dto->ormsignorgname.getValue(""));
+	data.setCONTRACTSIGNORGNAME(dto->contractsignorgname.getValue(""));
+	data.setISDEFAULTSIGNORG(dto->isdefaultsignorg.getValue(1));*/
+		ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGID, ormsignorgid, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME, contractsignorgname)
 		// 执行数据添加
 		LegalEntitySetDAO dao;
 	return dao.insert(data);
@@ -30,10 +31,10 @@ bool LegalEntitySetService::updateData(const LegalEntitySetDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	LegalEntitySetDO data;
-	// 	data.setId(dto->id.getValue(0));
-	// 	data.setName(dto->name.getValue(""));
-	// 	data.setSex(dto->sex.getValue(""));
-	// 	data.setAge(dto->age.getValue(1));
+	/*data.setORMSIGNORGID(dto->ormsignorgid.getValue(""));
+	data.setORMSIGNORGNAME(dto->ormsignorgname.getValue(""));
+	data.setCONTRACTSIGNORGNAME(dto->contractsignorgname.getValue(""));
+	data.setISDEFAULTSIGNORG(dto->isdefaultsignorg.getValue(1));;*/
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGID, ormsignorgid, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME, contractsignorgname)
 		// 执行数据修改
 		LegalEntitySetDAO dao;

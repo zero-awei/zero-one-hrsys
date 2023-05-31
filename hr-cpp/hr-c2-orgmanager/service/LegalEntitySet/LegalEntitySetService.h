@@ -24,7 +24,7 @@ public:
 	// 分页查询所有数据
 	LegalEntitySetPageDTO::Wrapper listAll(const LegalEntitySetQuery::Wrapper& query);
 	// 保存数据
-	uint64_t saveData(const LegalEntitySetDTO::Wrapper& dto);
+	uint64_t insertData(const LegalEntitySetDTO::Wrapper& dto);
 	// 修改数据
 	bool updateData(const LegalEntitySetDTO::Wrapper& dto);
 	// 通过ID删除数据

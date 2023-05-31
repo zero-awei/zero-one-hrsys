@@ -32,5 +32,4 @@ class LegalEntitySetPageJsonVO : public JsonVO<LegalEntitySetPageDTO::Wrapper> {
 };
 
 #include OATPP_CODEGEN_END(DTO)
-
 #endif // !_LEGALENTITYSET_VO_
