@@ -35,6 +35,8 @@
 #include "../../service/employeeInfo/EmployeeInfoService.h"
 #include "../../service/jobList/JobListService.h"
 #include "../../domain/vo/employeeInfo/EmployeeInfoVO.h"
+#include "../../domain/vo/jobList/JobListVO.h"
+
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
 class EmployeeInfoController : public oatpp::web::server::api::ApiController
@@ -48,7 +50,7 @@ public:
 	ENDPOINT_INFO(employeeQuery) {
 		info->summary = ZH_WORDS_GETTER("employee.get.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-		API_DEF_ADD_QUERY_PARAMS(String, "pimpersonid", ZH_WORDS_GETTER("employee.field.pimpersonid"), "ffffff", true);
+		API_DEF_ADD_QUERY_PARAMS(String, "pimpersonid", ZH_WORDS_GETTER("employee.field.pimpersonid"), "0002CC75-F8EB-45B3-A359-0310EC7F6D5B", true);
 		/*API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("employee.field.id"), "666", true);
 		API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("employee.field.name"), u8"徐梓炎", true);
 		API_DEF_ADD_QUERY_PARAMS(String, "idType", ZH_WORDS_GETTER("employee.field.idType"), "10", true);
@@ -79,12 +81,12 @@ public:
 	ENDPOINT_INFO(employeePost) {
 		info->summary = ZH_WORDS_GETTER("employee.post.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-		API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("employee.field.name"), "HHH", true);
-		API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("employee.field.id"), "666", true);
-		API_DEF_ADD_QUERY_PARAMS(String, "idType", ZH_WORDS_GETTER("employee.field.idType"), "10", true);
-		API_DEF_ADD_QUERY_PARAMS(String, "idNum", ZH_WORDS_GETTER("employee.field.idNum"), "666", true);
-		API_DEF_ADD_QUERY_PARAMS(String, "phone", ZH_WORDS_GETTER("employee.field.phone"), "10086", false);
-		API_DEF_ADD_QUERY_PARAMS(String, "state", ZH_WORDS_GETTER("employee.field.state"), "on", false);
+// 		API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("employee.field.name"), "HHH", true);
+// 		API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("employee.field.id"), "666", true);
+// 		API_DEF_ADD_QUERY_PARAMS(String, "idType", ZH_WORDS_GETTER("employee.field.idType"), "10", true);
+// 		API_DEF_ADD_QUERY_PARAMS(String, "idNum", ZH_WORDS_GETTER("employee.field.idNum"), "666", true);
+// 		API_DEF_ADD_QUERY_PARAMS(String, "phone", ZH_WORDS_GETTER("employee.field.phone"), "10086", false);
+// 		API_DEF_ADD_QUERY_PARAMS(String, "state", ZH_WORDS_GETTER("employee.field.state"), "on", false);
 	};
 	API_HANDLER_ENDPOINT(API_M_POST, "/employee-info/employee-post", employeePost, BODY_DTO(EmployeeInfoAddDTO::Wrapper, dto), execEmployeePut(dto));
 	/* *
@@ -95,7 +97,7 @@ public:
 		info->summary = ZH_WORDS_GETTER("employee.put.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		API_DEF_ADD_QUERY_PARAMS(String, "pimpersonid", ZH_WORDS_GETTER("employee.field.pimpersonid"), "ffffff", true);
-		API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("employee.field.id"), "666", true);
+		/*API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("employee.field.id"), "666", true);
 		API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("employee.field.name"), u8"徐梓炎", true);
 		API_DEF_ADD_QUERY_PARAMS(String, "idType", ZH_WORDS_GETTER("employee.field.idType"), "10", true);
 		API_DEF_ADD_QUERY_PARAMS(String, "idNum", ZH_WORDS_GETTER("employee.field.idNum"), "666", true);
@@ -123,7 +125,7 @@ public:
 		API_DEF_ADD_QUERY_PARAMS(String, "workTime", ZH_WORDS_GETTER("employee.field.workTime"), "6666-66-66 66:66:66", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "inTime", ZH_WORDS_GETTER("employee.field.inTime"), "6666-66-66 66:66:66", false);
 		API_DEF_ADD_QUERY_PARAMS(Int32, "blacklist", ZH_WORDS_GETTER("employee.field.blacklist"), 1, false);
-		API_DEF_ADD_QUERY_PARAMS(String, "photo", ZH_WORDS_GETTER("employee.field.photo"), u8"[{\"name\":\"组织管理.png\",\"id\":\"4d3c48ea78cc1d4a04bdb2142f136d28\"}]", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "photo", ZH_WORDS_GETTER("employee.field.photo"), u8"[{\"name\":\"组织管理.png\",\"id\":\"4d3c48ea78cc1d4a04bdb2142f136d28\"}]", false);*/
 	}
 	API_HANDLER_ENDPOINT(API_M_PUT, "/employee-info/employee-put", employeePut,BODY_DTO(EmployeeInfoDTO::Wrapper,dto), execEmployeeModify(dto));
 	/* *
@@ -156,7 +158,7 @@ private: // 定义接口执行函数
 	* 岗位列表查询执行接口
 	* 执行人：Detachment
 	*/
-	StringJsonVO::Wrapper execJobListQuery(const JobListQuery::Wrapper& query);
+	JobListPageJsonVO::Wrapper execJobListQuery(const JobListQuery::Wrapper& query);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

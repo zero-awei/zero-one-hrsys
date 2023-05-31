@@ -63,6 +63,7 @@ employee:
   post: 岗位
   start-time: 任职开始时间
   end-time: 任职结束时间
+  total: 岗位信息总条数
  get:
   summary: 查询指定员工员工信息
   summaryList: 分页查询岗位信息

@@ -17,5 +17,31 @@
  limitations under the License.
 */
 
-#include "JobListService.h"
 #include "stdafx.h"
+#include "JobListService.h"
+#include "../../dao/jobList/JobListDAO.h"
+
+JobListPageQuery::Wrapper JobListService::listAll(const JobListQuery::Wrapper& query)
+{
+	auto pagee = JobListPageQuery::createShared();
+	pagee->pageIndex = query->pageIndex;
+	pagee->pageSize = query->pageSize;
+
+	JobListDAO dao;
+	uint64_t count = dao.count(query);
+	if ( count <= 0 )
+	{
+		return pagee;
+	}
+
+	pagee->total = count;
+	pagee->calcPages();
+	list<JobListDO> res = dao.selectJobList(query);
+	for (JobListDO c : res)
+	{
+		auto dto = JobListQuery::createShared();
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, c, jobName, JobName);
+		pagee->addData(dto);
+	}
+	return pagee;
+}

@@ -19,11 +19,18 @@
 */
 #ifndef _JOBLISTSERVICE_H_
 #define _JOBLISTSERVICE_H_
+#include <list>
+#include "domain/vo/JsonVO.h"
+#include "domain/query/jobList/JobListQuery.h"
 
 class JobListService
 {
 public:
-
+	/* *
+	* 分页查询所有数据
+	* 执行人：Detachment
+	*/
+	JobListPageQuery::Wrapper listAll(const JobListQuery::Wrapper& query);
 };
 
 #endif // !_JOBLISTSERVICE_H_

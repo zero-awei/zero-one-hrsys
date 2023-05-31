@@ -20,11 +20,27 @@
 #include "JobListDAO.h"
 #include "JobListMapper.h"
 
+#define JOB_TERAM_PARSE(query, sql) \
+SqlParams params; \
+sql<<" WHERE 1=1"; \
+if (query->jobName) { \
+	sql << " AND `GW`=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->jobName.getValue("")); \
+}
+uint64_t JobListDAO::count(const JobListQuery::Wrapper& query)
+{
+	stringstream sql;
+	sql << "SELECT COUNT(*) FROM `t_pimperson`";
+	JOB_TERAM_PARSE(query, sql);
+	string sqlStr = sql.str();
+	return sqlSession->executeQueryNumerical(sqlStr, params);
+}
+
 std::list<JobListDO> JobListDAO::selectJobList(const JobListQuery::Wrapper& query)
 {
 	stringstream sql;
 	SqlParams par;
-	sql << "SELECT `` FROM `` ";
+	sql << "SELECT `GW` FROM `t_pimperson` ";
 	sql << " LIMIT " << ((query->pageIndex - 1)*query->pageSize)<<","<<query->pageSize;
 	JobListMapper mapper;
 	string sqlStr = sql.str();
