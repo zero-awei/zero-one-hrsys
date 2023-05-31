@@ -87,4 +87,7 @@
     <ClInclude Include="service\Qualification\QualificationService.h" />
     <ClInclude Include="service\Certificate\CertificateService.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="zh-dict.yaml" />
+  </ItemGroup>
 </Project>
