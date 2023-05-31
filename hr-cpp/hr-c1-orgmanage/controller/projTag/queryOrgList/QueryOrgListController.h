@@ -45,9 +45,9 @@ public: // 定义接口
 		API_DEF_ADD_PAGE_PARAMS();
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		API_DEF_ADD_QUERY_PARAMS(String, "order", ZH_WORDS_GETTER("projTag.orgList.order"), "ASC", false);
-		API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("projTag.orgList.id"), "tag114514", false);
-		API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("projTag.orgList.name"), "test tag", false);
-		API_DEF_ADD_QUERY_PARAMS(String, "shortName", ZH_WORDS_GETTER("projTag.orgList.shortName"), "org114514", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "orgCode", ZH_WORDS_GETTER("projTag.orgList.orgCode"), "tag114514", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "orgName", ZH_WORDS_GETTER("projTag.orgList.orgName"), "test tag", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "shortname", ZH_WORDS_GETTER("projTag.orgList.shortname"), "org114514", false);
 	}
 
 	ENDPOINT(API_M_GET, PATH_TO_PROJTAG("/query-org-page"), queryOrgList, QUERIES(QueryParams,qps)) {

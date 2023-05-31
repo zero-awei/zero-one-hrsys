@@ -31,15 +31,15 @@
 class OrgListDTO : public oatpp::DTO
 {
 	DTO_INIT(OrgListDTO, DTO);
-	// 组织ID
-	DTO_FIELD(String, id);
-	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("projTag.orgList.id");
+	// 区域补贴
+	DTO_FIELD(String, regionSubsidy);
+	DTO_FIELD_INFO(regionSubsidy) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.regionSubsidy");
 	}
-	// 组织名称
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("projTag.orgList.name");
+	// 公司根组织ID
+	DTO_FIELD(String, flag);
+	DTO_FIELD_INFO(flag) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.flag");
 	}
 	// 建立时间
 	DTO_FIELD(String, createTime);
@@ -61,81 +61,124 @@ class OrgListDTO : public oatpp::DTO
 	DTO_FIELD_INFO(updater) {
 		info->description = ZH_WORDS_GETTER("projTag.orgList.updater");
 	}
-	// 组织编码
+	// ERP组织ID
+	DTO_FIELD(String, erpOrgId);
+	DTO_FIELD_INFO(erpOrgId) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.erpOrgId");
+	}
+	// 所属区域
+	DTO_FIELD(String, belongRegion);
+	DTO_FIELD_INFO(belongRegion) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.belongRegion");
+	}
+	// 组织性质
+	DTO_FIELD(String, legalEntity);
+	DTO_FIELD_INFO(legalEntity) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.legalEntity");
+	}
+	// 级别编码
+	DTO_FIELD(String, levelCode);
+	DTO_FIELD_INFO(levelCode) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.levelCode");
+	}
+	// 组织编号
 	DTO_FIELD(String, orgCode);
 	DTO_FIELD_INFO(orgCode) {
 		info->description = ZH_WORDS_GETTER("projTag.orgList.orgCode");
 	}
-	// 组织简称
-	DTO_FIELD(String, shortName);
-	DTO_FIELD_INFO(shortName) {
-		info->description = ZH_WORDS_GETTER("projTag.orgList.shortName");
+	// 组织机构标识
+	DTO_FIELD(String, orgId);
+	DTO_FIELD_INFO(orgId) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.orgId");
 	}
-	// 组织排序编号
-	DTO_FIELD(String, orderId);
-	DTO_FIELD_INFO(orderId) {
-		info->description = ZH_WORDS_GETTER("projTag.orgList.sortId");
+	// 组织机构名称
+	DTO_FIELD(String, orgName);
+	DTO_FIELD_INFO(orgName) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.orgName");
+	}
+	// 组织机构
+	DTO_FIELD(String, porgId);
+	DTO_FIELD_INFO(porgId) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.porgId");
+	}
+	// 简称
+	DTO_FIELD(String, shortname);
+	DTO_FIELD_INFO(shortname) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.shortname");
+	}
+	// 所属OU
+	DTO_FIELD(String, belongou);
+	DTO_FIELD_INFO(belongou) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.belongou");
+	}
+	// 启停标识
+	DTO_FIELD(String, sign);
+	DTO_FIELD_INFO(sign) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.sign");
+	}
+	// 组织地址编码
+	DTO_FIELD(String, orgAddrCode);
+	DTO_FIELD_INFO(orgAddrCode) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.orgAddrCode");
+	}
+	// 组织地址1
+	DTO_FIELD(String, orgAddrOne);
+	DTO_FIELD_INFO(orgAddrOne) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.orgAddr1");
+	}
+	// 组织地址2
+	DTO_FIELD(String, orgAddrTwo);
+	DTO_FIELD_INFO(orgAddrTwo) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.orgAddr2");
+	}
+	// 组织创建时间
+	DTO_FIELD(String, orgCreateTime);
+	DTO_FIELD_INFO(orgCreateTime) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.orgCreateTime");
+	}
+	// 组织显示名称
+	DTO_FIELD(String, name);
+	DTO_FIELD_INFO(name) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.name");
 	}
 	// 组织类型
 	DTO_FIELD(String, orgType);
 	DTO_FIELD_INFO(orgType) {
 		info->description = ZH_WORDS_GETTER("projTag.orgList.orgType");
 	}
-	// 组织类型释义
-	DTO_FIELD(String, typeName);
-	DTO_FIELD_INFO(typeName) {
-		info->description = ZH_WORDS_GETTER("projTag.orgList.typeName");
-	}
-	// 组织所属OU的组织ID
-	DTO_FIELD(String, ouid);
-	DTO_FIELD_INFO(ouid) {
-		info->description = ZH_WORDS_GETTER("projTag.orgList.ouid");
-	}
-	// 所属区域
-	DTO_FIELD(String, region);
-	DTO_FIELD_INFO(region) {
-		info->description = ZH_WORDS_GETTER("projTag.orgList.region");
-	}
-	// 补贴标准
-	DTO_FIELD(String, standard);
-	DTO_FIELD_INFO(standard) {
-		info->description = ZH_WORDS_GETTER("projTag.orgList.standard");
-	}
-	// 上级组织ID
-	DTO_FIELD(String, upOrgId);
-	DTO_FIELD_INFO(upOrgId) {
-		info->description = ZH_WORDS_GETTER("projTag.orgList.upOrgId");
-	}
-	// 岗位
-	DTO_FIELD(String, job);
-	DTO_FIELD_INFO(job) {
-		info->description = ZH_WORDS_GETTER("projTag.orgList.job");
-	}
-	// 上级部门ID
-	DTO_FIELD(String, upDepartId);
-	DTO_FIELD_INFO(upDepartId) {
-		info->description = ZH_WORDS_GETTER("projTag.orgList.upDepartId");
+	// 对应OU
+	DTO_FIELD(String, correspondou);
+	DTO_FIELD_INFO(correspondou) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.correspondou");
 	}
 
 public:
 	OrgListDTO()
 	{
-		id = "123";
-		name = "test";
+		regionSubsidy = "";
+		flag = "";
+		correspondou = "";
 		createby = "admin";
 		updater = "admin";
 		createTime = "2000-01-01 00:00:00";
 		updateTime = "2000-01-01 00:00:00";
-		orgCode = "org123";
-		orderId = "10";
+		erpOrgId = "";
+		belongRegion = "";
+		legalEntity = "";
+		levelCode = "";
+		orgCode = "";
+		orgId = "";
+		orgName = "";
+		porgId = "";
+		shortname = "";
+		belongou = "";
+		sign = "";
+		orgAddrCode = "";
+		orgAddrOne = "";
+		orgAddrTwo = "";
+		orgCreateTime = "";
+		name = "";
 		orgType = "";
-		typeName = "";
-		ouid = "";
-		region = "";
-		standard = "";
-		upOrgId = "";
-		upDepartId = "";
-		job = "";
 	}
 };
 

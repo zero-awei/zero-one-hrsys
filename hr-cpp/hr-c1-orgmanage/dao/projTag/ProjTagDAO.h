@@ -21,6 +21,8 @@
 #define _PROJTAGDAO_H_
 #include "BaseDAO.h"
 #include "domain/do/projTag/ProjTagDO.h"
+#include "domain/do/projTag/OrgListDO.h"
+#include "domain/query/projTag/OrgListQuery.h"
 
 /**
  * 项目标签DAO实现
@@ -35,9 +37,22 @@ public:
 	uint64_t insert(const ProjTagDO& iObj);
 	/**
 	 * 项目标签 - 分页查询组织列表DAO实现
+	 * 功能：查询组织列表，进行数据分页
 	 * 负责人：Andrew
 	 */
-	//std::list<OrgListDO::Wrapper> insert(const ProjTagDO& iObj);
+	std::list<OrgListDO> selectOrgList(const OrgListQuery::Wrapper& query);
+	/**
+	 * 项目标签 - 分页查询组织列表DAO实现
+	 * 功能：数据条数计数
+	 * 负责人：Andrew
+	 */
+	uint64_t count(const OrgListQuery::Wrapper& query);
+	/**
+	 * 项目标签 - 修改项目标签DAO实现
+	 * 功能：更新指定项目标签唯一标识更新项目标签数据
+	 * 负责人：Andrew
+	 */
+	bool updateProjTag(const ProjTagDO& data);
 };
 
 #endif // !_PROJTAGDAO_H_

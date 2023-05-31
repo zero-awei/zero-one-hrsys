@@ -26,9 +26,15 @@
     <ClCompile Include="service\jobSet\postQueryService\PostQueryService.cpp" />
     <ClCompile Include="dao\jobSet\postQueryDAO\PostQueryDAO.cpp" />
     <ClCompile Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="dao\jobSet\jobUpdateDAO\JobUpdteDAO.cpp" />
     <ClCompile Include="dao\jobSet\jobExportDAO\JobExportDAO.cpp" />
     <ClCompile Include="service\jobSet\jobUpdateService\JobUpdateService.cpp" />
+=======
+    <ClCompile Include="service\jobSet\JobSetService.cpp" />
+    <ClCompile Include="dao\jobSet\JobSetDAO.cpp" />
+    <ClCompile Include="controller\jobSet\addJobController\AddJobController.cpp" />
+>>>>>>> remotes/origin/c1
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -36,7 +42,6 @@
     <ClInclude Include="controller\jobSet\postDeleteController\PostDeleteController.h" />
     <ClInclude Include="controller\jobSet\postQueryController\PostQueryController.h" />
     <ClInclude Include="controller\jobSet\importJobController\ImportJobController.h" />
-    <ClInclude Include="controller\jobSet\JobController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\projTag\exportProjTagController\ExportProjTagController.h" />
     <ClInclude Include="controller\projTag\modifyProjTagController\ModifyProjTagController.h" />
@@ -73,8 +78,12 @@
     <ClInclude Include="domain\vo\jobUpdate\JobUpdateVO.h" />
     <ClInclude Include="domain\vo\jobDownload\JobDownloadVO.h" />
     <ClInclude Include="domain\dto\jobDownload\JobDownloadDTO.h" />
+<<<<<<< HEAD
     <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
     <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
+=======
+    <ClInclude Include="domain\dto\jobUpdate\JobUpdateDTO.h" />
+>>>>>>> remotes/origin/c1
     <ClInclude Include="service\projTag\ProjTagService.h" />
     <ClInclude Include="dao\projTag\ProjTagDAO.h" />
     <ClInclude Include="controller\orgbz\PageQueryBzController.h" />
@@ -90,10 +99,21 @@
     <ClInclude Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.h" />
     <ClInclude Include="domain\do\postSet\PostDetailDO.h" />
     <ClInclude Include="domain\vo\postSet\PostDeleteBatchVO.h" />
+<<<<<<< HEAD
     <ClInclude Include="dao\jobSet\jobUpdateDAO\JobUpdteDAO.h" />
     <ClInclude Include="dao\jobSet\jobExportDAO\JobExportDAO.h" />
     <ClInclude Include="dao\jobSet\jobExportDAO\JobExportMapper.h" />
     <ClInclude Include="service\jobSet\jobUpdateService\JobUpdateService.h" />
     <ClInclude Include="domain\dto\jobSet\jobUpdateDto\JobUpdateDTO.h" />
+=======
+    <ClInclude Include="domain\do\projTag\OrgListDO.h" />
+    <ClInclude Include="dao\projTag\OrgListMapper.h" />
+    <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
+    <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
+    <ClInclude Include="service\jobSet\JobSetService.h" />
+    <ClInclude Include="dao\jobSet\JobSetDAO.h" />
+    <ClInclude Include="controller\jobSet\addJobController\AddJobController.h" />
+    <ClInclude Include="domain\dto\addJob\AddJobDTO.h" />
+>>>>>>> remotes/origin/c1
   </ItemGroup>
 </Project>

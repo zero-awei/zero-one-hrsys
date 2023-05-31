@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: yuanchen
- @Date: 2023/05/23 21:46:57
+ @Author: Andrew211vibe
+ @Date: 2023/05/27 8:24:55
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,20 +17,28 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _TYPECONTRACTDO_H_
-#define _TYPECONTRACTDO_H_
+#ifndef _JOBSETDAO_H_
+#define _JOBSETDAO_H_
 
-#include "../DoInclude.h"
+#include "BaseDAO.h"
+#include "domain/do/postSet/PostDetailDO.h"
+
 /**
- * 合同类型下拉列表
- * 负责人：yuanchen
+ * 岗位设置DAO数据持久化层
  */
-class TypeContractDO
+class JobSetDAO : public BaseDAO
 {
-	// 合同类型名称
-	CC_SYNTHESIZE(string, typeContract, TypeContract);
-	// 合同类型代码
-	CC_SYNTHESIZE(string, typeCode, TypeCode);
+public:
+	/**
+	 * 导入岗位设置（批量新增岗位设置）
+	 * 负责人：Andrew
+	 */
+	std::list<std::string> insertMultiJob(const std::list<PostDetailDO> &data);
+	/**
+	 * 新增岗位设置
+	 * 负责人：Andrew
+	 */
+	bool insertJob(const PostDetailDO& data);
 };
 
-#endif // !_TYPECONTRACTDO_H_
+#endif // !_JOBSETDAO_H_

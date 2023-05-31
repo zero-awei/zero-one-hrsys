@@ -10,7 +10,7 @@ Uint64JsonVO::Wrapper AddTagController::execAddProjTag(const ProjTagDTO::Wrapper
 	// 校验dto数据
 	// 参数校验
 	// 检验项目标签标识是否为空
-	if (!dto->ormorgid || !dto->ormorgid)
+	if (!dto->ormorgid || !dto->ormxmbqid)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;

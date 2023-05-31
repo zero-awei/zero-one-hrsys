@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: Andrew211vibe
- @Date: 2023/05/17 22:56:57
+ @Date: 2023/05/27 7:25:35
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,20 +17,29 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _PULLLISTVO_H_
-#define _PULLLISTVO_H_
+#ifndef _JOBSETSERVICE_H_
+#define _JOBSETSERVICE_H_
 
-#include "../../GlobalInclude.h"
-#include "../../dto/pullList/PullListDTO.h"
+#include "domain/vo/jobSet/ImportJobVO.h"
+#include "domain/dto/jobSet/ImportJobDTO.h"
+#include "domain/dto/addJob/AddJobDTO.h"
 
-#include OATPP_CODEGEN_BEGIN(DTO)
-
-class PullListVO : public JsonVO<PullListDTO::Wrapper>
+/**
+ * 项目标签service层实现
+ */
+class JobSetService
 {
-	DTO_INIT(PullListVO, JsonVO<PullListDTO::Wrapper>);
+public:
+	/**
+	 * 导入项目标签（批量新增）
+	 * 负责人：Andrew
+	 */
+	ImportJobVO::Wrapper addMultiJob(const ImportJobDTO::Wrapper &dto, const PayloadDTO &payload);
+	/**
+	 * 新增项目标签
+	 * 负责人：Andrew
+	 */
+	std::string saveJob(const AddJobDTO::Wrapper& dto, const PayloadDTO& payload);
 };
 
-
-#include OATPP_CODEGEN_END(DTO)
-
-#endif // !_PULLLISTVO_H_
+#endif // !_JOBSETSERVICE_H_

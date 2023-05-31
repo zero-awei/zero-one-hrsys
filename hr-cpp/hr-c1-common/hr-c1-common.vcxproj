@@ -189,6 +189,8 @@
     <ClInclude Include="dao\dismissReason\DismissReasonMapper.h" />
     <ClInclude Include="dao\leaveReason\LeaveReasonDAO.h" />
     <ClInclude Include="dao\leaveReason\LeaveReasonMapper.h" />
+    <ClInclude Include="dao\typeContract\TypeContractDAO.h" />
+    <ClInclude Include="dao\typeContract\TypeContractMapper.h" />
     <ClInclude Include="domain\do\archivesLevel\ArchivesLevelDO.h" />
     <ClInclude Include="domain\do\armyLevelType\ArmyLevelTypeDO.h" />
     <ClInclude Include="domain\do\certs\CertTypeDO.h" />
@@ -198,6 +200,8 @@
     <ClInclude Include="domain\do\declareType\DeclareTypeDO.h" />
     <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\fileReservation\FileReservationDO.h" />
+    <ClInclude Include="domain\do\fileStatus\FileStatusDO.h" />
     <ClInclude Include="domain\do\jobLevelTypeList\JobLevelTypeDO.h" />
     <ClInclude Include="domain\do\pimArchives\PimArchivesDO.h" />
     <ClInclude Include="domain\do\pimType\PimTypeDO.h" />
@@ -225,6 +229,7 @@
     <ClInclude Include="service\declareType\DeclareTypeService.h" />
     <ClInclude Include="service\dismissReason\DismissReasonService.h" />
     <ClInclude Include="service\leaveReason\LeaveReasonService.h" />
+    <ClInclude Include="service\typeContractList\TypeContractService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="uselib\pullListRedis\UseLibRedis.h" />
   </ItemGroup>
@@ -254,11 +259,16 @@
     <ClCompile Include="dao\DeclareType\DeclareTypeListDAO.cpp" />
     <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
     <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="service\declareType\DeclareTypeService.cpp" />
+=======
+    <ClCompile Include="dao\typeContract\TypeContractDAO.cpp" />
+>>>>>>> remotes/origin/c1
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\armyLevelType\ArmyLevelTypeService.cpp" />
     <ClCompile Include="service\dismissReason\DismissReasonService.cpp" />
     <ClCompile Include="service\leaveReason\LeaveReasonService.cpp" />
+    <ClCompile Include="service\typeContractList\TypeContractService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

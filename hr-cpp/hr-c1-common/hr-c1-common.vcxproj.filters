@@ -23,6 +23,7 @@
     <ClCompile Include="controller\typeContract\TypeContractListController.cpp" />
     <ClCompile Include="dao\armyLevelType\ArmyLevelTypeDAO.cpp" />
     <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\armyLevelType\ArmyLevelTypeService.cpp" />
@@ -33,6 +34,11 @@
     <ClCompile Include="dao\archivesLevel\ArchivesLevelsDAO.cpp" />
     <ClCompile Include="dao\DeclareType\DeclareTypeListDAO.cpp" />
     <ClCompile Include="service\declareType\DeclareTypeService.cpp" />
+=======
+    <ClCompile Include="controller\contractStatus\ContractStatusController.cpp" />
+    <ClCompile Include="service\typeContractList\TypeContractService.cpp" />
+    <ClCompile Include="dao\typeContract\TypeContractDAO.cpp" />
+>>>>>>> remotes/origin/c1
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\archivesLevel\ArchivesLevelsController.h" />
@@ -95,6 +101,7 @@
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\armyLevelType\ArmyLevelTypeService.h" />
     <ClInclude Include="service\dismissReason\DismissReasonService.h" />
+<<<<<<< HEAD
     <ClInclude Include="service\leaveReason\LeaveReasonService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="uselib\pullListRedis\UseLibRedis.h" />
@@ -103,5 +110,40 @@
     <ClInclude Include="dao\DeclareType\DeclareTypeMapper.h" />
     <ClInclude Include="dao\archivesLevel\ArchivesLevelMapper.h" />
     <ClInclude Include="service\declareType\DeclareTypeService.h" />
+=======
+    <ClInclude Include="controller\evaluationTypesController.h\EvaluationTypesController.h" />
+    <ClInclude Include="dao\leaveReason\LeaveReasonDAO.h" />
+    <ClInclude Include="dao\leaveReason\LeaveReasonMapper.h" />
+    <ClInclude Include="dao\dismissReason\DismissReasonDAO.h" />
+    <ClInclude Include="dao\dismissReason\DismissReasonMapper.h" />
+    <ClInclude Include="domain\do\declareType\DeclareTypeDO.h" />
+    <ClInclude Include="domain\do\archivesLevel\ArchivesLevelDO.h" />
+    <ClInclude Include="domain\do\certs\CertTypeDO.h" />
+    <ClInclude Include="domain\do\pimType\PimTypeDO.h" />
+    <ClInclude Include="domain\do\pimArchives\PimArchivesDO.h" />
+    <ClInclude Include="controller\contractStatus\ContractStatusController.h" />
+    <ClInclude Include="domain\do\armyLevelType\ArmyLevelTypeDO.h" />
+    <ClInclude Include="domain\do\contractType\ContractTypeDO.h" />
+    <ClInclude Include="dao\armyLevelType\ArmyLevelMapper.h" />
+    <ClInclude Include="domain\do\fileStatus\FileStatusDO.h" />
+    <ClInclude Include="domain\do\fileReservation\FileReservationDO.h" />
+    <ClInclude Include="service\typeContractList\TypeContractService.h" />
+    <ClInclude Include="dao\typeContract\TypeContractDAO.h" />
+    <ClInclude Include="dao\typeContract\TypeContractMapper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\Router.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\SystemInterceptor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+>>>>>>> remotes/origin/c1
   </ItemGroup>
 </Project>

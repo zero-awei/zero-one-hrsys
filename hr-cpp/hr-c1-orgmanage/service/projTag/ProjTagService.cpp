@@ -20,6 +20,7 @@
 #include "ProjTagService.h"
 #include "domain/do/projTag/ProjTagDO.h"
 #include "dao/projTag/ProjTagDAO.h"
+#include "SimpleDateTimeFormat.h"
 
 uint64_t ProjTagService::saveData(const ProjTagDTO::Wrapper& dto)
 {
@@ -49,6 +50,35 @@ OrgListPageDTO::Wrapper ProjTagService::listOrgList(const OrgListQuery::Wrapper&
 	dto->pageSize = query->pageSize;
 
 	// 获取查询总条数
+	ProjTagDAO dao;
+	uint64_t cnt = dao.count(query);
+	if (cnt <= 0)
+	{
+		return dto;
+	}
 
+	// 分页查询数据
+	dto->total = cnt;
+	dto->calcPages();
+	list<OrgListDO> res = dao.selectOrgList(query);
+	// 将DO转成DTO
+	for (OrgListDO item : res)
+	{
+		auto to_dto = OrgListDTO::createShared();
+		ZO_STAR_DOMAIN_DO_TO_DTO(to_dto, item, regionSubsidy, RegionSubsidy, flag, Flag, createby, CreateTime, updater, Updater, updateTime, UpdateTime, erpOrgId, ErpOrgId, belongRegion, BelongRegion, legalEntity, LegalEntity, levelCode, LevelCode, orgCode, OrgCode, orgId, OrgId, orgName, OrgName, porgId, PorgId, shortname, Shortname, belongou, Belongou, sign, Sign, orgAddrCode, OrgAddrCode, orgAddrOne, OrgAddrOne, orgAddrTwo, OrgAddrTwo, orgCreateTime, OrgCreateTime, name, Name, orgType, OrgType, correspondou, Correspondou);
+		dto->addData(to_dto);
+	}
 	return dto;
+}
+
+bool ProjTagService::updateProjTag(const ModifyTagDTO::Wrapper& dto, const PayloadDTO& payload)
+{
+	// 组装DO对象
+	ProjTagDO data;
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Id, id, OrgId, orgId, TagName, tagName);
+	data.setUpdater(payload.getUsername());
+	data.setUpdateTime(SimpleDateTimeFormat::format());
+	// TODO: 调用dao操作数据库
+	ProjTagDAO dao;
+	return dao.updateProjTag(data);
 }
