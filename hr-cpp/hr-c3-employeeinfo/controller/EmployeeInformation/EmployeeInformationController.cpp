@@ -22,13 +22,13 @@ Uint64JsonVO::Wrapper EmployeeInformationController::execImportEmployeeInfo(cons
 	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
 	// 非空校验
-	if (!importInfo->id || !importInfo->name)
+	if (!importInfo->name || !importInfo->age)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 	// 有效值校验
-	if (importInfo->id->empty() || importInfo->name->empty() || importInfo->age < 0)
+	if (importInfo->name->empty() || importInfo->age < 0)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
@@ -38,7 +38,7 @@ Uint64JsonVO::Wrapper EmployeeInformationController::execImportEmployeeInfo(cons
 	EmployeeInformationServicer service;
 	// 执行数据新增
 	uint64_t id = service.saveData(importInfo);
-	if (id > 0) {
+	if (id >= 0) {
 		jvo->success(UInt64(id));
 	}
 	else
