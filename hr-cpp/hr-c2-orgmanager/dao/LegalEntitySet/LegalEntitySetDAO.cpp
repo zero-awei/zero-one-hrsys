@@ -40,12 +40,12 @@ std::list<LegalEntitySetDO> LegalEntitySetDAO::legalerNamePullDownList(const str
 
 uint64_t LegalEntitySetDAO::insert(const LegalEntitySetDO& iObj)
 {
-	string sql = "INSERT INTO `t_contractsignorg` (`ORMSIGNORGID`, /*`ORMSIGNORGNAME`,*/ `CONTRACTSIGNORGNAME`, `ISDEFAULTSIGNORG`) VALUES (?, £¿, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%i",iObj.getORMSIGNORGID(), /*iObj.getORMSIGNORGNAME(),*/ iObj.getCONTRACTSIGNORGNAME(), iObj.getISDEFAULTSIGNORG());
+	string sql = "INSERT INTO `t_contractsignorg` (`ORMSIGNORGID`, `ORMSIGNORGNAME`, `CONTRACTSIGNORGNAME`, `ISDEFAULTSIGNORG`) VALUES (?, ?, ?, ?)";
+	return sqlSession->executeInsert(sql, "%s%s%s%i",iObj.getORMSIGNORGID(), iObj.getORMSIGNORGNAME(), iObj.getCONTRACTSIGNORGNAME(), iObj.getISDEFAULTSIGNORG());
 }
 
 int LegalEntitySetDAO::update(const LegalEntitySetDO& uObj)
 {
-	string sql = "UPDATE `t_contractsignorg` SET `ORMSIGNORGNAME`=?, `CONTRACTSIGNORGNAME`=?, `ISDEFAULTSIGNORG`=? WHERE `id`=?";
+	string sql = "UPDATE `t_contractsignorg` SET `ORMSIGNORGNAME`=?, `CONTRACTSIGNORGNAME`=?, `ISDEFAULTSIGNORG`=? WHERE `getORMSIGNORGID`=?";
 	return sqlSession->executeUpdate(sql, "%s%s%i%s", uObj.getORMSIGNORGNAME(), uObj.getCONTRACTSIGNORGNAME(), uObj.getISDEFAULTSIGNORG(), uObj.getORMSIGNORGID());
 }

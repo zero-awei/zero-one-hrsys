@@ -30,7 +30,11 @@ class LegalEntitySetDO {
 	CC_SYNTHESIZE(int, isdefaultsignorg, ISDEFAULTSIGNORG);
 	LegalEntitySetDO() {
 	}
-	LegalEntitySetDO(string ormsignorgname, string contractsignorgname, int isdefaultsignorg) {
+	LegalEntitySetDO(string ormsignorgname, int isdefaultsignorg) {
+		this-> contractsignorgname= contractsignorgname;
+		this-> isdefaultsignorg = isdefaultsignorg;
+	}
+	LegalEntitySetDO(string ormsignorgid, string ormsignorgname, string contractsignorgname, int isdefaultsignorg) {
 		this->ormsignorgid = ormsignorgid;
 		this->ormsignorgname = ormsignorgname;
 		this->contractsignorgname = contractsignorgname;
