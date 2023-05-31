@@ -44,7 +44,8 @@ std::vector<std::string> JobTitleInfoDAO::getHead()
 
 	string sql = "SELECT COLUMN_NAME	\
 		FROM INFORMATION_SCHEMA.COLUMNS	\
-		WHERE TABLE_NAME = 'bis_professoranalysis_t'";
+		WHERE TABLE_NAME = 'bis_professoranalysis_t' \
+		ORDER BY ORDINAL_POSITION";
 	
 	Statement* st = sqlSession->getConnection()->createStatement();
 	ResultSet* res;
