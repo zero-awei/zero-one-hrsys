@@ -180,7 +180,7 @@
     <ClInclude Include="controller\archive\ArchiveController.h" />
     <ClInclude Include="controller\Certificate\CertificateController.h" />
     <ClInclude Include="controller\ContractCategory\ContractCategoryController.h" />
-    <ClInclude Include="controller\contract\ContractController.h" />
+    <ClInclude Include="controller\contractType\ContractTypeController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Qualification\QualificationController.h" />
     <ClInclude Include="controller\Router.h" />
@@ -242,7 +242,7 @@
     <ClCompile Include="controller\archive\ArchiveController.cpp" />
     <ClCompile Include="controller\Certificate\CertificateController.cpp" />
     <ClCompile Include="controller\ContractCategory\ContractCategoryController.cpp" />
-    <ClCompile Include="controller\contract\ContractController.cpp" />
+    <ClCompile Include="controller\contractType\ContractTypeController.cpp" />
     <ClCompile Include="controller\Qualification\QualificationController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />

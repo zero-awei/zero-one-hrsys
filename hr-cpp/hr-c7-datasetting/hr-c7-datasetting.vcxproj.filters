@@ -17,13 +17,13 @@
     <ClCompile Include="dao\Title\TitleDAO.cpp" />
     <ClCompile Include="service\ContractCategory\ContractCategoryService.cpp" />
     <ClCompile Include="dao\contractcategory\ContractCategoryDAO.cpp" />
-    <ClCompile Include="controller\contract\ContractController.cpp" />
     <ClCompile Include="dao\contractType\ContractTypeDAO.cpp" />
     <ClCompile Include="service\contractType\ContractTypeService.cpp" />
     <ClCompile Include="dao\Certificate\CertificateDAO.cpp" />
     <ClCompile Include="dao\Qualification\QualificationDAO.cpp" />
     <ClCompile Include="service\Qualification\QualificationService.cpp" />
     <ClCompile Include="service\Certificate\CertificateService.cpp" />
+    <ClCompile Include="controller\contractType\ContractTypeController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\OtherComponent.hpp" />
@@ -72,7 +72,6 @@
     <ClInclude Include="service\ContractCategory\ContractCategoryService.h" />
     <ClInclude Include="dao\contractcategory\ContractCategoryDAO.h" />
     <ClInclude Include="dao\contractcategory\ContractCategoryMapper.h" />
-    <ClInclude Include="controller\contract\ContractController.h" />
     <ClInclude Include="dao\contractType\ContractTypeDAO.h" />
     <ClInclude Include="dao\contractType\ContractTypeMapper.h" />
     <ClInclude Include="domain\do\ContractType\ContractTypeDO.h" />
@@ -86,6 +85,7 @@
     <ClInclude Include="dao\Qualification\QualificationMapper.h" />
     <ClInclude Include="service\Qualification\QualificationService.h" />
     <ClInclude Include="service\Certificate\CertificateService.h" />
+    <ClInclude Include="controller\contractType\ContractTypeController.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="zh-dict.yaml" />
