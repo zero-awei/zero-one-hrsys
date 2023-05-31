@@ -11,11 +11,11 @@
 SqlParams params; \
 sql<<" WHERE 1=1"; \
 if(query->id){ \
-	sql << " AND `YGBH`=?"; \
+	sql << " AND `YGBH`LIKE CONCAT('%',?,'%')"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
 } \
 if (query->name) { \
-	sql << " AND `PIMPERSONNAME`=?"; \
+	sql << " AND `PIMPERSONNAME` LIKE CONCAT('%',?,'%')"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); \
 } 
 
@@ -34,7 +34,7 @@ uint64_t TemporaryStaffDAO::count(const TempStaffQuery::Wrapper& query)
 list<TemporaryStaffDO> TemporaryStaffDAO::selectWithPage(const TempStaffQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT YGBH,PIMPERSONNAME,YGZT,GZZT,GZZZ,GZBM,GZKSSJ,GZJSSJ FROM t_pimperson";
+	sql << "SELECT YGBH,PIMPERSONNAME,YGZT,GZZT,GZZZ,GZBM,GZKSSJ,GZJSSJ,PIMPERSONID FROM t_pimperson";
 	TEMPSTAFF_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	TempStaffMapper mapper;

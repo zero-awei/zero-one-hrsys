@@ -11,7 +11,7 @@
 SqlParams params; \
 sql<<" WHERE 1=1"; \
 if (query->name) { \
-	sql << " AND `PIMPERSONNAME`=?"; \
+	sql << " AND `PIMPERSONNAME` LIKE CONCAT('%',?,'%')"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); \
 } 
 
@@ -28,7 +28,7 @@ uint64_t EmployeeInfoDAO::count(const EmployeeInfoQuery::Wrapper& query)
 list<EmployeeInfoDO> EmployeeInfoDAO::selectWithPage(const EmployeeInfoQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT PIMPERSONNAME FROM t_pimperson";
+	sql << "SELECT PIMPERSONNAME,PIMPERSONID FROM t_pimperson";
 	EMPINFO_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	EmployeeInfoMapper mapper;
@@ -38,7 +38,7 @@ list<EmployeeInfoDO> EmployeeInfoDAO::selectWithPage(const EmployeeInfoQuery::Wr
 
 list<EmployeeInfoDO> EmployeeInfoDAO::selectByName(const string& name)
 {
-	string sql = "SELECT PIMPERSONNAME FROM t_pimperson WHERE `PIMPERSONNAME` LIKE CONCAT('%',?,'%')";
+	string sql = "SELECT PIMPERSONNAME,YGBH FROM t_pimperson WHERE `PIMPERSONNAME` LIKE CONCAT('%',?,'%')";
 	EmployeeInfoMapper mapper;
 	return sqlSession->executeQuery<EmployeeInfoDO, EmployeeInfoMapper>(sql, mapper, "%s", name);
 }

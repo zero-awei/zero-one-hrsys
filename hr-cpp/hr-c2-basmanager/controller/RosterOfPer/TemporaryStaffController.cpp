@@ -18,6 +18,14 @@ TemporaryStaffPageJsonVO::Wrapper TempStaffController::execQueryTempstaff(const 
 
 StringJsonVO::Wrapper TempStaffController::execExportTempstaff(const TempStaffQuery::Wrapper& query, const PayloadDTO& payload)
 {
-	return StringJsonVO::Wrapper();
+	auto jvo = StringJsonVO::createShared();
+	TemporaryStaffService service;
+	std::string fileName = service.exportData(query);
+	if (fileName.empty()) {
+		jvo->fail("µ¼³öÊ§°Ü");
+	}
+	else jvo->success(fileName);
+
+	return jvo;
 }
 

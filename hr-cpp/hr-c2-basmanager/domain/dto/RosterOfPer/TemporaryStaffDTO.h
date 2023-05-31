@@ -51,6 +51,11 @@ public:
 	DTO_FIELD_INFO(tempEndTime) {
 		info->description = ZH_WORDS_GETTER("TempStaff.field.tempEndTime");
 	}
+	//挂职人员唯一标识
+	DTO_FIELD(String, pimpersonId);
+	DTO_FIELD_INFO(pimpersonId) {
+		info->description = ZH_WORDS_GETTER("TempStaff.field.pimpersonId");
+	}
 };
 
 /**

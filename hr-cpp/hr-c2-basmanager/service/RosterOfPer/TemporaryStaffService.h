@@ -11,7 +11,10 @@
 
 class TemporaryStaffService {
 public:
+	//查询分页数据
 	TemporaryStaffPageDTO::Wrapper listAll(const TempStaffQuery::Wrapper& query);
+	//导出功能，返回fastdfs路径
+	std::string exportData(const TempStaffQuery::Wrapper& query);
 };
 #endif // !_TEMPORARYSTAFF_SERVICE_
 

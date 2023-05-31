@@ -23,6 +23,8 @@ class TemporaryStaffDO {
 	CC_SYNTHESIZE(string, gzkssj, gzkssj);
 	//挂职结束时间
 	CC_SYNTHESIZE(string, gzjssj, gzjssj);
+	//人员信息唯一标识
+	CC_SYNTHESIZE(string, pimpersonId, pimpersonId);
 public:
 	TemporaryStaffDO() {
 		ygbh = "0";
@@ -33,6 +35,7 @@ public:
 		gzbm = "";
 		gzkssj = "";
 		gzjssj = "";
+		pimpersonId = "";
 	}
 };
 #endif // !_TEMPORARYSTAFF_DO_
