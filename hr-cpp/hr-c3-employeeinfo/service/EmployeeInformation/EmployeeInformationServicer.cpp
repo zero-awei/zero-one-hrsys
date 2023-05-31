@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "EmployeeInformationServicer.h"
 #include "dao/EmployeeInformation/EmployeeInformationDAO.h"
+#include "SnowFlake.h"
 
 // 分页查询所有数据
 EmployeeInformationPageDTO::Wrapper EmployeeInformationServicer::listAll(const EmployeeInformationPageQuery::Wrapper& query)
@@ -101,14 +102,16 @@ uint64_t EmployeeInformationServicer::saveData(const EmployeeInformationDTO::Wra
 	////员工状态
 	//data.setState(dto->state.getValue(""));
 
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Name, name, Age, age, Id, id, Organize, organize, Depart, depart, Job, job, Post, post, IdMum, idMum, Birthday, birthday, Phone, phone, State, state);
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, PersonId, personId, Name, name, Age, age, Id, id, Organize, organize, Depart, depart, Job, job, Post, post, IdMum, idMum, Birthday, birthday, Phone, phone, State, state);
 	
 	// 生成主键
-	data.setId(dto->id);
+	SnowFlake sf(1, 3);
+	data.setPersonId(to_string(sf.nextId()));
 	
 	// 需要再服务器生成的数据
 	data.setName(dto->name);
 	data.setAge(dto->age);
+	data.setId(dto->id);
 	data.setOrganize(dto->organize);
 	data.setDepart(dto->depart);
 	data.setJob(dto->job);

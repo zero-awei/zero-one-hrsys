@@ -19,6 +19,7 @@ user:
   menusub: 子菜单
 employee:
  field:
+  personId: 人员信息标识
   id: 员工编号
   name: 员工姓名
   idType: 证件类型

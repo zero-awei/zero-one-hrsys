@@ -31,6 +31,11 @@
 class EmployeeInformationPageQuery : public PageQuery
 {
 	DTO_INIT(EmployeeInformationPageQuery, PageQuery);
+	//人员信息标识
+	DTO_FIELD(String, personId);
+	DTO_FIELD_INFO(personId) {
+		info->description = ZH_WORDS_GETTER("employee.field.personId");
+	}
 	// 姓名
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {

@@ -32,6 +32,9 @@ public:
 	EmployeeInformationPageDO mapper(ResultSet* resultSet) const override
 	{
 		EmployeeInformationPageDO data;
+		//人员信息标识
+		data.setPersonId(resultSet->getString(1));
+
 		// 姓名
 		data.setName(resultSet->getString(3));
 		// 年龄

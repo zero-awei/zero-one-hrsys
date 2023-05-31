@@ -26,6 +26,10 @@
 #define SAMPLE_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
+if (query->personId) { \
+	sql << " AND `PIMPERSONID`=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->personId.getValue("")); \
+} \
 if (query->name) { \
 	sql << " AND `PIMPERSONNAME`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); \
@@ -95,6 +99,6 @@ std::list<EmployeeInformationPageDO> EmployeeInformationDAO::selectWithPage(cons
 // ²åÈëÊý¾Ý
 uint64_t EmployeeInformationDAO::insert(const EmployeeInformationPageDO& iObj)
 {
-	string sql= "INSERT INTO `t_pimperson` (`PIMPERSONNAME`,`NL`,`YGBH`,`ZZ`,`BM`,`ZW`,`GW`,`ZJHM`,`CSRQ`,`LXDH`,`YGZT`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	return sqlSession->executeUpdate(sql,"%s&i%s%s%s%s%s%s%s%s%s",iObj.getName(),iObj.getAge(),iObj.getId(),iObj.getOrganize(),iObj.getDepart(),iObj.getJob(), iObj.getPost(),iObj.getIdMum(),iObj.getBirthday(),iObj.getPhone(),iObj.getState());
+	string sql= "INSERT INTO `t_pimperson` (`PIMPERSONID`,`PIMPERSONNAME`,`NL`,`YGBH`,`ZZ`,`BM`,`ZW`,`GW`,`ZJHM`,`CSRQ`,`LXDH`,`YGZT`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	return sqlSession->executeUpdate(sql,"%s%s%i%s%s%s%s%s%s%s%s%s",iObj.getPersonId(),iObj.getName(),iObj.getAge(),iObj.getId(),iObj.getOrganize(),iObj.getDepart(),iObj.getJob(), iObj.getPost(),iObj.getIdMum(),iObj.getBirthday(),iObj.getPhone(),iObj.getState());
 }
