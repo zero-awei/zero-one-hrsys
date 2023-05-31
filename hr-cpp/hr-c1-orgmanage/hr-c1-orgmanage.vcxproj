@@ -176,13 +176,16 @@
     <ClCompile Include="controller\projTag\queryOrgList\QueryOrgListController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\jobSet\jobExportDAO\JobExportDAO.cpp" />
     <ClCompile Include="dao\jobSet\JobSetDAO.cpp" />
+    <ClCompile Include="dao\jobSet\jobUpdateDAO\JobUpdteDAO.cpp" />
     <ClCompile Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.cpp" />
     <ClCompile Include="dao\jobSet\postQueryDAO\PostQueryDAO.cpp" />
     <ClCompile Include="dao\projTag\DeleteProjTagDAO.cpp" />
     <ClCompile Include="dao\projTag\ProjTagDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\jobSet\JobSetService.cpp" />
+    <ClCompile Include="service\jobSet\jobUpdateService\JobUpdateService.cpp" />
     <ClCompile Include="service\jobSet\postDeleteService\PostDeleteService.cpp" />
     <ClCompile Include="service\jobSet\postQueryService\PostQueryService.cpp" />
     <ClCompile Include="service\projTag\deleteProjTagService\DeleteProjTagService.cpp" />
@@ -215,7 +218,10 @@
     <ClInclude Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.h" />
     <ClInclude Include="controller\projTag\queryOrgList\QueryOrgListController.h" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\jobSet\jobExportDAO\JobExportDAO.h" />
+    <ClInclude Include="dao\jobSet\jobExportDAO\JobExportMapper.h" />
     <ClInclude Include="dao\jobSet\JobSetDAO.h" />
+    <ClInclude Include="dao\jobSet\jobUpdateDAO\JobUpdteDAO.h" />
     <ClInclude Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.h" />
     <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryDAO.h" />
     <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryMapper.h" />
@@ -252,6 +258,8 @@
     <ClInclude Include="domain\query\projTag\PageProjTagQuery.h" />
     <ClInclude Include="domain\vo\itemLabel\ItemLabelVO.h" />
     <ClInclude Include="domain\vo\jobDownload\JobDownloadVO.h" />
+    <ClInclude Include="domain\vo\jobSet\JobDownloadVO\JobDownloadVO.h" />
+    <ClInclude Include="domain\vo\jobSet\JobUpdateVO\JobUpdateVO.h" />
     <ClInclude Include="domain\vo\jobUpdate\JobUpdateVO.h" />
     <ClInclude Include="domain\vo\postSet\PostDeleteBatchVO.h" />
     <ClInclude Include="domain\vo\postSet\PostDetailVO.h" />
@@ -265,6 +273,7 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\jobSet\JobSetService.h" />
+    <ClInclude Include="service\jobSet\jobUpdateService\JobUpdateService.h" />
     <ClInclude Include="service\jobSet\postDeleteService\PostDeleteService.h" />
     <ClInclude Include="service\jobSet\postQueryService\PostQueryService.h" />
     <ClInclude Include="service\projTag\deleteProjTagService\DeleteProjTagService.h" />

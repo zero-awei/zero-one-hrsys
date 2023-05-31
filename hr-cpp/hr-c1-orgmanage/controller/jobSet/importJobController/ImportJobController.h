@@ -28,6 +28,7 @@
 #include "domain/dto/jobSet/ImportJobDTO.h"
 #include "CharsetConvertHepler.h"
 #include "domain/vo/jobSet/ImportJobVO.h"
+#include "../lib-common/include/CommonMacros.h"
 
 // 文件上传
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
@@ -83,6 +84,32 @@ public: // 定义接口
 		filePath->append(SimpleDateTimeFormat::format("%Y-%m-%d_%H-%M-%S_"));
 		filePath->append("JobSet.xlsx");
 		multipartReader.setPartReader("file", multipart::createFilePartReader(filePath));
+
+		//判断目录是否存在，不存在创建目录
+		string fileName = std::string(filePath);
+		auto dir = fileName.substr(0, fileName.find_last_of("/") + 1);
+		const size_t dirLen = dir.length();
+		if (dirLen > MAX_DIR_LEN)
+		{
+			std::cout << "ExcelComponent 135: excel save fail(file path too long)" << std::endl;
+			return createResponse(Status::CODE_401, "");
+		}
+		char tmpDirPath[MAX_DIR_LEN] = { 0 };
+		for (size_t i = 0; i < dirLen; i++)
+		{
+			tmpDirPath[i] = dir[i];
+			if (tmpDirPath[i] == '/')
+			{
+				if (ACCESS(tmpDirPath, 0) != 0)
+				{
+					if (MKDIR(tmpDirPath) != 0)
+					{
+						std::cout << "ExcelComponent 148: excel save fail(create dir " << tmpDirPath << " fail)" << std::endl;
+						return createResponse(Status::CODE_401, "");
+					}
+				}
+			}
+		}
 
 		/* 读取请求体中的数据 */
 		request->transferBody(&multipartReader);

@@ -47,7 +47,7 @@ bool getStartArg(int argc, char* argv[]) {
 	std::string dbPassword = "123456";
 	std::string dbName = "test";
 	std::string dbHost = "127.0.0.1";
-	int dbPort = 3060;
+	int dbPort = 3306;
 	int dbMax = 25;
 #ifdef USE_NACOS
 	// Nacos≈‰÷√≤Œ ˝

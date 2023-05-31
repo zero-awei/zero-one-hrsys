@@ -15,8 +15,7 @@ bool JobUpdteDAO::updateJob(const PostDetailDO& data)
 	
 	//return sqlSession->executeUpdate(mysql)!=0;
 	return sqlSession->executeUpdate(mysql, "%s%s%s%s%s%s%s%s%s%s%s%s",
-		data.getOrmPostName(), data.getIsKeyPostion(), data.getCreateMan(),
-		data.getCreateDate(), data.getOrmOrgId(),data.getGwType(), 
+		data.getOrmPostName(), data.getIsKeyPostion(), data.getOrmOrgId(),data.getGwType(), 
 		data.getGwfl(), data.getIsConfidential(), data.getIsTemp(),
-		data.getPostNature(), data.getStartStopSign(), data.getOrmPostId(), data.getUpdateDate(), data.getUpdateMan());
+		data.getPostNature(), data.getStartStopSign(), data.getUpdateDate(), data.getUpdateMan(), data.getOrmPostId());
 }

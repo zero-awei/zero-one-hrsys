@@ -8,7 +8,7 @@ JobUpdateJsonVO::Wrapper JobUpdateController::execUpdateJobinfo(const JobUpdateD
 	// 定义返回数据对象
 	auto jvo = JobUpdateJsonVO::createShared();
 	dto->updateMan = payload.getUsername();
-	dto->updateDate== SimpleDateTimeFormat::format();
+	dto->updateDate = SimpleDateTimeFormat::format();
 	JobUpdateService service;
 	if (service.uodateJobInfo(dto)) {
 		jvo->success(dto);
