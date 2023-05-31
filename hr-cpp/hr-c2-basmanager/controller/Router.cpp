@@ -19,13 +19,16 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-#include "RosterOfPer/FormerEmployeesController.h"
-#include "CertificateManage/UpdateCertificateController.h"
 //pine
 #include "controller/CertificateManage/CheckCerListController.h"
 #include "controller/CertificateManage/CreateNewCerController.h"
 #include "controller/RosterOfPer/CheckRetiresListController.h"
 #include "controller/RosterOfPer/ExportRetireesController.h"
+//chumengxian
+#include "RosterOfPer/ProbationaryEmployeeController.h"
+#include "RosterOfPer/FormerEmployeesController.h"
+#include "CertificateManage/UpdateCertificateController.h"
+
 
 #include "RosterOfPer/EmployeePageController.h"  //（人员花名册-人员花名册-分页查询员工数据）--洛洛
 #include "CertificateManage/CertifDeleteController.h" //（证书管理-证书信息-删除证书）--洛洛
@@ -73,15 +76,13 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(TempStaffController);//(人员花名册-挂职人员-分页查询员工列表)--weixiaoman
 	ROUTER_SIMPLE_BIND(EmployeeInfoController);//(证书管理-分页查询员工列表)--weixiaoman
 	ROUTER_SIMPLE_BIND(CertificateTypeController); //(证书管理-分页查询证书类型列表)--weixiaoman
-	ROUTER_SIMPLE_BIND(CheckCerListController);
-	ROUTER_SIMPLE_BIND(CreateNewCerController);
-	ROUTER_SIMPLE_BIND(CheckRetiresListController);
-	ROUTER_SIMPLE_BIND(ExportRetireesController);
+
 	ROUTER_SIMPLE_BIND(EmployeePageController); //（人员花名册-人员花名册-分页查询员工数据）--洛洛
 	ROUTER_SIMPLE_BIND(CertifDeleteController); //（证书管理-证书信息-删除证书）--洛洛
 	ROUTER_SIMPLE_BIND(ExportCertifController); //（证书管理-证书信息-导出证书）--洛洛
 	ROUTER_SIMPLE_BIND(ExportEmployeeController);//（人员花名册-人员花名册-导出员工（导出本页在前端完成））--洛洛
 	ROUTER_SIMPLE_BIND(LoanedPerPageController);//（人员花名册-借调人员-分页查询员工列表（导出本页在前端完成））--luoluo
+	ROUTER_SIMPLE_BIND(ProbationaryEmployeeController);
 }
 
 #ifdef HTTP_SERVER_DEMO

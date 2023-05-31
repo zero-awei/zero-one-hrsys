@@ -49,7 +49,7 @@ public:
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("sample.get.summary");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
-		API_DEF_ADD_AUTH();
+		API_DEF_ADD_AUTH(); 
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(SamplePageJsonVO);
 		// 定义分页参数描述

@@ -1,8 +1,4 @@
 #pragma once
-
-/**
- * 人员花名册 - 离职人员响应类型实现 - 楚孟献
- */
 /*
  Copyright Zero One Star. All rights reserved.
  @Author: awei
@@ -17,24 +13,14 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _FORMER_EMPLOYEES_VO_
-#define _FORMER_EMPLOYEES_VO_
+#ifndef _CERTIFICATE_INFO_VO_
 #include "../../GlobalInclude.h"
-#include "../../dto/RosterOfPer/FormerEmployeesDTO.h"
+#include "../../dto/CertificateManage/SpercificCertificateDTO.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class FormerEmployeesJsonVO : public JsonVO<FormerEmployeesDTO::Wrapper>
+class SpercificCertificateJsonVO : public JsonVO<SpercificCertificateDTO::Wrapper>
 {
-	DTO_INIT(FormerEmployeesJsonVO, JsonVO<FormerEmployeesDTO::Wrapper>);
+	DTO_INIT(SpercificCertificateJsonVO, JsonVO<SpercificCertificateDTO::Wrapper>);
 };
-
-/**
- * 离职员工分页传输对象
- */
-class FormerEmployeesPageJsonVO : public JsonVO<FormerEmployeesPageDTO::Wrapper>
-{
-	DTO_INIT(FormerEmployeesPageJsonVO, JsonVO<FormerEmployeesPageDTO::Wrapper>);
-};
-
 #include OATPP_CODEGEN_END(DTO)
 #endif 

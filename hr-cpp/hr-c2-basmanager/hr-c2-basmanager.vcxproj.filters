@@ -327,6 +327,57 @@
     <ClInclude Include="service\CertificateManage\CertificateTypeService.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\RosterOfPer\ProbationaryEmployeeController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\CertificateManage\SpercificCertificateDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\CertificateManage\SpercificCertificateMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\RosterOfPer\FormerEmployeesDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\RosterOfPer\FormerEmployeesMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\RosterOfPer\ProbationaryEmployeeDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\RosterOfPer\ProbationaryEmployeeMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\CertificateManage\SpercificCertificateDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\RosterOfPer\Secondment.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\CertificateManage\SpercificCertificateDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\RosterOfPer\ProbationaryEmployeeDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\CertificateManage\SpercificCertificateQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\RosterOfPer\ProbationaryEmployeeQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\CertificateManage\SpercificCertificateVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\RosterOfPer\ProbationaryEmployeeVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\CertificateManage\SpercificCertificateService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\RosterOfPer\ProbationaryEmployeeService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -435,6 +486,24 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="service\CertificateManage\CertificateTypeService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\RosterOfPer\ProbationaryEmployeeController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\CertificateManage\SpercificCertificateDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\RosterOfPer\FormerEmployeesDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\RosterOfPer\ProbationaryEmployeeDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\CertificateManage\SpercificCertificateService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\RosterOfPer\ProbationaryEmployeeService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

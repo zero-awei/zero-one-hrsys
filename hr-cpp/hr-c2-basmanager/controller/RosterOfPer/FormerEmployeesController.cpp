@@ -1,3 +1,9 @@
+#pragma once
+
+/**
+ *  基础管理 —— 人员花名册 —— 离职员工 —— 楚孟献
+ */
+
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -22,24 +28,25 @@
 
 FormerEmployeesPageJsonVO::Wrapper FormerEmployeesController::execQueryFormerEmployees(const FormerEmployeesQuery::Wrapper& query, const PayloadDTO& payload)
 {
+	// 定义一个Service
+	FormerEmployeesService service;
+	// 查询数据
+	auto result = service.listAll(query);
 	// 响应结果
 	auto jvo = FormerEmployeesPageJsonVO::createShared();
-	// 创建分页对象
-	auto pdtd = FormerEmployeesPageDTO::createShared();
-	pdtd->addData(FormerEmployeesDTO::createShared(1, "nb"));
-	pdtd->addData(FormerEmployeesDTO::createShared(2, "2b"));
-	jvo->success(pdtd);
+	jvo->success(result);
 	return jvo;
 }
 
-FormerEmployeesPageJsonVO::Wrapper FormerEmployeesController::execListFormerEmployees(const FormerEmployeesQuery::Wrapper& query, const PayloadDTO& payload)
+StringJsonVO::Wrapper FormerEmployeesController::execExportFormerEmployees(const FormerEmployeesQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	// 响应结果
-	auto jvo = FormerEmployeesPageJsonVO::createShared();
-	// 创建分页对象
-	auto pdtd = FormerEmployeesPageDTO::createShared();
-	pdtd->addData(FormerEmployeesDTO::createShared(1, "nb"));
-	pdtd->addData(FormerEmployeesDTO::createShared(2, "2b"));
-	jvo->success(pdtd);
+	auto jvo = StringJsonVO::createShared();
+
+	FormerEmployeesService service;
+	
+	auto result = service.exportData(query);
+
+	jvo->success(result);
 	return jvo;
 }
