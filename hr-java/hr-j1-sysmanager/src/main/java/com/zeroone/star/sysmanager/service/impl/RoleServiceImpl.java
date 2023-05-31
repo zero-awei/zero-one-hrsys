@@ -53,11 +53,13 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IR
     @Override
     public Boolean addRole(RoleDTO roleDTO) {
 
-        Role role = null;
+        Role role = new Role();
         role.setId(Integer.valueOf(roleDTO.getId()));
         role.setName(roleDTO.getName());
         role.setKeyword(roleDTO.getKeyword());
         role.setDescription(roleDTO.getDescription());
+        role.setIsEnable(roleDTO.getIsEnable());
+
         int result = baseMapper.insert(role);
 
 
@@ -66,16 +68,17 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IR
 
     @Override
     public Boolean modifyRole(RoleDTO roleDTO) {
-        Role role = null;
+        Role role = new Role();
         role.setId(Integer.valueOf(roleDTO.getId()));
         role.setName(roleDTO.getName());
         role.setKeyword(roleDTO.getKeyword());
         role.setDescription(roleDTO.getDescription());
+        role.setIsEnable(roleDTO.getIsEnable());
         UpdateWrapper<Role> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("name", roleDTO.getName());
         int updateNum = baseMapper.update(role, updateWrapper);
 
-        return updateNum == 1;
+        return updateNum != 0;
 
     }
 
