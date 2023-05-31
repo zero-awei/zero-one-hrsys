@@ -3,7 +3,7 @@
 #include "patentinfoService.h"
 #include "../../dao/patentinfo/t_pimpatentDAO.h"
 
-PatentinfoPageDTO::Wrapper PaperinfoService::listAll(const PatentinfoQuery::Wrapper& query)
+PatentinfoPageDTO::Wrapper patentinfoService::listAll(const PatentinfoQuery::Wrapper& query)
 {
 	// 构建返回对象
 	auto pages = PatentinfoPageDTO::createShared();
@@ -26,26 +26,31 @@ PatentinfoPageDTO::Wrapper PaperinfoService::listAll(const PatentinfoQuery::Wrap
 	for (PatentinfoDO sub : result)
 	{
 		auto dto = PatentinfoDTO::createShared();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, zlh, ZLH, pimpatentname, PIMPATENTNAME, zlhqsj, ZLHQSJ
-			, pimpatentname, PIMPATENTNAME, enclolure, ENCLOLURE)
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, zlh, ZLH, pimpatentname, PIMPATENTNAME, zlhqsj, ZLHQSJ, enclolure, ENCLOLURE)
 		pages->addData(dto);
 	}
 	return pages;
 }
 
-uint64_t PaperinfoService::saveData(const PatentinfoDTO::Wrapper& dto)
-{
-	// 组装DO数据
-	PatentinfoDTO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, zlh, ZLH, pimpatentname, PIMPATENTNAME, zlhqsj, ZLHQSJ
-		, pimpatentname, PIMPATENTNAME, enclolure, ENCLOLURE)
-		// 执行数据添加
-		t_pimpatentDAO dao;
-	return dao.insert(data);
-}
+//uint64_t patentinfoService::saveData(const PatentinfoDTO::Wrapper& dto)
+//{
+//	// 组装DO数据
+//	PatentinfoDTO data;
+//	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, zlh, ZLH, pimpatentname, PIMPATENTNAME, zlhqsj, ZLHQSJ, enclolure, ENCLOLURE)
+//		// 执行数据添加
+//		t_pimpatentDAO dao;
+//	return dao.insert(data);
+//}
 
-bool PaperinfoService::removeData(string pimpaperid)
+
+//bool patentinfoService::removeData(string pimpaperid)
+//{
+//	t_pimpatentDAO dao;
+//	return dao.deleteById(pimpaperid) == 1;
+//}
+bool patentinfoService::removeData(const DelPatentDTO::Wrapper& dto)
 {
 	t_pimpatentDAO dao;
-	return dao.deleteById(pimpaperid) == 1;
+	std::string pimpatentid = dto->pimpatentid;
+	return dao.deleteById(pimpatentid) == 1;
 }

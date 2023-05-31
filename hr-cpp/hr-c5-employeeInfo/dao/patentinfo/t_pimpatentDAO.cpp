@@ -7,10 +7,6 @@
 #define SAMPLE_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
-if (query->PIMPERSONID) { \
-	sql << " AND `PIMPERSONID`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->PIMPERSONID.getValue("")); \
-}\
 if (query->PIMPATENTID) { \
 	sql << " AND `PIMPATENTID`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->PIMPATENTID.getValue("")); \
@@ -20,8 +16,8 @@ if (query->PIMPATENTID) { \
 // 添加指定员工的专利信息
 uint64_t t_pimpatentDAO::insert(const PatentinfoDO& iObj)
 {
-	string sql = "INSERT INTO `t_pimpatent` (`ZLH`, `PIMPATENTNAME`, `ZLHQSJ`, `PIMPATENTNAME`, `ENCLOLURE`) VALUES (?, ?, ?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%s%s%s", iObj.getZLH(), iObj.getPIMPATENTNAME(), iObj.getZLHQSJ(), iObj.getPIMPATENTNAME(),iObj.getENCLOLURE());
+	string sql = "INSERT INTO `t_pimpatent` (`ZLH`, `PIMPATENTNAME`, `ZLHQSJ`, `ZLPZGB`, `ENCLOLURE`) VALUES (?, ?, ?, ?, ?)";
+	return sqlSession->executeInsert(sql, "%s%s%s%s%s", iObj.getZLH(), iObj.getPIMPATENTNAME(), iObj.getZLHQSJ(), iObj.getZLPZGB(),iObj.getENCLOLURE());
 }
 
 // 统计数据条数
@@ -39,7 +35,7 @@ uint64_t t_pimpatentDAO::count(const PatentinfoQuery::Wrapper& query)
 list<PatentinfoDO> t_pimpatentDAO::selectWithPage(const PatentinfoQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT ZLH, PIMPATENTNAME, ZLHQSJ, PIMPATENTNAME,ENCLOLURE FROM t_pimpatent";
+	sql << "SELECT ZLH, PIMPATENTNAME, ZLHQSJ, PIMPATENTNAME, ENCLOLURE FROM t_pimpatent";
 	SAMPLE_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	t_pimpatentMapper mapper;
@@ -49,8 +45,8 @@ list<PatentinfoDO> t_pimpatentDAO::selectWithPage(const PatentinfoQuery::Wrapper
 
 
 // 通过专利编号删除数据
-int t_pimpatentDAO::deleteById(string pimpaperid)
+int t_pimpatentDAO::deleteById(string pimpatentid)
 {
 	string sql = "DELETE FROM `t_pimpatent` WHERE `PIMPATENTID`=?";
-	return sqlSession->executeUpdate(sql, "%s", pimpaperid);
+	return sqlSession->executeUpdate(sql, "%s", pimpatentid);
 }

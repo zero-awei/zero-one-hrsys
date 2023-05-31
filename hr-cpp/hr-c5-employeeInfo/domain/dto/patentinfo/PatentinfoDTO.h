@@ -15,13 +15,12 @@ class PatentinfoDTO : public oatpp::DTO
 
 public:
     PatentinfoDTO() {};
-    PatentinfoDTO(String ZLH, String PIMPATENTNAME) :ZLH(ZLH), PIMPATENTNAME(PIMPATENTNAME) {};
+    PatentinfoDTO(String ZLH, String PIMPATENTNAME) :zlh(zlh), pimpatentname(pimpatentname) {};
 
     DTO_INIT(PatentinfoDTO, DTO);
-
     //ZLH:专利号
-    DTO_FIELD(String, ZLH);
-    DTO_FIELD_INFO(ZLH) {
+    DTO_FIELD(String, zlh);
+    DTO_FIELD_INFO(zlh) {
         info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.ZLH");
     }
 
@@ -38,14 +37,14 @@ public:
     }
 
     //ZLHQSJ : 专利获取时间
-    DTO_FIELD(String, ZLHQSJ);
-    DTO_FIELD_INFO(ZLHQSJ) {
+    DTO_FIELD(String, zlhqsj);
+    DTO_FIELD_INFO(zlhqsj) {
         info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.ZLHQSJ");
     }
     
     //PIMPATENTNAME : 专利名称
-    DTO_FIELD(String, PIMPATENTNAME);
-    DTO_FIELD_INFO(PIMPATENTNAME) {
+    DTO_FIELD(String, pimpatentname);
+    DTO_FIELD_INFO(pimpatentname) {
         info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.PIMPATENTNAME");
     }
 
@@ -104,8 +103,8 @@ public:
     }
     
     //ENCLOLURE : 附件
-    DTO_FIELD(String, ENCLOLURE);
-    DTO_FIELD_INFO(ENCLOLURE) {
+    DTO_FIELD(String, enclolure);
+    DTO_FIELD_INFO(enclolure) {
         info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.ENCLOLURE");
     }
     

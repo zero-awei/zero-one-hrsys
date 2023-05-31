@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _T_PIMPAPER_DAO_
-#define _T_PIMPAPER_DAO_
+#ifndef _T_PIMPATENT_DAO_
+#define _T_PIMPATENT_DAO_
 #include "BaseDAO.h"
 #include "../../domain/do/patentinfo/t_pimpatentDO.h"
 #include "../../domain/query/patentinfo/patentinfoQuery.h"

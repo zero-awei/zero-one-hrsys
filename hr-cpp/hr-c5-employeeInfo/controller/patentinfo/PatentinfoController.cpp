@@ -59,12 +59,12 @@ Uint64JsonVO::Wrapper PatentinfoController::execAddPatent(const PatentinfoDTO::W
 	return jvo;
 }
 
-Uint64JsonVO::Wrapper PatentinfoController::execRemovePatent(const PatentinfoDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper PatentinfoController::execRemovePatent(const DelPatentDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
-	if (!dto->PIMPERSONID->empty())
+	if (!dto->pimpatentid->empty())
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
