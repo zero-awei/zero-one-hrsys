@@ -23,10 +23,11 @@ public:
 		info->summary = ZH_WORDS_GETTER("job.downloadurl");
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
-	ENDPOINT(API_M_GET, PATH_TO_JOBSET("/export-job"), downloadJobinfo) {
+
+	ENDPOINT(API_M_GET, PATH_TO_PROJTAG("/export-job"), downloadJobinfo, QUERIES(QueryParams, qps)) {
 		// ÏìÓ¦½á¹û
-		API_HANDLER_RESP_VO(execDownloadJobinfo());
-		return createResponse(Status::CODE_202, "OK");
+		API_HANDLER_QUERY_PARAM(query, PostDetailQuery, qps);
+		API_HANDLER_RESP_VO(execDownloadJobinfo(query));
 	}
 private:
 	StringJsonVO::Wrapper execDownloadJobinfo(const PostDetailQuery::Wrapper& query);

@@ -259,11 +259,8 @@
     <ClCompile Include="dao\DeclareType\DeclareTypeListDAO.cpp" />
     <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
     <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
-<<<<<<< HEAD
     <ClCompile Include="service\declareType\DeclareTypeService.cpp" />
-=======
     <ClCompile Include="dao\typeContract\TypeContractDAO.cpp" />
->>>>>>> remotes/origin/c1
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\armyLevelType\ArmyLevelTypeService.cpp" />
     <ClCompile Include="service\dismissReason\DismissReasonService.cpp" />

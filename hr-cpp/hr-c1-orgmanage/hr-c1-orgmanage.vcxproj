@@ -176,21 +176,15 @@
     <ClCompile Include="controller\projTag\queryOrgList\QueryOrgListController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
-<<<<<<< HEAD
     <ClCompile Include="dao\jobSet\jobExportDAO\JobExportDAO.cpp" />
     <ClCompile Include="dao\jobSet\jobUpdateDAO\JobUpdteDAO.cpp" />
-=======
     <ClCompile Include="dao\jobSet\JobSetDAO.cpp" />
->>>>>>> remotes/origin/c1
     <ClCompile Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.cpp" />
     <ClCompile Include="dao\jobSet\postQueryDAO\PostQueryDAO.cpp" />
     <ClCompile Include="dao\projTag\ProjTagDAO.cpp" />
     <ClCompile Include="main.cpp" />
-<<<<<<< HEAD
     <ClCompile Include="service\jobSet\jobUpdateService\JobUpdateService.cpp" />
-=======
     <ClCompile Include="service\jobSet\JobSetService.cpp" />
->>>>>>> remotes/origin/c1
     <ClCompile Include="service\jobSet\postDeleteService\PostDeleteService.cpp" />
     <ClCompile Include="service\jobSet\postQueryService\PostQueryService.cpp" />
     <ClCompile Include="service\projTag\ProjTagService.cpp" />
@@ -220,13 +214,10 @@
     <ClInclude Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.h" />
     <ClInclude Include="controller\projTag\queryOrgList\QueryOrgListController.h" />
     <ClInclude Include="controller\Router.h" />
-<<<<<<< HEAD
     <ClInclude Include="dao\jobSet\jobExportDAO\JobExportDAO.h" />
     <ClInclude Include="dao\jobSet\jobExportDAO\JobExportMapper.h" />
     <ClInclude Include="dao\jobSet\jobUpdateDAO\JobUpdteDAO.h" />
-=======
     <ClInclude Include="dao\jobSet\JobSetDAO.h" />
->>>>>>> remotes/origin/c1
     <ClInclude Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.h" />
     <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryDAO.h" />
     <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryMapper.h" />
@@ -268,11 +259,8 @@
     <ClInclude Include="domain\vo\projTag\ProjTagVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
-<<<<<<< HEAD
     <ClInclude Include="service\jobSet\jobUpdateService\JobUpdateService.h" />
-=======
     <ClInclude Include="service\jobSet\JobSetService.h" />
->>>>>>> remotes/origin/c1
     <ClInclude Include="service\jobSet\postDeleteService\PostDeleteService.h" />
     <ClInclude Include="service\jobSet\postQueryService\PostQueryService.h" />
     <ClInclude Include="service\projTag\ProjTagService.h" />
