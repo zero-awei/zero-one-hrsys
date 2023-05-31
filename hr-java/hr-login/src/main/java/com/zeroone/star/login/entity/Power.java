@@ -1,4 +1,4 @@
-package com.zeroone.star.oauth2.entity;
+package com.zeroone.star.login.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -6,20 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.io.Serializable;
-
 /**
- * <p>
- * zo_role 角色表
- * </p>
- *
+ * 权限表
  * @author 风月
+ * @date 2023/5/31 19:16
  */
 @Getter
 @Setter
-@TableName("zo_role")
-public class Role implements Serializable {
-
+@TableName("zo_power")
+public class Power {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -29,25 +24,37 @@ public class Role implements Serializable {
     private String id;
 
     /**
-     * 角色名
+     * 权限名称
      */
     private String name;
 
     /**
-     * 关键词
+     * 链接地址
      */
-    private String keyword;
+    private String linkUrl;
 
     /**
-     * 角色描述
+     * 显示级别
+     */
+    private int priority;
+
+    /**
+     * 父级权限id
+     */
+    private String parentRightId;
+
+    /**
+     * 层次
+     */
+    private int level;
+
+    /**
+     * 描述
      */
     private String description;
 
     /**
-     *  是否启用 0 禁用 1 启用
+     * 是否启用
      */
-    private Integer isEnable;
-
-
+    private int isEnable;
 }
-

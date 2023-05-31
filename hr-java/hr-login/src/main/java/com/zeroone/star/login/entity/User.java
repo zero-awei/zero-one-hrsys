@@ -42,7 +42,7 @@ public class User implements Serializable {
     /**
      * 是否启用
      */
-    private int isEnable;
+//    private int isEnable;
 
     /**
      * 邮箱
@@ -56,6 +56,6 @@ public class User implements Serializable {
     /**
      * 注册时间
      */
-    private LocalDateTime registerTime;
+    private LocalDateTime registTime;
 
 }

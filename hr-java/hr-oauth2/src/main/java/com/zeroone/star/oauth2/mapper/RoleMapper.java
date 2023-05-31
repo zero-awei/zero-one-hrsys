@@ -28,4 +28,6 @@ public interface RoleMapper extends BaseMapper<Role> {
      * @return 角色列表
      */
     List<Role> selectByMenuPath(String path);
+
+    List<Role> selectByPowerLinkUrl(String path);
 }

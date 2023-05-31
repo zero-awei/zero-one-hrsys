@@ -45,11 +45,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             //1 通过用户名查找用户对象
             User user = new User();
             user.setUsername(username);
+            System.out.println("userService.getOne执行开始！");
+
             user = userService.getOne(new QueryWrapper<>(user));
+            System.out.println("userService.getOne执行完毕！");
             if (user == null) {
                 throw new UsernameNotFoundException("用户名或密码错误");
             }
             //2 通过用户ID获取角色列表
+            System.out.println("！进入roleService.listRoleByUserId之前！");
             List<Role> roles = roleService.listRoleByUserId(user.getId());
             System.out.println("*********roles.stream().toArray() = " + roles.stream().toArray());
             //3 将数据库角色转换成Security权限对象

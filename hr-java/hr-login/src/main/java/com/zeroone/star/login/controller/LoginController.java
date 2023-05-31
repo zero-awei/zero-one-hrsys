@@ -173,7 +173,7 @@ public class LoginController implements LoginApis {
             currentUser.setId(user.getId());
             //设置用户名
             currentUser.setUsername(user.getUsername());
-            currentUser.setIsEnabled((byte) user.getIsEnable());
+//            currentUser.setIsEnabled((byte) user.getIsEnable());
             //设置用户角色列表
             List<Role> roleList = roleService.listRoleByUserId(user.getId());
             List<String> roleStringList = new ArrayList<>();

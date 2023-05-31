@@ -18,4 +18,9 @@
         from zo_role
         where id in (select role_id from zo_role_menu where menu_id = (select id from zo_menu where link_url = #{path}))
     </select>
+    <select id="selectByPowerLinkUrl" resultMap="BaseResultMap">
+        select id, keyword
+        from zo_role
+        where id in (select role_id from zo_role_power where power_id = (select id from zo_power where link_url = #{path}))
+    </select>
 </mapper>

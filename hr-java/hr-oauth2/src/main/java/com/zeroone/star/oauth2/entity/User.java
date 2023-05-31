@@ -3,11 +3,13 @@ package com.zeroone.star.oauth2.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 /**
@@ -54,10 +56,12 @@ public class User implements Serializable {
      * 联系电话
      */
     private String phone;
+
     /**
      * 注册时间
      */
-    private Time registerTime;
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    private Timestamp registTime;
 
 }
 

@@ -33,10 +33,10 @@ public class Menu implements Serializable {
      */
     private String name;
 
-    /**
-     * 链接地址
-     */
-    private String linkUrl;
+//    /**
+//     * 链接地址
+//     */
+//    private String linkUrl;
 
     /**
      * 路由地址
