@@ -24,6 +24,14 @@ class EducationPageJsonVO : public JsonVO<EducationPageDTO::Wrapper>
 
 };
 
+/**
+ * É¾³ý¶à¸ö
+ */
+class EducationDeleteNotSingleJsonVO : public JsonVO<EducationDeleteNotSingleDTO::Wrapper> {
+	DTO_INIT(EducationDeleteNotSingleJsonVO, JsonVO<EducationDeleteNotSingleDTO::Wrapper>);
+};
+
+
 #include OATPP_CODEGEN_END(DTO)
 
 #endif // !_EDUCATIONJSONVO_H_#pragma once

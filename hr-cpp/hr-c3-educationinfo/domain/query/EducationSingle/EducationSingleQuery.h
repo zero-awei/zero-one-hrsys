@@ -14,18 +14,18 @@
 class EducationSingleQuery : public oatpp::DTO
 {
 	DTO_INIT(EducationSingleQuery, DTO);
-	// 员工id pimpersonid
-	DTO_FIELD(String, pimpersonid);
-	DTO_FIELD_INFO(pimpersonid) {
-		info->description = ZH_WORDS_GETTER("t_pimperson.pimpersonid");
+	// 教育标识 PIMEDUCATIONID
+	DTO_FIELD(String, PIMEDUCATIONID);
+	DTO_FIELD_INFO(PIMEDUCATIONID) {
+		info->description = ZH_WORDS_GETTER("t_pimperson.PIMEDUCATIONID");
 	}
 
 
-	// 员工姓名pimpersonname
-	DTO_FIELD(String, pimpersonname);
-	DTO_FIELD_INFO(pimpersonname) {
-		info->description = ZH_WORDS_GETTER("t_pimperson.pimpersonname");
-	}
+	//// 员工姓名pimpersonname
+	//DTO_FIELD(String, pimpersonname);
+	//DTO_FIELD_INFO(pimpersonname) {
+	//	info->description = ZH_WORDS_GETTER("t_pimperson.pimpersonname");
+	//}
 
 };
 
