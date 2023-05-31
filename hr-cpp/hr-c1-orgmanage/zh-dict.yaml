@@ -99,7 +99,8 @@ projTag:
   orgCode: 组织编号
   orgId: 组织机构标识
   orgName: 组织机构名称
-  porgId: 组织机构
+  porgId: 上级组织机构
+  porgName: 上级组织机构名
   shortname: 简称
   belongou: 所属OU
   sign: 启停标识

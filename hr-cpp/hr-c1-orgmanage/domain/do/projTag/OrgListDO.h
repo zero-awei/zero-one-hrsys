@@ -52,8 +52,10 @@ class OrgListDO
 	CC_SYNTHESIZE(string, orgId, OrgId);
 	// 组织机构名称
 	CC_SYNTHESIZE(string, orgName, OrgName);
-	// 组织机构
+	// 上级组织机构
 	CC_SYNTHESIZE(string, porgId, PorgId);
+	// 上级组织机构名称
+	CC_SYNTHESIZE(string, porgName, PorgName);
 	// 简称
 	CC_SYNTHESIZE(string, shortname, Shortname);
 	// 所属OU

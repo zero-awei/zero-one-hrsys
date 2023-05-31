@@ -29,22 +29,22 @@
 SqlParams params; \
 __SQL__ << " WHERE 1=1"; \
 if (__QUERY__->orgCode) { \
-	__SQL__ << " AND `ORGCODE` LIKE CONCAT('%',?,'%')"; \
+	__SQL__ << " AND t1.`ORGCODE` LIKE CONCAT('%',?,'%')"; \
 	SQLPARAMS_PUSH(params, "s", std::string, __QUERY__->orgCode.getValue("")); \
 } \
 if (__QUERY__->orgName) { \
-	__SQL__ << " AND `ORGNAME` LIKE CONCAT('%',?,'%')"; \
+	__SQL__ << " AND t1.`ORGNAME` LIKE CONCAT('%',?,'%')"; \
 	SQLPARAMS_PUSH(params, "s", std::string, __QUERY__->orgName.getValue("")); \
 } \
 if (__QUERY__->shortname) { \
-	__SQL__ << " AND `SHORTNAME` LIKE CONCAT('%',?,'%')"; \
+	__SQL__ << " AND t1.`SHORTNAME` LIKE CONCAT('%',?,'%')"; \
 	SQLPARAMS_PUSH(params, "s", std::string, __QUERY__->shortname.getValue("")); \
 } \
 if (__QUERY__->order == "ASC") { \
-	__SQL__ << " ORDER BY `PX` ASC"; \
+	__SQL__ << " ORDER BY t1.`PX` ASC"; \
 } \
 if (__QUERY__->order == "DESC") { \
-		__SQL__ << " ORDER BY `PX` DESC"; \
+		__SQL__ << " ORDER BY t1.`PX` DESC"; \
 }
 
  /**
@@ -79,7 +79,7 @@ bool ProjTagDAO::insert(const ProjTagDO& iObj)
 uint64_t ProjTagDAO::count(const OrgListQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(`ORGID`) FROM `t_srforg`";
+	sql << "SELECT COUNT(t1.`ORGID`) FROM `t_srforg` AS t1";
 	ORGLIST_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
@@ -88,10 +88,11 @@ uint64_t ProjTagDAO::count(const OrgListQuery::Wrapper& query)
 std::list<OrgListDO> ProjTagDAO::selectOrgList(const OrgListQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT `CREATEDATE`, `CREATEMAN`, `LEVELCODE`, `ORGCODE`, `ORGID`, `ORGNAME`,"
-		<< " `PORGID`, `SHORTNAME`, `UPDATEDATE`, `UPDATEMAN`, `ZZLX`, `SSOU`, `GSSS`, `ZZDZBM`,"
-		<< " `ZZDZY`, `ZZDZE`, `ZZCJSJ`, `ZZDZS`, `BTQY`, `ERPORGID`, `STARTSTOPSIGN`, `LEGALENTITY`,"
-		<< " `CORRESPONDINGORG`, `COMPANYFLAG` FROM `t_srforg`";
+	sql << "SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`LEVELCODE`, t1.`ORGCODE`, t1.`ORGID`, "
+		<< "t1.`ORGNAME`, t1.`PORGID`, t2.`ORGNAME`, t1.`SHORTNAME`, t1.`UPDATEDATE`, t1.`UPDATEMAN`, "
+		<< "t1.`ZZLX`, t1.`SSOU`, t1.`GSSS`, t1.`ZZDZBM`, t1.`ZZDZY`, t1.`ZZDZE`, t1.`ZZCJSJ`, t1.`ZZDZS`, "
+		<< "t1.`BTQY`, t1.`ERPORGID`, t1.`STARTSTOPSIGN`, t1.`LEGALENTITY`, t1.`CORRESPONDINGORG`, t1.`COMPANYFLAG` "
+		<< "FROM `t_srforg` AS t1 LEFT JOIN `t_srforg` AS t2 ON t1.`PORGID`=t2.`ORGID`";
 	ORGLIST_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	OrgListMapper mapper;

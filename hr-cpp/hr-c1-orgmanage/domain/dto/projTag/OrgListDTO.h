@@ -96,10 +96,15 @@ class OrgListDTO : public oatpp::DTO
 	DTO_FIELD_INFO(orgName) {
 		info->description = ZH_WORDS_GETTER("projTag.orgList.orgName");
 	}
-	// 组织机构
+	// 上级组织机构
 	DTO_FIELD(String, porgId);
 	DTO_FIELD_INFO(porgId) {
 		info->description = ZH_WORDS_GETTER("projTag.orgList.porgId");
+	}
+	// 上级组织机构名称
+	DTO_FIELD(String, porgName);
+	DTO_FIELD_INFO(porgName) {
+		info->description = ZH_WORDS_GETTER("projTag.orgList.porgName");
 	}
 	// 简称
 	DTO_FIELD(String, shortname);
