@@ -63,31 +63,34 @@ public:
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.field.id");
-		info->queryParams["id"].addExample("default", String("114514"));
+		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.t_pimperson.id");
+		info->queryParams["id"].addExample("default", String("F943C793-520E-46FA-8F6F-5EF08AC1F770"));
 		info->queryParams["id"].required = false;
-		info->queryParams.add<String>("assign").description = ZH_WORDS_GETTER("employee.field.assign");
+		info->queryParams.add<String>("assign").description = ZH_WORDS_GETTER("employee.t_pimperson.assign");
 		info->queryParams["assign"].addExample("default", String(""));
 		info->queryParams["assign"].required = false;
-		info->queryParams.add<String>("etype").description = ZH_WORDS_GETTER("employee.field.etype");
+		info->queryParams.add<String>("assignState").description = ZH_WORDS_GETTER("employee.t_pimperson.assignState");
+		info->queryParams["assignState"].addExample("default", String(""));
+		info->queryParams["assignState"].required = false;
+		info->queryParams.add<String>("etype").description = ZH_WORDS_GETTER("employee.t_pimperson.etype");
 		info->queryParams["etype"].addExample("default", String(""));
 		info->queryParams["etype"].required = false;
-		info->queryParams.add<String>("organize").description = ZH_WORDS_GETTER("employee.field.organize");
+		info->queryParams.add<String>("organize").description = ZH_WORDS_GETTER("employee.t_pimperson.organize");
 		info->queryParams["organize"].addExample("default", String(""));
 		info->queryParams["organize"].required = false;
-		info->queryParams.add<String>("depart").description = ZH_WORDS_GETTER("employee.field.depart");
+		info->queryParams.add<String>("depart").description = ZH_WORDS_GETTER("employee.t_pimperson.depart");
 		info->queryParams["depart"].addExample("default", String(""));
 		info->queryParams["depart"].required = false;
-		info->queryParams.add<String>("job").description = ZH_WORDS_GETTER("employee.field.job");
+		info->queryParams.add<String>("job").description = ZH_WORDS_GETTER("employee.t_pimperson.job");
 		info->queryParams["job"].addExample("default", String(""));
 		info->queryParams["job"].required = false;
-		info->queryParams.add<String>("post").description = ZH_WORDS_GETTER("employee.field.post");
+		info->queryParams.add<String>("post").description = ZH_WORDS_GETTER("employee.t_pimperson.post");
 		info->queryParams["post"].addExample("default", String(""));
 		info->queryParams["post"].required = false;
-		info->queryParams.add<String>("startTime").description = ZH_WORDS_GETTER("employee.field.startTime");
+		info->queryParams.add<String>("startTime").description = ZH_WORDS_GETTER("employee.t_pimperson.startTime");
 		info->queryParams["startTime"].addExample("default", String(""));
 		info->queryParams["startTime"].required = false;
-		info->queryParams.add<String>("endTime").description = ZH_WORDS_GETTER("employee.field.endTime");
+		info->queryParams.add<String>("endTime").description = ZH_WORDS_GETTER("employee.t_pimperson.endTime");
 		info->queryParams["endTime"].addExample("default", String(""));
 		info->queryParams["endTime"].required = false;
 	}
@@ -146,7 +149,8 @@ public:
 			/* 配置读取器读取表单字段 */
 			multipartReader.setPartReader("id", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 			multipartReader.setPartReader("assign", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			multipartReader.setPartReader("type", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+			multipartReader.setPartReader("assignState", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+			multipartReader.setPartReader("etype", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 			multipartReader.setPartReader("organize", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 			multipartReader.setPartReader("depart", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 			multipartReader.setPartReader("job", multipart::createInMemoryPartReader(-1 /* max-data-size */));
@@ -162,6 +166,7 @@ public:
 			/* 获取表单数据 */
 			auto id = multipartContainer->getNamedPart("id");
 			auto assign = multipartContainer->getNamedPart("assign");
+			auto assignState = multipartContainer->getNamedPart("assignState");
 			auto etype = multipartContainer->getNamedPart("etype");
 			auto organize = multipartContainer->getNamedPart("organize");
 			auto depart = multipartContainer->getNamedPart("depart");
@@ -172,6 +177,7 @@ public:
 			/* 断言表单数据是否正确 */
 			OATPP_ASSERT_HTTP(id, Status::CODE_400, "id is null");
 			OATPP_ASSERT_HTTP(assign, Status::CODE_400, "assign is null");
+			OATPP_ASSERT_HTTP(assignState, Status::CODE_400, "assignState is null");
 			OATPP_ASSERT_HTTP(etype, Status::CODE_400, "etype is null");
 			OATPP_ASSERT_HTTP(organize, Status::CODE_400, "organize is null");
 			OATPP_ASSERT_HTTP(depart, Status::CODE_400, "depart is null");
@@ -182,6 +188,7 @@ public:
 			/* 打印应表单数据 */
 			OATPP_LOGD("Multipart", "id='%s'", id->getPayload()->getInMemoryData()->c_str());
 			OATPP_LOGD("Multipart", "assign='%s'", assign->getPayload()->getInMemoryData()->c_str());
+			OATPP_LOGD("Multipart", "assignState='%s'", assignState->getPayload()->getInMemoryData()->c_str());
 			OATPP_LOGD("Multipart", "etype='%s'", etype->getPayload()->getInMemoryData()->c_str());
 			OATPP_LOGD("Multipart", "organize='%s'", organize->getPayload()->getInMemoryData()->c_str());
 			OATPP_LOGD("Multipart", "depart='%s'", depart->getPayload()->getInMemoryData()->c_str());
@@ -211,8 +218,8 @@ public:
 		//// 定义分页参数描述
 		//API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.field.id");
-		info->queryParams["id"].addExample("default", String("114514"));
+		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.t_pimperson.id");
+		info->queryParams["id"].addExample("default", String("F943C793-520E-46FA-8F6F-5EF08AC1F770"));
 		info->queryParams["id"].required = true;
 	}
 	// 3.2 定义查询接口处理

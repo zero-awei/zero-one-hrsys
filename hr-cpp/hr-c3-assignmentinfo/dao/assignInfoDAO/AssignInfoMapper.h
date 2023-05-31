@@ -32,15 +32,16 @@ public:
 	AssignInfoDO mapper(ResultSet* resultSet) const override
 	{
 		AssignInfoDO data;
-		data.setId(resultSet->getString(1));
-		data.setAssign(resultSet->getString(2));
-		data.setEtype(resultSet->getString(3));
-		data.setOrganize(resultSet->getString(4));
-		data.setDepart(resultSet->getString(5));
-		data.setJob(resultSet->getString(6));
-		data.setPost(resultSet->getString(7));
-		data.setStartTime(resultSet->getString(8));
-		data.setEndTime(resultSet->getString(9));
+		data.setId(resultSet->getString(15));
+		data.setAssign(resultSet->getString(12));
+		data.setAssignState(resultSet->getString(3));
+		data.setEtype(resultSet->getString(14));
+		data.setOrganize(resultSet->getString(37));
+		data.setDepart(resultSet->getString(38));
+		data.setJob(resultSet->getString(40));
+		data.setPost(resultSet->getString(39));
+		data.setStartTime(resultSet->getString(6));
+		data.setEndTime(resultSet->getString(1));
 		return data;
 	}
 };

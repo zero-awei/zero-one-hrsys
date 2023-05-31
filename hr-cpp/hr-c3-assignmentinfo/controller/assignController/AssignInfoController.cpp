@@ -35,7 +35,7 @@ StringJsonVO::Wrapper AssignInfoController::execAddAssignInfo(const AssignInfoDT
 	auto jvo = StringJsonVO::createShared();
 	// 参数校验
 	// 非空校验
-	if (!dto->id || !dto->assign || !dto->organize || !dto->depart || !dto->job || !dto->post || !dto->startTime || !dto->endTime)
+	if (!dto->id || !dto->assign || !dto->assignState|| !dto->organize || !dto->depart || !dto->job || !dto->post || !dto->startTime || !dto->endTime)
 	{
 		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;

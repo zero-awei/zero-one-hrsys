@@ -30,27 +30,29 @@ class AssignInfoDTO : public oatpp::DTO
 {
 	DTO_INIT(AssignInfoDTO, DTO);
 	//编号
-	API_DTO_FIELD_DEFAULT(String, id, ZH_WORDS_GETTER("employee.field.id"));
+	API_DTO_FIELD_DEFAULT(String, id, ZH_WORDS_GETTER("employee.t_pimperson.id"));
 	//DTO_FIELD(String, id);
 	//DTO_FIELD_INFO(id) {
 	//	info->description = ZH_WORDS_GETTER("employee.field.id");
 	//}
 	// 分配(主分配或次分配)
-	API_DTO_FIELD_DEFAULT(String, assign, ZH_WORDS_GETTER("employee.field.assign"));
+	API_DTO_FIELD_DEFAULT(String, assign, ZH_WORDS_GETTER("employee.t_pimperson.assign"));
+	//分配状态
+	API_DTO_FIELD_DEFAULT(String, assignState, ZH_WORDS_GETTER("employee.t_pimperson.assignState"));
 	// 类型
-	API_DTO_FIELD_DEFAULT(String, etype, ZH_WORDS_GETTER("employee.field.etype"));
+	API_DTO_FIELD_DEFAULT(String, etype, ZH_WORDS_GETTER("employee.t_pimperson.etype"));
 	// 组织
-	API_DTO_FIELD_DEFAULT(String, organize, ZH_WORDS_GETTER("employee.field.organize"));
+	API_DTO_FIELD_DEFAULT(String, organize, ZH_WORDS_GETTER("employee.t_pimperson.organize"));
 	// 部门
-	API_DTO_FIELD_DEFAULT(String, depart, ZH_WORDS_GETTER("employee.field.depart"));
+	API_DTO_FIELD_DEFAULT(String, depart, ZH_WORDS_GETTER("employee.t_pimperson.depart"));
 	// 职务
-	API_DTO_FIELD_DEFAULT(String, job, ZH_WORDS_GETTER("employee.field.job"));
+	API_DTO_FIELD_DEFAULT(String, job, ZH_WORDS_GETTER("employee.t_pimperson.job"));
 	// 岗位
-	API_DTO_FIELD_DEFAULT(String, post, ZH_WORDS_GETTER("employee.field.post"));
+	API_DTO_FIELD_DEFAULT(String, post, ZH_WORDS_GETTER("employee.t_pimperson.post"));
 	// 任职开始时间
-	API_DTO_FIELD_DEFAULT(String, startTime, ZH_WORDS_GETTER("employee.field.startTime"));
+	API_DTO_FIELD_DEFAULT(String, startTime, ZH_WORDS_GETTER("employee.t_pimperson.startTime"));
 	// 任职结束时间
-	API_DTO_FIELD_DEFAULT(String, endTime, ZH_WORDS_GETTER("employee.field.endTime"));
+	API_DTO_FIELD_DEFAULT(String, endTime, ZH_WORDS_GETTER("employee.t_pimperson.endTime"));
 };
 
 /**

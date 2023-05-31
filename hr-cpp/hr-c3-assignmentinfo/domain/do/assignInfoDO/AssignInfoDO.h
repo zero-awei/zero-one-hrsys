@@ -30,6 +30,8 @@ class AssignInfoDO
 	CC_SYNTHESIZE(string, id, Id);
 	// 分配(主分配或次分配)
 	CC_SYNTHESIZE(string, assign, Assign);
+	// 分配状态
+	CC_SYNTHESIZE(string, assignState, AssignState);
 	// 类型
 	CC_SYNTHESIZE(string, etype, Etype);
 	// 组织
@@ -49,6 +51,7 @@ public:
 	AssignInfoDO() {
 		id = "";
 		assign = "";
+		assignState = "";
 		etype = "";
 		organize = "";
 		depart = "";

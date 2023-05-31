@@ -26,42 +26,50 @@
 SqlParams params; \
 sql<<" WHERE 1=1"; \
 if (query->id) { \
-	sql << " AND assign=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->assign.getValue("")); \
+	sql << " AND PIMPERSONID=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
 } \
 if (query->assign) { \
-	sql << " AND etype=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->etype.getValue("")); \
+	sql << " AND FPLX=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->assign.getValue("")); \
+} \
+if (query->assignState) { \
+	sql << " AND FPZT=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->assignState.getValue("")); \
 } \
 if (query->etype) { \
-	sql << " AND organize=?"; \
+	sql << " AND CFPLX=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->etype.getValue("")); \
+} \
+if (query->organize) { \
+	sql << " AND ORMORGNAME=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->organize.getValue("")); \
 }\
-if (query->organize) { \
-	sql << " AND depart=?"; \
+if (query->depart) { \
+	sql << " AND ORMORGSECTORNAME=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->depart.getValue("")); \
 }\
-if (query->depart) { \
-	sql << " AND job=?"; \
+if (query->job) { \
+	sql << " AND ORMDUTYNAME=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->job.getValue("")); \
 }\
-if (query->job) { \
-	sql << " AND post=?"; \
+if (query->post) { \
+	sql << " AND ORMPOSTNAME=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->post.getValue("")); \
 }\
-if (query->post) { \
-	sql << " AND startTime=?"; \
+if (query->startTime) { \
+	sql << " AND RZKSSJ=?"; \
 	SQLPARAMS_PUSH(params, "s",std::string , query->startTime.getValue("")); \
 }\
-if (query->startTime) { \
-	sql << " AND endTime=?"; \
+if (query->endTime) { \
+	sql << " AND RZJSSJ=?"; \
 	SQLPARAMS_PUSH(params, "s",std::string , query->endTime.getValue("")); \
 }
 
 uint64_t AssignInfoDAO::count(const AssignInfoQuery::Wrapper & query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM assignInfo";
+	sql << "SELECT COUNT(*) FROM t_pimdistirbution";
 	ASSIGNINFO_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
@@ -70,7 +78,7 @@ uint64_t AssignInfoDAO::count(const AssignInfoQuery::Wrapper & query)
 std::list<AssignInfoDO> AssignInfoDAO::selectWithPage(const AssignInfoQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT * FROM assignInfo";
+	sql << "SELECT * FROM t_pimdistirbution";
 	ASSIGNINFO_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	AssignInfoMapper mapper;
@@ -80,25 +88,25 @@ std::list<AssignInfoDO> AssignInfoDAO::selectWithPage(const AssignInfoQuery::Wra
 
 std::list<AssignInfoDO> AssignInfoDAO::selectById(const string& id)
 {
-	string sql = "SELECT * FROM assignInfo WHERE id LIKE CONCAT('%',?,'%')";
+	string sql = "SELECT * FROM t_pimdistirbution WHERE PIMPERSONID LIKE CONCAT('%',?,'%')";
 	AssignInfoMapper mapper;
 	return sqlSession->executeQuery<AssignInfoDO, AssignInfoMapper>(sql, mapper, "%s", id);
 }
 
 uint64_t AssignInfoDAO::insert(const AssignInfoDO& iObj)
 {
-	string sql = "INSERT INTO assignInfo (id,assign,etype,organize,depart,job,post,startTime,endTime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%cs%cs", iObj.getId(), iObj.getAssign(), iObj.getEtype(),iObj.getOrganize(),iObj.getDepart(),iObj.getJob(),iObj.getPost(),iObj.getStartTime(),iObj.getEndTime());
+	string sql = "INSERT INTO t_pimdistirbution (PIMPERSONID,FPLX,FPZT,CFPLX,ORMORGNAME,ORMORGSECTORNAME,ORMDUTYNAME,ORMPOSTNAME,RZKSSJ,RZJSSJ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%s%s%s", iObj.getId(), iObj.getAssign(),iObj.getAssignState() ,iObj.getEtype(),iObj.getOrganize(),iObj.getDepart(),iObj.getJob(),iObj.getPost(),iObj.getStartTime(),iObj.getEndTime());
 }
 
 int AssignInfoDAO::update(const AssignInfoDO& uObj)
 {
-	string sql = "UPDATE assignInfo SET assign=?, etype=?, organize=?,depart=?,job=?,post=?,startTime=?,endTime=? WHERE `id`=?";
-	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%cs%cs%s", uObj.getAssign(), uObj.getEtype(), uObj.getOrganize(), uObj.getDepart(), uObj.getJob(), uObj.getPost(), uObj.getStartTime(), uObj.getEndTime(),uObj.getId());
+	string sql = "UPDATE t_pimdistirbution SET FPLX=?,FPZT=?, CFPLX=?, ORMORGNAME=?,ORMORGSECTORNAME=?,ORMDUTYNAME=?,ORMPOSTNAME=?,RZKSSJ=?,RZJSSJ=? WHERE PIMPERSONID=?";
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s", uObj.getAssign(), uObj.getAssignState(),uObj.getEtype(), uObj.getOrganize(), uObj.getDepart(), uObj.getJob(), uObj.getPost(), uObj.getStartTime(), uObj.getEndTime(),uObj.getId());
 }
 
 int AssignInfoDAO::deleteById(string id)
 {
-	string sql = "DELETE FROM assignInfo WHERE `id`=?";
+	string sql = "DELETE FROM t_pimdistirbution WHERE PIMPERSONID=?";
 	return sqlSession->executeUpdate(sql, "%s", id);
 }
