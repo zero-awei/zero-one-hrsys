@@ -26,8 +26,10 @@
  */
 class FamilysituationDO
 {
-	// 员工编号
+	// 家庭情况编号
 	CC_SYNTHESIZE(string, id, Id);
+	// 员工编号
+	CC_SYNTHESIZE(string, personid, PersonId);
 	// 关系
 	CC_SYNTHESIZE(string, frelationship, Relationship);
 	// 姓名
@@ -41,7 +43,9 @@ class FamilysituationDO
 	// 职务
 	CC_SYNTHESIZE(string, job, Job);
 	// 政治面貌
-	CC_SYNTHESIZE(string, politicalstatus, Joliticalstatus);
+	CC_SYNTHESIZE(string, politicalstatus, Politicalstatus);
+	// 证件类型
+	CC_SYNTHESIZE(string, doctype, Doctype);
 	// 证件号
 	CC_SYNTHESIZE(string, identification, Identification);
 	// 出生日期
@@ -49,10 +53,10 @@ class FamilysituationDO
 	// 是否遗嘱
 	CC_SYNTHESIZE(int, testament, Testament);
 	// 是否紧急联系人
-	CC_SYNTHESIZE(int, ice, Ice);
+	CC_SYNTHESIZE(string, ice, Ice);
 public:
 	FamilysituationDO() {
-		id = "";
+		id = -1;
 		name = "";
 		gender = "";
 		age = -1;
@@ -62,7 +66,7 @@ public:
 		identification = "";
 		dob = "";
 		testament = -1;
-		ice = -1;
+		ice = "";
 	}
 };
 

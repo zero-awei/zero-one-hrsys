@@ -177,6 +177,8 @@
     <ClInclude Include="controller\familysituation\FamilysituationController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\Familysituation\FamilysituationDAO.h" />
+    <ClInclude Include="dao\Familysituation\FamilysituationMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\Familysituation\FamilysituationDO.h" />
     <ClInclude Include="domain\dto\familysituation\FamilysituationDTO.h" />
@@ -193,7 +195,9 @@
     <ClCompile Include="controller\familysituation\FamiylsituationController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\Familysituation\FamilysituationDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\familysituation\FamilysituationService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

@@ -36,8 +36,8 @@ class FamilysituationJsonVO : public JsonVO<FamilysituationDTO::Wrapper>
 /**
  * 家庭情况分页显示JsonVO，用于响应给客户端的Json对象
  */
-class FamilySituationPageJsonVO : public JsonVO<FamilysituationPageDTO::Wrapper> {
-	DTO_INIT(FamilySituationPageJsonVO, JsonVO<FamilysituationPageDTO::Wrapper>);
+class FamilysituationPageJsonVO : public JsonVO<FamilysituationPageDTO::Wrapper> {
+	DTO_INIT(FamilysituationPageJsonVO, JsonVO<FamilysituationPageDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)
