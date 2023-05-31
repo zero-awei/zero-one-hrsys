@@ -48,7 +48,7 @@ public: // 定义接口
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(LegalEntitySetPageJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(LegalEntitySetQueryPageJsonVO);
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他查询参数描述
@@ -69,7 +69,7 @@ public: // 定义接口
 
 private: // 定义接口执行函数
 	// 分页查询数据
-	LegalEntitySetPageJsonVO::Wrapper execQueryLES(const LegalEntitySetQuery::Wrapper& query);
+	LegalEntitySetQueryPageJsonVO::Wrapper execQueryLES(const LegalEntitySetQuery::Wrapper& query);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

@@ -27,15 +27,15 @@
 
 /* 法人主体设置VO对象定义--（组织管理-数据设置-法人主体设置）--TripleGold */
 /* 定义一个用户信息显示JsonVO对象，用于响应给客户端 */
-class LegalEntitySetJsonVO : public JsonVO<LegalEntitySetQueryDTO::Wrapper>
+class LegalEntitySetQueryJsonVO : public JsonVO<LegalEntitySetQueryDTO::Wrapper>
 {
-	DTO_INIT(LegalEntitySetJsonVO, JsonVO<LegalEntitySetQueryDTO::Wrapper>);
+	DTO_INIT(LegalEntitySetQueryJsonVO, JsonVO<LegalEntitySetQueryDTO::Wrapper>);
 };
 
 /* 定义一个用户信息分页显示JsonVO对象，用于响应给客户端 */
-class LegalEntitySetPageJsonVO : public JsonVO<LegalEntitySetPageDTO::Wrapper>
+class LegalEntitySetQueryPageJsonVO : public JsonVO<LegalEntitySetPageDTO::Wrapper>
 {
-	DTO_INIT(LegalEntitySetPageJsonVO, JsonVO<LegalEntitySetPageDTO::Wrapper>)
+	DTO_INIT(LegalEntitySetQueryPageJsonVO, JsonVO<LegalEntitySetPageDTO::Wrapper>)
 };
 
 #include OATPP_CODEGEN_END(DTO)
