@@ -176,14 +176,14 @@ int main(int argc, char* argv[]) {
 #endif
 
 	// 初始数据库连接
-	/*bool initConnPool = DbInit::initDbPool(DBConfig(
+	bool initConnPool = DbInit::initDbPool(DBConfig(
 		ServerInfo::getInstance().getDbUsername(),
 		ServerInfo::getInstance().getDbPassword(),
 		ServerInfo::getInstance().getDbName(),
 		ServerInfo::getInstance().getDbHost(),
 		ServerInfo::getInstance().getDbPort(),
 		ServerInfo::getInstance().getDbMax()));
-	if (!initConnPool) return -1;*/
+	if (!initConnPool) return -1;
 
 	// 启动HTTP服务器
 	HttpServer::startServer(ServerInfo::getInstance().getServerPort(),
@@ -195,7 +195,7 @@ int main(int argc, char* argv[]) {
 		});
 
 	// 释放数据库连接
-	/*DbInit::releasePool();*/
+	DbInit::releasePool();
 
 #ifdef USE_NACOS
 	// 反注册服务
