@@ -6,6 +6,7 @@
 #include "domain/query/PageQuery.h"
 #include "domain/dto/retirement/RetiremetDto.h"
 #include "domain/vo/RetirementVo/RetirementVo.h"
+#include "domain/query/RetirementQuery/RetirementQuery.h"
 
 // 0 定义API控制器使用宏  (api控制器是处理传入请求，返回响应的)
 
@@ -45,14 +46,14 @@ public:
 		queryTest：接口名字
 		QUERIES(QueryParams, qp1)：表示请求是表单数据，请求的参数都放到qp1中
 		*/
-	ENDPOINT(API_M_GET, "/Retirement-management/Page-query-retirement", retirement_Page_query, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qp1))
+	ENDPOINT(API_M_GET, "/retirement-management/Page-query-retirement", retirement_Page_query, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qp1))
 	{
 		/* 
 		解析查询参数(解析为领域模型对象) 也就是query与dto
 		首先调用API_HANDLER_QUERY_PARAM宏解析请求中的查询参数(也就是pq1)，
 		将其解析（转换）为PageQuery类的对象，并以名称query保存在内存中。
 		*/
-		API_HANDLER_QUERY_PARAM(query, PageQuery, qp1);
+		API_HANDLER_QUERY_PARAM(query, RetirementQuery_gan , qp1);
 		/*
 		响应结果
 		然后调用execQueryTest()方法执行查询操作，
@@ -104,7 +105,7 @@ public:
 	*/
 private:
 	//定义接口的执行函数
-	StringJsonVO::Wrapper execQueryTest(const PageQuery::Wrapper& query);
+	RetirementQueryPageJsonVO::Wrapper execQueryTest(const RetirementQuery_gan::Wrapper& query);
 
 	/*
 	Uint64JsonVO::Wrapper execAddSample1(const RetirementDTO::Wrapper& dto);

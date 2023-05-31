@@ -1,16 +1,17 @@
 #include "stdafx.h"
 #include "retirement.h"
+#include "service/reitirement/retirementService.h"
 
-
-StringJsonVO::Wrapper RetirementController::execQueryTest(const PageQuery::Wrapper & query)
+RetirementQueryPageJsonVO::Wrapper RetirementController::execQueryTest(const RetirementQuery_gan::Wrapper & query)
 {
-	/*auto Dto = RetirementDTO::createShared();
-	auto Jvo = RetirementQueryPageJsonVO::createShared();
-	Jvo->success(Dto);
-	return Jvo;*/
-	auto vo = StringJsonVO::createShared();
-	vo->success("Retirement test qurey1 success");
-	return vo;
+	// 定义一个Service
+	retirementService service;
+	// 查询数据
+	auto result = service.listAll(query);
+	// 响应结果
+	auto jvo = RetirementQueryPageJsonVO::createShared();
+	jvo->success(result);
+	return jvo;
 }
 /*
 StringJsonVO::Wrapper TestController::execQueryTest1(const PageQuery::Wrapper& query1)
