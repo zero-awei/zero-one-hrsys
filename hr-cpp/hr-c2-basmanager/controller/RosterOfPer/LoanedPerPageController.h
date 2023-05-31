@@ -40,12 +40,15 @@ public:
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("sample.field.name");
-		info->queryParams["name"].addExample("default", String(""));
-		info->queryParams["name"].required = false;
-		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("sample.field.id");
-		info->queryParams["id"].addExample("default", String(""));
-		info->queryParams["id"].required = false;
+		info->queryParams.add<String>("idAndName").description = ZH_WORDS_GETTER("loanedperpage.field.idAndName");
+		info->queryParams["idAndName"].addExample("default", String(""));
+		info->queryParams["idAndName"].required = false;
+		info->queryParams.add<String>("pimPersonName").description = ZH_WORDS_GETTER("loanedperpage.field.pimPersonName");
+		info->queryParams["pimPersonName"].addExample("default", String(""));
+		info->queryParams["pimPersonName"].required = false;
+		info->queryParams.add<String>("ygbh").description = ZH_WORDS_GETTER("loanedperpage.field.ygbh");
+		info->queryParams["ygbh"].addExample("default", String(""));
+		info->queryParams["ygbh"].required = false;
 		info->queryParams.add<String>("zz").description = ZH_WORDS_GETTER("loanedperpage.field.zz1");
 		info->queryParams["zz"].addExample("default", String(""));
 		info->queryParams["zz"].required = false;

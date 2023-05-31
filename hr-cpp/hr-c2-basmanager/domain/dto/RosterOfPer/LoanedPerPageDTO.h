@@ -10,15 +10,25 @@
 class LoanedPerDTO : public oatpp::DTO
 {
 	DTO_INIT(LoanedPerDTO, DTO);
-	// 编号
-	DTO_FIELD(String, id);
-	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("loanedperpage.field.id");
+	// 借调人员标识
+	DTO_FIELD(String, PIMDISTIRBUTIONID);
+	DTO_FIELD_INFO(PIMDISTIRBUTIONID) {
+		info->description = ZH_WORDS_GETTER("loanedperpage.field.PIMDISTIRBUTIONID");
 	}
-	// 姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("loanedperpage.field.name");
+	// 编号和姓名（模糊查询）
+	DTO_FIELD(String, idAndName);
+	DTO_FIELD_INFO(idAndName) {
+		info->description = ZH_WORDS_GETTER("loanedperpage.field.idAndName");
+	}
+	// 员工编号
+	DTO_FIELD(String, ygbh);
+	DTO_FIELD_INFO(ygbh) {
+		info->description = ZH_WORDS_GETTER("loanedperpage.field.ygbh");
+	}
+	// 员工姓名
+	DTO_FIELD(String, pimPersonName);
+	DTO_FIELD_INFO(pimPersonName) {
+		info->description = ZH_WORDS_GETTER("loanedperpage.field.pimPersonName");
 	}
 	// 原组织
 	DTO_FIELD(String, zz);

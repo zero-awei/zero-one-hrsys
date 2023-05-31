@@ -6,7 +6,7 @@
 #include "FastDfsClient.h"
 #include <cstdio>
 /*
-（人员花名册-借调人员功能--luoluo
+（人员花名册-借调人员功能)--luoluo
 */
 LoanedPerPageDTO::Wrapper LoanedPerPageService::listAll(const LoanedPerPageQuery::Wrapper& query)
 {
@@ -31,7 +31,7 @@ LoanedPerPageDTO::Wrapper LoanedPerPageService::listAll(const LoanedPerPageQuery
 	for (SecondedPersonnelDO sub : result)
 	{
 		auto dto = LoanedPerDTO::createShared();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, ygbh, name, pimPersonName, zz, zz, bm, bm, yzw, yzw,
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, PIMDISTIRBUTIONID, PIMDISTIRBUTIONID, idAndName, idAndName, ygbh, ygbh, pimPersonName, pimPersonName, zz, zz, bm, bm, yzw, yzw,
 			ygw, ygw, ormName, ormName, ormOrgSectorName, ormOrgSectorName, ormDutyName, ormDutyName, ormPostName, ormPostName,
 			pcmydjdmxId, pcmydjdmxId, jdksrq, jdksrq, jdjsrq, jdjsrq);
 		pages->addData(dto);
@@ -43,7 +43,7 @@ std::string LoanedPerPageService::exportData(const LoanedPerPageQuery::Wrapper& 
 {
 	//查询数据并设置page的大小等
 	LoanedPerDAO dao;
-	int count = dao.count(query);
+	uint64_t count = dao.count(query);
 	if (count > 5000) query->pageSize = 5000;
 	else query->pageSize = count;
 	query->pageIndex = 1;

@@ -133,11 +133,12 @@ loanedperpage:
  get:
   summary: （人员花名册-借调人员-分页查询员工数据）--洛洛
  field:
+  PIMDISTIRBUTIONID: 借调人员标识
   idAndName: 员工编号和姓名（模糊查询）
   employeeid: 员工编号
   employeename: 员工姓名
-  id: 员工编号
-  name: 员工姓名
+  ygbh: 员工编号
+  pimPersonName: 员工姓名
   zz: 原组织
   bm: 原部门
   yzw: 原职务

@@ -27,6 +27,10 @@
  */
 class SecondedPersonnelDO
 {
+	// 借调人员标识
+	CC_SYNTHESIZE(string, PIMDISTIRBUTIONID, PIMDISTIRBUTIONID);
+	// 编号和姓名 模糊查询
+	CC_SYNTHESIZE(string, idAndName, idAndName);
 	// 员工编号
 	CC_SYNTHESIZE(string, ygbh, ygbh);
 	// 员工姓名
@@ -56,7 +60,9 @@ class SecondedPersonnelDO
 
 public:
 	SecondedPersonnelDO() {
-		ygbh = "0";
+		PIMDISTIRBUTIONID = "";
+		idAndName = "";
+		ygbh = "";
 		pimPersonName = "";
 		zz = "";
 		bm = "";

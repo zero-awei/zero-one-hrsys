@@ -12,20 +12,21 @@ public:
 	SecondedPersonnelDO mapper(ResultSet* resultSet) const override
 	{
 		SecondedPersonnelDO data;
-		data.setygbh(resultSet->getString(1));
+		data.setPIMDISTIRBUTIONID(resultSet->getString(1));
 		data.setpimPersonName(resultSet->getString(2));
-		data.setzz(resultSet->getString(3));
-		data.setbm(resultSet->getString(4));
-		data.setyzw(resultSet->getString(5));
-		data.setygw(resultSet->getString(6));
-		data.setormName(resultSet->getString(7));
-		data.setormOrgSectorName(resultSet->getString(8));
-		data.setormDutyName(resultSet->getString(9));
-		data.setormPostName(resultSet->getString(10));
-		data.setpcmydjdmxId(resultSet->getString(11));
-		data.setjdksrq(resultSet->getString(12));
-		data.setjdjsrq(resultSet->getString(13));
-		return data;
-	}
-};
-#endif // !_LoanedPer_MAPPER_
+		data.setygbh(resultSet->getString(3));
+		data.setyzw(resultSet->getString(4));
+		data.setbm(resultSet->getString(5));
+		data.setyzw(resultSet->getString(6));
+		data.setygw(resultSet->getString(7));
+		data.setormName(resultSet->getString(8));
+		data.setormOrgSectorName(resultSet->getString(9));
+		data.setormDutyName(resultSet->getString(10));
+		data.setormPostName(resultSet->getString(11));
+		data.setpcmydjdmxId(resultSet->getString(12));
+		data.setjdksrq(resultSet->getString(13));
+		data.setjdjsrq(resultSet->getString(14));
+		return data;			   
+	}							   
+};								   
+#endif // !_LoanedPer_MAPPER_	   
