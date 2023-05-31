@@ -19,7 +19,7 @@ import java.util.Date;
 @Data
 @TableName("t_orgsector")
 public class ModifyDeptInfoDTO {
-    @ApiModelProperty(value = "部门标识",example = "7efb38a0-5877-4c3c-81d7-269bd17af27b")
+    @ApiModelProperty(value = "部门标识",example = "bb88c8cc-8fbb-4dca-af38-d67fe6ae7eec")
     @TableField(value = "orgsectorid",update = "false")
     private String orgsectorid;
 

@@ -15,7 +15,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@TableName("t_pimzzmm")
+@TableName("zo_pimzzmm")
 public class Zzmm implements Serializable {
 
     private static final long serialVersionUID = 1L;

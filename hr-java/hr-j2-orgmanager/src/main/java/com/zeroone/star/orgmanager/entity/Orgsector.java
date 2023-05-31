@@ -279,7 +279,7 @@ public class Orgsector implements Serializable {
     /**
      * 编制控制
      */
-    private Integer bzkz;
+    private Integer bzkz;//此处修改了原表的字段
 
     /**
      * 保留字段29
