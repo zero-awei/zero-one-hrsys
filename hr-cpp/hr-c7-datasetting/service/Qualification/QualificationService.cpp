@@ -69,5 +69,5 @@ bool QualificationService::updateData(const QualificationDTO::Wrapper& dto)
 bool QualificationService::removeData(uint64_t id)
 {
 	QualificationDAO dao;
-	return dao.deleteById(id) == 1;
+	return dao.deleteById(std::to_string(id)) == 1;
 }

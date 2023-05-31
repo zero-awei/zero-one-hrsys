@@ -8,26 +8,26 @@
 SqlParams params; \
 sql<<" WHERE 1=1"; \
 if (query->pimqualmajorid) { \
-	sql << " AND `pimqualmajorid`=?"; \
+	sql << " AND `PIMQUALMAJORID`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->pimqualmajorid.getValue("")); \
 } \
 if (query->qualevel) { \
-	sql << " AND `qualevel`=?"; \
+	sql << " AND `QUALEVEL`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->qualevel.getValue("")); \
 } \
 if (query->pimqualmajorname) { \
-	sql << " AND pimqualmajorname=?"; \
+	sql << " AND PIMQUALMAJORNAME=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->pimqualmajorname.getValue("")); \
 } \
 if (query->quamajor) { \
-	sql << " AND quamajor=?"; \
+	sql << " AND QUAMAJOR=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->quamajor.getValue("")); \
 }\
 
 uint64_t QualificationDAO::count(const QualificationQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM Qualification";
+	sql << "SELECT COUNT(*) FROM t_pimqualmajor";
 	QUALIFICATION_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
@@ -36,7 +36,7 @@ uint64_t QualificationDAO::count(const QualificationQuery::Wrapper& query)
 std::list<QualificationDO> QualificationDAO::selectWithPage(const QualificationQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT * FROM Qualification";
+	sql << "SELECT * FROM t_pimqualmajor";
 	QUALIFICATION_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	QualificationMapper mapper;
@@ -46,25 +46,29 @@ std::list<QualificationDO> QualificationDAO::selectWithPage(const QualificationQ
 
 std::list<QualificationDO> QualificationDAO::selectByName(const string& name)
 {
-	string sql = "SELECT * FROM Qualification WHERE `pimqualmajorname` LIKE CONCAT('%',?,'%')";
+	string sql = "SELECT * FROM t_pimqualmajor WHERE `PIMQUALMAJORNAME` LIKE CONCAT('%',?,'%')";
 	QualificationMapper mapper;
 	return sqlSession->executeQuery<QualificationDO, QualificationMapper>(sql, mapper, "%s", name);
 }
 
 uint64_t QualificationDAO::insert(const QualificationDO& iObj)
 {
-	string sql = "INSERT INTO `Qualification` (`pimqualmajorid`, `qualevel`, `pimqualmajorname`, `quamajor`) VALUES (?, ?, ?, ?)";
+	string sql = "INSERT INTO `t_pimqualmajor` (`PIMQUALMAJORID`, `QUALEVEL`, `PIMQUALMAJORNAME`, `QUAMAJOR`) VALUES (?, ?, ?, ?)";
 	return sqlSession->executeInsert(sql, "%s%s%s%s", iObj.getpimQualMajorId(), iObj.getquaMajor(), iObj.getpimQualMajorName(), iObj.getquaMajor());
 }
 
 int QualificationDAO::update(const QualificationDO& uObj)
 {
-	string sql = "UPDATE `Qualification` SET `qualevel`=?, `pimqualmajorname`=? ,`quamajor`=? WHERE `pimqualmajorid`= ? ";
+	string sql = "UPDATE `t_pimqualmajor` SET `QUALEVEL`=?, `PIMQUALMAJORNAME`=? ,`QUAMAJOR`=? WHERE `PIMQUALMAJORID`= ? ";
 	return sqlSession->executeUpdate(sql, "%s%s%s", uObj.getquaMajor(), uObj.getpimQualMajorName(), uObj.getquaMajor(), uObj.getpimQualMajorId());
 }
 
-int QualificationDAO::deleteById(uint64_t id)
+int QualificationDAO::deleteById(const std::string& id)
 {
-	string sql = "DELETE FROM `Qualification` WHERE `pimqualmajorid`=?";
-	return sqlSession->executeUpdate(sql, "%s", id);
+	stringstream sql;
+	sql << "DELETE FROM t_pimqualmajor WHERE PIMQUALMAJORID=?";
+	SqlParams params;
+	SQLPARAMS_PUSH(params, "s", std::string, id);
+	string sqlStr = sql.str();
+	return sqlSession->executeUpdate(sqlStr, params);
 }
