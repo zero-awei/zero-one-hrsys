@@ -136,44 +136,37 @@ let testMenus = [
   },
   {
     id: 4,
-    text: '标准化数据设置',
-    icon: 'IconTickets',
+    text: '档案管理',
+    icon: 'Management',
     children: [
       {
         id: 2,
-        text: '订单管理1',
-        path: '/un-31',
-        icon: 'IconTickets',
+        text: '档案信息',
+        path: '/archivesinfo',
+        icon: 'Management',
         pid: 4
       },
       {
         id: 3,
-        text: '订单管理2',
-        path: '/un-32',
-        icon: 'IconTickets',
+        text: '非员工在档提醒',
+        path: '/onfilereminder',
+        icon: 'ScaleToOriginal',
         pid: 4
       },
       {
         id: 4,
-        text: '岗位(技能)证书',
-        path: '/postcertificateview',
-        icon: 'IconTickets',
+        text: '员工不在档提醒',
+        path: '/outfilereminder',
+        icon: 'Postcard',
         pid: 4
       },
       {
         id: 5,
-        text: '职称目录',
-        path: '/jobtitlecatalog',
-        icon: 'IconTickets',
+        text: '档案转出记录',
+        path: '/filetransferrecord',
+        icon: 'DocumentRemove',
         pid: 4
       },
-      {
-        id: 6,
-        text: '档案室',
-        path: '/archives',
-        icon: 'IconTickets',
-        pid: 4
-      }
     ]
   }
 ]

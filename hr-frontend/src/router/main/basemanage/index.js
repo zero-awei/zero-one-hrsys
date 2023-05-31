@@ -5,19 +5,24 @@ const routes = [
     component: () => import('@/views/baseManage/Portal.vue')
   },
   {
-    path: '/postcertificateview',
-    name: '岗位证书',
-    component: () => import('@/views/baseManage/standardSetting/PostCertificate.vue')   
+    path:'/archivesinfo',
+    name:'档案信息',
+    component:()=>import('@/views/baseMange/archivesManage/ArchivesInfo.vue')
   },
   {
-    path: '/jobtitlecatalog',
-    name: '职称目录',
-    component: () => import('@/views/baseManage/standardSetting/JobTitleCataloge.vue')   
+    path:'/onfilereminder',
+    name:'非员工在档提醒',
+    component:()=>import('@/views/baseMange/archivesManage/OnFileReminder.vue')
   },
   {
-    path: '/archives',
-    name: '档案室',
-    component: () => import('@/views/baseManage/standardSetting/Archives.vue')   
+    path:'/outfilereminder',
+    name:'员工不在档提醒',
+    component:()=>import('@/views/baseMange/archivesManage/OutFileReminder.vue')
+  },
+  {
+    path:'/filetransferrecord',
+    name:'档案转出记录',
+    component:()=>import('@/views/baseMange/archivesManage/FileTransferRecord.vue')
   },
 ]
 
