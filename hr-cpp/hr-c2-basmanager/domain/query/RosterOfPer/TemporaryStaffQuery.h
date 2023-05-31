@@ -14,15 +14,15 @@ class TempStaffQuery : public PageQuery
 {
 	DTO_INIT(TempStaffQuery, PageQuery);
 	// ÐÕÃû
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("TempStaff.field.name");
+	DTO_FIELD(String, idandname);
+	DTO_FIELD_INFO(idandname) {
+		info->description = ZH_WORDS_GETTER("TempStaff.field.idandname");
 	}
-	// ±àºÅ
-	DTO_FIELD(String, id);
-	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("TempStaff.field.id");
-	}
+	//// ±àºÅ
+	//DTO_FIELD(String, id);
+	//DTO_FIELD_INFO(id) {
+	//	info->description = ZH_WORDS_GETTER("TempStaff.field.id");
+	//}
 };
 
 #include OATPP_CODEGEN_END(DTO)

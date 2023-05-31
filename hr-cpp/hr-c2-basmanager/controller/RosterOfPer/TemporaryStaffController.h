@@ -42,12 +42,12 @@ public:
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("TempStaff.field.name");
-		info->queryParams["name"].addExample("default", String("li ming"));
-		info->queryParams["name"].required = false;
-		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("TempStaff.field.id");
-		info->queryParams["id"].addExample("default", String(""));
-		info->queryParams["id"].required = false;
+		info->queryParams.add<String>("idandname").description = ZH_WORDS_GETTER("TempStaff.field.idandname");
+		info->queryParams["idandname"].addExample("default", String(""));
+		//info->queryParams["idandname"].required = false;
+		//info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("TempStaff.field.id");
+		//info->queryParams["id"].addExample("default", String(""));
+		//info->queryParams["id"].required = false;
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/query-tempstaff", queryTempStaff, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
@@ -71,12 +71,8 @@ public:
 		info->queryParams.add<UInt64>("pageSize").description = API_PAGE_SIZE_DESC; 
 		info->queryParams["pageSize"].addExample("default", oatpp::UInt64(10));
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("TempStaff.field.name");
-		info->queryParams["name"].addExample("default", String(""));
-		info->queryParams["name"].required = false;
-		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("TempStaff.field.id");
-		info->queryParams["id"].addExample("default", String(""));
-		info->queryParams["id"].required = false;
+		info->queryParams.add<String>("idandname").description = ZH_WORDS_GETTER("TempStaff.field.idandname");
+		info->queryParams["idandname"].addExample("default", String(""));
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/get-tempstaff", queryExportTempStaff, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {

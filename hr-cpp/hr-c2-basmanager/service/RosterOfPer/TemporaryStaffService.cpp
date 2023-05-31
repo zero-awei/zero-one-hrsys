@@ -116,6 +116,6 @@ std::string TemporaryStaffService::exportData(const TempStaffQuery::Wrapper& que
 	// 构建下载路径
 	std::string downloadUrl = urlPrefix + fieldName;
 	// 输出下载路径
-	std::cout << "download url: " << downloadUrl << std::endl;
+	//std::cout << "download url: " << downloadUrl << std::endl;
 	return downloadUrl;
 }
