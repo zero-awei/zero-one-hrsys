@@ -1,10 +1,12 @@
 #include "stdafx.h"
 #include "JobTitleInfoController.h"
+#include "service/JobTitleInfo/JobTitleInfo.h"
 
 JobTitleInfoJsonVO::Wrapper JobTitleInfoController::execQueryJobTitle(const JobTitleInfoDTO::Wrapper& query, const PayloadDTO& payload)
 {
 	auto jvo = JobTitleInfoJsonVO::createShared();
-	auto result = JobTitleInfoDTO::createShared();
+	JobTitleInfoService service;
+	auto result = service.queryDataDetail(query);
 	jvo->success(result);
 	return jvo;
 }
@@ -12,8 +14,12 @@ JobTitleInfoJsonVO::Wrapper JobTitleInfoController::execQueryJobTitle(const JobT
 StringJsonVO::Wrapper JobTitleInfoController::execGetJobTitle(const JobTitleInfoDTO::Wrapper& query, const PayloadDTO& payload)
 {
 	auto jvo = StringJsonVO::createShared();
-	String result;
-	jvo->success(result);
+	JobTitleInfoService service;
+	auto result = service.listAllJobTitle(query);
+	if (!result.empty())
+		jvo->success(result);
+	else
+		jvo->fail(result);
 	return jvo;
 }
 

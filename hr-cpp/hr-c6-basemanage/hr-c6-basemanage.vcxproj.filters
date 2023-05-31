@@ -36,6 +36,10 @@
     <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
     <ClCompile Include="service\reitirement\retirementService.cpp" />
     <ClCompile Include="dao\retirementDAO\retirementDAO.cpp" />
+    <ClCompile Include="dao\JobTitleInfo\JobTitleInfoDAO.cpp" />
+    <ClCompile Include="service\JobTitleInfo\JobTitleInfo.cpp" />
+    <ClCompile Include="uselib\excel\ExportExcel.cpp" />
+    <ClCompile Include="uselib\fastdfs\UseFastDfs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -113,6 +117,13 @@
     <ClInclude Include="service\reitirement\retirementService.h" />
     <ClInclude Include="dao\retirementDAO\retirementDAO.h" />
     <ClInclude Include="dao\retirementDAO\retirementMapper.h" />
+    <ClInclude Include="dao\dao-sql-macro\macro.h" />
+    <ClInclude Include="dao\JobTitleInfo\JobTitleInfoDAO.h" />
+    <ClInclude Include="dao\JobTitleInfo\JobTitleInfoMapper.h" />
+    <ClInclude Include="service\JobTitleInfo\JobTitleInfo.h" />
+    <ClInclude Include="domain\do\retirement\retirementDO.h" />
+    <ClInclude Include="uselib\excel\ExportExcel.h" />
+    <ClInclude Include="uselib\fastdfs\UseFastDfs.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />

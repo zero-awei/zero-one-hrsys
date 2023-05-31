@@ -20,6 +20,7 @@
 #include <sstream>
 #include "ExpenseLedgerDAO.h"
 #include "ExpenseLedgerMapper.h"
+#include "../dao-sql-macro/macro.h"
 
 #define EXPENSELEDGER_TERAM_PARSE(query, sql) \
 SqlParams params; \
@@ -77,6 +78,18 @@ if (query->ormorgid) { \
 	SQLPARAMS_PUSH(params, "s", std::string, query->ormorgid.getValue("")); \
 } \
 
+inline SqlParams expenseledge_teram_parse(const ExpenseLedgeDTO::Wrapper & query, stringstream & sql)
+{
+	SqlParams params;
+	sql << " WHERE 1=1";
+	SQLPARAMS_INT_PUSH(FFRS);
+	SQLPARAMS_INT_PUSH(PIMEXPACCOUNTID);
+	SQLPARAMS_FLOAT_PUSH(FYJE);
+	SQLPARAMS_STRING_PUSH(PIMEXPACCOUNTNAME);
+	SQLPARAMS_STRING_PUSH(FFSJ);
+	SQLPARAMS_STRING_PUSH(FFYBZ);
+	return params;
+}
 
 uint64_t ExpenseLedgerDAO::count(const ExpenseLedgerPageQuery::Wrapper& query)
 {
@@ -98,6 +111,47 @@ std::list<ExpenseLedgerDO> ExpenseLedgerDAO::selectByPageQuery(const ExpenseLedg
 	ExpenseLedgerMapper mapper;
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<ExpenseLedgerDO, ExpenseLedgerMapper>(sqlStr, mapper, params);
+}
+
+std::list<ExpenseLedgerDO> ExpenseLedgerDAO::selectAll(const ExpenseLedgeDTO::Wrapper& query)
+{
+	stringstream sql;
+	sql << "SELECT * FROM t_pimexpaccount";
+	SqlParams params = expenseledge_teram_parse(query, sql);
+	ExpenseLedgerMapper mapper;
+	string sqlStr = sql.str();
+	return sqlSession->executeQuery<ExpenseLedgerDO, ExpenseLedgerMapper>(sqlStr, mapper, params);
+}
+
+int ExpenseLedgerDAO::update(const ExpenseLedgerDO& uObj)
+{
+	stringstream sql;
+	stringstream fmts;
+	sql << "UPDATE `t_pimexpaccount` SET ";
+	SQLPARAMS_UPDATE_STRING(name);
+	SQLPARAMS_UPDATE_STRING(updateman);
+	SQLPARAMS_UPDATE_STRING(createdate);
+	SQLPARAMS_UPDATE_STRING(createman);
+	SQLPARAMS_UPDATE_STRING(updatedate);
+	SQLPARAMS_UPDATE_STRING(fylb);
+	SQLPARAMS_UPDATE_FLOAT(fyje);
+	SQLPARAMS_UPDATE_INT(ffrs);
+	SQLPARAMS_UPDATE_STRING(ffsj);
+	SQLPARAMS_UPDATE_STRING(fybz);
+	SQLPARAMS_UPDATE_PUSH_FINAL(bz,"%s",id);
+	return sqlSession->executeUpdate(sql.str(), fmts.str().c_str(),
+		uObj.getName(),
+		uObj.getUpdateman(),
+		uObj.getCreatedate(),
+		uObj.getCreateman(),
+		uObj.getUpdatedate(),
+		uObj.getFylb(),
+		uObj.getFyje(),
+		uObj.getFfrs(),
+		uObj.getFfsj(),
+		uObj.getFybz(),
+		uObj.getBz(),
+		uObj.getId());
 }
 
 uint64_t ExpenseLedgerDAO::insert(const ExpenseLedgerDO& ido)

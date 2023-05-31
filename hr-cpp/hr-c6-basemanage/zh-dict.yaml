@@ -242,11 +242,14 @@ jobtitle:
   summary: 查询指定职称详情
  export:
   summary: 导出职称
+  line: 行数
+  rows: 所有记录
  update:
   summary: 更新职称
 
 expense:
  field:
+  expense_id: 费别ID
   expense_name: 费别类型
   expense_num: 费用金额
   people_num: 发放人数
