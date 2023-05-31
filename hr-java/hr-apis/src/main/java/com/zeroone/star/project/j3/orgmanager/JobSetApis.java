@@ -80,12 +80,12 @@ public interface JobSetApis {
 
 
     @DeleteMapping("delete-position")
-    @ApiOperation("删除组织信息(支持批量)")
+    @ApiOperation("删除职务信息(支持批量)")
     JsonVO<Boolean> DeletePosition(@RequestBody DeletePositionDTO deletePositionDTO);
 
     @PostMapping("add-position")
-    @ApiOperation("批量新增组织信息(支持批量)")
-    JsonVO<Boolean> AddPosition(@RequestBody AddPositionDTO addPositionDTO);
+    @ApiOperation("批量职务组织信息(支持批量)/前端传送多个请求")
+    JsonVO<Boolean> AddPosition(@RequestBody JobTitleDTO jobTitleDTO);
 /**
  *  导出组织（导出本页在前端完成）
  * @return {@link com.zeroone.star.project.vo.JsonVO<com.zeroone.star.project.j3.dto.ExportDTO>}

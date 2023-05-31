@@ -3,6 +3,7 @@ package com.zeroone.star.orgmanager.controller;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zeroone.star.orgmanager.entity.TOrmduty;
+import com.zeroone.star.orgmanager.mapper.TOrmdutyMapper;
 import com.zeroone.star.orgmanager.service.ITOrmdutyService;
 import com.zeroone.star.project.components.fastdfs.FastDfsClientComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
@@ -52,6 +53,8 @@ import java.util.stream.Collectors;
 public class JobSetController implements JobSetApis {
     @Autowired
     ITOrmdutyService itOrmdutyService;
+    @Autowired
+    TOrmdutyMapper tOrmdutyMapper;
     @Resource
     private FastDfsClientComponent fastDfsClientComponent;
 
@@ -117,7 +120,8 @@ public class JobSetController implements JobSetApis {
         tOrmduty.setFglx(jobTitleDTO.getFglx());
         tOrmduty.setXh(jobTitleDTO.getXh());
         tOrmduty.setOrmdutyname(jobTitleDTO.getOrmdutyname());
-        return JsonVO.success(itOrmdutyService.updateByOrmdutyId(tOrmduty));
+        boolean res = itOrmdutyService.updateByOrmdutyId(tOrmduty);
+        return res ? JsonVO.success(res) : JsonVO.fail(res);
     }
 
     @GetMapping("query-by-name")
@@ -129,16 +133,28 @@ public class JobSetController implements JobSetApis {
         return null;
     }
     @DeleteMapping("delete-position")
-    @ApiOperation("删除组织信息(支持批量)")
+    @ApiOperation("删除职务信息(支持批量)")
     @Override
     public JsonVO<Boolean> DeletePosition(@RequestBody DeletePositionDTO deletePositionDTO) {
-        return null;
+        boolean res = itOrmdutyService.deleteByOrmdutyIds(deletePositionDTO.getPositionId());
+
+        return res ? JsonVO.success(res) : JsonVO.fail(res);
     }
     @PostMapping ("add-position")
-    @ApiOperation("批量新增组织信息(支持批量)")
+    @ApiOperation("批量新增职务信息(支持批量)")
     @Override
-    public JsonVO<Boolean> AddPosition(@RequestBody AddPositionDTO addPositionDTO) {
-        return null;
+    public JsonVO<Boolean> AddPosition(@RequestBody JobTitleDTO jobTitleDTO) {
+        TOrmduty tOrmduty = new TOrmduty();
+        tOrmduty.setOrmdutyname(jobTitleDTO.getOrmdutyname());
+        tOrmduty.setXh(jobTitleDTO.getXh());
+        tOrmduty.setFglx(jobTitleDTO.getFglx());
+        tOrmduty.setOrmdutyid(jobTitleDTO.getOrmdutyid());
+        tOrmduty.setCreatedate(LocalDateTime.now());
+        tOrmduty.setUpdatedate(LocalDateTime.now());
+        tOrmduty.setCreateman("1944DE89-8E28-4D10-812C-CAEEAAE8A927");
+        tOrmduty.setUpdateman("1944DE89-8E28-4D10-812C-CAEEAAE8A927");
+        boolean res = itOrmdutyService.save(tOrmduty);
+        return res? JsonVO.success(res) : JsonVO.fail(res);
     }
 
     @Override

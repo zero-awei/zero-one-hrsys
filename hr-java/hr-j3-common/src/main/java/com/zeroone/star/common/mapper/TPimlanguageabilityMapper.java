@@ -19,9 +19,17 @@ import java.util.List;
 @Mapper
 public interface TPimlanguageabilityMapper extends BaseMapper<TPimlanguageability> {
 
+    /**
+     * 获取下拉列表项
+     * @param id
+     * @return
+     */
     @Select("select CODEITEMNAME from t_srfcodeitem where CODELISTID = #{id}")
     public List<String> queryLanguageLevel(String id);
 
     @Select("select CODEITEMNAME from t_srfcodeitem where CODELISTID = #{id}")
     public List<String> queryLanguageType(String id);
+
+    @Select("select CODEITEMNAME from t_srfcodeitem where CODELISTID = #{id}")
+    public List<String> queryRelationship(String id);
 }

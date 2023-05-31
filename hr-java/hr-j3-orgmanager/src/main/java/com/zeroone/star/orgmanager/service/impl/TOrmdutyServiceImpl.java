@@ -29,4 +29,10 @@ public class TOrmdutyServiceImpl extends ServiceImpl<TOrmdutyMapper, TOrmduty> i
     public boolean updateByOrmdutyId(TOrmduty tOrmduty) {
         return tOrmdutyMapper.updateOrmdutyById(tOrmduty);
     }
+
+    @Override
+    public boolean deleteByOrmdutyIds(List<String> ids) {
+        return tOrmdutyMapper.deleteByOrmdutyids(ids);
+    }
+
 }

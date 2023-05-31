@@ -33,4 +33,9 @@ public class TPimlanguageabilityServiceImpl extends ServiceImpl<TPimlanguageabil
     public List<String> queryLanguageType(String id) {
         return mapper.queryLanguageLevel(id);
     }
+
+    @Override
+    public List<String> queryRelationship(String id) {
+        return mapper.queryRelationship(id);
+    }
 }

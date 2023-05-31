@@ -30,4 +30,11 @@ public interface ITPimlanguageabilityService extends IService<TPimlanguageabilit
      */
     public List<String> queryLanguageType(String id);
 
+    /**
+     * 查询与本人关系
+     * @param id
+     * @return
+     */
+    public List<String> queryRelationship(String id);
+
 }

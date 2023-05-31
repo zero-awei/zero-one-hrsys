@@ -16,6 +16,17 @@ import java.util.List;
  */
 public interface ITOrmdutyService extends IService<TOrmduty> {
 
+    /**
+     * 更新职务信息
+     * @param tOrmduty
+     * @return
+     */
     boolean updateByOrmdutyId(TOrmduty tOrmduty);
 
+    /**
+     * 批量删除职务信息
+     * @param ids
+     * @return
+     */
+    boolean deleteByOrmdutyIds(List<String> ids);
 }

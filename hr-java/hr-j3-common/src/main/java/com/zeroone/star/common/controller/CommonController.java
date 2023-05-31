@@ -130,8 +130,9 @@ public class CommonController implements CommonApis {
     @GetMapping("query-relationship")
     @ApiOperation("与本人关系列表")
     @Override
-    public JsonVO<List<DropdownListOptionDTO>> queryRelationship() {
-        return null;
+    public JsonVO<List<String>> queryRelationship() {
+        String id = "4E74D429-DE85-41BB-B900-6009A23895D6";
+        return JsonVO.success(languageabilityService.queryRelationship(id));
     }
 
     @GetMapping("query-entry-channel")

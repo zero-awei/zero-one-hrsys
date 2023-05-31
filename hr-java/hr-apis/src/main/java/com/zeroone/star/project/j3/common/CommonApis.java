@@ -135,7 +135,7 @@ public interface CommonApis {
      * @return 数据对象
      * @Date 21:27 2023/5/19
      */
-    JsonVO<List<DropdownListOptionDTO>> queryRelationship();
+    JsonVO<List<String>> queryRelationship();
 /**
  *  入职渠道下拉列表
  * @return {@link JsonVO< List< DropdownListOptionDTO>>}

@@ -5,6 +5,8 @@ import com.zeroone.star.orgmanager.entity.TOrmduty;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Update;
 
+import java.util.List;
+
 
 /**
  * <p>
@@ -20,4 +22,6 @@ public interface TOrmdutyMapper extends BaseMapper<TOrmduty> {
     @Update("update t_ormduty set UPDATEDATE = #{updatedate}, ORMDUTYNAME = #{ormdutyname}, " +
             "XH = #{xh}, FGLX = #{fglx} where ORMDUTYID = #{ormdutyid}")
     public boolean updateOrmdutyById(TOrmduty tOrmduty);
+
+    public boolean deleteByOrmdutyids(List<String> ids);
 }

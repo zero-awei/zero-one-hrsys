@@ -3,34 +3,12 @@
 <mapper namespace="com.zeroone.star.orgmanager.mapper.TOrmdutyMapper">
 
 
-<!--    <resultMap id="tormdutyResultMap" type="com.zeroone.star.orgmanager.entity.TOrmduty">-->
-<!--        <id property="ormdutyid" column="ORMDUTYID"></id>-->
-<!--        <result property="ormdutyname" column="ORMDUTYNAME"></result>-->
-<!--        <result property="xh" column="XH"></result>-->
-<!--        <result property="fglx" column="FGLX"></result>-->
-<!--        <result property="updateman" column="UPDATEMAN"></result>-->
-<!--        <result property="updatedate" column="UPDATEDATE"></result>-->
-<!--        <result property="createman" column="CREATEMAN"></result>-->
-<!--        <result property="createdate" column="CREATEDATE"></result>-->
-<!--        <result property="dyzj" column="DYZJ"></result>-->
-<!--        <result property="nx" column="NX"></result>-->
-<!--        <result property="bxjlnx" column="BXJLNX"></result>-->
-<!--        <result property="zwjb" column="ZWJB"></result>-->
-<!--        <result property="zwlb" column="ZWLB"></result>-->
-<!--    </resultMap>-->
-
-
-<!--    <select id="queryDutyList" resultMap="tormdutyResultMap">-->
-<!--        select *-->
-<!--        from t_ormduty-->
-<!--    </select>-->
-
-<!--    <update id="modifyDuty">-->
-<!--        update t_ormduty-->
-<!--        set UPDATEDATE = "#{updatedate}" , XH ="#{xh}" , FGLX = "#{fglx}" , ORMDUTYNAME = "#{ormdutyname}"-->
-<!--        where ORMDUTYID = "#{ormdutyid}" -->
-<!--        <foreach collection="ormduties" item="ormduty" separator="," open="(" close=")">-->
-<!--            -->
-<!--        </foreach>-->
-<!--    </update>-->
+    <delete id="deleteByOrmdutyids">
+        delete from
+        t_ormduty
+        where ORMDUTYID in
+        <foreach collection="ids" open="(" separator="," close=")" item="id">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>
