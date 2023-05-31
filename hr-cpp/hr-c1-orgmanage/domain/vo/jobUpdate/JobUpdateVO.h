@@ -6,12 +6,12 @@
 #define _JOB_UPDATE_VO_
 
 #include "../../GlobalInclude.h"
-#include "domain/dto/jobDownload/JobDownloadDTO.h"
+#include "domain/dto/jobSet/jobUpdateDto/JobUpdateDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class JobUpdateJsonVO : public JsonVO<UInt32> {
-	DTO_INIT(JobUpdateJsonVO, JsonVO<UInt32>);
+class JobUpdateJsonVO : public JsonVO<JobUpdateDTO::Wrapper> {
+	DTO_INIT(JobUpdateJsonVO, JsonVO<JobUpdateDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

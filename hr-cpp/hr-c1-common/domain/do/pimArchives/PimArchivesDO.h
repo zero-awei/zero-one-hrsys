@@ -20,7 +20,7 @@ class PimArchivesDO
 	CC_SYNTHESIZE(string, dispatchOutDate, DispatchOutDate);
 	CC_SYNTHESIZE(string, dispatchInAddr, DispatchInAddr);
 	CC_SYNTHESIZE(string, dispatchOutAddr, DispatchOutAddr);
-	CC_SYNTHESIZE(string, cfgh, CFGH);
+	CC_SYNTHESIZE(string, saveNo, SaveNo);
 	CC_SYNTHESIZE(string, note, Note);
 	CC_SYNTHESIZE(string, pimpersonID, PimPersonID);
 	CC_SYNTHESIZE(string, ormorgID, OrmorgID);
@@ -60,7 +60,7 @@ public:
 		dispatchOutDate = "档案调出日期";
 		dispatchInAddr = "档案调入单位";
 		dispatchOutAddr = "档案调出单位";
-		cfgh = "存放柜号";
+		saveNo = "存放柜号";
 		note = "备注";
 		pimpersonID = "员工";
 		ormorgID = "组织标识";

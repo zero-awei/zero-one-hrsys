@@ -1,19 +1,21 @@
 #include "stdafx.h"
 #include "JobUpdateController.h"
+#include "service/jobSet/jobUpdateService/JobUpdateService.h"
+#include "SimpleDateTimeFormat.h"
 
-JobUpdateJsonVO::Wrapper JobUpdateController::execUpdateJobinfo(const JobUpdateDTO::Wrapper& dto)
+JobUpdateJsonVO::Wrapper JobUpdateController::execUpdateJobinfo(const JobUpdateDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	// 定义返回数据对象
 	auto jvo = JobUpdateJsonVO::createShared();
-	// 参数校验
-	if (!dto->index || dto->index <= 0)
-	{
-		jvo->init(UInt32(-1), RS_PARAMS_INVALID);
-		return jvo;
+	dto->updateMan = payload.getUsername();
+	dto->updateDate== SimpleDateTimeFormat::format();
+	JobUpdateService service;
+	if (service.uodateJobInfo(dto)) {
+		jvo->success(dto);
 	}
-
-	jvo->success(dto->index);
-	
+	else {
+		jvo->fail(dto);
+	}
 	// 响应结果
 	return jvo;
 }

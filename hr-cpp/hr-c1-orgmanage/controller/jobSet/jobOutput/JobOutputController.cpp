@@ -1,10 +1,9 @@
 #include "stdafx.h"
 #include "JobOutputController.h"
 
-JobDownloadJsonVO::Wrapper JobOutputController::execDownloadJobinfo() {
-	auto dto = JobDownloadDTO::createShared();
-	auto vo = JobDownloadJsonVO::createShared();
-
-	//vo->success(dto);
+StringJsonVO::Wrapper JobOutputController::execDownloadJobinfo(const PostDetailQuery::Wrapper& query) {
+	auto vo = StringJsonVO::createShared();
+	//µ¼³öµÄservice
+	vo->success("url/download");
 	return vo;
 }

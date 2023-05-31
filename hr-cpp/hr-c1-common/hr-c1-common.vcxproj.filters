@@ -56,6 +56,9 @@
     <ClCompile Include="dao\leaveAndDismissReason\LeaveAndDismissReasonDAO.cpp" />
     <ClCompile Include="service\leaveAndDismissReason\LeaveAndDismissReasonService.cpp" />
     <ClCompile Include="dao\fileStatus\FileStatusDAO.cpp" />
+    <ClCompile Include="service\declareType\DeclareTypeService.cpp" />
+    <ClCompile Include="dao\DeclareType\DeclareTypeListDAO.cpp" />
+    <ClCompile Include="dao\archivesLevel\ArchivesLevelsDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -166,6 +169,11 @@
     <ClInclude Include="dao\leaveAndDismissReason\LeaveAndDismissReasonMapper.h" />
     <ClInclude Include="service\leaveAndDismissReason\LeaveAndDismissReasonService.h" />
     <ClInclude Include="dao\fileStatus\FileStatusDAO.h" />
+    <ClInclude Include="service\declareType\DeclareTypeService.h" />
+    <ClInclude Include="dao\DeclareType\DeclareTypeListDAO.h" />
+    <ClInclude Include="dao\DeclareType\DeclareTypeMapper.h" />
+    <ClInclude Include="dao\archivesLevel\ArchivesLevelMapper.h" />
+    <ClInclude Include="dao\archivesLevel\ArchivesLevelsDAO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
