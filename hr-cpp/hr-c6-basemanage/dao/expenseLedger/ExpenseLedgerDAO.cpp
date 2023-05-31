@@ -72,6 +72,10 @@ if (query->bz) { \
 	sql << " AND `BZ`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->bz.getValue("")); \
 } \
+if (query->ormorgid) { \
+	sql << " AND `ORMORGID`=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->ormorgid.getValue("")); \
+} \
 
 
 uint64_t ExpenseLedgerDAO::count(const ExpenseLedgerPageQuery::Wrapper& query)
