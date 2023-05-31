@@ -1,10 +1,10 @@
-#pragma once
+ï»¿#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
  @Date: 2023/02/20 10:27:42
- @description£ºÕâÀï¶¨Òå»ù´¡Êý¾ÝÀàÐÍ¶ÔÓ¦µÄÏìÓ¦JsonVO
+ @descriptionï¼šè¿™é‡Œå®šä¹‰åŸºç¡€æ•°æ®ç±»åž‹å¯¹åº”çš„å“åº”JsonVO
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ using namespace oatpp;
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * ×Ö·û´®ÏÔÊ¾JsonVO£¬ÓÃÓÚÏìÓ¦¸ø¿Í»§¶ËµÄJson¶ÔÏó
+ * å­—ç¬¦ä¸²æ˜¾ç¤ºJsonVOï¼Œç”¨äºŽå“åº”ç»™å®¢æˆ·ç«¯çš„Jsonå¯¹è±¡
  */
 class StringJsonVO : public JsonVO<String>
 {
@@ -34,7 +34,7 @@ class StringJsonVO : public JsonVO<String>
 };
 
 /**
- * ÕûÐÎÏÔÊ¾JsonVO£¬ÓÃÓÚÏìÓ¦¸ø¿Í»§¶ËµÄJson¶ÔÏó
+ * æ•´å½¢æ˜¾ç¤ºJsonVOï¼Œç”¨äºŽå“åº”ç»™å®¢æˆ·ç«¯çš„Jsonå¯¹è±¡
  */
 class Int32JsonVO : public JsonVO<Int32>
 {
@@ -42,7 +42,7 @@ class Int32JsonVO : public JsonVO<Int32>
 };
 
 /**
- * ÎÞ·ûºÅÕûÐÎÏÔÊ¾JsonVO£¬ÓÃÓÚÏìÓ¦¸ø¿Í»§¶ËµÄJson¶ÔÏó
+ * æ— ç¬¦å·æ•´å½¢æ˜¾ç¤ºJsonVOï¼Œç”¨äºŽå“åº”ç»™å®¢æˆ·ç«¯çš„Jsonå¯¹è±¡
  */
 class Uint32JsonVO : public JsonVO<UInt32>
 {
@@ -50,7 +50,7 @@ class Uint32JsonVO : public JsonVO<UInt32>
 };
 
 /**
- * ³¤ÕûÐÎÏÔÊ¾JsonVO£¬ÓÃÓÚÏìÓ¦¸ø¿Í»§¶ËµÄJson¶ÔÏó
+ * é•¿æ•´å½¢æ˜¾ç¤ºJsonVOï¼Œç”¨äºŽå“åº”ç»™å®¢æˆ·ç«¯çš„Jsonå¯¹è±¡
  */
 class Int64JsonVO : public JsonVO<Int64>
 {
@@ -58,7 +58,7 @@ class Int64JsonVO : public JsonVO<Int64>
 };
 
 /**
- * ÎÞ·ûºÅ³¤ÕûÐÎÏÔÊ¾JsonVO£¬ÓÃÓÚÏìÓ¦¸ø¿Í»§¶ËµÄJson¶ÔÏó
+ * æ— ç¬¦å·é•¿æ•´å½¢æ˜¾ç¤ºJsonVOï¼Œç”¨äºŽå“åº”ç»™å®¢æˆ·ç«¯çš„Jsonå¯¹è±¡
  */
 class Uint64JsonVO : public JsonVO<UInt64>
 {
@@ -66,7 +66,7 @@ class Uint64JsonVO : public JsonVO<UInt64>
 };
 
 /**
- * µ¥¾«¶È¸¡µãÊýÏÔÊ¾JsonVO£¬ÓÃÓÚÏìÓ¦¸ø¿Í»§¶ËµÄJson¶ÔÏó
+ * å•ç²¾åº¦æµ®ç‚¹æ•°æ˜¾ç¤ºJsonVOï¼Œç”¨äºŽå“åº”ç»™å®¢æˆ·ç«¯çš„Jsonå¯¹è±¡
  */
 class FloatJsonVO : public JsonVO<Float32>
 {
@@ -74,7 +74,7 @@ class FloatJsonVO : public JsonVO<Float32>
 };
 
 /**
- * Ë«¾«¶È¸¡µãÊýÏÔÊ¾JsonVO£¬ÓÃÓÚÏìÓ¦¸ø¿Í»§¶ËµÄJson¶ÔÏó
+ * åŒç²¾åº¦æµ®ç‚¹æ•°æ˜¾ç¤ºJsonVOï¼Œç”¨äºŽå“åº”ç»™å®¢æˆ·ç«¯çš„Jsonå¯¹è±¡
  */
 class DoubleJsonVO : public JsonVO<Float64>
 {
@@ -82,7 +82,7 @@ class DoubleJsonVO : public JsonVO<Float64>
 };
 
 /**
- * ²¼¶ûÏÔÊ¾JsonVO£¬ÓÃÓÚÏìÓ¦¸ø¿Í»§¶ËµÄJson¶ÔÏó
+ * å¸ƒå°”æ˜¾ç¤ºJsonVOï¼Œç”¨äºŽå“åº”ç»™å®¢æˆ·ç«¯çš„Jsonå¯¹è±¡
  */
 class BooleanJsonVO : public JsonVO<Boolean>
 {

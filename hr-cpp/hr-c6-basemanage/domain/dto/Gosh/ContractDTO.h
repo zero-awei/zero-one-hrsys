@@ -1,3 +1,4 @@
+ï»¿#pragma once
 #ifndef _CONTRACT_DTO_
 #define _CONTRACT_DTO_
 #include "../../GlobalInclude.h"
@@ -5,57 +6,57 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * Ê¾Àı´«Êä¶ÔÏó
+ * ç¤ºä¾‹ä¼ è¾“å¯¹è±¡
  */
 class ContractDTO_gs : public oatpp::DTO
 {
 	DTO_INIT(ContractDTO_gs, DTO);
-	// ±àºÅ
+	// ç¼–å·
 	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("contract.field.id");
 	}
-	// ĞÕÃû
+	// å§“å
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
 		info->description = ZH_WORDS_GETTER("contract.field.name");
 	}
-	// ºÏÍ¬Àà±ğ
+	// åˆåŒç±»åˆ«
 	DTO_FIELD(String, type);
 	DTO_FIELD_INFO(type) {
 		info->description = ZH_WORDS_GETTER("contract.field.type");
 	}
-	// ºÏÍ¬ÀàĞÍ
+	// åˆåŒç±»å‹
 	DTO_FIELD(String, variety);
 	DTO_FIELD_INFO(variety) {
 		info->description = ZH_WORDS_GETTER("contract.field.variety");
 	}
-	// ÆğÊ¼ÈÕÆÚ
+	// èµ·å§‹æ—¥æœŸ
 	DTO_FIELD(String, date);
 	DTO_FIELD_INFO(date) {
 		info->description = ZH_WORDS_GETTER("contract.field.date");
 	}
-	// ºÏÍ¬×´Ì¬
+	// åˆåŒçŠ¶æ€
 	DTO_FIELD(String, condition);
 	DTO_FIELD_INFO(condition) {
 		info->description = ZH_WORDS_GETTER("contract.field.condition");
 	}
-	// ºÏÍ¬¹ÜÀíµ¥Î»
+	// åˆåŒç®¡ç†å•ä½
 	DTO_FIELD(String, department_m);
 	DTO_FIELD_INFO(department_m) {
 		info->description = ZH_WORDS_GETTER("contract.field.department_m");
 	}
-	// ºÏÍ¬Ç©¶©µ¥Î»
+	// åˆåŒç­¾è®¢å•ä½
 	DTO_FIELD(String, department_c);
 	DTO_FIELD_INFO(department_c) {
 		info->description = ZH_WORDS_GETTER("contract.field.department_c");
 	}
-	// ºÏÍ¬µ½ÆÚÊ±¼ä
+	// åˆåŒåˆ°æœŸæ—¶é—´
 	DTO_FIELD(String, date_end);
 	DTO_FIELD_INFO(date_end) {
 		info->description = ZH_WORDS_GETTER("contract.field.date_end");
 	}
-	// ±¸×¢
+	// å¤‡æ³¨
 	DTO_FIELD(String, tip);
 	DTO_FIELD_INFO(tip) {
 		info->description = ZH_WORDS_GETTER("contract.field.tip");
@@ -65,7 +66,7 @@ class ContractDTO_gs : public oatpp::DTO
 class ContractDTO_gs_delete : public oatpp::DTO
 {
 	DTO_INIT(ContractDTO_gs_delete, DTO);
-	// ´ıÉ¾³ı±àºÅ
+	// å¾…åˆ é™¤ç¼–å·
 	DTO_FIELD(List<String>, deleteById) = {};
 	DTO_FIELD_INFO(deleteById) {
 		info->description = ZH_WORDS_GETTER("contract.field.id");
@@ -73,7 +74,7 @@ class ContractDTO_gs_delete : public oatpp::DTO
 };
 
 /**
- * Ê¾Àı·ÖÒ³´«Êä¶ÔÏó
+ * ç¤ºä¾‹åˆ†é¡µä¼ è¾“å¯¹è±¡
  */
 class ContractPageDTO_gs : public PageDTO<ContractDTO_gs::Wrapper>
 {

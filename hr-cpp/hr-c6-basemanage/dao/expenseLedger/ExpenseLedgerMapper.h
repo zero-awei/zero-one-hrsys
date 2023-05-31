@@ -1,4 +1,4 @@
-/*
+﻿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
@@ -40,6 +40,7 @@ public:
 		data.setFfsj(resultSet->getString(10));
 		data.setFybz(resultSet->getString(11));
 		data.setBz(resultSet->getString(12));
+		data.setOrmorgid(resultSet->getString(13));
 		return data;
 	}
 };

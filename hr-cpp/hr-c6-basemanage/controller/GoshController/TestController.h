@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -37,85 +37,85 @@ namespace multipart = oatpp::web::mime::multipart;
 #include OATPP_CODEGEN_BEGIN(ApiController) // 0
 
 /**
- * ²âÊÔ¿ØÖÆÆ÷
+ * æµ‹è¯•æ§åˆ¶å™¨
  */
 class GoshController : public oatpp::web::server::api::ApiController // 1
 {
-	// 2 ¶¨Òå¿ØÖÆÆ÷·ÃÎÊÈë¿Ú
+	// 2 å®šä¹‰æ§åˆ¶å™¨è®¿é—®å…¥å£
 	API_ACCESS_DECLARE(GoshController);
 public: 
-	// 3.1 ¶¨Òå²éÑ¯ºÏÍ¬½Ó¿ÚÃèÊö
+	// 3.1 å®šä¹‰æŸ¥è¯¢åˆåŒæ¥å£æè¿°
 	ENDPOINT_INFO(queryContract) {
-		// ¶¨Òå½Ó¿Ú±êÌâ
-		info->summary = ZH_WORDS_GETTER("contract_gs.get.summary");
-		// ¶¨ÒåÄ¬ÈÏÊÚÈ¨²ÎÊı£¨¿ÉÑ¡¶¨Òå£¬Èç¹û¶¨ÒåÁË£¬ÏÂÃæENDPOINTÀïÃæĞèÒª¼ÓÈëAPI_HANDLER_AUTH_PARAME£©
+		// å®šä¹‰æ¥å£æ ‡é¢˜
+		info->summary = ZH_WORDS_GETTER("contract_gosh.get.summary");
+		// å®šä¹‰é»˜è®¤æˆæƒå‚æ•°ï¼ˆå¯é€‰å®šä¹‰ï¼Œå¦‚æœå®šä¹‰äº†ï¼Œä¸‹é¢ENDPOINTé‡Œé¢éœ€è¦åŠ å…¥API_HANDLER_AUTH_PARAMEï¼‰
 		API_DEF_ADD_AUTH();		
-		// ¶¨ÒåÏìÓ¦²ÎÊıÀàĞÍ
+		// å®šä¹‰å“åº”å‚æ•°ç±»å‹
 		API_DEF_ADD_RSP_JSON_WRAPPER(ContractPageJsonVO);
-		// ¶¨Òå·ÖÒ³²éÑ¯²ÎÊıÃèÊö
+		// å®šä¹‰åˆ†é¡µæŸ¥è¯¢å‚æ•°æè¿°
 		API_DEF_ADD_PAGE_PARAMS();
 	}
-	 //3.2 ¶¨Òå²éÑ¯ºÏÍ¬½Ó¿Ú¶Ëµã
+	 //3.2 å®šä¹‰æŸ¥è¯¢åˆåŒæ¥å£ç«¯ç‚¹
 	ENDPOINT(API_M_GET, "/contract-management/query-contract", queryContract, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
-		// ½âÎö²éÑ¯²ÎÊı£¨½âÎö³ÉÁìÓòÄ£ĞÍ¶ÔÏó£©
+		// è§£ææŸ¥è¯¢å‚æ•°ï¼ˆè§£ææˆé¢†åŸŸæ¨¡å‹å¯¹è±¡ï¼‰
 		API_HANDLER_QUERY_PARAM(query, ContractQuery, qps);		
-		// ÏìÓ¦½á¹û
+		// å“åº”ç»“æœ
 		API_HANDLER_RESP_VO(execQueryContract(query, authObject->getPayload()));
 	}
-	//3.1 ¶¨Òå²éÑ¯¸öÈËĞÅÏ¢½Ó¿ÚÃèÊö
+	//3.1 å®šä¹‰æŸ¥è¯¢ä¸ªäººä¿¡æ¯æ¥å£æè¿°
 	ENDPOINT_INFO(queryPerson) {
-		// ¶¨Òå½Ó¿Ú±êÌâ
-		info->summary = ZH_WORDS_GETTER("person_gosh.get.summary");
-		// ¶¨ÒåÄ¬ÈÏÊÚÈ¨²ÎÊı£¨¿ÉÑ¡¶¨Òå£¬Èç¹û¶¨ÒåÁË£¬ÏÂÃæENDPOINTÀïÃæĞèÒª¼ÓÈëAPI_HANDLER_AUTH_PARAME£©
+		// å®šä¹‰æ¥å£æ ‡é¢˜
+		info->summary = ZH_WORDS_GETTER("contract_gosh.get.summary");
+		// å®šä¹‰é»˜è®¤æˆæƒå‚æ•°ï¼ˆå¯é€‰å®šä¹‰ï¼Œå¦‚æœå®šä¹‰äº†ï¼Œä¸‹é¢ENDPOINTé‡Œé¢éœ€è¦åŠ å…¥API_HANDLER_AUTH_PARAMEï¼‰
 		API_DEF_ADD_AUTH();
-		// ¶¨ÒåÏìÓ¦²ÎÊıÀàĞÍ
+		// å®šä¹‰å“åº”å‚æ•°ç±»å‹
 		API_DEF_ADD_RSP_JSON_WRAPPER(ContractPageJsonVO);
-		// ¶¨Òå·ÖÒ³²éÑ¯²ÎÊıÃèÊö
+		// å®šä¹‰åˆ†é¡µæŸ¥è¯¢å‚æ•°æè¿°
 		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("contract_gs.field.name");
 		info->queryParams["name"].addExample("default", String("li ming"));
 		info->queryParams["name"].required = false;
 	}
-	//3.2 ¶¨Òå²éÑ¯¸öÈËĞÅÏ¢½Ó¿Ú´¦Àí
+	//3.2 å®šä¹‰æŸ¥è¯¢ä¸ªäººä¿¡æ¯æ¥å£å¤„ç†
 	ENDPOINT(API_M_GET, "/contract-management/query-person", queryPerson, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams, qps)) {
-		// ½âÎö²éÑ¯²ÎÊı£¨½âÎö³ÉÁìÓòÄ£ĞÍ¶ÔÏó£©
+		// è§£ææŸ¥è¯¢å‚æ•°ï¼ˆè§£ææˆé¢†åŸŸæ¨¡å‹å¯¹è±¡ï¼‰
 		API_HANDLER_QUERY_PARAM(query, ContractQuery, qps);
-		// ÏìÓ¦½á¹û
+		// å“åº”ç»“æœ
 		API_HANDLER_RESP_VO(execQueryPerson(query, authObject->getPayload()));
 	}
-	// 3.1 ¶¨ÒåĞÂÔöºÏÍ¬½Ó¿ÚÃèÊö
+	// 3.1 å®šä¹‰æ–°å¢åˆåŒæ¥å£æè¿°
 	ENDPOINT_INFO(addContract) {
-		// ¶¨Òå½Ó¿Ú±êÌâ
-		info->summary = ZH_WORDS_GETTER("contract_gs.post.summary");
-		// ¶¨ÒåÏìÓ¦²ÎÊı¸ñÊ½
+		// å®šä¹‰æ¥å£æ ‡é¢˜
+		info->summary = ZH_WORDS_GETTER("contract_gosh.post.summary");
+		// å®šä¹‰å“åº”å‚æ•°æ ¼å¼
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	// 3.2 ¶¨ÒåĞÂÔöºÏÍ¬½Ó¿Ú´¦Àí
+	// 3.2 å®šä¹‰æ–°å¢åˆåŒæ¥å£å¤„ç†
 	ENDPOINT(API_M_POST, "/contract-management/add-contract", addContract, BODY_DTO(ContractDTO_gs::Wrapper, dto)) {
-		// ÏìÓ¦½á¹û
+		// å“åº”ç»“æœ
 		API_HANDLER_RESP_VO(execAddContract(dto));
 	}
-	// 3.1 ¶¨ÒåÉ¾³ıºÏÍ¬½Ó¿ÚÃèÊö
+	// 3.1 å®šä¹‰åˆ é™¤åˆåŒæ¥å£æè¿°
 	ENDPOINT_INFO(removeContract) {
-		// ¶¨Òå½Ó¿Ú±êÌâ
-		info->summary = ZH_WORDS_GETTER("contract_gs.delete.summary");
-		// ¶¨ÒåÏìÓ¦²ÎÊı¸ñÊ½
+		// å®šä¹‰æ¥å£æ ‡é¢˜
+		info->summary = ZH_WORDS_GETTER("contract_gosh.delete.summary");
+		// å®šä¹‰å“åº”å‚æ•°æ ¼å¼
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	// 3.2 ¶¨ÒåÉ¾³ıºÏÍ¬½Ó¿Ú´¦Àí
+	// 3.2 å®šä¹‰åˆ é™¤åˆåŒæ¥å£å¤„ç†
 	ENDPOINT(API_M_DEL, "/contract-management/remove-contract", removeContract, BODY_DTO(ContractDTO_gs_delete::Wrapper, dto)) {
-		// ÏìÓ¦½á¹û
+		// å“åº”ç»“æœ
 		API_HANDLER_RESP_VO(execRemoveContract(dto));
 	}
 
-private: // ¶¨Òå½Ó¿ÚÖ´ĞĞº¯Êı
+private: // å®šä¹‰æ¥å£æ‰§è¡Œå‡½æ•°
 
-	// 3.3 ÑİÊ¾²éÑ¯ºÏÍ¬ĞÅÏ¢
+	// 3.3 æ¼”ç¤ºæŸ¥è¯¢åˆåŒä¿¡æ¯
 	ContractPageJsonVO::Wrapper execQueryContract(const ContractQuery::Wrapper& query, const PayloadDTO& payload);
-	// 3.3 ÑİÊ¾²éÑ¯¸öÈËĞÅÏ¢
+	// 3.3 æ¼”ç¤ºæŸ¥è¯¢ä¸ªäººä¿¡æ¯
 	ContractPageJsonVO::Wrapper execQueryPerson(const ContractQuery::Wrapper& query, const PayloadDTO& payload);
-	// 3.3 ÑİÊ¾ĞÂÔöºÏÍ¬Êı¾İ
+	// 3.3 æ¼”ç¤ºæ–°å¢åˆåŒæ•°æ®
 	Uint64JsonVO::Wrapper execAddContract(const ContractDTO_gs::Wrapper& dto);
-	// 3.3 ÑİÊ¾É¾³ıºÏÍ¬Êı¾İ
+	// 3.3 æ¼”ç¤ºåˆ é™¤åˆåŒæ•°æ®
 	Uint64JsonVO::Wrapper execRemoveContract(const ContractDTO_gs_delete::Wrapper& dto);
 };
 
