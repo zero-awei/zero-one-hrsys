@@ -1,14 +1,15 @@
 #pragma once
 
 /*
-*  组织管理 ——法人主体设置  -- cpt
+*（	数据设置——法人主体设置 ——  cpt
+
 法人主体名称下拉列表 `LegalerNamePullDownList`
 
 更新指定法人设置信息  `UpdateLegalerSettingMessage`
 
 导出法人设置 `ExportLegalerSeting`
 
-**新增法人设置（支持批量新增）** `LegalEntitySet`
+新增法人设置（支持批量新增）** `AddLegalerSeting`
 */
 
 #ifndef _LEGALENTITYSET_DTO_
@@ -19,26 +20,24 @@
 
 
 class LegalEntitySetDTO : public oatpp::DTO {
+public: 
+	LegalEntitySetDTO() {};
+	LegalEntitySetDTO(String ormsignorgname, String contractsignorgname, Int32 isdefaultsignorg) {	};
 	DTO_INIT(LegalEntitySetDTO, DTO);
-	// 编号
-	DTO_FIELD(UInt64, id);
-	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("sample.field.id");
+	// 法人主体名称
+	DTO_FIELD(String, ormsignorgname);
+	DTO_FIELD_INFO(ormsignorgname) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.ormsignorgname");
 	}
-	// 姓名
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
-		info->description = ZH_WORDS_GETTER("sample.field.name");
+	// 签约主体单位名称
+	DTO_FIELD(String, contractsignorgname);
+	DTO_FIELD_INFO(contractsignorgname) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.contractsignorgname");
 	}
-	// 年龄
-	DTO_FIELD(Int32, age);
-	DTO_FIELD_INFO(age) {
-		info->description = ZH_WORDS_GETTER("sample.field.age");
-	}
-	// 性别
-	DTO_FIELD(String, sex);
-	DTO_FIELD_INFO(sex) {
-		info->description = ZH_WORDS_GETTER("sample.field.sex");
+	// // 默认签约主体
+	DTO_FIELD(Int32, isdefaultsignorg);
+	DTO_FIELD_INFO(isdefaultsignorg) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.isdefaultsignorg");
 	}
 };
 

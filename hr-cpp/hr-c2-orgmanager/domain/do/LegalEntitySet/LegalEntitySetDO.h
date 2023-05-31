@@ -1,31 +1,39 @@
 #pragma once
 
 /*
-*（	数据设置——法人主体设置——导出法人主体设置 (导出页面在前端完成) --cpt
+*（	数据设置——法人主体设置 ——  cpt
+
+法人主体名称下拉列表 `LegalerNamePullDownList`
+
+更新指定法人设置信息  `UpdateLegalerSettingMessage`
+
+导出法人设置 `ExportLegalerSeting`
+
+新增法人设置（支持批量新增）** `AddLegalerSeting`
 */
 
-#ifndef _LEGALENTITY_DO_
-#define _LEGALENTITY_DO_
+#ifndef _LEGALENTITYSET_DO_
+#define _LEGALENTITYSET_DO_
 #include "../DoInclude.h"
 
 /**
  * 示例数据库实体类
  */
 class LegalEntitySetDO {
-	// 编号
-	CC_SYNTHESIZE(uint64_t, id, Id);
-	// 姓名
-	CC_SYNTHESIZE(string, name, Name);
-	// 性别
-	CC_SYNTHESIZE(string, sex, Sex);
-	// 年龄
-	CC_SYNTHESIZE(int, age, Age);
+	// 法人主体名称   表 ： t_ormsignorg 
+	CC_SYNTHESIZE(string, ormsignorgname, ORMSIGNORGNAME);
+	// 签约主体单位名称 t_contractsignorg
+	CC_SYNTHESIZE(string, contractsignorgname, CONTRACTSIGNORGNAME);
+	// 默认签约主体  t_contractsignorg
+	CC_SYNTHESIZE(int, isdefaultsignorg, ISDEFAULTSIGNORG);
+
 public:
 	LegalEntitySetDO() {
-		id = 0;
-		name = "";
-		sex = "";
-		age = -1;
+	}
+	LegalEntitySetDO(string ormsignorgname, string contractsignorgname, int isdefaultsignorg) {
+		this->ormsignorgname = ormsignorgname;
+		this->contractsignorgname = contractsignorgname;
+		this->isdefaultsignorg = isdefaultsignorg;
 	}
 };
-#endif // !_LEGALENTITY_DO_
+#endif // !_LEGALENTITYSET_DO_

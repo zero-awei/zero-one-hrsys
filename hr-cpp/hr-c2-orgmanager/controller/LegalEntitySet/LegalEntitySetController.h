@@ -1,24 +1,22 @@
 #pragma once
 /*
-*  组织管理 ——法人主体设置  -- cpt
+组织管理 ——法人主体设置  -- cpt
+
 法人主体名称下拉列表 `LegalEntitySetPullDownList`
 
 更新指定法人设置信息  `UpdateLegalerSettingMessage`
 
 导出法人设置 `LegalEntitySet`
 
-**新增法人设置（支持批量新增）** `LegalEntitySet`
+新增法人设置（支持批量新增）** `LegalEntitySet`
 */ 
 
 // LegalEntitySetController
 
 #pragma once
 
-/*
-*（	数据设置——法人主体设置——导出法人主体设置 (导出页面在前端完成) --cpt
-*/
-#ifndef _ADDTLEGALERSETING_CONTROLLER_
-#define _ADDTLEGALERSETING_CONTROLLER_
+#ifndef _LEGALENTITYSET_CONTROLLER_
+#define _LEGALENTITYSET_CONTROLLER_
 
 #include "domain/vo/BaseJsonVO.h"
 #include "domain/do/LegalEntitySet/LegalEntitySetDO.h"
@@ -69,9 +67,8 @@ public:
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, LegalEntitySetQuery, queryParams);
 		// 响应结果
-		API_HANDLER_RESP_VO(execLegalEntitySet(userQuery, authObject->getPayload()));
+		API_HANDLER_RESP_VO(execExportLegalEntitySet(userQuery, authObject->getPayload()));
 	}
-
 
 	// 3.1 定义查询接口描述
 	ENDPOINT_INFO(queryLegalEntitySetPullDownList) {
@@ -107,12 +104,10 @@ public:
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyLegalEntitySet(dto));
 	}
-
-
 private:
 	Uint64JsonVO::Wrapper execAddLegalEntitySet(const LegalEntitySetDTO::Wrapper& dto);
 
-	LegalEntitySetPageJsonVO::Wrapper execLegalEntitySet(const LegalEntitySetQuery::Wrapper& query, const PayloadDTO& payload);
+	LegalEntitySetPageJsonVO::Wrapper execExportLegalEntitySet(const LegalEntitySetQuery::Wrapper& query, const PayloadDTO& payload);
 
 	LegalEntitySetPageJsonVO::Wrapper execLegalEntitySetPullDownList(const LegalEntitySetQuery::Wrapper& query, const PayloadDTO& payload);
 	// 3.3 演示修改数据
@@ -120,5 +115,5 @@ private:
 };
 
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
-#endif // _ADDLEGALERSETING_CONTROLLER_
+#endif // _LEGALENTITYSET_CONTROLLER_
 

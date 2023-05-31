@@ -1,60 +1,43 @@
 #pragma once
 
-#ifndef _LEGALENTITYSETQUERY_CONTROLLER_
-#define _LEGALENTITYSETQUERY_CONTROLLER_
+#ifndef _LEGALENTITYSET_QUERY_
+#define _LEGALENTITYSET_QUERY_
 
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/**
- * 示例分页查询对象
- */
+/*
+*（	数据设置——法人主体设置 ——  cpt
+
+法人主体名称下拉列表 `LegalerNamePullDownList`
+
+更新指定法人设置信息  `UpdateLegalerSettingMessage`
+
+导出法人设置 `ExportLegalerSeting`
+
+新增法人设置（支持批量新增）** `AddLegalerSeting`
+*/
 class LegalEntitySetQuery : public PageQuery
 {
 	DTO_INIT(LegalEntitySetQuery, PageQuery);
-	// 法人主体标识
-	DTO_FIELD(String, ORMSIGNORGID);
-	DTO_FIELD_INFO(ORMSIGNORGID) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.id");
-	}
-	// 更新人
-	DTO_FIELD(String, UPDATEMAN);
-	DTO_FIELD_INFO(UPDATEMAN) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.updateman");
-	}
-	// 建立人
-	DTO_FIELD(String, CREATEMAN);
-	DTO_FIELD_INFO(CREATEMAN) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.createman");
-	}
-	// 建立时间
-	DTO_FIELD(String, CREATEDATE);
-	DTO_FIELD_INFO(CREATEDATE) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.createdate");
-	}
 	// 法人主体名称
-	DTO_FIELD(String, ORMSIGNORGNAME);
-	DTO_FIELD_INFO(ORMSIGNORGNAME) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.name");
+	DTO_FIELD(String, ormsignorgname);
+	DTO_FIELD_INFO(ormsignorgname) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.ormsignorgname");
 	}
-	// 更新时间
-	DTO_FIELD(String, UPDATEDATE);
-	DTO_FIELD_INFO(UPDATEDATE) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.updatedate");
+	// 签约主体单位名称
+	DTO_FIELD(String, contractsignorgname);
+	DTO_FIELD_INFO(contractsignorgname) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.contractsignorgname");
 	}
-	// 组织编号
-	DTO_FIELD(String, ORGCODE);
-	DTO_FIELD_INFO(ORGCODE) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.orgcode");
-	}
-	// 简称
-	DTO_FIELD(String, ZZJC);
-	DTO_FIELD_INFO(ZZJC) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.short");
+	// 默认签约主体
+	DTO_FIELD(Int32, isdefaultsignorg);
+	DTO_FIELD_INFO(isdefaultsignorg) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.isdefaultsignorg");
 	}
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_LEGALENTITYSETQUERY_CONTROLLER_
+#endif // !_LEGALENTITYSET_QUERY_

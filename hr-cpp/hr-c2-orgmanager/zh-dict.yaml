@@ -71,12 +71,7 @@ LegalEntitySet:
   summary: （数据设置——法人主体设置——导入法人主体设置)--洛洛  
  export:
   summary: （数据设置——法人主体设置——导出法人主体设置 (导出页面在前端完成) ）--cpt
- field:
-  id: 法人主体标识
-  updateman: 更新人
-  createman: 建立人
-  createdate: 建立时间
-  name: 法人主体名称
-  updatedate: 更新时间
-  orgcode: 组织编号
-  short: 简称
+ field: 
+  ormsignorgname: 法人主体名称
+  contractsignorgname: 签约主体单位名称
+  isdefaultsignorg: 默认签约主体

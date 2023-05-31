@@ -7,7 +7,7 @@ Uint64JsonVO::Wrapper LegalEntitySetController::execAddLegalEntitySet(const Lega
 	return Uint64JsonVO::createShared();
 }
 
-LegalEntitySetPageJsonVO::Wrapper LegalEntitySetController::execLegalEntitySet(const LegalEntitySetQuery::Wrapper& query, const PayloadDTO& payload) {
+LegalEntitySetPageJsonVO::Wrapper LegalEntitySetController::execExportLegalEntitySet(const LegalEntitySetQuery::Wrapper& query, const PayloadDTO& payload) {
 	return LegalEntitySetPageJsonVO::Wrapper();
 }
 
