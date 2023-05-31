@@ -61,6 +61,10 @@ class EducationDO
 
 	// 其他附件
 	CC_SYNTHESIZE(string, FJ, FunFJ);
+
+	// 人员id
+	CC_SYNTHESIZE(string, PIMPERSONID, FunPIMPERSONID);
+
 public:
 	EducationDO() {
 		PIMEDUCATIONID = "";
@@ -80,7 +84,7 @@ public:
 		XWZ = "";
 		XLCX = "";
 		FJ = "";
-
+		PIMPERSONID = "";
 	}
 };
 

@@ -27,6 +27,8 @@
 #include "oatpp/web/mime/multipart/FileProvider.hpp"
 #include "oatpp/web/mime/multipart/Reader.hpp"
 #include "oatpp/web/mime/multipart/PartList.hpp"
+#include "domain/dto/EducationAdd/EducationAddDTO.h"
+
 
 
 using namespace oatpp;
@@ -47,9 +49,12 @@ public: // 接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(EducationPageJsonVO);
 		//API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-		// 定义分页参数描述
+		// 定义分页参数描述//分页列表+分页编号 + 员工编号 pimpersonid
 		API_DEF_ADD_PAGE_PARAMS();
-		// 定义其他表单参数描述：根据员工id和姓名查询
+		// 定义其他表单参数描述：根据员工id查询
+		info->queryParams.add<String>("PIMPERSONID").description = ZH_WORDS_GETTER("education.PIMPERSONID");
+		info->queryParams["PIMPERSONID"].addExample("default", String("5F8310F7-6E69-4D28-901F-97FFAB32E721"));
+		info->queryParams["PIMPERSONID"].required = false;
 		/*info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("education.id");
 		info->queryParams["pimpersonid"].addExample("default", String("02A0F00B-506C-4F02-B4A1-9524F4043CF9"));
 		info->queryParams["pimpersonid"].required = false;
@@ -78,7 +83,7 @@ public: // 接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(EducationSingleJsonVO);
 		//API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 定义其他表单参数描述：根据教育标识查询
-		info->queryParams.add<String>("PIMEDUCATIONID").description = ZH_WORDS_GETTER("t_pimperson.PIMEDUCATIONID");
+		info->queryParams.add<String>("PIMEDUCATIONID").description = ZH_WORDS_GETTER("education.PIMEDUCATIONID");
 		info->queryParams["PIMEDUCATIONID"].addExample("default", String("0A81C08A-DAEE-4B2A-A586-18C5F22D0EB7"));
 		info->queryParams["PIMEDUCATIONID"].required = false;
 		//info->queryParams.add<String>("pimpersonname").description = ZH_WORDS_GETTER("getEducationPageQuery");
@@ -163,7 +168,7 @@ public: // 接口
 		//info->queryParams["FJ"].required = false;
 	}
 	// 功能3 单条新增指定员工的教育信息：接口处理
-	ENDPOINT(API_M_POST, "/education/add-education-single", addEducationSingle, API_HANDLER_AUTH_PARAME, BODY_DTO(EducationSingleDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/education/add-education-single", addEducationSingle, API_HANDLER_AUTH_PARAME, BODY_DTO(EducationAddDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddEducationSingle(dto, authObject->getPayload()));
 	}
@@ -239,7 +244,7 @@ public: // 接口
 		//info->queryParams["FJ"].required = false;
 	}
 	// 功能4 单条修改指定员工的教育信息：接口处理
-	ENDPOINT(API_M_PUT, "/education/modify-education-single", modifyEducationSingle, API_HANDLER_AUTH_PARAME, BODY_DTO(EducationSingleDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/education/modify-education-single", modifyEducationSingle, API_HANDLER_AUTH_PARAME, BODY_DTO(EducationAddDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyEducationSingle(dto, authObject->getPayload()));
 	}
@@ -408,13 +413,13 @@ private: // 接口执行函数
 	//StringJsonVO::Wrapper execQueryEducationSingle(const EducationSingleQuery::Wrapper& query, const PayloadDTO& payload);
 // 功能3 单条新增指定员工的教育信息：接口执行函数
 	//StringJsonVO::Wrapper execAddEducationSingle(const EducationSingleDTO::Wrapper& dto, const PayloadDTO& payload);
-	Uint64JsonVO::Wrapper execAddEducationSingle(const EducationSingleDTO::Wrapper& dto, const PayloadDTO& payload);
+	Uint64JsonVO::Wrapper execAddEducationSingle(const EducationAddDTO::Wrapper& dto, const PayloadDTO& payload);
 // 功能4 修改指定员工的教育信息：接口执行函数
 	//StringJsonVO::Wrapper execModifyEducationSingle(const EducationSingleDTO::Wrapper& dto, const PayloadDTO& payload);
-	Uint64JsonVO::Wrapper execModifyEducationSingle(const EducationSingleDTO::Wrapper& dto, const PayloadDTO& payload);
+	Uint64JsonVO::Wrapper execModifyEducationSingle(const EducationAddDTO::Wrapper& dto, const PayloadDTO& payload);
 // 功能5 删除指定员工的教育信息：接口执行函数
 	//Uint64JsonVO::Wrapper execRemoveEducation(const EducationDeleteSingleDTO::Wrapper& dto, const PayloadDTO& payload);
-	StringJsonVO::Wrapper execRemoveEducation(const EducationDeleteSingleDTO::Wrapper& dto, const PayloadDTO& payload);
+	Uint64JsonVO::Wrapper execRemoveEducation(const EducationDeleteSingleDTO::Wrapper& dto, const PayloadDTO& payload);
 // 功能6 批量删除指定员工的教育信息：接口执行函数
 	EducationDeleteNotSingleJsonVO::Wrapper execRemoveEducationNotSingle(const EducationDeleteNotSingleDTO::Wrapper& dto, const PayloadDTO& payload);
 	//Uint64JsonVO::Wrapper execRemoveEducationNotSingle(const EducationDeleteNotSingleDTO::Wrapper& dto, const PayloadDTO& payload);

@@ -16,11 +16,9 @@ public:
 	EducationDO mapper(ResultSet* resultSet) const override
 	{
 		EducationDO data;
-		data.setFunPIMEDUCATIONID(resultSet->getString(1));	// 教育信息标识 （必填）
+		data.setFunPIMEDUCATIONID(resultSet->getString(1));	// 教育信息标识 （主键）
 		data.setFunXL(resultSet->getString(2));	// 学历
-		//data.setFunQSSJ(resultSet->getUInt64(3));	// 入学时间
 		data.setFunQSSJ(resultSet->getString(3));	// 入学时间
-		//data.setFunJSSJ(resultSet->getUInt64(4));	// 毕业时间
 		data.setFunJSSJ(resultSet->getString(4));	// 毕业时间
 		data.setFunBYYX(resultSet->getString(5));	// 毕业院校
 		data.setFunXKML(resultSet->getString(6));	// 	// 一级学科
@@ -33,6 +31,7 @@ public:
 		data.setFunXWZ(resultSet->getString(13));		// 学位证
 		data.setFunXLCX(resultSet->getString(14));		// 学历验证
 		data.setFunFJ(resultSet->getString(15));// 其他附件
+		data.setFunPIMPERSONID(resultSet->getString(15));// 外键
 		return data;
 	}
 };

@@ -21,29 +21,25 @@ EducationSingleJsonVO::Wrapper EducationController::execQueryEducationSingle(con
 	return vo;
 }
 
-Uint64JsonVO::Wrapper EducationController::execAddEducationSingle(const EducationSingleDTO::Wrapper& dto, const PayloadDTO& payload)
+Uint64JsonVO::Wrapper EducationController::execAddEducationSingle(const EducationAddDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto vo = Uint64JsonVO::createShared();
 	
 	// 参数校验
-	if (!dto->PIMEDUCATIONID)
-	{	
-		vo->init(UInt64(-1), RS_PARAMS_INVALID);
-		return vo;
-	}
+
 
 
 	// 定义一个service
 	EducationService service;
 
 	// 执行数据新增 
-	uint64_t id = service.saveEducation(dto);
+	int id = service.saveEducation(dto);
 	//响应结果
 	if (id > 0) {
-		vo->success(UInt64(id));
+		vo->success(id);
 	}
 	else {
-		vo->fail(UInt64(id));
+		vo->fail(id);
 	}
 	
 
@@ -52,45 +48,46 @@ Uint64JsonVO::Wrapper EducationController::execAddEducationSingle(const Educatio
 	return vo;
 }
 
-Uint64JsonVO::Wrapper EducationController::execModifyEducationSingle(const EducationSingleDTO::Wrapper& dto, const PayloadDTO& payload)
+Uint64JsonVO::Wrapper EducationController::execModifyEducationSingle(const EducationAddDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto vo = Uint64JsonVO::createShared();
 
 	// 参数校验
-	if (!dto->PIMEDUCATIONID)
-	{
-		vo->init(UInt64(-1), RS_PARAMS_INVALID);
-		return vo;
-	}
 
 	// 定义一个Service
 	EducationService service;
 	// 执行数据修改
-	uint64_t id = service.updateEducation(dto);
-	vo->success((uint64_t)id);
+	bool id = service.updateEducation(dto);
+	if (id > 0) {
+		vo->success(id);
+	}else{
+		vo->fail(id);
+	}
+	
 	return vo;
 }
 
-StringJsonVO::Wrapper EducationController::execRemoveEducation(const EducationDeleteSingleDTO::Wrapper& dto, const PayloadDTO& payload)
+Uint64JsonVO::Wrapper EducationController::execRemoveEducation(const EducationDeleteSingleDTO::Wrapper& dto, const PayloadDTO& payload)
 {
-	auto vo = StringJsonVO::createShared();
+	auto vo = Uint64JsonVO::createShared();
 	// 参数校验
-	if (!dto->deleteId) {
-		vo->init(String(""), RS_PARAMS_INVALID);
-		return vo;
-	}
+	
 
+
+	// 定义一个Service
 	EducationService Service;
-	//// 执行数据删除
-	//if (Service.removeEducation(dto->deleteId)) {
-	//	vo->success(dto->deleteId);
-	//}
-	//else
-	//{
-	//	vo->fail(dto->deleteId);
-	//}
-	Service.removeEducation(dto->deleteId);
-	vo->success(dto->deleteId);
+	
+	// 执行数据删除
+	int id = Service.removeEducation(dto);
+	if (id > 0) {
+		vo->success(id);
+	}
+	else
+	{
+		vo->fail(id);
+	}
+	//Service.removeEducation(dto->deleteId);
+	//vo->success(dto->deleteId);
 	return vo;
 
 
