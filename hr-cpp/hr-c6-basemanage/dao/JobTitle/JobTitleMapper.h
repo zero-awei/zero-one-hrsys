@@ -19,7 +19,6 @@ public:
 		data.setGet_Time(resultSet->getString(7));
 		data.setCertificate_Id(resultSet->getString(8));
 		data.setProfessional_Cate(resultSet->getString(9));
-		//data.setProfessional_Name(resultSet->getString(10));
 		data.setJobtitle_Grades(resultSet->getString(10));
 		data.setTitle_Employment_Time(resultSet->getString(11));
 		data.setIssuing_Authority(resultSet->getString(12));
@@ -28,5 +27,16 @@ public:
 		return data;
 	}
 };
+
+class JobTitlePpidMapper :public Mapper<JobTitleAddDO> {
+public:
+	JobTitleAddDO mapper(ResultSet* resultSet) const override
+	{
+		JobTitleAddDO data;
+		data.setPimperson_Id(resultSet->getString(1));
+		return data;
+	}
+};
+
 
 #endif // !_JOBTITLE_MAPPER_

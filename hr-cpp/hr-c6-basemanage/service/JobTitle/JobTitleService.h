@@ -18,6 +18,9 @@ public:
 	uint64_t addData(const JobTitleAddDTO::Wrapper& dto);
 	// 删除职称，支持批量删除
 	uint64_t removeData(const JobTitleDeleteDTO::Wrapper& dto);
+
+	// 上传文件
+	String postFile(const String& fileBody, const String& suffix);
 };
 
 #endif // !1

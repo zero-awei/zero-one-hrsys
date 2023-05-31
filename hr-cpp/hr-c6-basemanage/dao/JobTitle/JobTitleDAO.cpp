@@ -14,7 +14,33 @@ if (query->param) { \
     SQLPARAMS_PUSH(params, "s", std::string, query->param.getValue(""));\
 	sql << "or tpp.PIMPERSONNAME like concat('%',?,'%')";\
 	SQLPARAMS_PUSH(params, "s", std::string, query->param.getValue(""));\
-}
+}\
+if(query->employee_id){\
+	sql <<" and tpp.YGBH = ?";\
+	SQLPARAMS_PUSH(params, "s", std::string, query->employee_id.getValue(""));\
+}\
+if(query->employee_name){\
+	sql <<" and tpp.PIMPERSONNAME = ?";\
+	SQLPARAMS_PUSH(params, "s", std::string, query->employee_name.getValue(""));\
+}\
+if(query->org_name){\
+	sql <<" and tpp.ORMORGNAME = ?";\
+	SQLPARAMS_PUSH(params, "s", std::string, query->org_name.getValue(""));\
+}\
+if(query->jobtitle_name){\
+	sql <<" and tpg.PIMTITLECATALOGUENAME = ?";\
+	SQLPARAMS_PUSH(params, "s", std::string, query->jobtitle_name.getValue(""));\
+}\
+if(query->jobtitle_grades){\
+	sql <<" and btt.TITLEGRADENAME = ?";\
+	SQLPARAMS_PUSH(params, "s", std::string, query->jobtitle_grades.getValue(""));\
+}\
+if(query->b_highest_professional_title){\
+	sql <<" and tpp.HIGHTITLE = ?";\
+	SQLPARAMS_PUSH(params, "s", std::string, query->b_highest_professional_title.getValue(""));\
+}\
+
+
 
 uint64_t JobTitleDAO::count(const JobTitleQuery::Wrapper& query)
 {
@@ -22,22 +48,15 @@ uint64_t JobTitleDAO::count(const JobTitleQuery::Wrapper& query)
 	sql << "select count(*) from t_pimtitle as tpt LEFT JOIN t_pimperson as tpp on tpt.PIMPERSONID = tpp.PIMPERSONID LEFT JOIN t_pimtitlecatalogue as tpc ON ";
 	sql << "tpt.PIMTITLEID = tpc.PIMTITLEID LEFT JOIN bis_titlegrade_t as btt on tpt.ZCDJ = btt.TITLEGRADEVALUE LEFT JOIN bis_professoranalysis_t as bpt ON bpt.EMPLOYEEID = tpt.EMPLOYTIME ";
 	sql << "LEFT JOIN t_personstatemgr  as tpr ON tpr.PERSONSTATECODE = tpp.YGZT LEFT JOIN t_pimtitlecatalogue as tpg ON tpg.PIMTITLECATALOGUEID = tpt.PIMTITLECATALOGUEID ";
+	sql << "where 1=1 ";
 	//sql << "where tpp.YGBH is not NULL and tpg.PIMTITLECATALOGUENAME is not NULL ";
 	// 查看是否有参数，如果有带上参数查询
-	SqlParams params;
-	if (query->param) {
-		cout << "携带参数:" << query->param.getValue("") << endl;
-		sql << "where 1=1 and tpp.YGBH like concat('%',?,'%') ";
-		SQLPARAMS_PUSH(params, "s", std::string, query->param.getValue(""));
-		sql << "or tpp.PIMPERSONNAME like concat('%',?,'%')";
-		SQLPARAMS_PUSH(params, "s", std::string, query->param.getValue(""));
-	}
-	else {
-		string sqlStr = sql.str();
+	SAMPLE_QUERY_PARSE(query, sql);
+	string sqlStr = sql.str();
+	if (!query->param && !query->employee_id && !query->employee_name && !query->org_name && !query->jobtitle_name && !query->jobtitle_grades && !query->b_highest_professional_title) {
 		cout << "sql语句：" << sqlStr << endl;
 		return sqlSession->executeQueryNumerical(sqlStr);
 	}
-	string sqlStr = sql.str();
 	cout << "sql语句：" << sqlStr << endl;
 	return sqlSession->executeQueryNumerical(sqlStr, params);
 }
@@ -58,7 +77,7 @@ list<JobTitleDO> JobTitleDAO::selectAll(const JobTitleQuery::Wrapper& query)
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	string sqlStr = sql.str();
 	JobTitleMapper mapper;
-	if (!query->param) {
+	if (!query->param && !query->employee_id && !query->employee_name && !query->org_name && !query->jobtitle_name && !query->jobtitle_grades && !query->b_highest_professional_title) {
 		cout << "sql语句：" << sqlStr << endl;
 		return sqlSession->executeQuery<JobTitleDO, JobTitleMapper>(sqlStr, mapper);
 	}
@@ -67,32 +86,34 @@ list<JobTitleDO> JobTitleDAO::selectAll(const JobTitleQuery::Wrapper& query)
 }
 
 /** 新增职称信息 */
-uint64_t JobTitleDAO::addTitle(const JobTitleDO& aObj)
+uint64_t JobTitleDAO::addTitle(const JobTitleAddDO& aObj)
 {
-	string sql = "insert into `t_pimtitle` (`CREATEDATE`,`PIMTITLEID`,`PIMTITLENAME`,`ZCHQRQ`,`ZCBH`,`ZCDJ`,`MAJORENGAGED`,`CAREERNAME`,";
-	sql += "`LSSUINGAGENCY`,`REVIEWBODY`,`EMPLOYTIME`) VALUES(NOW(),?,?,?,?,?,?,?,?,?,?)";
+	string sql = "insert into `t_pimtitle` (`CREATEDATE`,`UPDATEDATE`,`PIMTITLEID`,`PIMPERSONID`,`UPDATEMAN`";
+	sql += ",`CREATEMAN`,`PIMTITLENAME`,`ZCHQRQ`,`ZCBH`,`ZCDJ`,`MAJORENGAGED`,`CAREERNAME`,";
+	sql += "`LSSUINGAGENCY`,`REVIEWBODY`,`EMPLOYTIME`,`ENCLOSURE`) VALUES(NOW(),NOW(),?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	// 附加参数
 	SqlParams params;
 	SQLPARAMS_PUSH(params, "s", string, aObj.getId());
-	//SQLPARAMS_PUSH(params, "s", string, aObj.getEmployee_Id());
-	//SQLPARAMS_PUSH(params, "s", string, aObj.getEmployee_Name());
+	SQLPARAMS_PUSH(params, "s", string, aObj.getPimperson_Id());
+	SQLPARAMS_PUSH(params, "s", string, aObj.getPimperson_Id());
+	SQLPARAMS_PUSH(params, "s", string, aObj.getPimperson_Id());
 	SQLPARAMS_PUSH(params, "s", string, aObj.getJobtitle_Name());
 	SQLPARAMS_PUSH(params, "s", string, aObj.getGet_Time());
-	//SQLPARAMS_PUSH(params, "s", string, aObj.getEmployee_State());
-	//SQLPARAMS_PUSH(params, "s", string, aObj.getOrg_Name());
 	SQLPARAMS_PUSH(params, "s", string, aObj.getCertificate_Id());
 	SQLPARAMS_PUSH(params, "s", string, aObj.getJobtitle_Grades());
 	SQLPARAMS_PUSH(params, "s", string, aObj.getProfessional_Cate());
-	SQLPARAMS_PUSH(params, "s", string, aObj.getTitle_Employment_Time());
+	SQLPARAMS_PUSH(params, "s", string, aObj.getJobtitle_Name());
 	SQLPARAMS_PUSH(params, "s", string, aObj.getIssuing_Authority());
 	SQLPARAMS_PUSH(params, "s", string, aObj.getJudging_Unit());
 	SQLPARAMS_PUSH(params, "s", string, aObj.getTitle_Employment_Time());
+	SQLPARAMS_PUSH(params, "s", string, aObj.getAttachment());   // 上传附件地址
 	//SQLPARAMS_PUSH(params, "s", string, aObj.getB_Highest_Professional_Title());
 	cout << "employee_name:" << aObj.getEmployee_Name() << endl;
+	cout << "sql语句" << sql << endl;
 	return sqlSession->executeUpdate(sql, params);
 }
 
-// 支持批量删除
+// 删除职称信息支持批量删除
 uint64_t JobTitleDAO::removeById(const JobTitleDeleteDTO::Wrapper& list)
 {
 	// 创建批量删除sql,拼接sql
@@ -116,6 +137,20 @@ uint64_t JobTitleDAO::removeById(const JobTitleDeleteDTO::Wrapper& list)
 	string sqlStr = sql.str();
 	cout << "sql语句：" << sqlStr << endl;
 	return sqlSession->executeUpdate(sqlStr, params);
+}
+
+// 根据id和name寻找人员信息id
+list<JobTitleAddDO> JobTitleDAO::getPinpersonid(const JobTitleAddDO& aObj)
+{
+	SqlParams params;
+	stringstream sql;
+	JobTitlePpidMapper mapper;
+	sql << "select tp.PIMPERSONID from `t_pimperson` as tp where YGBH = ? and PIMPERSONNAME = ?";
+	// 加入两个参数
+	SQLPARAMS_PUSH(params, "s", std::string, aObj.getEmployee_Id());
+	SQLPARAMS_PUSH(params, "s", std::string, aObj.getEmployee_Name());
+	// 执行查询
+	return sqlSession->executeQuery<JobTitleAddDO, JobTitlePpidMapper>(sql.str(), mapper, params);
 }
 
 

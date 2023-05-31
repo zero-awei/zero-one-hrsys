@@ -24,7 +24,7 @@ bool getStartArg(int argc, char* argv[]) {
 	// 服务器端口
 	std::string serverPort = "8090";
 	// 数据库连接信息
-	std::string dbUsername = "root";
+	std::string dbUsername = "admin";
 	std::string dbPassword = "123456";
 	std::string dbName = "zohr_sys";
 	std::string dbHost = "127.0.0.1";

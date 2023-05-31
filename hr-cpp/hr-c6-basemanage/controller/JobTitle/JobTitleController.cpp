@@ -1,6 +1,7 @@
 ﻿#include "stdafx.h"
 #include "JobTitleController.h"
 #include "service/JobTitle/JobTitleService.h"
+#include "FastDfsClient.h"
 
 JTQueryPageJsonVO::Wrapper JobTitleController::execQueryPage(const JobTitleQuery::Wrapper& query)
 {
@@ -83,4 +84,19 @@ StringJsonVO::Wrapper JobTitleController::execAddJobTitle(const JobTitleAddDTO::
 		jvo->fail(String(-1));
 	}
 	return jvo;
+}
+
+StringJsonVO::Wrapper JobTitleController::execJobTitlePostFile(const String& fileBody, const String& suffix)
+{
+	auto vo = StringJsonVO::createShared();
+	//cout << "文件体" << string(fileBody) << endl;
+	// 查看是否有文件，如果没有则返回空
+	if (fileBody->empty() || suffix->empty()) {
+		vo->fail(String("上传失败"));
+		return vo;
+	}
+	JobTitleService  service;
+	auto ss = service.postFile(fileBody, suffix);
+	vo->success(ss);
+	return vo;
 }

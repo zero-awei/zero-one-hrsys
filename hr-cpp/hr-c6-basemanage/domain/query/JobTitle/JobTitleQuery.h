@@ -21,6 +21,32 @@ class JobTitleQuery :public PageQuery {
 	DTO_FIELD_INFO(param) {
 		info->description = ZH_WORDS_GETTER("title.query.param");
 	}
+	DTO_FIELD(String, employee_id);
+	DTO_FIELD_INFO(employee_id) {
+		info->description = ZH_WORDS_GETTER("title.field.employee_id");
+	}
+
+	DTO_FIELD(String, employee_name);
+	DTO_FIELD_INFO(employee_name) {
+		info->description = ZH_WORDS_GETTER("title.field.employee_name");
+	}
+	DTO_FIELD(String, org_name);
+	DTO_FIELD_INFO(org_name) {
+		info->description = ZH_WORDS_GETTER("title.field.org_name");
+	}
+	DTO_FIELD(String, jobtitle_name);
+	DTO_FIELD_INFO(jobtitle_name) {
+		info->description = ZH_WORDS_GETTER("title.field.jobtitle_name");
+	}
+	DTO_FIELD(String, jobtitle_grades);
+	DTO_FIELD_INFO(jobtitle_grades) {
+		info->description = ZH_WORDS_GETTER("title.field.jobtitle_grades");
+	}
+	DTO_FIELD(String, b_highest_professional_title);
+	DTO_FIELD_INFO(b_highest_professional_title) {
+		info->description = ZH_WORDS_GETTER("title.field.b_highest_professional_title");
+	}
+
 	//DTO_FIELD(String, name);
 	//// 查询的第二个参数，职称名称
 	//DTO_FIELD_INFO(name) {
