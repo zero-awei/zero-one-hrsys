@@ -22,13 +22,15 @@ class LegalEntitySetDAO : public BaseDAO
 {
 public:
 	// 统计数据条数
-	uint64_t count(const LegalEntitySetQuery::Wrapper& query);
+	//uint64_t count(const LegalEntitySetQuery::Wrapper& query);
 	// 分页查询数据
-	list<LegalEntitySetDO> selectWithPage(const LegalEntitySetQuery::Wrapper& query);
+	//list<LegalEntitySetDO> selectWithPage(const LegalEntitySetQuery::Wrapper& query);
 	// 插入数据
 	uint64_t insert(const LegalEntitySetDO& iObj);
 	// 修改数据
-	//int update(const LegalEntitySetDO& uObj);
+	int update(const LegalEntitySetDO& uObj);
+	// 法人主体名称下拉列表 `LegalerNamePullDownList`    
+	list<LegalEntitySetDO> selectByName(const string& name);
 	
 };
 #endif // !_LEGALENTITYSET_DAO_

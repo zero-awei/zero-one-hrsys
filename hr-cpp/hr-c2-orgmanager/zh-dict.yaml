@@ -59,8 +59,7 @@ LegalEntitySet:
  query:
   summary1: 分页查询组织列表 
   summary2: 分页查询法人主体列表 
-  summary3: (数据设置——法人主体设置——法人主体名称下拉列表) -- cpt
-  summary4: 分页查询法人设置列表 
+  summary3: (数据设置——法人主体设置——法人主体名称下拉列表) -- cpt 
  put:
   summary: （数据设置——法人主体设置——更新指定法人设置信息) --cpt
  post:
@@ -71,7 +70,8 @@ LegalEntitySet:
   summary: （数据设置——法人主体设置——导入法人主体设置)--洛洛  
  export:
   summary: （数据设置——法人主体设置——导出法人主体设置 (导出页面在前端完成) ）--cpt
- field: 
-  ormsignorgname: 法人主体名称
-  contractsignorgname: 签约主体单位名称
-  isdefaultsignorg: 默认签约主体
+ field:
+ ormsignorgid: 法人主体标识
+ ormsignorgname: 法人主体名称
+ contractsignorgname: 签约主体单位名称
+ isdefaultsignorg: 默认签约主体

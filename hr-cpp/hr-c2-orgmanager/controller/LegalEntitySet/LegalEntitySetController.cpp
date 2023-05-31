@@ -11,7 +11,7 @@
 导出法人设置 `LegalEntitySet`
 
 新增法人设置（支持批量新增）** `LegalEntitySet`
-*/
+*/ 
 Uint64JsonVO::Wrapper LegalEntitySetController::execAddLegalEntitySet(const LegalEntitySetDTO::Wrapper& dto) {
 	return Uint64JsonVO::createShared();
 }

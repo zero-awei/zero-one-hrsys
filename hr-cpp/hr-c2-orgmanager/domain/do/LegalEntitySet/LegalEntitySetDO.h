@@ -20,6 +20,8 @@
  */
 class LegalEntitySetDO {
 	public:
+	// 法人主体标识
+	CC_SYNTHESIZE(string, ormsignorgid, ORMSIGNORGID);
 	// 法人主体名称   表 ： t_ormsignorg 
 	CC_SYNTHESIZE(string, ormsignorgname, ORMSIGNORGNAME);
 	// 签约主体单位名称 t_contractsignorg

@@ -1,7 +1,7 @@
 #pragma once
 
 /*
-组织管理 ——数据设置 —— 法人主体设置  -- cpt
+组织管理 —— 数据设置 —— 法人主体设置  -- cpt
 
 法人主体名称下拉列表 `LegalEntitySetPullDownList`
 
@@ -15,15 +15,18 @@
 #ifndef _LEGALENTITYSET_DTO_
 #define _LEGALENTITYSET_DTO_
 #include "../../GlobalInclude.h"
-
 #include OATPP_CODEGEN_BEGIN(DTO)
-
 
 class LegalEntitySetDTO : public oatpp::DTO {
 public: 
 	LegalEntitySetDTO() {};
-	LegalEntitySetDTO(String ormsignorgname, String contractsignorgname, Int32 isdefaultsignorg) {	};
+	LegalEntitySetDTO(String ormsignorgid, String ormsignorgname, String contractsignorgname, Int32 isdefaultsignorg) {	};
 	DTO_INIT(LegalEntitySetDTO, DTO);
+	// 法人主体标识
+	DTO_FIELD(String, ormsignorgid);
+	DTO_FIELD_INFO(ormsignorgid) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.ormsignorgid");
+	}
 	// 法人主体名称
 	DTO_FIELD(String, ormsignorgname);
 	DTO_FIELD_INFO(ormsignorgname) {
@@ -37,7 +40,7 @@ public:
 	// // 默认签约主体
 	DTO_FIELD(Int64, isdefaultsignorg);
 	DTO_FIELD_INFO(isdefaultsignorg) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.isdefaultsignorg");
+			info->description = ZH_WORDS_GETTER("LegalEntitySet.field.isdefaultsignorg");
 	}
 };
 

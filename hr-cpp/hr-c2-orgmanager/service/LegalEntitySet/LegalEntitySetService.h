@@ -18,9 +18,6 @@
 
 新增法人设置（支持批量新增）** `LegalEntitySet`
 */
-/**
- * 示例服务实现，演示基础的示例服务实现
- */
 class LegalEntitySetService
 {
 public:

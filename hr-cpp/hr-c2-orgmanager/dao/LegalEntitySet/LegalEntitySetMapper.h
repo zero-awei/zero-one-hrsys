@@ -12,10 +12,8 @@
 */
 #ifndef _LEGALENTITYSET_MAPPER_
 #define _LEGALENTITYSET_MAPPER_
-
 #include "Mapper.h"
 #include "../../domain/do/LegalEntitySet/LegalEntitySetDO.h"
-
 /**
  * Ê¾Àı±í×Ö¶ÎÆ¥ÅäÓ³Éä
  */
@@ -25,9 +23,10 @@ public:
 	LegalEntitySetDO mapper(ResultSet* resultSet) const override
 	{
 		LegalEntitySetDO data;
-		data.setORMSIGNORGNAME(resultSet->getString(1));
-		data.setCONTRACTSIGNORGNAME(resultSet->getString(2));
-		data.setISDEFAULTSIGNORG(resultSet->getInt64(3));
+		data.setORMSIGNORGID(resultSet->getString(1));
+		data.setORMSIGNORGNAME(resultSet->getString(2));
+		data.setCONTRACTSIGNORGNAME(resultSet->getString(3));
+		data.setISDEFAULTSIGNORG(resultSet->getInt64(4));
 		return data;
 	}
 };
