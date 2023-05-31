@@ -80,3 +80,17 @@ Uint64JsonVO::Wrapper LegalEntitySetController::execModifyLegalEntitySet(const L
 	//return jvo;
 	return Uint64JsonVO::createShared();
 }
+
+/*---------------------------------- 法人主体设置控制器具体实现--（组织管理-数据设置-法人主体设置）--TripleGold -------------------------------*/
+
+LegalEntitySetPageJsonVO::Wrapper LegalEntitySetController::execQueryLES(const LegalEntitySetQuery::Wrapper& query)
+{
+	// 定义一个Service
+	LegalEntitySetService service;
+	// 查询数据
+	auto result = service.listAll(query);
+	// 响应结果
+	auto jvo = LegalEntitySetPageJsonVO::createShared();
+	jvo->success(result);
+	return jvo;
+}

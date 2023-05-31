@@ -19,16 +19,16 @@
 SqlParams params; \
 sql<<" WHERE 1=1"; \
 if (query->ormsignorgname) { \
-	sql << " AND `ormsignorgname`=?"; \
+	sql << " AND `ORMSIGNORGNAME`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->ormsignorgname.getValue("")); \
 } \
 if (query->contractsignorgname) { \
-	sql << " AND contractsignorgname=?"; \
+	sql << " AND CONTRACTSIGNORGNAME=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->contractsignorgname.getValue("")); \
 } \
 if (query->isdefaultsignorg) { \
-	sql << " AND isdefaultsignorg=?"; \
-	SQLPARAMS_PUSH(params, "i", int, query->isdefaultsignorg.getValue(0)); \
+	sql << " AND ISDEFAULTSIGNORG=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->isdefaultsignorg.getValue("")); \
 }
 
 std::list<LegalEntitySetDO> LegalEntitySetDAO::legalerNamePullDownList(const string& name)
@@ -48,4 +48,29 @@ int LegalEntitySetDAO::update(const LegalEntitySetDO& uObj)
 {
 	string sql = "UPDATE `t_contractsignorg` SET `ORMSIGNORGNAME`=?, `CONTRACTSIGNORGNAME`=?, `ISDEFAULTSIGNORG`=? WHERE `id`=?";
 	return sqlSession->executeUpdate(sql, "%s%s%i%s", uObj.getORMSIGNORGNAME(), uObj.getCONTRACTSIGNORGNAME(), uObj.getISDEFAULTSIGNORG(), uObj.getORMSIGNORGID());
+}
+
+/* -------------------------------------------法人主体设置查询功能--TripleGold ----------------------------------------------------------*/
+uint64_t LegalEntitySetDAO::count(const LegalEntitySetQuery::Wrapper& query)
+{
+	stringstream sql;
+	sql << "SELECT COUNT(*)"
+		<< " FROM t_contractsignorg"
+		<< " INNER JOIN t_ormsignorg ON t_contractsignorg.ORMSIGNORGID = t_ormsignorg.ORMSIGNORGID";
+	SAMPLE_TERAM_PARSE(query, sql);
+	string sqlStr = sql.str();
+	return sqlSession->executeQueryNumerical(sqlStr, params);
+}
+
+std::list<LegalEntitySetDO> LegalEntitySetDAO::selectWithPage(const LegalEntitySetQuery::Wrapper& query)
+{
+	stringstream sql;
+	sql << "SELECT t_contractsignorg.ORMSIGNORGID, t_contractsignorg.CONTRACTSIGNORGNAME, t_ormsignorg.ORMSIGNORGNAME, t_contractsignorg.ISDEFAULTSIGNORG"
+		<< " FROM t_contractsignorg "
+		<< " INNER JOIN t_ormsignorg ON t_contractsignorg.ORMSIGNORGID = t_ormsignorg.ORMSIGNORGID";
+	SAMPLE_TERAM_PARSE(query, sql);
+	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
+	LegalEntitySetMapper mapper;
+	string sqlStr = sql.str();
+	return sqlSession->executeQuery<LegalEntitySetDO, LegalEntitySetMapper>(sqlStr, mapper, params);
 }

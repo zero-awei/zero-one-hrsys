@@ -20,7 +20,8 @@
 class LegalEntitySetDTO : public oatpp::DTO {
 public: 
 	LegalEntitySetDTO() {};
-	LegalEntitySetDTO(String ormsignorgid, String ormsignorgname, String contractsignorgname, Int32 isdefaultsignorg) {	};
+	LegalEntitySetDTO(String ormsignorgname, String contractsignorgname, String isdefaultsignorg) : ormsignorgname(ormsignorgname), contractsignorgname(contractsignorgname), isdefaultsignorg(isdefaultsignorg) {};
+	LegalEntitySetDTO(String ormsignorgid, String ormsignorgname, String contractsignorgname, String isdefaultsignorg) {	};
 	DTO_INIT(LegalEntitySetDTO, DTO);
 	// 法人主体标识
 	DTO_FIELD(String, ormsignorgid);
@@ -38,7 +39,7 @@ public:
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.contractsignorgname");
 	}
 	// // 默认签约主体
-	DTO_FIELD(Int64, isdefaultsignorg);
+	DTO_FIELD(String, isdefaultsignorg);
 	DTO_FIELD_INFO(isdefaultsignorg) {
 			info->description = ZH_WORDS_GETTER("LegalEntitySet.field.isdefaultsignorg");
 	}

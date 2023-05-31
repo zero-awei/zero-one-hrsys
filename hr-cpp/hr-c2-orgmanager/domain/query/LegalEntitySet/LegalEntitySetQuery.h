@@ -33,7 +33,7 @@ class LegalEntitySetQuery : public PageQuery
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.contractsignorgname");
 	}
 	// 默认签约主体
-	DTO_FIELD(Int64, isdefaultsignorg);
+	DTO_FIELD(String, isdefaultsignorg);
 	DTO_FIELD_INFO(isdefaultsignorg) {
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.isdefaultsignorg");
 	}
