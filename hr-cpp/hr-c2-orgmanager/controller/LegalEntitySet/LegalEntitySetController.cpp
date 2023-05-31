@@ -17,12 +17,12 @@ Uint64JsonVO::Wrapper LegalEntitySetController::execAddLegalEntitySet(const Lega
 	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
 	// 非空校验
-	if (!dto->ormsignorgid || !dto->ormsignorgname || !dto->contractsignorgname|| !dto->isdefaultsignorg) {
+	if (!dto->ormsignorgid || !dto->ormsignorgname || !dto->contractsignorgname) {
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 	// 有效值校验
-	if (!dto->ormsignorgid || !dto->ormsignorgname || !dto->contractsignorgname || !dto->isdefaultsignorg)
+	if (!dto->ormsignorgid || !dto->ormsignorgname || !dto->contractsignorgname )
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
@@ -79,4 +79,18 @@ Uint64JsonVO::Wrapper LegalEntitySetController::execModifyLegalEntitySet(const L
 	//// 响应结果
 	//return jvo;
 	return Uint64JsonVO::createShared();
+}
+
+/*---------------------------------- 法人主体设置控制器具体实现--（组织管理-数据设置-法人主体设置）--TripleGold -------------------------------*/
+
+LegalEntitySetPageJsonVO::Wrapper LegalEntitySetController::execQueryLES(const LegalEntitySetQuery::Wrapper& query)
+{
+	// 定义一个Service
+	LegalEntitySetService service;
+	// 查询数据
+	auto result = service.listAll(query);
+	// 响应结果
+	auto jvo = LegalEntitySetPageJsonVO::createShared();
+	jvo->success(result);
+	return jvo;
 }

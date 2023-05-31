@@ -31,6 +31,10 @@ public:
 	int update(const LegalEntitySetDO& uObj);
 	// 法人主体名称下拉列表  
 	list<LegalEntitySetDO> legalerNamePullDownList(const string& name);
+	// 统计数据条数
+	uint64_t count(const LegalEntitySetQuery::Wrapper& query);
+	// 分页查询数据
+	list<LegalEntitySetDO> selectWithPage(const LegalEntitySetQuery::Wrapper& query);
 	
 };
 #endif // !_LEGALENTITYSET_DAO_

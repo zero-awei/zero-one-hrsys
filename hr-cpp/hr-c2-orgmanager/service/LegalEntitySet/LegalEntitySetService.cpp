@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "LegalEntitySetService.h"
 #include "dao/LegalEntitySet/LegalEntitySetDAO.h"
+
 /*
 组织管理 ——数据设置 —— 法人主体设置  -- cpt
 
@@ -46,3 +47,33 @@ bool LegalEntitySetService::updateData(const LegalEntitySetDTO::Wrapper& dto)
 //	LegalEntitySetDAO dao;
 //	return dao.deleteById(id) == 1;
 //}
+
+
+/* ----------------------------------法人主体维护Service层具体实现--（组织管理-数据设置-法人主体维护）--TripleGold ------------------------------------------------*/
+LegalEntitySetPageDTO::Wrapper LegalEntitySetService::listAll(const LegalEntitySetQuery::Wrapper& query)
+{
+	// 构建返回对象
+	auto pages = LegalEntitySetPageDTO::createShared();
+	pages->pageIndex = query->pageIndex;
+	pages->pageSize = query->pageSize;
+
+	// 查询数据总条数
+	LegalEntitySetDAO dao;
+	uint64_t count = dao.count(query);
+	if (count <= 0) {
+		return pages;
+	}
+
+	// 分页查询数据
+	pages->total = count;
+	pages->calcPages();
+	list<LegalEntitySetDO> result = dao.selectWithPage(query);
+	// 将DO转换成DTO
+	for (LegalEntitySetDO sub : result)
+	{
+		auto dto = LegalEntitySetDTO::createShared();
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, ormsignorgid, ORMSIGNORGID, contractsignorgname, CONTRACTSIGNORGNAME, ormsignorgname, ORMSIGNORGNAME, isdefaultsignorg, ISDEFAULTSIGNORG);
+		pages->addData(dto);
+	}
+	return pages;
+}
