@@ -182,6 +182,7 @@
     <ClCompile Include="dao\JobTitle\JobTitleDAO.cpp" />
     <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mg.cpp" />
     <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mh.cpp" />
+    <ClCompile Include="dao\retirementDAO\retirementDAO.cpp" />
     <ClCompile Include="dao\TerminationReminder\TerminationReminderDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="dao\Sample\ContractDao.cpp" />
@@ -192,6 +193,7 @@
     <ClCompile Include="service\laborDispatch\LaborDispatchService-mh.cpp" />
     <ClCompile Include="service\Gosh\GoshService.cpp" />
     <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
+    <ClCompile Include="service\reitirement\retirementService.cpp" />
     <ClCompile Include="service\TerminationReminder\TerminationReminderServicecpp.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -226,6 +228,8 @@
     <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mg.h" />
     <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mh.h" />
     <ClInclude Include="dao\laborDispatch\LaborDispatchMapper-mh.h" />
+    <ClInclude Include="dao\retirementDAO\retirementDAO.h" />
+    <ClInclude Include="dao\retirementDAO\retirementMapper.h" />
     <ClInclude Include="dao\TerminationReminder\TerminationReminderDAO.h" />
     <ClInclude Include="dao\TerminationReminder\TerminationReminderMapper.h" />
     <ClInclude Include="domain\do\contractInfoakie\ContractInfoDO.h" />
@@ -283,6 +287,7 @@
     <ClInclude Include="service\laborDispatch\LaborDispatchService-mg.h" />
     <ClInclude Include="service\laborDispatch\LaborDispatchService-mh.h" />
     <ClInclude Include="service\Gosh\GoshService.h" />
+    <ClInclude Include="service\reitirement\retirementService.h" />
     <ClInclude Include="service\sample\ContractService.h" />
     <ClInclude Include="domain\vo\muggle\LaborDispatchJsonVO.h" />
     <ClInclude Include="service\TerminationReminder\TerminationReminderService.h" />

@@ -33,6 +33,9 @@
     <ClCompile Include="uselib\fastdfs\TerminationReminder\TerminationRemidnerFastdfs.cpp" />
     <ClCompile Include="dao\JobTitle\JobTitleDAO.cpp" />
     <ClCompile Include="service\JobTitle\JobTitleService.cpp" />
+    <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
+    <ClCompile Include="service\reitirement\retirementService.cpp" />
+    <ClCompile Include="dao\retirementDAO\retirementDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -104,6 +107,12 @@
     <ClInclude Include="dao\JobTitle\JobTitleDAO.h" />
     <ClInclude Include="dao\JobTitle\JobTitleMapper.h" />
     <ClInclude Include="service\JobTitle\JobTitleService.h" />
+    <ClInclude Include="dao\ContractInfo\ContractInfoMapper.h" />
+    <ClInclude Include="domain\do\contractInfoakie\ContractInfoDO.h" />
+    <ClInclude Include="domain\dto\ContractDTO\ContractDTO_.h" />
+    <ClInclude Include="service\reitirement\retirementService.h" />
+    <ClInclude Include="dao\retirementDAO\retirementDAO.h" />
+    <ClInclude Include="dao\retirementDAO\retirementMapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />
