@@ -62,7 +62,7 @@ Uint64JsonVO::Wrapper QualificationController::execModifyQualification(const Qua
 	return jvo;
 }
 
-//删除数据
+ //删除数据
 Uint64JsonVO::Wrapper QualificationController::execRemoveQualification(const QualificationDTO::Wrapper& dto)
 {
 	// 定义返回数据对象

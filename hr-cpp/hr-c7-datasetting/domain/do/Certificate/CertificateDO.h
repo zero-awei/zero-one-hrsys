@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #ifndef _CERTIFICATEDO_H_
 #define _CERTIFICATEDO_H_
 
@@ -14,7 +13,7 @@ class CertificateDO
 	// 岗位技能证书
 	CC_SYNTHESIZE(string, pimqualtypename, pimQualTypeName);
 public:
-	CertificateDO()
+	CertificateDO() 
 	{
 		seialno = 0;
 		pimqualtypename = "";

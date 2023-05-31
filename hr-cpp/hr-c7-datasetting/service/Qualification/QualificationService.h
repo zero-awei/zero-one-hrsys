@@ -23,4 +23,3 @@ public:
 };
 
 #endif // !_QUALIFICATION_SERVICE_
-#pragma once

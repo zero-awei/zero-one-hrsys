@@ -2,7 +2,7 @@
 #ifndef _CERTIFICATE_DAO_
 #define _CERTIFICATE_DAO_
 #include "BaseDAO.h"
-#include "../../domain/do/Certificate/CertificateDo.h"
+#include "../../domain/do/Certificate/CertificateDO.h"
 #include "../../domain/query/Certificate/CertificateQuery.h"
 
 /**

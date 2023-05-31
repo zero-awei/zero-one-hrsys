@@ -17,8 +17,8 @@ class QualificationDO
 	// רҵ
 	CC_SYNTHESIZE(string, quamajor, quaMajor);
 public:
-	QualificationDO()
-	{
+	QualificationDO() 
+	{ 
 		pimqualmajorid = "";
 		qualevel = "";
 		pimqualmajorname = "";
