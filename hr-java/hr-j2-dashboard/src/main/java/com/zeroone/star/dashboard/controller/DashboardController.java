@@ -2,7 +2,6 @@ package com.zeroone.star.dashboard.controller;
 
 
 import com.zeroone.star.dashboard.service.IBisEducationService;
-import com.zeroone.star.dashboard.service.IBisEmployeeanalysisService;
 import com.zeroone.star.dashboard.service.IBisRegisterTService;
 import com.zeroone.star.dashboard.service.ISrforgService;
 import com.zeroone.star.project.dashboard.DashboardApis;
@@ -42,7 +41,7 @@ public class DashboardController implements DashboardApis, OrgDistributeApis {
     @GetMapping("query-agency-project-staff")
     @Override
     public JsonVO<List<AgencyProjectStaffDTO>> queryAgencyProjectStaff() {
-        return JsonVO.success(bisEmployeeanalysisService.listAgencyProjectStaff());
+        return JsonVO.success(srforgService.listAgencyProjectStaff());
     }
 
     @Resource
@@ -77,24 +76,16 @@ public class DashboardController implements DashboardApis, OrgDistributeApis {
         return null;
     }
 
+
     @Resource
     private ISrforgService srforgService;
-    @Resource
-    private IBisEmployeeanalysisService bisEmployeeanalysisService;
 
-    @ApiOperation(value = "获取组织分布信息")
+    @ApiOperation(value = "组织分布")
     @GetMapping("/query-org-distribute")
     @Override
     public JsonVO<List<OrgDistributeDTO>> queryOrgDistribute() {
-        List<OrgDistributeDTO> list = srforgService.getAllOrg();
+        List<OrgDistributeDTO> list = srforgService.listOrgDistribute();
         return JsonVO.success(list);
     }
 
-    @ApiOperation(value = "获取组织人数信息")
-    @GetMapping("/query-org-count")
-    @Override
-    public JsonVO<List<OrgEmployeeCountDTO>> queryEmployeeCount() {
-        List<OrgEmployeeCountDTO> list = bisEmployeeanalysisService.getOrgCount();
-        return JsonVO.success(list);
-    }
 }
