@@ -16,9 +16,6 @@ LanguagePageJsonVO::Wrapper LanguageCompetenceController::execQueryLanguage(cons
 	auto jvo = LanguagePageJsonVO::createShared();
 	jvo->success(result);
 	return jvo;
-	//auto jvo = StringJsonVO::createShared();
-	//jvo->success("query language competence success");
-	//return jvo;
 }
 
 LanguageJsonVO::Wrapper LanguageCompetenceController::execQueryOneLanguage(const LanguageQuery::Wrapper& query, const PayloadDTO& payload)
@@ -26,59 +23,49 @@ LanguageJsonVO::Wrapper LanguageCompetenceController::execQueryOneLanguage(const
 	//定义一个Service
 	LanguageService service;
 	//查询数据
-	auto result = service.queryOneData(query);
+	auto result = service.queryOneDataById(query);
 	//响应结果
 	auto jvo = LanguageJsonVO::createShared();
 	jvo->success(result);
 	return jvo;
-	/*auto jvo = StringJsonVO::createShared();
-	jvo->success("query language competence success");
-	return jvo;*/
 }
 
-Uint64JsonVO::Wrapper LanguageCompetenceController::execAddLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload)
+Int32JsonVO::Wrapper LanguageCompetenceController::execAddLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	//定义一个返回数据对象
-	auto jvo = Uint64JsonVO::createShared();
+	auto jvo = Int32JsonVO::createShared();
 	// 参数校验
 	// 非空校验
 	if (!dto->personID || !dto->languageType || !dto->languageLevel) {
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		jvo->init(Int32(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 	//有效值校验
-	if (dto->languageType->empty() || dto->languageLevel->empty()) {
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+	if (dto->personID->empty() || dto->languageType->empty() || dto->languageLevel->empty()) {
+		jvo->init(Int32(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 	// 定义一个Service
 	LanguageService service;
 	// 执行数据新增
-	uint64_t count = service.saveData(dto);
+	int count = service.saveData(dto);
 	if (count > 0) {
-		jvo->success(UInt64(count));
+		jvo->success(Int32(count));
 	}
 	else
 	{
-		jvo->fail(UInt64(count));
+		jvo->fail(Int32(count));
 	}
 	//响应结果
 	return jvo;
 }
-//StringJsonVO::Wrapper LanguageCompetenceController::execAddLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload) 
-//{
-//	auto jvo = StringJsonVO::createShared();
-//	jvo->success("add language competence success");
-//	return jvo;
-//
-//}
 
 BooleanJsonVO::Wrapper LanguageCompetenceController::execDeleteLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	//定义一个返回对象
 	auto jvo = BooleanJsonVO::createShared();
 	// 参数校验
-	if (!dto->personID)
+	if (!dto->languageAbilityID)
 	{
 		jvo->init(false, RS_PARAMS_INVALID);
 		return jvo;
@@ -86,7 +73,7 @@ BooleanJsonVO::Wrapper LanguageCompetenceController::execDeleteLanguage(const La
 	// 定义一个Service
 	LanguageService service;
 	// 执行数据删除
-	if (service.removeData(dto->personID.getValue(0),dto->languageType.getValue(0))) {
+	if (service.removeData(dto->languageAbilityID.getValue({}))) {
 		jvo->success(true);
 	}
 	else
@@ -96,19 +83,13 @@ BooleanJsonVO::Wrapper LanguageCompetenceController::execDeleteLanguage(const La
 	// 响应结果
 	return jvo;
 }
-//StringJsonVO::Wrapper LanguageCompetenceController::execDeleteLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload)
-//{
-//	auto jvo = StringJsonVO::createShared();
-//	jvo->success("remove language competence success");
-//	return jvo;
-//}
 
 BooleanJsonVO::Wrapper LanguageCompetenceController::execUpdateLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	//定义一个返回对象
 	auto jvo = BooleanJsonVO::createShared();
 	//参数校验
-	if (!dto->personID) {
+	if (!dto->languageAbilityID) {
 		jvo->init(false, RS_PARAMS_INVALID);
 		return jvo;
 	}
@@ -125,9 +106,3 @@ BooleanJsonVO::Wrapper LanguageCompetenceController::execUpdateLanguage(const La
 	// 响应结果
 	return jvo;
 }
-//StringJsonVO::Wrapper LanguageCompetenceController::execUpdateLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload)
-//{
-//	auto jvo = StringJsonVO::createShared();
-//	jvo->success("update language competence success");
-//	return jvo;
-//}

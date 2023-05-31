@@ -108,14 +108,14 @@ public: // 定义接口
 		/* 打印文件名称 */
 		OATPP_LOGD("Multipart", "file='%s'", filePart->getFilename()->c_str());
 		
-		auto dto = ImportLanguageDTO::createShared(String(fileType), String(sheetName), filePath);
+		auto dto = ImportLanguageDTO::createShared();
 		/* 响应OK */
 		API_HANDLER_RESP_VO(execImportLanguage(dto/*, authObject->getPayload()*/));
 	}
 private: // 定义接口执行函数
 	//定义修改接口执行函数
-	//Uint64JsonVO::Wrapper execUpdateLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);
-	StringJsonVO::Wrapper execImportLanguage(const LanguageDTO::Wrapper & dto/*, const PayloadDTO & payload*/);
+	//Uint64JsonVO::Wrapper execUpdateLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);	
+	StringJsonVO::Wrapper execImportLanguage(const ImportLanguageDTO::Wrapper & dto/*, const PayloadDTO & payload*/);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

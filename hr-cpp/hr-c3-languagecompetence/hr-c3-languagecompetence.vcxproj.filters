@@ -72,6 +72,12 @@
     <ClInclude Include="domain\do\Language\LanguageDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="dao\Language\LanguageDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\Language\LanguageMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -96,6 +102,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="controller\ExportLanguage\ExportLanguage.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\Language\LanguageDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
