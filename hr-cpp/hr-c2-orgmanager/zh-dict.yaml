@@ -58,3 +58,12 @@ LegalEntityMai:
   creatName: 创建名称
  sample:
   name: 东北公司
+LegalEntitySet:
+ query:
+  summary: （法人主体设置-分页查询法人设置列表）--TripleGold
+ sample:
+  name: 北京分公司
+ field:
+  id: 签约主体单位标识
+  name: 管理单位名称
+  default: 默认签约主体

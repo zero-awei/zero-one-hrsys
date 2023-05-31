@@ -183,11 +183,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\LegalEntityMai\LegalEntityMaiController.cpp" />
+    <ClCompile Include="controller\LegalEntitySet\LegalEntitySetQueryController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="dao\LegalEntityMai\LegalEntityMaiDAO.cpp" />
+    <ClCompile Include="dao\LegalEntitySet\LegalEntitySetDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\LegalEntityMai\LegalEntityMaiService.cpp" />
+    <ClCompile Include="service\LegalEntitySet\LegalEntitySetService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -205,23 +208,31 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\LegalEntityMai\LegalEntityMaiController.h" />
+    <ClInclude Include="controller\LegalEntitySet\LegalEntitySetQueryController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="dao\LegalEntityMai\LegalEntityMaiDAO.h" />
     <ClInclude Include="dao\LegalEntityMai\LegalEntityMaiMapper.h" />
+    <ClInclude Include="dao\LegalEntitySet\LegalEntitySetMapper.h" />
+    <ClInclude Include="dao\LegalEntitySet\LegalEntitySetDAO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\LegalEntityMai\OrmsignorgDO.h" />
+    <ClInclude Include="domain\do\LegalEntitySet\QueryLegalEntitySetDO.h" />
     <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiAddDTO.h" />
     <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDelDTO.h" />
     <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDTO.h" />
     <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiMqDTO.h" />
+    <ClInclude Include="domain\dto\LegalEntitySet\LegalEntitySetQueryDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\LegalEntityMai\LegalEntityMaiQuery.h" />
+    <ClInclude Include="domain\query\LegalEntitySet\LegalEntitySetQuery.h" />
     <ClInclude Include="domain\vo\LegalEntityMai\LegalEntityMaiVO.h" />
+    <ClInclude Include="domain\vo\LegalEntitySet\LegalEntitySetVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\LegalEntityMai\LegalEntityMaiService.h" />
+    <ClInclude Include="service\LegalEntitySet\LegalEntitySetService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="uselib\excel\TestExcel.h" />
     <ClInclude Include="uselib\fastdfs\TestFastDfs.h" />
