@@ -15,7 +15,8 @@ public:
 	JobLevelTypeDO mapper(ResultSet* result) const override
 	{
 		JobLevelTypeDO data;
-		data.setJobLevel(result->getString(1));
+		data.setCode(result->getString(1));
+		data.setJobLevel(result->getString(2));
 		return data;
 	}
 };

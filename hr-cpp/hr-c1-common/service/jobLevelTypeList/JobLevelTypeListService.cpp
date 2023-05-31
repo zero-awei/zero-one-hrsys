@@ -26,10 +26,12 @@ PullListDTO::Wrapper JobLevelTypeListService::listAll()
 		{
 			string code = item.getCode();
 			dto->pullList->push_back(ItemDTO::createShared(atoi(code.c_str()), item.getJobLevel()));
+			hash[code] = item.getJobLevel();
 		}
 
-		// TODO: 将获取的数据更新到Redis缓存
-		UseLibRedis::updateRedis("job-level-type", dao.getMapList());
+		if (res.size())
+			// TODO: 将获取的数据更新到Redis缓存
+			UseLibRedis::updateRedis("job-level-type", hash);
 	}
 	// 否则组装缓存数据到DTO
 	else
