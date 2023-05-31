@@ -11,7 +11,7 @@ import java.util.List;
  * 角色表 Mapper 接口
  * </p>
  *
- * @author 阿伟
+ * @author 风月
  */
 @Mapper
 public interface RoleMapper extends BaseMapper<Role> {
@@ -28,4 +28,6 @@ public interface RoleMapper extends BaseMapper<Role> {
      * @return 角色列表
      */
     List<Role> selectByMenuPath(String path);
+
+    List<Role> selectByPowerLinkUrl(String path);
 }

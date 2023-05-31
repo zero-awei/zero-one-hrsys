@@ -1,5 +1,6 @@
 package com.zeroone.star.gateway.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,6 +15,6 @@ import org.springframework.context.annotation.Configuration;
  * @version 1.0.0
  */
 @Configuration
-@ComponentScan("com.zeroone.star.project.config.redis")
+@ComponentScan({"com.zeroone.star.project.config.redis","com.zeroone.star.project.utils.redis"})
 public class RedisInit {
 }

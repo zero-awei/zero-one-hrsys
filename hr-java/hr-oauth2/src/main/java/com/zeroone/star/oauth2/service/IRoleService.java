@@ -26,4 +26,6 @@ public interface IRoleService extends IService<Role> {
      * @return 角色列表
      */
     List<Role> listRoleByMenuPath(String path);
+
+    List<Role> listRoleByPowerLinkUrl(String path);
 }

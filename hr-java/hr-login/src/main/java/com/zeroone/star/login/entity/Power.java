@@ -6,30 +6,25 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.io.Serializable;
-
 /**
- * <p>
- * 菜单
- * </p>
- *
- * @author 阿伟
+ * 权限表
+ * @author 风月
+ * @date 2023/5/31 19:16
  */
 @Getter
 @Setter
-@TableName("zo_menu")
-public class Menu implements Serializable {
-
+@TableName("zo_power")
+public class Power {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 菜单编号
+     * 唯一ID
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private String id;
 
     /**
-     * 菜单名
+     * 权限名称
      */
     private String name;
 
@@ -39,19 +34,19 @@ public class Menu implements Serializable {
     private String linkUrl;
 
     /**
-     * 路由地址
+     * 显示级别
      */
-    private String path;
+    private int priority;
 
     /**
-     * 显示优先级别
+     * 父级权限id
      */
-    private Integer priority;
+    private String parentRightId;
 
     /**
-     * 图标
+     * 层次
      */
-    private String icon;
+    private int level;
 
     /**
      * 描述
@@ -59,19 +54,7 @@ public class Menu implements Serializable {
     private String description;
 
     /**
-     * 父级菜单编号
+     * 是否启用
      */
-    private Integer parentMenuId;
-
-    /**
-     * 层次级别
-     */
-    private Integer level;
-
-    /**
-     * 是否启用 0 禁用 1 启用
-     */
-    private Integer isEnable;
-
-
+    private int isEnable;
 }

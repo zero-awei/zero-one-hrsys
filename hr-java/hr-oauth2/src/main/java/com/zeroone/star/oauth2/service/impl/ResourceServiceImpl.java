@@ -1,8 +1,10 @@
 package com.zeroone.star.oauth2.service.impl;
 
 import com.zeroone.star.oauth2.entity.Menu;
+import com.zeroone.star.oauth2.entity.Power;
 import com.zeroone.star.oauth2.entity.Role;
 import com.zeroone.star.oauth2.service.IMenuService;
+import com.zeroone.star.oauth2.service.IPowerService;
 import com.zeroone.star.oauth2.service.IRoleService;
 import com.zeroone.star.project.constant.RedisConstant;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -30,7 +32,7 @@ public class ResourceServiceImpl {
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
     @Resource
-    private IMenuService menuService;
+    private IPowerService powerService;
     @Resource
     private IRoleService roleService;
 
@@ -38,17 +40,34 @@ public class ResourceServiceImpl {
     public void init() {
         // 定义缓存map
         Map<String, List<String>> resourceRolesMap = new TreeMap<>();
-        // 1 获取所有菜单
-        List<Menu> tMenus = menuService.listAllLinkUrl();
-        tMenus.forEach(menu -> {
+        // 1 获取所有权限
+        List<Power> tPowers = powerService.listAllLinkUrl();
+        tPowers.forEach(power -> {
             // 2 获取菜单对应的角色
-            List<Role> rolesMenu = roleService.listRoleByMenuPath(menu.getLinkUrl());
+            List<Role> rolesMenu = roleService.listRoleByPowerLinkUrl(power.getLinkUrl());
             List<String> roles = new ArrayList<>();
             rolesMenu.forEach(role -> roles.add(role.getKeyword()));
-            resourceRolesMap.put(menu.getLinkUrl(), roles);
+            resourceRolesMap.put(power.getLinkUrl(), roles);
         });
 
         //将资源缓存到redis
         redisTemplate.opsForHash().putAll(RedisConstant.RESOURCE_ROLES_MAP, resourceRolesMap);
     }
+//    @PostConstruct
+//    public void init() {
+//        // 定义缓存map
+//        Map<String, List<String>> resourceRolesMap = new TreeMap<>();
+//        // 1 获取所有菜单
+//        List<Menu> tMenus = menuService.listAllLinkUrl();
+//        tMenus.forEach(menu -> {
+//            // 2 获取菜单对应的角色
+//            List<Role> rolesMenu = roleService.listRoleByMenuPath(menu.getLinkUrl());
+//            List<String> roles = new ArrayList<>();
+//            rolesMenu.forEach(role -> roles.add(role.getKeyword()));
+//            resourceRolesMap.put(menu.getLinkUrl(), roles);
+//        });
+//
+//        //将资源缓存到redis
+//        redisTemplate.opsForHash().putAll(RedisConstant.RESOURCE_ROLES_MAP, resourceRolesMap);
+//    }
 }

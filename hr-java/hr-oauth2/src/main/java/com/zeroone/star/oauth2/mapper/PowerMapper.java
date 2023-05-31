@@ -1,17 +1,14 @@
 package com.zeroone.star.oauth2.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.zeroone.star.oauth2.entity.User;
+import com.zeroone.star.oauth2.entity.Power;
 import org.apache.ibatis.annotations.Mapper;
 
+
 /**
- * <p>
- * 用户表 Mapper 接口
- * </p>
- *
  * @author 风月
+ * @date 2023/5/31 19:36
  */
 @Mapper
-public interface UserMapper extends BaseMapper<User> {
-
+public interface PowerMapper extends BaseMapper<Power> {
 }
