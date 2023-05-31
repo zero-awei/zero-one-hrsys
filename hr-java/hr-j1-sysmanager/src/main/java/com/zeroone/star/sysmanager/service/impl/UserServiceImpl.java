@@ -55,14 +55,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
 
         String condition = query.getCondition();
-        if (!condition.equals("")) {
-            wrapper.like(User::getId, condition).or()
-                    .like(User::getUsername, condition).or()
-                    .like(User::getPhone, condition).or()
-                    .like(User::getMail, condition).or()
-                    .like(User::getIsEnable, condition).or()
-                    .like(User::getRegistTime, condition);
-        }
+        wrapper.like(User::getId, condition).or()
+                .like(User::getUsername, condition).or()
+                .like(User::getPhone, condition).or()
+                .like(User::getMail, condition).or()
+                .like(User::getIsEnable, condition).or()
+                .like(User::getRegistTime, condition);
         Page<User> result = baseMapper.selectPage(page, wrapper);
         return PageDTO.create(result, UserDTO.class);
     }
