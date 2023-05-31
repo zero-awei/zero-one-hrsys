@@ -1,13 +1,11 @@
 #include "stdafx.h"
 #include "DeclareTypeListDAO.h"
+#include "DeclareTypeMapper.h"
 
-list<DeclareTypeDO> DeclareTypeListDAO::getDeclareTypeList()
+std::list<DeclareTypeDO> DeclareTypeListDAO::getDeclareTypeList()
 {
-	list<DeclareTypeDO> lists = {};
-	for (char i = 'A'; i <= 'Z'; i++) {
-		DeclareTypeDO temp;
-		temp.setDeclaretype(to_string(i));
-		lists.push_back(temp);
-	}
-	return lists;
+	//查询下拉列表
+	string sql = "SELECT `PIMSTAFFTYPENAME` FROM `t_pimstafftype`";
+	DeclareTypeMapper mapper;
+	return sqlSession->executeQuery<DeclareTypeDO, DeclareTypeMapper>(sql, mapper);
 }

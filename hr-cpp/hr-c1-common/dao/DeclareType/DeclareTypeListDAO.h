@@ -1,17 +1,18 @@
 //2023年5月27日
 //作者：狗皮电耗子
-//申报列表的DAO（写死了，新建的时候主键还没输进数据库里，查不了）
+//申报列表的DAO
 #pragma once
 #ifndef _DECLARE_TYPE_LIST_DAO_
 #define _DECLARE_TYPE_LIST_DAO_
+
 #include "BaseDAO.h"
 #include "../../domain/do/declareType/DeclareTypeDO.h"
 
-class DeclareTypeListDAO
+class DeclareTypeListDAO : public BaseDAO
 {
 public:
 	//创建申报下拉列表
-	list<DeclareTypeDO> getDeclareTypeList();
+	std::list<DeclareTypeDO> getDeclareTypeList();
 
 };
 

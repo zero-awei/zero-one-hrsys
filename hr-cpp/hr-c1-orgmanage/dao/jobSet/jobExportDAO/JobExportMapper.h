@@ -10,6 +10,7 @@
 
 class JobExportMapper : public Mapper<PostDetailDO> 
 {
+public:
 	PostDetailDO mapper(ResultSet* resultSet) const override 
 	{
 		PostDetailDO data;

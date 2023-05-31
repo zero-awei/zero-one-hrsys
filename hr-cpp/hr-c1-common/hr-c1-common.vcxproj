@@ -222,6 +222,7 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\armyLevelType\ArmyLevelTypeService.h" />
+    <ClInclude Include="service\declareType\DeclareTypeService.h" />
     <ClInclude Include="service\dismissReason\DismissReasonService.h" />
     <ClInclude Include="service\leaveReason\LeaveReasonService.h" />
     <ClInclude Include="stdafx.h" />
@@ -253,6 +254,7 @@
     <ClCompile Include="dao\DeclareType\DeclareTypeListDAO.cpp" />
     <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
     <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
+    <ClCompile Include="service\declareType\DeclareTypeService.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\armyLevelType\ArmyLevelTypeService.cpp" />
     <ClCompile Include="service\dismissReason\DismissReasonService.cpp" />

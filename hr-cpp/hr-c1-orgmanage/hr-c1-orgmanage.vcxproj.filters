@@ -28,6 +28,7 @@
     <ClCompile Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.cpp" />
     <ClCompile Include="dao\jobSet\jobUpdateDAO\JobUpdteDAO.cpp" />
     <ClCompile Include="dao\jobSet\jobExportDAO\JobExportDAO.cpp" />
+    <ClCompile Include="service\jobSet\jobUpdateService\JobUpdateService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -72,7 +73,6 @@
     <ClInclude Include="domain\vo\jobUpdate\JobUpdateVO.h" />
     <ClInclude Include="domain\vo\jobDownload\JobDownloadVO.h" />
     <ClInclude Include="domain\dto\jobDownload\JobDownloadDTO.h" />
-    <ClInclude Include="domain\dto\jobUpdate\JobUpdateDTO.h" />
     <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
     <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
     <ClInclude Include="service\projTag\ProjTagService.h" />
@@ -93,5 +93,7 @@
     <ClInclude Include="dao\jobSet\jobUpdateDAO\JobUpdteDAO.h" />
     <ClInclude Include="dao\jobSet\jobExportDAO\JobExportDAO.h" />
     <ClInclude Include="dao\jobSet\jobExportDAO\JobExportMapper.h" />
+    <ClInclude Include="service\jobSet\jobUpdateService\JobUpdateService.h" />
+    <ClInclude Include="domain\dto\jobSet\jobUpdateDto\JobUpdateDTO.h" />
   </ItemGroup>
 </Project>

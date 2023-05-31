@@ -181,6 +181,7 @@
     <ClCompile Include="dao\jobSet\postQueryDAO\PostQueryDAO.cpp" />
     <ClCompile Include="dao\projTag\ProjTagDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\jobSet\jobUpdateService\JobUpdateService.cpp" />
     <ClCompile Include="service\jobSet\postDeleteService\PostDeleteService.cpp" />
     <ClCompile Include="service\jobSet\postQueryService\PostQueryService.cpp" />
     <ClCompile Include="service\projTag\ProjTagService.cpp" />
@@ -223,7 +224,7 @@
     <ClInclude Include="domain\do\projTag\ProjTagDO.h" />
     <ClInclude Include="domain\dto\itemLabel\ItemLabelDTO.h" />
     <ClInclude Include="domain\dto\jobDownload\JobDownloadDTO.h" />
-    <ClInclude Include="domain\dto\jobUpdate\JobUpdateDTO.h" />
+    <ClInclude Include="domain\dto\jobSet\jobUpdateDto\JobUpdateDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDeleteDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDetailDTO.h" />
     <ClInclude Include="domain\dto\projTag\DeleteProjTagDTO.h" />
@@ -251,6 +252,7 @@
     <ClInclude Include="domain\vo\projTag\ProjTagVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\jobSet\jobUpdateService\JobUpdateService.h" />
     <ClInclude Include="service\jobSet\postDeleteService\PostDeleteService.h" />
     <ClInclude Include="service\jobSet\postQueryService\PostQueryService.h" />
     <ClInclude Include="service\projTag\ProjTagService.h" />

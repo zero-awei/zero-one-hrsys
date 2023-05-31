@@ -23,7 +23,6 @@ public:
 	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/declare-type"), queryDeclare) {
 		// ÏìÓ¦½á¹û
 		API_HANDLER_RESP_VO(execQueryDeclare());
-		return createResponse(Status::CODE_202, "OK");
 	}
 	
 private:
