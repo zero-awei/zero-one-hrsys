@@ -35,8 +35,7 @@ ExpenseLedgerPageJsonVO::Wrapper ExpenseLedgerMController::execQueryExpenseLedge
 	{
 		jvo->success(result);
 	}
-	return jvo;
-}
+	return jvo;}
 /**
  * Returns: String StringJsonVO.data 插入费用台账的标识
  */

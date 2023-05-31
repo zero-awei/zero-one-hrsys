@@ -66,7 +66,7 @@ ldcompany:
   UPDATEDATE: 更新时间
 
 
-contract_gs:
+contract_gosh:
  get:
   summary: 分页查询合同信息
  post:

@@ -1,57 +1,59 @@
-ï»¿#include "stdafx.h"//cppæ–‡ä»¶ç¬¬ä¸€ä»¶äº‹å¯¼å…¥é¢„ç¼–è¯‘æ ‡å¤´
+#include "stdafx.h"//cppÎÄ¼þµÚÒ»¼þÊÂµ¼ÈëÔ¤±àÒë±êÍ·
 #include "controller/GoshController/TestController.h"
 #include "service/Gosh/GoshService.h"
 #include "domain/vo/Gosh/ContractVO.h"
-//æ¼”ç¤ºæŸ¥è¯¢åˆåŒä¿¡æ¯
+
+//ÑÝÊ¾²éÑ¯ºÏÍ¬ÐÅÏ¢
 ContractPageJsonVO::Wrapper GoshController::execQueryContract(const ContractQuery::Wrapper& query, const PayloadDTO& payload)
 {
-	// å®šä¹‰ä¸€ä¸ªService
+	// ¶¨ÒåÒ»¸öService
 	GoshService service;
-	// æŸ¥è¯¢æ•°æ®
+	// ²éÑ¯Êý¾Ý
 	auto result = service.listContract(query);
-	// å“åº”ç»“æžœ
-	auto jvo = ContractPageJsonVO::createShared();
-	jvo->success(result);
-	return jvo;
-}//æ¼”ç¤ºæŸ¥è¯¢ä¸ªäººä¿¡æ¯
-ContractPageJsonVO::Wrapper GoshController::execQueryPerson(const ContractQuery::Wrapper& query, const PayloadDTO& payload)
-{
-	// å®šä¹‰ä¸€ä¸ªService
-	GoshService service;
-	// æŸ¥è¯¢æ•°æ®
-	auto result = service.listContract(query);
-	// å“åº”ç»“æžœ
+	// ÏìÓ¦½á¹û
 	auto jvo = ContractPageJsonVO::createShared();
 	jvo->success(result);
 	return jvo;
 }
-//æ¼”ç¤ºæ–°å¢žåˆåŒæ•°æ®
-Uint64JsonVO::Wrapper GoshController::execAddContract(const ContractDTO_gs::Wrapper& dto)
+//ÑÝÊ¾²éÑ¯¸öÈËÐÅÏ¢
+ContractPageJsonVO::Wrapper GoshController::execQueryPerson(const ContractQuery::Wrapper& query, const PayloadDTO& payload)
 {
-	// å®šä¹‰è¿”å›žæ•°æ®å¯¹è±¡
+	// ¶¨ÒåÒ»¸öService
+	GoshService service;
+	// ²éÑ¯Êý¾Ý
+	auto result = service.listPerson(query);
+	// ÏìÓ¦½á¹û
+	auto jvo = ContractPageJsonVO::createShared();
+	jvo->success(result);
+	return jvo;
+}
+//ÑÝÊ¾ÐÂÔöºÏÍ¬Êý¾Ý
+Uint64JsonVO::Wrapper GoshController::execAddContract(const ContractDTO_gs_insert::Wrapper& dto)
+{
+	// ¶¨Òå·µ»ØÊý¾Ý¶ÔÏó
 	auto jvo = Uint64JsonVO::createShared();
-	// å‚æ•°æ ¡éªŒ
-	// éžç©ºæ ¡éªŒ
-	if (dto->name->empty() || dto->type->empty() || dto->variety->empty() || dto->date->empty() || dto->condition->empty())
+	// ²ÎÊýÐ£Ñé
+	// ·Ç¿ÕÐ£Ñé
+	if (dto->personid->empty() ||dto->id->empty() ||dto->type->empty() || dto->variety->empty() || dto->date->empty() || dto->condition->empty())
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	// å®šä¹‰ä¸€ä¸ªService
+	// ¶¨ÒåÒ»¸öService
 	GoshService service;
-	// æ‰§è¡Œæ•°æ®æ–°å¢ž
+	// Ö´ÐÐÊý¾ÝÐÂÔö
 	uint64_t id = service.saveData(dto);
 	if (id >= 0) {
-		jvo->success(UInt64(id));
+		jvo->success(UInt64(1));
 	}
 	else
 	{
 		jvo->fail(UInt64(id));
 	}
-	//å“åº”ç»“æžœ
+	//ÏìÓ¦½á¹û
 	return jvo;
 }
-//æ¼”ç¤ºæ‰¹é‡åˆ é™¤åˆåŒæ•°æ®
+//ÑÝÊ¾ÅúÁ¿É¾³ýºÏÍ¬Êý¾Ý
 Uint64JsonVO::Wrapper GoshController::execRemoveContract(const ContractDTO_gs_delete::Wrapper& dto)
 {
 	auto jvo = Uint64JsonVO::createShared();
@@ -63,8 +65,7 @@ Uint64JsonVO::Wrapper GoshController::execRemoveContract(const ContractDTO_gs_de
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	int count = 0;
-	for (auto it = dto->deleteById->begin(); it != dto->deleteById->end(); ++it,++count)
+	for (auto it = dto->deleteById->begin(); it != dto->deleteById->end(); ++it)
 	{
 		if (!(*it))
 		{
@@ -76,7 +77,7 @@ Uint64JsonVO::Wrapper GoshController::execRemoveContract(const ContractDTO_gs_de
 	GoshService service;
 	if (service.removeData(dto))
 	{
-		jvo->success(count);
+		jvo->success(1);
 	}
 	else
 	{

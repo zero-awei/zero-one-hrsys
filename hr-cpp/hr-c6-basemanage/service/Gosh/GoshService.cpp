@@ -27,40 +27,71 @@ ContractPageDTO_gs::Wrapper GoshService::listContract(const ContractQuery::Wrapp
 	for (ContractDO sub : result)
 	{
 		auto dto = ContractDTO_gs::createShared();
+		dto->personid = sub.getPersonid();
 		dto->id = sub.getId();
 		dto->name = sub.getName();
 		dto->type = sub.getType();
 		dto->variety = sub.getVariety();
 		dto->date = sub.getDate();
 		dto->condition = sub.getCondition();
-		dto->department_m = sub.getDepartment_m();
 		dto->department_c = sub.getDepartment_c();
 		dto->date_end = sub.getDate_end();
-		dto->tip = sub.getTip();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id, name, Name, type, Type,variety,Variety,date,Date, condition, Condition, department_m, Department_m, department_c, Department_c, date_end, Date_end, tip,Tip);
-		//ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub,name, Name, type, Type, variety, Variety, date, Date, condition, Condition, department_m, Department_m, department_c, Department_c, date_end, Date_end, tip, Tip);
+		dto->person_department = sub.getPerson_department();
+		dto->person_condition = sub.getPerson_condition();
+		dto->date_arrive = sub.getDate_arrive();
+		dto->date_over = sub.getDate_over();
+		dto->rest = sub.getRest();
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, personid, Personid, id, Id, name, Name, type, Type,variety,Variety,date,Date, condition, Condition, department_c, Department_c, date_end, Date_end, person_department, Person_department, person_condition, Person_condition, date_arrive, Date_arrive, date_over, Date_over, rest, Rest);
 		pages->addData(dto);
-
 	}
 	return pages;
 }
 
+ContractPageDTO_gs::Wrapper GoshService::listPerson(const ContractQuery::Wrapper& query)
+{
+	// 构建返回对象
+	auto pages = ContractPageDTO_gs::createShared();
+	// 分页查询数据
+	GoshDAO dao;
+	list<ContractDO> result = dao.selectByName(query->name);
+	// 将DO转换成DTO
+	for (ContractDO sub : result)
+	{
+		auto dto = ContractDTO_gs::createShared();
+		dto->personid = sub.getPersonid();
+		dto->id = sub.getId();
+		dto->name = sub.getName();
+		dto->type = sub.getType();
+		dto->variety = sub.getVariety();
+		dto->date = sub.getDate();
+		dto->condition = sub.getCondition();
+		dto->department_c = sub.getDepartment_c();
+		dto->date_end = sub.getDate_end();
+		dto->person_department = sub.getPerson_department();
+		dto->person_condition = sub.getPerson_condition();
+		dto->date_arrive = sub.getDate_arrive();
+		dto->date_over = sub.getDate_over();
+		dto->rest = sub.getRest();
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, personid, Personid, id, Id, name, Name, type, Type, variety, Variety, date, Date, condition, Condition, department_c, Department_c, date_end, Date_end, person_department, Person_department, person_condition, Person_condition, date_arrive, Date_arrive, date_over, Date_over, rest, Rest);
+		pages->addData(dto);
+	}
+	return pages;
+}
 
-uint64_t GoshService::saveData(const ContractDTO_gs::Wrapper& dto)
+uint64_t GoshService::saveData(const ContractDTO_gs_insert::Wrapper& dto)
 {
 	// 组装DO数据
 	ContractDO data;
-	data.setName(dto->name.getValue(""));
+	data.setPersonid(dto->personid.getValue(""));
+	data.setId(dto->id.getValue(""));
 	data.setType(dto->type.getValue(""));
 	data.setVariety(dto->variety.getValue(""));
 	data.setDate(dto->date.getValue(""));
 	data.setCondition(dto->condition.getValue(""));
 	data.setDepartment_m(dto->department_m.getValue(""));
-	data.setDepartment_c(dto->department_c.getValue(""));
 	data.setDate_end(dto->date_end.getValue(""));
 	data.setTip(dto->tip.getValue(""));
-	//data.setAge(dto->age.getValue(1));
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Name, name, Type,type, Variety,variety, Date,date, Condition,condition , Department_m,department_m, Department_c,department_c, Date_end,date_end, Tip,tip)
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Personid, personid,Id,id,Type,type, Variety,variety, Date,date, Condition,condition , Department_m,department_m, Date_end,date_end, Tip,tip)
 		// 执行数据添加
 	GoshDAO dao;
 	return dao.insert(data);
@@ -74,4 +105,4 @@ bool GoshService::removeData(const ContractDTO_gs_delete::Wrapper& dto)
 		dao.deleteById(*it);
 	}
 	return true;
-}
+}	
