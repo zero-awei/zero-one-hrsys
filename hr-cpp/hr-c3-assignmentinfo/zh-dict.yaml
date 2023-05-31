@@ -14,8 +14,9 @@ employee:
   name: 姓名
   sex: 性别，如：男
  t_pimperson: 
+   assignId: 分配信息标识
    pimpersonname: 员工姓名
-   id: 编号
+   id: 员工编号
    assign: 分配
    assignState: 分配状态
    etype: 类型

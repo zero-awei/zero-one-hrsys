@@ -22,34 +22,34 @@
 #include "../../service/assignInfo/AssignInfoService.h"
 
 
-StringJsonVO::Wrapper AssignInfoController::execAddAssignInfo(const AssignInfoDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper AssignInfoController::execAddAssignInfo(const AssignInfoDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
-	auto jvo = StringJsonVO::createShared();
+	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
 	// 非空校验
-	if (!dto->id || !dto->assign || !dto->assignState|| !dto->organize || !dto->depart || !dto->job || !dto->post || !dto->startTime || !dto->endTime)
+	if (!dto->assignId)
 	{
-		jvo->init(String(-1), RS_PARAMS_INVALID);
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	// 有效值校验
-	if (dto->id->empty())
-	{
-		jvo->init(String(-1), RS_PARAMS_INVALID);
-		return jvo;
-	}
+	//// 有效值校验
+	//if (dto->id->empty())
+	//{
+	//	jvo->init(String(-1), RS_PARAMS_INVALID);
+	//	return jvo;
+	//}
 
 	// 定义一个Service
 	AssignInfoService service;
 	// 执行数据新增
-	uint64_t id = service.saveData(dto);
+	auto id = service.saveData(dto);
 	if (id > 0) {
-		jvo->success(String(id));
+		jvo->success(UInt64(id));
 	}
 	else
 	{
-		jvo->fail(String(id));
+		jvo->fail(UInt64(id));
 	}
 	//响应结果
 	return jvo;
@@ -60,11 +60,11 @@ StringJsonVO::Wrapper AssignInfoController::execDeleteAssignInfo(const AssignInf
 	// 定义返回数据对象
 	auto jvo = StringJsonVO::createShared();
 	//// 参数校验
-	if (!dto->id)
-	{
-		jvo->init(String(-1), RS_PARAMS_INVALID);
-		return jvo;
-	}
+	//if (!dto->id)
+	//{
+	//	jvo->init(String(-1), RS_PARAMS_INVALID);
+	//	return jvo;
+	//}
 
 	// 定义一个Service
 	AssignInfoService service;
@@ -93,11 +93,11 @@ StringJsonVO::Wrapper AssignInfoController::execModifyAssignInfo(const AssignInf
 	//// 定义返回数据对象
 	auto jvo = StringJsonVO::createShared();
 	//// 参数校验
-	if (!dto->id)
-	{
-		jvo->init(String(-1), RS_PARAMS_INVALID);
-		return jvo;
-	}
+	//if (!dto->id)
+	//{
+	//	jvo->init(String(-1), RS_PARAMS_INVALID);
+	//	return jvo;
+	//}
 
 	// 定义一个Service
 	AssignInfoService service;

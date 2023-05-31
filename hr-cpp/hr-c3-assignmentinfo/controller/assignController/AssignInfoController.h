@@ -62,6 +62,9 @@ public:
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
+		info->queryParams.add<String>("assignId").description = ZH_WORDS_GETTER("employee.t_pimperson.assignId");
+		info->queryParams["assignId"].addExample("default", String(""));
+		info->queryParams["assignId"].required = false;
 		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.t_pimperson.id");
 		info->queryParams["id"].addExample("default", String("F943C793-520E-46FA-8F6F-5EF08AC1F770"));
 		info->queryParams["id"].required = false;
@@ -146,6 +149,7 @@ public:
 			/* 创建multipart读取器 */
 			multipart::Reader multipartReader(multipartContainer.get());
 			/* 配置读取器读取表单字段 */
+			multipartReader.setPartReader("assignId", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 			multipartReader.setPartReader("id", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 			multipartReader.setPartReader("assign", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 			multipartReader.setPartReader("assignState", multipart::createInMemoryPartReader(-1 /* max-data-size */));
@@ -163,6 +167,7 @@ public:
 			/* 打印part数量 */
 			OATPP_LOGD("Multipart", "parts_count=%d", multipartContainer->count());
 			/* 获取表单数据 */
+			auto assignId = multipartContainer->getNamedPart("assignId");
 			auto id = multipartContainer->getNamedPart("id");
 			auto assign = multipartContainer->getNamedPart("assign");
 			auto assignState = multipartContainer->getNamedPart("assignState");
@@ -174,6 +179,7 @@ public:
 			auto startTime = multipartContainer->getNamedPart("startTime");
 			auto endTime = multipartContainer->getNamedPart("endTime");
 			/* 断言表单数据是否正确 */
+			OATPP_ASSERT_HTTP(assignId, Status::CODE_400, "assignId is null");
 			OATPP_ASSERT_HTTP(id, Status::CODE_400, "id is null");
 			OATPP_ASSERT_HTTP(assign, Status::CODE_400, "assign is null");
 			OATPP_ASSERT_HTTP(assignState, Status::CODE_400, "assignState is null");
@@ -185,6 +191,7 @@ public:
 			OATPP_ASSERT_HTTP(startTime, Status::CODE_400, "startTime is null");
 			OATPP_ASSERT_HTTP(endTime, Status::CODE_400, "endTime is null");
 			/* 打印应表单数据 */
+			OATPP_LOGD("Multipart", "assignId='%s'", assignId->getPayload()->getInMemoryData()->c_str());
 			OATPP_LOGD("Multipart", "id='%s'", id->getPayload()->getInMemoryData()->c_str());
 			OATPP_LOGD("Multipart", "assign='%s'", assign->getPayload()->getInMemoryData()->c_str());
 			OATPP_LOGD("Multipart", "assignState='%s'", assignState->getPayload()->getInMemoryData()->c_str());
@@ -231,7 +238,7 @@ public:
 
 private:
 	// 3.3 演示新增数据
-	StringJsonVO::Wrapper execAddAssignInfo(const AssignInfoDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execAddAssignInfo(const AssignInfoDTO::Wrapper& dto);
 	StringJsonVO::Wrapper execDeleteAssignInfo(const AssignInfoDTO::Wrapper& dto);
 	//ImportAssignInfoJsonVO::Wrapper execImportAssignInfo(const ImportAssignInfoDTO::Wrapper& dto);
 	AssignInfoPageJsonVO::Wrapper execAssignQuery(const AssignInfoQuery::Wrapper& query);

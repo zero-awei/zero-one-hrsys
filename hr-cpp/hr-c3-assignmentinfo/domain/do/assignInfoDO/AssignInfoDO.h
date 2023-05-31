@@ -26,6 +26,8 @@
  */
 class AssignInfoDO
 {
+	//分配信息标识
+	CC_SYNTHESIZE(string, assignId, AssignId);
 	// 编号
 	CC_SYNTHESIZE(string, id, Id);
 	// 分配(主分配或次分配)
@@ -49,6 +51,7 @@ class AssignInfoDO
 
 public:
 	AssignInfoDO() {
+		assignId = "";
 		id = "";
 		assign = "";
 		assignState = "";
