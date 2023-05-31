@@ -187,8 +187,10 @@
     <ClCompile Include="controller\LegalEntitySet\LegalEntitySetController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\LegalEntitySet\LegalEntitySetDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\LegalEntityMai\LegalEntityMaiService.cpp" />
+    <ClCompile Include="service\LegalEntitySet\LegalEntitySetService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -202,6 +204,8 @@
     <ClInclude Include="controller\LegalEntitySet\LegalEntitySetController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\LegalEntitySet\LegalEntitySetDAO.h" />
+    <ClInclude Include="dao\LegalEntitySet\LegalEntitySetMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\LegalEntityMai\ormsignorgDO.h" />
     <ClInclude Include="domain\do\LegalEntitySet\LegalEntitySetDO.h" />
@@ -217,6 +221,7 @@
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\LegalEntityMai\LegalEntityMaiService.h" />
     <ClInclude Include="service\LegalEntitySet\ImportLeagalPerSettingService.h" />
+    <ClInclude Include="service\LegalEntitySet\LegalEntitySetService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

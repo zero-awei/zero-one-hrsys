@@ -2,20 +2,17 @@
 
 #ifndef _LEGALENTITYSET_VO_
 #define _LEGALENTITYSET_VO_
-
 /*
-*（	数据设置——法人主体设置 ——  cpt
+组织管理 ——数据设置 —— 法人主体设置  -- cpt
 
-法人主体名称下拉列表 `LegalerNamePullDownList`
+法人主体名称下拉列表 `LegalEntitySetPullDownList`
 
 更新指定法人设置信息  `UpdateLegalerSettingMessage`
 
-导出法人设置 `ExportLegalerSeting`
+导出法人设置 `LegalEntitySet`
 
-新增法人设置（支持批量新增）** `AddLegalerSeting`
+新增法人设置（支持批量新增）** `LegalEntitySet`
 */
-
-
 #include "../../GlobalInclude.h"
 #include "domain/dto/LegalEntitySet/LegalEntitySetDTO.h"
 #include OATPP_CODEGEN_BEGIN(DTO)

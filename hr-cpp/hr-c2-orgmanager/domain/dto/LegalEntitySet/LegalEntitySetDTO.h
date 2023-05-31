@@ -1,15 +1,15 @@
 #pragma once
 
 /*
-*（	数据设置——法人主体设置 ——  cpt
+组织管理 ——数据设置 —— 法人主体设置  -- cpt
 
-法人主体名称下拉列表 `LegalerNamePullDownList`
+法人主体名称下拉列表 `LegalEntitySetPullDownList`
 
 更新指定法人设置信息  `UpdateLegalerSettingMessage`
 
-导出法人设置 `ExportLegalerSeting`
+导出法人设置 `LegalEntitySet`
 
-新增法人设置（支持批量新增）** `AddLegalerSeting`
+新增法人设置（支持批量新增）** `LegalEntitySet`
 */
 
 #ifndef _LEGALENTITYSET_DTO_
@@ -35,7 +35,7 @@ public:
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.contractsignorgname");
 	}
 	// // 默认签约主体
-	DTO_FIELD(Int32, isdefaultsignorg);
+	DTO_FIELD(Int64, isdefaultsignorg);
 	DTO_FIELD_INFO(isdefaultsignorg) {
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.isdefaultsignorg");
 	}

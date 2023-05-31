@@ -39,6 +39,12 @@
     <ClCompile Include="controller\LegalEntitySet\LegalEntitySetController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="service\LegalEntitySet\LegalEntitySetService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\LegalEntitySet\LegalEntitySetDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
@@ -102,6 +108,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\LegalEntitySet\LegalEntitySetQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\LegalEntitySet\LegalEntitySetService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\LegalEntitySet\LegalEntitySetDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\LegalEntitySet\LegalEntitySetMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

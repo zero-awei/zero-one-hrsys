@@ -1,6 +1,6 @@
 #pragma once
 /*
-组织管理 ——法人主体设置  -- cpt
+组织管理 ——数据设置 —— 法人主体设置  -- cpt
 
 法人主体名称下拉列表 `LegalEntitySetPullDownList`
 
