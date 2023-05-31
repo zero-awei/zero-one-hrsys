@@ -4,7 +4,7 @@ import com.zeroone.star.common.entity.ZoPostNature;
 import com.zeroone.star.common.mapper.ZoPostNatureMapper;
 import com.zeroone.star.common.service.IZoPostNatureService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.zeroone.star.project.dto.common.PostNatureDTO;
+import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -24,7 +24,7 @@ public class ZoPostNatureServiceImpl extends ServiceImpl<ZoPostNatureMapper, ZoP
     private ZoPostNatureMapper mapper;
 
     @Override
-    public List<PostNatureDTO> listPostNature() {
+    public List<DropdownListOptionDTO> listPostNature() {
         return mapper.selectPostNature();
     }
 }

@@ -4,7 +4,7 @@ import com.zeroone.star.common.entity.ZoPostType;
 import com.zeroone.star.common.mapper.ZoPostTypeMapper;
 import com.zeroone.star.common.service.IZoPostTypeService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.zeroone.star.project.dto.common.PostTypeDTO;
+import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -24,7 +24,7 @@ public class ZoPostTypeServiceImpl extends ServiceImpl<ZoPostTypeMapper, ZoPostT
     private ZoPostTypeMapper mapper;
 
     @Override
-    public List<PostTypeDTO> listPostType() {
+    public List<DropdownListOptionDTO> listPostType() {
         return mapper.selectPostType();
     }
 }

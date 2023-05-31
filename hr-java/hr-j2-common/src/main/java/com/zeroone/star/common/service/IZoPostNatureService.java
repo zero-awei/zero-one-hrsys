@@ -2,7 +2,7 @@ package com.zeroone.star.common.service;
 
 import com.zeroone.star.common.entity.ZoPostNature;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.zeroone.star.project.dto.common.PostNatureDTO;
+import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
 
 import java.util.List;
 
@@ -16,5 +16,5 @@ import java.util.List;
  */
 public interface IZoPostNatureService extends IService<ZoPostNature> {
 
-    List<PostNatureDTO> listPostNature();
+    List<DropdownListOptionDTO> listPostNature();
 }

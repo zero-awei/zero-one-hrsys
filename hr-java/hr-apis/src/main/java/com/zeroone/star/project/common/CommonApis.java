@@ -2,9 +2,6 @@ package com.zeroone.star.project.common;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.common.*;
-import com.zeroone.star.project.query.common.ZzmmQuery;
-import com.zeroone.star.project.dto.common.PostTypeDTO;
-import com.zeroone.star.project.dto.common.PostNatureDTO;
 import com.zeroone.star.project.query.district_namestatuslist.DistrictNameStatusListQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
@@ -96,7 +93,7 @@ public interface CommonApis {
      * @description 获取部门分类下拉列表
      * @date 2023/5/20 0:02
      */
-    JsonVO<List<PostTypeDTO>> queryPostType();
+    JsonVO<List<DropdownListOptionDTO>> queryPostType();
 
     /**
      * @param :
@@ -105,7 +102,7 @@ public interface CommonApis {
      * @description 获取部门性质下拉列表
      * @date 2023/5/20 0:03
      */
-    JsonVO<List<PostNatureDTO>> queryPostNature();
+    JsonVO<List<DropdownListOptionDTO>> queryPostNature();
 
 
     /**
