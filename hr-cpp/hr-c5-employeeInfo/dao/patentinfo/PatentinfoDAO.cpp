@@ -6,7 +6,7 @@
 
 
 // 查看指定员工专利信息（指定专利信息详情）
-std::list<PatentinfoDO> PatentinfoDAO::selectByPIMPATENTID(const string& pimpatent)
+std::list<PatentinfoDO> PatentinfoDAO::selectByPIMPATENTID(const string& pimpatentid)
 {
 
 	string sql = "SELECT ZLH,UPDATEDATE,PIMPATENTID,ZLHQSJ,PIMPATENTNAME,\
@@ -15,103 +15,161 @@ std::list<PatentinfoDO> PatentinfoDAO::selectByPIMPATENTID(const string& pimpate
 					REASON\
 		FROM t_pimpatent WHERE 1 = 1 AND PIMPATENTID LIKE CONCAT('%', ?, '%')";
 	PatentinfoMapper mapper;
-	return sqlSession->executeQuery<PatentinfoDO, PatentinfoMapper>(sql, mapper, "%s", pimpatent);
+	return sqlSession->executeQuery<PatentinfoDO, PatentinfoMapper>(sql, mapper, "%s", pimpatentid);
 }
 
 
 // 修改数据
 int PatentinfoDAO::update(const PatentinfoDO& uObj)
 {
-
-	//stringstream sql;
-	//stringstream fmt;
-	//sql << "UPDATE t_pimpatent SET ";
-	
-	//sql << " WHERE PIMPATENTID = ?";
-
-
-	//string sqlStr = sql.str();
-
-	//string sqlfmtStr = fmt.str();
-	//const char* sfs = (char*)sqlfmtStr.c_str();
-
-	int CountReturn = 0;
-	string sql;
+	int CountReturn = 0;//确定是否返回正确
+	int CountMark = 0;//标识修改语句使“，”位置正确
+	stringstream sql;
+	sql << "UPDATE t_pimpatent SET ";
+	SqlParams params; 
 	if (uObj.getZLH() != "string") {
-		sql = "UPDATE t_pimpatent SET ZLH= ? WHERE PIMPATENTID = ?";
-		CountReturn += sqlSession->executeUpdate(sql, "%s%s", uObj.getZLH(), uObj.getPIMPATENTID());
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " ZLH= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getZLH()); 
+		CountMark++;
 	}
+
 	if (uObj.getUPDATEDATE() != "string") {
-		sql = "UPDATE t_pimpatent SET UPDATEDATE= ? WHERE PIMPATENTID = ?";
-		CountReturn += sqlSession->executeUpdate(sql, "%s%s", uObj.getUPDATEDATE(), uObj.getPIMPATENTID());
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " UPDATEDATE= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getUPDATEDATE());
+		CountMark++;
 	}
 
 	if (uObj.getZLHQSJ() != "string") {
-		sql = "UPDATE t_pimpatent SET ZLHQSJ= ? WHERE PIMPATENTID = ?";
-		CountReturn += sqlSession->executeUpdate(sql, "%s%s", uObj.getZLHQSJ(), uObj.getPIMPATENTID());
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " ZLHQSJ= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getZLHQSJ());
+		CountMark++;
 	}
 
 	if (uObj.getPIMPATENTNAME() != "string") {
-		sql = "UPDATE t_pimpatent SET PIMPATENTNAME= ? WHERE PIMPATENTID = ?";
-		CountReturn += sqlSession->executeUpdate(sql, "%s%s", uObj.getPIMPATENTNAME(), uObj.getPIMPATENTID());
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " PIMPATENTNAME= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getPIMPATENTNAME());
+		CountMark++;
 	}
 
 	if (uObj.getUPDATEMAN() != "string") {
-		sql = "UPDATE t_pimpatent SET UPDATEMAN= ? WHERE PIMPATENTID = ?";
-		CountReturn += sqlSession->executeUpdate(sql, "%s%s", uObj.getUPDATEMAN(), uObj.getPIMPATENTID());
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " UPDATEMAN= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getUPDATEMAN());
+		CountMark++;
 	}
 
 	if (uObj.getCREATEMAN() != "string") {
-		sql = "UPDATE t_pimpatent SET CREATEMAN= ? WHERE PIMPATENTID = ?";
-		CountReturn += sqlSession->executeUpdate(sql, "%s%s", uObj.getCREATEMAN(), uObj.getPIMPATENTID());
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " CREATEMAN= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getCREATEMAN());
+		CountMark++;
 	}
 
 	if (uObj.getCREATEDATE() != "string") {
-		sql = "UPDATE t_pimpatent SET CREATEDATE= ? WHERE PIMPATENTID = ?";
-		CountReturn += sqlSession->executeUpdate(sql, "%s%s", uObj.getCREATEDATE(), uObj.getPIMPATENTID());
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " CREATEDATE= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getCREATEDATE());
+		CountMark++;
 	}
 
 	if (uObj.getZLPZGB() != "string") {
-		sql = "UPDATE t_pimpatent SET ZLPZGB= ? WHERE PIMPATENTID = ?";
-		CountReturn += sqlSession->executeUpdate(sql, "%s%s", uObj.getZLPZGB(), uObj.getPIMPATENTID());
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " ZLPZGB= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getZLPZGB());
+		CountMark++;
 	}
 
 	if (uObj.getPIMPERSONID() != "string") {
-		sql = "UPDATE t_pimpatent SET PIMPERSONID= ? WHERE PIMPATENTID = ?";
-		CountReturn += sqlSession->executeUpdate(sql, "%s%s", uObj.getPIMPERSONID(), uObj.getPIMPATENTID());
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " PIMPERSONID= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getPIMPERSONID());
+		CountMark++;
 	}
 
 	if (uObj.getJLSS() != "string") {
-		sql = "UPDATE t_pimpatent SET JLSS= ? WHERE PIMPATENTID = ?";
-		CountReturn += sqlSession->executeUpdate(sql, "%s%s", uObj.getJLSS(), uObj.getPIMPATENTID());
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " JLSS= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getJLSS());
+		CountMark++;
 	}
 
 	if (uObj.getJLSPZT() != "string") {
-		sql = "UPDATE t_pimpatent SET JLSPZT= ? WHERE PIMPATENTID = ?";
-		CountReturn += sqlSession->executeUpdate(sql, "%s%s", uObj.getJLSPZT(), uObj.getPIMPATENTID());
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " JLSPZT= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getJLSPZT());
+		CountMark++;
 	}
 
 	if (uObj.getJLGLBH() != "string") {
-		sql = "UPDATE t_pimpatent SET JLGLBH= ? WHERE PIMPATENTID = ?";
-		CountReturn += sqlSession->executeUpdate(sql, "%s%s", uObj.getJLGLBH(), uObj.getPIMPATENTID());
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " JLGLBH= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getJLGLBH());
+		CountMark++;
 	}
 
 	if (uObj.getJLCZZ() != "string") {
-		sql = "UPDATE t_pimpatent SET JLCZZ= ? WHERE PIMPATENTID = ?";
-		CountReturn += sqlSession->executeUpdate(sql, "%s%s", uObj.getJLCZZ(), uObj.getPIMPATENTID());
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " JLCZZ= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getJLCZZ());
+		CountMark++;
 	}
 
 	if (uObj.getENCLOLURE() != "string") {
-		sql = "UPDATE t_pimpatent SET ENCLOLURE= ? WHERE PIMPATENTID = ?";
-		CountReturn += sqlSession->executeUpdate(sql, "%s%s", uObj.getENCLOLURE(), uObj.getPIMPATENTID());
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " ENCLOLURE= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getENCLOLURE());
+		CountMark++;
 	}
 
 	if (uObj.getREASON() != "string") {
-		sql = "UPDATE t_pimpatent SET REASON=? WHERE PIMPATENTID = ?";
-		CountReturn += sqlSession->executeUpdate(sql, "%s%s", uObj.getREASON(), uObj.getPIMPATENTID());
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " REASON= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getREASON());
+		CountMark++;
 	}
 
-	if (CountReturn >= 1)
+	if (uObj.getPIMPATENTID() != "string") {
+		sql << "WHERE PIMPATENTID = ?";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getPIMPATENTID());
+	}
+	string sqlStr = sql.str();
+	CountReturn += sqlSession->executeUpdate(sqlStr, params);
+
+	if (CountReturn != 0)
 		return 1;
 	else
 		return 0;

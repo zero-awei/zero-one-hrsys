@@ -6,24 +6,16 @@
 
 
 // 查询指定论文信息详情
-PaperDTO::Wrapper PaperService::listAll(const PaperQuery::Wrapper& query)
+PaperDTO::Wrapper PaperService::listAll(const string& st)
 {
 	// 构建返回对象
-	auto pages = PaperDTO::createShared();
-
-
-
 	PaperinfoDAO dao;
-
-	list<t_pimpaperDO> result = dao.selectBypimpaperid(query);
+	//查询数据
+	list<t_pimpaperDO> result = dao.selectBypimpaperid(st);
 	//将DO转换成DTO
+	auto dto = PaperDTO::createShared();
 	for (t_pimpaperDO sub : result)
 	{
-		auto dto = PaperDTO::createShared();
-		// 		dto->id = sub.getId();
-		// 		dto->name = sub.getName();
-		// 		dto->sex = sub.getSex();
-		// 		dto->age = sub.getAge();
 		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub,
 			grzlwzzzdpm, GRZLWZZZDPM,
 			updateman, UPDATEMAN,
@@ -44,10 +36,8 @@ PaperDTO::Wrapper PaperService::listAll(const PaperQuery::Wrapper& query)
 			kwmc, KWMC,
 			kwqs, KWQS,
 			reason, REASON )
-			//pages->addData(dto);
-
 	}
-	return pages;
+	return dto;
 }
 
 // 修改数据
@@ -55,10 +45,6 @@ bool PaperService::updateData(const PaperDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	t_pimpaperDO data;
-	// 	data.setId(dto->id.getValue(0));
-	// 	data.setName(dto->name.getValue(""));
-	// 	data.setSex(dto->sex.getValue(""));
-	// 	data.setAge(dto->age.getValue(1));
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto,
 		GRZLWZZZDPM, grzlwzzzdpm,
 		UPDATEMAN, updateman,

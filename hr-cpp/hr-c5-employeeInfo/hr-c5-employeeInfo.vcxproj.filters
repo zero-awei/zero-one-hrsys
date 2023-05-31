@@ -126,9 +126,6 @@
     <ClInclude Include="controller\paperinfoController\PaperinfoController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\paperinfo\t_pimpaperDO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\dto\Blacklist\BlacklistDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -160,6 +157,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="dao\patentinfo\PatentinfoMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\paperinfo\t_pimpaperDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

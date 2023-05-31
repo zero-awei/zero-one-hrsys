@@ -16,11 +16,11 @@ class PatentinfoService
 {
 public:
 	// 查询所有数据
-	PatentinfoDTO::Wrapper listAll(const string& query);
+	PatentinfoDTO::Wrapper listAll(const string& pimpatentid);
 
 	// 修改数据
 	bool updateData(const PatentinfoDTO::Wrapper& dto);
 
 };
 
-#endif // !_SAMPLE_SERVICE_
+#endif // !_PATENTINFO_SERVICE_

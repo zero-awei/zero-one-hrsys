@@ -3,12 +3,12 @@
 #include "../../dao/patentinfo/PatentinfoDAO.h"
 
 //查询所有数据
-PatentinfoDTO::Wrapper PatentinfoService::listAll(const string& query)
+PatentinfoDTO::Wrapper PatentinfoService::listAll(const string& pimpatentid)
 {
 	// 构建返回对象
 	PatentinfoDAO dao;
 	// 查询数据
-	list<PatentinfoDO> result = dao.selectByPIMPATENTID(query);
+	list<PatentinfoDO> result = dao.selectByPIMPATENTID(pimpatentid);
 	//将DO转换成DTO
 	auto dto = PatentinfoDTO::createShared();
 	for (PatentinfoDO sub : result)

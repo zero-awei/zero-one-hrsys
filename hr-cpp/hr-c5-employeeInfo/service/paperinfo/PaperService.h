@@ -14,10 +14,10 @@ class PaperService
 {
 public:
 	// 查询指定论文信息详情
-	PaperDTO::Wrapper listAll(const PaperQuery::Wrapper& query);
+	PaperDTO::Wrapper listAll(const string& st);
 	// 修改数据
 	bool updateData(const PaperDTO::Wrapper& dto);
 };
 
-#endif // !_SAMPLE_SERVICE_
+#endif // !_PAPER_SERVICE_
 

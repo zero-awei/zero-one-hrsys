@@ -16,24 +16,24 @@ public:
 		t_pimpaperDO data;
 
 		data.setGRZLWZZZDPM(resultSet->getString(1));
-		data.setUPDATEMAN(resultSet->getString(1));
-		data.setPIMPAPERID(resultSet->getString(1));
-		data.setCREATEDATE(resultSet->getString(1));
-		data.setUPDATEDATE(resultSet->getString(1));
-		data.setCREATEMAN(resultSet->getString(1));
-		data.setFBSJ(resultSet->getString(1));
-		data.setPIMPAPERNAME(resultSet->getString(1));
-		data.setCBSHKWMC(resultSet->getString(1));
-		data.setPIMPERSONID(resultSet->getString(1));
-		data.setFJ(resultSet->getString(1));
-		data.setJLSPZT(resultSet->getString(1));
-		data.setJLGLBH(resultSet->getString(1));
-		data.setJLCZZ(resultSet->getString(1));
-		data.setJLSS(resultSet->getString(1));
-		data.setCBS(resultSet->getString(1));
-		data.setKWMC(resultSet->getString(1));
-		data.setKWQS(resultSet->getString(1));
-		data.setREASON(resultSet->getString(1));
+		data.setUPDATEMAN(resultSet->getString(2));
+		data.setPIMPAPERID(resultSet->getString(3));
+		data.setCREATEDATE(resultSet->getString(4));
+		data.setUPDATEDATE(resultSet->getString(5));
+		data.setCREATEMAN(resultSet->getString(6));
+		data.setFBSJ(resultSet->getString(7));
+		data.setPIMPAPERNAME(resultSet->getString(8));
+		data.setCBSHKWMC(resultSet->getString(9));
+		data.setPIMPERSONID(resultSet->getString(10));
+		data.setFJ(resultSet->getString(11));
+		data.setJLSPZT(resultSet->getString(12));
+		data.setJLGLBH(resultSet->getString(13));
+		data.setJLCZZ(resultSet->getString(14));
+		data.setJLSS(resultSet->getString(15));
+		data.setCBS(resultSet->getString(16));
+		data.setKWMC(resultSet->getString(17));
+		data.setKWQS(resultSet->getString(18));
+		data.setREASON(resultSet->getString(19));
 
 
 		return data;
