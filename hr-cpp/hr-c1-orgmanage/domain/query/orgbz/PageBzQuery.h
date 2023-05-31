@@ -20,23 +20,45 @@
 #ifndef _PAGEBZQUERY_H_
 #define _PAGEBZQUERY_H_
 #include "../../GlobalInclude.h"
+#include "domain/query/PageQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
-class PageBzQuery : public oatpp::DTO
+
+class PageQueryBzQuery : public PageQuery
 {
-	DTO_INIT(PageBzQuery, DTO);
+	DTO_INIT(PageQueryBzQuery, PageQuery);
+
+	DTO_FIELD_INFO(orgid) {
+		info->description = ZH_WORDS_GETTER("orgbz.pagequery.orgid");
+	}
+	DTO_FIELD(String, orgid);
+	//查询组织机构名称
+	DTO_FIELD_INFO(orgname) {
+		info->description = ZH_WORDS_GETTER("orgbz.pagequery.orgname");
+	}
+	DTO_FIELD(String, orgname);
+	//查询部门名称
+	DTO_FIELD_INFO(orgsectorname) {
+		info->description = ZH_WORDS_GETTER("orgbz.pagequery.orgsectorname");
+	}
+	DTO_FIELD(String, orgsectorname);
+
 	DTO_FIELD_INFO(size) {
 		info->description = ZH_WORDS_GETTER("orgbz.pagequery.size");
 	}
-	DTO_FIELD(UInt8, size);
+	DTO_FIELD(String, size);
 	DTO_FIELD_INFO(page) {
 		info->description = ZH_WORDS_GETTER("orgbz.pagequery.page");
 	}
-	DTO_FIELD(UInt8, page);
+	DTO_FIELD(String, page);
+
 	DTO_FIELD_INFO(sort) {
 		info->description = ZH_WORDS_GETTER("orgbz.pagequery.sort");
 	}
 	DTO_FIELD(String, sort);
+
+
+
 };
 #include OATPP_CODEGEN_END(DTO)
 #endif // !_PAGEBZQUERY_H_

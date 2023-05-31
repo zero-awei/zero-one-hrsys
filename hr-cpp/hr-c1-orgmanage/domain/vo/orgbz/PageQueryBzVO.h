@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: xubuxi
- @Date: 2023/05/31 1:04:41
+ @Date: 2023/05/30 20:56:02
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,17 +17,20 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _PAGEQUERYBZDAO_H_
-#define _PAGEQUERYBZDAO_H_
-#include "BaseDAO.h"
-#include "domain/do/orgbz/PageQueryBzDO.h"
-#include "domain/query/orgbz/PageBzQuery.h"
+#ifndef _PAGEQUERYBZVO_H_
+#define _PAGEQUERYBZVO_H_
+#include "../../GlobalInclude.h"
+#include "../../dto/orgbz/PageQueryBzDTO.h"
+#include OATPP_CODEGEN_BEGIN(DTO)
 
-class PageQueryBzDAO : public BaseDAO
+/**
+ * 分页查询编制查询
+ */
+class PageQueryBzVO : public JsonVO<PageQueryBzDTO::Wrapper>
 {
-public:
-	uint64_t count(const PageQueryBzQuery::Wrapper& query);
-	std::list<PageQueryBzDO> selectPageQueryBz(const PageQueryBzQuery::Wrapper & query);
+	DTO_INIT(PageQueryBzVO, JsonVO<PageQueryBzDTO::Wrapper>);
 };
 
-#endif // !_PAGEQUERYBZDAO_H_
+#include OATPP_CODEGEN_END(DTO)
+
+#endif // !_PAGEQUERYBZVO_H_

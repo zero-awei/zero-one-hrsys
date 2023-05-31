@@ -33,6 +33,8 @@
     <ClCompile Include="uselib\fastdfs\UseFastDfs.cpp" />
     <ClCompile Include="dao\projTag\DeleteProjTagDAO.cpp" />
     <ClCompile Include="service\projTag\deleteProjTagService\DeleteProjTagService.cpp" />
+    <ClCompile Include="service\orgbz\PageQueryBzService.cpp" />
+    <ClCompile Include="dao\orgbz\PageQueryBzDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -110,5 +112,11 @@
     <ClInclude Include="domain\dto\jobSet\ImportJobDTO.h" />
     <ClInclude Include="domain\dto\jobSet\jobUpdateDto\JobUpdateDTO.h" />
     <ClInclude Include="domain\dto\jobSet\jobDownloadDto\JobDownloadDTO.h" />
+    <ClInclude Include="domain\vo\orgbz\PageQueryBzVO.h" />
+    <ClInclude Include="domain\dto\orgbz\PageQueryBzDTO.h" />
+    <ClInclude Include="service\orgbz\PageQueryBzService.h" />
+    <ClInclude Include="domain\do\orgbz\PageQueryBzDO.h" />
+    <ClInclude Include="dao\orgbz\PageQueryBzMapper.h" />
+    <ClInclude Include="dao\orgbz\PageQueryBzDAO.h" />
   </ItemGroup>
 </Project>

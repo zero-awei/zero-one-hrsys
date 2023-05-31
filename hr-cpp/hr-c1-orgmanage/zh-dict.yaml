@@ -173,6 +173,9 @@ job:
 
 #分页查询编制列表
 orgbz:
+ dro:
+  orgid: 组织机构
+  orgsectorname: 项目名称
  pagequery:
   controller: 分页查询编制列表
   size: 每页显示条数

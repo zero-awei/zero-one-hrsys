@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: xubuxi
- @Date: 2023/05/31 1:04:41
+ @Date: 2023/05/31 0:46:24
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,17 +17,36 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _PAGEQUERYBZDAO_H_
-#define _PAGEQUERYBZDAO_H_
-#include "BaseDAO.h"
-#include "domain/do/orgbz/PageQueryBzDO.h"
-#include "domain/query/orgbz/PageBzQuery.h"
-
-class PageQueryBzDAO : public BaseDAO
+#ifndef _PAGEQUERYBZDO_H_
+#define _PAGEQUERYBZDO_H_
+#include "../DoInclude.h"
+class PageQueryBzDO
 {
+	// 组织机构id
+	CC_SYNTHESIZE(string, orgid, Orgid);
+	// '组织机构
+	CC_SYNTHESIZE(string, orgname, Orgname);
+	// 部门
+	CC_SYNTHESIZE(string, orgsectorname, Orgsectorname);
+	// 部门组织编号
+	CC_SYNTHESIZE(string, orgcode, Orgcode);
+	// 人数编制
+	CC_SYNTHESIZE(string, jhry, Jhry);
+	// 实际人数编制
+	CC_SYNTHESIZE(string, sjry, Sjry);
+
+
 public:
-	uint64_t count(const PageQueryBzQuery::Wrapper& query);
-	std::list<PageQueryBzDO> selectPageQueryBz(const PageQueryBzQuery::Wrapper & query);
+	PageQueryBzDO()
+	{
+		orgid = "";
+		orgname = "";
+		orgsectorname = "";
+		orgcode = "";
+		jhry = "";
+		sjry = "";
+
+	}
 };
 
-#endif // !_PAGEQUERYBZDAO_H_
+#endif // !_PAGEQUERYBZDO_H_
