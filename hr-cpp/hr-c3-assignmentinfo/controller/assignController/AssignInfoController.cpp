@@ -1,4 +1,3 @@
-#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -152,5 +151,19 @@ AssignInfoJsonVO::Wrapper AssignInfoController::execAssignQueryDetail(const Assi
 	//// 查询数据
 	auto result = service.QueryDetail(dto);
 	jvo->success(result);
+	return jvo;
+}
+
+StringJsonVO::Wrapper AssignInfoController::execExportAssign(const AssignExportQuery::Wrapper& query) {
+	auto jvo = StringJsonVO::createShared();
+	// 定义一个Service
+	AssignInfoService service;
+	//// 查询数据
+	auto result = service.exportData(query);
+	if (!result.empty()) {
+		jvo->success(result);
+	} else {
+		jvo->fail("export fail");
+	}
 	return jvo;
 }

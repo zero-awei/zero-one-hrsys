@@ -114,7 +114,7 @@ public: // 定义接口
 	}
 private: // 定义接口执行函数
 	//定义修改接口执行函数
-	//Uint64JsonVO::Wrapper execUpdateLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);	
+	//Uint64JsonVO::Wrapper execUpdateLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);
 	StringJsonVO::Wrapper execImportLanguage(const ImportLanguageDTO::Wrapper & dto/*, const PayloadDTO & payload*/);
 };
 

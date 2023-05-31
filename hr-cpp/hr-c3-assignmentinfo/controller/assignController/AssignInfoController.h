@@ -31,6 +31,7 @@
 #include "domain/query/assignInfo/AssignInfoQuery.h"
 #include "domain/query/PageQuery.h"
 #include "domain/query/assignInfo/AssignInfoQueryDetail.h"
+#include "domain/query/assignInfo/AssignExportQuery.h"
 
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
@@ -230,6 +231,22 @@ public:
 		API_HANDLER_RESP_VO(execAssignQueryDetail(userQuery, authObject->getPayload()));
 	}
 
+	ENDPOINT_INFO(exportAssignInfo) {
+		info->summary = ZH_WORDS_GETTER("export.summary");
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		// 定义分页参数描述
+		API_DEF_ADD_PAGE_PARAMS();
+		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.field.id");
+		info->queryParams["id"].addExample("default", String("0000001"));
+		info->queryParams["id"].required = true;
+	}
+	ENDPOINT(API_M_GET, "/export-assign-info", exportAssignInfo, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
+		API_HANDLER_QUERY_PARAM(query, AssignExportQuery, qps);
+		API_HANDLER_RESP_VO(execExportAssign(query));
+	}
+
 private:
 	// 3.3 演示新增数据
 	StringJsonVO::Wrapper execAddAssignInfo(const AssignInfoDTO::Wrapper& dto);
@@ -238,6 +255,7 @@ private:
 	AssignInfoPageJsonVO::Wrapper execAssignQuery(const AssignInfoQuery::Wrapper& query);
 	AssignInfoJsonVO::Wrapper execAssignQueryDetail(const AssignInfoQueryDetail::Wrapper& dto, const PayloadDTO& payload);
 	StringJsonVO::Wrapper execModifyAssignInfo(const AssignInfoDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execExportAssign(const AssignExportQuery::Wrapper& query);
 };
 
 // 0 取消API控制器使用宏

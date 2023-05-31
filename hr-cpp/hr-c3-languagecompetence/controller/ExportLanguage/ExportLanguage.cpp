@@ -5,9 +5,17 @@
  * 语言能力文件导出实现
  * 负责人：君
  */
-StringJsonVO::Wrapper ExportLanguageController::execDownloadLanguage()
+StringJsonVO::Wrapper execDownloadLanguage(const EmployeeLanguageExportQuery::Wrapper& query)
 {
 	auto jvo = StringJsonVO::createShared();
-	jvo->success("download language competence success");
+	// 定义一个Service
+	// AssignInfoService service;
+	// //// 查询数据
+	// auto result = service.exportData(query);
+	// if (!result.empty()) {
+	// 	jvo->success(result);
+	// } else {
+	// 	jvo->fail("export fail");
+	// }
 	return jvo;
 }

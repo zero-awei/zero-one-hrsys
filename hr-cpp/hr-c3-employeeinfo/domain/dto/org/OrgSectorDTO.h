@@ -46,9 +46,9 @@ class OrgSectorDTO : public oatpp::DTO
 /**
  * 示例分页传输对象
  */
-class PageOrgSector : public PageDTO<OrgSectorDTO::Wrapper> 
+class OrgSectorPageDTO : public PageDTO<OrgSectorDTO::Wrapper> 
 {
-	DTO_INIT(PageOrgSector, PageDTO<OrgSectorDTO::Wrapper>);
+	DTO_INIT(OrgSectorPageDTO, PageDTO<OrgSectorDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: guyier
- @Date: 2023/05/24 13:59:37
+ @Author: J1senn
+ @Date: 2022/10/25 11:52:32
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,24 +17,30 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _Root_Org_DO_
-#define _Root_Org_DO_
+#ifndef _ORG_DO_
+#define _ORG_DO_
 #include "../DoInclude.h"
 
-/*
-根组织实体类
-*/
-class RootOrgDO
+class OrgDO
 {
-	// 搜索匹配
-	CC_SYNTHESIZE(string, filter, Filter);
-	// 排序方式
-	CC_SYNTHESIZE(string, sort, Sort);
+	// 根组织ID
+	CC_SYNTHESIZE(string, companyflag, CompanyFlag);
+    // 组织名字
+	CC_SYNTHESIZE(string, orgname, OrgName);
+    // 组织id
+	CC_SYNTHESIZE(string, orgid, OrgID);
+    // 父组织名字
+	CC_SYNTHESIZE(string, porgname, Porgname);
+    // 父组织id
+	CC_SYNTHESIZE(string, porgid, PorgID);
 public:
-	RootOrgDO() {
-		filter = "";
-		sort = "";
-	}
+	OrgDO() {
+        companyflag = "";
+        orgname = "";
+        orgid = "";
+        porgname = "";
+        porgid = "";
+    }
 };
 
-#endif // !_Root_Org_DO_
+#endif // !_ORG_DO_

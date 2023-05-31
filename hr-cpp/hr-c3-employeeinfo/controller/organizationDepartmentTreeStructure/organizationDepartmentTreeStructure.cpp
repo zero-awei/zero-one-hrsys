@@ -1,28 +1,34 @@
 #include "stdafx.h"
 #include "organizationDepartmentTreeStructure.h"
 
-//查询所有部门结构树
-MemberJsonVO::Wrapper organizationDepartmentTreeStructure::execRootOrgQuery(const RootOrgQuery::Wrapper& rootQuery)
+// 查询根组织
+OrgJsonVO::Wrapper organizationDepartmentTreeStructure::execRootOrgQuery(const RootOrgQuery::Wrapper& rootQuery, const std::shared_ptr<CustomerAuthorizeObject> &authObject)
 {
 	// 定义一个MemberJsonVO对象
-	auto jvo = MemberJsonVO::createShared();
+	auto jvo = OrgJsonVO::createShared();
+
+	OrgService service;
+	auto result = service.getRootOrg(rootQuery, authObject->getPayload().getId());
+	jvo->success(result);
 	return jvo;
 }
 //查询有效组织
-MemberJsonVO::Wrapper organizationDepartmentTreeStructure::execValidOrgQuery(const ValidOrgQuery::Wrapper& validOrg)
+OrgJsonVO::Wrapper organizationDepartmentTreeStructure::execValidOrgQuery(const ValidOrgQuery::Wrapper& validOrg)
 {
-	// 定义一个MemberJsonVO对象
-	auto jvo = MemberJsonVO::createShared();
+	auto jvo = OrgJsonVO::createShared();
+
+	OrgService service;
+	auto result = service.getValidOrg(validOrg);
+	jvo->success(result);
 	return jvo;
 }
 //查询部门
 OrgSectorVO::Wrapper organizationDepartmentTreeStructure::execSectorOrgQuery(const SectorQuery::Wrapper& sectorOrg)
 {
-	// 定义一个OrgSectorVO对象
-	auto vo = OrgSectorVO::createShared();
-	return vo;
+	auto jvo = OrgSectorVO::createShared();
+
+	OrgService service;
+	auto result = service.getSector(sectorOrg);
+	jvo->success(result);
+	return jvo;
 }
-
-
-
-

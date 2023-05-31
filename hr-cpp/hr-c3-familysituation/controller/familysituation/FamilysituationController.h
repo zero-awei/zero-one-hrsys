@@ -26,6 +26,7 @@
 #include "domain/dto/familysituation/FamilysituationDTO.h"
 #include "domain/dto/familysituation/ImportfamilysituationDTO.h"
 #include "domain/vo/familysituation/FamilysituationVO.h"
+#include "domain/query/familysituation/FamilysituationQuery.h"
 
 // API助手
 #include "ApiHelper.h"
@@ -153,16 +154,18 @@ public: // 定义接口
 	{
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("familysituation.export.summary");
-		// 定义响应参数格式
+		API_DEF_ADD_AUTH();
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-		info->queryParams["url"].description = ZH_WORDS_GETTER("familysituation.export-file.summary");
-		info->queryParams["url"].addExample("xlsx", String(".xlsx"));
+		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("sample.field.id");
+		info->queryParams["id"].addExample("default", String("0000001"));
+		info->queryParams["id"].required = true;
 	}
 	// 定义导出接口处理
-	ENDPOINT(API_M_GET, "/export-by-family-situation", exportFamilysituation, QUERY(String, url))
+	ENDPOINT(API_M_GET, "/export-by-family-situation", exportFamilysituation, QUERIES(QueryParams, qps))
 	{
 		// 响应结果
-		API_HANDLER_RESP_VO(execExportFamilysituation(url));
+		API_HANDLER_QUERY_PARAM(query, FamilysituationQuery, qps);
+		API_HANDLER_RESP_VO(execExportFamilysituation(query));
 	}
 
 private: // 定义接口执行函数
@@ -179,7 +182,7 @@ private: // 定义接口执行函数
 	// 导入数据响应
 	StringJsonVO::Wrapper executeImportFamilysituation(const String& fileBody, const String& suffix);
 	// 导出数据响应
-	StringJsonVO::Wrapper execExportFamilysituation(const String& url);
+	StringJsonVO::Wrapper execExportFamilysituation(const FamilysituationQuery::Wrapper & query);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

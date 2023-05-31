@@ -152,13 +152,18 @@ EudacationImportJsonVO::Wrapper EducationController::execImportEducation(const E
 	return vo;
 }
 
-StringJsonVO::Wrapper EducationController::execExportEducation(const EducationExportQuery::Wrapper& query, const PayloadDTO& payload)
+StringJsonVO::Wrapper EducationController::execExportEducation(const EducationExportQuery::Wrapper& query)
 {
-	auto vo = StringJsonVO::createShared();
-
-	// TODO: 调用service获取导出文件下载链接
-
-	vo->success("url/download");
-	return vo;
+	auto jvo = StringJsonVO::createShared();
+	// 定义一个Service
+	// EducationService service;
+	// //// 查询数据
+	// auto result = service.exportData(query);
+	// if (!result.empty()) {
+	// 	jvo->success(result);
+	// } else {
+	// 	jvo->fail("export fail");
+	// }
+	return jvo;
 }
 
