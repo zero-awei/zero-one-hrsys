@@ -17,8 +17,6 @@ import lombok.Data;
 @Data
 @ApiModel("删除指定部门考勤地址信息")
 public class DeleteKqdzQuery {
-    @ApiModelProperty(value = "部门ID", example = "e2885303a6c7a6cbf4cdefb0f4f384bf")
-    private String deptId;
     @ApiModelProperty(value = "考勤地址ID", example = "b5a33792f251f92edb28acadf611b1cf")
     private String kqdzId;
 }

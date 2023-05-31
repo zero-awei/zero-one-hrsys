@@ -74,7 +74,7 @@ public class DepartmentController implements DepartmentApis {
     @ApiOperation(value = "删除指定部门考勤地址信息")
     @DeleteMapping(value = "delete-attendance-address-by-id")
     @Override
-    public JsonVO<KqdzDTO> deleteKqdzById(DeleteKqdzQuery query) {
-        return null;
+    public JsonVO<Boolean> deleteKqdzById(DeleteKqdzQuery query) {
+        return JsonVO.success(ormbmkqdzService.removeById(query.getKqdzId()));
     }
 }

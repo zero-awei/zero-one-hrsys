@@ -59,5 +59,5 @@ public interface DepartmentApis {
      * @return: JsonVO<KqdzDTO>
      * @Author: C.C.
      */
-    JsonVO<KqdzDTO> deleteKqdzById(DeleteKqdzQuery query);
+    JsonVO<Boolean> deleteKqdzById(DeleteKqdzQuery query);
 }
