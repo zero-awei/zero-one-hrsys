@@ -26,6 +26,10 @@
 */
 class EmployeeInformationPageDO
 {
+	//人员信息标识
+	CC_SYNTHESIZE(string, personId, PersonId);
+
+
 	// 姓名
 	CC_SYNTHESIZE(string, name, Name);
 
@@ -51,6 +55,7 @@ class EmployeeInformationPageDO
 	CC_SYNTHESIZE(string, state, State);
 public:
 	EmployeeInformationPageDO() {
+		personId = "";
 		name = "";
 		age = 0;
 		id = "";

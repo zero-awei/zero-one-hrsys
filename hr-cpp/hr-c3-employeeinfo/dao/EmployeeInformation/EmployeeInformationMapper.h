@@ -32,28 +32,31 @@ public:
 	EmployeeInformationPageDO mapper(ResultSet* resultSet) const override
 	{
 		EmployeeInformationPageDO data;
+		//人员信息标识
+		data.setPersonId(resultSet->getString(1));
+
 		// 姓名
-		data.setName(resultSet->getString(1));
+		data.setName(resultSet->getString(3));
 		// 年龄
-		data.setAge(resultSet->getInt(2));
+		data.setAge(resultSet->getInt(16));
 		//编号
-		data.setId(resultSet->getString(3));
+		data.setId(resultSet->getString(8));
 		//组织
-		data.setOrganize(resultSet->getString(4));
+		data.setOrganize(resultSet->getString(46));
 		//部门
-		data.setDepart(resultSet->getString(5));
+		data.setDepart(resultSet->getString(47));
 		//职务
-		data.setJob(resultSet->getString(6));
+		data.setJob(resultSet->getString(50));
 		//岗位
-		data.setPost(resultSet->getString(7));
+		data.setPost(resultSet->getString(49));
 		//证件号
-		data.setIdMum(resultSet->getString(8));
+		data.setIdMum(resultSet->getString(13));
 		//出生日期
-		data.setBirthday(resultSet->getString(9));
+		data.setBirthday(resultSet->getString(15));
 		//手机号码
-		data.setPhone(resultSet->getString(10));
+		data.setPhone(resultSet->getString(20));
 		//员工状态
-		data.setState(resultSet->getString(11));
+		data.setState(resultSet->getString(35));
 		return data;
 	}
 };

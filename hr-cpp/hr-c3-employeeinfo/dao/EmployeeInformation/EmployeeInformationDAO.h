@@ -30,15 +30,8 @@ public:
 	uint64_t count(const EmployeeInformationPageQuery::Wrapper& query);
 	// 分页查询数据
 	list<EmployeeInformationPageDO> selectWithPage(const EmployeeInformationPageQuery::Wrapper& query);
-	// 通过姓名查询数据
-	list<EmployeeInformationPageDO> selectByName(const string& name);
-
 	// 插入数据
 	uint64_t insert(const EmployeeInformationPageDO& iObj);
-	// 修改数据
-	int update(const EmployeeInformationPageDO& uObj);
-	// 通过ID删除数 据
-	int deleteById(uint64_t id);
 
 };
 

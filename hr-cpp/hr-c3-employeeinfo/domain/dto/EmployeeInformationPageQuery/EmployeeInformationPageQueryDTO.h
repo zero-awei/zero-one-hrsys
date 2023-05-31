@@ -7,12 +7,18 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 示例传输对象
+ * 传输对象
  */
 class EmployeeInformationDTO : public oatpp::DTO
 {
 	DTO_INIT(EmployeeInformationDTO, DTO);
 	
+	//人员信息标识
+	DTO_FIELD(String, personId);
+	DTO_FIELD_INFO(personId) {
+		info->description = ZH_WORDS_GETTER("employee.field.personId");
+	}
+
 	// 姓名
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {

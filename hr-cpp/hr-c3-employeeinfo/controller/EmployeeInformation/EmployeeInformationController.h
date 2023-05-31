@@ -57,10 +57,12 @@ public: // 定义接口
 		// 定义其他表单参数描述
 		//编号
 		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.field.id");
-		info->queryParams["id"].addExample("default", String("10001"));
+		info->queryParams["id"].addExample("default", String("1921****"));
+		info->queryParams["id"].required = false;
 		//姓名
 		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("employee.field.name");
-		info->queryParams["name"].addExample("default", String("li ming"));
+		info->queryParams["name"].addExample("default", String("李**"));
+		info->queryParams["name"].required = false;
 		//组织
 		info->queryParams.add<String>("organize").description = ZH_WORDS_GETTER("employee.field.organize");
 		info->queryParams["organize"].addExample("default", String("N"));
@@ -83,7 +85,7 @@ public: // 定义接口
 		info->queryParams["idMum"].required = false;
 		//出生日期
 		info->queryParams.add<String>("birthday").description = ZH_WORDS_GETTER("employee.field.birthday");
-		info->queryParams["birthday"].addExample("default", String("20000-00-00"));
+		info->queryParams["birthday"].addExample("default", String("1992-10-18 00:00:00"));
 		info->queryParams["birthday"].required = false;
 		// 年龄
 		info->queryParams.add<UInt32>("age").description = ZH_WORDS_GETTER("employee.field.age");
@@ -91,11 +93,11 @@ public: // 定义接口
 		info->queryParams["age"].required = false;
 		//手机号码
 		info->queryParams.add<String>("phone").description = ZH_WORDS_GETTER("employee.field.phone");
-		info->queryParams["phone"].addExample("default", String("159182***22"));
+		info->queryParams["phone"].addExample("default", String("159182*****"));
 		info->queryParams["phone"].required = false;
 		//员工状态
 		info->queryParams.add<String>("state").description = ZH_WORDS_GETTER("employee.field.state");
-		info->queryParams["state"].addExample("default", String("be on the job"));
+		info->queryParams["state"].addExample("default", String("50"));
 		info->queryParams["state"].required = false;
 		
 	}
@@ -113,49 +115,6 @@ public: // 定义接口
 		info->summary = ZH_WORDS_GETTER("user.query-all.import");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-		// 定义其他表单参数描述
-		//编号
-		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.field.id");
-		info->queryParams["id"].addExample("default", String("10001"));
-		//姓名
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("employee.field.name");
-		info->queryParams["name"].addExample("default", String("li ming"));
-		//组织
-		info->queryParams.add<String>("organize").description = ZH_WORDS_GETTER("employee.field.organize");
-		info->queryParams["organize"].addExample("default", String("N"));
-		info->queryParams["organize"].required = false;
-		//部门
-		info->queryParams.add<String>("depart").description = ZH_WORDS_GETTER("employee.field.depart");
-		info->queryParams["depart"].addExample("default", String("N"));
-		info->queryParams["depart"].required = false;
-		//职务
-		info->queryParams.add<String>("job").description = ZH_WORDS_GETTER("employee.field.job");
-		info->queryParams["job"].addExample("default", String("N"));
-		info->queryParams["job"].required = false;
-		//岗位
-		info->queryParams.add<String>("post").description = ZH_WORDS_GETTER("employee.field.post");
-		info->queryParams["post"].addExample("default", String("N"));
-		info->queryParams["post"].required = false;
-		//证件号
-		info->queryParams.add<String>("idMum").description = ZH_WORDS_GETTER("employee.field.idMum");
-		info->queryParams["idMum"].addExample("default", String("2665643635********"));
-		info->queryParams["idMum"].required = false;
-		//出生日期
-		info->queryParams.add<String>("birthday").description = ZH_WORDS_GETTER("employee.field.birthday");
-		info->queryParams["birthday"].addExample("default", String("20000-00-00"));
-		info->queryParams["birthday"].required = false;
-		// 年龄
-		info->queryParams.add<UInt32>("age").description = ZH_WORDS_GETTER("employee.field.age");
-		info->queryParams["age"].addExample("default", UInt32(20));
-		info->queryParams["age"].required = false;
-		//手机号码
-		info->queryParams.add<String>("phone").description = ZH_WORDS_GETTER("employee.field.phone");
-		info->queryParams["phone"].addExample("default", String("159182***22"));
-		info->queryParams["phone"].required = false;
-		//员工状态
-		info->queryParams.add<String>("state").description = ZH_WORDS_GETTER("employee.field.state");
-		info->queryParams["state"].addExample("default", String("be on the job"));
-		info->queryParams["state"].required = false;
 	}
 	//定义导入员工信息接口端点处理
 	ENDPOINT(API_M_POST, "/employee-information/import-info", importEmployeeInfo, BODY_DTO(EmployeeInformationDTO::Wrapper, importInfo)) {
@@ -173,49 +132,49 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON(EmployeeInformationPageJsonVO::Wrapper);
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
-		// 定义其他表单参数描述
-		//编号
-		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.field.id");
-		info->queryParams["id"].addExample("default", String("10001"));
-		//姓名
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("employee.field.name");
-		info->queryParams["name"].addExample("default", String("li ming"));
-		//组织
-		info->queryParams.add<String>("organize").description = ZH_WORDS_GETTER("employee.field.organize");
-		info->queryParams["organize"].addExample("default", String("N"));
-		info->queryParams["organize"].required = false;
-		//部门
-		info->queryParams.add<String>("depart").description = ZH_WORDS_GETTER("employee.field.depart");
-		info->queryParams["depart"].addExample("default", String("N"));
-		info->queryParams["depart"].required = false;
-		//职务
-		info->queryParams.add<String>("job").description = ZH_WORDS_GETTER("employee.field.job");
-		info->queryParams["job"].addExample("default", String("N"));
-		info->queryParams["job"].required = false;
-		//岗位
-		info->queryParams.add<String>("post").description = ZH_WORDS_GETTER("employee.field.post");
-		info->queryParams["post"].addExample("default", String("N"));
-		info->queryParams["post"].required = false;
-		//证件号
-		info->queryParams.add<String>("idMum").description = ZH_WORDS_GETTER("employee.field.idMum");
-		info->queryParams["idMum"].addExample("default", String("2665643635********"));
-		info->queryParams["idMum"].required = false;
-		//出生日期
-		info->queryParams.add<String>("birthday").description = ZH_WORDS_GETTER("employee.field.birthday");
-		info->queryParams["birthday"].addExample("default", String("20000-00-00"));
-		info->queryParams["birthday"].required = false;
-		// 年龄
-		info->queryParams.add<UInt32>("age").description = ZH_WORDS_GETTER("employee.field.age");
-		info->queryParams["age"].addExample("default", UInt32(20));
-		info->queryParams["age"].required = false;
-		//手机号码
-		info->queryParams.add<String>("phone").description = ZH_WORDS_GETTER("employee.field.phone");
-		info->queryParams["phone"].addExample("default", String("159182***22"));
-		info->queryParams["phone"].required = false;
-		//员工状态
-		info->queryParams.add<String>("state").description = ZH_WORDS_GETTER("employee.field.state");
-		info->queryParams["state"].addExample("default", String("be on the job"));
-		info->queryParams["state"].required = false;
+		//// 定义其他表单参数描述
+		////编号
+		//info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.field.id");
+		//info->queryParams["id"].addExample("default", String("10001"));
+		////姓名
+		//info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("employee.field.name");
+		//info->queryParams["name"].addExample("default", String("li ming"));
+		////组织
+		//info->queryParams.add<String>("organize").description = ZH_WORDS_GETTER("employee.field.organize");
+		//info->queryParams["organize"].addExample("default", String("N"));
+		//info->queryParams["organize"].required = false;
+		////部门
+		//info->queryParams.add<String>("depart").description = ZH_WORDS_GETTER("employee.field.depart");
+		//info->queryParams["depart"].addExample("default", String("N"));
+		//info->queryParams["depart"].required = false;
+		////职务
+		//info->queryParams.add<String>("job").description = ZH_WORDS_GETTER("employee.field.job");
+		//info->queryParams["job"].addExample("default", String("N"));
+		//info->queryParams["job"].required = false;
+		////岗位
+		//info->queryParams.add<String>("post").description = ZH_WORDS_GETTER("employee.field.post");
+		//info->queryParams["post"].addExample("default", String("N"));
+		//info->queryParams["post"].required = false;
+		////证件号
+		//info->queryParams.add<String>("idMum").description = ZH_WORDS_GETTER("employee.field.idMum");
+		//info->queryParams["idMum"].addExample("default", String("2665643635********"));
+		//info->queryParams["idMum"].required = false;
+		////出生日期
+		//info->queryParams.add<String>("birthday").description = ZH_WORDS_GETTER("employee.field.birthday");
+		//info->queryParams["birthday"].addExample("default", String("20000-00-00"));
+		//info->queryParams["birthday"].required = false;
+		//// 年龄
+		//info->queryParams.add<UInt32>("age").description = ZH_WORDS_GETTER("employee.field.age");
+		//info->queryParams["age"].addExample("default", UInt32(20));
+		//info->queryParams["age"].required = false;
+		////手机号码
+		//info->queryParams.add<String>("phone").description = ZH_WORDS_GETTER("employee.field.phone");
+		//info->queryParams["phone"].addExample("default", String("159182***22"));
+		//info->queryParams["phone"].required = false;
+		////员工状态
+		//info->queryParams.add<String>("state").description = ZH_WORDS_GETTER("employee.field.state");
+		//info->queryParams["state"].addExample("default", String("be on the job"));
+		//info->queryParams["state"].required = false;
 	}
 	//定义导出员工信息(导出本页在前端完成)接口端点处理
 	ENDPOINT(API_M_GET, "/employee-information/export-info", exportEmployeeInfo, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams,queryParams)) {
@@ -231,49 +190,6 @@ public: // 定义接口
 		info->summary = ZH_WORDS_GETTER("orgsector.field.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-		// 定义其他表单参数描述
-		//编号
-		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.field.id");
-		info->queryParams["id"].addExample("default", String("10001"));
-		//姓名
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("employee.field.name");
-		info->queryParams["name"].addExample("default", String("li ming"));
-		//组织
-		info->queryParams.add<String>("organize").description = ZH_WORDS_GETTER("employee.field.organize");
-		info->queryParams["organize"].addExample("default", String("N"));
-		info->queryParams["organize"].required = false;
-		//部门
-		info->queryParams.add<String>("depart").description = ZH_WORDS_GETTER("employee.field.depart");
-		info->queryParams["depart"].addExample("default", String("N"));
-		info->queryParams["depart"].required = false;
-		//职务
-		info->queryParams.add<String>("job").description = ZH_WORDS_GETTER("employee.field.job");
-		info->queryParams["job"].addExample("default", String("N"));
-		info->queryParams["job"].required = false;
-		//岗位
-		info->queryParams.add<String>("post").description = ZH_WORDS_GETTER("employee.field.post");
-		info->queryParams["post"].addExample("default", String("N"));
-		info->queryParams["post"].required = false;
-		//证件号
-		info->queryParams.add<String>("idMum").description = ZH_WORDS_GETTER("employee.field.idMum");
-		info->queryParams["idMum"].addExample("default", String("2665643635********"));
-		info->queryParams["idMum"].required = false;
-		//出生日期
-		info->queryParams.add<String>("birthday").description = ZH_WORDS_GETTER("employee.field.birthday");
-		info->queryParams["birthday"].addExample("default", String("20000-00-00"));
-		info->queryParams["birthday"].required = false;
-		// 年龄
-		info->queryParams.add<UInt32>("age").description = ZH_WORDS_GETTER("employee.field.age");
-		info->queryParams["age"].addExample("default", UInt32(20));
-		info->queryParams["age"].required = false;
-		//手机号码
-		info->queryParams.add<String>("phone").description = ZH_WORDS_GETTER("employee.field.phone");
-		info->queryParams["phone"].addExample("default", String("159182***22"));
-		info->queryParams["phone"].required = false;
-		//员工状态
-		info->queryParams.add<String>("state").description = ZH_WORDS_GETTER("employee.field.state");
-		info->queryParams["state"].addExample("default", String("be on the job"));
-		info->queryParams["state"].required = false;
 	}
 	//定义新增员工信息接口端点处理
 	ENDPOINT(API_M_POST, "/employee-information/add-new-info", addEmployee, BODY_DTO(EmployeeInformationDTO::Wrapper, dto)) {
