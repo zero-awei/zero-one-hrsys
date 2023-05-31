@@ -18,7 +18,7 @@ class ExpenseLedgeDTO : public oatpp::DTO
 	}
 
 	// 费用标识
-	DTO_FIELD(UInt32, PIMEXPACCOUNTID);
+	DTO_FIELD(String, PIMEXPACCOUNTID);
 	DTO_FIELD_INFO(PIMEXPACCOUNTID) {
 		info->description = ZH_WORDS_GETTER("expense.field.expense_id");
 	}

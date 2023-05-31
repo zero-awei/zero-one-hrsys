@@ -9,7 +9,7 @@ std::string JobTitleInfoService::listAllJobTitle(const JobTitleInfoDTO::Wrapper&
 	std::string url;
 	JobTitleInfoDAO dao;
 	uint64_t count = dao.count(query);
-	if (count < 0)
+	if (count <= 0)
 	{
 		return url;
 	}
@@ -37,7 +37,7 @@ std::string JobTitleInfoService::listAllJobTitle(const JobTitleInfoDTO::Wrapper&
 
 	// 生成数据表表头
 	vector<string> head = dao.getHead();
-	head.erase(head.begin() + 13);
+	head.erase(head.begin() + 12,head.end());
 	data.insert(data.begin(), head);
 	// 生成Excel
 	ExportExcel excel;
