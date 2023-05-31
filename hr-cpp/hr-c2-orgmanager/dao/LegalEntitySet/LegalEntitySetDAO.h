@@ -30,7 +30,7 @@ public:
 	// 修改数据
 	int update(const LegalEntitySetDO& uObj);
 	// 法人主体名称下拉列表  
-	list<LegalEntitySetDO> legalerNamePullDownList(const string& name);
+	uint64_t legalerNamePullDownList(const LegalEntitySetQuery::Wrapper& query);
 	// 统计数据条数
 	uint64_t count(const LegalEntitySetQuery::Wrapper& query);
 	// 分页查询数据
