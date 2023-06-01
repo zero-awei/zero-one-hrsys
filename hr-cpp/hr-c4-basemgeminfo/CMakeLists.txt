@@ -7,7 +7,7 @@ cmake_minimum_required (VERSION 3.8)
 add_definitions(-DHTTP_SERVER_DEMO)
 
 # 设置文件名称
-set (appName arch-demo)
+set (appName hr-c4-basemgeminfo)
 
 # 包含库目录
 include_directories ("./")

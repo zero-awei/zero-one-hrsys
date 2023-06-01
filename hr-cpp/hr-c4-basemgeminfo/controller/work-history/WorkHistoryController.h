@@ -114,9 +114,9 @@ public: // 定义接口
 		info->summary = ZH_WORDS_GETTER("workhistory.file.summary");
 		info->addConsumes<oatpp::swagger::Binary>("application/octet-stream");
 		API_DEF_ADD_RSP_JSON(StringJsonVO::Wrapper);
-		//info->queryParams["suffix"].description = ZH_WORDS_GETTER("workhistory.file.suffix");
-		//info->queryParams["suffix"].addExample("xlsx", String(".xlsx"));
-		//info->queryParams["suffix"].required = false;
+		/*info->queryParams["suffix"].description = ZH_WORDS_GETTER("workhistory.file.suffix");
+		info->queryParams["suffix"].addExample("xlsx", String(".xlsx"));
+		info->queryParams["suffix"].required = false;*/
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("workhistory.field.pimpersonid");
 		info->queryParams["pimpersonid"].addExample("default", String("1002"));
@@ -124,10 +124,10 @@ public: // 定义接口
 		
 	}
 	// 定义文件上传端点处理
-	ENDPOINT(API_M_POST, "/workhistory/file", postFile, API_HANDLER_AUTH_PARAME, BODY_STRING(String, body),QUERY(String, suffix), QUERY(String, pimpersonid)) {
+	ENDPOINT(API_M_POST, "/workhistory/file", postFile, API_HANDLER_AUTH_PARAME, BODY_STRING(String, body), QUERY(String, pimpersonid)) {
 
 		// 执行文件保存逻辑
-		API_HANDLER_RESP_VO(execIntoWorkHistory(body,suffix,pimpersonid, authObject->getPayload()));
+		API_HANDLER_RESP_VO(execIntoWorkHistory(body,pimpersonid, authObject->getPayload()));
 	}
 
 	//文件导出接口
@@ -216,7 +216,7 @@ private:
 	Uint64JsonVO::Wrapper execDelWorkHistory(const DelWorkHistoryDTO::Wrapper& dto);
 
 	//定义导入执行函数
-	StringJsonVO::Wrapper execIntoWorkHistory(const String&, const String&, const String&, const PayloadDTO& payload);
+	StringJsonVO::Wrapper execIntoWorkHistory(const String&, const String&, const PayloadDTO& payload);
 
 	//定义导出执行函数
 	StringJsonVO::Wrapper execExportWorkHistory(const WorkHistoryExportQuery::Wrapper& query);
