@@ -54,7 +54,7 @@ class FormerEmployeesDO
 	// t_pcmydlzmx主键：异动离职明细标识
 	CC_SYNTHESIZE(string, pcmydlzmxId, pcmydlzmxId);
 	// FOREIGN KEY t_pimperson 人员信息标识
-	CC_SYNTHESIZE(string, lzmtrId, lzmtrId);
+	CC_SYNTHESIZE(string, pimPersonId, pimPersonId);
 
 public:
 	FormerEmployeesDO() {};
