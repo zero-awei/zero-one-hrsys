@@ -1,4 +1,7 @@
 #pragma once
+/**
+ * (证书管理-查询证书类型列表)--weixiaoman
+ */
 #ifndef _CERTIFICATETYPE_VO_
 #define _CERTIFICATETYPE_VO_
 

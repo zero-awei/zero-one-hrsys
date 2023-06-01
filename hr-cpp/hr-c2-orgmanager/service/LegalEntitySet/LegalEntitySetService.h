@@ -1,34 +1,35 @@
 #pragma once
-/*
- Copyright Zero One Star. All rights reserved.
-
- @Author: awei
- @Date: 2023/05/20 14:36:04
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-	  https://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-#ifndef _LEGALENTITYMAISERVICE_H_
-#define _LEGALENTITYMAISERVICE_H_
+#ifndef _LEGALENTITYSETSERVICE_SERVICE_
+#define _LEGALENTITYSETSERVICE_SERVICE_
+#include "domain/dto/LegalEntitySet/ImportLeagalPerSettingDTO.h"
 #include <list>
-#include "domain/dto/LegalEntitySet/LegalEntitySetQueryDTO.h"
+#include "domain/vo/LegalEntitySet/LegalEntitySetVO.h"
+#include "domain/dto/LegalEntitySet/LegalEntitySetDTO.h"
 #include "domain/query/LegalEntitySet/LegalEntitySetQuery.h"
+#include "domain/do/LegalEntitySet/LegalEntitySetDO.h"
+/*
+组织管理 ——数据设置 —— 法人主体设置  -- cpt
 
-/* 法人主体设置服务实现--（组织管理-数据设置-法人主体设置）--TripleGold */
+法人主体名称下拉列表 `LegalEntitySetPullDownList`
+
+更新指定法人设置信息  `UpdateLegalerSettingMessage`
+
+导出法人设置 `LegalEntitySet`
+
+新增法人设置（支持批量新增）** `LegalEntitySet`
+*/
 class LegalEntitySetService
 {
 public:
 	// 分页查询所有数据
 	LegalEntitySetPageDTO::Wrapper listAll(const LegalEntitySetQuery::Wrapper& query);
+	// 保存数据
+	uint64_t insertData(const LegalEntitySetDTO::Wrapper& dto);
+	// 修改数据
+	bool updateData(const LegalEntitySetDTO::Wrapper& dto);
+	// 通过ID删除数据
+	//bool removeData(uint64_t id);
 };
 
-#endif // !_LEGALENTITYMAISERVICE_H_
+
+#endif // !_LEGALENTITYSETSERVICE_SERVICE_

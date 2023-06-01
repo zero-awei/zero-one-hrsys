@@ -25,6 +25,12 @@ LegalEntityMaiPageJsonVO::Wrapper LegalEntityMaiController::execQueryLEM(const L
 
 StringJsonVO::Wrapper LegalEntityMaiController::execUpdateLEM(const LegalEntityMaiDTO::Wrapper& dto)
 {
+	//// 定义返回数据对象
+	//auto jvo = Uint64JsonVO::createShared();
+	//// 参数校验
+	//if (dto->ORMSIGNORGID == "") {
+
+	//}
 	// 定义返回数据对象
 	auto jvo = StringJsonVO::createShared();
 	// 参数校验

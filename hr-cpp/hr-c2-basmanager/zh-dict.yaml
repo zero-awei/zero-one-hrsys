@@ -31,22 +31,22 @@ sample:
   sex: 性别，如：男
 TempStaff:
  export:
-  summary: 导出挂职员工信息功能
+  summary: (人员花名册-挂职人员-导出挂职人员数据)-weixiaoman
  field:
   id: 编号
   name: 姓名
   empStatus: 员工状态
   tempStatus: 挂职状态
   tempOrg: 挂职组织
-  tempDepat: 挂职部门
-  tempBeginTime: 挂职开始时间
+  tempDept: 挂职部门
+  tempStartTime: 挂职开始时间
   tempEndTime: 挂职结束时间
  get: 
-  summary: 分页查询挂职员工数据
+  summary: (人员花名册-挂职员工-分页查询挂职员工信息)-weixiaoman
 EmpInfo:
  get:
-  summary: 证书管理搜索框人员信息查询（仅名字）
-  summary1: 证书类型信息
+  summary: (证书管理-分页查询员工信息)-weixiaoman
+  summary1: (证书管理-查询证书类型)-weixiaoman
  field:
   name: 姓名
   certype: 证书类型
@@ -69,29 +69,45 @@ formeremployees:
   outbenye: 导出本页离职员工数据
   outall: 导出全部离职员工数据
 certificate: 
- update:  证书管理-证书信息-查询指定证书详情-chumengxian
- get: 证书管理-证书信息-更新指定证书-chumengxian
+ update:  证书管理-证书信息-更新指定证书-chumengxian
+ get: 证书管理-证书信息-查询指定证书详情-chumengxian
+
+
+
+RosterOfPer:
+ query:
+  summary: (人员花名册——见习员工——分页查询员工列表) --cpt
+ export:
+  summary: (人员花名册——见习员工——导出见习员工）--cpt
+ field:
 cermanage:
  get:
   summary: 分页查询示例数据
-  checklist: 分页查询证书列表
+
+  checklist: （证书管理-证书信息-分页查询证书列表）--pine
  post:
   summary: 新增一条示例数据
-  addcer: 新增一条证书信息
+  addcer: （证书管理-证书信息-新建证书）--pine
  put:
   summary: 修改一条示例数据
  delete:
   summary: 删除一条示例数据
  field:
-  id: 编号
-  age: 年龄
-  name: 姓名
-  sex: 性别，如：男
+  ygbh: 员工编号
+  pcmjxszzkhjgjlname: 员工姓名
+  zz: 组织
+  bm: 部门
+  zw: 职务
+  gw: 岗位
+  duration: 见习期限（月）
+  ksrq: 到本单位时间
+  jsrq: 见习到期时间
+
 rosterofper:
  get:
   summary: 分页查询示例数据
-  checklist: 分页查询退休员工列表
-  outinfo: 导出离退员工信息
+  checklist: （人员花名册-离退休人员-分页查询员工列表）--pine
+  outinfo: （人员花名册-离退休人员-导出员工）--pine
  post:
   summary: 新增一条示例数据
   addcer: 新增一条证书信息
@@ -104,3 +120,26 @@ rosterofper:
   age: 年龄
   name: 姓名
   sex: 性别，如：男
+employee:
+ get:
+  summary: （人员花名册-人员花名册-分页查询员工数据）--洛洛
+ field:
+  employeeid: 员工编号
+  employeename: 员工姓名
+ export:
+  summary: （人员花名册-人员花名册-导出员工（导出本页在前端完成））--洛洛
+certif:
+ delete:
+  summary: （证书管理-证书信息-删除证书）--洛洛
+ field:
+  id: 证书编号
+ export:
+  summary: （证书管理-证书信息-导出证书）--洛洛
+loanedperpage:
+ get:
+  summary: （人员花名册-借调人员-分页查询员工数据）--洛洛
+ field:
+  employeeid: 员工编号
+  employeename: 员工姓名
+ export:
+  summary: （人员花名册-借调人员-导出员工（导出本页在前端完成））--洛洛

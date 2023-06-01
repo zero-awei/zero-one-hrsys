@@ -1,14 +1,18 @@
 #pragma once
-#ifndef _PAGEQUERYRMPLOYEELISTQUERY_DTO_
-#define _PAGEQUERYRMPLOYEELISTQUERY_DTO_
+/*
+（人员花名册-人员花名册-导出员工（导出本页在前端完成））--luoluo
+*/
+#ifndef _EXPORTEMPLOYEE_DTO_
+#define _EXPORTEMPLOYEE_DTO_
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- *  基础管理 —— 人员花名册 —— 见习员工 —— 分页查询员工列表 PageQueryEmployeeList  (分页 )示例传输对象
+ * 示例传输对象
  */
-class ExportEmployeeDTO : public oatpp::DTO {
+class ExportEmployeeDTO : public oatpp::DTO
+{
 	DTO_INIT(ExportEmployeeDTO, DTO);
 	// 编号
 	DTO_FIELD(UInt64, id);
@@ -41,4 +45,4 @@ class ExportEmployeePageDTO : public PageDTO<ExportEmployeeDTO::Wrapper>
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_PAGEQUERYRMPLOYEELISTQUERY_DTO_
+#endif // !_EXPORTEMPLOYEE_DTO_

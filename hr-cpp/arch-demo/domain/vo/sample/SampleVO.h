@@ -1,4 +1,4 @@
-#pragma once
+ #pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 

@@ -1,13 +1,55 @@
 #include "stdafx.h"
 #include "LegalEntitySetService.h"
-#include "CharsetConvertHepler.h"
-#include "ExcelComponent.h"
-#include "FastDfsClient.h"
-#include "SnowFlake.h"
-#include "SimpleDateTimeFormat.h"
 #include "dao/LegalEntitySet/LegalEntitySetDAO.h"
 
-/* 法人主体维护Service层具体实现--（组织管理-数据设置-法人主体维护）--TripleGold */
+/*
+组织管理 ——数据设置 —— 法人主体设置  -- cpt
+
+法人主体名称下拉列表 `LegalEntitySetPullDownList`
+
+更新指定法人设置信息  `UpdateLegalerSettingMessage`
+
+导出法人设置 `LegalEntitySet`
+
+新增法人设置（支持批量新增）** `LegalEntitySet`
+*/
+
+uint64_t LegalEntitySetService::insertData(const LegalEntitySetDTO::Wrapper& dto)
+{
+	// 组装DO数据
+	LegalEntitySetDO data;
+	/*data.setORMSIGNORGID(dto->ormsignorgid.getValue(""));
+	data.setORMSIGNORGNAME(dto->ormsignorgname.getValue(""));
+	data.setCONTRACTSIGNORGNAME(dto->contractsignorgname.getValue(""));
+	data.setISDEFAULTSIGNORG(dto->isdefaultsignorg.getValue(1));*/
+		ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGID, ormsignorgid, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME, contractsignorgname)
+		// 执行数据添加
+		LegalEntitySetDAO dao;
+	return dao.insert(data);
+}
+
+bool LegalEntitySetService::updateData(const LegalEntitySetDTO::Wrapper& dto)
+{
+	// 组装DO数据
+	LegalEntitySetDO data;
+	/*data.setORMSIGNORGID(dto->ormsignorgid.getValue(""));
+	data.setORMSIGNORGNAME(dto->ormsignorgname.getValue(""));
+	data.setCONTRACTSIGNORGNAME(dto->contractsignorgname.getValue(""));
+	data.setISDEFAULTSIGNORG(dto->isdefaultsignorg.getValue(1));;*/
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGID, ormsignorgid, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME, contractsignorgname)
+		// 执行数据修改
+		LegalEntitySetDAO dao;
+	return dao.update(data) == 1;
+}
+  // 删除数据 
+//bool LegalEntitySetService::removeData(uint64_t id)
+//{
+//	LegalEntitySetDAO dao;
+//	return dao.deleteById(id) == 1;
+//}
+
+
+/* ----------------------------------法人主体维护Service层具体实现--（组织管理-数据设置-法人主体维护）--TripleGold ------------------------------------------------*/
 LegalEntitySetPageDTO::Wrapper LegalEntitySetService::listAll(const LegalEntitySetQuery::Wrapper& query)
 {
 	// 构建返回对象
@@ -25,12 +67,12 @@ LegalEntitySetPageDTO::Wrapper LegalEntitySetService::listAll(const LegalEntityS
 	// 分页查询数据
 	pages->total = count;
 	pages->calcPages();
-	list<QueryLegalEntitySetDO> result = dao.selectWithPage(query);
+	list<LegalEntitySetDO> result = dao.selectWithPage(query);
 	// 将DO转换成DTO
-	for (QueryLegalEntitySetDO sub : result)
+	for (LegalEntitySetDO sub : result)
 	{
-		auto dto = LegalEntitySetQueryDTO::createShared();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, CONTRACTSIGNORGID, Id, ORGNAME, OrgName, ORMSIGNORGNAME, LEMName, ISDEFAULTSIGNORG, Defa);
+		auto dto = LegalEntitySetDTO::createShared();
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, ormsignorgid, ORMSIGNORGID, contractsignorgname, CONTRACTSIGNORGNAME, ormsignorgname, ORMSIGNORGNAME, isdefaultsignorg, ISDEFAULTSIGNORG);
 		pages->addData(dto);
 	}
 	return pages;

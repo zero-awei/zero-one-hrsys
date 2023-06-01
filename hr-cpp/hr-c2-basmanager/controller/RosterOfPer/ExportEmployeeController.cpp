@@ -1,46 +1,34 @@
+/*
+ Copyright Zero One Star. All rights reserved.
+
+ @Author: awei
+ @Date: 2022/10/25 10:58:42
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+	  https://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 #include "stdafx.h"
 #include "ExportEmployeeController.h"
-//#include "../../service/ExportEmployee/ExportEmployeeService.h"
 
-//ExportEmployeePageJsonVO::Wrapper ExportEmployeeController::execQueryExportEmployee(const ExportEmployeeQuery::Wrapper& query, const PayloadDTO& payload)
-//{
-//	// 定义一个Service
-//	ExportEmployeeService service;
-//	// 查询数据
-//	auto result = service.listAll(query);
-//	// 响应结果
-//	auto jvo = ExportEmployeePageJsonVO::createShared();
-//	jvo->success(result);
-//	return jvo;
-//}
+#include "../../service/RosterOfPer/ExportEmployeeService.h"
 
-Uint64JsonVO::Wrapper ExportEmployeeController::execAddExportEmployee(const ExportEmployeeDTO::Wrapper& dto)
+ExportEmployeeJsonVO::Wrapper ExportEmployeeController::execExportEmployee(const ExportEmployeeQuery::Wrapper& query, const PayloadDTO& payload)
 {
-	// 定义返回数据对象
-	auto jvo = Uint64JsonVO::createShared();
+	// 定义一个Service
+	//ExportEmployeeService service;
+	// 查询数据
+	//auto result = service.listAll(query);
+	// 响应结果
+	auto jvo = ExportEmployeeJsonVO::createShared();
+	//jvo->success(result);
 	return jvo;
 }
-
-Uint64JsonVO::Wrapper ExportEmployeeController::execModifyExportEmployee(const ExportEmployeeDTO::Wrapper& dto)
-{
-	//// 定义返回数据对象
-	auto jvo = Uint64JsonVO::createShared();
-	return jvo;
-}
-
-Uint64JsonVO::Wrapper ExportEmployeeController::execRemoveExportEmployee(const ExportEmployeeDTO::Wrapper& dto)
-{
-	//// 定义返回数据对象
-	auto jvo = Uint64JsonVO::createShared();
-	return jvo;
-}
-
-//BooleanJsonVO::Wrapper ExportEmployeeController::execImportLEM(const ExportEmployeeDTO::Wrapper& dto)
-//{
-//	return BooleanJsonVO::createShared();
-//}
-
-//BooleanJsonVO::Wrapper ExportEmployeeController::execExportLEM(const ExportEmployeeQuery::Wrapper& legalEntityMaiQuery)
-//{
-//	return BooleanJsonVO::createShared();
-//}

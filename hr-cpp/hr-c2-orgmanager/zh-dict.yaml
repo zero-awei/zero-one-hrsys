@@ -54,16 +54,29 @@ LegalEntityMai:
   updatedate: 更新时间
   orgcode: 组织编号
   short: 简称
-  body: 文件名称
-  creatName: 创建名称
- sample:
-  name: 东北公司
+
+
 LegalEntitySet:
  query:
+  summary1: 分页查询组织列表 
+  summary2: 分页查询法人主体列表 
+  summary3: (数据设置——法人主体设置——法人主体名称下拉列表) -- cpt
   summary: （法人主体设置-分页查询法人设置列表）--TripleGold
+ put:
+  summary: （数据设置——法人主体设置——更新指定法人设置信息) --cpt
+ post:
+  summary: （数据设置——法人主体设置——新增法人主体设置（支持批量新增））--cpt
+ delete:
+  summary: 删除法人主体设置（支持批量删除）
+ import:
+  summary: （数据设置——法人主体设置——导入法人主体设置)--洛洛  
+ export:
+  summary: （数据设置——法人主体设置——导出法人主体设置 (导出页面在前端完成) ）--cpt
  sample:
-  name: 北京分公司
+  name1: 东北公司中经公司
+  name2: 东北1
  field:
-  id: 签约主体单位标识
-  name: 管理单位名称
-  default: 默认签约主体
+  ormsignorgid: 法人主体标识
+  ormsignorgname: 法人主体名称
+  contractsignorgname: 签约主体单位名称
+  isdefaultsignorg: 默认签约主体

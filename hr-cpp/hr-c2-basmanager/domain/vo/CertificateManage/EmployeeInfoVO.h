@@ -1,4 +1,7 @@
 #pragma once
+/**
+ * (证书管理-分页查询员工信息列表)--weixiaoman
+ */
 #ifndef _EMPLOYEEINFO_VO_
 #define _EMPLOYEEINFO_VO_
 
@@ -20,7 +23,5 @@ class EmployeeInfoJsonVO : public JsonVO<EmployeeInfoDTO::Wrapper> {
 class EmployeeInfoPageJsonVO : public JsonVO<EmployeeInfoPageDTO::Wrapper> {
 	DTO_INIT(EmployeeInfoPageJsonVO, JsonVO<EmployeeInfoPageDTO::Wrapper>);
 };
-
-
 #include OATPP_CODEGEN_END(DTO)
 #endif // !_EMPLOYEEINFO_VO_

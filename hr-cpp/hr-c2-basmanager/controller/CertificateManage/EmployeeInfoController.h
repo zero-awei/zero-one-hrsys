@@ -1,6 +1,6 @@
 #pragma once
 /**
-*人员信息查询功能点，搜索框使用
+* 证书管理人员信息查询，搜索框使用--(证书管理-分页查询员工信息)-weixiaoman
 */
 
 #ifndef _EMPLOYEEINFO_CONTROLLER_
@@ -47,7 +47,7 @@ public:
 		//info->queryParams["name"].required = false;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/query-employeeinfo", queryEmpInfo, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/bas/query-employeeinfo", queryEmpInfo, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, EmployeeInfoQuery, queryParams);
 		// 响应结果

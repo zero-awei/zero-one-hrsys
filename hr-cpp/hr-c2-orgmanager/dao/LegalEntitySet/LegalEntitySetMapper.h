@@ -1,41 +1,42 @@
 #pragma once
 /*
- Copyright Zero One Star. All rights reserved.
+组织管理 ——数据设置 —— 法人主体设置  -- cpt
 
- @Author: awei
- @Date: 2023/05/31 0:50:35
+法人主体名称下拉列表 `LegalEntitySetPullDownList`
 
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
+更新指定法人设置信息  `UpdateLegalerSettingMessage`
 
-	  https://www.apache.org/licenses/LICENSE-2.0
+导出法人设置 `LegalEntitySet`
 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+新增法人设置（支持批量新增）** `LegalEntitySet`
 */
-#ifndef _LEGALENTITYSETMAPPER_H_
-#define _LEGALENTITYSETMAPPER_H_
-
+#ifndef _LEGALENTITYSET_MAPPER_
+#define _LEGALENTITYSET_MAPPER_
 #include "Mapper.h"
-#include "domain/do/LegalEntitySet/QueryLegalEntitySetDO.h"
-
-/* 法人主体设置字段匹配映射--（组织管理-数据设置-法人主体设置）--TripleGold */
-class LegalEntitySetMapper : public Mapper<QueryLegalEntitySetDO>
+#include "../../domain/do/LegalEntitySet/LegalEntitySetDO.h"
+/**
+ * 示例表字段匹配映射
+ */
+class LegalEntitySetMapper : public Mapper<LegalEntitySetDO>
 {
 public:
-	QueryLegalEntitySetDO mapper(ResultSet* resultSet) const override
+	LegalEntitySetDO mapper(ResultSet* resultSet) const override
 	{
-		QueryLegalEntitySetDO data;
-		data.setId(resultSet->getString(1));
-		data.setOrgName(resultSet->getString(2));
-		data.setLEMName(resultSet->getString(3));
-		data.setDefa(resultSet->getString(4));
+		LegalEntitySetDO data;
+		data.setORMSIGNORGID(resultSet->getString(1));
+		data.setORMSIGNORGNAME(resultSet->getString(2));
+		data.setCONTRACTSIGNORGNAME(resultSet->getString(3));
+		data.setISDEFAULTSIGNORG(resultSet->getString(4));
 		return data;
 	}
 };
 
-#endif // !_LEGALENTITYSETMAPPER_H_
+/*
+LegalEntitySetMapper类的作用是将ResultSet对象中的数据映射到LegalEntitySetDO对象中。ResultSet通常用于表示从数据库中检索到的结果集。
+mapper方法接受一个ResultSet*参数，即指向ResultSet对象的指针，并返回一个LegalEntitySetDO对象。
+在mapper方法中，首先创建一个LegalEntitySetDO对象data。然后通过调用resultSet对象的各种方法，如getUInt64、getString和getInt，
+获取结果集中的具体数据，并使用data对象的相应setter方法，如setId、setName、setSex和setAge，将数据设置到LegalEntitySetDO对象中。
+最后，将填充好的LegalEntitySetDO对象返回。
+这段代码展示了一种常见的数据映射模式，用于将数据库查询结果映射到自定义的数据对象中。
+*/
+#endif // !_LEGALENTITYSET_MAPPER_

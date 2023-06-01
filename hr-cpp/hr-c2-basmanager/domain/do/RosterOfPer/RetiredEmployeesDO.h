@@ -1,0 +1,87 @@
+#pragma once
+/*
+ Copyright Zero One Star. All rights reserved.
+
+ @Author: awei
+ @Date: 2022/10/25 11:52:32
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+	  https://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+#ifndef _RETIRED_EMPLPYEES_DO_
+#define _RETIRED_EMPLPYEES_DO_
+#include "../DoInclude.h"
+
+/*
+ 离退休员工DO--（人员花名册）--pine
+ (对应数据库表t_pcmydjdmx：异动借调明细 与 t_pcmydmx：异动明细)
+ */
+class RetiredEmployeesDO
+{
+	// 员工编号
+	CC_SYNTHESIZE(uint64_t, ygbh, ygbh);
+	// 员工姓名
+	CC_SYNTHESIZE(string, name, name);
+	// 性别
+	CC_SYNTHESIZE(string, xb, xb);
+	// 年龄
+	CC_SYNTHESIZE(string, nj, nj);
+	// 通讯地址
+	CC_SYNTHESIZE(string, address, address);
+	// 退休地
+	CC_SYNTHESIZE(string, retiPlace, retiPlace);
+	// 家庭联系人
+	CC_SYNTHESIZE(string, jtlxr, jtlxr);
+	// 家庭联系人电话
+	CC_SYNTHESIZE(string, jtlxrdh, jtlxrdh);
+	// 组织
+	CC_SYNTHESIZE(string, zz, zz);
+	// 部门
+	CC_SYNTHESIZE(string, bm, bm);
+	// 职级
+	CC_SYNTHESIZE(string, rank, rank);
+	//退休前职务
+	CC_SYNTHESIZE(string, yzw, yzw);
+	//退休前岗位
+	CC_SYNTHESIZE(string, ygw, ygw);
+	//退休时间
+	CC_SYNTHESIZE(string, txdq, txdq);
+	//实际退休时间
+	CC_SYNTHESIZE(string, sjtxrq, sjtxrq);
+	//手机号码
+	CC_SYNTHESIZE(string, lxdh, lxdh);
+	//审批的养老金额
+	CC_SYNTHESIZE(string, spdylje, spdylje);
+public:
+	RetiredEmployeesDO() {
+		ygbh = "0";
+		name = "";
+		xb = "";
+		nj = "-1";
+		address = "";
+		retiPlace = "";
+		jtlxr = "";
+		jtlxrdh = "";
+		zz = "";
+		bm = "";
+		rank = "";
+		yzw = "";
+		ygw = "";
+		txdq = "";
+		sjtxrq = "";
+		lxdh = "";
+		spdylje = "";
+
+	}
+};
+
+#endif // !_SAMPLE_DO_

@@ -20,7 +20,7 @@ namespace multipart = oatpp::web::mime::multipart;
 #include OATPP_CODEGEN_BEGIN(ApiController) 
 
 /**
- * 新建证书控制器
+* 分页查询证书列表--(证书管理-分页查询证书列表)--pine
  */
 class CheckCerListController : public oatpp::web::server::api::ApiController // 1 继承控制器
 {
@@ -47,7 +47,7 @@ public://  定义接口（定义接口描述与接口端点）
 		info->queryParams["sex"].required = false;
 	}
 	//4 定义新增接口处理
-	ENDPOINT(API_M_GET, "/CheckCerList", queryCheckCerList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/bas/query-CerList", queryCheckCerList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		API_HANDLER_QUERY_PARAM(query, CheckCerListQuery, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryCheckCerList(query));

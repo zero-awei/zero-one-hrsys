@@ -1,43 +1,35 @@
 #pragma once
+
+#ifndef _LEGALENTITYSET_VO_
+#define _LEGALENTITYSET_VO_
 /*
- Copyright Zero One Star. All rights reserved.
+组织管理 ——数据设置 —— 法人主体设置  -- cpt
 
- @Author: awei
- @Date: 2023/05/30 23:32:39
+法人主体名称下拉列表 `LegalEntitySetPullDownList`
 
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
+更新指定法人设置信息  `UpdateLegalerSettingMessage`
 
-	  https://www.apache.org/licenses/LICENSE-2.0
+导出法人设置 `LegalEntitySet`
 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+新增法人设置（支持批量新增）** `LegalEntitySet`
 */
-#ifndef _LEGALENTITYSETVO_H_
-#define _LEGALENTITYSETVO_H_
-
 #include "../../GlobalInclude.h"
-#include "../../dto/LegalEntitySet/LegalEntitySetQueryDTO.h"
-
+#include "domain/dto/LegalEntitySet/LegalEntitySetDTO.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/* 法人主体设置VO对象定义--（组织管理-数据设置-法人主体设置）--TripleGold */
-/* 定义一个用户信息显示JsonVO对象，用于响应给客户端 */
-class LegalEntitySetQueryJsonVO : public JsonVO<LegalEntitySetQueryDTO::Wrapper>
-{
-	DTO_INIT(LegalEntitySetQueryJsonVO, JsonVO<LegalEntitySetQueryDTO::Wrapper>);
+/**
+ * 示例显示JsonVO，用于响应给客户端的Json对象
+ */
+class LegalEntitySetJsonVO : public JsonVO<LegalEntitySetDTO::Wrapper> {
+	DTO_INIT(LegalEntitySetJsonVO, JsonVO<LegalEntitySetDTO::Wrapper>);
 };
 
-/* 定义一个用户信息分页显示JsonVO对象，用于响应给客户端 */
-class LegalEntitySetQueryPageJsonVO : public JsonVO<LegalEntitySetPageDTO::Wrapper>
-{
-	DTO_INIT(LegalEntitySetQueryPageJsonVO, JsonVO<LegalEntitySetPageDTO::Wrapper>)
+/**
+ * 示例分页显示JsonVO，用于响应给客户端的Json对象
+ */
+class LegalEntitySetPageJsonVO : public JsonVO<LegalEntitySetPageDTO::Wrapper> {
+	DTO_INIT(LegalEntitySetPageJsonVO, JsonVO<LegalEntitySetPageDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)
-
-#endif // !_LEGALENTITYSETVO_H_
+#endif // !_LEGALENTITYSET_VO_

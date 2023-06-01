@@ -8,7 +8,7 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 证书类型分页查询对象
+ * 证书类型分页查询对象--(证书管理-查询证书类型列表)--weixiaoman
  */
 class CertificateTypeQuery : public PageQuery
 {
