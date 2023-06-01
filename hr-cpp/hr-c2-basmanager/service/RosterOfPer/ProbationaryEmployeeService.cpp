@@ -28,10 +28,10 @@ ProbationaryEmployeePageDTO::Wrapper ProbationaryEmployeeService::listAll(const 
 	for (ProbationaryEmployeeDO sub : result)
 	{
 		auto dto = ProbationaryEmployeeDTO::createShared();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, YGBH, name, PIMPERSONNAME,
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, PIMPERSONID, pimPersonId,id, YGBH, name, PIMPERSONNAME,
 			zz, ORMORGNAME, bm, ORMORGSECTORNAME,
 			zw, ZW, gw, ORMPOSTNAME, rzsj, RZSJ,
-			time, SYDQ);
+			daoqishijian, SYDQ);
 		pages->addData(dto);
 	}
 

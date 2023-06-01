@@ -59,9 +59,9 @@ uint64_t ProbationaryEmployeeDAO::count(const ProbationaryEmployeeQuery::Wrapper
 list<ProbationaryEmployeeDO> ProbationaryEmployeeDAO::selectWithPage(const ProbationaryEmployeeQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT t_pimperson.YGBH,PIMPERSONNAME,ORMORGNAME,ORMORGSECTORNAME,ZW,ORMPOSTNAME,RZSJ,SYDQ \
+	sql << "SELECT t_pimperson.YGBH,PIMPERSONNAME,ORMORGNAME,ORMORGSECTORNAME,ZW,ORMPOSTNAME,RZSJ,SYDQ, t_pimperson.PIMPERSONID \
 		FROM t_pcmsgqmgr INNER JOIN t_pimperson \
-		ON t_pcmsgqmgr.PIMPERSONID = t_pimperson.PIMPERSONID";
+		ON t_pcmsgqmgr.PIMPERSONID = t_pimperson.PIMPERSONID ";
 	PROBATIONARY_EMPLOYEE_PARSE(query, sql);
 
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
