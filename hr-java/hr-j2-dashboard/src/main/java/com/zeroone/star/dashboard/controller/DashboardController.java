@@ -29,9 +29,8 @@ public class DashboardController implements DashboardApis, OrgDistributeApis {
     IBisProfessoranalysisService iBisProfessoranalysisService;
 
     @Resource
-    IPimoutputService iPimoutputService;
-
     IBisPimoutputTService iBisPimoutputTService;
+
     @GetMapping("pim-title-zcdj")
     @ApiOperation(value = "职称等级分布")
     @Override
