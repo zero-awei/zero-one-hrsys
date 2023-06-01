@@ -28,7 +28,7 @@ class ArchivesDO {
 	CC_SYNTHESIZE(string, dabh, Dabh);
 	CC_SYNTHESIZE(string, ormorgid3, Ormorgid3);
 	CC_SYNTHESIZE(string, dabgd, Dabgd);
-	CC_SYNTHESIZE(string, archivescenterid, Archivescenterid);
+	CC_SYNTHESIZE(string, archivescentername, Archivescentername);
 	CC_SYNTHESIZE(string, education, Education);
 	CC_SYNTHESIZE(string, dateofbirth, Dateofbirth);
 	CC_SYNTHESIZE(string, joinpartydate, Joinpartydate);

@@ -25,7 +25,7 @@ ArchivesPageDTO::Wrapper ArchivesService::listAll(const ArchivesQuery::Wrapper& 
 	for (ArchivesDO sub : result)
 	{
 		auto dto = ArchivesDTO::createShared();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, dabh, Dabh, ormorgid3, Ormorgid3, dabgd, Dabgd, archivescenterid, Archivescenterid, education, Education, dateofbirth, Dateofbirth, joinpartydate, Joinpartydate, startworkdatae, Startworkdatae, dazt, Dazt);
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, dabh, Dabh, ormorgid3, Ormorgid3, dabgd, Dabgd, archivescentername, Archivescentername, education, Education, dateofbirth, Dateofbirth, joinpartydate, Joinpartydate, startworkdatae, Startworkdatae, dazt, Dazt);
 		pages->addData(dto);
 
 	}

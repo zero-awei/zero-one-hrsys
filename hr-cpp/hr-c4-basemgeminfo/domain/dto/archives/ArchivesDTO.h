@@ -41,8 +41,8 @@ public:
 	}
 
 	//µµ°¸ÊÒ
-	DTO_FIELD(String, archivescenterid);
-	DTO_FIELD_INFO(archivescenterid) {
+	DTO_FIELD(String, archivescentername);
+	DTO_FIELD_INFO(archivescentername) {
 		info->description = ZH_WORDS_GETTER("archives.archivescenterid");
 	}
 

@@ -14,7 +14,7 @@ public:
 		data.setDabh(resultSet->getString(1));
 		data.setOrmorgid3(resultSet->getString(2));
 		data.setDabgd(resultSet->getString(3));
-		data.setArchivescenterid(resultSet->getString(4));
+		data.setArchivescentername(resultSet->getString(4));
 		data.setEducation(resultSet->getString(5));
 		data.setDateofbirth(resultSet->getString(6));
 		data.setJoinpartydate(resultSet->getString(7));
