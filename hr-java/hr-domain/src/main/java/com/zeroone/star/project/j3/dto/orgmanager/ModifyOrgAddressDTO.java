@@ -21,11 +21,11 @@ import java.util.Date;
 @Data
 @ApiModel("更新指定组织地址信息（导入的地址也通过这个接口更新）")
 public class ModifyOrgAddressDTO {
-	@ApiModelProperty(value = "组织id", example = "1", required = true)
-	private String ormorginfoid;
+	@ApiModelProperty(value = "组织id", example = "91DD9F6B-7C3A-4961-B9EA-3992C9657D09", required = true)
+	private String ormorgid;
 
-	@ApiModelProperty(value = "所属区域", example = "华东地区", required = true)
-	private String belongregion;
+	@ApiModelProperty(value = "组织地址", example = "中川大道xxx号", required = true)
+	private String ormorgdzname;
 
 	// 以下是业务流程信息
 	@ApiModelProperty(value = "更新人", example = "李四", required = true)
