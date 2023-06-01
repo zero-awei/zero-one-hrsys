@@ -58,9 +58,9 @@ uint64_t EducationDAO::count(const EducationPageQuery::Wrapper& query)
 std::list<EducationDO> EducationDAO::selectEducationSingle(const EducationSingleQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT * FROM `t_pimeducation` WHERE `PIMEDUCATIONID`=?";
+	sql << "SELECT * FROM `t_pimeducation` WHERE `PIMPERSONID`=?";
 	SqlParams params;
-	SQLPARAMS_PUSH(params, "s", std::string, query->PIMEDUCATIONID.getValue(""));
+	SQLPARAMS_PUSH(params, "s", std::string, query->PIMPERSONID.getValue(""));
 	EducationMapper mapper;
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<EducationDO, EducationMapper>(sqlStr, mapper, params);

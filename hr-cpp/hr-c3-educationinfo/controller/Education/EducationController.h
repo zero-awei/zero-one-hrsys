@@ -83,9 +83,9 @@ public: // 接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(EducationSingleJsonVO);
 		//API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 定义其他表单参数描述：根据教育标识查询
-		info->queryParams.add<String>("PIMEDUCATIONID").description = ZH_WORDS_GETTER("education.PIMEDUCATIONID");
-		info->queryParams["PIMEDUCATIONID"].addExample("default", String("0A81C08A-DAEE-4B2A-A586-18C5F22D0EB7"));
-		info->queryParams["PIMEDUCATIONID"].required = false;
+		info->queryParams.add<String>("PIMPERSONID").description = ZH_WORDS_GETTER("education.PIMPERSONID");
+		info->queryParams["PIMPERSONID"].addExample("default", String("5F8310F7-6E69-4D28-901F-97FFAB32E721"));
+		info->queryParams["PIMPERSONID"].required = false;
 		//info->queryParams.add<String>("pimpersonname").description = ZH_WORDS_GETTER("getEducationPageQuery");
 		//info->queryParams["pimpersonname"].addExample("default", String("ChenJun"));
 	}
