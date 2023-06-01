@@ -29,7 +29,6 @@ public:
 	bool updateData(const LegalEntitySetDTO::Wrapper& dto);
 	// 通过ID删除数据
 	//bool removeData(uint64_t id);
+	LegalEntitySetPullDownDTO::Wrapper legalEntityPulldownList();
 };
-
-
 #endif // !_LEGALENTITYSETSERVICE_SERVICE_

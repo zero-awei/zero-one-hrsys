@@ -31,24 +31,32 @@ if (query->isdefaultsignorg) { \
 	SQLPARAMS_PUSH(params, "s", std::string, query->isdefaultsignorg.getValue("")); \
 }
 
-std::list<LegalEntitySetDO> LegalEntitySetDAO::legalerNamePullDownList(const string& name)
-{
-	string sql = "SELECT * FROM sample WHERE `name` LIKE CONCAT('%',?,'%')";
-	LegalEntitySetMapper mapper;
-	return sqlSession->executeQuery<LegalEntitySetDO, LegalEntitySetMapper>(sql, mapper, "%s", name);
+std::list<LegalEntitySetDO> LegalEntitySetDAO::legalerNamePullDownList() {
+	string sql = "SELECT `ormsignorgname` FROM `t_ormsignorg`";
+	LegalEntitySetPullDownListMapper mapper;
+	return sqlSession->executeQuery<LegalEntitySetDO, LegalEntitySetPullDownListMapper>(sql, mapper);
 }
 
-uint64_t LegalEntitySetDAO::insert(const LegalEntitySetDO& iObj)
-{
-	string sql = "INSERT INTO `t_contractsignorg` (`ORMSIGNORGID`, /*`ORMSIGNORGNAME`,*/ `CONTRACTSIGNORGNAME`, `ISDEFAULTSIGNORG`) VALUES (?, ？, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%i",iObj.getORMSIGNORGID(), /*iObj.getORMSIGNORGNAME(),*/ iObj.getCONTRACTSIGNORGNAME(), iObj.getISDEFAULTSIGNORG());
-}
+//uint64_t LegalEntitySetDAO::insert1(const LegalEntitySetDO& iObj) {
+//	string sql = "INSERT IGNORE INTO `t_ormsignorg` (`ORMSIGNORGNAME`, ) VALUES (?)";
+//	return sqlSession->executeInsert(sql, "%s", iObj.getORMSIGNORGNAME());
+//}
+//
+//uint64_t LegalEntitySetDAO::insert2(const LegalEntitySetDO& iObj) {
+//	string sql = "INSERT INTO `t_contractsignorg` ( `CONTRACTSIGNORGNAME`, `ISDEFAULTSIGNORG`) VALUES ( ?,?)";
+//	return sqlSession->executeInsert(sql, "%s%i",iObj.getCONTRACTSIGNORGNAME(),iObj.getISDEFAULTSIGNORG());
+//}
+//
+//int LegalEntitySetDAO::update1(const LegalEntitySetDO& uObj) {
+//	string sql = "UPDATE t_ormsignorg SET  ORMSIGNORGNAME=? WHERE ORMSIGNORGID=?";
+//	return sqlSession->executeUpdate(sql, "%s%s", uObj.getORMSIGNORGNAME(), uObj.getORMSIGNORGID());
+//}
+//
+//int LegalEntitySetDAO::update2(const LegalEntitySetDO& uObj) {
+//	string sql = "UPDATE t_contractsignorg SET CONTRACTSIGNORGNAME=?, ISDEFAULTSIGNORG=? WHERE CONTRACTSIGNORGID=?";
+//	return sqlSession->executeUpdate(sql, "%s%s%s", uObj.getCONTRACTSIGNORGNAME(), uObj.getISDEFAULTSIGNORG(), uObj.getCONTRACTSIGNORGID());
+//}
 
-int LegalEntitySetDAO::update(const LegalEntitySetDO& uObj)
-{
-	string sql = "UPDATE `t_contractsignorg` SET `ORMSIGNORGNAME`=?, `CONTRACTSIGNORGNAME`=?, `ISDEFAULTSIGNORG`=? WHERE `id`=?";
-	return sqlSession->executeUpdate(sql, "%s%s%i%s", uObj.getORMSIGNORGNAME(), uObj.getCONTRACTSIGNORGNAME(), uObj.getISDEFAULTSIGNORG(), uObj.getORMSIGNORGID());
-}
 
 /* -------------------------------------------法人主体设置查询功能--TripleGold ----------------------------------------------------------*/
 uint64_t LegalEntitySetDAO::count(const LegalEntitySetQuery::Wrapper& query)

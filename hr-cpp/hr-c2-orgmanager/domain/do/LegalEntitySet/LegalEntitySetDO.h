@@ -20,31 +20,49 @@
  */
 class LegalEntitySetDO {
 	public:
+	// 签约主体单位名称
+	CC_SYNTHESIZE(string, contractsignorgname, CONTRACTSIGNORGNAME);
+	// 签约主体单位标识
+	CC_SYNTHESIZE(string, contractsignorgid, CONTRACTSIGNORGID);
+	// 更新人
+	CC_SYNTHESIZE(string, updateman, UPDATEMAN);
+	// 建立人
+	CC_SYNTHESIZE(string, createman, CREATEMAN);
+	// 建立时间
+	CC_SYNTHESIZE(string, createdate, CREATEDATE);
+	// 更新时间
+	CC_SYNTHESIZE(string, updatedate, UPDATEDATE);
+	// 管理单位标识
+	CC_SYNTHESIZE(string, ormorgid, ORMORGID);
+	// 法人主体标识
+	CC_SYNTHESIZE(string, signorgid, SIGNORGID);
+	//
+	CC_SYNTHESIZE(string, isdefaultsignorg, ISDEFAULTSIGNORG);
 	// 法人主体标识
 	CC_SYNTHESIZE(string, ormsignorgid, ORMSIGNORGID);
-	// 法人主体名称   表 ： t_ormsignorg 
-	CC_SYNTHESIZE(string, ormsignorgname, ORMSIGNORGNAME);
-	// 签约主体单位名称 t_contractsignorg
-	CC_SYNTHESIZE(string, contractsignorgname, CONTRACTSIGNORGNAME);
-	// 默认签约主体  t_contractsignorg
-	CC_SYNTHESIZE(string, isdefaultsignorg, ISDEFAULTSIGNORG);
+	
+
 	LegalEntitySetDO() {
-		ormsignorgid = "";
-		ormsignorgname = "";
 		contractsignorgname = "";
-		isdefaultsignorg = "";
+		contractsignorgid = "";
+		updateman = "";
+		createman = "";
+		createdate = "";
+		updatedate = "";
+		ormorgid = "";
+		signorgid = "";
+		isdefaultsignorg = "";  
+		ormsignorgid = "";
 	};
-	LegalEntitySetDO(std::vector<std::string> vec) {
+
+	/*Lecontractsignorgid, galEntitySetDO(std::vector<std::string> vec) {
 		int i = 0;
-		setORMSIGNORGNAME(vec[i++]);
+		updateman, UPDATEMAsetORMSIGNORGNAME(vec[i++]);
 		setCONTRACTSIGNORGNAME(vec[i++]);
-		setISDEFAULTSIGNORG(vec[i++]);
-	}
-	LegalEntitySetDO(string ormsignorgname, string contractsignorgname, string isdefaultsignorg) {
-		this->ormsignorgid = ormsignorgid;
-		this->ormsignorgname = ormsignorgname;
-		this->contractsignorgname = contractsignorgname;
-		this->isdefaultsignorg = isdefaultsignorg;
-	}
+		createman, CREATEMAsetISDEFAULTSIGNORG(vec[i++]);
+	}*/
+		
 };
 #endif // !_LEGALENTITYSET_DO_
+
+		
