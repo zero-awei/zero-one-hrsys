@@ -5,8 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import MainTable from '../../../components/MainTable.vue'
-
+import MainTable from '@/components/MainTable.vue'
 interface User {
   //自定义数据
   id: number

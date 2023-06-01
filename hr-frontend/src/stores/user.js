@@ -3,134 +3,121 @@ import Request from '@/apis/request'
 // 测试菜单数据
 let testMenus = [
   {
-    id: 0,
+    id: '0',
     text: '门户首页',
     icon: 'DataAnalysis',
     path: '/pimportalview'
   },
   {
+    id: 0,
+    text: '人员花名册',
+    icon: 'IconSetting',
+    children: [
+      {
+        id: 5,
+        text: '人员花名册',
+        path: '/roster',
+        icon: 'IconSetting',
+        pid: 1
+      },
+      {
+        id: 6,
+        text: '见习员工',
+        path: '/trainee',
+        icon: 'IconSetting',
+        pid: 1
+      },
+      {
+        id: 0,
+        text: '试用员工',
+        icon: 'IconSetting',
+        path: '/syqyggridview'
+      },
+      {
+        id: 1,
+        text: '离(退)休人员',
+        icon: 'IconSetting',
+        path: '/ltxyggridview'
+      },
+      {
+        id: 2,
+        text: '离职人员',
+        icon: 'IconSetting',
+        path: '/lzyghmcgridview'
+      },
+      {
+        id: 3,
+        text: '借调员工',
+        icon: 'IconSetting',
+        path: '/jdryhmcgridview'
+      },
+      {
+        id: 4,
+        text: '挂职员工',
+        icon: 'IconSetting',
+        path: '/gzryhmcgridview'
+      },
+      {
+        id: 5,
+        text: '人员信息测试页面',
+        icon: 'IconSetting',
+        path: '/userInfo'
+      }
+    ]
+  },
+  {
     id: 1,
-    text: '系统管理',
+    text: '人员信息',
     icon: 'IconSetting',
     children: [
       {
         id: 2,
-        text: '系统管理1',
-        path: '/un-1',
+        text: '员工信息',
+        path: '/employee',
         icon: 'IconSetting',
         pid: 1
       },
       {
         id: 3,
-        text: '系统管理2',
-        path: '/un-2',
+        text: '自助信息审核',
+        path: '/review',
         icon: 'IconSetting',
         pid: 1
       },
       {
         id: 4,
-        text: '系统管理3',
-        path: '/un-3',
-        icon: 'IconSetting',
-        pid: 1
-      },
-      {
-        id: 5,
-        text: '系统管理4',
-        path: '/un-4',
-        icon: 'IconSetting',
-        pid: 1
-      },
-      {
-        id: 6,
-        text: '系统管理5',
-        path: '/un-5',
+        text: '黑名单',
+        path: '/blacklist',
         icon: 'IconSetting',
         pid: 1
       }
     ]
   },
   {
-    id: 2,
-    text: '用户管理',
-    icon: 'IconUser',
-    children: [
-      {
-        id: 2,
-        text: '用户管理1',
-        path: '/un-11',
-        icon: 'IconUser',
-        pid: 2
-      },
-      {
-        id: 3,
-        text: '用户管理2',
-        path: '/un-12',
-        icon: 'IconUser',
-        pid: 2
-      },
-      {
-        id: 4,
-        text: '用户管理3',
-        path: '/un-13',
-        icon: 'IconUser',
-        pid: 2
-      },
-      {
-        id: 5,
-        text: '用户管理4',
-        path: '/un-14',
-        icon: 'IconUser',
-        pid: 2
-      },
-      {
-        id: 6,
-        text: '用户管理5',
-        path: '/un-15',
-        icon: 'IconUser',
-        pid: 2
-      }
-    ]
-  },
-  {
-    id: 3,
-    text: '订单管理',
+    id: 4,
+    text: '标准化数据设置',
     icon: 'IconTickets',
     children: [
       {
-        id: 2,
-        text: '订单管理1',
-        path: '/un-21',
-        icon: 'IconTickets',
-        pid: 3
-      },
-      {
-        id: 3,
-        text: '订单管理2',
-        path: '/un-22',
-        icon: 'IconTickets',
-        pid: 3
-      },
-      {
         id: 4,
-        text: '订单管理3',
-        path: '/un-23',
+        text: '岗位(技能)证书',
+        path: '/postcertificateview',
         icon: 'IconTickets',
-        pid: 3
+        pid: 4
       },
       {
         id: 5,
-        text: '订单管理4',
-        path: '/un-24',
+        text: '职称目录',
+        path: '/jobtitlecatalog',
         icon: 'IconTickets',
-        pid: 3
+        pid: 4
       },
       {
         id: 6,
-        text: '订单管理5',
-        path: '/un-25',
+        text: '档案室',
+        path: '/archives',
         icon: 'IconTickets',
-        pid: 3
+        pid: 4
       }
     ]
   },

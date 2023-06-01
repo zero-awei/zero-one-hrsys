@@ -1,30 +1,122 @@
 <template>
-  <!-- 演示案例 -->
-  <!-- 传入 表格设计数据 和 表格主体数据  -->
-  <div class="table">
-    <MainTable :tableData="tableData" :xmlData="newXmlData"></MainTable>
-  </div>
-
-  <div class="footer">
-    <ColumnFilter :xmlData="xmlData" :parentMethod="getNewXmlData">
-    </ColumnFilter>
-    <Pagination></Pagination>
-  </div>
+   <el-container>
+    <el-aside width="200px">
+        <Aside :menus="menus" style="height: calc(100%-60px)"></Aside>
+    </el-aside>
+    <el-container>
+      <el-header>
+        <TableHead
+        :tableTitle="tableTitle"
+        :addTitle="addTitle"
+        :tableOperations="tableOperations"
+        :addData="addData"
+      >
+        <Search :filter="filter" class="search"></Search>
+      </TableHead>
+      </el-header>
+      <el-main>
+        <MainTable
+        :tableData="tableData"
+        :xmlData="xmlData"
+        class="maintable"
+      ></MainTable>
+      </el-main>
+      <el-footer>
+        <Pagination :pageSizes="pageSizes" :total="tableData.length"></Pagination>
+      </el-footer>
+    </el-container>
+  </el-container>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import MainTable from '../../../components/MainTable.vue'
-import ColumnFilter from '@/components/columnFilter/ColumnFilter.vue'
+import Aside from '@/components/aside/Aside.vue'
+import TableHead from '@/components/table/head/TableHead.vue'
+import MainTable from '@/components/MainTable.vue'
+import Search from '@/components/SearchBox.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
-
-function getNewXmlData(checkStatus) {
-  newXmlData.value = xmlData.value.filter((item) => {
-    return checkStatus.value.includes(item.name)
-  })
-  // xmlData.value  = newXmlData
-}
-
+import { reactive, ref } from 'vue'
+const menus = reactive([
+  {
+    path: '/sample',
+    text: '空白页',
+    icon: 'user'
+  },
+  {
+    path: '/sample/excel',
+    text: 'Excel演示',
+    icon: 'user'
+  },
+  {
+    path: '/sample/print',
+    text: '打印演示',
+    icon: 'user'
+  },
+  {
+    path: '/sample/edit',
+    text: '信息编辑页',
+    icon: 'user'
+  },
+  {
+    path: '/sample/sass',
+    text: 'sass演示',
+    icon: 'user'
+  },
+  {
+    path: '/sample/communication',
+    text: '兄弟组件通信',
+    icon: 'user'
+  },
+  {
+    path: '/sample/pagination',
+    text: '分页',
+    icon: 'user'
+  },
+  {
+    path: '/sample/sass',
+    text: 'sass演示',
+    icon: 'user'
+  },
+  {
+    path: '/sample/communication',
+    text: '兄弟组件通信',
+    icon: 'user'
+  },
+  {
+    path: '/sample/pagination',
+    text: '分页',
+    icon: 'user'
+  },
+  {
+    path: '/sample/sass',
+    text: 'sass演示',
+    icon: 'user'
+  },
+  {
+    path: '/sample/communication',
+    text: '兄弟组件通信',
+    icon: 'user'
+  },
+  {
+    path: '/sample/pagination',
+    text: '分页',
+    icon: 'user'
+  },
+  {
+    path: '/sample/sass',
+    text: 'sass演示',
+    icon: 'user'
+  },
+  {
+    path: '/sample/communication',
+    text: '兄弟组件通信',
+    icon: 'user'
+  },
+  {
+    path: '/sample/pagination',
+    text: '分页',
+    icon: 'user'
+  }
+])
 interface User {
   //自定义数据
   id: number
@@ -38,9 +130,8 @@ interface User {
   phoneNumber: number
   state: string
 }
-
 // 定义表单数据
-const xmlData = ref([
+const xmlData = [
   { id: 1, name: '员工编号', prop: 'id' },
   { id: 2, name: '员工姓名', prop: 'name' },
   { id: 3, name: '组织', prop: 'organization' },
@@ -52,11 +143,9 @@ const xmlData = ref([
   { id: 9, name: '年龄', prop: 'age' },
   { id: 10, name: '手机号码', prop: 'phoneNumber' },
   { id: 11, name: '员工状态', prop: 'state' }
-])
-const newXmlData = ref([])
-newXmlData.value = [...xmlData.value]
+]
 // 注入表格数据
-const tableData: User[] = [
+const tableData = [
   {
     id: 10001,
     name: '彭于晏',
@@ -658,12 +747,73 @@ const tableData: User[] = [
     state: '在职'
   }
 ]
+const pageSizes = [10, 20, 30]
+const filter = (val) => {
+  console.log(`output->`, val)
+}
+//表格表名
+const tableTitle = ref('员工信息')
+//新增表单的表名
+const addTitle = ref('人员列表编辑')
+//功能按键需求配置
+const tableOperations = reactive([
+  {
+    name: '新增'
+  },
+  {
+    name: '导入'
+  }
+])
+//新增表单所需栏目配置
+const addData = reactive([
+  {
+    label: '员工姓名',
+    name: 'name',
+    type: String
+  },
+  {
+    label: '员工编号',
+    name: 'ID',
+    type: Array,
+    //如果是选项请配置以下属性
+    options: [
+      {
+        id: 1,
+        optionData: '111'
+      },
+      {
+        id: 2,
+        optionData: '222'
+      }
+    ]
+  },
+  {
+    label: '备注',
+    name: 'remark',
+    type: 'Text'
+  }
+])
 </script>
 
-<style lang="scss" scoped>
-.footer{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+<style lang='scss' scoped>
+
+.search {
+  flex: 0 0 auto; /* 不伸缩、不收缩，固定高度 */
+  float: right;
 }
+.form {
+  flex: 1 0 auto; /* 可以伸缩、不收缩 */
+  position: relative;
+  display: flex;
+  justify-content: center; /* 让内部元素水平居中 */
+  align-items: center; /* 让内部元素垂直居中 */
+  .maintable {
+    position: absolute;
+    text-align: center;
+  }
+}
+.pagination {
+  flex: 0 0 auto; /* 不伸缩、不收缩，固定高度 */
+}
+
 </style>
