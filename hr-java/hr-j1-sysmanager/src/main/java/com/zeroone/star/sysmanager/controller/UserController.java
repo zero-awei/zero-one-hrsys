@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.usermanager.UserDTO;
 import com.zeroone.star.project.query.PageQuery;
+import com.zeroone.star.project.query.sysmanager.usermanager.UserConditionalQuery;
 import com.zeroone.star.project.query.sysmanager.usermanager.UserQuery;
 import com.zeroone.star.project.sysmanager.UserAPis;
 import com.zeroone.star.project.vo.JsonVO;
@@ -38,14 +39,14 @@ public class UserController implements UserAPis {
     @ApiOperation(value = "分页查询所有用户")
     @GetMapping("query_all")
     @Override
-    public JsonVO<PageDTO<UserDTO>> queryAllUsers(PageQuery pageInfo) {
-        return JsonVO.success(userService.listAllUsers(pageInfo));
+    public JsonVO<PageDTO<UserDTO>> queryAllUsers(UserQuery condition) {
+        return JsonVO.success(userService.listAllUsers(condition));
     }
 
     @ApiOperation(value = "模糊查询用户")
     @GetMapping("query_user")
     @Override
-    public JsonVO<PageDTO<UserDTO>> queryUser(UserQuery condition) {
+    public JsonVO<PageDTO<UserDTO>> queryUser(UserConditionalQuery condition) {
         return JsonVO.success(userService.selectUser(condition));
     }
 
