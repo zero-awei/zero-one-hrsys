@@ -33,6 +33,11 @@ public:
 	ProbationaryEmployeeDTO() {};
 
 	DTO_INIT(ProbationaryEmployeeDTO, DTO);
+	// 唯一标识
+	DTO_FIELD(String, PIMPERSONID);
+	DTO_FIELD_INFO(PIMPERSONID) {
+		info->description = ZH_WORDS_GETTER("formeremployees.field.PIMPERSONID");
+	}
 	// 编号
 	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
@@ -69,8 +74,8 @@ public:
 		info->description = ZH_WORDS_GETTER("probationaryemployee.field.rzsj");
 	}
 	// 试用到期时间
-	DTO_FIELD(String, time);
-	DTO_FIELD_INFO(time) {
+	DTO_FIELD(String, daoqishijian);
+	DTO_FIELD_INFO(daoqishijian) {
 		info->description = ZH_WORDS_GETTER("probationaryemployee.field.time");
 	}
 };

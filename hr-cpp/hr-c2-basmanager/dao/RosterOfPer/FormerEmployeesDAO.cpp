@@ -27,7 +27,7 @@ uint64_t FormerEmployeesDAO::count(const FormerEmployeesQuery::Wrapper& query)
 list<FormerEmployeesDO> FormerEmployeesDAO::selectWithPage(const FormerEmployeesQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT ygbh, PIMPERSONNAME, XB, lxdh, csrq, ORMORGNAME, ORMORGSECTORNAME, POSTALADDRESS, jtlxr, jtlxrdh, 'rank' \
+	sql << "SELECT PIMPERSONID, ygbh, PIMPERSONNAME, XB, lxdh, csrq, ORMORGNAME, ORMORGSECTORNAME, POSTALADDRESS, jtlxr, jtlxrdh, 'rank', lzmtrid \
 		FROM t_pimperson INNER JOIN t_pcmydlzmx \
 		ON t_pimperson.PIMPERSONID = t_pcmydlzmx.lzmtrId";
 	FORMER_EMPLOYEES_PARSE(query, sql);
@@ -43,7 +43,7 @@ list<FormerEmployeesDO> FormerEmployeesDAO::selectWithPage(const FormerEmployees
 list<FormerEmployeesDO> FormerEmployeesDAO::selectAll(const FormerEmployeesQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT ygbh, PIMPERSONNAME, XB, lxdh, csrq, ORMORGNAME, ORMORGSECTORNAME, POSTALADDRESS, jtlxr, jtlxrdh, 'rank' \
+	sql << "SELECT t_pimperson.PIMPERSONID, ygbh, PIMPERSONNAME, XB, lxdh, csrq, ORMORGNAME, ORMORGSECTORNAME, POSTALADDRESS, jtlxr, jtlxrdh, 'rank' \
 		FROM t_pimperson INNER JOIN t_pcmydlzmx \
 		ON t_pimperson.PIMPERSONID = t_pcmydlzmx.lzmtrId";
 	FORMER_EMPLOYEES_PARSE(query, sql);

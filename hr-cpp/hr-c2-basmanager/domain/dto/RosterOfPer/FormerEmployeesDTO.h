@@ -46,11 +46,6 @@ class FormerEmployeesDTO : public oatpp::DTO
 	DTO_FIELD_INFO(phoneNumber) {
 		info->description = ZH_WORDS_GETTER("formeremployees.field.phonenumber");
 	}
-	// 年龄
-	DTO_FIELD(Int32, age);
-	DTO_FIELD_INFO(age) {
-		info->description = ZH_WORDS_GETTER("formeremployees.field.age");
-	}
 	// 出生日期
 	DTO_FIELD(String, chushengriqi);
 	DTO_FIELD_INFO(chushengriqi) {

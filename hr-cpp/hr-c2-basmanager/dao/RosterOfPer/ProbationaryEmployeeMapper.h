@@ -40,6 +40,7 @@ public:
 		data.setORMPOSTNAME(resultSet->getString(6));
 		data.setRZSJ(resultSet->getString(7));
 		data.setSYDQ(resultSet->getString(8));
+		data.setpimPersonId(resultSet->getString(9));
 		return data;
 	}
 };

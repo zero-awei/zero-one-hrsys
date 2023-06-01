@@ -31,7 +31,7 @@ FormerEmployeesPageDTO::Wrapper FormerEmployeesService::listAll(const FormerEmpl
 		// 		dto->name = sub.getName();
 		// 		dto->sex = sub.getSex();
 		// 		dto->age = sub.getAge();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, ygbh, name, pimPersonName, 
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, PIMPERSONID, pimPersonId, id, ygbh, name, pimPersonName,
 			sex, sex, phoneNumber, lxdh, chushengriqi, csrq,
 			organization, organizationName, department, bm, rank, rank,
 			mail_address, postalAddress, family_contact, jtlxr, family_contact_number, jtlxrdh);
