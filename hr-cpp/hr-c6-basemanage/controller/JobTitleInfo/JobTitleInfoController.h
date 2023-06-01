@@ -40,7 +40,7 @@ public:
 		info->queryParams["employee_id"].required = true;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/title-management/query-job-title", queryJobTitle, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/job-title-management/query-job-title", queryJobTitle, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, JobTitleDTO, queryParams);
 		// 响应结果
@@ -77,7 +77,7 @@ public:
 		
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/title-management/export-job-title", getJobTitle, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/job-title-management/export-job-title", getJobTitle, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, JobTitleDTO, queryParams);
 		// 响应结果
@@ -92,7 +92,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/title-management/modify-job-title", modifyJobTitle, BODY_DTO(JobTitleDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/job-title-management/modify-job-title", modifyJobTitle, BODY_DTO(JobTitleDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyJobTitle(dto));
 	}
