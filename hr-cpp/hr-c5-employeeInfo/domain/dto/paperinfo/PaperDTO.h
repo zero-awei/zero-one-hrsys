@@ -56,6 +56,8 @@ public:
 	DTO_FIELD_INFO(pimpersonid) {
 		info->description = ZH_WORDS_GETTER("paperinfo.field.pimpersonid");
 	}
+
+
 };
 
 /**

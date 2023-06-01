@@ -3,17 +3,17 @@
 #define _PAPERINFO_MAPPER_
 
 #include "Mapper.h"
-#include "../../domain/do/patentinfo/t_pimpatentDO.h"
+#include "../../domain/do/paperinfo/paperinfo.h"
 
 /**
  * 论文信息表字段匹配映射
  */
-class PaperinfoMapper : public Mapper<t_pimpaperDO>
+class PaperinfoMapper : public Mapper<PaperinfoDO>
 {
 public:
-	t_pimpaperDO mapper(ResultSet* resultSet) const override
+	PaperinfoDO mapper(ResultSet* resultSet) const override
 	{
-		t_pimpaperDO data;
+		PaperinfoDO data;
 
 		data.setGRZLWZZZDPM(resultSet->getString(1));
 		data.setUPDATEMAN(resultSet->getString(2));

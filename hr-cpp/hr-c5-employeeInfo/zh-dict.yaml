@@ -72,6 +72,31 @@ patentInformation:
   jlczz: 记录操作者
   enclolure: 附件
   reason: 拒绝原因
+paperInformation:
+ select:
+  summary: 查看指定员工论文信息（指定论文信息详情）
+ put:
+  summary: 修改一条论文信息
+ pimpaper:
+  grzlwzzzdpm: 个人在论文著作中的排名
+  updateman: 更新人
+  pimpaperid: 论文信息标识
+  createdate: 建立时间
+  updatedate: 更新时间
+  createman: 建立人
+  fbsj: 发表时间
+  pimpapername: 论文名称
+  cbshkwmc: 出版社或刊物名称
+  pimpersonid: 人员信息标识
+  fj: 附件
+  jlspzt: 审批状态
+  jlglbh: 记录管理编号
+  jlczz: 记录操作者
+  jlss: 记录所属
+  cbs: 出版社
+  kwmc: 刊物名称
+  kwqs: 刊物期数
+  reason: 拒绝原因
 paperinfo:
  field:
   fbsj: 发表时间

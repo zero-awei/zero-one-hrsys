@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
+
 #include "patentinfo/PatentinfoController.h"
 #include "paperinfoController/PaperinfoController.h"
 #include "archives/ArchivesController.h"
@@ -37,6 +38,8 @@
 
 #include "archives/ArchivesController.h"
 #include "pimpaper/pimpaperController.h"
+
+#include "paperinfo/PaperController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -63,6 +66,7 @@ void Router::initRouter()
 
 	//#TIP :系统扩展路由定义，写在这个后面
 
+
 	ROUTER_SIMPLE_BIND(PatentinfoController);
 	ROUTER_SIMPLE_BIND(PaperinfoController);
 	ROUTER_SIMPLE_BIND(ArchivesController);
@@ -73,6 +77,9 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(ArchivesController);
 	ROUTER_SIMPLE_BIND(ArchivesCenterController);
 	ROUTER_SIMPLE_BIND(ArchivesController);
+
+	ROUTER_SIMPLE_BIND(PaperController);
+
 }
 
 #ifdef HTTP_SERVER_DEMO

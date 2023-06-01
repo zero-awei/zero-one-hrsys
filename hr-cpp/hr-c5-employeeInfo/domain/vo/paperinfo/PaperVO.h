@@ -4,6 +4,7 @@
 
 #include "../../GlobalInclude.h"
 #include "../../dto/paperinfo/PaperDTO.h"
+#include "../../dto/paperinfo/PaperinfoDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
@@ -13,6 +14,12 @@
 class PaperJsonVO : public JsonVO<PaperDTO::Wrapper> {
 	DTO_INIT(PaperJsonVO, JsonVO<PaperDTO::Wrapper>);
 };
+
+class PaperinfoJsonVO : public JsonVO<PaperinfoDTO::Wrapper> {
+	DTO_INIT(PaperinfoJsonVO, JsonVO<PaperinfoDTO::Wrapper>);
+};
+
+
 
 /**
  * 论文信息分页显示JsonVO，用于响应给客户端的Json对象

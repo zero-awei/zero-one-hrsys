@@ -5,7 +5,7 @@
 #include <list>
 #include "domain/vo/paperinfo/PaperVO.h"
 #include "domain/query/paperinfo/PaperQuery.h"
-#include "domain/dto/paperinfo/PaperDTO.h"
+#include "domain/dto/paperinfo/PaperinfoDTO.h"
 
 /**
  * 论文信息服务实现
@@ -14,9 +14,9 @@ class PaperService
 {
 public:
 	// 查询指定论文信息详情
-	PaperDTO::Wrapper listAll(const string& st);
+	PaperinfoDTO::Wrapper listAll(const string& st);
 	// 修改数据
-	bool updateData(const PaperDTO::Wrapper& dto);
+	bool updateData(const PaperinfoDTO::Wrapper& dto);
 };
 
 #endif // !_PAPER_SERVICE_
