@@ -7,14 +7,27 @@
 #define SAMPLE_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
-if (query->name) { \
-	sql << " AND `name`=?"; \
+if (query->name) {  /*查询过滤字段传递的query是否有员工姓名*/ \
+	sql << " AND t_pimperson.PIMPERSONNAME=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); \
 } \
 if (query->id) { \
-	sql << " AND PIMPERSONID=?"; \
+	sql << " AND t_pimperson.YGBH=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
 } \
+if (query->idcard) { \
+	sql << " AND t_pimperson.ZJHM=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->idcard.getValue("")); \
+} \
+if (query->organization) { \
+	sql << " AND t_pimperson.ORMORGNAME=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->organization.getValue("")); \
+} \
+if (query->department) { \
+	sql << " AND t_pimperson.ORMORGSECTORNAME=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->department.getValue("")); \
+} \
+/*
 if (query->sex) { \
 	sql << " AND CZRID=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->sex.getValue("")); \
@@ -71,11 +84,12 @@ if (query->Approved_pension_amount) { \
 	sql << " AND CHECKSTATUS=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->Approved_pension_amount.getValue("")); \
 } \
+*/
 
 uint64_t RetirementDAO::count(const RetirementQuery_gan::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM t_pcmtxfpsq";
+	sql << "SELECT COUNT(*) from t_pcmtxfpsq join t_pimperson  on t_pcmtxfpsq.PIMPERSONID = t_pimperson.PIMPERSONID";
 	SAMPLE_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
@@ -83,7 +97,17 @@ uint64_t RetirementDAO::count(const RetirementQuery_gan::Wrapper& query)
 list<retirementDO> RetirementDAO::selectWithPage(const RetirementQuery_gan::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT * FROM t_pcmtxfpsq";
+	sql << "SELECT t_pimperson.YGBH,t_pimperson.PIMPERSONNAME,";
+	sql << "CASE WHEN t_pimperson.XB = 1 THEN '男' WHEN t_pimperson.XB = 2 THEN '女' ELSE 'null' ";
+	sql << "END AS sex,";
+	sql << "YEAR (CURDATE()) - YEAR ( `CSRQ` ) - CASE WHEN (MONTH (CURDATE()) < MONTH ( `CSRQ` )) ";
+	sql << "OR (MONTH (CURDATE()) = MONTH ( `CSRQ` ) ";
+	sql << "AND DAY (CURDATE()) < DAY ( `CSRQ` )) THEN 1 ELSE 0 ";
+	sql << "END AS age,";	
+	sql << "t_pimperson.POSTALADDRESS,t_pimperson.RETIPLACE,t_pimperson.JTLXR,t_pimperson.JTLXRDH,";
+	sql << "t_pimperson.ORMORGNAME,t_pimperson.ORMORGSECTORNAME,t_pimperson.RANK,t_pcmtxfpsq.YZW,";
+	sql << "t_pcmtxfpsq.YGW,t_pcmtxfpsq.TXDQ,t_pimperson.SJTXRQ,t_pcmtxfpsq.LXDH,t_pimperson.SPDYLJE ";
+	sql << "FROM t_pcmtxfpsq JOIN t_pimperson ON t_pcmtxfpsq.PIMPERSONID = t_pimperson.PIMPERSONID ";
 	SAMPLE_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	RetirementMapper mapper;

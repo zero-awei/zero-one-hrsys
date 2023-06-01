@@ -36,6 +36,23 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(RetirementQueryPageJsonVO);
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
+		//增加字段
+		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("retirement_gan.query.name");
+		info->queryParams["name"].required = false;
+
+		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("retirement_gan.query.id");
+		info->queryParams["id"].required = false;
+
+		info->queryParams.add<String>("idcard").description = ZH_WORDS_GETTER("retirement_gan.query.idcard");
+		info->queryParams["idcard"].required = false;
+
+		info->queryParams.add<String>("organization").description = ZH_WORDS_GETTER("retirement_gan.query.organization");
+		info->queryParams["organization"].required = false;
+
+		info->queryParams.add<String>("department").description = ZH_WORDS_GETTER("retirement_gan.query.department");
+		info->queryParams["department"].required = false;
+
+
 	}
 	// 3.2 定义查询接口处理
 		/*
