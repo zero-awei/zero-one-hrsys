@@ -224,9 +224,9 @@ public:
 		//// 定义分页参数描述
 		//API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.t_pimperson.id");
-		info->queryParams["id"].addExample("default", String("F943C793-520E-46FA-8F6F-5EF08AC1F770"));
-		info->queryParams["id"].required = true;
+		info->queryParams.add<String>("assignId").description = ZH_WORDS_GETTER("employee.t_pimperson.assignId");
+		info->queryParams["assignId"].addExample("default", String("00543BCA-37A2-4634-8352-191569F23216"));
+		info->queryParams["assignId"].required = true;
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/query-assign-info-detail", assignQueryDetail, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {

@@ -90,11 +90,11 @@ std::list<AssignInfoDO> AssignInfoDAO::selectWithPage(const AssignInfoQuery::Wra
 	return sqlSession->executeQuery<AssignInfoDO, AssignInfoMapper>(sqlStr, mapper, params);
 }
 
-std::list<AssignInfoDO> AssignInfoDAO::selectById(const string& id)
+std::list<AssignInfoDO> AssignInfoDAO::selectById(const string& assignId)
 {
-	string sql = "SELECT * FROM t_pimdistirbution WHERE PIMPERSONID LIKE CONCAT('%',?,'%')";
+	string sql = "SELECT * FROM t_pimdistirbution WHERE PIMDISTIRBUTIONID LIKE CONCAT('%',?,'%')";
 	AssignInfoMapper mapper;
-	return sqlSession->executeQuery<AssignInfoDO, AssignInfoMapper>(sql, mapper, "%s", id);
+	return sqlSession->executeQuery<AssignInfoDO, AssignInfoMapper>(sql, mapper, "%s", assignId);
 }
 
 uint64_t AssignInfoDAO::insert(const AssignInfoDO& iObj)

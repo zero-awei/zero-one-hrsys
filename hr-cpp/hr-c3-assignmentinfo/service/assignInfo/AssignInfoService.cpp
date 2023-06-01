@@ -85,7 +85,7 @@ AssignInfoDTO::Wrapper AssignInfoService::QueryDetail(const AssignInfoDTO::Wrapp
 
 	//// ½«DO×ª»»³ÉDTO
 	AssignInfoDAO dao;
-	list<AssignInfoDO> result = dao.selectById(dto->id);
+	list<AssignInfoDO> result = dao.selectById(dto->assignId);
 	for (AssignInfoDO sub : result) {
 		//	dto->id = sub.getId();
 		//	dto->assign = sub.getAssign();
