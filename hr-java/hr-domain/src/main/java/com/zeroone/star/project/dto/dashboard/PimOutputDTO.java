@@ -6,8 +6,10 @@ import lombok.Data;
 
 
 @Data
-@ApiModel("查询产值")
+@ApiModel("月均产值")
 public class PimOutputDTO {
     @ApiModelProperty(value = "月均产值", example = "100000")
-    private Integer yd;
+    private Integer output;
+    @ApiModelProperty(value = "月份", example = "1")
+    private String  monthly;
 }

@@ -42,7 +42,6 @@ interface MsSrforgsectorMapper {
  * @author letian
  * @since 2023-05-21
  */
-@Transactional
 @Service
 public class SrforgsectorServiceImpl extends ServiceImpl<SrforgsectorMapper, Srforgsector> implements ISrforgsectorService {
     @Resource
