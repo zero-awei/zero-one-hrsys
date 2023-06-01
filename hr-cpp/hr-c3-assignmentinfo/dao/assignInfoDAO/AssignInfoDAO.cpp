@@ -100,7 +100,7 @@ std::list<AssignInfoDO> AssignInfoDAO::selectById(const string& id)
 uint64_t AssignInfoDAO::insert(const AssignInfoDO& iObj)
 {
 	string sql = "INSERT INTO t_pimdistirbution (PIMDISTIRBUTIONID,PIMPERSONID,FPLX,FPZT,CFPLX,ORMORGNAME,ORMORGSECTORNAME,ORMDUTYNAME,ORMPOSTNAME,RZKSSJ,RZJSSJ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%s%s%s%s",iObj.getAssignId(), iObj.getId(), iObj.getAssign(),iObj.getAssignState() ,iObj.getEtype(),iObj.getOrganize(),iObj.getDepart(),iObj.getJob(),iObj.getPost(),iObj.getStartTime(),iObj.getEndTime());
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s%s",iObj.getAssignId(), iObj.getId(), iObj.getAssign(),iObj.getAssignState() ,iObj.getEtype(),iObj.getOrganize(),iObj.getDepart(),iObj.getJob(),iObj.getPost(),iObj.getStartTime(),iObj.getEndTime());
 }
 
 int AssignInfoDAO::update(const AssignInfoDO& uObj)
@@ -109,8 +109,8 @@ int AssignInfoDAO::update(const AssignInfoDO& uObj)
 	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s%s", uObj.getAssignId(),uObj.getAssign(), uObj.getAssignState(),uObj.getEtype(), uObj.getOrganize(), uObj.getDepart(), uObj.getJob(), uObj.getPost(), uObj.getStartTime(), uObj.getEndTime(),uObj.getId());
 }
 
-int AssignInfoDAO::deleteById(string id)
+int AssignInfoDAO::deleteById(string assignId)
 {
-	string sql = "DELETE FROM t_pimdistirbution WHERE PIMPERSONID=?";
-	return sqlSession->executeUpdate(sql, "%s", id);
+	string sql = "DELETE FROM t_pimdistirbution WHERE PIMDISTIRBUTIONID=?";
+	return sqlSession->executeUpdate(sql, "%s", assignId);
 }

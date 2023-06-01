@@ -238,7 +238,7 @@ public:
 
 private:
 	// 3.3 演示新增数据
-	Uint64JsonVO::Wrapper execAddAssignInfo(const AssignInfoDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execAddAssignInfo(const AssignInfoDTO::Wrapper& dto);
 	StringJsonVO::Wrapper execDeleteAssignInfo(const AssignInfoDTO::Wrapper& dto);
 	//ImportAssignInfoJsonVO::Wrapper execImportAssignInfo(const ImportAssignInfoDTO::Wrapper& dto);
 	AssignInfoPageJsonVO::Wrapper execAssignQuery(const AssignInfoQuery::Wrapper& query);
