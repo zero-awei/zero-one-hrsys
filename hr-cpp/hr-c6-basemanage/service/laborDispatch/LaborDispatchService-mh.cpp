@@ -97,7 +97,8 @@ bool LaborDispatchService::removeData_ld(string id)
 std::string LaborDispatchService::LaborDispatchExport_ld(const LaborDispatchQuery::Wrapper& query)
 {
 	vector<vector<string>> data;
-	list<LaborDispatchDO> result = LaborDispatchDAO().selectWrithPage_Export(query);
+	LaborDispatchDAO dao;
+	list<LaborDispatchDO> result =dao.selectWrithPage_Export(query);
 	data.push_back({
 		ZH_WORDS_GETTER("ldcompany.field.PIMLABOURCAMPANYNAME"),
 		ZH_WORDS_GETTER("ldcompany.field.ORGNAME"),
@@ -139,6 +140,6 @@ std::string LaborDispatchService::LaborDispatchExport_ld(const LaborDispatchQuer
 	//删除产生的临时文件
 	remove(fileName.c_str());
 	//返回下载路径
-	string filepath = filedName;
+	string filepath = "8.130.87.15:8888/" + filedName;
 	return filepath;
 }
