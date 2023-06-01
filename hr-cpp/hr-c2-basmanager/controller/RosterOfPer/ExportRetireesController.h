@@ -1,6 +1,4 @@
 #pragma once
-#pragma once
-
 #ifndef _EXPORT_RETIREES_CONTROLLER_
 #define _EXPORT_RETIREES_CONTROLLER_
 
