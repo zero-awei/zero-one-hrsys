@@ -81,5 +81,5 @@ public interface OrgInfoApis {
      * 导出组织地址接口
      * @param ids
      */
-    JsonVO<List<ExportOrgAddressDto>> exportOrgAddress(OrgAddressDto ids);
+    JsonVO<ExportOrgAddressDto> exportOrgAddress(OrgAddressDto ids);
 }

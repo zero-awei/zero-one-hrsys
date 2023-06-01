@@ -75,7 +75,7 @@ public class OrgInfoController implements OrgInfoApis {
     @GetMapping("export-org-address")
     @ApiOperation("导出指定组织地址信息")
     @Override
-    public JsonVO<List<ExportOrgAddressDto>> exportOrgAddress(@RequestBody OrgAddressDto ids) {
+    public JsonVO<ExportOrgAddressDto> exportOrgAddress(@RequestBody OrgAddressDto ids) {
         return null;
     }
 
