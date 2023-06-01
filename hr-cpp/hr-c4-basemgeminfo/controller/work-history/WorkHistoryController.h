@@ -174,7 +174,7 @@ public: // 定义接口
 		
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("pimworkhistoryid").description = ZH_WORDS_GETTER("workhistory.field.pimworkhistoryid");
-		info->queryParams["pimworkhistoryid"].addExample("default", String("6611212223"));
+		info->queryParams["pimworkhistoryid"].addExample("default", String("01AE11A5-8997-46F1-A56D-3F17DFEF5149"));
 		info->queryParams["pimworkhistoryid"].required = false;
 
 
@@ -190,15 +190,15 @@ public: // 定义接口
 	ENDPOINT_INFO(modifyWorkHistory) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("workhistory.put.summary");
-		////定义默认授权参数
-		//API_DEF_ADD_AUTH();
+		//定义默认授权参数
+		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	
-	ENDPOINT(API_M_PUT, "/workhistory/update", modifyWorkHistory,  BODY_DTO(WorkHistoryDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/workhistory/update", modifyWorkHistory, API_HANDLER_AUTH_PARAME, BODY_DTO(ModWorkHistoryDTO::Wrapper, dto)) {
 		// 响应结果
-		API_HANDLER_RESP_VO(execModifyWorkHistory(dto));
+		API_HANDLER_RESP_VO(execModifyWorkHistory(dto,authObject->getPayload()));
 	}
 
 private: 
@@ -229,7 +229,7 @@ private:
 	//定义查询详情函数
 	WorkHistoryJsonVO::Wrapper execQueryWorkHistory(const WorkHistoryQuery::Wrapper& query);
 	//定义修改执行函数
-	StringJsonVO::Wrapper execModifyWorkHistory(const WorkHistoryDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execModifyWorkHistory(const ModWorkHistoryDTO::Wrapper& dto, const PayloadDTO& payload);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

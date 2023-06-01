@@ -37,7 +37,7 @@ public:
 		API_DEF_ADD_PAGE_PARAMS();
 		// 添加其他查询参数 
 		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("certificateinformation.field.pimpersonid");
-		info->queryParams["pimpersonid"].addExample("default", String("6611212223"));
+		info->queryParams["pimpersonid"].addExample("default", String("DA185CBA-5D0C-4234-A9F7-37148C3BEA10"));
 		info->queryParams["pimpersonid"].required = false;
 		
 		

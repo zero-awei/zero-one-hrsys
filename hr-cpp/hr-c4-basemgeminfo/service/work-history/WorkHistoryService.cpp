@@ -2,6 +2,7 @@
 #include "WorkHistoryService.h"
 #include "dao/work-history/WorkHistoryDAO.h"
 #include "domain/do/work-history/DelWorkHistoryDO.h"
+#include "domain/do/work-history/ModWorkHistoryDO.h"
 #include "ExcelComponent.h"
 #include "CharsetConvertHepler.h"
 #include "domain/do/work-history/WorkHistoryIntoDO.h"
@@ -17,19 +18,19 @@ WorkHistoryDTO::Wrapper WorkHistoryService::listDetail(const WorkHistoryQuery::W
 	auto lists = dao.selectDetail(query);
 	auto dto = WorkHistoryDTO::createShared();
 	if (!lists.empty()) {
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, lists.front(), rzkssj, Rzkssj, rzjssj, Rzjssj, ormorgname, Ormorgname, ormdutyname, Ormdutyname, ormpostname, Ormpostname, cfplx, Cfplx, experience, Experience, pimpersonid, Pimpersonid, pimworkhistoryid, Pimworkhistoryid);
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, lists.front(), rzkssj, Rzkssj, rzjssj, Rzjssj, ormorgname, Ormorgname, ormdutyname, Ormdutyname, ormpostname, Ormpostname, cfplx, Cfplx, experience, Experience, pimpersonid, Pimpersonid,updatedate, Updatedate, updateman, Updateman, pimworkhistoryid, Pimworkhistoryid);
 	}
 	return dto;
 }
 
-bool WorkHistoryService::updateData(const WorkHistoryDTO::Wrapper& dto)
+bool WorkHistoryService::updateData(const ModWorkHistoryDTO::Wrapper& dto)
 {
 	// 组装DO数据
-	WorkHistoryDO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Rzkssj, rzkssj, Rzjssj, rzjssj, Ormorgname, ormorgname, Ormdutyname, ormdutyname, Ormpostname, ormpostname, Cfplx, cfplx, Experience, experience, Pimworkhistoryid, pimworkhistoryid);
+	ModWorkHistoryDO data;
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Rzkssj, rzkssj, Rzjssj, rzjssj, Ormorgname, ormorgname, Ormdutyname, ormdutyname, Ormpostname, ormpostname, Cfplx, cfplx, Experience, experience, Updatedate,updatedate,Updateman,updateman,Pimworkhistoryid, pimworkhistoryid);
 	// 执行数据修改
 	WorkHistoryDAO dao;
-	return dao.update(data) == 1;
+	return dao.update(data);
 }
 
 

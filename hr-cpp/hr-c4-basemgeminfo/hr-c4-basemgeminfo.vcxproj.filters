@@ -201,9 +201,6 @@
     <ClInclude Include="domain\vo\certificate-information\JobTitleInformationVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\work-history\ModWorkHistoryVO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\vo\work-history\WorkHistoryVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -358,6 +355,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="controller\trainingrecord\TrainingRecordController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\work-history\ModWorkHistoryVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\work-history\ModWorkHistoryDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

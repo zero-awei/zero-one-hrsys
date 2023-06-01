@@ -190,13 +190,22 @@ WorkHistoryJsonVO::Wrapper WorkHistoryController::execQueryWorkHistory(const Wor
 	return jvo;
 }
 //定义修改指定员工工作履历函数execModifyWorkHistory
-StringJsonVO::Wrapper WorkHistoryController::execModifyWorkHistory(const WorkHistoryDTO::Wrapper& dto)
+StringJsonVO::Wrapper WorkHistoryController::execModifyWorkHistory(const ModWorkHistoryDTO::Wrapper& dto,const PayloadDTO& payload)
 {
+	//获取修改人id
+	dto->updateman = payload.getUsername();
+	//获取当前时间
+	time_t timep;
+	time(&timep);
+	char tmp[256];
+	strftime(tmp, sizeof(tmp), "%Y-%m-%d %H:%M:%S", localtime(&timep));
+	//更改更新时间
+	dto->updatedate = tmp;
 	
 	// 定义返回数据对象
 	auto jvo = StringJsonVO::createShared();
 	// 参数校验
-	if (dto->pimworkhistoryid.getValue("").empty())
+	if (!dto->pimworkhistoryid)
 	{
 		jvo->init(String("pimworkhistoryid must be not null"), RS_PARAMS_INVALID);
 		return jvo;

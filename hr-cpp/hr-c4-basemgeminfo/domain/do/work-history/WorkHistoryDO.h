@@ -14,6 +14,8 @@ class WorkHistoryDO
 	CC_SYNTHESIZE(string, cfplx, Cfplx);
 	CC_SYNTHESIZE(int, experience, Experience);
 	CC_SYNTHESIZE(string, pimpersonid, Pimpersonid);
+	CC_SYNTHESIZE(string, updatedate, Updatedate);
+	CC_SYNTHESIZE(string, updateman, Updateman);
 	CC_SYNTHESIZE(string, pimworkhistoryid, Pimworkhistoryid);
 	
 };

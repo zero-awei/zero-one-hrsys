@@ -23,7 +23,7 @@
 
 #include "Mapper.h"
 #include "domain/do/work-history/WorkHIstoryFindPageDO.h"
-#include "../../domain/do/work-history/WorkHistoryDO.h"
+#include "../../domain/do/work-history/ModWorkHistoryDO.h"
 
 /**
  * ×Ö¶ÎÆ¥ÅäÓ³Éä
@@ -67,7 +67,31 @@ public:
 		data.setCfplx(resultSet->getString(7));
 		data.setExperience(resultSet->getUInt64(8));
 		data.setPimpersonid(resultSet->getString(9));
+		data.setUpdatedate(resultSet->getString(10));
+		data.setUpdateman(resultSet->getString(11));
+		data.setPimworkhistoryid(resultSet->getString(12));
+		
+		return data;
+	}
+};
+class ModWorkHistoryMapper : public Mapper<ModWorkHistoryDO>
+{
+public:
+	ModWorkHistoryDO mapper(ResultSet* resultSet) const override
+	{
+		ModWorkHistoryDO data;
+		data.setRzkssj(resultSet->getString(1));
+		data.setRzjssj(resultSet->getString(2));
+		data.setOrmorgname(resultSet->getString(3));
+		data.setOrmorgsectorname(resultSet->getString(4));
+		data.setOrmdutyname(resultSet->getString(5));
+		data.setOrmpostname(resultSet->getString(6));
+		data.setCfplx(resultSet->getString(7));
+		data.setExperience(resultSet->getUInt64(8));
+		data.setPimpersonid(resultSet->getString(9));
 		data.setPimworkhistoryid(resultSet->getString(10));
+		data.setUpdatedate(resultSet->getString(11));
+		data.setUpdateman(resultSet->getString(12));
 
 		return data;
 	}

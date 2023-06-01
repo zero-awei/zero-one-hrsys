@@ -50,6 +50,8 @@ workhistory:
   suffix: 导入文件后缀名
   body: 导入文件主体
   update: 更新时间
+  updatedate: 更新时间
+  updateman: 更新人
  put:
   summary: 单条修改工作履历数据
  export:

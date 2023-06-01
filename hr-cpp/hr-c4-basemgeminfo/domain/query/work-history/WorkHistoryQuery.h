@@ -62,6 +62,16 @@ class WorkHistoryQuery : public oatpp::DTO
 	DTO_FIELD_INFO(pimworkhistoryid) {
 		info->description = ZH_WORDS_GETTER("workhistory.field.pimworkhistoryid");
 	}
+	//更新时间updatedate
+	DTO_FIELD(String, updatedate);
+	DTO_FIELD_INFO(updatedate) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.updatedate");
+	}
+	//更新人updateman
+	DTO_FIELD(String, updateman);
+	DTO_FIELD_INFO(updateman) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.updateman");
+	}
 	
 };
 
