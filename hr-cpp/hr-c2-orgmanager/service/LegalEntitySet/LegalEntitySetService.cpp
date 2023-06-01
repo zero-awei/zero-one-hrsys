@@ -60,14 +60,15 @@ uint64_t LegalEntitySetService::insertData(const LegalEntitySetDTO::Wrapper& dto
 	return dao.insert2(data);
 }
 
-bool LegalEntitySetService::updateData(const LegalEntitySetDTO::Wrapper& dto)
-{
+bool LegalEntitySetService::updateData(const LegalEntitySetDTO::Wrapper& dto) {
 	// 组装DO数据
 	LegalEntitySetDO data;
-	/*data.setORMSIGNORGID(dto->ormsignorgid.getValue(""));
+	/*
+	data.setORMSIGNORGID(dto->ormsignorgid.getValue(""));
 	data.setORMSIGNORGNAME(dto->ormsignorgname.getValue(""));
 	data.setCONTRACTSIGNORGNAME(dto->contractsignorgname.getValue(""));
-	data.setISDEFAULTSIGNORG(dto->isdefaultsignorg.getValue(1));;*/
+	data.setISDEFAULTSIGNORG(dto->isdefaultsignorg.getValue(1));
+	*/
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGID, ormsignorgid, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME, contractsignorgname)
 	// 执行数据修改
 	LegalEntitySetDAO dao;
