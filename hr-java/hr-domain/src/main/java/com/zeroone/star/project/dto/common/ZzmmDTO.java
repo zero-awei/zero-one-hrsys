@@ -13,8 +13,8 @@ import lombok.Data;
 @ApiModel("政治面貌下拉列表数据对象")
 @Data
 public class ZzmmDTO {
-//    @ApiModelProperty(value = "政治面貌编号",example = "1")
-//    private Integer id;
+    @ApiModelProperty(value = "政治面貌编号",example = "1")
+    private Integer id;
     @ApiModelProperty(value = "政治面貌名称",example = "中共党员")
     private String name;
 }
