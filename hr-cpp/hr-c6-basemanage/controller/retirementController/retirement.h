@@ -47,7 +47,7 @@ public:
 		info->queryParams["idcard"].required = false;
 
 		info->queryParams.add<String>("organization").description = ZH_WORDS_GETTER("retirement_gan.query.organization");
-		info->queryParams["name"].required = false;
+		info->queryParams["organization"].required = false;
 
 		info->queryParams.add<String>("department").description = ZH_WORDS_GETTER("retirement_gan.query.department");
 		info->queryParams["department"].required = false;

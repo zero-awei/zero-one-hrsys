@@ -21,15 +21,16 @@ public:
 		data.setMailing_address(resultSet->getString(5));
 		data.setRetire_address(resultSet->getString(6));
 		data.setFamily_Contact(resultSet->getString(7));
-		data.setOrganization(resultSet->getString(8));
-		data.setDepartment(resultSet->getString(9));
-		data.setRank(resultSet->getString(10));
-		data.setBefore_retire_rank(resultSet->getString(11));
-		data.setBefore_retire_post(resultSet->getString(12));
-		data.setRetire_time(resultSet->getString(13));
-		data.setRead_retire_time(resultSet->getString(14));
-		data.setTel(resultSet->getString(15));
-		data.setApproved_Pension_amount(resultSet->getString(16));
+		data.setFamily_Contact_tel(resultSet->getString(8));
+		data.setOrganization(resultSet->getString(9));
+		data.setDepartment(resultSet->getString(10));
+		data.setRank(resultSet->getString(11));
+		data.setBefore_retire_rank(resultSet->getString(12));
+		data.setBefore_retire_post(resultSet->getString(13));
+		data.setRetire_time(resultSet->getString(14));
+		data.setRead_retire_time(resultSet->getString(15));
+		data.setTel(resultSet->getString(16));
+		data.setApproved_Pension_amount(resultSet->getString(17));
 		return data;
 	}
 };

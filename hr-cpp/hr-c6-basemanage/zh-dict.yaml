@@ -188,17 +188,17 @@ retirement_gan:
   summary: 分页查询离退休列表
   summary1: 分页查询合同管理列表
  query:
-  id: 员工id
+  id: 员工编号
   name: 员工姓名
   sex: 员工性别
   age: 员工年龄
   mailing_address: 员工通讯地址
   retire_address: 员工退休地
-  idcard: 员工证件号码
+  idcard: 证件号码
   employee_state: 员工状态
   work_state: 在岗状态
-  department: 员工部门
-  organization: 员工组织
+  department: 部门
+  organization: 组织
 
 contract:
   upload: 导入合同
