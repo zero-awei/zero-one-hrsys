@@ -42,7 +42,7 @@ public: // 定义接口
 		info->queryParams.add<String>("pimresearchfindingsid").description = ZH_WORDS_GETTER("scientific.pimresearchfindingsid");
 		info->queryParams["pimresearchfindingsid"].addExample("default", String("167CEAAD-F15E-45E1-B1C4-50DAD227B3BF"));
 	}
-	ENDPOINT(API_M_GET, "/scientific", queryScientific, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/scientific/select", queryScientific, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, ScientificViewQuery, qps);
 		// 响应结果
@@ -55,7 +55,7 @@ public: // 定义接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	ENDPOINT(API_M_PUT, "/scientific", modifyScientific, BODY_DTO(ScientificDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/scientific/modify", modifyScientific, BODY_DTO(ScientificDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyScientific(dto));
 	}
@@ -69,7 +69,7 @@ public: // 定义接口
 		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("scientific.pimpersonid");
 		info->queryParams["pimpersonid"].addExample("default", String("EA3AE5AA-2318-4C84-AAF7-99CBDE9BA27B"));
 	}
-	ENDPOINT(API_M_POST, "/scientific", downloadScientific, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_POST, "/scientific/download", downloadScientific, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, ScientificDownloadQuery, qps);
 		// 响应结果

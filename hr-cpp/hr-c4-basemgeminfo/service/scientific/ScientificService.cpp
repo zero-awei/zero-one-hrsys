@@ -84,10 +84,17 @@ string ScientificService::download(const ScientificDownloadQuery::Wrapper& query
 	FastDfsClient client("conf/client.conf");
 #else
 	//定义客户端对象
-	FastDfsClient client("8.130.87.15");
+	FastDfsClient client("192.168.88.1");
 #endif
 	//上传excel结果
-	string filedName = client.uploadFile(fileName);
-	cout << "upload fieldname is : " << filedName << endl;
-	return filedName;
+	std::string fieldName = client.uploadFile(fileName);
+	std::cout << "upload fieldname is : " << fieldName << std::endl;
+	ss.str("");
+	ss.clear();
+	ss << "http://192.168.88.1:8888/" << fieldName;
+
+
+	//cout << ss.str() << endl;
+
+	return ss.str();
 }
