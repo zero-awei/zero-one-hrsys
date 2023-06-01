@@ -112,8 +112,8 @@ std::vector<std::string> JobTitleInfoDAO::getHead(const JobTitleDTO::Wrapper& qu
 {
 	// 构建返回对象
 	vector<std::string> head;
-	if(query->employee_id)
-		head.push_back(u8"")
+	if (query->employee_id)
+		head.push_back(u8"");
 	return head;
 }
 
