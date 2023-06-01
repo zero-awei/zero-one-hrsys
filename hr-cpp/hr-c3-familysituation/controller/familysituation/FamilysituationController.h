@@ -62,7 +62,7 @@ public: // 定义接口
  		// 定义分页参数描述
  		API_DEF_ADD_PAGE_PARAMS();
 		info->queryParams.add<String>("personid").description = ZH_WORDS_GETTER("familysituation.field.personid");
-		info->queryParams["personid"].addExample("default", String("1"));
+		info->queryParams["personid"].addExample("default", String("0002CC75-F8EB-45B3-A359-0310EC7F6D5B"));
  	}
  	// 定义查询接口处理
  	ENDPOINT(API_M_GET, "/query-by-family-situation", queryFamilysituation, QUERIES(QueryParams, queryParams))

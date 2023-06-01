@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "FamilysituationService.h"
+#include "SnowFlake.h"
 #include "../../dao/Familysituation/FamilysituationDAO.h"
 
 // 分页查询所有数据
@@ -60,6 +61,9 @@ FamilysituationDTO::Wrapper FamilysituationService::getOne(const Familysituation
 
 uint64_t FamilysituationService::saveData(const FamilysituationDTO::Wrapper& dto)
 {
+	// 雪花算法生成id
+	SnowFlake c3(1, 3);
+	dto->id = to_string(c3.nextId());
 	// 组装DO数据
 	FamilysituationDO data;
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, PersonId, personid, Id, id, Name, name, Relationship, frelationship, Doctype, doctype, \

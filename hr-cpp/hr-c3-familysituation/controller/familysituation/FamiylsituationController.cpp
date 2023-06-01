@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "FamilysituationController.h"
 #include "FastDfsClient.h"
-#include "SnowFlake.h"
 #include "../../service/familysituation/FamilysituationService.h"
 
 // 分页查询响应
@@ -33,8 +32,6 @@ FamilysituationJsonVO::Wrapper FamilysituationController::execOneQueryFamilysitu
 Uint64JsonVO::Wrapper FamilysituationController::execAddFamilysituation(const FamilysituationDTO::Wrapper& dto)
 {
 	auto vo = Uint64JsonVO::createShared();
-	SnowFlake c3(1, 3);
-	dto->id = to_string(c3.nextId());
 	// 参数校验
 	// 非空校验
 	if (!dto->id || !dto->personid)
@@ -83,7 +80,6 @@ Uint64JsonVO::Wrapper FamilysituationController::execModifyFamilysituation(const
 	{
 		vo->fail(UInt64(result));
 	}
-	vo->success(UInt64(1));
 	return vo;
 }
 
