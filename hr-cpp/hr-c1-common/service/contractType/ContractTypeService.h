@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: xubuxi
- @Date: 2023/05/19 21:31:12
+ @Author: Andrew211vibe
+ @Date: 2023/06/02 1:12:53
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,16 +17,19 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "ContractTypeController.h"
-#include "service/contractType/ContractTypeService.h"
+#ifndef _CONTRACTTYPESERVICE_H_
+#define _CONTRACTTYPESERVICE_H_
 
-ContractTypeVO::Wrapper ContractTypeController::execQueryContractType()
+#include "domain/dto/contractType/ContractTypeDTO.h"
+
+/**
+ * 合同类别下拉列表service实现
+ * 负责人：Andrew
+ */
+class ContractTypeService
 {
-	auto vo = ContractTypeVO::createShared();
+public:
+	ContractTypeListDTO::Wrapper listAll();
+};
 
-	ContractTypeService service;
-	auto dto = service.listAll();
-	vo->success(dto);
-	return vo;
-}
+#endif // !_CONTRACTTYPESERVICE_H_

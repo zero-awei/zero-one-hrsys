@@ -70,6 +70,7 @@ class ListDTO : public oatpp::DTO
 	}
 	DTO_FIELD(List<T>, pullList) = {};
 };
+
 /**
  * 下拉列表DTO领域模型
  * 负责人：Andrew

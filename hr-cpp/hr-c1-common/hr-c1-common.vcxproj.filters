@@ -59,6 +59,8 @@
     <ClCompile Include="service\declareType\DeclareTypeService.cpp" />
     <ClCompile Include="dao\DeclareType\DeclareTypeListDAO.cpp" />
     <ClCompile Include="dao\archivesLevel\ArchivesLevelsDAO.cpp" />
+    <ClCompile Include="service\contractType\ContractTypeService.cpp" />
+    <ClCompile Include="dao\contractType\ContractTypeDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -174,6 +176,12 @@
     <ClInclude Include="dao\DeclareType\DeclareTypeMapper.h" />
     <ClInclude Include="dao\archivesLevel\ArchivesLevelMapper.h" />
     <ClInclude Include="dao\archivesLevel\ArchivesLevelsDAO.h" />
+    <ClInclude Include="service\contractType\ContractTypeService.h" />
+    <ClInclude Include="dao\contractType\ContractTypeDAO.h" />
+    <ClInclude Include="dao\contractType\ContractTypeMapper.h" />
+    <ClInclude Include="domain\dto\contractType\TypeContractDTO.h" />
+    <ClInclude Include="domain\dto\contractType\ContractTypeDTO.h" />
+    <ClInclude Include="domain\vo\contractType\ContractTypeVO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: xubuxi
- @Date: 2023/05/19 21:31:12
+ @Author: Andrew211vibe
+ @Date: 2023/06/02 1:41:28
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,16 +17,22 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "ContractTypeController.h"
-#include "service/contractType/ContractTypeService.h"
+#ifndef _CONTRACTTYPEVO_H_
+#define _CONTRACTTYPEVO_H_
 
-ContractTypeVO::Wrapper ContractTypeController::execQueryContractType()
+#include "../../GlobalInclude.h"
+#include "../../dto/contractType/ContractTypeDTO.h"
+
+#include OATPP_CODEGEN_BEGIN(DTO)
+
+/**
+ * 合同类别下拉列表VO
+ */
+class ContractTypeVO : public JsonVO<ContractTypeListDTO::Wrapper>
 {
-	auto vo = ContractTypeVO::createShared();
+	DTO_INIT(ContractTypeVO, JsonVO<ContractTypeListDTO::Wrapper>);
+};
 
-	ContractTypeService service;
-	auto dto = service.listAll();
-	vo->success(dto);
-	return vo;
-}
+#include OATPP_CODEGEN_END(DTO)
+
+#endif // !_CONTRACTTYPEVO_H_

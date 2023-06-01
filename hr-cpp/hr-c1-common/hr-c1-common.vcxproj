@@ -191,6 +191,8 @@
     <ClInclude Include="dao\certs\certTypeDAO\CertTypeMapper.h" />
     <ClInclude Include="dao\certs\profCertsDAO\ProfCertsDAO.h" />
     <ClInclude Include="dao\certs\profCertsDAO\ProfCertsMapper.h" />
+    <ClInclude Include="dao\contractType\ContractTypeDAO.h" />
+    <ClInclude Include="dao\contractType\ContractTypeMapper.h" />
     <ClInclude Include="dao\costTypeList\CostTypeListDAO.h" />
     <ClInclude Include="dao\costTypeList\CostTypeMapper.h" />
     <ClInclude Include="dao\DeclareType\DeclareTypeListDAO.h" />
@@ -234,6 +236,8 @@
     <ClInclude Include="domain\do\leaveReson\LeaveReasonDO.h" />
     <ClInclude Include="domain\dto\archivesLevels\ArchivesLevelsDTO.h" />
     <ClInclude Include="domain\dto\awardLevel\AwardLevelDTO.h" />
+    <ClInclude Include="domain\dto\contractType\ContractTypeDTO.h" />
+    <ClInclude Include="domain\dto\contractType\TypeContractDTO.h" />
     <ClInclude Include="domain\dto\declareType\DeclareTypeDTO.h" />
     <ClInclude Include="domain\dto\typeContract\TypeContractDTO.h" />
     <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
@@ -245,6 +249,7 @@
     <ClInclude Include="domain\vo\awardLevel\AwardLevelVO.h" />
     <ClInclude Include="domain\vo\certs\ProfCertsVO.h" />
     <ClInclude Include="domain\vo\certs\CertTypeVO.h" />
+    <ClInclude Include="domain\vo\contractType\ContractTypeVO.h" />
     <ClInclude Include="domain\vo\declareList\DeclareListVO.h" />
     <ClInclude Include="domain\vo\JobDownloadVO\JobDownloadVO.h" />
     <ClInclude Include="domain\vo\JobUpdateVO\JobUpdateVO.h" />
@@ -257,6 +262,7 @@
     <ClInclude Include="service\certs\certTypeService\CertTypeService.h" />
     <ClInclude Include="service\certs\profCertsService\ProfCertsService.h" />
     <ClInclude Include="service\armyLevelType\ArmyLevelTypeService.h" />
+    <ClInclude Include="service\contractType\ContractTypeService.h" />
     <ClInclude Include="service\costTypeList\CostTypeListService.h" />
     <ClInclude Include="service\declareType\DeclareTypeService.h" />
     <ClInclude Include="service\dismissReason\DismissReasonService.h" />
@@ -299,6 +305,7 @@
     <ClCompile Include="dao\awardLevel\AwardLevelDAO.cpp" />
     <ClCompile Include="dao\certs\certTypeDAO\CertTypeDAO.cpp" />
     <ClCompile Include="dao\certs\profCertsDAO\ProfCertsDAO.cpp" />
+    <ClCompile Include="dao\contractType\ContractTypeDAO.cpp" />
     <ClCompile Include="dao\costTypeList\CostTypeListDAO.cpp" />
     <ClCompile Include="dao\DeclareType\DeclareTypeListDAO.cpp" />
     <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
@@ -317,6 +324,7 @@
     <ClCompile Include="service\certs\certTypeService\CertTypeService.cpp" />
     <ClCompile Include="service\certs\profCertsService\ProfCertsService.cpp" />
     <ClCompile Include="service\armyLevelType\ArmyLevelTypeService.cpp" />
+    <ClCompile Include="service\contractType\ContractTypeService.cpp" />
     <ClCompile Include="service\costTypeList\CostTypeListService.cpp" />
     <ClCompile Include="service\declareType\DeclareTypeService.cpp" />
     <ClCompile Include="service\dismissReason\DismissReasonService.cpp" />

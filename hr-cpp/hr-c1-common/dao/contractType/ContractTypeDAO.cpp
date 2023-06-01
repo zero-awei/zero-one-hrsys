@@ -1,8 +1,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: xubuxi
- @Date: 2023/05/19 21:31:12
+ @Author: Andrew211vibe
+ @Date: 2023/06/02 1:16:32
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,15 +17,12 @@
  limitations under the License.
 */
 #include "stdafx.h"
-#include "ContractTypeController.h"
-#include "service/contractType/ContractTypeService.h"
+#include "ContractTypeDAO.h"
+#include "ContractTypeMapper.h"
 
-ContractTypeVO::Wrapper ContractTypeController::execQueryContractType()
+std::list<ContractTypeDO> ContractTypeDAO::selectAll()
 {
-	auto vo = ContractTypeVO::createShared();
-
-	ContractTypeService service;
-	auto dto = service.listAll();
-	vo->success(dto);
-	return vo;
+	string sql = "SELECT `SBM`, `PIMCONTRACTTYPENAME` FROM `t_pimcontracttype`";
+	ContractTypeMapper mapper;
+	return sqlSession->executeQuery<ContractTypeDO, ContractTypeMapper>(sql, mapper);
 }

@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: xubuxi
- @Date: 2023/05/19 21:31:12
+ @Author: Andrew211vibe
+ @Date: 2023/06/02 1:21:11
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,16 +17,28 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "ContractTypeController.h"
-#include "service/contractType/ContractTypeService.h"
+#ifndef _CONTRACTTYPEMAPPER_H_
+#define _CONTRACTTYPEMAPPER_H_
 
-ContractTypeVO::Wrapper ContractTypeController::execQueryContractType()
+#include "Mapper.h"
+#include "domain/do/contractType/ContractTypeDO.h"
+
+/**
+ * 合同类别下拉列表字段映射
+ * 负责人：Andrew
+ */
+class ContractTypeMapper : public Mapper<ContractTypeDO>
 {
-	auto vo = ContractTypeVO::createShared();
+public:
+	ContractTypeDO mapper(ResultSet* resultSet) const override
+	{
+		ContractTypeDO data;
 
-	ContractTypeService service;
-	auto dto = service.listAll();
-	vo->success(dto);
-	return vo;
-}
+		data.setSbm(resultSet->getString(1));
+		data.setPimcontracttypename(resultSet->getString(2));
+
+		return data;
+	}
+};
+
+#endif // !_CONTRACTTYPEMAPPER_H_

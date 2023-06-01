@@ -25,24 +25,41 @@
 /**
  * 定义一个合同类别下拉列表修改的数据传输模型
  */
-class TypeContractDTO : public oatpp::DTO
+class ContractTypeDTO : public oatpp::DTO
 {
-	DTO_INIT(TypeContractDTO, DTO);
+	DTO_INIT(ContractTypeDTO, DTO);
 	// 合同类别名称
 	DTO_FIELD(String, htlxname);
 	DTO_FIELD_INFO(htlxname) {
 		info->description = ZH_WORDS_GETTER("common.dto.htlxname");
 	}
+	// 合同类别编号
+	DTO_FIELD(String, htlxid);
+	DTO_FIELD_INFO(htlxid) {
+		info->description = ZH_WORDS_GETTER("common.dto.htlxid");
+	}
+
+public:
+	ContractTypeDTO()
+	{
+		htlxid = "";
+		htlxname = "";
+	}
+
+	ContractTypeDTO(String code, String name)
+	{
+		htlxid = code;
+		htlxname = name;
+	}
 };
 
-class TypeContractListDTO : public oatpp::DTO
+class ContractTypeListDTO : public oatpp::DTO
 {
-	DTO_INIT(TypeContractListDTO, DTO);
-	// 合同类别名称
-	DTO_FIELD(List<TypeContractDTO::Wrapper>, htlxList) = {};
-	DTO_FIELD_INFO(htlxList) {
+	DTO_INIT(ContractTypeListDTO, DTO);
+	DTO_FIELD_INFO(pullList) {
 		info->description = ZH_WORDS_GETTER("common.dto.htlxList");
 	}
+	DTO_FIELD(List<ContractTypeDTO::Wrapper>, pullList) = {};
 };
 
 #include OATPP_CODEGEN_END(DTO)

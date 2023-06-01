@@ -115,8 +115,9 @@ contractStatus:
  terminated: 已终止
 htlx:
  query-list:
-  summary: 查询合同类别下拉列表
- field:
+  summary: 合同类别下拉列表
+ dto:
    htlxname: 合同类别名称
+   htlxid: 合同类别编号
    htlxList: 合同类别列表
 
