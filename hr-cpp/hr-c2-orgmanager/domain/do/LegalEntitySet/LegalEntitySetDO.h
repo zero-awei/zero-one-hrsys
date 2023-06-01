@@ -26,6 +26,7 @@ class LegalEntitySetDO {
 	CC_SYNTHESIZE(string, ormsignorgname, ORMSIGNORGNAME);
 	// 签约主体单位名称 t_contractsignorg
 	CC_SYNTHESIZE(string, contractsignorgname, CONTRACTSIGNORGNAME);
+	CC_SYNTHESIZE(string, contractsignorgid, CONTRACTSIGNORGID);
 	// 默认签约主体  t_contractsignorg
 	CC_SYNTHESIZE(string, isdefaultsignorg, ISDEFAULTSIGNORG);
 	LegalEntitySetDO() {
@@ -33,6 +34,7 @@ class LegalEntitySetDO {
 		ormsignorgname = "";
 		contractsignorgname = "";
 		isdefaultsignorg = "";
+		contractsignorgid = "";
 	};
 	LegalEntitySetDO(std::vector<std::string> vec) {
 		int i = 0;
@@ -40,11 +42,12 @@ class LegalEntitySetDO {
 		setCONTRACTSIGNORGNAME(vec[i++]);
 		setISDEFAULTSIGNORG(vec[i++]);
 	}
-	LegalEntitySetDO(string ormsignorgid, string ormsignorgname, string contractsignorgname, string isdefaultsignorg) {
+	LegalEntitySetDO(string ormsignorgid, string ormsignorgname, string contractsignorgname, string isdefaultsignorg, string contractsignorgid) {
 		this->ormsignorgid = ormsignorgid;
 		this->ormsignorgname = ormsignorgname;
 		this->contractsignorgname = contractsignorgname;
 		this->isdefaultsignorg = isdefaultsignorg;
+		this->contractsignorgid = contractsignorgid;
 	}
 };
 #endif // !_LEGALENTITYSET_DO_

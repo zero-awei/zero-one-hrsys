@@ -24,6 +24,10 @@ class LegalEntitySetJsonVO : public JsonVO<LegalEntitySetDTO::Wrapper> {
 	DTO_INIT(LegalEntitySetJsonVO, JsonVO<LegalEntitySetDTO::Wrapper>);
 };
 
+class LegalEntitySetPullDownJsonVO : public JsonVO<LegalEntitySetPullDownDTO::Wrapper> {
+	DTO_INIT(LegalEntitySetPullDownJsonVO, JsonVO<LegalEntitySetPullDownDTO::Wrapper>);
+};
+
 /**
  * 示例分页显示JsonVO，用于响应给客户端的Json对象
  */

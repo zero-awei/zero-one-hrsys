@@ -31,19 +31,15 @@ if (query->isdefaultsignorg) { \
 	SQLPARAMS_PUSH(params, "s", std::string, query->isdefaultsignorg.getValue("")); \
 }
 
-uint64_t LegalEntitySetDAO::legalerNamePullDownList(const LegalEntitySetQuery::Wrapper& query) {
-	stringstream sql;
-	sql << "SELECT ormsignorgname"
-		<< " FROM t_contractsignorg"
-		<< " INNER JOIN t_ormsignorg ON t_contractsignorg.ORMSIGNORGID = t_ormsignorg.ORMSIGNORGID";
-	SAMPLE_TERAM_PARSE(query, sql);
-	string sqlStr = sql.str();
-	return sqlSession->executeQueryNumerical(sqlStr, params);
+std::list<LegalEntitySetDO> LegalEntitySetDAO::legalerNamePullDownList() {
+	string sql = "SELECT `ormsignorgname` FROM `t_ormsignorg`";
+	LegalEntitySetMapper mapper; 
+	return sqlSession->executeQuery<LegalEntitySetDO, LegalEntitySetMapper>(sql, mapper);
 }
 
 uint64_t LegalEntitySetDAO::insert2(const LegalEntitySetDO& iObj) {
-	string sql = "INSERT INTO `t_contractsignorg` ( `CONTRACTSIGNORGNAME`, `ISDEFAULTSIGNORG`) VALUES (?, ?)";
-	return sqlSession->executeInsert(sql, "%s%i",iObj.getCONTRACTSIGNORGNAME(), iObj.getISDEFAULTSIGNORG());
+	string sql = "INSERT INTO `t_contractsignorg` ( `CONTRACTSIGNORGNAME`, `CONTRACTSIGNORGID`,`ISDEFAULTSIGNORG`) VALUES (?, ?,?)";
+	return sqlSession->executeInsert(sql, "%s%s%i",iObj.getCONTRACTSIGNORGNAME(), iObj.getCONTRACTSIGNORGID(),iObj.getISDEFAULTSIGNORG());
 }
 uint64_t LegalEntitySetDAO::insert1(const LegalEntitySetDO& iObj) {
 	string sql = "INSERT IGNORE INTO `t_ormsignorg` (`ORMSIGNORGID`,`ORMSIGNORGNAME`) VALUES (?, ?)";

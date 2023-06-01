@@ -27,6 +27,7 @@ public:
 		data.setORMSIGNORGNAME(resultSet->getString(2));
 		data.setCONTRACTSIGNORGNAME(resultSet->getString(3));
 		data.setISDEFAULTSIGNORG(resultSet->getString(4));
+		data.setCONTRACTSIGNORGID(resultSet->getString(5));
 		return data;
 	}
 };

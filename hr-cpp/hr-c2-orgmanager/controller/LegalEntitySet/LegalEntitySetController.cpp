@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "LegalEntitySetController.h"
+
 #include "service/LegalEntitySet/LegalEntitySetService.h"
 /*
 组织管理 ——数据设置 —— 法人主体设置  -- cpt
@@ -27,6 +28,7 @@ Uint64JsonVO::Wrapper LegalEntitySetController::execAddLegalEntitySet(const Lega
 	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 	//	return jvo;
 	//}
+	
 	// 定义一个Service
 	LegalEntitySetService service;
 	// 执行数据新增
@@ -45,15 +47,14 @@ LegalEntitySetPageJsonVO::Wrapper LegalEntitySetController::execExportLegalEntit
 	return LegalEntitySetPageJsonVO::Wrapper();
 }
 
-LegalEntitySetPageJsonVO::Wrapper LegalEntitySetController::execLegalEntitySetPullDownList(const LegalEntitySetQuery::Wrapper& query, const PayloadDTO& payload) {
-	//LegalEntitySetService service;
-	//// 查询数据
-	//auto result = service.legalerNamePullDownList(query);
-	//// 响应结果
-	//auto jvo = LegalEntitySetPageJsonVO::createShared();
-	//jvo->success(result);
-	//return jvo;
-	return LegalEntitySetPageJsonVO::Wrapper();
+
+// 法人主体名称下拉列表查询
+LegalEntitySetPullDownJsonVO::Wrapper LegalEntitySetController::execLegalEntitySetPullDownList() {
+	auto vo = LegalEntitySetPullDownJsonVO::createShared();
+	LegalEntitySetService service;
+	auto dto = service.legalEntityPulldownList();
+	vo->success(dto);
+	return vo;
 }
 
 Uint64JsonVO::Wrapper LegalEntitySetController::execModifyLegalEntitySet(const LegalEntitySetDTO::Wrapper& dto) {

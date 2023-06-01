@@ -37,6 +37,11 @@ class LegalEntitySetQuery : public PageQuery
 	DTO_FIELD_INFO(isdefaultsignorg) {
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.isdefaultsignorg");
 	}
+
+	DTO_FIELD(String, contractsignorgid);
+	DTO_FIELD_INFO(contractsignorgid) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.contractsignorgid");
+	}
 };
 
 #include OATPP_CODEGEN_END(DTO)

@@ -24,6 +24,9 @@ public:
 	LegalEntitySetDTO() {};
 	LegalEntitySetDTO(String ormsignorgname, String contractsignorgname, String isdefaultsignorg) : ormsignorgname(ormsignorgname), contractsignorgname(contractsignorgname), isdefaultsignorg(isdefaultsignorg) {};
 	LegalEntitySetDTO(String ormsignorgid, String ormsignorgname, String contractsignorgname, String isdefaultsignorg) {	};
+	LegalEntitySetDTO(string name) {
+		ormsignorgname = name; 
+	}
 	DTO_INIT(LegalEntitySetDTO, DTO);
 	// 法人主体标识
 	DTO_FIELD(String, ormsignorgid);
@@ -45,6 +48,11 @@ public:
 	DTO_FIELD_INFO(isdefaultsignorg) {
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.isdefaultsignorg");
 	}
+	// 签约主体单位标识
+	DTO_FIELD(String, contractsignorgid);
+	DTO_FIELD_INFO(contractsignorgid) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.contractsignorgid");
+	}
 };
 
 /**
@@ -53,6 +61,16 @@ public:
 class LegalEntitySetPageDTO : public PageDTO<LegalEntitySetDTO::Wrapper> {
 	DTO_INIT(LegalEntitySetPageDTO, PageDTO<LegalEntitySetDTO::Wrapper>);
 };
+
+class LegalEntitySetPullDownDTO : public oatpp::DTO
+{
+	DTO_INIT(LegalEntitySetPullDownDTO, DTO);
+	DTO_FIELD(List<LegalEntitySetDTO::Wrapper>, legalEntitySetPullDownList) = {};
+	DTO_FIELD_INFO(legalEntitySetPullDownList) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.dto.legalEntitySetPullDownList");
+	}
+};
+
 
 #include OATPP_CODEGEN_END(DTO)
 #endif // !_LEGALENTITYSET_DTO_

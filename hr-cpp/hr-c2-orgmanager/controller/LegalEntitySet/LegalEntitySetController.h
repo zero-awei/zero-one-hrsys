@@ -87,7 +87,7 @@ public:
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, LegalEntitySetQuery, queryParams);
 		// 响应结果
-		API_HANDLER_RESP_VO(execLegalEntitySetPullDownList(userQuery, authObject->getPayload()));
+		API_HANDLER_RESP_VO(execLegalEntitySetPullDownList());
 	}
 
 	// 3.1 定义修改接口描述
@@ -137,7 +137,7 @@ private:
 
 	LegalEntitySetPageJsonVO::Wrapper execExportLegalEntitySet(const LegalEntitySetQuery::Wrapper& query, const PayloadDTO& payload);
 
-	LegalEntitySetPageJsonVO::Wrapper execLegalEntitySetPullDownList(const LegalEntitySetQuery::Wrapper& query, const PayloadDTO& payload);
+	LegalEntitySetPullDownJsonVO::Wrapper execLegalEntitySetPullDownList();
 	// 3.3 演示修改数据
 	Uint64JsonVO::Wrapper execModifyLegalEntitySet(const LegalEntitySetDTO::Wrapper& dto);
 	// 分页查询数据

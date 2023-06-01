@@ -77,3 +77,6 @@ LegalEntitySet:
   ormsignorgname: 法人主体名称
   contractsignorgname: 签约主体单位名称
   isdefaultsignorg: 默认签约主体
+  contractsignorgid: 签约主体单位标识
+ dto:
+  legalEntitySetPullDownList: 法人主体名称下拉列表
