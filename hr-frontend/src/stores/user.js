@@ -3,6 +3,7 @@ import Request from '@/apis/request'
 // 测试菜单数据
 let testMenus = [
   {
+
     id: '0',
     text: '门户首页',
     icon: 'DataAnalysis',
@@ -14,6 +15,7 @@ let testMenus = [
     icon: 'IconSetting',
     children: [
       {
+
         id: 5,
         text: '人员花名册',
         path: '/roster',
@@ -21,6 +23,7 @@ let testMenus = [
         pid: 1
       },
       {
+
         id: 6,
         text: '见习员工',
         path: '/trainee',
@@ -28,12 +31,13 @@ let testMenus = [
         pid: 1
       },
       {
+
         id: 0,
         text: '试用员工',
         icon: 'IconSetting',
         path: '/syqyggridview'
       },
-      {
+	  {
         id: 1,
         text: '离(退)休人员',
         icon: 'IconSetting',
@@ -53,25 +57,22 @@ let testMenus = [
       },
       {
         id: 4,
+
         text: '挂职员工',
         icon: 'IconSetting',
         path: '/gzryhmcgridview'
-      },
-      {
-        id: 5,
-        text: '人员信息测试页面',
-        icon: 'IconSetting',
-        path: '/userInfo'
       }
-    ]
+
   },
   {
+
     id: 1,
     text: '人员信息',
     icon: 'IconSetting',
     children: [
       {
         id: 2,
+
         text: '员工信息',
         path: '/employee',
         icon: 'IconSetting',
@@ -79,6 +80,7 @@ let testMenus = [
       },
       {
         id: 3,
+
         text: '自助信息审核',
         path: '/review',
         icon: 'IconSetting',
@@ -86,6 +88,7 @@ let testMenus = [
       },
       {
         id: 4,
+
         text: '黑名单',
         path: '/blacklist',
         icon: 'IconSetting',
@@ -103,24 +106,68 @@ let testMenus = [
         text: '岗位(技能)证书',
         path: '/postcertificateview',
         icon: 'IconTickets',
+
         pid: 4
       },
       {
         id: 5,
+
         text: '职称目录',
         path: '/jobtitlecatalog',
         icon: 'IconTickets',
+
         pid: 4
       },
       {
         id: 6,
+
         text: '档案室',
         path: '/archives',
         icon: 'IconTickets',
         pid: 4
-      }
+      },
+	  {
+        id: 2,
+        text: '合同类别',
+        path: '/contractCatrgory',
+        icon: 'IconTickets',
+        pid: 3
+      },
+      {
+        id: 3,
+        text: '合同类型',
+        path: '/contractType',
+        icon: 'IconTickets',
+        pid: 3
+      },
+      {
+        id: 4,
+        text: '执业资格证书',
+        path: '/practiceCertificate',
+        icon: 'IconTickets',
+        pid: 3
+      },
     ]
-  }
+  },
+  {
+    id: 2,
+    text: '离(退)休管理',
+    icon: 'IconUser',
+    children: [
+      {
+        id: 2,
+        text: '离(退)休人员',
+        path: '/retiree',
+        icon: 'IconUser',
+        pid: 2
+      },
+      {
+        id: 3,
+        text: '费用台账',
+        path: '/expense',
+        icon: 'IconUser',
+        pid: 2
+      },
 ]
 
 export const userStore = defineStore('user', {
