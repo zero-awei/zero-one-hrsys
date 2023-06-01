@@ -134,8 +134,9 @@ public:
 	*/
 	ENDPOINT_INFO(jobListQuery) {
 		info->summary = ZH_WORDS_GETTER("employee.get.summaryList");
-		API_DEF_ADD_QUERY_PARAMS(String, "jobName", ZH_WORDS_GETTER("employee.field.jobList"), u8"炒面岗", true);
+		API_DEF_ADD_RSP_JSON_WRAPPER(JobListPageJsonVO);
 		API_DEF_ADD_PAGE_PARAMS();
+		//API_DEF_ADD_QUERY_PARAMS(String, "jobName", ZH_WORDS_GETTER("employee.field.jobList"), u8"炒面岗", true);
 	}
 	API_HANDLER_ENDPOINT_QUERY(API_M_GET, "/employee-info/job-list-query", jobListQuery, JobListQuery, execJobListQuery(query));
 private: // 定义接口执行函数

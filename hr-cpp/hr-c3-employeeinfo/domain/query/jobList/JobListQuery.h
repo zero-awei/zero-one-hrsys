@@ -30,7 +30,7 @@
 */
 class JobListQuery : public PageQuery
 {
-	DTO_INIT(JobListQuery, DTO);
+	DTO_INIT(JobListQuery, PageQuery);
 	
 	DTO_FIELD(String, jobName);
 	DTO_FIELD_INFO(jobName) {
