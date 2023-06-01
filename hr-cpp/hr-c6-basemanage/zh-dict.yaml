@@ -224,6 +224,8 @@ contract:
     tip: 备注
     infoid: 合同信息标识
     date_end: 合同到期时间
+    contract_num: 合同编号
+    emp_condition: 员工状态
     name_example: 韩**
   export:
     rows: 导出数据条数

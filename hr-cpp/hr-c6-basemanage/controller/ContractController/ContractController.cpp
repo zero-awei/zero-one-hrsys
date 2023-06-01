@@ -124,7 +124,7 @@ StringJsonVO::Wrapper ContractController::execDownloadContract(const ContractDow
 
 
 	// ะฃั้
-	if (query->sequence->empty() || query->sequence != "ASC" && query->sequence != "DESC")
+	if (query->rows <= 0)
 	{
 		vo->init("error(contact akie)", RS_PARAMS_INVALID);
 		return vo;

@@ -3,7 +3,46 @@
 #include "ContractInfoMapper.h"
 #include "SnowFlake.h"
 #include <sstream>
-
+//定义条件解析宏，减少重复代码
+#define DOWNLOAD_TERAM_PARSE(query, sql) \
+SqlParams params; \
+sql<<" WHERE t_pimcontract.PIMPERSONID = t_pimperson.PIMPERSONID"; \
+if (query->id) { \
+	sql << " AND t_pimperson.YGBH=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
+} \
+if (query->name) { \
+	sql << " AND t_pimperson.PIMPERSONNAME=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); \
+} \
+if (query->emp_condition) { \
+	sql << " AND t_pimperson.YGZT=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->emp_condition.getValue("")); \
+} \
+if (query->contract_num) { \
+	sql << " AND t_pimcontract.HTBH=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->contract_num.getValue("")); \
+} \
+if (query->type) { \
+	sql << " AND t_pimcontract.HTLX=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->type.getValue("")); \
+} \
+if (query->variety) { \
+	sql << " AND t_pimcontract.CONTRACTTYPE=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->variety.getValue("")); \
+} \
+if (query->condition) { \
+	sql << " AND t_pimcontract.HTZT=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->condition.getValue("")); \
+} \
+if (query->date) { \
+	sql << " AND t_pimcontract.QSRQ=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->date.getValue("")); \
+} \
+if (query->date_end) { \
+	sql << " AND t_pimcontract.JSRQ=? "; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->date_end.getValue("")); \
+}
 
 std::list<ContractInfoDO> ContractInfoDAO::selectByInfoid(const string& infoid)
 {	
@@ -37,16 +76,17 @@ int ContractInfoDAO::update(const ContractInfoDO& uObj)
 }
 
 
-std::list<ContractInfoDO> ContractInfoDAO::downloadByRows(oatpp::String sequence, UInt64 rows)
+std::list<ContractInfoDO> ContractInfoDAO::downloadByFiltration(const ContractDownloadQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT t_pimperson.YGBH,t_pimperson.PIMPERSONNAME,t_pimcontract.HTLX, t_pimcontract.CONTRACTTYPE,t_pimcontract.QSRQ,t_pimcontract.HTZT,t_pimcontract.ORMORGNAME,t_pimcontract.LEGALORG,t_pimcontract.SYDQSJ,t_pimcontract.DEMO,t_pimcontract.PIMCONTRACTID,t_pimcontract.JSRQ ";
+	sql << "SELECT t_pimperson.YGBH,t_pimperson.PIMPERSONNAME,t_pimcontract.HTLX, t_pimcontract.CONTRACTTYPE,t_pimcontract.QSRQ,t_pimcontract.HTZT,t_pimcontract.ORMORGNAME,t_pimcontract.LEGALORG,t_pimcontract.SYDQSJ,t_pimcontract.DEMO,t_pimcontract.PIMCONTRACTID,t_pimcontract.JSRQ,t_pimcontract.HTBH,t_pimperson.YGZT ";
 	sql << "FROM `t_pimcontract`,`t_pimperson` ";
-	sql << "WHERE t_pimcontract.PIMPERSONID = t_pimperson.PIMPERSONID ";
-	sql << "ORDER BY t_pimcontract.PIMCONTRACTID " << (string)sequence << " LIMIT " << rows;
+	DOWNLOAD_TERAM_PARSE(query, sql);
+	sql <<  " ORDER BY t_pimperson.YGBH LIMIT " << query->rows.getValue(1);
 	ContractInfoMapper mapper;
 	string sqlStr = sql.str();
-	return sqlSession->executeQuery<ContractInfoDO, ContractInfoMapper>(sqlStr, mapper);
+
+	return sqlSession->executeQuery<ContractInfoDO, ContractInfoMapper>(sqlStr, mapper, params);
 }
 
 

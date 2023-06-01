@@ -84,7 +84,7 @@ std::string ContractInfoService::downloadContract(const ContractDownloadQuery::W
 
 	//dao层逻辑运算
 	ContractInfoDAO dao;
-	auto res = dao.downloadByRows(query->sequence.getValue(""), query->rows.getValue(1));
+	auto res = dao.downloadByFiltration(query);
 	//auto dto = ContractDTO_::createShared();
 
 	vector<vector<std::string>> data;
@@ -101,6 +101,8 @@ std::string ContractInfoService::downloadContract(const ContractDownloadQuery::W
 	data[0].push_back("tip");
 	data[0].push_back("infoid");
 	data[0].push_back("date_end");
+	data[0].push_back("contract_num");
+	data[0].push_back("emp_condition");
 
 	int i = 1;
 	for (ContractInfoDO sub : res)
@@ -118,6 +120,8 @@ std::string ContractInfoService::downloadContract(const ContractDownloadQuery::W
 		data[i].push_back(sub.getTip());
 		data[i].push_back(sub.getInfoid());
 		data[i].push_back(sub.getDate_end());
+		data[i].push_back(sub.getContract_num());
+		data[i].push_back(sub.getEmp_condition());
 		i++;
 	}
 	// 注意：因为xlnt不能存储非utf8编码的字符，所以中文字需要转换编码

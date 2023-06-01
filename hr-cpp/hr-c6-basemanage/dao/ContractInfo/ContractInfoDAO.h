@@ -18,7 +18,7 @@ public:
 	int update(const ContractInfoDO& uObj);
 
 	//按rows导出数据
-	std::list<ContractInfoDO> downloadByRows(oatpp::String sequence, UInt64 rows);
+	std::list<ContractInfoDO> downloadByFiltration(const ContractDownloadQuery::Wrapper& query);
 
 	// 插入数据
 	uint64_t insert(const ContractInfoDO& iObj);

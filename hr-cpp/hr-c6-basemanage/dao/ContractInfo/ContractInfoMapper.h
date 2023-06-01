@@ -26,6 +26,8 @@ public:
 		data.setTip(resultSet->getString(10));
 		data.setInfoid(resultSet->getString(11));
 		data.setDate_end(resultSet->getString(12));
+		data.setContract_num(resultSet->getString(13));
+		data.setEmp_condition(resultSet->getString(14));
 		return data;
 	}
 };

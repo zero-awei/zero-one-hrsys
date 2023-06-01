@@ -28,7 +28,10 @@ class ContractInfoDO
 	CC_SYNTHESIZE(string, infoid, Infoid);
 	//12合同结束日期t_pimcontract.JSRQ
 	CC_SYNTHESIZE(string, date_end, Date_end);
-
+	//13合同编号t_pimcontract.HTBH
+	CC_SYNTHESIZE(string, contract_num, Contract_num);
+	//14员工状态t_pimperson.YGZT
+	CC_SYNTHESIZE(string, emp_condition, Emp_condition);
 public:
 	ContractInfoDO() {
 		id = "";
@@ -43,6 +46,8 @@ public:
 		tip = "";
 		infoid = "";
 		date_end = "";
+		contract_num = "";
+		emp_condition = "";
 	}
 };
 
