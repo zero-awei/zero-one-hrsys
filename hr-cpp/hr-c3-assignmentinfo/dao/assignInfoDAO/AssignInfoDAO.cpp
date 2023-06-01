@@ -105,8 +105,8 @@ uint64_t AssignInfoDAO::insert(const AssignInfoDO& iObj)
 
 int AssignInfoDAO::update(const AssignInfoDO& uObj)
 {
-	string sql = "UPDATE t_pimdistirbution SET PIMDISTIRBUTIONID=?,FPLX=?,FPZT=?, CFPLX=?, ORMORGNAME=?,ORMORGSECTORNAME=?,ORMDUTYNAME=?,ORMPOSTNAME=?,RZKSSJ=?,RZJSSJ=? WHERE PIMPERSONID=?";
-	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s%s", uObj.getAssignId(),uObj.getAssign(), uObj.getAssignState(),uObj.getEtype(), uObj.getOrganize(), uObj.getDepart(), uObj.getJob(), uObj.getPost(), uObj.getStartTime(), uObj.getEndTime(),uObj.getId());
+	string sql = "UPDATE t_pimdistirbution SET PIMPERSONID=?,FPLX=?,FPZT=?, CFPLX=?, ORMORGNAME=?,ORMORGSECTORNAME=?,ORMDUTYNAME=?,ORMPOSTNAME=?,RZKSSJ=?,RZJSSJ=? WHERE PIMDISTIRBUTIONID=?";
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s%s", uObj.getId(),uObj.getAssign(), uObj.getAssignState(),uObj.getEtype(), uObj.getOrganize(), uObj.getDepart(), uObj.getJob(), uObj.getPost(), uObj.getStartTime(), uObj.getEndTime(),uObj.getAssignId());
 }
 
 int AssignInfoDAO::deleteById(string assignId)

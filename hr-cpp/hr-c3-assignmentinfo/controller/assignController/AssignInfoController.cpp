@@ -96,13 +96,14 @@ StringJsonVO::Wrapper AssignInfoController::execModifyAssignInfo(const AssignInf
 
 	// 定义一个Service
 	AssignInfoService service;
+	auto id = service.updateData(dto);
 	// 执行数据修改
-	if (service.updateData(dto)) {
-		jvo->success(dto->id);
+	if (id > 0) {
+		jvo->success(String(id));
 	}
 	else
 	{
-		jvo->fail(dto->id);
+		jvo->fail(String(id));
 	}
 	// 响应结果
 	return jvo;
