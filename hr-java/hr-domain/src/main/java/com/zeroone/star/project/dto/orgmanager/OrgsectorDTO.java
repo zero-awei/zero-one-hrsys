@@ -11,13 +11,13 @@ import javax.validation.constraints.*;
 
 /**
  * 描述：新增部门数据对象
- * 文件名：DeptInfoDTO
+ * 文件名：OrgsectorDTO
  * 创建者：rqs
  * 创建时间：2023/5/19 20:18
  */
 @ApiModel("新增部门数据对象")
 @Data
-@TableName("t_orgsector")
+@TableName("t_srforgsector")
 public class OrgsectorDTO {
 
     @ApiModelProperty(value = "排序",example = "1")
@@ -59,11 +59,9 @@ public class OrgsectorDTO {
     @TableField(value = "qy")
     private String qy;
 
-    @ApiModelProperty(value = "编制控制",example = "1")//柔性:1 刚性:2
-    @Min(value = 1, message = "编制控制必须大于等于1")
-    @Max(value = 2, message = "编制控制必须小于等于2")
-    @TableField(value = "bzkz")
-    private Integer bzkz;
+    @ApiModelProperty(value = "编制控制",example = "10")//柔性:10 刚性:20
+    @TableField(value = "gkjz")
+    private String gkjz;
 
     @ApiModelProperty(value = "编制人数",example = "5")
     @Min(value = 0, message = "编制人数必须大于等于0")
