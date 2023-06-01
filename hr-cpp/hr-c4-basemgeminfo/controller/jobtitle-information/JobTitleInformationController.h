@@ -39,7 +39,7 @@ public:
 		// 定义其他表单参数描述
 		// 添加其他查询参数
 		info->queryParams.add<String>("employeeid").description = ZH_WORDS_GETTER("jobtitleinformation.field.employeeid");
-		info->queryParams["employeeid"].addExample("default", String("6611212223"));
+		info->queryParams["employeeid"].addExample("default", String("30601C0002"));
 		info->queryParams["employeeid"].required = false;
 		
 	}

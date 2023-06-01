@@ -10,12 +10,6 @@ class WorkHistoryDTO : public oatpp::DTO
 {
 	DTO_INIT(WorkHistoryDTO, DTO);
 	
-	////员工pimpersonid
-	//DTO_FIELD(String, pimpersonid);
-	//DTO_FIELD_INFO(pimpersonid) {
-	//info->description = ZH_WORDS_GETTER("workhistory.field.pimpersionid");
-	//}
-
 	// rzkssj: 任职开始时间
 	DTO_FIELD(String, rzkssj);
 	DTO_FIELD_INFO(rzkssj) {
@@ -52,15 +46,30 @@ class WorkHistoryDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("cfplx");
 	}
 	//enable: 是否主要经历
-	DTO_FIELD(String, enable);
-	DTO_FIELD_INFO(enable) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.enable");
+	DTO_FIELD(UInt64, experience);
+	DTO_FIELD_INFO(experience) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.experience");
 	}
-	/* 更新时间
-	DTO_FIELD(String, update);
-	DTO_FIELD_INFO(update) {
-		info->description = ZH_WORDS_GETTER("workhistory.field.update");
-	}*/
+	//员工pimpersonid
+	DTO_FIELD(String, pimpersonid);
+	DTO_FIELD_INFO(pimpersonid) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.pimpersionid");
+	}
+	//更新时间updatedate
+	DTO_FIELD(String, updatedate);
+	DTO_FIELD_INFO(updatedate) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.updatedate");
+	}
+	//更新人updateman
+	DTO_FIELD(String, updateman);
+	DTO_FIELD_INFO(updateman) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.updateman");
+	}
+	//pimworkhistoryid
+	DTO_FIELD(String, pimworkhistoryid);
+	DTO_FIELD_INFO(pimworkhistoryid) {
+		info->description = ZH_WORDS_GETTER("workhistory.field.pimworkhistoryid");
+	}
 	
 };
 

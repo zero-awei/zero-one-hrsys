@@ -16,11 +16,6 @@ public:
 	JobTitleInformationDTO(String credentials_num, String professoranalysis_name) :credentials_num(credentials_num), professoranalysis_name(professoranalysis_name) {};
 
 	DTO_INIT(JobTitleInformationDTO, DTO);
-	//employeeid 员工编号
-	DTO_FIELD(String, employeeid);
-	DTO_FIELD_INFO(employeeid) {
-		info->description = ZH_WORDS_GETTER("jobtitleinformation.field.employeeid");
-	}
 	//professoranalysis_name: 职称名称 
 	DTO_FIELD(String, professoranalysis_name);
 	DTO_FIELD_INFO(professoranalysis_name) {
@@ -66,7 +61,11 @@ public:
 	DTO_FIELD_INFO(enable) {
 		info->description = ZH_WORDS_GETTER("jobtitleinformation.field.enable");
 	}
-
+	//employeeid 员工编号
+	DTO_FIELD(String, employeeid);
+	DTO_FIELD_INFO(employeeid) {
+		info->description = ZH_WORDS_GETTER("jobtitleinformation.field.employeeid");
+	}
 };
 
 /**

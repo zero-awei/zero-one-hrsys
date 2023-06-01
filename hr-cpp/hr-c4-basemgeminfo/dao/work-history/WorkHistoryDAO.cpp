@@ -2,6 +2,8 @@
 #include "WorkHistoryDAO.h"
 #include "WorkHistoryMapper.h"
 #include "domain/do/work-history/DelWorkHistoryDO.h"
+#include"domain/do/work-history/WorkHistoryDO.h"
+
 
 //
 #define SAMPLE_TERAM_PARSE(query, sql) \
@@ -42,13 +44,11 @@ if (query->experience) { \
 if (query->pimpersonid) { \
 		sql << " AND PIMPERSONID=?"; \
 		SQLPARAMS_PUSH(params, "s", std::string, query->pimpersonid.getValue("")); \
-}
-/*
-if (query->pimworkhistoryid) {
-	\
+}\
+if (query->pimworkhistoryid) {\
 		sql << " AND PIMWORKHISTORYID=?"; \
 		SQLPARAMS_PUSH(params, "i", std::string, query->pimworkhistoryid.getValue(0)); \
-}\*/
+}\
 
 
 
@@ -120,18 +120,17 @@ std::list<WorkHistoryFindDO> WorkHistoryDAO::selectAllData(const WorkHistoryExpo
 list<WorkHistoryDO> WorkHistoryDAO::selectDetail(const WorkHistoryQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "select rzkssj,rzjssj,ormorgname,ormorgsectorname,ormdutyname,ormpostname,cfplx,experience,enable from t_pimdistirbution WHERE `PIMPERSONID`=? AND `ORMORGNAME`=?";
+	sql << "select rzkssj,rzjssj,ormorgname,ormorgsectorname,ormdutyname,ormpostname,cfplx,experience,pimpersonid,updatedate,updateman,pimworkhistoryid from `t_pimworkhistory` WHERE `pimworkhistoryid`=?";
 	SqlParams params;
-	SQLPARAMS_PUSH(params, "s", std::string, query->pimpersonid.getValue(""));
-	SQLPARAMS_PUSH(params, "s", std::string, query->ormorgname.getValue(""));
+	SQLPARAMS_PUSH(params, "s", std::string, query->pimworkhistoryid.getValue(""));
 	
 	WorkHistoryMapper mapper;
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<WorkHistoryDO, WorkHistoryMapper>(sqlStr, mapper, params);
 }
 
-int WorkHistoryDAO::update(const WorkHistoryDO& uObj)
+int WorkHistoryDAO::update(const ModWorkHistoryDO& uObj)
 {
-	string sql = "UPDATE `t_pimdistirbution` SET `rzkssj`=?, `rzjssj`=?, `ormorgname`=? ,`ormdutyname`=? ,`ormpostname`=? ,`cfplx`=? ,`enable`=? WHERE `PIMPERSONID`=?";
-	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s", uObj.getRzkssj(), uObj.getRzjssj(), uObj.getOrmorgname(), uObj.getOrmdutyname(), uObj.getOrmpostname(), uObj.getCfplx(), uObj.getEnable());
+	string sql = "UPDATE `t_pimworkhistory` SET rzkssj=?,rzjssj=?,ormorgname=?,ormorgsectorname=?,ormdutyname=?,ormpostname=?,cfplx=?,experience=?,updatedate=?,updateman=? WHERE pimworkhistoryid=?";
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%i%s%s%s", uObj.getRzkssj(), uObj.getRzjssj(), uObj.getOrmorgname(), uObj.getOrmorgsectorname(), uObj.getOrmdutyname(), uObj.getOrmpostname(), uObj.getCfplx(), uObj.getExperience(),uObj.getUpdatedate(),uObj.getUpdateman(), uObj.getPimworkhistoryid());
 }

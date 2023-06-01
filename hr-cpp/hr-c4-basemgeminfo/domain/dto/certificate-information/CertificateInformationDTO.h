@@ -16,12 +16,12 @@ public:
 	CertificateInformationDTO(String zgzsbh, String pimvocationalname) :zgzsbh(zgzsbh), pimvocationalname(pimvocationalname) {};
 
 	DTO_INIT(CertificateInformationDTO, DTO);
-	//ygbh: 员工编号
-	DTO_FIELD(String, ygbh);
-	DTO_FIELD_INFO(ygbh) {
-		info->description = ZH_WORDS_GETTER("certificateinformation.field.ygbh");
+	//pimpersonid: 人员信息标识
+	DTO_FIELD(String, pimpersonid);
+	DTO_FIELD_INFO(pimpersonid) {
+		info->description = ZH_WORDS_GETTER("certificateinformation.field.pimpersonid");
 	}
-    //zgzsbh: 证书编号
+	//zgzsbh: 证书编号
 	DTO_FIELD(String, zgzsbh);
 	DTO_FIELD_INFO(zgzsbh) {
 		info->description = ZH_WORDS_GETTER("certificateinformation.field.zgzsbh");

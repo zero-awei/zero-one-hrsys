@@ -23,7 +23,7 @@ JobTitleInformationPageDTO::Wrapper JobTitleInformationService::listAll(const Jo
 	for (JobTitleInformationDO sub : result)
 	{
 		auto dto = JobTitleInformationDTO::createShared();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, professoranalysis_name, Professoranalysis_name, credentials_num, Credentials_num, professor_grades, Professor_grades, major, Major, zchqrq, Zchqrq, reviewbody, Reviewbody,lssuingagency, Lssuingagency,employtime, Employtime, enable, Enable);
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, professoranalysis_name, Professoranalysis_name, credentials_num, Credentials_num, professor_grades, Professor_grades, major, Major, zchqrq, Zchqrq, reviewbody, Reviewbody, lssuingagency, Lssuingagency, employtime, Employtime, enable, Enable, employeeid, Employeeid);
 		pages->addData(dto);
 	}
 	return pages;

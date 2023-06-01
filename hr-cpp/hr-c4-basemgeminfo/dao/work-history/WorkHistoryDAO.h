@@ -29,7 +29,7 @@
 #include "../../domain/query/work-history/WorkHistoryQuery.h"
 #include "domain/do/work-history/AddWorkHistoryDO.h"
 #include "domain/query/work-history/WorkHistoryExportQuery.h"
-
+#include "domain/do/work-history/ModWorkHistoryDO.h"
 class WorkHistoryDAO : public BaseDAO
 {
 public:
@@ -54,7 +54,7 @@ public:
 	//³Âö¦×Ð
 	list<WorkHistoryDO> selectDetail(const WorkHistoryQuery::Wrapper& query);
 
-	int update(const WorkHistoryDO& uObj);
+	int update(const ModWorkHistoryDO& uObj);
 };
 
 

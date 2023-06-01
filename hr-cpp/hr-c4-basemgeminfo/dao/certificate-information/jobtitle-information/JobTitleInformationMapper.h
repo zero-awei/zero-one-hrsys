@@ -10,7 +10,6 @@ public:
 	JobTitleInformationDO mapper(ResultSet* resultSet) const override
 	{
 		JobTitleInformationDO data;
-		
 		data.setProfessoranalysis_name(resultSet->getString(1));
 		data.setCredentials_num(resultSet->getString(2));
 		data.setProfessor_grades(resultSet->getString(3));
@@ -20,7 +19,7 @@ public:
 		data.setLssuingagency(resultSet->getString(7));
 		data.setEmploytime(resultSet->getString(8));
 		data.setEnable(resultSet->getString(9));
-		//data.setEmployeeid(resultSet->getString(10));
+		data.setEmployeeid(resultSet->getString(10));
 		return data;
 	}
 };
