@@ -34,7 +34,7 @@ Uint64JsonVO::Wrapper GoshController::execAddContract(const ContractDTO_gs_inser
 	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
 	// 非空校验
-	if (dto->personid->empty() ||dto->id->empty() ||dto->type->empty() || dto->variety->empty() || dto->date->empty() || dto->condition->empty())
+	if (dto->personid->empty()||dto->type->empty() || dto->variety->empty() || dto->date->empty() || dto->condition->empty())
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
@@ -48,7 +48,7 @@ Uint64JsonVO::Wrapper GoshController::execAddContract(const ContractDTO_gs_inser
 	}
 	else
 	{
-		jvo->fail(UInt64(id));
+		jvo->fail(UInt64(-1));
 	}
 	//响应结果
 	return jvo;

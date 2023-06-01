@@ -28,37 +28,38 @@
 SqlParams params; \
 sql<<" WHERE 1=1"; \
 if (query->name) { \
-	sql << " AND `PIMLABOURCAMPANYNAME`=?"; \
+	sql << " AND `PIMLABOURCAMPANYNAME` LIKE CONCAT(?, '%')"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); \
 } \
-if (query->unit) { \
-	sql << " AND `ORGNAME`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->unit.getValue("")); \
-} \
 if (query->lxfs) { \
-	sql << " AND `LXFS`=?"; \
+	sql << " AND `LXFS` LIKE CONCAT(?, '%')"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->lxfs.getValue("")); \
 } \
-if (query->lxr) { \
-	sql << " AND `LXR`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->lxr.getValue("")); \
-} \
-if (query->lxdz) { \
-	sql << " AND `LXDZ`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->lxdz.getValue("")); \
-} \
-if (query->regcapital) { \
-	sql << " AND `REGCAPITAL`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->regcapital.getValue("")); \
-} \
-if (query->legalperson) { \
-	sql << " AND `LEGALPEROSN`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->legalperson.getValue("")); \
-} \
-if (query->updatedate) { \
-	sql << " AND `UPDATEDATE`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->updatedate.getValue("")); \
-} 
+//if (query->unit) { \
+//	sql << " AND `ORGNAME`=?"; \
+//	SQLPARAMS_PUSH(params, "s", std::string, query->unit.getValue("")); \
+//} \
+
+//if (query->lxr) { \
+//	sql << " AND `LXR`=?"; \
+//	SQLPARAMS_PUSH(params, "s", std::string, query->lxr.getValue("")); \
+//} \
+//if (query->lxdz) { \
+//	sql << " AND `LXDZ`=?"; \
+//	SQLPARAMS_PUSH(params, "s", std::string, query->lxdz.getValue("")); \
+//} \
+//if (query->regcapital) { \
+//	sql << " AND `REGCAPITAL`=?"; \
+//	SQLPARAMS_PUSH(params, "s", std::string, query->regcapital.getValue("")); \
+//} \
+//if (query->legalperson) { \
+//	sql << " AND `LEGALPEROSN`=?"; \
+//	SQLPARAMS_PUSH(params, "s", std::string, query->legalperson.getValue("")); \
+//} \
+//if (query->updatedate) { \
+//	sql << " AND `UPDATEDATE`=?"; \
+//	SQLPARAMS_PUSH(params, "s", std::string, query->updatedate.getValue("")); \
+//} 
 
 uint64_t LaborDispatchDAO::count_ld(const LaborDispatchQuery::Wrapper& query)
 {
@@ -84,12 +85,13 @@ std::list<LaborDispatchDO> LaborDispatchDAO::selectWrithPage_Query(const LaborDi
 std::list<LaborDispatchDO> LaborDispatchDAO::selectWrithPage_Export(const LaborDispatchQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT 	PIMLABOURCAMPANYNAME,t_srforg.ORGNAME,LXFS,LXR,LXDZ,REGCAPITAL,LEGALPEROSN,t_pimlabourcampany.GSJJ,t_pimlabourcampany.UPDATEDATE FROM `t_pimlabourcampany` ";
+	sql << "SELECT 	PIMLABOURCAMPANYNAME,t_srforg.ORGNAME,LXFS,LXR,LXDZ,REGCAPITAL,LEGALPEROSN,t_pimlabourcampany.UPDATEDATE FROM `t_pimlabourcampany` ";
 	sql << " JOIN t_srforg ON t_pimlabourcampany.ORMORGID = t_srforg.ORGID ";
+	LABORDISPATCH_TERAM_PARSE(query, sql);
 	sql << " LIMIT 50000";
 	LaborDispatchMapper_export mapper;
 	string sqlStr = sql.str();
-	return sqlSession->executeQuery<LaborDispatchDO, LaborDispatchMapper_export>(sqlStr, mapper);
+	return sqlSession->executeQuery<LaborDispatchDO, LaborDispatchMapper_export>(sqlStr, mapper,params);
 }
 
 static std::string attain_curTime() {

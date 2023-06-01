@@ -81,23 +81,6 @@ std::list<ContractDO> GoshDAO::selectByName(const string& name)
 	return sqlSession->executeQuery<ContractDO, GoshMapper>(sql, mapper, "%s",name);
 }
 
-//std::list<ContractDO> GoshDAO::selectByName(const ContractQuery::Wrapper& query)
-//{
-//	//1、员工编号2、合同编号3、员工姓名4、合同类别5、合同类型6、起始日期7、合同状态8、合同签订单位9、试用到期时间10、员工所属单位
-//	//11、员工状态12、到本单位时间13、结束日期14、合同剩余天数——均为前端页面要显示字段
-//	SqlParams params1;
-//	stringstream sql;
-//	sql << "SELECT t_pimcontract.`PIMPERSONID`,t_pimcontract.`PIMCONTRACTID`,t_pimperson.`PIMPERSONNAME`,t_pimcontract.`HTLX`,";
-//	sql << "t_pimcontract.`CONTRACTTYPE`,t_pimcontract.`QSRQ`,t_pimcontract.`HTZT`,t_pimcontract.`LEGALORG`,t_pimcontract.`SYDQSJ`,t_pimcontract.`ORMORGNAME`,";
-//	sql << "t_pimperson.`YGZT`,t_pimperson.`DBDWSJ`,t_pimcontract.`JSRQ`,DATEDIFF(t_pimcontract.`QSRQ`,t_pimcontract.`JSRQ`) as rest ";
-//	sql << "FROM `t_pimcontract` inner join `t_pimperson` on t_pimperson.`PIMPERSONNAME` like CONCAT('%',?,'%')";
-//	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
-//	GoshMapper mapper;
-//	string sqlStr = sql.str();
-//	SQLPARAMS_PUSH(params1, "s", std::string, query->name.getValue(""));
-//	return sqlSession->executeQuery<ContractDO, GoshMapper>(sqlStr, mapper, params1);
-//}
-
 uint64_t GoshDAO::insert(const ContractDO& iObj)
 {
 	//设置t_srforg表中的主键，因为t_pimcontract与其有外键关联
@@ -109,7 +92,9 @@ uint64_t GoshDAO::insert(const ContractDO& iObj)
 	//向t_pimcontract中插入从前端读取的值
 	int a=3;
 	string sql = "INSERT INTO t_pimcontract(`PIMPERSONID`,`PIMCONTRACTID`,`HTLX`,`CONTRACTTYPE`,`QSRQ`,`HTZT`,`ORMORGID`,`SYDQSJ`,`DEMO`) VALUES ( ?,?,?,?,?,?,?,?,?);";
+	a = 3;
 	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%s%s", iObj.getPersonid(),iObj.getId(), iObj.getType(), iObj.getVariety(), iObj.getDate(), iObj.getCondition(), iObj.getDepartment_m(), iObj.getDate_end(), iObj.getTip());
+	a = 3;
 }
 
 int GoshDAO::deleteById(std::string id)
