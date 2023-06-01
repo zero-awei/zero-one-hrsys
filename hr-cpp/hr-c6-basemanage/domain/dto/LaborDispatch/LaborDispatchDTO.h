@@ -77,7 +77,9 @@ class LaborDispatchDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("ldconpany.field.UPDATEDATE");
 	}
 };
-
+/**
+* 修改传输对象
+*/
 class LaborDispatchModifyDTO : public oatpp::DTO
 {
 	DTO_INIT(LaborDispatchModifyDTO, DTO);
