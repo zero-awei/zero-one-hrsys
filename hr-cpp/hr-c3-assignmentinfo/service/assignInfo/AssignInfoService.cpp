@@ -4,6 +4,7 @@
 #include "ExcelComponent.h"
 #include "CharsetConvertHepler.h"
 #include "FastDfsClient.h"
+#include "SnowFlake.h"
 
 AssignInfoPageDTO::Wrapper AssignInfoService::listAll(const AssignInfoQuery::Wrapper& query)
 {
