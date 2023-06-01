@@ -116,16 +116,18 @@ public:
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(LegalEntitySetPageJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(LegalEntitySetQueryPageJsonVO);
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他查询参数描述
-		info->queryParams.add<String>("ormsignorgname").description = ZH_WORDS_GETTER("LegalEntitySet.field.ormsignorgname");
-		info->queryParams["ormsignorgname"].addExample("default", String(ZH_WORDS_GETTER("LegalEntitySet.sample.name1")));
-		info->queryParams["ormsignorgname"].required = false;
-		info->queryParams.add<String>("contractsignorgname").description = ZH_WORDS_GETTER("LegalEntitySet.field.contractsignorgname");
-		info->queryParams["contractsignorgname"].addExample("default", String(ZH_WORDS_GETTER("LegalEntitySet.sample.name2")));
+		// 签约主体单位名称
+		info->queryParams.add<String>("contractsignorgname").description = ZH_WORDS_GETTER("LegalEntitySet.field.ormsignorgname");
+		info->queryParams["contractsignorgname"].addExample("default", String(ZH_WORDS_GETTER("LegalEntitySet.sample.name1")));
 		info->queryParams["contractsignorgname"].required = false;
+		// 管理单位标识当作管理单位名称
+		info->queryParams.add<String>("ormorgid").description = ZH_WORDS_GETTER("LegalEntitySet.field.ormorgid");
+		info->queryParams["ormorgid"].addExample("default", String("102"));
+		info->queryParams["ormorgid"].required = false;
 	}
 	// 定义查询法人主体信息接口处理
 	ENDPOINT(API_M_GET, "/org/query-LES", queryLES, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
@@ -145,7 +147,7 @@ private:
 	// 更新法人主体设置
 	StringJsonVO::Wrapper execModifyLegalEntitySet(const LegalEntitySetDTO::Wrapper& dto);
 	// 分页查询数据
-	LegalEntitySetPageJsonVO::Wrapper execQueryLES(const LegalEntitySetQuery::Wrapper& query);
+	LegalEntitySetQueryPageJsonVO::Wrapper execQueryLES(const LegalEntitySetQuery::Wrapper& query);
 };
 
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen

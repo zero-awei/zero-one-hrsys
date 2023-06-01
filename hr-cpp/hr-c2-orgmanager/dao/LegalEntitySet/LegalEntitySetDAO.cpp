@@ -18,24 +18,24 @@
 #define SAMPLE_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
-if (query->ormsignorgname) { \
-	sql << " AND `ORMSIGNORGNAME`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->ormsignorgname.getValue("")); \
-} \
 if (query->contractsignorgname) { \
-	sql << " AND CONTRACTSIGNORGNAME=?"; \
+	sql << " AND `CONTRACTSIGNORGNAME`=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->contractsignorgname.getValue("")); \
+} \
+if (query->ormorgid) { \
+	sql << " AND ORMORGID=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->ormorgid.getValue("")); \
 } \
 if (query->isdefaultsignorg) { \
 	sql << " AND ISDEFAULTSIGNORG=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->isdefaultsignorg.getValue("")); \
 }
 
-std::list<LegalEntitySetDO> LegalEntitySetDAO::legalerNamePullDownList() {
-	string sql = "SELECT `ormsignorgname` FROM `t_ormsignorg`";
-	LegalEntitySetPullDownListMapper mapper;
-	return sqlSession->executeQuery<LegalEntitySetDO, LegalEntitySetPullDownListMapper>(sql, mapper);
-}
+//std::list<LegalEntitySetDO> LegalEntitySetDAO::legalerNamePullDownList() {
+//	string sql = "SELECT `ormsignorgname` FROM `t_ormsignorg`";
+//	LegalEntitySetPullDownListMapper mapper;
+//	return sqlSession->executeQuery<LegalEntitySetDO, LegalEntitySetPullDownListMapper>(sql, mapper);
+//}
 
 //uint64_t LegalEntitySetDAO::insert1(const LegalEntitySetDO& iObj) {
 //	string sql = "INSERT IGNORE INTO `t_ormsignorg` (`ORMSIGNORGNAME`, ) VALUES (?)";
@@ -62,9 +62,7 @@ std::list<LegalEntitySetDO> LegalEntitySetDAO::legalerNamePullDownList() {
 uint64_t LegalEntitySetDAO::count(const LegalEntitySetQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(*)"
-		<< " FROM t_contractsignorg"
-		<< " INNER JOIN t_ormsignorg ON t_contractsignorg.ORMSIGNORGID = t_ormsignorg.ORMSIGNORGID";
+	sql << "SELECT COUNT(*) FROM t_contractsignorg";
 	SAMPLE_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
@@ -73,9 +71,7 @@ uint64_t LegalEntitySetDAO::count(const LegalEntitySetQuery::Wrapper& query)
 std::list<LegalEntitySetDO> LegalEntitySetDAO::selectWithPage(const LegalEntitySetQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT t_contractsignorg.ORMSIGNORGID, t_contractsignorg.CONTRACTSIGNORGNAME, t_ormsignorg.ORMSIGNORGNAME, t_contractsignorg.ISDEFAULTSIGNORG"
-		<< " FROM t_contractsignorg "
-		<< " INNER JOIN t_ormsignorg ON t_contractsignorg.ORMSIGNORGID = t_ormsignorg.ORMSIGNORGID";
+	sql << "SELECT ORMSIGNORGID, ORMORGID, SIGNORGID, ISDEFAULTSIGNORG FROM t_contractsignorg";
 	SAMPLE_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	LegalEntitySetMapper mapper;

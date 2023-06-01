@@ -22,7 +22,6 @@
 class LegalEntitySetDTO : public oatpp::DTO {
 public: 
 	LegalEntitySetDTO() {};
-	LegalEntitySetDTO(String ormsignorgname, String contractsignorgname, String isdefaultsignorg) : contractsignorgname(contractsignorgname), isdefaultsignorg(isdefaultsignorg) {};
 	LegalEntitySetDTO(String ormsignorgid, String ormsignorgname, String contractsignorgname, String isdefaultsignorg) {	};
 	DTO_INIT(LegalEntitySetDTO, DTO);
 	// 法人主体标识

@@ -75,10 +75,9 @@ LegalEntitySet:
  export:
   summary: （数据设置——法人主体设置——导出法人主体设置 (导出页面在前端完成) ）--cpt
  sample:
-  name1: 东北公司中经公司
-  name2: 东北1
+  name1: 东北1
  field:
-  contractsignorgname: 签约主体单位名称
+  ormsignorgname: 签约主体单位名称
   contractsignorgid: 签约主体单位标识
   updateman: 更新人
   createman: 建立人

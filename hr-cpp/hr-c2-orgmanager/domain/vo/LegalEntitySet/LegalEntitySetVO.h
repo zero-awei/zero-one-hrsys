@@ -15,6 +15,7 @@
 */
 #include "../../GlobalInclude.h"
 #include "domain/dto/LegalEntitySet/LegalEntitySetDTO.h"
+#include "../../dto/LegalEntitySet/LegalEntitySetQueryDTO.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
@@ -35,5 +36,14 @@ class LegalEntitySetPageJsonVO : public JsonVO<LegalEntitySetPageDTO::Wrapper> {
 	DTO_INIT(LegalEntitySetPageJsonVO, JsonVO<LegalEntitySetPageDTO::Wrapper>);
 };
 
+
+// ≤È—Ø”√JsonVO-TripleGold
+class LegalEntitySetQueryJsonVO : public JsonVO<LegalEntitySetQueryDTO::Wrapper> {
+	DTO_INIT(LegalEntitySetQueryJsonVO, JsonVO<LegalEntitySetQueryDTO::Wrapper>);
+};
+
+class LegalEntitySetQueryPageJsonVO : public JsonVO<LegalEntitySetQueryPageDTO::Wrapper> {
+	DTO_INIT(LegalEntitySetQueryPageJsonVO, JsonVO<LegalEntitySetQueryPageDTO::Wrapper>);
+};
 #include OATPP_CODEGEN_END(DTO)
 #endif // !_LEGALENTITYSET_VO_

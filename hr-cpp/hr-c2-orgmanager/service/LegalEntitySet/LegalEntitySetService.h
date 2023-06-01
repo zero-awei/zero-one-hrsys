@@ -7,6 +7,7 @@
 #include "domain/dto/LegalEntitySet/LegalEntitySetDTO.h"
 #include "domain/query/LegalEntitySet/LegalEntitySetQuery.h"
 #include "domain/do/LegalEntitySet/LegalEntitySetDO.h"
+#include "domain/dto/LegalEntitySet/LegalEntitySetQueryDTO.h"
 /*
 组织管理 ——数据设置 —— 法人主体设置  -- cpt
 
@@ -22,7 +23,7 @@ class LegalEntitySetService
 {
 public:
 	// 分页查询所有数据
-	LegalEntitySetPageDTO::Wrapper listAll(const LegalEntitySetQuery::Wrapper& query);
+	LegalEntitySetQueryPageDTO::Wrapper listAll(const LegalEntitySetQuery::Wrapper& query);
 	// 保存数据
 	uint64_t insertData(const LegalEntitySetDTO::Wrapper& dto);
 	// 修改数据

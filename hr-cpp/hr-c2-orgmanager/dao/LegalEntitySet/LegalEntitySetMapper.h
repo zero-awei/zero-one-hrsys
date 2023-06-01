@@ -24,9 +24,9 @@ public:
 	{
 		LegalEntitySetDO data;
 		data.setORMSIGNORGID(resultSet->getString(1));
-		data.setCONTRACTSIGNORGNAME(resultSet->getString(3));
+		data.setORMORGID(resultSet->getString(2));
+		data.setSIGNORGID(resultSet->getString(3));
 		data.setISDEFAULTSIGNORG(resultSet->getString(4));
-		data.setCONTRACTSIGNORGID(resultSet->getString(5));
 		return data;
 	}
 };

@@ -66,14 +66,14 @@ StringJsonVO::Wrapper LegalEntitySetController::execModifyLegalEntitySet(const L
 
 /*---------------------------------- 法人主体设置控制器具体实现--（组织管理-数据设置-法人主体设置）--TripleGold -------------------------------*/
 
-LegalEntitySetPageJsonVO::Wrapper LegalEntitySetController::execQueryLES(const LegalEntitySetQuery::Wrapper& query)
+LegalEntitySetQueryPageJsonVO::Wrapper LegalEntitySetController::execQueryLES(const LegalEntitySetQuery::Wrapper& query)
 {
 	// 定义一个Service
 	LegalEntitySetService service;
 	// 查询数据
 	auto result = service.listAll(query);
 	// 响应结果
-	auto jvo = LegalEntitySetPageJsonVO::createShared();
+	auto jvo = LegalEntitySetQueryPageJsonVO::createShared();
 	jvo->success(result);
 	return jvo;
 }
