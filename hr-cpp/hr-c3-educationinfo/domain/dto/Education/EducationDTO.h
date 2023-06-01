@@ -95,7 +95,11 @@ class EducationSingleDTO : public oatpp::DTO
 	DTO_FIELD_INFO(FJ) {
 		info->description = ZH_WORDS_GETTER("education.FJ");
 	}
-
+	//// Íâ¼ü£ºpimpersonid
+	//DTO_FIELD(String, PIMPERSONID);
+	//DTO_FIELD_INFO(PIMPERSONID) {
+	//	info->description = ZH_WORDS_GETTER("education.PIMPERSONID");
+	//}
 
 
 

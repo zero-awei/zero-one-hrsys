@@ -17,11 +17,20 @@
 class EducationDeleteSingleDTO : public oatpp::DTO
 {
 	DTO_INIT(EducationDeleteSingleDTO, DTO);
-	//单条教育信息
-	DTO_FIELD(String, deleteId);
-	DTO_FIELD_INFO(deleteId) {
-		info->description = ZH_WORDS_GETTER("deleteId");
+	// 教育信息标识 （必填）
+	DTO_FIELD(String, PIMEDUCATIONID);
+	DTO_FIELD_INFO(PIMEDUCATIONID) {
+		info->description = ZH_WORDS_GETTER("education.PIMEDUCATIONID");
 	}
+
+	// 外键：pimpersonid
+	DTO_FIELD(String, PIMPERSONID);
+	DTO_FIELD_INFO(PIMPERSONID) {
+		info->description = ZH_WORDS_GETTER("education.PIMPERSONID");
+	}
+
+
+
 };
 
 /*
