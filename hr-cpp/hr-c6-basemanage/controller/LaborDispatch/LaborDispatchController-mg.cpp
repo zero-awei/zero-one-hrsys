@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
@@ -22,11 +22,11 @@
 
 LaborDispatchJsonMVO::Wrapper LaborDispatchMController::execQueryLaborDispatch(const LaborDispatchMQuery::Wrapper& query)
 {
-	// ¶¨ÒåService
+	// å®šä¹‰Service
 	LaborDispatchMService service;
-	// serviceÖ´ÐÐ²¢·µ»ØÊý¾Ý
+	// serviceæ‰§è¡Œå¹¶è¿”å›žæ•°æ®
 	auto result = service.ListAll(query);
-	// ÏìÓ¦½á¹û
+	// å“åº”ç»“æžœ
 	auto jvo = LaborDispatchJsonMVO::createShared();
 	if (result->rows->empty())
 	{

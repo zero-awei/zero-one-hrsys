@@ -23,29 +23,45 @@
 #include "Mapper.h"
 #include "domain/do/laborDispatch/LaborDispatchDO.h"
 
-
+/**
+ * ²éÑ¯×Ö¶ÎÆ¥ÅäÓ³Éä
+ */
 class LaborDispatchMapper : public Mapper<LaborDispatchDO>
 {
 public:
 	LaborDispatchDO mapper(ResultSet* resultSet) const override
 	{
 		LaborDispatchDO data;
-		data.set_Enable(resultSet->getString(1));
+		data.setId(resultSet->getString(1));
 		data.setName(resultSet->getString(2));
-		data.setId(resultSet->getString(3));
-		data.setCreatedate(resultSet->getString(4));
-		data.setCreateman(resultSet->getString(5));
-		data.setUpdateman(resultSet->getString(6));
-		data.setUpdatedate(resultSet->getString(7));
-		data.setJyfw(resultSet->getString(8));
-		data.setLxdz(resultSet->getString(9));
-		data.setLxfs(resultSet->getString(10));
-		data.setLxr(resultSet->getString(11));
-		data.setGsjj(resultSet->getString(12));
-		data.setPimpersonid(resultSet->getString(13));
-		data.setOrmorgid(resultSet->getString(14));
-		data.setRegcapital(resultSet->getString(15));
-		data.setLegalperson(resultSet->getString(16));
+		data.setUnit(resultSet->getString(3));
+		data.setLxdz(resultSet->getString(4));
+		data.setLxr(resultSet->getString(5));
+		data.setLxfs(resultSet->getString(6));
+		data.setRegcapital(resultSet->getString(7));
+		data.setLegalperson(resultSet->getString(8));
+		data.setUpdatedate(resultSet->getString(9));
+		return data;
+	}
+};
+
+/**
+ * µ¼³ö×Ö¶ÎÆ¥ÅäÓ³Éä
+ */
+class LaborDispatchMapper_export : public Mapper<LaborDispatchDO>
+{
+public:
+	LaborDispatchDO mapper(ResultSet* resultSet) const override
+	{
+		LaborDispatchDO data;
+		data.setName(resultSet->getString(1));
+		data.setUnit(resultSet->getString(2));
+		data.setLxdz(resultSet->getString(3));
+		data.setLxr(resultSet->getString(4));
+		data.setLxfs(resultSet->getString(5));
+		data.setRegcapital(resultSet->getString(6));
+		data.setLegalperson(resultSet->getString(7));
+		data.setUpdatedate(resultSet->getString(8));
 		return data;
 	}
 };

@@ -14,10 +14,10 @@ class GoshService
 public:
 	// 分页查询合同数据
 	ContractPageDTO_gs::Wrapper listContract(const ContractQuery::Wrapper& query);
-	//// 分页查询合同数据
-	//ContractPageDTO_gs::Wrapper listPerson(const PersonQuery::Wrapper& query);
+	//分页查询员工数据
+	ContractPageDTO_gs::Wrapper listPerson(const ContractQuery::Wrapper& query);
 	// 保存数据
-	uint64_t saveData(const ContractDTO_gs::Wrapper& dto);
+	uint64_t saveData(const ContractDTO_gs_insert::Wrapper& dto);
 	// 通过ID删除数据
 	bool removeData(const ContractDTO_gs_delete::Wrapper& dto);
 };

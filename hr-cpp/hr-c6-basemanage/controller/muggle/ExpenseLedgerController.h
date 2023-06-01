@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
@@ -34,10 +34,36 @@ class ExpenseLedgerMController : public oatpp::web::server::api::ApiController
 {
 	API_ACCESS_DECLARE(ExpenseLedgerMController);
 public:
-	// ²éÑ¯·Ñ±ð
+	// æŸ¥è¯¢è´¹åˆ«
 	ENDPOINT_INFO(queryExpenseLedger) {
 		info->summary = ZH_WORDS_GETTER("expenseledger_mug.get.summary");
 		API_DEF_ADD_PAGE_PARAMS();
+		info->queryParams.add<String>("pimexpaccountname").description = ZH_WORDS_GETTER("expenseledger.field.PIMEXPACCOUNTNAME");
+		info->queryParams["pimexpaccountname"].required = false;
+		info->queryParams.add<String>("pimexpaccountid").description = ZH_WORDS_GETTER("expenseledger.field.PIMEXPACCOUNTID");
+		info->queryParams["pimexpaccountid"].required = false;
+		info->queryParams.add<String>("updateman").description = ZH_WORDS_GETTER("expenseledger.field.UPDATEMAN");
+		info->queryParams["updateman"].required = false;
+		info->queryParams.add<String>("createdate").description = ZH_WORDS_GETTER("expenseledger.field.CREATEDATE");
+		info->queryParams["createdate"].required = false;
+		info->queryParams.add<String>("createman").description = ZH_WORDS_GETTER("expenseledger.field.CREATEMAN");
+		info->queryParams["createman"].required = false;
+		info->queryParams.add<String>("updatedate").description = ZH_WORDS_GETTER("expenseledger.field.UPDATEDATE");
+		info->queryParams["updatedate"].required = false;
+		info->queryParams.add<String>("fylb").description = ZH_WORDS_GETTER("expenseledger.field.FYLB");
+		info->queryParams["fylb"].required = false;
+		info->queryParams.add<String>("fyje").description = ZH_WORDS_GETTER("expenseledger.field.FYJE");
+		info->queryParams["fyje"].required = false;
+		info->queryParams.add<String>("ffrs").description = ZH_WORDS_GETTER("expenseledger.field.FFRS");
+		info->queryParams["ffrs"].required = false;
+		info->queryParams.add<String>("ffsj").description = ZH_WORDS_GETTER("expenseledger.field.FFSJ");
+		info->queryParams["ffsj"].required = false;
+		info->queryParams.add<String>("ffybz").description = ZH_WORDS_GETTER("expenseledger.field.FFYBZ");
+		info->queryParams["ffybz"].required = false;
+		info->queryParams.add<String>("bz").description = ZH_WORDS_GETTER("expenseledger.field.BZ");
+		info->queryParams["bz"].required = false;
+		info->queryParams.add<String>("ormorgid").description = ZH_WORDS_GETTER("expenseledger.field.ORMORGID");
+		info->queryParams["ormorgid"].required = false;
 		API_DEF_ADD_RSP_JSON_WRAPPER(JsonVO<ExpenseLedgerPageDTO::Wrapper>);
 	}
 	ENDPOINT(API_M_GET, "/contract-management/query-by-expense-category", queryExpenseLedger,QUERIES(QueryParams, queryParams)) {
@@ -45,7 +71,7 @@ public:
 		API_HANDLER_RESP_VO(execQueryExpenseLedger(query));
 	}
 
-	// ÐÂÔö·Ñ±ð
+	// æ–°å¢žè´¹åˆ«
 	ENDPOINT_INFO(addExpenseLedger) {
 		info->summary = ZH_WORDS_GETTER("expenseledger_mug.post.summary");
 		API_DEF_ADD_AUTH();
@@ -55,7 +81,7 @@ public:
 		API_HANDLER_RESP_VO(execAddExpenseLedger(dto,authObject->getPayload()));
 	}
 	
-	// É¾³ý·Ñ±ð
+	// åˆ é™¤è´¹åˆ«
 	ENDPOINT_INFO(deleteExpenseLedger) {
 		info->summary = ZH_WORDS_GETTER("expenseledger_mug.delete.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);

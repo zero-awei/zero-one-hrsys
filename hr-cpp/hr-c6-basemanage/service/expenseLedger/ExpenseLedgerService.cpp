@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
@@ -24,12 +24,12 @@
 
 ExpenseLedgerPageDTO::Wrapper ExpenseLedgerService::ListAll(const ExpenseLedgerPageQuery::Wrapper& query)
 {
-	//¹¹½¨·µ»Ø¶ÔÏó
+	//æ„å»ºè¿”å›å¯¹è±¡
 	auto pages = ExpenseLedgerPageDTO::createShared();
 	pages->pageIndex = query->pageIndex;
 	pages->pageSize = query->pageSize;
 
-	//²éÑ¯Êı¾İ×ÜÌõÊı
+	//æŸ¥è¯¢æ•°æ®æ€»æ¡æ•°
 	ExpenseLedgerDAO dao;
 	uint64_t count = dao.count(query);
 	if (count <= 0)
@@ -37,11 +37,11 @@ ExpenseLedgerPageDTO::Wrapper ExpenseLedgerService::ListAll(const ExpenseLedgerP
 		return pages;
 	}
 
-	//·ÖÒ³²åĞğÊı¾İ
+	//åˆ†é¡µæ’å™æ•°æ®
 	pages->total = count;
 	pages->calcPages();
 	list<ExpenseLedgerDO> result = dao.selectByPageQuery(query);
-	//½«DO×ª»»³ÉDTO
+	//å°†DOè½¬æ¢æˆDTO
 	for (ExpenseLedgerDO sub : result)
 	{
 		auto dto = ExpenseLedgerDTO::createShared();
