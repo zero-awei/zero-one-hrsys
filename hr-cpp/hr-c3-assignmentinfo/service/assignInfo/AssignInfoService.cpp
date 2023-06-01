@@ -9,7 +9,7 @@ AssignInfoPageDTO::Wrapper AssignInfoService::listAll(const AssignInfoQuery::Wra
 	pages->pageIndex = query->pageIndex;
 	pages->pageSize = query->pageSize;
 
-	//// 查询数据总条数
+	// 查询数据总条数
 	AssignInfoDAO dao;
 	uint64_t count = dao.count(query);
 	if (count <= 0)

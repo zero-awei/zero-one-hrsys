@@ -221,11 +221,11 @@ public:
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(AssignInfoJsonVO);
 		//详细查询分配信息不需要分页
-		//// 定义分页参数描述
+		// 定义分页参数描述
 		//API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("assignId").description = ZH_WORDS_GETTER("employee.t_pimperson.assignId");
-		info->queryParams["assignId"].addExample("default", String("00543BCA-37A2-4634-8352-191569F23216"));
+		info->queryParams["assignId"].addExample("default", String("E3D4260E-D2D6-4884-A6BE-FF6547BDF229"));
 		info->queryParams["assignId"].required = true;
 	}
 	// 3.2 定义查询接口处理
