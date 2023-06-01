@@ -2,16 +2,16 @@
 #include "JobTitleInfoController.h"
 #include "service/JobTitleInfo/JobTitleInfo.h"
 
-JobTitleInfoJsonVO::Wrapper JobTitleInfoController::execQueryJobTitle(const JobTitleInfoDTO::Wrapper& query, const PayloadDTO& payload)
+JTQueryJsonVO::Wrapper JobTitleInfoController::execQueryJobTitle(const JobTitleDTO::Wrapper& query, const PayloadDTO& payload)
 {
-	auto jvo = JobTitleInfoJsonVO::createShared();
+	auto jvo = JTQueryJsonVO::createShared();
 	JobTitleInfoService service;
 	auto result = service.queryDataDetail(query);
 	jvo->success(result);
 	return jvo;
 }
 
-StringJsonVO::Wrapper JobTitleInfoController::execGetJobTitle(const JobTitleInfoDTO::Wrapper& query, const PayloadDTO& payload)
+StringJsonVO::Wrapper JobTitleInfoController::execGetJobTitle(const JobTitleDTO::Wrapper& query, const PayloadDTO& payload)
 {
 	auto jvo = StringJsonVO::createShared();
 	JobTitleInfoService service;
@@ -23,7 +23,7 @@ StringJsonVO::Wrapper JobTitleInfoController::execGetJobTitle(const JobTitleInfo
 	return jvo;
 }
 
-Uint64JsonVO::Wrapper JobTitleInfoController::execModifyJobTitle(const JobTitleInfoDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper JobTitleInfoController::execModifyJobTitle(const JobTitleDTO::Wrapper& dto)
 {
 	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验

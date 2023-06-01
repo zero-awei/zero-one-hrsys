@@ -35,9 +35,9 @@ public:
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(ExpenseLedgeJsonVO);
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("expense_name").description = ZH_WORDS_GETTER("expense.field.expense_name");
-		info->queryParams["expense_name"].addExample("default", String("MedicalExpenses"));
-		info->queryParams["expense_name"].required = true;
+		info->queryParams.add<String>("PIMEXPACCOUNTNAME").description = ZH_WORDS_GETTER("expense.field.expense_name");
+		info->queryParams["PIMEXPACCOUNTNAME"].addExample("default", String("MedicalExpenses"));
+		info->queryParams["PIMEXPACCOUNTNAME"].required = false;
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/retirement-management/query-expense", queryExpense, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
@@ -56,9 +56,9 @@ public:
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("PIMEXPACCOUNTID").description = ZH_WORDS_GETTER("expense.field.expense_name");
-		info->queryParams["PIMEXPACCOUNTID"].addExample("default", String("MedicalExpenses"));
-		info->queryParams["PIMEXPACCOUNTID"].required = true;
+		info->queryParams.add<String>("PIMEXPACCOUNTNAME").description = ZH_WORDS_GETTER("expense.field.expense_name");
+		info->queryParams["PIMEXPACCOUNTNAME"].addExample("default", String("MedicalExpenses"));
+		info->queryParams["PIMEXPACCOUNTNAME"].required = false;
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/retirement-management/export-expense", getExpense, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {

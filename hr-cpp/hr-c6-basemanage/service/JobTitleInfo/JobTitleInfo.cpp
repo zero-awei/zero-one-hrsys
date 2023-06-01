@@ -4,11 +4,18 @@
 #include "../../uselib/excel/ExportExcel.h"
 #include "../../uselib/fastdfs/UseFastDfs.h"
 
-std::string JobTitleInfoService::listAllJobTitle(const JobTitleInfoDTO::Wrapper& query)
+std::string JobTitleInfoService::listAllJobTitle(const JobTitleDTO::Wrapper& query)
 {
 	std::string url;
 	JobTitleInfoDAO dao;
-	uint64_t count = dao.count(query);
+	auto countQuery = JobTitleQuery::createShared();
+	countQuery->employee_id = query->employee_id;
+	countQuery->employee_name = query->employee_name;
+	countQuery->org_name = query->org_name;
+	countQuery->jobtitle_name = query->jobtitle_name;
+	countQuery->jobtitle_grades = query->jobtitle_grades;
+	countQuery->b_highest_professional_title = query->b_highest_professional_title;
+	uint64_t count = dao.count(countQuery);
 	if (count <= 0)
 	{
 		return url;
@@ -36,7 +43,7 @@ std::string JobTitleInfoService::listAllJobTitle(const JobTitleInfoDTO::Wrapper&
 	}
 
 	// 生成数据表表头
-	vector<string> head = dao.getHead();
+	vector<string> head/* = dao.getHead()*/;
 	head.erase(head.begin() + 12,head.end());
 	data.insert(data.begin(), head);
 	// 生成Excel
@@ -47,12 +54,12 @@ std::string JobTitleInfoService::listAllJobTitle(const JobTitleInfoDTO::Wrapper&
 	return url;
 }
 
-JobTitleInfoDTO::Wrapper JobTitleInfoService::queryDataDetail(const JobTitleInfoDTO::Wrapper& query)
+JobTitleDTO::Wrapper JobTitleInfoService::queryDataDetail(const JobTitleDTO::Wrapper& query)
 {
-	return JobTitleInfoDTO::Wrapper();
+	return JobTitleDTO::Wrapper();
 }
 
-bool JobTitleInfoService::updateData(const JobTitleInfoDTO::Wrapper& dto)
+bool JobTitleInfoService::updateData(const JobTitleDTO::Wrapper& dto)
 {
 	return false;
 }
