@@ -10,13 +10,13 @@
 #define TEMPSTAFF_TERAM_PARSE(query,sql)\
 SqlParams params; \
 sql<<" WHERE 1=1"; \
-if(query->id){ \
+if(query->idandname){ \
 	sql << " AND `YGBH`LIKE CONCAT('%',?,'%')"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
+	SQLPARAMS_PUSH(params, "s", std::string, query->idandname.getValue("")); \
 } \
-if (query->name) { \
-	sql << " AND `PIMPERSONNAME` LIKE CONCAT('%',?,'%')"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->name.getValue("")); \
+if (query->idandname) { \
+	sql << " OR `PIMPERSONNAME` LIKE CONCAT('%',?,'%')"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->idandname.getValue("")); \
 } 
 
 //sql << "SELECT YGBH,PIMPERSONNAME,YGZT,GZZT,GZZZ,GZBM,GZKSSJ,GZJSSJ FROM t_pimperson";
