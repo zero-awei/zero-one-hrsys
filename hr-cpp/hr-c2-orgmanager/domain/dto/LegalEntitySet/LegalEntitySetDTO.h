@@ -22,21 +22,13 @@
 class LegalEntitySetDTO : public oatpp::DTO {
 public: 
 	LegalEntitySetDTO() {};
-	LegalEntitySetDTO(String ormsignorgname, String contractsignorgname, String isdefaultsignorg) : ormsignorgname(ormsignorgname), contractsignorgname(contractsignorgname), isdefaultsignorg(isdefaultsignorg) {};
+	LegalEntitySetDTO(String ormsignorgname, String contractsignorgname, String isdefaultsignorg) : contractsignorgname(contractsignorgname), isdefaultsignorg(isdefaultsignorg) {};
 	LegalEntitySetDTO(String ormsignorgid, String ormsignorgname, String contractsignorgname, String isdefaultsignorg) {	};
-	LegalEntitySetDTO(string name) {
-		ormsignorgname = name; 
-	}
 	DTO_INIT(LegalEntitySetDTO, DTO);
 	// 法人主体标识
 	DTO_FIELD(String, ormsignorgid);
 	DTO_FIELD_INFO(ormsignorgid) {
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.ormsignorgid");
-	}
-	// 法人主体名称
-	DTO_FIELD(String, ormsignorgname);
-	DTO_FIELD_INFO(ormsignorgname) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.ormsignorgname");
 	}
 	// 签约主体单位名称
 	DTO_FIELD(String, contractsignorgname);
@@ -52,6 +44,36 @@ public:
 	DTO_FIELD(String, contractsignorgid);
 	DTO_FIELD_INFO(contractsignorgid) {
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.contractsignorgid");
+	}
+	// 更新人
+	DTO_FIELD(String, updateman);
+	DTO_FIELD_INFO(updateman) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.updateman");
+	}
+	// 建立人
+	DTO_FIELD(String, createman);
+	DTO_FIELD_INFO(createman) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.createman");
+	}
+	// 建立时间
+	DTO_FIELD(String, createdate);
+	DTO_FIELD_INFO(createdate) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.createdate");
+	}
+	// 更新时间
+	DTO_FIELD(String, updatedate);
+	DTO_FIELD_INFO(updatedate) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.updatedate");
+	}
+	// 管理单位标识
+	DTO_FIELD(String, ormorgid);
+	DTO_FIELD_INFO(ormorgid) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.ormorgid");
+	}
+	// 法人主体标识
+	DTO_FIELD(String, signorgid);
+	DTO_FIELD_INFO(signorgid) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.signorgid");
 	}
 };
 

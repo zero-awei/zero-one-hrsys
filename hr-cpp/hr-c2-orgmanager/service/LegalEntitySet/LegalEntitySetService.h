@@ -31,6 +31,4 @@ public:
 	//bool removeData(uint64_t id);
 	LegalEntitySetPullDownDTO::Wrapper legalEntityPulldownList();
 };
-
-
 #endif // !_LEGALENTITYSETSERVICE_SERVICE_

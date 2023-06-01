@@ -20,10 +20,10 @@ LegalEntitySetPullDownDTO::Wrapper LegalEntitySetService::legalEntityPulldownLis
 	LegalEntitySetDAO dao;
 	std::list<LegalEntitySetDO> date = dao.legalerNamePullDownList();
 	auto dto = LegalEntitySetPullDownDTO::createShared();
-	for (auto it : date) {
+	/*for (auto it : date) {
 		string str = it.getORMSIGNORGNAME();
 		dto->legalEntitySetPullDownList->push_back(LegalEntitySetDTO::createShared(str));
-	}
+	}*/
 	return dto;
 }
 
@@ -32,8 +32,8 @@ uint64_t LegalEntitySetService::insertData(const LegalEntitySetDTO::Wrapper& dto
 	SnowFlake snowid(1, 2); 
 	// 组装DO数据
 	LegalEntitySetDO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME, 
-	contractsignorgname, ISDEFAULTSIGNORG, isdefaultsignorg)
+	//ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME,
+	//	contractsignorgname, ISDEFAULTSIGNORG, isdefaultsignorg)
 	data.setORMSIGNORGID(to_string(snowid.nextId()));
 	data.setCONTRACTSIGNORGID(to_string(snowid.nextId()));
 	// 执行数据添加
@@ -45,8 +45,8 @@ uint64_t LegalEntitySetService::insertData(const LegalEntitySetDTO::Wrapper& dto
 bool LegalEntitySetService::updateData(const LegalEntitySetDTO::Wrapper& dto) {
 	// 组装DO数据
 	LegalEntitySetDO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME,
-		contractsignorgname, ISDEFAULTSIGNORG, isdefaultsignorg)
+	/*ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME,
+		contractsignorgname, ISDEFAULTSIGNORG, isdefaultsignorg)*/
 	// 执行数据修改
 	LegalEntitySetDAO dao;
 	return dao.update1(data) && dao.update2(data);
