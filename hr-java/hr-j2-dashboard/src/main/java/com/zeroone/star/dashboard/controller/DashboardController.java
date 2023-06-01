@@ -25,7 +25,7 @@ public class DashboardController implements DashboardApis, OrgDistributeApis {
     IBisProfessoranalysisService iBisProfessoranalysisService;
 
     @Resource
-    IPimoutputService iPimoutputService;
+    IBisPimoutputTService iBisPimoutputTService;
     @GetMapping("pim-title-zcdj")
     @ApiOperation(value = "职称等级分布")
     @Override
@@ -37,7 +37,7 @@ public class DashboardController implements DashboardApis, OrgDistributeApis {
     @GetMapping("pim-output-yd")
     @Override
     public JsonVO<List<PimOutputDTO>> queryByMonth() {
-        return JsonVO.success(iPimoutputService.listYd());
+        return JsonVO.success(iBisPimoutputTService.listMonthOutput());
     }
 
     @ApiOperation(value = "获取机关和项目人员")

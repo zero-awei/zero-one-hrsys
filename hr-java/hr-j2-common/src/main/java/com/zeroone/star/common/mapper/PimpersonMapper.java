@@ -1,8 +1,7 @@
 package com.zeroone.star.common.mapper;
 
-import com.zeroone.star.common.entity.Pimperson;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.zeroone.star.project.dto.common.GwTypeDTO;
+import com.zeroone.star.common.entity.Pimperson;
 import com.zeroone.star.project.dto.common.StatusListDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
