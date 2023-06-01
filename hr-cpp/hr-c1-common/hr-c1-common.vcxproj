@@ -193,6 +193,7 @@
     <ClInclude Include="dao\typeContract\TypeContractMapper.h" />
     <ClInclude Include="domain\do\archivesLevel\ArchivesLevelDO.h" />
     <ClInclude Include="domain\do\armyLevelType\ArmyLevelTypeDO.h" />
+    <ClInclude Include="domain\do\awardLevels\ArchivesLevelsDO.h" />
     <ClInclude Include="domain\do\certs\CertTypeDO.h" />
     <ClInclude Include="domain\do\certs\ProCertsDO.h" />
     <ClInclude Include="domain\do\contractType\ContractTypeDO.h" />

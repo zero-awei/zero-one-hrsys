@@ -9,18 +9,26 @@ class ArchivesLevelsDTO : public oatpp::DTO
 {
 	DTO_INIT(ArchivesLevelsDTO, DTO);
 
+	DTO_FIELD(UInt64, code);
+	DTO_FIELD_INFO(code) {
+		info->description = ZH_WORDS_GETTER("archives.code");
+	}
+
 	DTO_FIELD(String, archiveslevels);
 	DTO_FIELD_INFO(archiveslevels) {
 		info->description = ZH_WORDS_GETTER("archives.levels");
 	}
+
 public:
 	ArchivesLevelsDTO()
 	{
+		code = -1;
 		archiveslevels = "";
 	}
 
-	ArchivesLevelsDTO(String levels)
+	ArchivesLevelsDTO(UInt64 value, String levels)
 	{
+		code = value;
 		archiveslevels = levels;
 	}
 };
