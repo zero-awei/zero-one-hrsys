@@ -1,16 +1,13 @@
 package com.zeroone.star.orgmanager.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zeroone.star.orgmanager.entity.Orgsector;
-import com.zeroone.star.orgmanager.entity.Ormbmkqdz;
 import com.zeroone.star.orgmanager.mapper.OrmMapper;
 import com.zeroone.star.orgmanager.service.IOrmService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.dto.orgmanager.OrgsectorDTO;
 import com.zeroone.star.project.dto.orgmanager.DeptKqdzDTO;
 import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
+import com.zeroone.star.project.dto.orgmanager.OrgsectorDTO;
 import com.zeroone.star.project.query.orgmanager.DeptKqdzQuery;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -18,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * <p>

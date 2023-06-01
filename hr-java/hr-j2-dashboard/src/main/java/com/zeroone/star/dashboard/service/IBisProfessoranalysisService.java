@@ -1,7 +1,7 @@
 package com.zeroone.star.dashboard.service;
 
-import com.zeroone.star.dashboard.entity.BisProfessoranalysis;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zeroone.star.dashboard.entity.BisProfessoranalysis;
 import com.zeroone.star.project.dto.dashboard.PimTitleDTO;
 
 import java.util.List;

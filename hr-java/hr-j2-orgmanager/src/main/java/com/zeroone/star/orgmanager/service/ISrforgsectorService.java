@@ -1,13 +1,11 @@
 package com.zeroone.star.orgmanager.service;
 
-import com.zeroone.star.orgmanager.entity.Srforgsector;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zeroone.star.orgmanager.entity.Srforgsector;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.orgmanager.DepartmentDTO;
 import com.zeroone.star.project.dto.orgmanager.ExportDTO;
 import com.zeroone.star.project.query.orgmanager.*;
-
-import java.util.List;
 
 /**
  * <p>

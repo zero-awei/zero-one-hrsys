@@ -1,9 +1,9 @@
 package com.zeroone.star.dashboard.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zeroone.star.dashboard.entity.BisRegisterT;
 import com.zeroone.star.dashboard.mapper.BisRegisterTMapper;
 import com.zeroone.star.dashboard.service.IBisRegisterTService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zeroone.star.project.dto.dashboard.PimVocationalDTO;
 import org.springframework.stereotype.Service;
 

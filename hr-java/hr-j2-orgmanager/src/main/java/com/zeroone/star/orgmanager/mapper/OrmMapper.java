@@ -3,11 +3,12 @@ package com.zeroone.star.orgmanager.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zeroone.star.orgmanager.entity.Orgsector;
-import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
 import com.zeroone.star.project.dto.orgmanager.DeptKqdzDTO;
-import org.apache.ibatis.annotations.*;
-
-import java.util.List;
+import com.zeroone.star.project.dto.orgmanager.ModifyDeptInfoDTO;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 /**
  * <p>

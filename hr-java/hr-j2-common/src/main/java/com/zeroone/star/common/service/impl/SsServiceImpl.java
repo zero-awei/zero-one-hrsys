@@ -1,11 +1,8 @@
 package com.zeroone.star.common.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.zeroone.star.common.entity.Dt;
 import com.zeroone.star.common.entity.Ss;
-import com.zeroone.star.common.mapper.DtMapper;
 import com.zeroone.star.common.mapper.SsMapper;
-import com.zeroone.star.common.service.DtService;
 import com.zeroone.star.common.service.SsService;
 import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
 import org.springframework.stereotype.Service;

@@ -1,11 +1,9 @@
 package com.zeroone.star.dashboard.service;
 
-import com.zeroone.star.dashboard.entity.BisEducation;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zeroone.star.dashboard.entity.BisEducation;
 import com.zeroone.star.project.query.dashboard.EducationQuery;
-import com.zeroone.star.project.vo.JsonVO;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 

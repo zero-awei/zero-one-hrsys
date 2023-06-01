@@ -1,13 +1,12 @@
 package com.zeroone.star.orgmanager.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.util.UUID;
-
 import com.zeroone.star.orgmanager.entity.myutils.SnowflakeIdGenerator;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>

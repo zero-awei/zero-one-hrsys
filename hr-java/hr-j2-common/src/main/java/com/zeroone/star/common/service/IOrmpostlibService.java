@@ -1,10 +1,9 @@
 package com.zeroone.star.common.service;
 
-import com.zeroone.star.common.entity.Ormpostlib;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zeroone.star.common.entity.Ormpostlib;
 import com.zeroone.star.project.dto.common.GwTypeDTO;
 import com.zeroone.star.project.dto.common.PostNatureDTO;
-import com.zeroone.star.project.dto.dashboard.OrgDistributeDTO;
 
 import java.util.List;
 

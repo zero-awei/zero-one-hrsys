@@ -1,24 +1,19 @@
 package com.zeroone.star.orgmanager.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.zeroone.star.orgmanager.entity.Srforgsector;
 import com.zeroone.star.orgmanager.service.ISrforgsectorService;
 import com.zeroone.star.orgmanager.service.ITOrmbmkqdzService;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.orgmanager.DepartmentDTO;
 import com.zeroone.star.project.dto.orgmanager.ExportDTO;
-import com.zeroone.star.project.dto.orgmanager.KqdzDTO;
 import com.zeroone.star.project.dto.orm.OrmBmkqdzDTO;
 import com.zeroone.star.project.orgmanager.DepartmentApis;
 import com.zeroone.star.project.query.orgmanager.*;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.commons.math3.analysis.function.Exp;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * <p>

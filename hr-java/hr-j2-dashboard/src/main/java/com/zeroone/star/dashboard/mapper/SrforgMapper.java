@@ -1,9 +1,8 @@
 package com.zeroone.star.dashboard.mapper;
 
-import com.zeroone.star.dashboard.entity.Srforg;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zeroone.star.dashboard.entity.Srforg;
 import com.zeroone.star.project.dto.dashboard.OrgDistributeDTO;
-import com.zeroone.star.project.dto.dashboard.OrgEmployeeCountDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

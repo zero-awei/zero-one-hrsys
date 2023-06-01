@@ -1,13 +1,11 @@
 package com.zeroone.star.orgmanager.mapper;
 
-import com.zeroone.star.orgmanager.entity.Srforgsector;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zeroone.star.orgmanager.entity.Srforgsector;
 import com.zeroone.star.project.dto.orgmanager.DepartmentDTO;
-import com.zeroone.star.project.dto.orgmanager.DeptDTO;
 import com.zeroone.star.project.query.orgmanager.DepartmentQuery;
 import com.zeroone.star.project.query.orgmanager.DeptQuery2;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 

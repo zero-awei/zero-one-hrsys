@@ -1,7 +1,7 @@
 package com.zeroone.star.dashboard.mapper;
 
-import com.zeroone.star.dashboard.entity.TPimperson;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zeroone.star.dashboard.entity.TPimperson;
 import com.zeroone.star.project.dto.dashboard.AgeDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

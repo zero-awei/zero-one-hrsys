@@ -1,7 +1,7 @@
 package com.zeroone.star.dashboard.mapper;
 
-import com.zeroone.star.dashboard.entity.BisEducation;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zeroone.star.dashboard.entity.BisEducation;
 import com.zeroone.star.project.query.dashboard.EducationQuery;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

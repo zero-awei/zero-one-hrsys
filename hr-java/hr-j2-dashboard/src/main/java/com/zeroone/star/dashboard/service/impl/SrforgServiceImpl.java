@@ -1,11 +1,10 @@
 package com.zeroone.star.dashboard.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zeroone.star.dashboard.entity.Srforg;
 import com.zeroone.star.dashboard.mapper.SrforgMapper;
 import com.zeroone.star.dashboard.service.ISrforgService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zeroone.star.project.dto.dashboard.OrgDistributeDTO;
-import com.zeroone.star.project.dto.dashboard.OrgEmployeeCountDTO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

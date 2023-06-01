@@ -1,9 +1,9 @@
 package com.zeroone.star.dashboard.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zeroone.star.dashboard.entity.BisProfessoranalysis;
 import com.zeroone.star.dashboard.mapper.BisProfessoranalysisMapper;
 import com.zeroone.star.dashboard.service.IBisProfessoranalysisService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zeroone.star.project.dto.dashboard.PimTitleDTO;
 import org.springframework.stereotype.Service;
 

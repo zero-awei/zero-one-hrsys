@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zeroone.star.common.entity.ZoMaritalStatus;
 import com.zeroone.star.common.mapper.ZoMaritalStatusMapper;
 import com.zeroone.star.common.service.IZoMaritalStatusService;
-import com.zeroone.star.common.service.IZoMaritalStatusService;
 import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
 import org.springframework.stereotype.Service;
 
