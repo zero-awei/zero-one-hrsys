@@ -22,17 +22,24 @@
 #include "BaseDAO.h"
 #include "../../domain/do/expenseLedger/ExpenseLedgerDO.h"
 #include "../../domain/query/ExpenseLedger/ExpenseLedgerQuery.h"
+#include "../../domain/dto/ExpenseLedge/ExpenseLedgeDTO.h"
 
 class ExpenseLedgerDAO : public BaseDAO
 {
 public:
-	// Í³¼ÆÊý¾ÝÌõÊý
+	// Í³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	uint64_t count(const ExpenseLedgerPageQuery::Wrapper& query);
-	// ¸ù¾ÝÒ³ÃæÇëÇó·µ»ØDO
+	// ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ó·µ»ï¿½DO
 	std::list<ExpenseLedgerDO> selectByPageQuery(const ExpenseLedgerPageQuery::Wrapper& query);
-	// ²åÈëÊý¾Ý
+
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½
+	std::list<ExpenseLedgerDO> selectAll(const ExpenseLedgeDTO::Wrapper& query);
+
+	// ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
+	int update(const ExpenseLedgerDO& uObj);
+
 	uint64_t insert(const ExpenseLedgerDO& ido);
-	// É¾³ýÊý¾Ý
+	// É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	uint64_t deleteById(const ExpenseLedgerDO& obj);
 };
 #endif

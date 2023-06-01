@@ -1,4 +1,4 @@
-#ifndef __ContractController__
+ï»¿#ifndef __ContractController__
 #define __ContractController__
 
 #include "oatpp-swagger/Types.hpp"
@@ -14,116 +14,81 @@
 #include "oatpp/web/mime/multipart/PartList.hpp"
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
-//ÐÞ¸ÄºÏÍ¬ËùÐè²ÎÊý
-#define UPDATECONTRACTINFO \
-info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("expenseledger_mug.filed.id");\
-info->queryParams["id"].addExample("default", UInt64(114514));\
-info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("expenseledger_mug.filed.name");\
-info->queryParams["name"].addExample("default", String("xiaoming"));\
-info->queryParams["name"].required = false;\
-info->queryParams.add<String>("type").description = ZH_WORDS_GETTER("expenseledger_mug.filed.type");\
-info->queryParams["type"].addExample("default", String("A"));\
-info->queryParams["type"].required = false;\
-info->queryParams.add<String>("variety").description = ZH_WORDS_GETTER("expenseledger_mug.filed.variety");\
-info->queryParams["variety"].addExample("default", String("a"));\
-info->queryParams["variety"].required = false;\
-info->queryParams.add<String>("date").description = ZH_WORDS_GETTER("expenseledger_mug.filed.date");\
-info->queryParams["date"].addExample("default", String("2023-05-02 19:57:59"));\
-info->queryParams["date"].required = false;\
-info->queryParams.add<String>("condition").description = ZH_WORDS_GETTER("expenseledger_mug.filed.condition"); \
-info->queryParams["condition"].addExample("default", String("ok")); \
-info->queryParams["condition"].required = false;\
-info->queryParams.add<String>("department_m").description = ZH_WORDS_GETTER("expenseledger_mug.filed.department_m"); \
-info->queryParams["department_m"].addExample("default", String("ok")); \
-info->queryParams["department_m"].required = false;\
-info->queryParams.add<String>("department_c").description = ZH_WORDS_GETTER("expenseledger_mug.filed.department_c"); \
-info->queryParams["department_c"].addExample("default", String("ok")); \
-info->queryParams["department_c"].required = false;\
-info->queryParams.add<String>("date_end").description = ZH_WORDS_GETTER("expenseledger_mug.filed.date_end"); \
-info->queryParams["date_end"].addExample("default", String("2023-05-02 19:57:59")); \
-info->queryParams["date_end"].required = false;\
-info->queryParams.add<String>("tip").description = ZH_WORDS_GETTER("expenseledger_mug.filed.tip"); \
-info->queryParams["tip"].addExample("default", String("ok")); \
-info->queryParams["tip"].required = false
 
 
-
-
-//²éÑ¯ºÏÍ¬ËùÐè²ÎÊý
+//ï¿½ï¿½Ñ¯ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #define QUERYCONTRACTINFO \
-info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("expenseledger_mug.filed.id");\
-info->queryParams["id"].addExample("default", String("114514"))
+info->queryParams.add<String>("infoid").description = ZH_WORDS_GETTER("contract.filed.infoid");\
+info->queryParams["infoid"].addExample("default", String("2632DB4D-6440-4699-8584-5F944BABAA40"))
 
 
 using namespace oatpp;
 
-// 0 ¶¨ÒåAPI¿ØÖÆÆ÷Ê¹ÓÃºê
+// 0 ï¿½ï¿½ï¿½ï¿½APIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ãºï¿½
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
-class ContractController : public oatpp::web::server::api::ApiController // 1 ¼Ì³Ð¿ØÖÆÆ÷
+class ContractController : public oatpp::web::server::api::ApiController // 1 ï¿½Ì³Ð¿ï¿½ï¿½ï¿½ï¿½ï¿½
 {
-	// 2 ¶¨Òå¿ØÖÆÆ÷·ÃÎÊÈë¿Ú
+	// 2 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	API_ACCESS_DECLARE(ContractController);
 
 public:
-	// 3.1.1 ½Ó¿ÚÃèÊö:²é¿´Ö¸¶¨ºÏÍ¬
+	// 3.1.1 ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½é¿´Ö¸ï¿½ï¿½ï¿½ï¿½Í¬
 	ENDPOINT_INFO(queryContract) {
-		// ¶¨Òå½Ó¿Ú±êÌâ
+		// ï¿½ï¿½ï¿½ï¿½Ó¿Ú±ï¿½ï¿½ï¿½
 		info->summary = ZH_WORDS_GETTER("contract.check");
-		// Ìí¼ÓÄ¬ÈÏÊÚÈ¨²ÎÊý
+		// ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½
 		API_DEF_ADD_AUTH();
-		// ¶¨ÒåÏìÓ¦²ÎÊýÀàÐÍ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		API_DEF_ADD_RSP_JSON_WRAPPER(ContractJsonVO_);
-		// Ìí¼ÓÆäËû²éÑ¯²ÎÊý
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 		QUERYCONTRACTINFO;
 	}
-	// 3.1.2 ¶¨Òå½Ó¿Ú¶Ëµã
+	// 3.1.2 ï¿½ï¿½ï¿½ï¿½Ó¿Ú¶Ëµï¿½
 	ENDPOINT(API_M_GET, "/contract-management/query-contract-info", queryContract, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
-		// ½âÎö²éÑ¯²ÎÊý£¨½âÎö³ÉÁìÓòÄ£ÐÍ¶ÔÏó£©
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½Í¶ï¿½ï¿½ï¿½
 		API_HANDLER_QUERY_PARAM(query, ContractQuery_, qps);
-		// ÏìÓ¦½á¹û
+		// ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½
 		API_HANDLER_RESP_VO(execQueryContract(query));
 	}
 
-	//3.2.1 ½Ó¿ÚÃèÊö:ÐÞ¸ÄÖ¸¶¨ºÏÍ¬
+	//3.2.1 ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½Þ¸ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Í¬
 	ENDPOINT_INFO(updateContract) {
-		// ¶¨Òå½Ó¿Ú±êÌâ
+		// ï¿½ï¿½ï¿½ï¿½Ó¿Ú±ï¿½ï¿½ï¿½
 		info->summary = ZH_WORDS_GETTER("contract.update");
-		// ¶¨ÒåÏìÓ¦²ÎÊý¸ñÊ½
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-		// Ìí¼ÓÆäËû²éÑ¯²ÎÊý
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 		//UPDATECONTRACTINFO;
 	}
 
-	// 3.2.2 ¶¨Òå½Ó¿Ú¶Ëµã
+	// 3.2.2 ï¿½ï¿½ï¿½ï¿½Ó¿Ú¶Ëµï¿½
 	ENDPOINT(API_M_PUT, "/contract-management/update-contract-info", updateContract, BODY_DTO(ContractDTO_::Wrapper, dto)) {
-		// ÏìÓ¦½á¹û
+		// ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½
 		API_HANDLER_RESP_VO(execUpdateContract(dto));
 	}
 
-	//3.3.1 ½Ó¿ÚÃèÊö:µ¼ÈëºÏÍ¬
+	//3.3.1 ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½ï¿½Í¬
 	ENDPOINT_INFO(uploadContract) {
 		info->summary = ZH_WORDS_GETTER("contract.upload");
 		info->addConsumes<oatpp::swagger::Binary>("application/octet-stream");
 		API_DEF_ADD_RSP_JSON(StringJsonVO::Wrapper);
 		info->queryParams["suffix"].description = ZH_WORDS_GETTER("user.file.suffix");
-		info->queryParams["suffix"].addExample("png", String(".png"));
-		info->queryParams["suffix"].addExample("xls", String(".xls"));
-		info->queryParams["suffix"].addExample("txt", String(".txt"));
+		info->queryParams["suffix"].addExample("xlsx", String(".xlsx"));
 	}
-	// 3.3.2 ¶¨Òå½Ó¿Ú¶Ëµã
-	// ¶¨ÒåÎÄ¼þÉÏ´«¶Ëµã´¦Àí
+	// 3.3.2 ï¿½ï¿½ï¿½ï¿½Ó¿Ú¶Ëµï¿½
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ï´ï¿½ï¿½Ëµã´¦ï¿½ï¿½
 	ENDPOINT(API_M_POST, "/contract-management/upload-contract-info", uploadContract, BODY_STRING(String, body), QUERY(String, suffix)) {
-		// Ö´ÐÐÎÄ¼þ±£´æÂß¼­
+		// Ö´ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½
 		API_HANDLER_RESP_VO(execUploadContract(body, suffix));
 	}
 
-	//3.4.1 ½Ó¿ÚÃèÊö:µ¼³öºÏÍ¬
+	//3.4.1 ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬
 	ENDPOINT_INFO(downloadContract) {
 		info->summary = ZH_WORDS_GETTER("contract.download");
-		// ¶¨ÒåÏìÓ¦²ÎÊý¸ñÊ½
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-		// Ìí¼ÓÆäËû²éÑ¯²ÎÊý
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 		info->queryParams.add<UInt8>("rows").description = ZH_WORDS_GETTER("contract.export.rows");
 		info->queryParams["rows"].addExample("default", UInt64(1));
 		info->queryParams["rows"].required = true;
@@ -131,7 +96,7 @@ public:
 		info->queryParams["sequence"].addExample("default", String("ASC"));
 		info->queryParams["sequence"].required = true;
 	}
-	// 3.4.2 ¶¨Òå½Ó¿Ú¶Ëµã
+	// 3.4.2 ï¿½ï¿½ï¿½ï¿½Ó¿Ú¶Ëµï¿½
 	ENDPOINT(API_M_GET, "/contract-management/download-contract-info", downloadContract, QUERIES(QueryParams, qps)) {
 		API_HANDLER_QUERY_PARAM(query, ContractDownloadQuery, qps);
 		API_HANDLER_RESP_VO(execDownloadContract(query));
@@ -140,22 +105,22 @@ public:
 
 
 private:
-	//ºÏÍ¬²éÑ¯
+	//ï¿½ï¿½Í¬ï¿½ï¿½Ñ¯
 	ContractJsonVO_::Wrapper execQueryContract(const ContractQuery_::Wrapper& query);
-	//ÐÞ¸ÄºÏÍ¬
+	//ï¿½Þ¸Äºï¿½Í¬
 	Uint64JsonVO::Wrapper execUpdateContract(const ContractDTO_::Wrapper& dto);
-	//µ¼ÈëºÏÍ¬
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Í¬
 	StringJsonVO::Wrapper execUploadContract(const String& fileBody, const String& suffix);
 
 	/*
-	* µ¼³öÏîÄ¿±êÇ©£¨×î´ó5000Ìõ£©
-	* µ÷ÓÃDAO²éÑ¯Êý¾Ý¿â£¬·µ»Øºó°ü×°½øExcelÎÄ¼þ²¢±£´æµ½FastDFSÎÄ¼þ·þÎñÆ÷
-	* ·µ»ØÖµ£ºÎÄ¼þ·þÎñÆ÷Æ´½ÓÏÂÔØÁ´½Ó
-	* ¸ºÔðÈË£ºakie
+	* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½5000ï¿½ï¿½ï¿½ï¿½
+	* ï¿½ï¿½ï¿½ï¿½DAOï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ý¿â£¬ï¿½ï¿½ï¿½Øºï¿½ï¿½×°ï¿½ï¿½Excelï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æµ½FastDFSï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½akie
 	*/
 	StringJsonVO::Wrapper execDownloadContract(const ContractDownloadQuery::Wrapper& query);
 };
-// 0 È¡ÏûAPI¿ØÖÆÆ÷Ê¹ÓÃºê
+// 0 È¡ï¿½ï¿½APIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ãºï¿½
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
 
 #endif 

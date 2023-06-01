@@ -44,14 +44,14 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(LaborDispatchPageJsonVO);
 		//定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
-		info->queryParams.add<String>("PIMLABOURCAMPANYNAME").description = ZH_WORDS_GETTER("ldcompany.field.PIMLABOURCAMPANYNAME");
-		info->queryParams["PIMLABOURCAMPANYNAME"].required = false;
-		info->queryParams.add<String>("PIMLABOURCAMPANYID").description = ZH_WORDS_GETTER("ldcompany.field.PIMLABOURCAMPANYID");
-		info->queryParams["PIMLABOURCAMPANYID"].required = false;
+		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("ldcompany.field.PIMLABOURCAMPANYNAME");
+		info->queryParams["name"].required = false;
 
+		info->queryParams.add<String>("lxfs").description = ZH_WORDS_GETTER("ldcompany.field.LXFS");
+		info->queryParams["lxfs"].required = false;
 	}
 	// 3.2 定义接口端点
-	ENDPOINT(API_M_GET, "/ContracManagement/LaborDispatch/QueryPages-Information", queryLDCorlist, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/contract-management/queryPages-laborDispatch-Information", queryLDCorlist, QUERIES(QueryParams, queryParams)) {
 		//解析查询参数
 		API_HANDLER_QUERY_PARAM(labordispatchquery, LaborDispatchQuery, queryParams);
 		//响应结果
@@ -66,7 +66,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/ContracManagement/LaborDispatch/Add-Information", addLDCor, BODY_DTO(LaborDispatchDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/contract-management/add-laborDispatchInformation", addLDCor, BODY_DTO(LaborDispatchModifyDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddLaborDispatch_ld(dto));
 	}
@@ -77,12 +77,9 @@ public:
 		info->summary = ZH_WORDS_GETTER("ldcompany.delete.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-		//根据公司名称和ID进行删除
-		info->queryParams.add<String>("PIMLABOURCAMPANYID").description = ZH_WORDS_GETTER("ldcompany.field.PIMLABOURCAMPANYID");
-		info->queryParams["PIMLABOURCAMPANYID"].required = false;
 	}
 	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/ContracManagement/LaborDispatch/Remove-Information", removeCor, BODY_DTO(LaborDispatchRemoveDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/contract-management/remove-laborDispatchInformation", removeCor, BODY_DTO(LaborDispatchRemoveDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveLaborDispatch_ld(dto));
 	}
@@ -93,9 +90,14 @@ public:
 		info->summary = ZH_WORDS_GETTER("ldcompany.export.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("ldcompany.field.PIMLABOURCAMPANYNAME");
+		info->queryParams["name"].required = false;
+
+		info->queryParams.add<String>("lxfs").description = ZH_WORDS_GETTER("ldcompany.field.LXFS");
+		info->queryParams["lxfs"].required = false;
 	}
 	// 3.2 定义导出接口处理
-	ENDPOINT(API_M_POST, "/ContracManagement/LaborDispatch/Export-Information", exportCor, QUERIES(QueryParams, queryExport)) {
+	ENDPOINT(API_M_POST, "/contract-management/export-laborDispatchInformation", exportCor, QUERIES(QueryParams, queryExport)) {
 		//解析查询参数
 		API_HANDLER_QUERY_PARAM(query, LaborDispatchQuery, queryExport);
 		//响应结果
@@ -106,7 +108,7 @@ private: //  定义接口执行函数
 	// 3.3 分页查询数据
 	LaborDispatchPageJsonVO::Wrapper executeQueryAll_ld(const LaborDispatchQuery::Wrapper& query);
 	// 3.3 新增数据
-	Uint64JsonVO::Wrapper execAddLaborDispatch_ld(const LaborDispatchDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execAddLaborDispatch_ld(const LaborDispatchModifyDTO::Wrapper& dto);
 	//3.3 删除数据
 	StringJsonVO::Wrapper execRemoveLaborDispatch_ld(const LaborDispatchRemoveDTO::Wrapper& dto);
 	//3.3 导出数据

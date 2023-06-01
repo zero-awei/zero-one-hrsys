@@ -27,6 +27,8 @@ class LaborDispatchDO
 	CC_SYNTHESIZE(string, name, Name);
 	//劳务派遣公司管理标识
 	CC_SYNTHESIZE(string, id, Id);
+	//所属单位
+	CC_SYNTHESIZE(string,unit, Unit);
 	//建立时间
 	CC_SYNTHESIZE(string, createdate, Createdate);
 	//建立人
@@ -59,6 +61,7 @@ public:
 		enable = "";
 		name = "";
 		id = "";
+		unit = "";
 		createdate = "";
 		createman = "";
 		updateman = "";

@@ -6,16 +6,19 @@
 #include "CharsetConvertHepler.h"
 ContractJsonVO_::Wrapper ContractController::execQueryContract(const ContractQuery_::Wrapper& query)
 {
+
 	// 创建响应对象
 	auto vo = ContractJsonVO_::createShared();
 
 	auto data = ContractDTO_::createShared();
+
 	// 非空校验
-	if (!query->id)
+	if (!query->infoid)
 	{
 		vo->init(data, RS_PARAMS_INVALID);
 		return vo;
 	}
+	
 	ContractInfoService service;
 
 	auto dto = service.listContract(query);
@@ -30,7 +33,7 @@ Uint64JsonVO::Wrapper ContractController::execUpdateContract(const ContractDTO_:
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
 	// 非空校验
-	if (!dto->id || !dto->name || !dto->type || !dto->variety || !dto->date || !dto->condition || !dto->department_m || !dto->department_c || !dto->date_end)
+	if (!dto->id || !dto->name || !dto->type || !dto->variety || !dto->date || !dto->condition || !dto->department_m || !dto->department_c || !dto->date_end || !dto->tip)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
@@ -38,13 +41,15 @@ Uint64JsonVO::Wrapper ContractController::execUpdateContract(const ContractDTO_:
 	//创建service对象
 	ContractInfoService service;
 
+	string tmp = dto->id;
+	//std::cout << tmp;
 	// 执行数据修改
 	if (service.updateContract(dto)) {
-		jvo->success(dto->id);
+		jvo->success(atoi(tmp.c_str()));
 	}
 	else
 	{
-		jvo->fail(dto->id);
+		jvo->fail(atoi(tmp.c_str()));
 	}
 	return jvo;
 }
@@ -54,7 +59,6 @@ StringJsonVO::Wrapper ContractController::execUploadContract(const String& fileB
 	// 根据时间戳生成一个临时文件名称
 	std::stringstream ss;
 	ss << "public/static/file/";
-
 	// 计算时间戳
 	auto now = std::chrono::system_clock::now();
 	auto tm_t = std::chrono::system_clock::to_time_t(now);
@@ -70,17 +74,12 @@ StringJsonVO::Wrapper ContractController::execUploadContract(const String& fileB
 	std::string fileName = ss.str();
 	// 保存文件到临时目录
 	fileBody.saveToFile(fileName.c_str());
-
 	//读取excel
 	std::string sheetName = CharsetConvertHepler::ansiToUtf8("Sheet1");
 	ExcelComponent excel;
 	auto readData = excel.readIntoVector(fileName, sheetName);
-
-	//创建dto
-	auto dto = ContractDTO_::createShared();
-	//创建service
-	ContractInfoService service;
-	//显示excel数据
+	
+	//显示在终端
 	for (auto row : readData)
 	{
 		for (auto cellVal : row)
@@ -89,23 +88,31 @@ StringJsonVO::Wrapper ContractController::execUploadContract(const String& fileB
 			cout << CharsetConvertHepler::utf8ToAnsi(cellVal) << ",";
 		}
 		cout << endl;
-		dto->name = row[0];
-		string tmp = row[1];
-		dto->id = atoi(tmp.c_str());
-		dto->type = row[2];
-		dto->variety = row[3];
-		dto->date = row[4];
-		dto->condition = row[5];
-		dto->department_m = row[6];
-		dto->department_c = row[7];
-		dto->date_end = row[8];
-		dto->tip = row[9];
+	}
+	//创建dto
+	auto dto = ContractDTO_::createShared();
+	//创建service
+	ContractInfoService service;
+
+	//保存excel数据
+	for (size_t i = 1; i < readData.size(); i++)
+	{
+		dto->id = readData[i][0];
+		dto->name = readData[i][1];
+		dto->type = readData[i][2];
+		dto->variety = readData[i][3];
+		dto->date = readData[i][4];
+		dto->condition = readData[i][5];
+		dto->department_m = readData[i][6];
+		dto->department_c = readData[i][7];
+		dto->try_end = readData[i][8];
+		dto->tip = readData[i][9];
+		dto->infoid = readData[i][10];
+		dto->date_end = readData[i][11];
 		service.saveData(dto);
 	}
-
 	auto vo = StringJsonVO::createShared();
 	vo->success(String(ss.str().c_str()));
-
 	return vo;
 }
 

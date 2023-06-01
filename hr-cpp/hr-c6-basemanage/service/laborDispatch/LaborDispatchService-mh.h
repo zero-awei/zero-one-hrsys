@@ -28,7 +28,7 @@ public:
 	//分页查询所有数据
 	LaborDispatchPageDTO::Wrapper listAll_ld(const LaborDispatchQuery::Wrapper& query);
 	//保存数据
-	uint64_t saveData_ld(const LaborDispatchDTO::Wrapper& dto);
+	uint64_t saveData_ld(const LaborDispatchModifyDTO::Wrapper& dto);
 	//通过ID删除数据
 	bool removeData_ld(string id);
 	//导出数据

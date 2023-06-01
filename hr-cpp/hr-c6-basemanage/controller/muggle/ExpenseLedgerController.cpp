@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
@@ -20,7 +20,7 @@
 #include "ExpenseLedgerController.h"
 #include "service/expenseLedger/ExpenseLedgerService.h"
 #include "SimpleDateTimeFormat.h"
-
+#include "SnowFlake.h"
 
 ExpenseLedgerPageJsonVO::Wrapper ExpenseLedgerMController::execQueryExpenseLedger(const ExpenseLedgerPageQuery::Wrapper& query)
 {
@@ -35,24 +35,27 @@ ExpenseLedgerPageJsonVO::Wrapper ExpenseLedgerMController::execQueryExpenseLedge
 	{
 		jvo->success(result);
 	}
-	return jvo;
-}
-
+	return jvo;}
+/**
+ * Returns: String StringJsonVO.data æ’å…¥è´¹ç”¨å°è´¦çš„æ ‡è¯†
+ */
 StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger(const ExpenseLedgerDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto jvo = StringJsonVO::createShared();
-	if ( !dto->pimexpaccountid || dto->fyje<=0 || dto->ffrs<=0 ) 
+	if ( dto->fyje<=0 || dto->ffrs<=0 ) 
 	{
 		jvo->init("0", RS_PARAMS_INVALID);
 		//jvo->init(String(-1), RS_SERVER_BUSY);
 	}
 	else {
-		// Ê±¼äÀàÉèÖÃ¼ÇÂ¼´´½¨ºÍ¸üĞÂÊ±¼ä
+		// æ—¶é—´ç±»è®¾ç½®è®°å½•åˆ›å»ºå’Œæ›´æ–°æ—¶é—´
 		SimpleDateTimeFormat datesevice;
 		dto->createdate = datesevice.format();
 		dto->updatedate = datesevice.format();
 		dto->createman = payload.getUsername();
 		dto->updateman = payload.getUsername();
+		SnowFlake uidservice(1,6);
+		dto->pimexpaccountid = to_string(uidservice.nextId());
 		ExpenseLedgerService service;
 		if (service.saveData(dto))
 		{
@@ -65,14 +68,17 @@ StringJsonVO::Wrapper ExpenseLedgerMController::execAddExpenseLedger(const Expen
 	return jvo;
 }
 
+/**
+ * Returns: Uint64 Uint64JsonVO.data å—å½±å“çš„è¡Œæ•°
+ */
 Uint64JsonVO::Wrapper ExpenseLedgerMController::execDeleteExpenseLedger(const ExpenseLedgerDelQuery::Wrapper& query)
 {
 	auto jvo = Uint64JsonVO::createShared();
 	int successTime = 0;
 	ExpenseLedgerService service;
-	for (int i=0;i<query->Ids->size();i++)
+	for (std::size_t i=0;i < query->IDlist->size();i++)
 	{
-		successTime += service.removeData(query->Ids[i]);
+		successTime += service.removeData(query->IDlist[i]);
 	}
 	if (successTime>0)
 	{

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  Copyright Muggle. All rights reserved.
 
  @Author: Muggle
@@ -20,59 +20,76 @@
 #include <sstream>
 #include "ExpenseLedgerDAO.h"
 #include "ExpenseLedgerMapper.h"
+#include "../dao-sql-macro/macro.h"
 
 #define EXPENSELEDGER_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql << " WHERE 1=1"; \
-if (query->PIMEXPACCOUNTNAME) { \
+if (query->pimexpaccountname) { \
 	sql << " AND `PIMLABOURCAMPANYNAME`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->PIMEXPACCOUNTNAME.getValue("")); \
+	SQLPARAMS_PUSH(params, "s", std::string, query->pimexpaccountname.getValue("")); \
 } \
-if (query->PIMEXPACCOUNTID) { \
+if (query->pimexpaccountid) { \
 	sql << " AND `PIMEXPACCOUNTID`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->PIMEXPACCOUNTID.getValue("")); \
+	SQLPARAMS_PUSH(params, "s", std::string, query->pimexpaccountid.getValue("")); \
 } \
-if(query->UPDATEMAN) { \
+if(query->updateman) { \
 	sql << " AND `UPDATEMAN`=?"; \
-	SQLPARAMS_PUSH(params,"s",std::string,query->UPDATEMAN.getValue("")); \
+	SQLPARAMS_PUSH(params,"s",std::string,query->updateman.getValue("")); \
 } \
-if (query->CREATEDATE) { \
+if (query->createdate) { \
 	sql << " AND `CREATEDATE`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->CREATEDATE.getValue("")); \
+	SQLPARAMS_PUSH(params, "s", std::string, query->createdate.getValue("")); \
 } \
-if (query->CREATEMAN) { \
+if (query->createman) { \
 	sql << " AND `CREATEMAN`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->CREATEMAN.getValue("")); \
+	SQLPARAMS_PUSH(params, "s", std::string, query->createman.getValue("")); \
 } \
-if (query->UPDATEDATE) { \
+if (query->updatedate) { \
 	sql << " AND `UPDATEDATE`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->UPDATEDATE.getValue("")); \
+	SQLPARAMS_PUSH(params, "s", std::string, query->updatedate.getValue("")); \
 } \
-if (query->FYLB) { \
+if (query->fylb) { \
 	sql << " AND `FYLB`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->FYLB.getValue("")); \
+	SQLPARAMS_PUSH(params, "s", std::string, query->fylb.getValue("")); \
 } \
-if (query->FYJE) { \
+if (query->fyje) { \
 	sql << " AND `FYJE`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->FYJE.getValue("")); \
+	SQLPARAMS_PUSH(params, "s", std::string, query->fyje.getValue("")); \
 } \
-if (query->FFRS) { \
+if (query->ffrs) { \
 	sql << " AND `FFRS`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->FFRS.getValue("")); \
+	SQLPARAMS_PUSH(params, "s", std::string, query->ffrs.getValue("")); \
 } \
-if (query->FFSJ) { \
+if (query->ffsj) { \
 	sql << " AND `FFSJ`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->FFSJ.getValue("")); \
+	SQLPARAMS_PUSH(params, "s", std::string, query->ffsj.getValue("")); \
 } \
-if (query->FFYBZ) { \
+if (query->ffybz) { \
 	sql << " AND `FFYBZ`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->FFYBZ.getValue("")); \
+	SQLPARAMS_PUSH(params, "s", std::string, query->ffybz.getValue("")); \
 } \
-if (query->BZ) { \
+if (query->bz) { \
 	sql << " AND `BZ`=?"; \
-	SQLPARAMS_PUSH(params, "s", std::string, query->BZ.getValue("")); \
+	SQLPARAMS_PUSH(params, "s", std::string, query->bz.getValue("")); \
+} \
+if (query->ormorgid) { \
+	sql << " AND `ORMORGID`=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->ormorgid.getValue("")); \
 } \
 
+inline SqlParams expenseledge_teram_parse(const ExpenseLedgeDTO::Wrapper & query, stringstream & sql)
+{
+	SqlParams params;
+	sql << " WHERE 1=1";
+	SQLPARAMS_INT_PUSH(FFRS);
+	SQLPARAMS_STRING_PUSH(PIMEXPACCOUNTID);
+	SQLPARAMS_FLOAT_PUSH(FYJE);
+	SQLPARAMS_STRING_PUSH(PIMEXPACCOUNTNAME);
+	SQLPARAMS_STRING_PUSH(FFSJ);
+	SQLPARAMS_STRING_PUSH(FFYBZ);
+	return params;
+}
 
 uint64_t ExpenseLedgerDAO::count(const ExpenseLedgerPageQuery::Wrapper& query)
 {
@@ -89,17 +106,58 @@ std::list<ExpenseLedgerDO> ExpenseLedgerDAO::selectByPageQuery(const ExpenseLedg
 	stringstream sql;
 	sql << "SELECT * FROM t_pimexpaccount";
 	EXPENSELEDGER_TERAM_PARSE(query, sql);
-	// ·ÖÒ³²éÕÒ
+	// åˆ†é¡µæŸ¥æ‰¾
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	ExpenseLedgerMapper mapper;
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<ExpenseLedgerDO, ExpenseLedgerMapper>(sqlStr, mapper, params);
 }
 
+std::list<ExpenseLedgerDO> ExpenseLedgerDAO::selectAll(const ExpenseLedgeDTO::Wrapper& query)
+{
+	stringstream sql;
+	sql << "SELECT * FROM t_pimexpaccount";
+	SqlParams params = expenseledge_teram_parse(query, sql);
+	ExpenseLedgerMapper mapper;
+	string sqlStr = sql.str();
+	return sqlSession->executeQuery<ExpenseLedgerDO, ExpenseLedgerMapper>(sqlStr, mapper, params);
+}
+
+int ExpenseLedgerDAO::update(const ExpenseLedgerDO& uObj)
+{
+	stringstream sql;
+	stringstream fmts;
+	sql << "UPDATE `t_pimexpaccount` SET ";
+	SQLPARAMS_UPDATE_STRING(name);
+	SQLPARAMS_UPDATE_STRING(updateman);
+	SQLPARAMS_UPDATE_STRING(createdate);
+	SQLPARAMS_UPDATE_STRING(createman);
+	SQLPARAMS_UPDATE_STRING(updatedate);
+	SQLPARAMS_UPDATE_STRING(fylb);
+	SQLPARAMS_UPDATE_FLOAT(fyje);
+	SQLPARAMS_UPDATE_INT(ffrs);
+	SQLPARAMS_UPDATE_STRING(ffsj);
+	SQLPARAMS_UPDATE_STRING(fybz);
+	SQLPARAMS_UPDATE_PUSH_FINAL(bz,"%s",id);
+	return sqlSession->executeUpdate(sql.str(), fmts.str().c_str(),
+		uObj.getName(),
+		uObj.getUpdateman(),
+		uObj.getCreatedate(),
+		uObj.getCreateman(),
+		uObj.getUpdatedate(),
+		uObj.getFylb(),
+		uObj.getFyje(),
+		uObj.getFfrs(),
+		uObj.getFfsj(),
+		uObj.getFybz(),
+		uObj.getBz(),
+		uObj.getId());
+}
+
 uint64_t ExpenseLedgerDAO::insert(const ExpenseLedgerDO& ido)
 {
 	string sql = "INSERT INTO `t_pimexpaccount` (`PIMEXPACCOUNTNAME`, `PIMEXPACCOUNTID`, `UPDATEMAN`, `CREATEDATE`, `CREATEMAN`, `UPDATEDATE`, `FYLB`, `FYJE`, `FFRS`, `FFSJ`, `FFYBZ`, `BZ`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-	return sqlSession->executeInsert(sql,"%s%s%s%s%s%s%s%d%i%s%s%s",ido.getName(),ido.getId(),ido.getUpdateman(),ido.getCreatedate(),ido.getCreateman(),ido.getUpdatedate(),ido.getFylb(),ido.getFyje(),ido.getFfrs(),ido.getFfsj(),ido.getFybz(),ido.getBz());
+	return sqlSession->executeUpdate(sql,"%s%s%s%s%s%s%s%d%i%s%s%s",ido.getName(),ido.getId(),ido.getUpdateman(),ido.getCreatedate(),ido.getCreateman(),ido.getUpdatedate(),ido.getFylb(),ido.getFyje(),ido.getFfrs(),ido.getFfsj(),ido.getFybz(),ido.getBz());
 }
 
 uint64_t ExpenseLedgerDAO::deleteById(const ExpenseLedgerDO& obj)

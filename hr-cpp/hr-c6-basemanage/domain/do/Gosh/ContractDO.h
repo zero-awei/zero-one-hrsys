@@ -9,37 +9,55 @@
  */
 class ContractDO
 {
-	// 编号
-	CC_SYNTHESIZE(uint64_t, id, Id);
-	// 姓名
+	//1员工编号
+	CC_SYNTHESIZE(string, personid, Personid);
+	// 2合同编号
+	CC_SYNTHESIZE(string, id, Id);
+	// 3员工姓名
 	CC_SYNTHESIZE(string, name, Name);
-	//合同类别
+	//4合同类别
 	CC_SYNTHESIZE(string, type, Type);
-	//合同类型
+	//5合同类型
 	CC_SYNTHESIZE(string, variety, Variety);
-	//起始日期
+	//6起始日期
 	CC_SYNTHESIZE(string, date, Date);
-	//合同状态
+	//7合同状态
 	CC_SYNTHESIZE(string, condition, Condition);
-	//合同管理单位
-	CC_SYNTHESIZE(string, department_m, Department_m);
-	//合同签订单位
+	//8合同签订单位
 	CC_SYNTHESIZE(string, department_c, Department_c);
-	//合同到期时间
+	//9试用到期时间
 	CC_SYNTHESIZE(string, date_end, Date_end);
-	//备注
+	//10员工所属单位
+	CC_SYNTHESIZE(string, person_department, Person_department);
+	//11员工状态
+	CC_SYNTHESIZE(string, person_condition, Person_condition);
+	//12到本单位时间
+	CC_SYNTHESIZE(string, date_arrive, Date_arrive);
+	//13结束日期
+	CC_SYNTHESIZE(string, date_over, Date_over);
+	//14合同剩余天数
+	CC_SYNTHESIZE(string, rest, Rest);
+	//15合同管理单位
+	CC_SYNTHESIZE(string, department_m, Department_m);
+	//16备注
 	CC_SYNTHESIZE(string, tip, Tip);
 public:
 	ContractDO() {
-		id = 0;
+		personid = "";
+		id = "";
 		name = "";
 		type = "";
 		variety = "";
 		date= "";
 		condition = "";
-		department_m = "";
 		department_c = "";
 		date_end = "";
+		person_department = "";
+		person_condition = "";
+		date_arrive = "";
+		date_over = "";
+		rest = "";
+		department_m = "";
 		tip = "";
 	}
 };

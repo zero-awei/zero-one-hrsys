@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
@@ -22,11 +22,11 @@
 
 SamplePageJsonVO::Wrapper SampleController::execQuerySample(const SampleQuery::Wrapper& query, const PayloadDTO& payload)
 {
-	// ¶¨ÒåÒ»¸öService
+	// å®šä¹‰ä¸€ä¸ªService
 	SampleService service;
-	// ²éÑ¯Êı¾İ
+	// æŸ¥è¯¢æ•°æ®
 	auto result = service.listAll(query);
-	// ÏìÓ¦½á¹û
+	// å“åº”ç»“æœ
 	auto jvo = SamplePageJsonVO::createShared();
 	jvo->success(result);
 	return jvo;
@@ -34,26 +34,27 @@ SamplePageJsonVO::Wrapper SampleController::execQuerySample(const SampleQuery::W
 
 Uint64JsonVO::Wrapper SampleController::execAddSample(const SampleDTO::Wrapper& dto)
 {
-	// ¶¨Òå·µ»ØÊı¾İ¶ÔÏó
+	cout << dto->id << endl;
+	// å®šä¹‰è¿”å›æ•°æ®å¯¹è±¡
 	auto jvo = Uint64JsonVO::createShared();
-	// ²ÎÊıĞ£Ñé
-	// ·Ç¿ÕĞ£Ñé
+	// å‚æ•°æ ¡éªŒ
+	// éç©ºæ ¡éªŒ
 	if (!dto->age || !dto->name || !dto->sex)
 		//!dto->age || !dto->name || !dto->sex
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	// ÓĞĞ§ÖµĞ£Ñé
+	// æœ‰æ•ˆå€¼æ ¡éªŒ
 	if (dto->age < 0 || dto->name->empty() || dto->sex->empty())
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 
-	// ¶¨ÒåÒ»¸öService
+	// å®šä¹‰ä¸€ä¸ªService
 	SampleService service;
-	// Ö´ĞĞÊı¾İĞÂÔö
+	// æ‰§è¡Œæ•°æ®æ–°å¢
 	uint64_t id = service.saveData(dto);
 	if (id > 0) {
 		jvo->success(UInt64(id));
@@ -62,23 +63,23 @@ Uint64JsonVO::Wrapper SampleController::execAddSample(const SampleDTO::Wrapper& 
 	{
 		jvo->fail(UInt64(id));
 	}
-	//ÏìÓ¦½á¹û
+	//å“åº”ç»“æœ
 	return jvo;
 }
 
 Uint64JsonVO::Wrapper SampleController::execModifySample(const SampleDTO::Wrapper& dto)
 {
-	// ¶¨Òå·µ»ØÊı¾İ¶ÔÏó
+	// å®šä¹‰è¿”å›æ•°æ®å¯¹è±¡
 	auto jvo = Uint64JsonVO::createShared();
-	// ²ÎÊıĞ£Ñé
+	// å‚æ•°æ ¡éªŒ
 	if (!dto->id || dto->id <= 0)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	// ¶¨ÒåÒ»¸öService
+	// å®šä¹‰ä¸€ä¸ªService
 	SampleService service;
-	// Ö´ĞĞÊı¾İĞŞ¸Ä
+	// æ‰§è¡Œæ•°æ®ä¿®æ”¹
 	if (service.updateData(dto)) {
 		jvo->success(dto->id);
 	}
@@ -86,23 +87,23 @@ Uint64JsonVO::Wrapper SampleController::execModifySample(const SampleDTO::Wrappe
 	{
 		jvo->fail(dto->id);
 	}
-	// ÏìÓ¦½á¹û
+	// å“åº”ç»“æœ
 	return jvo;
 }
 
 Uint64JsonVO::Wrapper SampleController::execRemoveSample(const SampleDTO::Wrapper& dto)
 {
-	// ¶¨Òå·µ»ØÊı¾İ¶ÔÏó
+	// å®šä¹‰è¿”å›æ•°æ®å¯¹è±¡
 	auto jvo = Uint64JsonVO::createShared();
-	// ²ÎÊıĞ£Ñé
+	// å‚æ•°æ ¡éªŒ
 	if (!dto->id || dto->id <= 0)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	// ¶¨ÒåÒ»¸öService
+	// å®šä¹‰ä¸€ä¸ªService
 	SampleService service;
-	// Ö´ĞĞÊı¾İÉ¾³ı
+	// æ‰§è¡Œæ•°æ®åˆ é™¤
 	if (service.removeData(dto->id.getValue(0))) {
 		jvo->success(dto->id);
 	}
@@ -110,6 +111,6 @@ Uint64JsonVO::Wrapper SampleController::execRemoveSample(const SampleDTO::Wrappe
 	{
 		jvo->fail(dto->id);
 	}
-	// ÏìÓ¦½á¹û
+	// å“åº”ç»“æœ
 	return jvo;
 }
