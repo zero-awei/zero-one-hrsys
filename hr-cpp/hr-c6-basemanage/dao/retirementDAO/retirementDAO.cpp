@@ -15,6 +15,19 @@ if (query->id) { \
 	sql << " AND PIMPERSONID=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
 } \
+if (query->idcard) { \
+	sql << " AND idcard=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->idcard.getValue("")); \
+} \
+if (query->organization) { \
+	sql << " AND ORMORGNAME=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->organization.getValue("")); \
+} \
+if (query->department) { \
+	sql << " AND ORMORGSECTORNAME=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->department.getValue("")); \
+} \
+/*
 if (query->sex) { \
 	sql << " AND CZRID=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->sex.getValue("")); \
@@ -71,6 +84,7 @@ if (query->Approved_pension_amount) { \
 	sql << " AND CHECKSTATUS=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->Approved_pension_amount.getValue("")); \
 } \
+*/
 
 uint64_t RetirementDAO::count(const RetirementQuery_gan::Wrapper& query)
 {
