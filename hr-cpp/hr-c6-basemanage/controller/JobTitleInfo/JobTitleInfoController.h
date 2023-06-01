@@ -4,8 +4,8 @@
 #define JOBTITLEYCONTROLLER_H
 
 #include "domain/vo/BaseJsonVO.h"
-#include "domain/dto/JobTitleInfo/JobTitleInfoDTO.h"
-#include "domain/vo/JobTitleInfo/JobTitleInfoVO.h"
+#include "domain/dto/JobTitle/JobTitleDTO.h"
+#include "domain/vo/JobTitle/JobTitleJsonVO.h"
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
 #include "oatpp/web/mime/multipart/FileProvider.hpp"
 #include "oatpp/web/mime/multipart/Reader.hpp"
@@ -18,7 +18,7 @@ namespace multipart = oatpp::web::mime::multipart;
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
 /**
- * JobTitleY控制器：云隐负责
+ * JobTitleInfo控制器：云隐负责
  */
 class JobTitleInfoController : public oatpp::web::server::api::ApiController // 1 继承控制器
 {
@@ -33,31 +33,16 @@ public:
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(JobTitleInfoJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(JTQueryJsonVO);
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("employee_id").description = ZH_WORDS_GETTER("jobtitle.field.employee_id");
-		info->queryParams["employee_id"].addExample("default", String("11"));
+		info->queryParams["employee_id"].addExample("default", String("1813****"));
 		info->queryParams["employee_id"].required = true;
-		info->queryParams.add<String>("employee_name").description = ZH_WORDS_GETTER("jobtitle.field.employee_name");
-		info->queryParams["employee_name"].addExample("default", String("li hua"));
-		info->queryParams["employee_name"].required = true;
-		info->queryParams.add<String>("jobtitle_name").description = ZH_WORDS_GETTER("jobtitle.field.jobtitle_name");
-		info->queryParams["jobtitle_name"].addExample("default", String("statistician"));
-		info->queryParams["jobtitle_name"].required = true;
-		info->queryParams.add<String>("get_time").description = ZH_WORDS_GETTER("jobtitle.field.get_time");
-		info->queryParams["get_time"].addExample("default", String("2023-05-15"));
-		info->queryParams["get_time"].required = true;
-		info->queryParams.add<String>("org_name").description = ZH_WORDS_GETTER("jobtitle.field.org_name");
-		info->queryParams["org_name"].addExample("default", String("hua wei"));
-		info->queryParams["org_name"].required = true;
-		info->queryParams.add<String>("professor_grades").description = ZH_WORDS_GETTER("jobtitle.field.professor_grades");
-		info->queryParams["professor_grades"].addExample("default", String("gaoji"));
-		info->queryParams["professor_grades"].required = true;
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/title-management/query-job-title", queryJobTitle, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
-		API_HANDLER_QUERY_PARAM(userQuery, JobTitleInfoDTO, queryParams);
+		API_HANDLER_QUERY_PARAM(userQuery, JobTitleDTO, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryJobTitle(userQuery, authObject->getPayload()));
 	}
@@ -71,29 +56,30 @@ public:
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("EMPLOYEEID").description = ZH_WORDS_GETTER("jobtitle.field.employee_id");
-		info->queryParams["EMPLOYEEID"].addExample("default", String("11"));
-		info->queryParams["EMPLOYEEID"].required = false;
-		info->queryParams.add<String>("EMPLOYEENAME").description = ZH_WORDS_GETTER("jobtitle.field.employee_name");
-		info->queryParams["EMPLOYEENAME"].addExample("default", String("li hua"));
-		info->queryParams["EMPLOYEENAME"].required = false;
-		info->queryParams.add<String>("PROFESSORANALYSIS_NAME").description = ZH_WORDS_GETTER("jobtitle.field.jobtitle_name");
-		info->queryParams["PROFESSORANALYSIS_NAME"].addExample("default", String("statistician"));
-		info->queryParams["PROFESSORANALYSIS_NAME"].required = false;
-		info->queryParams.add<String>("PROFESSOR_DATE").description = ZH_WORDS_GETTER("jobtitle.field.get_time");
-		info->queryParams["PROFESSOR_DATE"].addExample("default", String("2023-05-15"));
-		info->queryParams["PROFESSOR_DATE"].required = false;
-		info->queryParams.add<String>("ORGANIZATION_NAME").description = ZH_WORDS_GETTER("jobtitle.field.org_name");
-		info->queryParams["ORGANIZATION_NAME"].addExample("default", String("hua wei"));
-		info->queryParams["ORGANIZATION_NAME"].required = false;
-		info->queryParams.add<String>("PROFESSOR_GRADES").description = ZH_WORDS_GETTER("jobtitle.field.professor_grades");
-		info->queryParams["PROFESSOR_GRADES"].addExample("default", String("gaoji"));
-		info->queryParams["PROFESSOR_GRADES"].required = false;
+		info->queryParams.add<String>("employee_id").description = ZH_WORDS_GETTER("jobtitle.field.employee_id");
+		info->queryParams["employee_id"].addExample("default", String("5021****"));
+		info->queryParams["employee_id"].required = false;
+		info->queryParams.add<String>("employee_name").description = ZH_WORDS_GETTER("jobtitle.field.employee_name");
+		info->queryParams["employee_name"].addExample("default", String("严**"));
+		info->queryParams["employee_name"].required = false;
+		info->queryParams.add<String>("org_name").description = ZH_WORDS_GETTER("jobtitle.field.org_name");
+		info->queryParams["org_name"].addExample("default", String(""));
+		info->queryParams["org_name"].required = false;
+		info->queryParams.add<String>("jobtitle_name").description = ZH_WORDS_GETTER("jobtitle.field.jobtitle_name");
+		info->queryParams["jobtitle_name"].addExample("default", String(""));
+		info->queryParams["jobtitle_name"].required = false;
+		info->queryParams.add<String>("jobtitle_grades").description = ZH_WORDS_GETTER("jobtitle.field.professor_grades");
+		info->queryParams["jobtitle_grades"].addExample("default", String(""));
+		info->queryParams["jobtitle_grades"].required = false;
+		info->queryParams.add<String>("b_highest_professional_title").description = ZH_WORDS_GETTER("jobtitle.field.b_highest_professional_title");
+		info->queryParams["b_highest_professional_title"].addExample("default", String(""));
+		info->queryParams["b_highest_professional_title"].required = false;
+		
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/title-management/export-job-title", getJobTitle, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
-		API_HANDLER_QUERY_PARAM(userQuery, JobTitleInfoDTO, queryParams);
+		API_HANDLER_QUERY_PARAM(userQuery, JobTitleDTO, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execGetJobTitle(userQuery, authObject->getPayload()));
 	}
@@ -106,15 +92,15 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/title-management/modify-job-title", modifyJobTitle, BODY_DTO(JobTitleInfoDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/title-management/modify-job-title", modifyJobTitle, BODY_DTO(JobTitleDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyJobTitle(dto));
 	}
 private:
 	// 3.3 演示查询数据
-	JobTitleInfoJsonVO::Wrapper execQueryJobTitle(const JobTitleInfoDTO::Wrapper& query, const PayloadDTO& payload);
-	StringJsonVO::Wrapper execGetJobTitle(const JobTitleInfoDTO::Wrapper& query, const PayloadDTO& payload);
-	Uint64JsonVO::Wrapper execModifyJobTitle(const JobTitleInfoDTO::Wrapper& dto);
+	JTQueryJsonVO::Wrapper execQueryJobTitle(const JobTitleDTO::Wrapper& query, const PayloadDTO& payload);
+	StringJsonVO::Wrapper execGetJobTitle(const JobTitleDTO::Wrapper& query, const PayloadDTO& payload);
+	Uint64JsonVO::Wrapper execModifyJobTitle(const JobTitleDTO::Wrapper& dto);
 };
 
 // 0 取消API控制器使用宏
