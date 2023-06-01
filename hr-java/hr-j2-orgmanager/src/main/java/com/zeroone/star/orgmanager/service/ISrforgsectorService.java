@@ -4,10 +4,8 @@ import com.zeroone.star.orgmanager.entity.Srforgsector;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.orgmanager.DepartmentDTO;
-import com.zeroone.star.project.query.orgmanager.DepartmentQuery;
-import com.zeroone.star.project.query.orgmanager.DeptInfoQuery;
-import com.zeroone.star.project.query.orgmanager.DeptQuery1;
-import com.zeroone.star.project.query.orgmanager.DeptQuery2;
+import com.zeroone.star.project.dto.orgmanager.ExportDTO;
+import com.zeroone.star.project.query.orgmanager.*;
 
 import java.util.List;
 
@@ -48,4 +46,6 @@ public interface ISrforgsectorService extends IService<Srforgsector> {
     PageDTO<DepartmentDTO> listAllDepartment(DepartmentQuery query);
 
     DepartmentDTO queryDeptById(DeptInfoQuery query);
+
+    ExportDTO exportDepartments(ExportDepartmentsQuery query);
 }

@@ -30,7 +30,7 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("org-manager")
-@Api(tags = "组织管理")
+@Api(tags = "部门信息")
 @Validated
 public class OrmController implements OrgmanagerApis {
 
