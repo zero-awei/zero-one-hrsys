@@ -1,14 +1,11 @@
 <template>
   <div>
-    <div>
+    <div class="header">
       <TableHead :tableTitle="$store.tableTitle" 
                 :tableOperations ="$store.tableOperations" 
-                :saveData="saveData" 
-                :addTitle= "$store.addTitle" 
-                :dataitem="$store.dataitem"
       />
     </div>
-    <div>
+    <div class="table">
       <MainTable :xmlData="newXmlData" :tableData="$store.tableData"/>
     </div>
     <div class="footer">
@@ -23,15 +20,11 @@ import TableHead from '@/components/table/head/TableHead.vue'
 import MainTable from '@/components/MainTable.vue'
 import ColumnFilter from '@/components/columnFilter/ColumnFilter.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
-import {useArchivesStore} from '@/stores/archives'
+import {useInitSigningStore} from '@/stores/initSigning'
 
-const $store = useArchivesStore()
+const $store = useInitSigningStore()
 $store.initTableData()
 
-//将新增的数据保存
-const saveData = (val)=>{
-  $store.addData(val)
-}
 
 function getNewXmlData(checkStatus) {
   newXmlData.value = $store.xmlData.filter((item) => {

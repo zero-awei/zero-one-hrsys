@@ -61,19 +61,17 @@ const routes = [
   {
     path: '/postcertificateview',
     name: '��λ֤��',
-    component: () =>
-      import('@/views/baseManage/standardSetting/PostCertificate.vue')
+    component: () => import('@/views/baseManage/standardSetting/PostCertificate.vue')   
   },
   {
     path: '/jobtitlecatalog',
     name: 'ְ��Ŀ¼',
-    component: () =>
-      import('@/views/baseManage/standardSetting/JobTitleCataloge.vue')
+    component: () => import('@/views/baseManage/standardSetting/JobTitleCataloge.vue')   
   },
   {
     path: '/archives',
     name: '������',
-    component: () => import('@/views/baseManage/standardSetting/Archives.vue')
+    component: () => import('@/views/baseManage/standardSetting/Archives.vue')   
   },
   {
     path: '/syqyggridview',
@@ -133,10 +131,27 @@ const routes = [
     component: () => import('@/views/baseManage/roster/Gzyg.vue')
   },
   {
-    path: '/userInfo',
-    name: '�û���Ϣ',
-    component: () => import('@/views/baseManage/userInfo/index.vue')
-  }
+  },
+  {
+    path: '/dispatch',
+    name: '劳务派遣公司',
+    component: () => import('@/views/baseManage/contractManage/Dispatch.vue')
+  },
+  {
+    path: '/contract',
+    name: '合同信息',
+    component: () => import('@/views/baseManage/contractManage/Contract.vue')
+  },
+  {
+    path: '/initsigning',
+    name: '初签(续签)提醒',
+    component: () => import('@/views/baseManage/contractManage/InitSigning.vue')
+  },
+  {
+    path: '/termination',
+    name: '终止提醒',
+    component: () => import('@/views/baseManage/contractManage/Termination.vue')
+  },
 ]
 
 export default routes

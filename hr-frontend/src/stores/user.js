@@ -3,7 +3,7 @@ import Request from '@/apis/request'
 // 测试菜单数据
 let testMenus = [
   {
-    id: '0',
+    id: 0,
     text: '门户首页',
     icon: 'DataAnalysis',
     path: '/pimportalview'
@@ -113,10 +113,101 @@ let testMenus = [
     ]
   },
   {
+    id: 2,
+    text: '合同管理',
+    icon: 'IconUser',
+    children: [
+      {
+        id: 2,
+        text: '劳务派遣公司',
+        path: '/dispatch',
+        icon: 'IconUser',
+        pid: 2
+      },
+      {
+        id: 3,
+        text: '合同信息',
+        path: '/contract',
+        icon: 'IconUser',
+        pid: 2
+      },
+      {
+        id: 4,
+        text: '初签(续签)提醒',
+        path: '/initsigning',
+        icon: 'IconUser',
+        pid: 2
+      },
+      {
+        id: 5,
+        text: '终止提醒',
+        path: '/termination',
+        icon: 'IconUser',
+        pid: 2
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: '订单管理',
+    icon: 'IconTickets',
+    children: [
+      {
+        id: 2,
+        text: '订单管理1',
+        path: '/un-21',
+        icon: 'IconTickets',
+        pid: 3
+      },
+      {
+        id: 3,
+        text: '订单管理2',
+        path: '/un-22',
+        icon: 'IconTickets',
+        pid: 3
+      },
+      {
+        id: 4,
+        text: '订单管理3',
+        path: '/un-23',
+        icon: 'IconTickets',
+        pid: 3
+      },
+      {
+        id: 5,
+        text: '订单管理4',
+        path: '/un-24',
+        icon: 'IconTickets',
+        pid: 3
+      },
+      {
+        id: 6,
+        text: '订单管理5',
+        path: '/un-25',
+        icon: 'IconTickets',
+        pid: 3
+      }
+    ]
+  },
+  {
     id: 4,
     text: '标准化数据设置',
     icon: 'IconTickets',
     children: [
+      {
+        id: 2,
+        text: '订单管理1',
+        path: '/un-31',
+        icon: 'IconTickets',
+        pid: 4
+      },
+      {
+        id: 3,
+        text: '订单管理2',
+        path: '/un-32',
+        icon: 'IconTickets',
+        pid: 4
+      },
       {
         id: 4,
         text: '岗位(技能)证书',
