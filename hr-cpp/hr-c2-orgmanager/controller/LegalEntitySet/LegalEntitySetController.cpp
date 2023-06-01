@@ -17,16 +17,16 @@ Uint64JsonVO::Wrapper LegalEntitySetController::execAddLegalEntitySet(const Lega
 	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
 	// 非空校验
-	if (!dto->ormsignorgid || !dto->ormsignorgname || !dto->contractsignorgname) {
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-		return jvo;
-	}
-	// 有效值校验
-	if (!dto->ormsignorgid || !dto->ormsignorgname || !dto->contractsignorgname )
-	{
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-		return jvo;
-	}
+	//if (!dto->ormsignorgid || !dto->ormsignorgname || !dto->contractsignorgname) {
+	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+	//	return jvo;
+	//}
+	//// 有效值校验
+	//if (!dto->ormsignorgid || !dto->ormsignorgname || !dto->contractsignorgname )
+	//{
+	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+	//	return jvo;
+	//}
 	// 定义一个Service
 	LegalEntitySetService service;
 	// 执行数据新增
@@ -34,8 +34,7 @@ Uint64JsonVO::Wrapper LegalEntitySetController::execAddLegalEntitySet(const Lega
 	if (id > 0) {
 		jvo->success(UInt64(id));
 	}
-	else
-	{
+	else {
 		jvo->fail(UInt64(id));
 	}
 	//响应结果

@@ -40,7 +40,7 @@ class LegalEntitySetDO {
 		setCONTRACTSIGNORGNAME(vec[i++]);
 		setISDEFAULTSIGNORG(vec[i++]);
 	}
-	LegalEntitySetDO(string ormsignorgname, string contractsignorgname, string isdefaultsignorg) {
+	LegalEntitySetDO(string ormsignorgid, string ormsignorgname, string contractsignorgname, string isdefaultsignorg) {
 		this->ormsignorgid = ormsignorgid;
 		this->ormsignorgname = ormsignorgname;
 		this->contractsignorgname = contractsignorgname;

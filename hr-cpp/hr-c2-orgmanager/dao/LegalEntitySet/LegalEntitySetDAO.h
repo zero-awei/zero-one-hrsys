@@ -26,7 +26,8 @@ public:
 	// 分页查询数据
 	//list<LegalEntitySetDO> selectWithPage(const LegalEntitySetQuery::Wrapper& query);
 	// 插入数据
-	uint64_t insert(const LegalEntitySetDO& iObj);
+	uint64_t insert1(const LegalEntitySetDO& iObj);
+	uint64_t insert2(const LegalEntitySetDO& iObj);
 	// 修改数据
 	int update(const LegalEntitySetDO& uObj);
 	// 法人主体名称下拉列表  

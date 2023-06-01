@@ -14,18 +14,50 @@
 新增法人设置（支持批量新增）** `LegalEntitySet`
 */
 
+//LegalEntitySetPageDTO::Wrapper LegalEntitySetService::legalerNamePullDownList(const LegalEntitySetQuery::Wrapper& query)
+//{
+//	// 构建返回对象
+//	auto pages = LegalEntitySetPageDTO::createShared();
+//	pages->pageIndex = query->pageIndex;
+//	pages->pageSize = query->pageSize;
+//
+//	// 查询数据总条数
+//	LegalEntitySetDAO dao;
+//	uint64_t count = dao.count(query);
+//	if (count <= 0) {
+//		return pages;
+//	}
+//
+//	// 分页查询数据
+//	pages->total = count;
+//	pages->calcPages();
+//	list<LegalEntitySetDO> result = dao.selectWithPage(query);
+//	// 将DO转换成DTO
+//	for (LegalEntitySetDO sub : result)
+//	{
+//		auto dto = LegalEntitySetDTO::createShared();
+//		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, ormsignorgid, ORMSIGNORGID, contractsignorgname, CONTRACTSIGNORGNAME, ormsignorgname, ORMSIGNORGNAME, isdefaultsignorg, ISDEFAULTSIGNORG);
+//		pages->addData(dto);
+//	}
+//	return pages;
+//}
+
 uint64_t LegalEntitySetService::insertData(const LegalEntitySetDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	LegalEntitySetDO data;
-	/*data.setORMSIGNORGID(dto->ormsignorgid.getValue(""));
+	data.setORMSIGNORGID(dto->ormsignorgid.getValue(""));
 	data.setORMSIGNORGNAME(dto->ormsignorgname.getValue(""));
 	data.setCONTRACTSIGNORGNAME(dto->contractsignorgname.getValue(""));
-	data.setISDEFAULTSIGNORG(dto->isdefaultsignorg.getValue(1));*/
-		ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGID, ormsignorgid, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME, contractsignorgname)
-		// 执行数据添加
-		LegalEntitySetDAO dao;
-	return dao.insert(data);
+	data.setISDEFAULTSIGNORG(dto->isdefaultsignorg.getValue(""));
+	
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGID, ormsignorgid, ORMSIGNORGNAME, ormsignorgname,
+		CONTRACTSIGNORGNAME, contractsignorgname)
+	
+	// 执行数据添加
+	LegalEntitySetDAO dao;
+	dao.insert1(data);
+	return dao.insert2(data);
 }
 
 bool LegalEntitySetService::updateData(const LegalEntitySetDTO::Wrapper& dto)
@@ -37,11 +69,12 @@ bool LegalEntitySetService::updateData(const LegalEntitySetDTO::Wrapper& dto)
 	data.setCONTRACTSIGNORGNAME(dto->contractsignorgname.getValue(""));
 	data.setISDEFAULTSIGNORG(dto->isdefaultsignorg.getValue(1));;*/
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGID, ormsignorgid, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME, contractsignorgname)
-		// 执行数据修改
-		LegalEntitySetDAO dao;
+	// 执行数据修改
+	LegalEntitySetDAO dao;
 	return dao.update(data) == 1;
 }
-  // 删除数据 
+
+// 删除数据 
 //bool LegalEntitySetService::removeData(uint64_t id)
 //{
 //	LegalEntitySetDAO dao;
