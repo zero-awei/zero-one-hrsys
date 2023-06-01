@@ -43,7 +43,7 @@ StringJsonVO::Wrapper LaborDispatchMController::execModifyLaborDispatch(const La
 {
 	auto jvo = StringJsonVO::createShared();
 
-	if (!dto->corporateName)
+	if (!dto->corporateID ||!dto->organizationID)
 	{
 		jvo->init("-1", RS_PARAMS_INVALID);
 		return jvo;

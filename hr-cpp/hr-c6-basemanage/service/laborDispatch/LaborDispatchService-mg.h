@@ -28,7 +28,7 @@ class LaborDispatchMService
 {
 public:
 	// 分页查询所有数据
-	LaborDispatchPageDTO::Wrapper ListAll(const LaborDispatchMQuery::Wrapper& query);
+	LaborDispatchPageMDTO::Wrapper ListAll(const LaborDispatchMQuery::Wrapper& query);
 	//LaborDispatchMDTO::Wrapper ListData(const LaborDispatchMQuery::Wrapper& query);
 
 	bool updateData(const LaborDispatchUpdateDTO::Wrapper& dto);

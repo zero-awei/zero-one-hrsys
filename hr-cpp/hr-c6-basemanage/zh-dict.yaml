@@ -107,23 +107,28 @@ title:
   title_employee_time: 职称获取时间
   b_highest_professional_title: 是否最高职称
   attachment: 上传附件
+
 labordispatch_mug:
  get:
   summary: 查看指定公司信息
  modify:
   summary: 修改指定公司信息
  field:
-  corporatename: 公司名称
-  corporateaddress: 公司地址
-  corporatecontact: 公司联系人
-  corporatenumber: 公司联系电话
   PIMLABOURCAMPANYNAME: 公司名称
   PIMLABOURCAMPANYID: 公司标识
+  CREATEDATE: 建立时间
+  CREATEMAN: 建立人
+  UPDATEMAN: 更新人
+  JYFW: 经营范围 
   LXDZ: 联系地址
   LXR: 联系人
   LXFS: 联系方式
+  GSJJ: 公司简介
+  PIMPERSONID: 人员信息标识
+  ORMORGID: 组织标识
+  ORGNAME: 组织名称
+  LEGALPEROSN: 法人
   REGCAPITAL: 注册本金
-  LEGALPERSON: 法人
   UPDATEDATE: 更新时间
 
 expenseledger_mug:

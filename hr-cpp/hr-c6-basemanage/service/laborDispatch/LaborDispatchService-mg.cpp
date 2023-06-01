@@ -20,11 +20,11 @@
 #include "laborDispatchService-mg.h"
 #include "../../dao/laborDispatch/LaborDispatchDAO-mg.h"
 #include "domain/dto/LaborDispatch/LaborDispatchDTO.h"
-//#include "domain/dto/LaborDispatch/LaborDispatchDTO-mg.h"
+#include "domain/dto/LaborDispatch/LaborDispatchDTO-mg.h"
 
-LaborDispatchPageDTO::Wrapper LaborDispatchMService::ListAll(const LaborDispatchMQuery::Wrapper& query)
+LaborDispatchPageMDTO::Wrapper LaborDispatchMService::ListAll(const LaborDispatchMQuery::Wrapper& query)
 {
-	auto pages = LaborDispatchPageDTO::createShared();
+	auto pages = LaborDispatchPageMDTO::createShared();
 	pages->pageIndex = query->pageIndex;
 	pages->pageSize = query->pageSize;
 
@@ -41,21 +41,17 @@ LaborDispatchPageDTO::Wrapper LaborDispatchMService::ListAll(const LaborDispatch
 	//将DO转换成DTO
 	for (LaborDispatchDO sub : result)
 	{
-		auto dto = LaborDispatchDTO::createShared();
-		dto->name = sub.getName();
-		/*dto->id = sub.getId();*/
-		/*dto->createdate = sub.getCreatedate();*/
-		/*dto->createman = sub.getCreateman();*/
-		dto->updatedate = sub.getUpdatedate();
-		/*dto->jyfw = sub.getJyfw();*/
-		dto->lxdz = sub.getLxdz();
-		dto->lxfs = sub.getLxfs();
-		dto->lxr = sub.getLxr();
-		/*dto->gsjj = sub.getGsjj();*/
-		/*dto->pimpersonid = sub.getPimpersonid();*/
-		/*dto->ormorgid = sub.getOrmorgid();*/
-		dto->regcapital = sub.getRegcapital();
-		dto->legalperson = sub.getLegalperson();
+		auto dto = LaborDispatchMDTO::createShared();
+		dto->corporateName = sub.getName();
+		dto->corporateID = sub.getId();
+		dto->organizationID = sub.getOrmorgid();
+		dto->organizationName = sub.getUnit();
+		dto->contactAddress = sub.getLxdz();
+		dto->contactNumber = sub.getLxfs();
+		dto->contactPerson = sub.getLxr();
+		dto->introduction = sub.getGsjj();
+		dto->registerdCapital = sub.getRegcapital();
+		dto->legalPerson = sub.getLegalperson();
 		pages->addData(dto);
 	}
 	return pages;
@@ -66,6 +62,8 @@ bool LaborDispatchMService::updateData(const LaborDispatchUpdateDTO::Wrapper& dt
 	// 组装DO数据
 	LaborDispatchDO data;
 	data.setName(dto->corporateName.getValue(""));
+	data.setId(dto->corporateID.getValue(""));
+	data.setOrmorgid(dto->organizationID.getValue(""));
 	data.setLxdz(dto->contactAddress.getValue(""));
 	data.setLxfs(dto->contactNumber.getValue(""));
 	data.setLxr(dto->contactPerson.getValue(""));
