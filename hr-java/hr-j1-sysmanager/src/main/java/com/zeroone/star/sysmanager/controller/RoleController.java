@@ -39,56 +39,59 @@ public class RoleController implements RoleApis {
     @GetMapping("/query-one")
 
     @Override
-    public JsonVO<RoleDTO> queryById(@ApiParam(value = "角色id",required = true,example = "1") @RequestParam String id) {
+    public JsonVO<RoleDTO> queryById(@ApiParam(value = "角色id", required = true, example = "1") @RequestParam String id) {
         Integer roleId = Integer.valueOf(id);
         return JsonVO.success(iRoleService.querRoleById(roleId));
     }
+
     @ApiOperation(value = "删除角色")
     @DeleteMapping("/delete")
     @Override
-    public JsonVO<Boolean> deleteRole(@ApiParam(value = "需删除的角色id",example = "2") @RequestParam String id) {
+    public JsonVO<Boolean> deleteRole(@ApiParam(value = "需删除的角色id", example = "2") @RequestParam String id) {
         Integer roleId = Integer.valueOf(id);
         boolean result = iRoleService.deleRoleById(roleId);
-        if (result){
+        if (result) {
             return JsonVO.success(true);
-        }else {
+        } else {
             return JsonVO.fail(false);
         }
 
     }
+
     @ApiOperation(value = "增加角色")
     @PostMapping("/add-one")
     @Override
     public JsonVO<Boolean> addOneRole(RoleDTO dto) {
-        if (dto.getId()==null&& dto.getDescription()==null&&
-            dto.getName()==null&&
-            dto.getKeyword()==null){
-            return  JsonVO.fail(false);
+        if (dto.getId() == null && dto.getDescription() == null &&
+                dto.getName() == null &&
+                dto.getKeyword() == null) {
+            return JsonVO.fail(false);
 
         }
         Boolean addResult = iRoleService.addRole(dto);
-        if (addResult){
+        if (addResult) {
             return JsonVO.success(true);
-        }else {
+        } else {
             return JsonVO.fail(false);
         }
     }
+
     @ApiOperation(value = "修改角色")
-    @PostMapping ("/modify")
+    @PostMapping("/modify")
     @Override
     public JsonVO<Boolean> modifyRole(RoleDTO dto) {
         //输入的id不能为空
-        if (dto.getId()==null){
+        if (dto.getId() == null) {
             JsonVO.fail(false);
         }
         //角色描述字数限制
-        if(dto.getDescription().length()>50){
+        if (dto.getDescription().length() > 50) {
             JsonVO.fail(false);
         }
-       Boolean modifyResult= iRoleService.modifyRole(dto);
-        if (modifyResult){
+        Boolean modifyResult = iRoleService.modifyRole(dto);
+        if (modifyResult) {
             return JsonVO.success(true);
-        }else {
+        } else {
             return JsonVO.fail(false);
         }
     }
@@ -234,8 +237,8 @@ public class RoleController implements RoleApis {
     @ApiOperation(value = "修改状态")
     @PostMapping("/modify-status")
     @Override
-    public JsonVO<Boolean> modifyStatus(String id) {
-        return null;
+    public JsonVO<Boolean> modifyStatus(@RequestParam String id) {
+        return iRoleService.updateStatus(id) ? JsonVO.success(true) : JsonVO.fail(false);
     }
 }
 

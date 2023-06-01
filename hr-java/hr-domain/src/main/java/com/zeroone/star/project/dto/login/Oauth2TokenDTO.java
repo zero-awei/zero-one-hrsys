@@ -48,7 +48,7 @@ public class Oauth2TokenDTO {
     /**
      * 登录客户端ID
      */
-    @ApiModelProperty(value = "登录客户端ID：project-app或project-manager", example = "project-manager", required = true)
+    @ApiModelProperty(value = "登录客户端ID：project-app或project-manager", example = "hr-manager", required = true)
     private String clientId;
 }
 

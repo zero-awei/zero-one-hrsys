@@ -1,6 +1,8 @@
 package com.zeroone.star.sysmanager.service;
 
+import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.rolemanager.RoleDTO;
+import com.zeroone.star.project.query.sysmanager.rolemanager.RoleQuery;
 import com.zeroone.star.sysmanager.entity.Role;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -41,6 +43,13 @@ public interface IRoleService extends IService<Role> {
      */
     Boolean modifyRole(RoleDTO roleDTO);
 
+    /**
+     * 修改角色状态
+     * @param id
+     * @return boolean
+     */
+    Boolean updateStatus(String id);
 
+    PageDTO<RoleDTO> queryListRole(RoleQuery query);
 
 }

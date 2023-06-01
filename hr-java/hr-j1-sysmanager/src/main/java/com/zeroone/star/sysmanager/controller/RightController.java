@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.core.metadata.TableFieldInfo;
 import com.baomidou.mybatisplus.core.metadata.TableInfo;
 import com.baomidou.mybatisplus.core.metadata.TableInfoHelper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.zeroone.star.project.components.user.UserHolder;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.rightmanagement.RightDTO;
 import com.zeroone.star.project.query.sysmanager.comment.CommentQuery;
@@ -25,6 +26,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -41,6 +43,9 @@ import java.util.Objects;
 @RequestMapping("/right")
 @Api(tags = "权限管理")
 public class RightController implements RightApis {
+
+    @Resource
+    UserHolder userHolder;
 
     private RightService rightService;
 
