@@ -82,7 +82,7 @@ uint64_t LegalEntityMaiService::savaBatchDataWithFile(const std::string fileName
 
 	std::string name;
 	if (!fileName.empty()) {
-		std::string path = "./public/excel/";
+		std::string path = "/public/excel/";
 		name = client.downloadFile(fileName, &path);
 		std::cout << "download savepath is: " << name << std::endl;
 	}
@@ -131,7 +131,7 @@ bool LegalEntityMaiService::deleteById(const LegalEntityMaiDelDTO::Wrapper& dto)
 {
 	LegalEntityMaiDAO dao;
 	// 迭代器循环删除数据
-	for (auto it = dto->cnt->begin(); it != dto->cnt->end(); it++) {
+	for (auto it = dto->Ids->begin(); it != dto->Ids->end(); it++) {
 		dao.deleteById(*it);
 	}
 	return true;

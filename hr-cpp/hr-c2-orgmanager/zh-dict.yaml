@@ -45,6 +45,8 @@ LegalEntityMai:
   suffix: 文件后缀
  export:
   summary: （法人主体维护-导出法人主体）--TripleGold
+ sample:
+  name: 东北公司
  field:
   id: 法人主体标识
   updateman: 更新人

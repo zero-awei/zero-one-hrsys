@@ -28,7 +28,6 @@
 #include "LegalEntityMai/LegalEntityMaiController.h"
 #include "LegalEntitySet/LegalEntitySetController.h"
 #include "LegalEntitySet/ImportLeagalPerSettingController.h"
-#include "LegalEntitySet/LegalEntitySetQueryController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC

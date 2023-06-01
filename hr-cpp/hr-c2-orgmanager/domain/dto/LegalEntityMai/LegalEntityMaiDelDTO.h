@@ -29,8 +29,8 @@ class LegalEntityMaiDelDTO : public oatpp::DTO
 {
 	DTO_INIT(LegalEntityMaiDelDTO, DTO);
 	// 删除数据ID数组
-	DTO_FIELD(List<String>, cnt) = {};
-	DTO_FIELD_INFO(cnt) {
+	DTO_FIELD(List<String>, Ids) = {};
+	DTO_FIELD_INFO(Ids) {
 		info->description = ZH_WORDS_GETTER("LegalEntityMai.delete.cnt");
 	}
 

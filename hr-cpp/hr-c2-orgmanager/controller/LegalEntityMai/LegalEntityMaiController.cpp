@@ -91,13 +91,13 @@ Uint64JsonVO::Wrapper LegalEntityMaiController::execRemoveLEM(const LegalEntityM
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
 
-	int length = dto->cnt->size();
+	int length = dto->Ids->size();
 	// 参数检验
 	if (length <= 0) {
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	for (auto it = dto->cnt->begin(); it != dto->cnt->end(); it++)
+	for (auto it = dto->Ids->begin(); it != dto->Ids->end(); it++)
 	{
 		if (!(*it)) {
 			jvo->init(UInt64(-1), RS_PARAMS_INVALID);
@@ -128,7 +128,7 @@ StringJsonVO::Wrapper LegalEntityMaiController::execImportLEM(const String& body
 
 	// 根据时间戳生成一个临时文件名称
 	std::stringstream ss;
-	ss << "./public/excel/";
+	ss << "/public/excel/";
 
 	// 计算时间戳
 	auto now = std::chrono::system_clock::now();

@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b779be94-21b0-475f-91a7-98180e496229}</ProjectGuid>
+    <ProjectGuid>{ee0ca5ee-2af7-4137-8f34-28ff41251b79}</ProjectGuid>
     <RootNamespace>hrc2orgmanager</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -88,10 +88,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
-      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -108,10 +107,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
-      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,15 +130,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
-      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64\debug;..\lib-common\lib64\debug;..\lib-mysql\lib64\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib-mysql\lib64\vs14\debug;..\lib-oatpp\lib64;..\lib-common\lib64;..\lib-mysql\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -152,17 +149,16 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
-      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64;..\lib-common\lib64;..\lib-mysql\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64\debug;..\lib-common\lib64\debug;..\lib-mysql\lib64\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cpp.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
@@ -170,6 +166,80 @@
       <Command>xcopy "$(SolutionDir)lib-dy/lib64/release" "$(OutDir)" /a /F /I /Y /C</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="controller\LegalEntityMai\LegalEntityMaiController.cpp" />
+    <ClCompile Include="controller\LegalEntitySet\ImportLeagalPerSettingController.cpp" />
+    <ClCompile Include="controller\LegalEntitySet\LegalEntitySetController.cpp" />
+    <ClCompile Include="controller\Router.cpp" />
+    <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\LegalEntityMai\LegalEntityMaiDAO.cpp" />
+    <ClCompile Include="dao\LegalEntitySet\LegalEntitySetDAO.cpp" />
+    <ClCompile Include="main.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="service\LegalEntityMai\LegalEntityMaiService.cpp" />
+    <ClCompile Include="service\LegalEntitySet\LegalEntitySetService.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="uselib\excel\TestExcel.cpp" />
+    <ClCompile Include="uselib\fastdfs\TestFastDfs.cpp" />
+    <ClCompile Include="uselib\jwt\TestToken.cpp" />
+    <ClCompile Include="uselib\mongo\TestMongo.cpp" />
+    <ClCompile Include="uselib\mysql\TestDb.cpp" />
+    <ClCompile Include="uselib\redis\TestRedis.cpp" />
+    <ClCompile Include="uselib\ws\WSInstanceListener.cpp" />
+    <ClCompile Include="uselib\ws\WSListener.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="controller\LegalEntityMai\LegalEntityMaiController.h" />
+    <ClInclude Include="controller\LegalEntitySet\ImportLeagalPerSettingController.h" />
+    <ClInclude Include="controller\LegalEntitySet\LegalEntitySetController.h" />
+    <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\LegalEntityMai\LegalEntityMaiDAO.h" />
+    <ClInclude Include="dao\LegalEntityMai\LegalEntityMaiMapper.h" />
+    <ClInclude Include="dao\LegalEntitySet\LegalEntitySetDAO.h" />
+    <ClInclude Include="dao\LegalEntitySet\LegalEntitySetMapper.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\LegalEntityMai\ormsignorgDO.h" />
+    <ClInclude Include="domain\do\LegalEntitySet\LegalEntitySetDO.h" />
+    <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiAddDTO.h" />
+    <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDelDTO.h" />
+    <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDTO.h" />
+    <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiMqDTO.h" />
+    <ClInclude Include="domain\dto\LegalEntitySet\ImportLeagalPerSettingDTO.h" />
+    <ClInclude Include="domain\dto\LegalEntitySet\LegalEntitySetDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\LegalEntityMai\LegalEntityMaiQuery.h" />
+    <ClInclude Include="domain\query\LegalEntitySet\LegalEntitySetQuery.h" />
+    <ClInclude Include="domain\vo\LegalEntityMai\LegalEntityMaiVO.h" />
+    <ClInclude Include="domain\vo\LegalEntitySet\LegalEntitySetVO.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\LegalEntityMai\LegalEntityMaiService.h" />
+    <ClInclude Include="service\LegalEntitySet\ImportLeagalPerSettingService.h" />
+    <ClInclude Include="service\LegalEntitySet\LegalEntitySetService.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\excel\TestExcel.h" />
+    <ClInclude Include="uselib\fastdfs\TestFastDfs.h" />
+    <ClInclude Include="uselib\jwt\TestToken.h" />
+    <ClInclude Include="uselib\mongo\TestMongo.h" />
+    <ClInclude Include="uselib\mysql\LibTest.h" />
+    <ClInclude Include="uselib\mysql\TestDb.h" />
+    <ClInclude Include="uselib\redis\TestRedis.h" />
+    <ClInclude Include="uselib\rocketmq\TestRocket.h" />
+    <ClInclude Include="uselib\ws\WSController.h" />
+    <ClInclude Include="uselib\ws\WSInstanceListener.h" />
+    <ClInclude Include="uselib\ws\WSListener.h" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\lib-common\lib-common.vcxproj">
       <Project>{213f58ad-9943-4155-8a45-1b2dab0bb8f9}</Project>
@@ -180,58 +250,6 @@
     <ProjectReference Include="..\lib-oatpp\lib-oatpp.vcxproj">
       <Project>{3fc26f19-d665-40bd-92f1-fc4be22a38ba}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="controller\LegalEntityMai\LegalEntityMaiController.cpp" />
-    <ClCompile Include="controller\LegalEntitySet\ImportLeagalPerSettingController.cpp" />
-    <ClCompile Include="controller\LegalEntitySet\LegalEntitySetController.cpp" />
-    <ClCompile Include="controller\Router.cpp" />
-    <ClCompile Include="controller\SystemInterceptor.cpp" />
-    <ClCompile Include="dao\LegalEntitySet\LegalEntitySetDAO.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="service\LegalEntityMai\LegalEntityMaiService.cpp" />
-    <ClCompile Include="service\LegalEntitySet\LegalEntitySetService.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="controller\LegalEntityMai\LegalEntityMaiController.h" />
-    <ClInclude Include="controller\LegalEntitySet\ImportLeagalPerSettingController.h" />
-    <ClInclude Include="controller\LegalEntitySet\LegalEntitySetController.h" />
-    <ClInclude Include="controller\OtherComponent.hpp" />
-    <ClInclude Include="controller\Router.h" />
-    <ClInclude Include="dao\LegalEntitySet\LegalEntitySetDAO.h" />
-    <ClInclude Include="dao\LegalEntitySet\LegalEntitySetMapper.h" />
-    <ClInclude Include="dao\LegalEntityMai\LegalEntityMaiMapper.h" />
-    <ClInclude Include="dao\LegalEntitySet\LegalEntitySetMapper.h" />
-    <ClInclude Include="dao\LegalEntitySet\LegalEntitySetDAO.h" />
-    <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\do\LegalEntityMai\ormsignorgDO.h" />
-    <ClInclude Include="domain\do\LegalEntitySet\LegalEntitySetDO.h" />
-    <ClInclude Include="domain\do\LegalEntitySet\QueryLegalEntitySetDO.h" />
-    <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiAddDTO.h" />
-    <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDelDTO.h" />
-    <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDTO.h" />
-    <ClInclude Include="domain\dto\LegalEntitySet\ImportLeagalPerSettingDTO.h" />
-    <ClInclude Include="domain\dto\LegalEntitySet\LegalEntitySetDTO.h" />
-    <ClInclude Include="domain\GlobalInclude.h" />
-    <ClInclude Include="domain\query\LegalEntityMai\LegalEntityMaiQuery.h" />
-    <ClInclude Include="domain\query\LegalEntitySet\LegalEntitySetQuery.h" />
-    <ClInclude Include="domain\vo\LegalEntityMai\LegalEntityMaiVO.h" />
-    <ClInclude Include="domain\vo\LegalEntitySet\LegalEntitySetVO.h" />
-    <ClInclude Include="Macros.h" />
-    <ClInclude Include="ServerInfo.h" />
-    <ClInclude Include="service\LegalEntityMai\LegalEntityMaiService.h" />
-    <ClInclude Include="service\LegalEntitySet\ImportLeagalPerSettingService.h" />
-    <ClInclude Include="service\LegalEntitySet\LegalEntitySetService.h" />
-    <ClInclude Include="stdafx.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="zh-dict.yaml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
