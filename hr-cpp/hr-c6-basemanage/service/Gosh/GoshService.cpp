@@ -3,6 +3,7 @@
 #include "dao/Gosh/GoshDAO.h"
 #include "domain/dto/Gosh/ContractDTO.h"
 #include "Macros.h"
+#include "SnowFlake.h"
 
 ContractPageDTO_gs::Wrapper GoshService::listContract(const ContractQuery::Wrapper& query)
 {
@@ -81,9 +82,12 @@ ContractPageDTO_gs::Wrapper GoshService::listPerson(const ContractQuery::Wrapper
 uint64_t GoshService::saveData(const ContractDTO_gs_insert::Wrapper& dto)
 {
 	// 组装DO数据
+	SnowFlake sf(1, 6);
+	uint64_t add_id = sf.nextId();
 	ContractDO data;
 	data.setPersonid(dto->personid.getValue(""));
-	data.setId(dto->id.getValue(""));
+	//data.setId(dto->id.getValue(std::to_string(add_id)));
+	data.setId(std::to_string(add_id));
 	data.setType(dto->type.getValue(""));
 	data.setVariety(dto->variety.getValue(""));
 	data.setDate(dto->date.getValue(""));
@@ -91,8 +95,8 @@ uint64_t GoshService::saveData(const ContractDTO_gs_insert::Wrapper& dto)
 	data.setDepartment_m(dto->department_m.getValue(""));
 	data.setDate_end(dto->date_end.getValue(""));
 	data.setTip(dto->tip.getValue(""));
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Personid, personid,Id,id,Type,type, Variety,variety, Date,date, Condition,condition , Department_m,department_m, Date_end,date_end, Tip,tip)
-		// 执行数据添加
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Personid, personid,Type,type, Variety,variety, Date,date, Condition,condition , Department_m,department_m, Date_end,date_end, Tip,tip)
+	// 执行数据添加
 	GoshDAO dao;
 	return dao.insert(data);
 }
