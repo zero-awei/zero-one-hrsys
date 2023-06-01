@@ -268,7 +268,7 @@ export const useInfoStore = defineStore('archivesInfo', {
     //记录表格数据
     tableData: null,
     //用户信息
-    userData: null
+    userData: null,
     //每页数据条数
     pageSizes: [],
     //总数据条数

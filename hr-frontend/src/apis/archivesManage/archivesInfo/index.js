@@ -2,8 +2,7 @@ import Request from '../request'
 import { userStore } from '@/stores/user'
 
 //分页查询组织列表
-const currBaseUrl = '/common/'
-
+const currBaseUrl = '/proj-tag/'
 /**
  * 通用接口
  * @param data 数据
@@ -11,12 +10,12 @@ const currBaseUrl = '/common/'
  * @param fail 失败回调
  */
 export const association = (data, success, fail) => {
-  const $store = userStore()
-  Request.requestForm(Request.GET, currBaseUrl + 'query-name-of-association', data)
+  const $store = userStoreInfo()
+  Request.requestJson(Request.GET, currBaseUrl + 'query-org-page', data)
     .then((data) => {
-      // 记录侧边栏数据到本地
+      // 获取侧边栏数据
       if (data.data) {
-        $store.setToken(data.data)
+        // $store.setToken(data.data)
         // 执行成功回调
         success()
         return
@@ -33,14 +32,14 @@ export const association = (data, success, fail) => {
 }
 
 //分页查询员工信息
-const currBaseUrl2 = '/archives'
-export const archives = (data, success, fail) => {
+const currBaseUrl2 = '/employee-info/'
+export const employeeInfo = (data, success, fail) => {
   const $store = userStore()
-  Request. requestJson(Request.GET, currBaseUrl2, data)
+  Request. requestJson(Request.GET, currBaseUrl2+'employee-query', data)
     .then((data) => {
-      // 记录Token到本地
+      // 获取员工信息
       if (data.data) {
-        $store.setToken(data.data)
+
         // 执行成功回调
         success()
         return
@@ -57,14 +56,15 @@ export const archives = (data, success, fail) => {
 }
 
 
-//分页查询员工信息
-export const archives = (data, success, fail) => {
+//分页查询档案列表
+const currBaseUrl3 = '/archives'
+export const archivelist = (data, success, fail) => {
   const $store = userStore()
-  Request. requestJson(Request.GET, currBaseUrl2, data)
+  Request. requestJson(Request.GET, currBaseUrl3, data)
     .then((data) => {
-      // 记录Token到本地
+      // 获取档案数据列表
       if (data.data) {
-        $store.setToken(data.data)
+
         // 执行成功回调
         success()
         return
@@ -82,7 +82,7 @@ export const archives = (data, success, fail) => {
 
 
 // 1.查询组织结构树
-// 2.分页查询组织列表  GET common/query-name-of-association ✓
+// 2.分页查询组织列表  ✓
 // {
 // 	"code": 10000,
 // 	"data": [
@@ -96,7 +96,7 @@ export const archives = (data, success, fail) => {
 // }
 
 
-// 3.分页查询员工信息（用于输入条件中选择员工）
+// 3.分页查询员工信息（用于输入条件中选择员工）  ✓
 // {
 //   "code": 10000,
 //   "message": "success",
@@ -105,11 +105,11 @@ export const archives = (data, success, fail) => {
 //     "pageSize": 5, //查询条数
 //     "total": 0,  //总条数
 //     "pages": 0,  //总页数
-//     "rows": []   //当当前页数据列表
+//     "rows": []   //当前页数据列表
 //   }
 // }
 
-// 分页查询档案列表
+//4. 分页查询档案列表  ✓
 // {
 //   id	string
 //   编号

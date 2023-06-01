@@ -4,9 +4,9 @@ export const select= (data, success, fail) => {
     const $store = userStore()
     Request.requestJson(Request.GET, currBaseUrl + 'select', data)
         .then((data) => {
-            // 记录Token到本地
+            // 获取非员工在档提醒
             if (data.data) {
-                $store.setToken(data.data)
+               
                 // 执行成功回调
                 success()
                 return
@@ -27,9 +27,9 @@ export const workhistory = (data, success, fail) => {
     const $store = userStore()
     Request.requestJson(Request.GET, currBaseUrl + 'export', data)
         .then((data) => {
-            // 记录Token到本地
+            // 导出数据
             if (data.data) {
-                $store.setToken(data.data)
+              
                 // 执行成功回调
                 success()
                 return
@@ -45,28 +45,9 @@ export const workhistory = (data, success, fail) => {
         })
 }
 
-//调入档案
-// export const workhistory = (data, success, fail) => {
-//     const $store = userStore()
-//     Request.requestJson(Request.GET, currBaseUrl + 'export', data)
-//         .then((data) => {
-//             // 记录Token到本地
-//             if (data.data) {
-//                 $store.setToken(data.data)
-//                 // 执行成功回调
-//                 success()
-//                 return
-//             }
-//             // 执行失败回调
-//             fail()
-//         })
-//         .catch((err) => {
-//             // 打印错误信息
-//             console.warn(err)
-//             // 执行失败回调
-//             fail()
-//         })
-// }
+// 分页查询数据列表  ✓
+// 导出数据（导出本页在前端完成）  ✓
+// 调出档案
 
 // 1.分页查询数据列表
 // {
@@ -86,4 +67,3 @@ export const workhistory = (data, success, fail) => {
 //     "message": "success",
 //     "data": "string"
 //   }
-// 3.调入档案
