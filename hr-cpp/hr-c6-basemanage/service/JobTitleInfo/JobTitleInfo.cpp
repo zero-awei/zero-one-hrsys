@@ -44,7 +44,7 @@ std::string JobTitleInfoService::listAllJobTitle(const JobTitleDTO::Wrapper& que
 
 	// 生成数据表表头
 	vector<string> head/* = dao.getHead()*/;
-	head.erase(head.begin() + 12,head.end());
+	//head.erase(head.begin() + 12,head.end());
 	data.insert(data.begin(), head);
 	// 生成Excel
 	ExportExcel excel;
