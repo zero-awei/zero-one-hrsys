@@ -103,14 +103,14 @@ uint64_t FamilysituationDAO::insert(const FamilysituationDO& iObj)
 // ÐÞ¸Ä
 int FamilysituationDAO::update(const FamilysituationDO& uObj)
 {
-	string sql = "UPDATE `t_pimfaminfo` SET `YBRGX`=?, `PIMFAMINFONAME`=?, `ZJLX`=?, `ZJH`=?, `XB`=?, `CSRQ`=?, `NL`=?, `GZDW`=?, `ZW`=?, `ZZMM`=?, `SRUVIVORS`=?, `SFJJLLR`=? WHERE `PIMPERSONID`=? AND `PIMFAMINFOID`=?";
-	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%i%s%s%s%i%s%s%s", \
-		uObj.getRelationship(), uObj.getName(), uObj.getDoctype(), uObj.getIdentification(), uObj.getGender(), uObj.getDob(), uObj.getAge(), uObj.getWorkplace(), uObj.getJob(), uObj.getPoliticalstatus(), uObj.getTestament(), uObj.getIce(), uObj.getPersonId(), uObj.getId());
+	string sql = "UPDATE `t_pimfaminfo` SET `YBRGX`=?, `PIMFAMINFONAME`=?, `ZJLX`=?, `ZJH`=?, `XB`=?, `CSRQ`=?, `NL`=?, `GZDW`=?, `ZW`=?, `ZZMM`=?, `SRUVIVORS`=?, `SFJJLLR`=? WHERE `PIMFAMINFOID`=?";
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%i%s%s%s%i%s%s", \
+		uObj.getRelationship(), uObj.getName(), uObj.getDoctype(), uObj.getIdentification(), uObj.getGender(), uObj.getDob(), uObj.getAge(), uObj.getWorkplace(), uObj.getJob(), uObj.getPoliticalstatus(), uObj.getTestament(), uObj.getIce(), uObj.getId());
 }
 
 // É¾³ý
 int FamilysituationDAO::deleteById(FamilysituationDO& dObj)
 {
-	string sql = "DELETE FROM `t_pimfaminfo` WHERE `PIMPERSONID`=? AND `PIMFAMINFOID`=?" ;
-	return sqlSession->executeUpdate(sql, "%s%s", dObj.getPersonId(), dObj.getId());
+	string sql = "DELETE FROM `t_pimfaminfo` WHERE `PIMFAMINFOID`=?" ;
+	return sqlSession->executeUpdate(sql, "%s", dObj.getId());
 }
