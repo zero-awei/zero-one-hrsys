@@ -16,19 +16,6 @@
 Uint64JsonVO::Wrapper LegalEntitySetController::execAddLegalEntitySet(const LegalEntitySetDTO::Wrapper& dto) {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
-	// 参数校验
-	// 非空校验
-	//if (!dto->ormsignorgid || !dto->ormsignorgname || !dto->contractsignorgname) {
-	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-	//	return jvo;
-	//}
-	//// 有效值校验
-	//if (!dto->ormsignorgid || !dto->ormsignorgname || !dto->contractsignorgname )
-	//{
-	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-	//	return jvo;
-	//}
-	
 	// 定义一个Service
 	LegalEntitySetService service;
 	// 执行数据新增
@@ -57,28 +44,24 @@ LegalEntitySetPullDownJsonVO::Wrapper LegalEntitySetController::execLegalEntityS
 	return vo;
 }
 
-Uint64JsonVO::Wrapper LegalEntitySetController::execModifyLegalEntitySet(const LegalEntitySetDTO::Wrapper& dto) {
-	//// 定义返回数据对象
-	//auto jvo = Uint64JsonVO::createShared();
-	//// 参数校验
-	//if (!dto->id )
-	//{
-	//	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-	//	return jvo;
-	//}
-	//// 定义一个Service
-	//LegalEntitySetService service;
-	//// 执行数据修改
-	//if (service.updateData(dto)) {
-	//	jvo->success(dto->id);
-	//}
-	//else
-	//{
-	//	jvo->fail(dto->id);
-	//}
-	//// 响应结果
-	//return jvo;
-	return Uint64JsonVO::createShared();
+StringJsonVO::Wrapper LegalEntitySetController::execModifyLegalEntitySet(const LegalEntitySetDTO::Wrapper& dto) {
+	auto jvo = StringJsonVO::createShared();
+	// 参数校验
+	if (!dto->ormsignorgid || dto->ormsignorgid == "") {
+		jvo->init(String(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+	// 定义一个Service
+	LegalEntitySetService service;
+	// 执行数据修改
+	if (service.updateData(dto)) {
+		jvo->success(dto->ormsignorgid);
+	}
+	else {
+		jvo->fail(dto->ormsignorgid);
+	}
+	// 响应结果
+	return jvo;
 }
 
 /*---------------------------------- 法人主体设置控制器具体实现--（组织管理-数据设置-法人主体设置）--TripleGold -------------------------------*/

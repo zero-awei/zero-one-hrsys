@@ -10,19 +10,16 @@
 组织管理 ——数据设置 —— 法人主体设置  -- cpt
 
 法人主体名称下拉列表 `LegalEntitySetPullDownList`
-
 更新指定法人设置信息  `UpdateLegalerSettingMessage`
-
 导出法人设置 `LegalEntitySet`
-
-新增法人设置（支持批量新增）** `LegalEntitySet`
+新增法人设置（支持批量新增） `LegalEntitySet`
 */
 
 
 LegalEntitySetPullDownDTO::Wrapper LegalEntitySetService::legalEntityPulldownList() {
-	auto dto = LegalEntitySetPullDownDTO::createShared();
 	LegalEntitySetDAO dao;
 	std::list<LegalEntitySetDO> date = dao.legalerNamePullDownList();
+	auto dto = LegalEntitySetPullDownDTO::createShared();
 	for (auto it : date) {
 		string str = it.getORMSIGNORGNAME();
 		dto->legalEntitySetPullDownList->push_back(LegalEntitySetDTO::createShared(str));
@@ -30,20 +27,13 @@ LegalEntitySetPullDownDTO::Wrapper LegalEntitySetService::legalEntityPulldownLis
 	return dto;
 }
 
-uint64_t LegalEntitySetService::insertData(const LegalEntitySetDTO::Wrapper& dto)
-{
-	SnowFlake snowid(1, 2);
+uint64_t LegalEntitySetService::insertData(const LegalEntitySetDTO::Wrapper& dto) {
+	//雪花算法 生成唯一标识
+	SnowFlake snowid(1, 2); 
 	// 组装DO数据
 	LegalEntitySetDO data;
-	//data.setORMSIGNORGID(dto->ormsignorgid.getValue(to_string(snowid.nextId())));
-	//data.setORMSIGNORGNAME(dto->ormsignorgname.getValue(""));
-	////data.setCONTRACTSIGNORGNAME(dto->contractsignorgname.getValue(to_string(snowid.nextId())));输入 dto 前端
-	//data.setISDEFAULTSIGNORG(dto->isdefaultsignorg.getValue(""));  // 后端 唯一 id 
-	// 输入 dto 前端     
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME, contractsignorgname, ISDEFAULTSIGNORG, isdefaultsignorg)
-		/*ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGID, ormsignorgid, ORMSIGNORGNAME, ormsignorgname,
-			CONTRACTSIGNORGNAME, contractsignorgname)*/
-		
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME, 
+	contractsignorgname, ISDEFAULTSIGNORG, isdefaultsignorg)
 	data.setORMSIGNORGID(to_string(snowid.nextId()));
 	data.setCONTRACTSIGNORGID(to_string(snowid.nextId()));
 	// 执行数据添加
@@ -55,16 +45,11 @@ uint64_t LegalEntitySetService::insertData(const LegalEntitySetDTO::Wrapper& dto
 bool LegalEntitySetService::updateData(const LegalEntitySetDTO::Wrapper& dto) {
 	// 组装DO数据
 	LegalEntitySetDO data;
-	/*
-	data.setORMSIGNORGID(dto->ormsignorgid.getValue(""));
-	data.setORMSIGNORGNAME(dto->ormsignorgname.getValue(""));
-	data.setCONTRACTSIGNORGNAME(dto->contractsignorgname.getValue(""));
-	data.setISDEFAULTSIGNORG(dto->isdefaultsignorg.getValue(1));
-	*/
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGID, ormsignorgid, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME, contractsignorgname)
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME,
+		contractsignorgname, ISDEFAULTSIGNORG, isdefaultsignorg)
 	// 执行数据修改
 	LegalEntitySetDAO dao;
-	return dao.update(data) == 1;
+	return dao.update1(data) && dao.update2(data);
 }
 
 // 删除数据 

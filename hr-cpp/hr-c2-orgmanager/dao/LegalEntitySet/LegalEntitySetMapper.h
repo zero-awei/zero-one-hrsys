@@ -31,7 +31,17 @@ public:
 		return data;
 	}
 };
-
+// 下拉列表字段匹配映射
+class LegalEntitySetPullDownListMapper : public Mapper<LegalEntitySetDO>
+{
+public:
+	LegalEntitySetDO mapper(ResultSet* resultSet) const override
+	{
+		LegalEntitySetDO data;
+		data.setORMSIGNORGNAME(resultSet->getString(1));
+		return data;
+	}
+};
 /*
 LegalEntitySetMapper类的作用是将ResultSet对象中的数据映射到LegalEntitySetDO对象中。ResultSet通常用于表示从数据库中检索到的结果集。
 mapper方法接受一个ResultSet*参数，即指向ResultSet对象的指针，并返回一个LegalEntitySetDO对象。

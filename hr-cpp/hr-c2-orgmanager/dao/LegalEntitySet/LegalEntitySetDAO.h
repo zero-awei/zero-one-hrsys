@@ -29,7 +29,8 @@ public:
 	uint64_t insert1(const LegalEntitySetDO& iObj);
 	uint64_t insert2(const LegalEntitySetDO& iObj);
 	// 修改数据
-	int update(const LegalEntitySetDO& uObj);
+	int update1(const LegalEntitySetDO& uObj);
+	int update2(const LegalEntitySetDO& uObj);
 	// 法人主体名称下拉列表  
 	std::list<LegalEntitySetDO> legalerNamePullDownList();
 	// 统计数据条数
