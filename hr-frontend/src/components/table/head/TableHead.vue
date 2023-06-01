@@ -1,9 +1,18 @@
 <template>
-    <div class="hr-table-header">
-        <div class="hr-table-header__title">{{tableTitle}}</div>
-        <div class="hr-table-header__menus" v-for="tableOperation in tableOperations" :key="tableOperation.name">
-            <AddButton :tableTitle="tableTitle" :addTitle="addTitle" :dataitem="dataitem" :saveData="saveData" v-if="tableOperation.name==='新增'"/>
-        </div>
+  <div class="hr-table-header">
+    <div class="hr-table-header__title">{{ tableTitle }}</div>
+    <div
+      class="hr-table-header__menus"
+      v-for="tableOperation in tableOperations"
+      :key="tableOperation.name"
+    >
+      <AddButton
+        :tableTitle="tableTitle"
+        :addTitle="addTitle"
+        :dataitem="dataitem"
+        :saveData="saveData"
+        v-if="tableOperation.name === '新增'"
+      />
     </div>
   </div>
 </template>
@@ -11,7 +20,13 @@
 <script setup>
 import AddButton from './AddButton.vue'
 
-defineProps(['tableTitle','addTitle','tableOperations','dataitem','saveData'])
+defineProps([
+  'tableTitle',
+  'addTitle',
+  'tableOperations',
+  'dataitem',
+  'saveData'
+])
 </script>
 
 <style lang="scss" scoped>
@@ -23,11 +38,12 @@ defineProps(['tableTitle','addTitle','tableOperations','dataitem','saveData'])
     float: left;
     width: auto;
     height: 32px;
-    font-size: 16px;  
+    font-size: 16px;
     font-weight: 600;
   }
   @include element(menus) {
     float: right;
     height: 100%;
   }
-}</style>
+}
+</style>

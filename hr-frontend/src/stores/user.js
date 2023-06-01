@@ -3,69 +3,12 @@ import Request from '@/apis/request'
 // 测试菜单数据
 let testMenus = [
   {
-
     id: '0',
     text: '门户首页',
     icon: 'DataAnalysis',
     path: '/pimportalview'
   },
   {
-    id: 0,
-    text: '人员花名册',
-    icon: 'IconSetting',
-    children: [
-      {
-
-        id: 5,
-        text: '人员花名册',
-        path: '/roster',
-        icon: 'IconSetting',
-        pid: 1
-      },
-      {
-
-        id: 6,
-        text: '见习员工',
-        path: '/trainee',
-        icon: 'IconSetting',
-        pid: 1
-      },
-      {
-
-        id: 0,
-        text: '试用员工',
-        icon: 'IconSetting',
-        path: '/syqyggridview'
-      },
-	  {
-        id: 1,
-        text: '离(退)休人员',
-        icon: 'IconSetting',
-        path: '/ltxyggridview'
-      },
-      {
-        id: 2,
-        text: '离职人员',
-        icon: 'IconSetting',
-        path: '/lzyghmcgridview'
-      },
-      {
-        id: 3,
-        text: '借调员工',
-        icon: 'IconSetting',
-        path: '/jdryhmcgridview'
-      },
-      {
-        id: 4,
-
-        text: '挂职员工',
-        icon: 'IconSetting',
-        path: '/gzryhmcgridview'
-      }
-
-  },
-  {
-
     id: 1,
     text: '人员信息',
     icon: 'IconSetting',
@@ -93,6 +36,79 @@ let testMenus = [
         path: '/blacklist',
         icon: 'IconSetting',
         pid: 1
+      }
+    ]
+  },
+  {
+    id: 0,
+    text: '人员花名册',
+    icon: 'IconSetting',
+    children: [
+      {
+        id: 5,
+        text: '人员花名册',
+        path: '/roster',
+        icon: 'IconSetting',
+        pid: 1
+      },
+      {
+        id: 6,
+        text: '见习员工',
+        path: '/trainee',
+        icon: 'IconSetting',
+        pid: 1
+      },
+      {
+        id: 0,
+        text: '试用员工',
+        icon: 'IconSetting',
+        path: '/syqyggridview'
+      },
+      {
+        id: 1,
+        text: '离(退)休人员',
+        icon: 'IconSetting',
+        path: '/ltxyggridview'
+      },
+      {
+        id: 2,
+        text: '离职人员',
+        icon: 'IconSetting',
+        path: '/lzyghmcgridview'
+      },
+      {
+        id: 3,
+        text: '借调员工',
+        icon: 'IconSetting',
+        path: '/jdryhmcgridview'
+      },
+      {
+        id: 4,
+
+        text: '挂职员工',
+        icon: 'IconSetting',
+        path: '/gzryhmcgridview'
+      }
+    ]
+  },
+  {
+    id: 2,
+    text: '离(退)休管理',
+    icon: 'IconUser',
+    children: [
+      {
+        id: 2,
+        text: '离(退)休人员',
+        path: '/retiree',
+        icon: 'IconUser',
+        pid: 2
+      },
+      {
+        id: 3,
+        text: '费用台账',
+        path: '/expense',
+        icon: 'IconUser',
+        pid: 2
       }
     ]
   },
@@ -126,7 +142,7 @@ let testMenus = [
         icon: 'IconTickets',
         pid: 4
       },
-	  {
+      {
         id: 2,
         text: '合同类别',
         path: '/contractCatrgory',
@@ -146,28 +162,9 @@ let testMenus = [
         path: '/practiceCertificate',
         icon: 'IconTickets',
         pid: 3
-      },
+      }
     ]
-  },
-  {
-    id: 2,
-    text: '离(退)休管理',
-    icon: 'IconUser',
-    children: [
-      {
-        id: 2,
-        text: '离(退)休人员',
-        path: '/retiree',
-        icon: 'IconUser',
-        pid: 2
-      },
-      {
-        id: 3,
-        text: '费用台账',
-        path: '/expense',
-        icon: 'IconUser',
-        pid: 2
-      },
+  }
 ]
 
 export const userStore = defineStore('user', {

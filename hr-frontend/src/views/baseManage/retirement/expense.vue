@@ -22,8 +22,8 @@
     ></el-footer>
   </el-container>
 </template>
-
-<script lang="ts" setup>
+  
+  <script lang="ts" setup>
 import TableHead from '@/components/table/head/TableHead.vue'
 import MainTable from '../../../components/MainTable.vue'
 import Search from '@/components/SearchBox.vue'
@@ -33,33 +33,29 @@ import 'element-plus/dist/index.css'
 interface User {
   //自定义数据
   id: number
-  name: string
-  certificateId: number
-  organization: string
-  state: string
-  blacklisted: String
-  reason: string
+  category: string
+  amount: number
+  number: number
+  time: string
+  standard: string
 }
 // 定义表单数据
 const xmlData = [
-  { id: 1, name: '员工编号', prop: 'id' },
-  { id: 2, name: '员工姓名', prop: 'name' },
-  { id: 3, name: '证件号码', prop: 'certificateId' },
-  { id: 4, name: '组织', prop: 'organization' },
-  { id: 5, name: '员工状态', prop: 'state' },
-  { id: 6, name: '列入黑名单', prop: 'blacklisted' },
-  { id: 7, name: '黑名单原因', prop: 'reason' }
+  { id: 1, name: '费用类别', prop: 'category' },
+  { id: 2, name: '费用金额', prop: 'amount' },
+  { id: 3, name: '发放人数', prop: 'number' },
+  { id: 4, name: '发放时间', prop: 'time' },
+  { id: 5, name: '费用标准', prop: 'standard' }
 ]
 // 注入表格数据
 const tableData: User[] = [
   {
-    id: 10001,
-    name: '彭于晏',
-    organization: '集团总部',
-    certificateId: 140821199103011618,
-    state: '在职',
-    blacklisted: '是',
-    reason: '玩的太菜了'
+    id: 200,
+    category: '补贴',
+    amount: 3000,
+    number: 200,
+    time: '2002-5-20',
+    standard: '第二标准'
   }
 ]
 const pageSizes = [10, 20, 30]
@@ -67,7 +63,7 @@ const filter = (val) => {
   console.log(`output->`, val)
 }
 //表格表名
-const tableTitle = ref('黑名单')
+const tableTitle = ref('费用台账')
 //新增表单的表名
 const addTitle = ref('人员列表编辑')
 //功能按键需求配置
@@ -109,8 +105,8 @@ const addData = reactive([
   }
 ])
 </script>
-
-<style scoped lang="less">
+  
+  <style scoped lang="scss">
 .container {
   display: flex; /* 使用一个 flex 容器实现布局 */
   flex-direction: column; /* 竖直方向排列 */

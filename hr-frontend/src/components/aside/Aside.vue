@@ -73,6 +73,7 @@ const prop = defineProps({
 }
 .el-menu-item {
   cursor: pointer;
+  font-size: 18px;
   &:hover {
     background-color: #ecf1f7;
   }
@@ -81,6 +82,19 @@ const prop = defineProps({
       margin-left: 20px !important;
       font-style: normal !important;
     }
+  }
+}
+
+.el-sub-menu__title > .el-icon,
+.el-sub-menu > .el-icon {
+  width: 100%;
+  svg {
+    margin-right: 10px;
+  }
+  span {
+    display: block;
+    width: 100%;
+    text-align: left;
   }
 }
 </style>

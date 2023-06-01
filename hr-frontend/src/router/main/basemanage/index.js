@@ -29,60 +29,60 @@ const routes = [
   {
     path: '/retiree',
     name: 'Rettiree',
-    component: () => import('@/views/baseMange/retirement/retiree.vue')
+    component: () => import('@/views/baseManage/retirement/retiree.vue')
   },
   {
     path: '/expense',
     name: 'ExpenseLedger',
-    component: () => import('@/views/baseMange/retirement/expense.vue')
+    component: () => import('@/views/baseManage/retirement/expense.vue')
   },
   {
     path: '/contractCatrgory',
     name: 'contractCatrgory',
     component: () =>
-      import('@/views/baseMange/datesetting/ContractCategory.vue')
+      import('@/views/baseManage/datesetting/ContractCategory.vue')
   },
   {
     path: '/contractType',
     name: 'contractType',
-    component: () => import('@/views/baseMange/datesetting/ContractType.vue')
+    component: () => import('@/views/baseManage/datesetting/ContractType.vue')
   },
   {
     path: '/practiceCertificate',
     name: 'practiceCertificate',
     component: () =>
-      import('@/views/baseMange/datesetting/PracticeCertificate.vue')
-  }
+      import('@/views/baseManage/datesetting/PracticeCertificate.vue')
+  },
   {
     path: '/pimportalview',
-    name: 'ÃÅ»§Ê×Ò³',
+    name: 'ï¿½Å»ï¿½ï¿½ï¿½Ò³',
     component: () => import('@/views/baseManage/Portal.vue')
   },
   {
     path: '/postcertificateview',
-    name: '¸ÚÎ»Ö¤Êé',
+    name: 'ï¿½ï¿½Î»Ö¤ï¿½ï¿½',
     component: () =>
       import('@/views/baseManage/standardSetting/PostCertificate.vue')
   },
   {
     path: '/jobtitlecatalog',
-    name: 'Ö°³ÆÄ¿Â¼',
+    name: 'Ö°ï¿½ï¿½Ä¿Â¼',
     component: () =>
       import('@/views/baseManage/standardSetting/JobTitleCataloge.vue')
   },
   {
     path: '/archives',
-    name: 'µµ°¸ÊÒ',
+    name: 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
     component: () => import('@/views/baseManage/standardSetting/Archives.vue')
   },
   {
     path: '/syqyggridview',
-    name: 'ÊÔÓÃÔ±¹¤',
+    name: 'ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½',
     component: () => import('@/views/baseManage/roster/Syqyg.vue')
   },
   {
     path: '/ltxyggridview',
-    name: 'ÀëÍËÐÝÔ±¹¤',
+    name: 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½',
     component: () => import('@/views/baseManage/roster/Ltxyg.vue')
   },
   {
@@ -119,22 +119,22 @@ const routes = [
   },
   {
     path: '/lzyghmcgridview',
-    name: 'ÀëÖ°Ô±¹¤',
+    name: 'ï¿½ï¿½Ö°Ô±ï¿½ï¿½',
     component: () => import('@/views/baseManage/roster/Lzyg.vue')
   },
   {
     path: '/jdryhmcgridview',
-    name: '½èµ÷Ô±¹¤',
+    name: 'ï¿½ï¿½ï¿½Ô±ï¿½ï¿½',
     component: () => import('@/views/baseManage/roster/Jdyg.vue')
   },
   {
     path: '/gzryhmcgridview',
-    name: '¹ÒÖ°Ô±¹¤',
+    name: 'ï¿½ï¿½Ö°Ô±ï¿½ï¿½',
     component: () => import('@/views/baseManage/roster/Gzyg.vue')
   },
   {
     path: '/userInfo',
-    name: 'ÓÃ»§ÐÅÏ¢',
+    name: 'ï¿½Ã»ï¿½ï¿½ï¿½Ï¢',
     component: () => import('@/views/baseManage/userInfo/index.vue')
   }
 ]
