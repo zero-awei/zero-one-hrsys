@@ -22,16 +22,16 @@
 
 #include "domain/vo/BaseJsonVO.h"
 #include "ApiHelper.h"
-#include "domain/query/EmployeeExportQuery/EmployeeExportQuery.h"
+#include "domain/query/EmployeeInformationPageQuery/EmployeeExportQuery.h"
 #include "domain/vo/EmployeeInformation/EmployeeInformationVO.h"
 //#include "domain/dto/AddEmployeeAssignInfo/AddEmployeeAssignInfo.h"
-#include "domain/dto/EmployeeExportQuery/EmployeeInformationPageQueryDTO.h"
+#include "domain/dto/EmployeeInformationPageQuery/EmployeeInformationPageQueryDTO.h"
 
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
 #include "oatpp/web/mime/multipart/FileProvider.hpp"
 #include "oatpp/web/mime/multipart/Reader.hpp"
 #include "oatpp/web/mime/multipart/PartList.hpp"
-#include "domain/query/EmployeeExportQuery/EmployeeExportQuery.h"
+#include "domain/query/EmployeeInformationPageQuery/EmployeeInformationPageQuery.h"
 
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
@@ -105,7 +105,7 @@ public: // 定义接口
 	//定义分页查询员工列表接口端点处理
 	ENDPOINT(API_M_GET, "/employee-information/page-query", PageQueryInfo, QUERIES(QueryParams, queryParams)) {
 		//解析查询参数（解析成领域模型对象）
-		API_HANDLER_QUERY_PARAM(query, EmployeeExportQuery, queryParams);
+		API_HANDLER_QUERY_PARAM(query, EmployeeInformationPageQuery, queryParams);
 		//响应结果
 		API_HANDLER_RESP_VO(execEmployeeInformation(query));
 	}	
@@ -130,7 +130,7 @@ public: // 定义接口
 		// 添加默认授权参数
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON(StringJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
@@ -161,7 +161,7 @@ public: // 定义接口
 private:// 定义接口执行函数
 	
 	//分页查询员工列表
-	EmployeeInformationPageJsonVO::Wrapper execEmployeeInformation(const EmployeeExportQuery::Wrapper& query);
+	EmployeeInformationPageJsonVO::Wrapper execEmployeeInformation(const EmployeeInformationPageQuery::Wrapper& query);
 	//导入员工信息
 	Uint64JsonVO::Wrapper execImportEmployeeInfo(const EmployeeInformationDTO::Wrapper& importInfo);
 	//导出员工信息(导出本页在前端完成)
