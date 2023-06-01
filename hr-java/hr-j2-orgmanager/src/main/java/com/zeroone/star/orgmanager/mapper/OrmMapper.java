@@ -19,11 +19,11 @@ import java.util.List;
  */
 @Mapper
 public interface OrmMapper extends BaseMapper<Orgsector> {
-    @Select("SELECT * FROM t_orgsector WHERE orgsectorid = #{orgsectorid}")
+    @Select("SELECT * FROM t_srforgsector WHERE orgsectorid = #{orgsectorid}")
     Orgsector selectById(@Param("orgsectorid") String orgsectorid);
 
-    @Update("update t_orgsector set ordervalue = #{ordervalue}, orgsectorname = #{orgsectorname}, orgcode = #{orgcode}, shortname = #{shortname}, "
-            + "bmlx = #{bmlx}, orgname = #{orgname}, belongregion = #{belongregion},qy=#{qy},bzkz=#{bzkz},bmbzrs=#{bmbzrs},startstopsign=#{startstopsign},belongou=#{belongou},updatedate = now() where orgsectorid = #{orgsectorid}")
+    @Update("update t_srforgsector set ordervalue = #{ordervalue}, orgsectorname = #{orgsectorname}, orgcode = #{orgcode}, shortname = #{shortname}, "
+            + "bmlx = #{bmlx}, orgname = #{orgname}, belongregion = #{belongregion},qy=#{qy},gkjz=#{gkjz},bmbzrs=#{bmbzrs},startstopsign=#{startstopsign},belongou=#{belongou},updatedate = now() where orgsectorid = #{orgsectorid}")
     int updateDeptById(ModifyDeptInfoDTO modifyDeptInfoDTO);
 
     @Select("select ormbmkqdzname,attendancerange,updateman,updatedate from t_ormbmkqdz where ormorgsectorid = #{ormorgsectorid}")

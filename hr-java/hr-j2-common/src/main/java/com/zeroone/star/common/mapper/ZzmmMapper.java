@@ -19,6 +19,6 @@ import java.util.List;
 @Mapper
 public interface ZzmmMapper extends BaseMapper<Zzmm> {
 
-    @Select("SELECT t.NAME FROM t_pimzzmm t")
+    @Select("SELECT t.ID,t.NAME FROM zo_pimzzmm t")
     List<ZzmmDTO> selectZzmmList();
 }

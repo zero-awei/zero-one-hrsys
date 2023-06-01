@@ -17,9 +17,9 @@ import java.util.Date;
  */
 @ApiModel("修改指定部门信息数据对象")
 @Data
-@TableName("t_orgsector")
+@TableName("t_srforgsector")
 public class ModifyDeptInfoDTO {
-    @ApiModelProperty(value = "部门标识",example = "7efb38a0-5877-4c3c-81d7-269bd17af27b")
+    @ApiModelProperty(value = "部门标识",example = "46452940650577920")
     @TableField(value = "orgsectorid",update = "false")
     private String orgsectorid;
 
@@ -62,11 +62,9 @@ public class ModifyDeptInfoDTO {
     @TableField(value = "qy")
     private String qy;
 
-    @ApiModelProperty(value = "编制控制",example = "1")//柔性:1 刚性:2
-    @Min(value = 1, message = "编制控制必须大于等于1")
-    @Max(value = 2, message = "编制控制必须小于等于2")
-    @TableField(value = "bzkz")
-    private Integer bzkz;
+    @ApiModelProperty(value = "编制控制",example = "10")//柔性:10 刚性:20
+    @TableField(value = "gkjz")
+    private String gkjz;
 
     @ApiModelProperty(value = "编制人数",example = "5")
     @Min(value = 0, message = "编制人数必须大于等于0")
