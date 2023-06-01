@@ -29,6 +29,8 @@
 class AssignInfoDTO : public oatpp::DTO
 {
 	DTO_INIT(AssignInfoDTO, DTO);
+	//分配信息标识
+	API_DTO_FIELD_DEFAULT(String, assignId, ZH_WORDS_GETTER("employee.t_pimperson.assignId"));
 	//编号
 	API_DTO_FIELD_DEFAULT(String, id, ZH_WORDS_GETTER("employee.t_pimperson.id"));
 	//DTO_FIELD(String, id);

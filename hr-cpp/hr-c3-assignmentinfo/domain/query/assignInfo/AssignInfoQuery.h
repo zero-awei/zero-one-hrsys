@@ -32,6 +32,8 @@
 class AssignInfoQuery : public PageQuery
 {
 	DTO_INIT(AssignInfoQuery, PageQuery);
+	//分配信息标识
+	API_DTO_FIELD_DEFAULT(String, assignId, ZH_WORDS_GETTER("employee.t_pimperson.assignId"));
 	//编号
 	API_DTO_FIELD_DEFAULT(String, id, ZH_WORDS_GETTER("employee.field.id"));
 	// 分配(主分配或次分配)

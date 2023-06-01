@@ -12,7 +12,7 @@ AssignInfoPageDTO::Wrapper AssignInfoService::listAll(const AssignInfoQuery::Wra
 	pages->pageIndex = query->pageIndex;
 	pages->pageSize = query->pageSize;
 
-	//// 查询数据总条数
+	// 查询数据总条数
 	AssignInfoDAO dao;
 	uint64_t count = dao.count(query);
 	if (count <= 0)
@@ -37,7 +37,7 @@ AssignInfoPageDTO::Wrapper AssignInfoService::listAll(const AssignInfoQuery::Wra
 				//dto->post= sub.getPost();
 				//dto->startTime = sub.getStartTime();
 				//dto->endTime = sub.getEndTime();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id,assign,Assign,assignState,AssignState,etype,Etype,organize,Organize,depart,Depart,job,Job,post,Post,startTime,StartTime,endTime,EndTime)
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub,assignId,AssignId ,id, Id,assign,Assign,assignState,AssignState,etype,Etype,organize,Organize,depart,Depart,job,Job,post,Post,startTime,StartTime,endTime,EndTime)
 			pages->addData(dto);
 	}
 	return pages;
@@ -45,8 +45,11 @@ AssignInfoPageDTO::Wrapper AssignInfoService::listAll(const AssignInfoQuery::Wra
 
 uint64_t AssignInfoService::saveData(const AssignInfoDTO::Wrapper& dto)
 {
+	//雪花算法
+	SnowFlake c3_assign(1, 3);
 	// 组装DO数据
 	AssignInfoDO data;
+	data.setAssignId(to_string(c3_assign.nextId()));
 	 //	data.setId(dto->id.getValue(""));
 	 //	data.setAssign(dto->assign.getValue(""));
 	 //	data.setEtype(dto->etype.getValue(""));
@@ -66,16 +69,16 @@ bool AssignInfoService::updateData(const AssignInfoDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	AssignInfoDO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Assign, assign,AssignState,assignState, Etype, etype, Organize, organize, Depart, depart, Job, job, Post, post, StartTime, startTime, EndTime, endTime,Id,id)
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, AssignId,assignId,Assign, assign,AssignState,assignState, Etype, etype, Organize, organize, Depart, depart, Job, job, Post, post, StartTime, startTime, EndTime, endTime,Id,id)
 		// 执行数据修改
 		AssignInfoDAO dao;
 	return dao.update(data) == 1;
 }
 
-bool AssignInfoService::removeData(string id)
+bool AssignInfoService::removeData(string assignId)
 {
 	AssignInfoDAO dao;
-	return dao.deleteById(id) == 1;
+	return dao.deleteById(assignId) == 1;
 }
 
 string AssignInfoService::exportData(const AssignExportQuery::Wrapper &query) {
