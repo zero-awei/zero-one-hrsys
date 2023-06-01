@@ -24,9 +24,7 @@
 #include "ApiHelper.h"
 #include "Macros.h"
 #include "ServerInfo.h"
-#include "domain/vo/typeContract/TypeContractVO.h"
-#include "domain/dto/typeContract/TypeContractDTO.h"
-
+#include "domain/vo/pullList/PullListVO.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 /**
@@ -42,7 +40,7 @@ public: // 定义接口
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("htlx.query-list.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(TypeContractJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
 	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/contract-type"), queryHtlx) {
 		// 响应结果
@@ -50,7 +48,7 @@ public: // 定义接口
 	}
 	
 private: // 定义接口执行函数
-	TypeContractJsonVO::Wrapper execQueryContractType();
+	PullListVO::Wrapper execQueryContractType();
 };
 
 #include OATPP_CODEGEN_END(ApiController)

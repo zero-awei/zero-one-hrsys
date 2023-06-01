@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: xubuxi
- @Date: 2023/05/24 0:53:06
+ @Date: 2023/05/30 20:56:02
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,26 +17,20 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _PAGEBZQUERY_H_
-#define _PAGEBZQUERY_H_
+#ifndef _PAGEQUERYBZVO_H_
+#define _PAGEQUERYBZVO_H_
 #include "../../GlobalInclude.h"
-#include "domain/query/PageQuery.h"
-
+#include "../../dto/orgbz/PageQueryBzDTO.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class PageQueryBzQuery : public PageQuery
+/**
+ * 分页查询编制查询
+ */
+class PageQueryBzVO : public JsonVO<PageQueryBzDTO::Wrapper>
 {
-	DTO_INIT(PageQueryBzQuery, PageQuery);
-	//查询组织机构名称
-	DTO_FIELD_INFO(orgName) {
-		info->description = ZH_WORDS_GETTER("orgbz.pagequery.orgname");
-	}
-	DTO_FIELD(String, orgName);
-	//查询部门名称
-	DTO_FIELD_INFO(orgSectorName) {
-		info->description = ZH_WORDS_GETTER("orgbz.pagequery.orgsectorname");
-	}
-	DTO_FIELD(String, orgSectorName);
+	DTO_INIT(PageQueryBzVO, JsonVO<PageQueryBzDTO::Wrapper>);
 };
+
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_PAGEBZQUERY_H_
+
+#endif // !_PAGEQUERYBZVO_H_

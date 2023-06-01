@@ -174,8 +174,24 @@ job:
 
 #分页查询编制列表
 orgbz:
+ dto:
+  orgid: 组织机构
+  orgsectorname: 部门名称
+  orgname: 组织名称
+  orgsectorid: 部门标识
+  orgcode: 部门组织编号
+  orgtype: 组织类型
+  createtime: 创建时间
+  createby: 创建人
+  updatetime: 更新时间
+  updateby: 更新人
+  bzrs: 人数编制
+  sjbzrs: 实际编制人数
+  sectortype: 部门类型
  pagequery:
   controller: 分页查询编制列表
   size: 每页显示条数
   page: 查询页码
   sort: 显示顺序
+  orgname: 组织名称
+  orgsectorname: 部门名称

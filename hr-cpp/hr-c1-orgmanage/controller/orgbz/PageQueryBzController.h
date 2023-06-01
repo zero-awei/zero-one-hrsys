@@ -25,8 +25,8 @@
 #include "Macros.h"
 #include "ServerInfo.h"
 #include "domain/query/orgbz/PageBzQuery.h"
-
-//去定义query,vo
+#include "domain/vo/orgbz/PageQueryBzVO.h"
+#include "domain/dto/orgbz/PageQueryBzDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
@@ -37,25 +37,19 @@ class PageQueryBzController : public oatpp::web::server::api::ApiController
 public: // 定义接口
 	ENDPOINT_INFO(pageQueryBz) {
 		info->summary = ZH_WORDS_GETTER("orgbz.pagequery.controller");
-		API_DEF_ADD_RSP_JSON_WRAPPER(NoDataJsonVO);
-		info->queryParams.add<UInt8>("size").description = ZH_WORDS_GETTER("orgbz.pagequery.size");
-		info->queryParams["size"].addExample("default", UInt8(20));
-		info->queryParams["size"].required = true;
-		info->queryParams.add<UInt8>("page").description = ZH_WORDS_GETTER("orgbz.pagequery.page");
-		info->queryParams["page"].addExample("default", UInt8(1));
-		info->queryParams["page"].required = true;
-		info->queryParams.add<String>("sort").description = ZH_WORDS_GETTER("orgbz.pagequery.sort");
-		info->queryParams["sort"].addExample("default", String("xh,ASC"));
-		info->queryParams["sort"].required = true;
+		API_DEF_ADD_RSP_JSON_WRAPPER(PageQueryBzVO);
+		API_DEF_ADD_PAGE_PARAMS();
+		API_DEF_ADD_QUERY_PARAMS(String, "orgName", ZH_WORDS_GETTER("orgbz.pagequery.orgname"), "", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "orgSectorName", ZH_WORDS_GETTER("orgbz.pagequery.orgsectorname"), "", false);
 	}
 	ENDPOINT(API_M_GET, PATH_TO_STAFFING("/query-bz"), pageQueryBz, QUERIES(QueryParams, qps)) {
 		// 解析查询参数
-		API_HANDLER_QUERY_PARAM(query, PageBzQuery, qps);
+		API_HANDLER_QUERY_PARAM(Query, PageQueryBzQuery, qps);
 		// 响应结果
-		API_HANDLER_RESP_VO(execPageQueryBz(query));
+		API_HANDLER_RESP_VO(execPageQueryBz(Query));
 	}
 private: // 定义接口执行函数
-	NoDataJsonVO::Wrapper execPageQueryBz(const PageBzQuery::Wrapper& Query);
+	PageQueryBzVO::Wrapper execPageQueryBz(const PageQueryBzQuery::Wrapper& Query);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

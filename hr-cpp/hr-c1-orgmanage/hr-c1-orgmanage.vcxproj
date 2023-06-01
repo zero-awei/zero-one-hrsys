@@ -181,6 +181,7 @@
     <ClCompile Include="dao\jobSet\jobUpdateDAO\JobUpdteDAO.cpp" />
     <ClCompile Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.cpp" />
     <ClCompile Include="dao\jobSet\postQueryDAO\PostQueryDAO.cpp" />
+    <ClCompile Include="dao\orgbz\PageQueryBzDAO.cpp" />
     <ClCompile Include="dao\projTag\DeleteProjTagDAO.cpp" />
     <ClCompile Include="dao\projTag\ProjTagDAO.cpp" />
     <ClCompile Include="main.cpp" />
@@ -188,6 +189,7 @@
     <ClCompile Include="service\jobSet\jobUpdateService\JobUpdateService.cpp" />
     <ClCompile Include="service\jobSet\postDeleteService\PostDeleteService.cpp" />
     <ClCompile Include="service\jobSet\postQueryService\PostQueryService.cpp" />
+    <ClCompile Include="service\orgbz\PageQueryBzService.cpp" />
     <ClCompile Include="service\projTag\deleteProjTagService\DeleteProjTagService.cpp" />
     <ClCompile Include="service\projTag\ProjTagService.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -225,12 +227,15 @@
     <ClInclude Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.h" />
     <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryDAO.h" />
     <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryMapper.h" />
+    <ClInclude Include="dao\orgbz\PageQueryBzDAO.h" />
+    <ClInclude Include="dao\orgbz\PageQueryBzMapper.h" />
     <ClInclude Include="dao\projTag\DeleteProjTagDAO.h" />
     <ClInclude Include="dao\projTag\OrgListMapper.h" />
     <ClInclude Include="dao\projTag\ProjTagDAO.h" />
     <ClInclude Include="dao\projTag\ProjTagListMapper.h" />
     <ClInclude Include="dao\projTag\ProjTagMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\orgbz\PageQueryBzDO.h" />
     <ClInclude Include="domain\do\postSet\PostDetailDO.h" />
     <ClInclude Include="domain\do\projTag\OrgListDO.h" />
     <ClInclude Include="domain\do\sector\SectorDO.h" />
@@ -242,6 +247,7 @@
     <ClInclude Include="domain\dto\jobSet\jobDownloadDto\JobDownloadDTO.h" />
     <ClInclude Include="domain\dto\jobSet\jobUpdateDto\JobUpdateDTO.h" />
     <ClInclude Include="domain\dto\jobUpdate\JobUpdateDTO.h" />
+    <ClInclude Include="domain\dto\orgbz\PageQueryBzDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDeleteDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDetailDTO.h" />
     <ClInclude Include="domain\dto\projTag\AddProjTagDTO.h" />
@@ -261,6 +267,7 @@
     <ClInclude Include="domain\vo\jobSet\JobDownloadVO\JobDownloadVO.h" />
     <ClInclude Include="domain\vo\jobSet\JobUpdateVO\JobUpdateVO.h" />
     <ClInclude Include="domain\vo\jobUpdate\JobUpdateVO.h" />
+    <ClInclude Include="domain\vo\orgbz\PageQueryBzVO.h" />
     <ClInclude Include="domain\vo\postSet\PostDeleteBatchVO.h" />
     <ClInclude Include="domain\vo\postSet\PostDetailVO.h" />
     <ClInclude Include="domain\query\projTag\ExportProjTagQuery.h" />
@@ -276,6 +283,7 @@
     <ClInclude Include="service\jobSet\jobUpdateService\JobUpdateService.h" />
     <ClInclude Include="service\jobSet\postDeleteService\PostDeleteService.h" />
     <ClInclude Include="service\jobSet\postQueryService\PostQueryService.h" />
+    <ClInclude Include="service\orgbz\PageQueryBzService.h" />
     <ClInclude Include="service\projTag\deleteProjTagService\DeleteProjTagService.h" />
     <ClInclude Include="service\projTag\ProjTagService.h" />
     <ClInclude Include="stdafx.h" />

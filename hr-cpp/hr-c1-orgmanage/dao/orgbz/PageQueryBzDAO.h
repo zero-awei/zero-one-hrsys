@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: xubuxi
- @Date: 2023/05/19 21:31:12
+ @Date: 2023/05/31 1:04:41
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,16 +17,17 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "ContractTypeController.h"
-#include "service/ContractType/ContractTypeService.h"
+#ifndef _PAGEQUERYBZDAO_H_
+#define _PAGEQUERYBZDAO_H_
+#include "BaseDAO.h"
+#include "domain/do/orgbz/PageQueryBzDO.h"
+#include "domain/query/orgbz/PageBzQuery.h"
 
-PullListVO::Wrapper ContractTypeController::execQueryContractType()
+class PageQueryBzDAO : public BaseDAO
 {
-	auto vo = PullListVO::createShared();
+public:
+	uint64_t count(const PageQueryBzQuery::Wrapper& query);
+	std::list<PageQueryBzDO> selectPageQueryBz(const PageQueryBzQuery::Wrapper & query);
+};
 
-	ContractTypeService service;
-	auto dto = service.listAll();
-	vo->success(dto);
-	return vo;
-}
+#endif // !_PAGEQUERYBZDAO_H_

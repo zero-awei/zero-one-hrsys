@@ -1,8 +1,9 @@
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: xubuxi
- @Date: 2023/05/19 21:31:12
+ @Date: 2023/05/31 0:33:07
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,16 +17,16 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "ContractTypeController.h"
-#include "service/ContractType/ContractTypeService.h"
+#ifndef _PAGEQUERYBZSERVICE_H_
+#define _PAGEQUERYBZSERVICE_H_
+#include "domain/query/orgbz/PageBzQuery.h"
+#include "domain/dto/orgbz/PageQueryBzDTO.h"
+#include "domain/vo/orgbz/PageQueryBzVO.h"
 
-PullListVO::Wrapper ContractTypeController::execQueryContractType()
+class PageQueryBzService
 {
-	auto vo = PullListVO::createShared();
+public:
+	PageQueryBzDTO::Wrapper listPageQueryBz(const PageQueryBzQuery::Wrapper& query);
+};
 
-	ContractTypeService service;
-	auto dto = service.listAll();
-	vo->success(dto);
-	return vo;
-}
+#endif // !_PAGEQUERYBZSERVICE_H_
