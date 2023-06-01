@@ -130,8 +130,22 @@ bool WorkHistoryService::removeData(const DelWorkHistoryDTO::Wrapper& dto)
 uint64_t WorkHistoryService::saveManyData(const std::string fileName, const String& pimpersonid, const String& createName)
 {
 
-	FastDfsClient client("192.168.80.129");
 
+#ifdef LINUX
+	//定义客户端对象
+	// 定义一个Nacos客户端对象，用于获取配置
+	NacosClient ns(ServerInfo::getInstance().getNacosAddr(), ServerInfo::getInstance().getNacosNs());
+	// 设置url前缀
+	auto thirdServerConfig = ns.getConfig("third-services.yaml");
+	urlPrefix = "http://" + YamlHelper().getString(&thirdServerConfig, "fastdfs.nginx-servers") + "/";
+	// 从Nacos配置中心获取FastDFS客户端配置数据
+	std::string config = ns.getConfigText("client.conf");
+	// 定义客户端对象
+	FastDfsClient client(config, false);
+#else
+	//定义客户端对象
+	FastDfsClient client("192.168.80.129");
+#endif
 	string name;
 	if (!fileName.empty())
 	{
@@ -264,10 +278,19 @@ std::string WorkHistoryService::exportData(const WorkHistoryExportQuery::Wrapper
 	//fileBody.saveToFile(fileName.c_str());
 
 
+
 	// 上传到FastDFS文件服务器
 #ifdef LINUX
 	//定义客户端对象
-	FastDfsClient client("conf/client.conf", 3);
+	// 定义一个Nacos客户端对象，用于获取配置
+	NacosClient ns(ServerInfo::getInstance().getNacosAddr(), ServerInfo::getInstance().getNacosNs());
+	// 设置url前缀
+	auto thirdServerConfig = ns.getConfig("third-services.yaml");
+	urlPrefix = "http://" + YamlHelper().getString(&thirdServerConfig, "fastdfs.nginx-servers") + "/";
+	// 从Nacos配置中心获取FastDFS客户端配置数据
+	std::string config = ns.getConfigText("client.conf");
+	// 定义客户端对象
+	FastDfsClient client(config, false);
 #else
 	//定义客户端对象
 	FastDfsClient client("192.168.80.129");

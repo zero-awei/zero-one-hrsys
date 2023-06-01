@@ -96,14 +96,14 @@ Uint64JsonVO::Wrapper WorkHistoryController::execDelWorkHistory(const DelWorkHis
 
 
 
-StringJsonVO::Wrapper WorkHistoryController::execIntoWorkHistory(const String& body, const String& suffix, const String& pimpersonid, const PayloadDTO& payload)
+StringJsonVO::Wrapper WorkHistoryController::execIntoWorkHistory(const String& body, const String& pimpersonid, const PayloadDTO& payload)
 {
 	auto jvo = StringJsonVO::createShared();
-	if (!pimpersonid || !body || !suffix)
+	if (!pimpersonid || !body)
 	{
 		jvo->fail("导入失败,文件为空");
 	}
-	if (pimpersonid->empty() || body->empty() || suffix->empty())
+	if (pimpersonid->empty() || body->empty())
 	{
 		jvo->fail("导入失败,没有数据");
 	}
@@ -122,7 +122,7 @@ StringJsonVO::Wrapper WorkHistoryController::execIntoWorkHistory(const String& b
 	auto ms = tMilli - tSeconds;
 	ss << std::setfill('0') << std::setw(3) << ms.count();
 	// 拼接后缀名
-	ss << suffix.getValue("");
+	ss << ".xlsx";
 
 	// 临时文件名称
 	std::string fileName = ss.str();
