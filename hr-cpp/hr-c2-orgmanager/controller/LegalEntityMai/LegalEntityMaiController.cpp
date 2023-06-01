@@ -8,6 +8,8 @@
 #include <iomanip>
 #include "FastDfsClient.h"
 #include "tree/TreeUtil.h"
+#include "../include/ExcelComponent.h"
+#include "CommonMacros.h"
 
 /* 法人主体维护控制器具体实现--（组织管理-数据设置-法人主体维护）--TripleGold */
 
@@ -117,6 +119,33 @@ Uint64JsonVO::Wrapper LegalEntityMaiController::execRemoveLEM(const LegalEntityM
 	return jvo;
 }
 
+void directory(const string fileName) {
+	//判断目录是否存在，不存在创建目录
+	auto dir = fileName.substr(0, fileName.find_last_of("/") + 1);
+	const size_t dirLen = dir.length();
+	if (dirLen > MAX_DIR_LEN)
+	{
+		std::cout << "ExcelComponent 135: excel save fail(file path too long)" << std::endl;
+		return;
+	}
+	char tmpDirPath[MAX_DIR_LEN] = { 0 };
+	for (size_t i = 0; i < dirLen; i++)
+	{
+		tmpDirPath[i] = dir[i];
+		if (tmpDirPath[i] == '/')
+		{
+			if (ACCESS(tmpDirPath, 0) != 0)
+			{
+				if (MKDIR(tmpDirPath) != 0)
+				{
+					std::cout << "ExcelComponent 148: excel save fail(create dir " << tmpDirPath << " fail)" << std::endl;
+					return;
+				}
+			}
+		}
+	}
+}
+
 StringJsonVO::Wrapper LegalEntityMaiController::execImportLEM(const String& body, const String& suffix, const PayloadDTO& payload)
 {
 	// 定义返回数据对象
@@ -128,7 +157,7 @@ StringJsonVO::Wrapper LegalEntityMaiController::execImportLEM(const String& body
 
 	// 根据时间戳生成一个临时文件名称
 	std::stringstream ss;
-	ss << "/public/excel/";
+	ss << "public/excel/";
 
 	// 计算时间戳
 	auto now = std::chrono::system_clock::now();
@@ -144,27 +173,14 @@ StringJsonVO::Wrapper LegalEntityMaiController::execImportLEM(const String& body
 
 	// 临时文件名称
 	std::string fileName = ss.str();
+	// 如果文件目录不存在，添加目录
+	directory(fileName);
 	// 保存文件到临时目录
 	body.saveToFile(fileName.c_str());
 
-	// 上传FastDFS文件服务器
-#ifdef LINUX
-	//定义客户端对象
-	FastDfsClient client("conf/client.conf", 3);
-#else
-	//定义客户端对象
-	FastDfsClient client("192.168.241.128");
-#endif
-	std::string fieldName = client.uploadFile(fileName);
-	std::cout << "upload fieldName is: " << fieldName << std::endl;
-	ss.str("");
-	ss.clear();
-	ss << "http://192.168.241.128:8888/" << fileName;
-	std::cout << ss.str() << std::endl;
-
 	// 定义一个Service
 	LegalEntityMaiService service;
-	service.savaBatchDataWithFile(fieldName, payload);
+	service.savaBatchDataWithFile(fileName, payload);
 	// 响应结果
 	jvo->success(String(ss.str().c_str()));
 	return jvo;
@@ -187,4 +203,3 @@ StringJsonVO::Wrapper LegalEntityMaiController::execExportLEM(const LegalEntityM
 	// 响应结果
 	return jvo;
 }
-

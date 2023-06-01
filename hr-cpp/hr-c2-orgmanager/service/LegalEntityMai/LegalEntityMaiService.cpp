@@ -78,20 +78,11 @@ uint64_t LegalEntityMaiService::saveData(const LegalEntityMaiAddDTO::Wrapper& dt
 
 uint64_t LegalEntityMaiService::savaBatchDataWithFile(const std::string fileName, const PayloadDTO& payload)
 {
-	FastDfsClient client("192.168.241.128");
-
-	std::string name;
-	if (!fileName.empty()) {
-		std::string path = "/public/excel/";
-		name = client.downloadFile(fileName, &path);
-		std::cout << "download savepath is: " << name << std::endl;
-	}
-
 	// 保存到文件
 	ExcelComponent excel;
 	std::string sheetName = CharsetConvertHepler::ansiToUtf8("法人主体表");
 	// 从文件中读取
-	auto readData = excel.readIntoVector(name, sheetName);
+	auto readData = excel.readIntoVector(fileName, sheetName);
 
 	LegalEntityMaiDAO dao;
 
