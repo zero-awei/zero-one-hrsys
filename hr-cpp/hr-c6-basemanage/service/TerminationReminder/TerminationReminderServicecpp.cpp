@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "TerminationReminderService.h"
-TerminationReminderPageDTO::Wrapper TerminationReminderService:: listAll(const TerminationReminderQuery::Wrapper& query)
+TerminationReminderPageDTO::Wrapper TerminationReminderService::listAll(const TerminationReminderQuery::Wrapper& query)
 {
 	auto page = TerminationReminderPageDTO::createShared();
 	page->pageIndex = query->pageIndex;
@@ -27,15 +27,14 @@ TerminationReminderPageDTO::Wrapper TerminationReminderService:: listAll(const T
 			contract_sign_part, ContractSignPart, contract_lb, ContractLB,
 			contract_lx, ContractLX, begin_time, BeginTime, deadline, Deadline)
 			page->addData(dto);
-
 	}
 	return page;
 }
 
-std::string TerminationReminderService::exportAll()
+std::string TerminationReminderService::exportAll(const TerminationReminderQuery::Wrapper& query)
 {
 	TerminationReminderDAO dao;
-	list<TerminationReminderDO> result = dao.selectAll();
+	list<TerminationReminderDO> result = dao.selectAll(query);
 	vector<vector<string>>data;
 	data.push_back(vector<string>());
 	data[0].push_back("employee_id");
