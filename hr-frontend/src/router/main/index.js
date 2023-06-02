@@ -9,8 +9,7 @@ const routes = [
         path: '/dashboard',
         name: 'Dashboard',
         component: () => import('@/views/dashboard/Dashboard.vue')
-      },
-      
+      }
     ]
   }
 ]
@@ -20,5 +19,4 @@ const secondRouter = import.meta.glob('./**/index.js', { eager: true })
 for (const path in secondRouter) {
   routes[0].children.push(...secondRouter[path].default)
 }
-
 export default routes

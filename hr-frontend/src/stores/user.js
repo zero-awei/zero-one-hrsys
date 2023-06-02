@@ -91,27 +91,7 @@ let testMenus = [
       }
     ]
   },
-  {
-    id: 2,
-    text: '离(退)休管理',
-    icon: 'IconUser',
-    children: [
-      {
-        id: 2,
-        text: '离(退)休人员',
-        path: '/retiree',
-        icon: 'IconUser',
-        pid: 2
-      },
-      {
-        id: 3,
-        text: '费用台账',
-        path: '/expense',
-        icon: 'IconUser',
-        pid: 2
-      }
-    ]
-  },
+
   {
     id: 2,
     text: '合同管理',
@@ -148,44 +128,23 @@ let testMenus = [
     ]
   },
   {
-    id: 3,
-    text: '订单管理',
-    icon: 'IconTickets',
+    id: 2,
+    text: '离(退)休管理',
+    icon: 'IconUser',
     children: [
       {
         id: 2,
-        text: '订单管理1',
-        path: '/un-21',
-        icon: 'IconTickets',
-        pid: 3
+        text: '离(退)休人员',
+        path: '/retiree',
+        icon: 'IconUser',
+        pid: 2
       },
       {
         id: 3,
-        text: '订单管理2',
-        path: '/un-22',
-        icon: 'IconTickets',
-        pid: 3
-      },
-      {
-        id: 4,
-        text: '订单管理3',
-        path: '/un-23',
-        icon: 'IconTickets',
-        pid: 3
-      },
-      {
-        id: 5,
-        text: '订单管理4',
-        path: '/un-24',
-        icon: 'IconTickets',
-        pid: 3
-      },
-      {
-        id: 6,
-        text: '订单管理5',
-        path: '/un-25',
-        icon: 'IconTickets',
-        pid: 3
+        text: '费用台账',
+        path: '/expense',
+        icon: 'IconUser',
+        pid: 2
       }
     ]
   },
@@ -194,20 +153,6 @@ let testMenus = [
     text: '标准化数据设置',
     icon: 'IconTickets',
     children: [
-      {
-        id: 2,
-        text: '订单管理1',
-        path: '/un-31',
-        icon: 'IconTickets',
-        pid: 4
-      },
-      {
-        id: 3,
-        text: '订单管理2',
-        path: '/un-32',
-        icon: 'IconTickets',
-        pid: 4
-      },
       {
         id: 4,
         text: '岗位(技能)证书',

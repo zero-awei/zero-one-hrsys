@@ -2,29 +2,29 @@ const routes = [
   {
     path: '/blacklist',
     name: 'BlackList',
-    component: () => import('@/views/baseMange/information/BlackList.vue')
+    component: () => import('@/views/baseManage/information/BlackList.vue')
   },
   {
     path: '/review',
     name: 'InformationReview',
     component: () =>
-      import('@/views/baseMange/information/InformationReview.vue')
+      import('@/views/baseManage/information/InformationReview.vue')
   },
   {
     path: '/employee',
     name: 'EmployInformation',
     component: () =>
-      import('@/views/baseMange/information/EmployeeInformation.vue')
+      import('@/views/baseManage/information/EmployeeInformation.vue')
   },
   {
     path: '/roster',
     name: 'StaffRoster',
-    component: () => import('@/views/baseMange/roster/roster.vue')
+    component: () => import('@/views/baseManage/roster/roster.vue')
   },
   {
     path: '/trainee',
     name: 'TraineeEmployee',
-    component: () => import('@/views/baseMange/roster/trainee.vue')
+    component: () => import('@/views/baseManage/roster/trainee.vue')
   },
   {
     path: '/retiree',
@@ -55,37 +55,39 @@ const routes = [
   },
   {
     path: '/pimportalview',
-    name: '�Ż���ҳ',
+    name: 'pimportalview',
     component: () => import('@/views/baseManage/Portal.vue')
   },
   {
     path: '/postcertificateview',
-    name: '��λ֤��',
-    component: () => import('@/views/baseManage/standardSetting/PostCertificate.vue')   
+    name: 'postcertificateview',
+    component: () =>
+      import('@/views/baseManage/standardSetting/PostCertificate.vue')
   },
   {
     path: '/jobtitlecatalog',
-    name: 'ְ��Ŀ¼',
-    component: () => import('@/views/baseManage/standardSetting/JobTitleCataloge.vue')   
+    name: 'jobtitlecatalog',
+    component: () =>
+      import('@/views/baseManage/standardSetting/JobTitleCataloge.vue')
   },
   {
     path: '/archives',
-    name: '������',
-    component: () => import('@/views/baseManage/standardSetting/Archives.vue')   
+    name: 'archives',
+    component: () => import('@/views/baseManage/standardSetting/Archives.vue')
   },
   {
     path: '/syqyggridview',
-    name: '����Ա��',
+    name: 'syqyggridview',
     component: () => import('@/views/baseManage/roster/Syqyg.vue')
   },
   {
     path: '/ltxyggridview',
-    name: '������Ա��',
+    name: 'ltxyggridview',
     component: () => import('@/views/baseManage/roster/Ltxyg.vue')
   },
   {
     path: '/pimportalview',
-    name: '??????',
+    name: 'pimportalview',
     component: () => import('@/views/baseManage/roster/Portal.vue')
   },
   {
@@ -117,20 +119,18 @@ const routes = [
   },
   {
     path: '/lzyghmcgridview',
-    name: '��ְԱ��',
+    name: 'lzyghmcgridview',
     component: () => import('@/views/baseManage/roster/Lzyg.vue')
   },
   {
     path: '/jdryhmcgridview',
-    name: '���Ա��',
+    name: 'jdryhmcgridview',
     component: () => import('@/views/baseManage/roster/Jdyg.vue')
   },
   {
     path: '/gzryhmcgridview',
-    name: '��ְԱ��',
+    name: 'gzryhmcgridview',
     component: () => import('@/views/baseManage/roster/Gzyg.vue')
-  },
-  {
   },
   {
     path: '/dispatch',
@@ -151,7 +151,7 @@ const routes = [
     path: '/termination',
     name: '终止提醒',
     component: () => import('@/views/baseManage/contractManage/Termination.vue')
-  },
+  }
 ]
 
 export default routes
