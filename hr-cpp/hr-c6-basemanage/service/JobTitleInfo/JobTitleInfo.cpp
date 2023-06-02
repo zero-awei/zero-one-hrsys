@@ -77,16 +77,19 @@ bool JobTitleInfoService::updateData(const JobTitleDTO::Wrapper& dto)
 {
 	JobTitleInfoDAO dao;
 	JobTitleDO data;
+	data.setId(dto->id);
 	data.setEmployee_Id(dto->employee_id);
 	data.setEmployee_Name(dto->employee_name);
 	data.setEmployee_State(dto->employee_state);
 	data.setOrg_Name(dto->org_name);
 	data.setJobtitle_Name(dto->jobtitle_name);
-	data.setJobtitle_Grades(dto->jobtitle_grades);
 	data.setGet_Time(dto->get_time);
+	data.setCertificate_Id(dto->certificate_id);
 	data.setProfessional_Cate(dto->professional_cate);
+	data.setJobtitle_Grades(dto->jobtitle_grades);
 	data.setTitle_Employment_Time(dto->title_employment_time);
 	data.setIssuing_Authority(dto->issuing_authority);
 	data.setJudging_Unit(dto->judging_unit);
+	data.setB_Highest_Professional_Title(dto->b_highest_professional_title);
 	return !!dao.update(data);
 }

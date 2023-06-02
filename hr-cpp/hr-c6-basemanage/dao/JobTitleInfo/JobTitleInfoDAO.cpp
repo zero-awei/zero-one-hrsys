@@ -132,20 +132,20 @@ int JobTitleInfoDAO::update(const JobTitleDO& uObj)
 		LEFT JOIN t_personstatemgr as tpr ON tpr.PERSONSTATECODE = tpp.YGZT\
 		LEFT JOIN t_pimtitlecatalogue as tpg ON tpg.PIMTITLECATALOGUEID = tpt.PIMTITLECATALOGUEID\
 		SET ";
-	sql << "tpp.YGBH = '?',\
-		tpp.PIMPERSONNAME = '?',\
-		tpr.PERSONSTATEMGRNAME = '?',\
-		tpp.ORMORGNAME = '?',\
-		tpg.PIMTITLECATALOGUENAME = '?',\
-		tpt.ZCHQRQ = '?',\
-		tpt.ZCBH = '?',\
-		tpt.MAJORENGAGED = '?',\
-		btt.TITLEGRADENAME = '?',\
-		tpt.EMPLOYTIME = '?',\
-		tpt.LSSUINGAGENCY = '?',\
-		tpt.REVIEWBODY = '?',\
-		tpp.HIGHTITLE = '?'\
-		WHERE tpt.PIMTITLEID = '?' AND tpp.YGBH = '?'";
+	sql << "tpp.YGBH = ?,\
+		tpp.PIMPERSONNAME = ?,\
+		tpr.PERSONSTATEMGRNAME = ?,\
+		tpp.ORMORGNAME = ?,\
+		tpg.PIMTITLECATALOGUENAME = ?,\
+		tpt.ZCHQRQ = ?,\
+		tpt.ZCBH = ?,\
+		tpt.MAJORENGAGED = ?,\
+		btt.TITLEGRADENAME = ?,\
+		tpt.EMPLOYTIME = ?,\
+		tpt.LSSUINGAGENCY = ?,\
+		tpt.REVIEWBODY = ?,\
+		tpp.HIGHTITLE = ?\
+		WHERE tpt.PIMTITLEID = ? AND tpp.YGBH = ?";
 	/*	tpp.YGBH = '123123',\
 		tpp.PIMPERSONNAME = '123342231',\
 		tpr.PERSONSTATEMGRNAME = '',\
@@ -160,6 +160,7 @@ int JobTitleInfoDAO::update(const JobTitleDO& uObj)
 		tpt.REVIEWBODY = 'δ֪',\
 		tpp.HIGHTITLE = 'δ֪'\
 		WHERE tpt.PIMTITLEID = '04CE5FCB-0581-4EA9-9A01-7B88A01A0027' AND tpp.YGBH = '1813****'; ";*/
+	cout << sql.str() << endl;
 	return sqlSession->executeUpdate(sql.str(), fmts.str().c_str(),
 		uObj.getEmployee_Id(),
 		uObj.getEmployee_Name(),
