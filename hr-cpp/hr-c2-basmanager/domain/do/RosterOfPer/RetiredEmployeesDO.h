@@ -11,6 +11,8 @@ class RetiredEmployeesDO
 {
 	// 员工编号
 	CC_SYNTHESIZE(uint64_t, ygbh, ygbh);
+	// 员工id（）PIMPERSONID
+	CC_SYNTHESIZE(string, pimpersonid, pimpersonid);
 	//姓名+编号
 	CC_SYNTHESIZE(string, idAndName, idAndName);
 	// 员工姓名
@@ -48,6 +50,7 @@ class RetiredEmployeesDO
 public:
 	RetiredEmployeesDO() {
 		ygbh = 0;
+		pimpersonid = "";
 		pimpersonname = "";
 		xb = "";
 		nj = "-1";

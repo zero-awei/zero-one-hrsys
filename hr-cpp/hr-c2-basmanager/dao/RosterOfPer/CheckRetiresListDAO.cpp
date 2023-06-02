@@ -60,7 +60,8 @@ std::list<RetiredEmployeesDO> CheckRetiresListDAO::selectWithPage(const CheckRet
 			t2.txdq,\
 			t2.sjtxrq,\
 			t2.lxdh,\
-			t2.spdylje\
+			t2.spdylje,\
+			t2.pimpersonid\
 			FROM\
 			t_pimperson t2\
 			LEFT JOIN t_pcmydmx t1 ON t1.PIMPERSONID = t2.PIMPERSONID\

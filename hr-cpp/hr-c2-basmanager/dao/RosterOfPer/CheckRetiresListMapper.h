@@ -34,6 +34,7 @@ public:
 		data.setsjtxrq(resultSet->getString(15));//this
 		data.setlxdh(resultSet->getString(16));//this
 		data.setspdylje(resultSet->getString(17));//this
+		data.setpimpersonid(resultSet->getString(18));//this
 
 
 		return data;

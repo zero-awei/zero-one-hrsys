@@ -33,7 +33,7 @@ CheckRetiresListPageDTO::Wrapper CheckRetiresListService::listAll(const CheckRet
 		// 		dto->sex = sub.getSex();
 		// 		dto->age = sub.getAge();
 		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, ygbh, ygbh,idAndName, idAndName, pimpersonname, pimpersonname, xb, xb, nj, nj, postaladdress, postaladdress, retiPlace, retiPlace, jtlxr, jtlxr, jtlxrdh, jtlxrdh, zz, zz, bm, bm,
-			rank, rank, yzw, yzw, ygw, ygw, txdq, txdq, sjtxrq, sjtxrq, lxdh, lxdh, spdylje, spdylje)
+			rank, rank, yzw, yzw, ygw, ygw, txdq, txdq, sjtxrq, sjtxrq, lxdh, lxdh, spdylje, spdylje, pimpersonid, pimpersonid)
 		pages->addData(dto);
 	}
 	return pages;

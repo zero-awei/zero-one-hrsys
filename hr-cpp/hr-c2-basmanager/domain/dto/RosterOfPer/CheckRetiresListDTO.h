@@ -25,6 +25,11 @@ public:
 	DTO_FIELD_INFO(ygbh) {
 		info->description = ZH_WORDS_GETTER("rosterofper.field.ygbh");
 	}
+	// 唯一标识
+	DTO_FIELD(String, pimpersonid);
+	DTO_FIELD_INFO(pimpersonid) {
+		info->description = ZH_WORDS_GETTER("rosterofper.field.id");
+	}
 	// 员工编号+姓名（模糊查询）
 	DTO_FIELD(String, idAndName);
 	DTO_FIELD_INFO(idAndName) {
