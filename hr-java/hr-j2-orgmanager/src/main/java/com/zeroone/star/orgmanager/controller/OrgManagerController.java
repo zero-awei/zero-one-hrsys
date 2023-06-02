@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 
 /**
   * @author：letian
@@ -28,7 +30,7 @@ public class OrgManagerController implements RemoveDeptApis {
     @Override
     @DeleteMapping("remove-dept-by-ids")
     @ApiOperation(value = "批量删除部门", notes = "根据多个部门ids删除部分部门")
-    public JsonVO<String> removeDeptByIds(DeptDTO deptDTO) {
+    public JsonVO<String> removeDeptByIds(@Valid @NotEmpty DeptDTO deptDTO) {
         return srforgsectorService.removeDeptByIds(deptDTO);
     }
 

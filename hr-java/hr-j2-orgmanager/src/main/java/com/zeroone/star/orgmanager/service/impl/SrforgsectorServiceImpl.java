@@ -25,9 +25,6 @@ public class SrforgsectorServiceImpl extends ServiceImpl<SrforgsectorMapper, Srf
 
     @Override
     public JsonVO<String> removeDeptByIds(DeptDTO deptDTO) {
-        if (deptDTO.getOrgSectorIds() == null || deptDTO.getOrgSectorIds().isEmpty()) {
-            return JsonVO.fail("ids不能为空！");
-        }
         srforgsectorMapper.deleteDeptByIds(deptDTO);
         return JsonVO.success("删除成功！");
     }
