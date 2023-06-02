@@ -61,19 +61,17 @@ const routes = [
   {
     path: '/postcertificateview',
     name: 'postcertificateview',
-    component: () =>
-      import('@/views/baseManage/standardSetting/PostCertificate.vue')
+    component: () => import('@/views/baseManage/standardSetting/PostCertificate.vue')   
   },
   {
     path: '/jobtitlecatalog',
     name: 'jobtitlecatalog',
-    component: () =>
-      import('@/views/baseManage/standardSetting/JobTitleCataloge.vue')
+    component: () => import('@/views/baseManage/standardSetting/JobTitleCataloge.vue')   
   },
   {
     path: '/archives',
     name: 'archives',
-    component: () => import('@/views/baseManage/standardSetting/Archives.vue')
+    component: () => import('@/views/baseManage/standardSetting/Archives.vue')   
   },
   {
     path: '/syqyggridview',
