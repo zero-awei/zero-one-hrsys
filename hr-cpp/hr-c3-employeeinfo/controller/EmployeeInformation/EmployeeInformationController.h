@@ -118,11 +118,13 @@ public: // 定义接口
 	ENDPOINT_INFO(importEmployeeInfo) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("user.query-all.import");
+		// 添加默认授权参数
+		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	//定义导入员工信息接口端点处理
-	ENDPOINT(API_M_POST, "/employee-information/import-info", importEmployeeInfo, BODY_DTO(EmployeeInformationDTO::Wrapper, importInfo)) {
+	ENDPOINT(API_M_POST, "/employee-information/import-info", importEmployeeInfo, API_HANDLER_AUTH_PARAME, BODY_DTO(EmployeeInformationDTO::Wrapper, importInfo)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execImportEmployeeInfo(importInfo));
 	}
@@ -194,11 +196,13 @@ public: // 定义接口
 	ENDPOINT_INFO(addEmployee) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("orgsector.field.summary");
+		// 添加默认授权参数
+		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	//定义新增员工信息接口端点处理
-	ENDPOINT(API_M_POST, "/employee-information/add-new-info", addEmployee, BODY_DTO(EmployeeInformationDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/employee-information/add-new-info", addEmployee, API_HANDLER_AUTH_PARAME, BODY_DTO(EmployeeInformationDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddEmployee(dto));
 	}
