@@ -66,6 +66,8 @@ ImportJobVO::Wrapper JobSetService::addMultiJob(const ImportJobDTO::Wrapper& dto
 			StartStopSign, INDEX(i, hash["STARTSTOPSIGN"])
 		);
 
+		tmp.setNx(atoi(data[i][hash["NX"]].c_str()));
+		tmp.setBxjlnx(atoi(data[i][hash["BXJLNX"]].c_str()));
 		tmp.setOrmPostId(to_string(sf.nextId()));
 		tmp.setUpdateDate(day);
 		tmp.setCreateDate(day);
