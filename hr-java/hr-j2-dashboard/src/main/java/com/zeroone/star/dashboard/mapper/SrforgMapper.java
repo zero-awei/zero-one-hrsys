@@ -23,14 +23,10 @@ public interface SrforgMapper extends BaseMapper<Srforg> {
      * @param :
      * @return List<OrgDistributeDTO>
      * @author 乐天
-     * @description:从t_srforg表和t_pimperson查询组织信息和对应的组织人数
+     * @description:从t_srforg表查询组织信息
      * @date 2023/5/22 8:13
      */
-    @Select("select b.ORGNAME as 'orgName', count(a.ORMORGNAME) as 'number' " +
-            "from t_pimperson a " +
-            "inner join t_srforg b " +
-            "on a.ORMORGID = b.ORGID " +
-            "group by b.ORGID;")
+    @Select("select ORGID as 'orgId', ORGNAME as 'orgName' from t_srforg;")
     List<OrgDistributeDTO> selectOrgDistribute();
 
     @Select("SELECT ormtype, count(1) AS countnum FROM BIS_EMPLOYEEANALYSIS_T GROUP BY ormtype")

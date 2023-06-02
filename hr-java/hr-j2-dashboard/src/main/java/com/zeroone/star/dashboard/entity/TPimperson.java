@@ -6,6 +6,10 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * <p>
@@ -14,6 +18,8 @@ import java.time.LocalDateTime;
  *
  * @author 浅墨
  * @since 2023-05-29
+ * @author letian
+ * @since 2023-06-02
  */
 @Getter
 @Setter

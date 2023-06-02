@@ -3,6 +3,9 @@ package com.zeroone.star.dashboard.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zeroone.star.dashboard.entity.TPimperson;
 import com.zeroone.star.project.dto.dashboard.AgeDTO;
+import com.zeroone.star.dashboard.entity.TPimperson;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.zeroone.star.project.dto.dashboard.OrgPersonCountDTO;
 
 import java.util.List;
 
@@ -17,4 +20,10 @@ import java.util.List;
 public interface ITPimpersonService extends IService<TPimperson> {
 
     List<AgeDTO> listAgeDistribution();
+ * @author letian
+ * @since 2023-06-02
+ */
+public interface ITPimpersonService extends IService<TPimperson> {
+
+    List<OrgPersonCountDTO> listOrgPersonCount();
 }

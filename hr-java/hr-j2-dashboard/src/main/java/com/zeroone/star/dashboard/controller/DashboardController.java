@@ -1,9 +1,13 @@
 package com.zeroone.star.dashboard.controller;
 
 
-import com.zeroone.star.dashboard.service.*;
+import com.zeroone.star.dashboard.service.IBisEducationService;
+import com.zeroone.star.dashboard.service.IBisRegisterTService;
+import com.zeroone.star.dashboard.service.ISrforgService;
+import com.zeroone.star.dashboard.service.ITPimpersonService;
 import com.zeroone.star.project.dashboard.DashboardApis;
 import com.zeroone.star.project.dashboard.OrgDistributeApis;
+import com.zeroone.star.project.dashboard.OrgPersonCountApis;
 import com.zeroone.star.project.dto.dashboard.*;
 import com.zeroone.star.project.query.dashboard.EducationQuery;
 import com.zeroone.star.project.vo.JsonVO;
@@ -19,7 +23,7 @@ import java.util.List;
 @RestController
 @RequestMapping("dashboard")
 @Api(tags = "系统首页")
-public class DashboardController implements DashboardApis, OrgDistributeApis {
+public class DashboardController implements DashboardApis, OrgDistributeApis, OrgPersonCountApis {
 
     @Resource
     IBisProfessoranalysisService iBisProfessoranalysisService;
@@ -95,4 +99,14 @@ public class DashboardController implements DashboardApis, OrgDistributeApis {
         return JsonVO.success(list);
     }
 
+    @Resource
+    private ITPimpersonService pimpersonService;
+
+    @ApiOperation(value = "组织人数")
+    @GetMapping("query-org-person-count")
+    @Override
+    public JsonVO<List<OrgPersonCountDTO>> queryOrgPersonCount() {
+        List<OrgPersonCountDTO> list = pimpersonService.listOrgPersonCount();
+        return JsonVO.success(list);
+    }
 }
