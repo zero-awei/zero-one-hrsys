@@ -69,27 +69,6 @@ public:
 		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.t_pimperson.id");
 		info->queryParams["id"].addExample("default", String("F943C793-520E-46FA-8F6F-5EF08AC1F770"));
 		info->queryParams["id"].required = false;
-		info->queryParams.add<String>("assign").description = ZH_WORDS_GETTER("employee.t_pimperson.assign");
-		info->queryParams["assign"].addExample("default", String(""));
-		info->queryParams["assign"].required = false;
-		info->queryParams.add<String>("assignState").description = ZH_WORDS_GETTER("employee.t_pimperson.assignState");
-		info->queryParams["assignState"].addExample("default", String(""));
-		info->queryParams["assignState"].required = false;
-		info->queryParams.add<String>("etype").description = ZH_WORDS_GETTER("employee.t_pimperson.etype");
-		info->queryParams["etype"].addExample("default", String(""));
-		info->queryParams["etype"].required = false;
-		info->queryParams.add<String>("organize").description = ZH_WORDS_GETTER("employee.t_pimperson.organize");
-		info->queryParams["organize"].addExample("default", String(""));
-		info->queryParams["organize"].required = false;
-		info->queryParams.add<String>("depart").description = ZH_WORDS_GETTER("employee.t_pimperson.depart");
-		info->queryParams["depart"].addExample("default", String(""));
-		info->queryParams["depart"].required = false;
-		info->queryParams.add<String>("job").description = ZH_WORDS_GETTER("employee.t_pimperson.job");
-		info->queryParams["job"].addExample("default", String(""));
-		info->queryParams["job"].required = false;
-		info->queryParams.add<String>("post").description = ZH_WORDS_GETTER("employee.t_pimperson.post");
-		info->queryParams["post"].addExample("default", String(""));
-		info->queryParams["post"].required = false;
 		info->queryParams.add<String>("startTime").description = ZH_WORDS_GETTER("employee.t_pimperson.startTime");
 		info->queryParams["startTime"].addExample("default", String(""));
 		info->queryParams["startTime"].required = false;
@@ -101,7 +80,7 @@ public:
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, AssignInfoQuery, queryParams);
 		// 响应结果
-		API_HANDLER_RESP_VO(execAssignQuery(userQuery));
+		API_HANDLER_RESP_VO(execAssignQuery(userQuery, authObject->getPayload()));
 	}
 	// 3.1 定义新增接口描述
 	ENDPOINT_INFO(addAssignInfo) {
@@ -144,7 +123,7 @@ public:
 		info->summary = ZH_WORDS_GETTER("employee.post.upload");
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-		ENDPOINT(API_M_POST, "/upload-assign-info", importAssignInfo, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
+	ENDPOINT(API_M_POST, "/upload-assign-info", importAssignInfo, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
 			/* 创建multipart容器 */
 			auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
 			/* 创建multipart读取器 */
@@ -211,7 +190,7 @@ public:
 			OATPP_LOGD("Multipart", "file='%s'", filePart->getFilename()->c_str());
 			/* 响应OK */
 			return createResponse(Status::CODE_200, "OK");
-		}
+	}
 
 	// 3.1 定义查询接口描述
 	ENDPOINT_INFO(assignQueryDetail) {
@@ -258,7 +237,7 @@ private:
 	StringJsonVO::Wrapper execAddAssignInfo(const AssignInfoDTO::Wrapper& dto);
 	StringJsonVO::Wrapper execDeleteAssignInfo(const AssignInfoDTO::Wrapper& dto);
 	//ImportAssignInfoJsonVO::Wrapper execImportAssignInfo(const ImportAssignInfoDTO::Wrapper& dto);
-	AssignInfoPageJsonVO::Wrapper execAssignQuery(const AssignInfoQuery::Wrapper& query);
+	AssignInfoPageJsonVO::Wrapper execAssignQuery(const AssignInfoQuery::Wrapper& query, const PayloadDTO& payload);
 	AssignInfoJsonVO::Wrapper execAssignQueryDetail(const AssignInfoQueryDetail::Wrapper& dto, const PayloadDTO& payload);
 	StringJsonVO::Wrapper execModifyAssignInfo(const AssignInfoDTO::Wrapper& dto);
 	StringJsonVO::Wrapper execExportAssign(const AssignExportQuery::Wrapper& query);
