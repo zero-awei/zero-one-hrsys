@@ -20,6 +20,8 @@ user:
   type: 语种
   level: 语言等级
 language:
+ field:
+  id: 语言唯一标识ID
  get:
   summarys: 分页查询语言数据
   summary: 查询一条语言数据
