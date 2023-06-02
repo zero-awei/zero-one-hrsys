@@ -126,10 +126,10 @@ AssignInfoJsonVO::Wrapper AssignInfoController::execAssignQueryDetail(const Assi
 	auto jvo = AssignInfoJsonVO::createShared();
 
 	//// 定义一个Service
-	//AssignInfoService service;
+	AssignInfoService service;
 	////// 查询数据
-	//auto result = service.QueryDetail(dto);
-	//jvo->success(result);
+	auto result = service.QueryDetail(dto);
+	jvo->success(result);
 	return jvo;
 }
 
