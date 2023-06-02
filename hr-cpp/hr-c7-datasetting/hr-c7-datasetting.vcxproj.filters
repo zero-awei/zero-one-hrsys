@@ -8,6 +8,7 @@
     <ClCompile Include="controller\Certificate\CertificateController.cpp" />
     <ClCompile Include="controller\archive\ArchiveController.cpp" />
     <ClCompile Include="controller\Qualification\QualificationController.cpp" />
+    <ClCompile Include="controller\ContractCategory\ContractCategoryController.cpp" />
     <ClCompile Include="controller\Title\TitleController.cpp" />
     <ClCompile Include="service\archive\ArchiveService.cpp" />
     <ClCompile Include="dao\archive\ArchiveDAO.cpp" />
@@ -58,6 +59,7 @@
     <ClInclude Include="controller\Qualification\QualificationController.h" />
     <ClInclude Include="domain\dto\Qualification\QualificationDTO.h" />
     <ClInclude Include="domain\vo\Qualification\QualificationVO.h" />
+    <ClInclude Include="controller\ContractCategory\ContractCategoryController.h" />
     <ClInclude Include="domain\dto\contractcategory\ContractCategoryDTO.h" />
     <ClInclude Include="domain\query\contractcategory\ContractCategoryQuery.h" />
     <ClInclude Include="domain\vo\ContractCategory\ContractCategoryVO.h" />
