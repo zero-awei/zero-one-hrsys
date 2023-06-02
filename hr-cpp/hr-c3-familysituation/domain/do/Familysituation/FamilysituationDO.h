@@ -56,13 +56,16 @@ class FamilysituationDO
 	CC_SYNTHESIZE(string, ice, Ice);
 public:
 	FamilysituationDO() {
-		id = -1;
+		id = "";
+		personid = "";
+		frelationship = "";
 		name = "";
 		gender = "";
 		age = -1;
 		workplace = "";
 		job = "";
 		politicalstatus = "";
+		doctype = "";
 		identification = "";
 		dob = "";
 		testament = -1;

@@ -4,7 +4,7 @@
 #include "../../service/familysituation/FamilysituationService.h"
 
 // 分页查询响应
-FamilysituationPageJsonVO::Wrapper FamilysituationController::execQueryByFamilysituation(const FamilysituationQuery::Wrapper& query)
+FamilysituationPageJsonVO::Wrapper FamilysituationController::execQueryByFamilysituation(const FamilysituationQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	FamilysituationService service;
 	// 查询数据
