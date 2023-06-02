@@ -51,10 +51,10 @@ std::string TemporaryStaffService::exportData(const TempStaffQuery::Wrapper& que
 	//查询数据并设置page的大小等
 	TemporaryStaffDAO dao;
 	int count = dao.count(query);
-	if (count > 5000) query->pageSize = 5000;
-	else query->pageSize = count ;
-	query->pageIndex = 1;
-	list<TemporaryStaffDO> result = dao.selectWithPage(query);
+	//if (count > 5000) query->pageSize = 5000;
+	//else query->pageSize = count ;
+	//query->pageIndex = 1;
+	list<TemporaryStaffDO> result = dao.selectExportDatas(query);
 
 	//构建excel数据
 	std::vector<std::vector<std::string>> datas;

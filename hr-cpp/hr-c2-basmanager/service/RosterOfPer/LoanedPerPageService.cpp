@@ -43,11 +43,11 @@ std::string LoanedPerPageService::exportData(const LoanedPerPageQuery::Wrapper& 
 {
 	//查询数据并设置page的大小等
 	LoanedPerDAO dao;
-	uint64_t count = dao.count(query);
-	if (count > 5000) query->pageSize = 5000;
-	else query->pageSize = count;
-	query->pageIndex = 1;
-	list<SecondedPersonnelDO> result = dao.selectWithPage(query);
+	//uint64_t count = dao.count(query);
+	//if (count > 5000) query->pageSize = 5000;
+	//else query->pageSize = count;
+	//query->pageIndex = 1;
+	list<SecondedPersonnelDO> result = dao.selectExportDatas(query);
 
 	//构建excel数据
 	std::vector<std::vector<std::string>> datas;
@@ -94,19 +94,31 @@ std::string LoanedPerPageService::exportData(const LoanedPerPageQuery::Wrapper& 
 	ExcelComponent excel;
 	excel.writeVectorToFile(fileName, sheetName, datas);
 
-	// 上传FastDFS文件服务器
+	// 下载链接前缀
+	std::string urlPrefix;
 #ifdef LINUX
-	//定义客户端对象
-	FastDfsClient client("conf/client.conf", 3);
+	// 定义一个Nacos客户端对象，用于获取配置
+	NacosClient ns(ServerInfo::getInstance().getNacosAddr(), ServerInfo::getInstance().getNacosNs());
+	// 设置url前缀
+	auto thirdServerConfig = ns.getConfig("third-services.yaml");
+	urlPrefix = "http://" + YamlHelper().getString(&thirdServerConfig, "fastdfs.nginx-servers") + "/";
+	// 从Nacos配置中心获取FastDFS客户端配置数据
+	std::string config = ns.getConfigText("client.conf");
+	// 定义客户端对象
+	FastDfsClient client(config, false);
 #else
-	//定义客户端对象
+	// 设置url前缀
+	urlPrefix = "http://8.130.87.15:8888/";
+	// 定义客户端对象
 	FastDfsClient client("8.130.87.15");
 #endif
-	//上传文件
+	// 上传文件
 	std::string fieldName = client.uploadFile(fileName);
-	std::cout << "upload fieldname is : " << fieldName << std::endl;
+	//删除本地文件
 	remove(fileName.c_str());
-	std::stringstream ss;
-	ss << "http://8.130.87.15:8888/" << fieldName;
-	return ss.str();
+	// 构建下载路径
+	std::string downloadUrl = urlPrefix + fieldName;
+	// 输出下载路径
+	//std::cout << "download url: " << downloadUrl << std::endl;
+	return downloadUrl;
 }

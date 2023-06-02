@@ -15,9 +15,7 @@ public:
 	uint64_t count(const TempStaffQuery::Wrapper& query);
 	// 分页查询数据
 	list<TemporaryStaffDO> selectWithPage(const TempStaffQuery::Wrapper& query);
-	// 通过姓名查询数据
-	list<TemporaryStaffDO> selectByName(const string& name);
-	// 通过编号查询数据
-	list<TemporaryStaffDO> selectById(const string& id);
+	// 导出查询数据
+	list<TemporaryStaffDO> selectExportDatas(const TempStaffQuery::Wrapper& query);
 };
 #endif // !_TEMPORARYSTAFF_DAO_

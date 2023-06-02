@@ -15,5 +15,7 @@ public:
 	uint64_t count(const LoanedPerPageQuery::Wrapper& query);
 	// 分页查询数据
 	list<SecondedPersonnelDO> selectWithPage(const LoanedPerPageQuery::Wrapper& query);
+	// 导出查询
+	list<SecondedPersonnelDO> selectExportDatas(const LoanedPerPageQuery::Wrapper& query);
 };
 #endif // !_LoanedPer_DAO_
