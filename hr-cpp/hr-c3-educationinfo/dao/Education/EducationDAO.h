@@ -11,6 +11,7 @@
 #include "domain/query/EducationPage/EducationPageQuery.h"
 #include "domain/query/EducationSingle/EducationSingleQuery.h"
 #include "domain/dto/Education/EducationDTO.h"
+#include "domain/dto/EducationAdd/EducationAddDTO.h"
 
 class EducationDAO : public BaseDAO
 {
@@ -23,13 +24,13 @@ public:
 	list<EducationDO> selectEducationSingle(const EducationSingleQuery::Wrapper& query);
 
 	//功能3 ：单独插入教育信息DAO实现
-	uint64_t insertEducation(const EducationDO& iObj);
+	int insertEducation(const EducationDO& iObj);
 
 	//功能4 ：单独修改教育信息DAO实现
 	bool updateEducaiton(const EducationDO& data);
 
 	//功能5 ：单条删除教育信息DAO实现
-	int deleteEducaiton(string id);
+	int deleteEducaiton(EducationDO& data);
 
 	//功能6 ：多条删除教育信息DAO实现
 	//int deleteEducaitonNotSingle(string id);

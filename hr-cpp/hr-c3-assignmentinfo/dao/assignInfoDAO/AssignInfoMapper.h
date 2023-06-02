@@ -32,6 +32,7 @@ public:
 	AssignInfoDO mapper(ResultSet* resultSet) const override
 	{
 		AssignInfoDO data;
+		data.setAssignId(resultSet->getString(4));
 		data.setId(resultSet->getString(15));
 		data.setAssign(resultSet->getString(12));
 		data.setAssignState(resultSet->getString(3));

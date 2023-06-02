@@ -36,6 +36,7 @@ class JobListQuery : public PageQuery
 	DTO_FIELD_INFO(jobName) {
 		info->description = ZH_WORDS_GETTER("employee.field.jobList");
 	}
+	// API_DTO_FIELD_DEFAULT(UInt64, total, ZH_WORDS_GETTER("employee.field.total"));
 };
 class JobListPageQuery : public PageDTO<JobListQuery::Wrapper>
 {

@@ -171,6 +171,7 @@
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\Education\EducationDO.h" />
     <ClInclude Include="domain\dto\AddEmployeeInfoDTO\AddEmployeeInfoDTO.h" />
+    <ClInclude Include="domain\dto\EducationAdd\EducationAddDTO.h" />
     <ClInclude Include="domain\dto\EducationDelete\EducationDeleteDTO.h" />
     <ClInclude Include="domain\dto\EducationImport\EducationImportDTO.h" />
     <ClInclude Include="domain\dto\Education\EducationDTO.h" />

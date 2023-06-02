@@ -27,25 +27,30 @@ int EmployeeInfoDAO::updateEmployee(const EmployeeInfoDTO::Wrapper& edto)
 	sql << "UPDATE `t_pimperson` SET `YGBH`=?,`PIMPERSONNAME`=?,`ZJLX`=?,";
 	sql << "`ZJHM`=?,`CSRQ`=?,`NL`=?,`XB`=?,`XX`=?,`LXDH`=?,`DZYX`=?,`HYZK`=?,";
 	sql << "`MZ`=?,`HKLX`=?,`JG`=?,`HJSZD`=?,`HJDZ`=?,`CSD`=?,`POSTALADDRESS`=?,";
-	sql << "`SFDSZN`=?,`AHTC`=?,`JKZK`=?,`ZZMM`=?,`YGZT`=?,`WORKSTATE=?`,";
+	sql << "`SFDSZN`=?,`AHTC`=?,`JKZK`=?,`ZZMM`=?,`YGZT`=?,`WORKSTATE`=?,";
 	sql << "`RZQD`=?,`CJGZSJ`=?,`DBDWSJ`=?,`HMD`=?,`ZP`=? WHERE `PIMPERSONID`=?";
 	string sqlStr = sql.str();
 	return sqlSession->executeUpdate(sqlStr, "%s%s%s%s%s%i%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%i%s%s"
-		, edto->empid, edto->name,edto->idtype,edto->idnum,edto->bthdate,edto->age, edto->sex, edto->blood,
-		edto->phone, edto->email,edto->marriage, edto->nation, edto->residentType, edto->native, edto->residentPlace,
-		edto->residentLocate, edto->birthPlace, edto->comPlace, edto->onlyCredit, edto->hobby, edto->health,
-		edto->politic, edto->state, edto->workstate, edto->inway, edto->workTime, edto->inTime, edto->blacklist,
-		edto->photo,edto->pimpersonid);
+		, edto->empid.getValue({}), edto->name.getValue({}),edto->idtype.getValue({}),edto->idnum.getValue({}),
+		edto->bthdate.getValue({}),edto->age.getValue({}), edto->sex.getValue({}), edto->blood.getValue({}),
+		edto->phone.getValue({}), edto->email.getValue({}),edto->marriage.getValue({}), edto->nation.getValue({}),
+		edto->residentType.getValue({}), edto->native.getValue({}), edto->residentPlace.getValue({}),
+		edto->residentLocate.getValue({}), edto->birthPlace.getValue({}), edto->comPlace.getValue({}),
+		edto->onlyCredit.getValue({}), edto->hobby.getValue({}), edto->health.getValue({}),
+		edto->politic.getValue({}), edto->state.getValue({}), edto->workstate.getValue({}), edto->inway.getValue({}),
+		edto->workTime.getValue({}), edto->inTime.getValue({}), edto->blacklist.getValue({}),
+		edto->photo.getValue({}),edto->pimpersonid.getValue({}));
 }
 
 int EmployeeInfoDAO::insertEmployee(const EmployeeInfoAddDTO::Wrapper& eadto,string pimid,string dt)
 {
 	stringstream sql;
 	sql << "INSERT INTO `t_pimperson` (`PIMPERSONID`,`YGBH`,`PIMPERSONNAME`,`ZJLX`,";
-	sql << "`ZJHM`,`LXDH`,`YGZT`,`UPDATEDATE`,`CREATEDATE`) VALUE(?,?,?,?,?,?,?)";//,`CREATEMAN`,`UPDATEMAN`
+	sql << "`ZJHM`,`LXDH`,`YGZT`,`UPDATEDATE`,`CREATEDATE`) VALUE(?,?,?,?,?,?,?,?,?)";//,`CREATEMAN`,`UPDATEMAN`
 	string sqlStr = sql.str();
-	return sqlSession->executeUpdate(sqlStr, "%s%s%s%s%s%s%s%s%s%s%s", pimid, eadto->empid,
-		eadto->name, eadto->idType, eadto->idNum, eadto->phoneNum, eadto->state,dt,dt);
+	return sqlSession->executeUpdate(sqlStr, "%s%s%s%s%s%s%s%s%s", pimid, eadto->empid.getValue({}),
+		eadto->name.getValue({}), eadto->idType.getValue({}), eadto->idNum.getValue({}),
+		eadto->phoneNum.getValue({}), eadto->state.getValue({}), dt, dt);
 }
 
 std::list<EmployeeInfoDO> EmployeeInfoDAO::selectEmployee(const EmployeeInfoQuery::Wrapper& query)
@@ -54,7 +59,7 @@ std::list<EmployeeInfoDO> EmployeeInfoDAO::selectEmployee(const EmployeeInfoQuer
 	SqlParams par;
 	sql << "SELECT `YGBH`,`PIMPERSONNAME`,`ZJLX`,`ZJHM`,`CSRQ`,`NL`,`XB`,";
 	sql << "`MZ`,`JG`,`HYZK`,`ZZMM`,`RANK`,`CJGZSJ`,`DBDWSJ`,`DZYX`,`HIGHTITLE`,";
-	sql<< "`HIGHEDUCATION`,`FIRSTEDUCATION`,`CRERRIFICATE`,`ZP`,`LXDH` ";
+	sql<< "`HIGHEDUCATION`,`FIRSTEDUCATION`,`CERTTIFICATE`,`ZP`,`LXDH` ";
 	sql<<"FROM t_pimperson WHERE 1 = 1";
 	if (query->pimpersonid)
 	{

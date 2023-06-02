@@ -5,7 +5,8 @@
 #include "../hr-c3-assignmentinfo/Macros.h"
 #include "SimpleDateTimeFormat.h"
 #include "domain/dto/EducationDelete/EducationDeleteDTO.h"
-
+#include "SnowFlake.h"
+#include "domain/dto/EducationAdd/EducationAddDTO.h"
 
 
 EducationPageDTO::Wrapper EducationService::listEducationPage(const EducationPageQuery::Wrapper& query)
@@ -54,59 +55,68 @@ EducationSingleDTO::Wrapper EducationService::listEducationSingle(const Educatio
 	return dto;
 }
 
-uint64_t EducationService::saveEducation(const EducationSingleDTO::Wrapper& dto)
+int EducationService::saveEducation(const EducationAddDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	EducationDO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, FunPIMEDUCATIONID, PIMEDUCATIONID, FunXL, XL,
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, FunXL, XL,
 		FunQSSJ, QSSJ, FunJSSJ, JSSJ, FunBYYX, BYYX, FunXKML, XKML, FunSXZY, SXZY,
 		FunXLLX, XLLX, FunXXXZ, XXXZ, FunSFDYXL, SFDYXL, FunSFZGXL, SFZGXL, FunBTZ, BTZ,
-		FunXWZ, XWZ, FunXLCX, XLCX, FunFJ, FJ);
+		FunXWZ, XWZ, FunXLCX, XLCX, FunFJ, FJ, FunPIMPERSONID, PIMPERSONID);
+
+	//使用SimpleDateTimeFormat工具生成当前时间的字符串
+	string currentTime = SimpleDateTimeFormat::format();
+	//data.setCreateDate(currentTime);
+
+	//使用雪花Id生成工具生成Id
+	SnowFlake f3(1, 3);
+	string id = to_string(f3.nextId());
+	data.setFunPIMEDUCATIONID(id);
 
 	// 执行数据添加
 	EducationDAO dao;
-	return dao.insertEducation(data);
+	return dao.insertEducation(data);            
 }
 
-bool EducationService::updateEducation(const EducationSingleDTO::Wrapper& dto)
+bool EducationService::updateEducation(const EducationAddDTO::Wrapper& dto)
 {
 	// 组装DO对象
 	EducationDO data;
-	//ZO_STAR_DOMAIN_DO_TO_DTO(dto, data, PIMEDUCATIONID, FunPIMEDUCATIONID, XL, FunXL,
-	//	QSSJ, FunQSSJ, JSSJ, FunJSSJ, BYYX, FunBYYX, XKML, FunXKML, SXZY, FunSXZY,
-	//	XLLX, FunXLLX, XXXZ, FunXXXZ, SFDYXL, FunSFDYXL, SFZGXL, FunSFZGXL, BTZ, FunBTZ,
-	//	XWZ, FunXWZ, XLCX, FunXLCX, FJ, FunFJ);
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, FunPIMEDUCATIONID, PIMEDUCATIONID, FunXL, XL,
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, FunXL, XL,
 		FunQSSJ, QSSJ, FunJSSJ, JSSJ, FunBYYX, BYYX, FunXKML, XKML, FunSXZY, SXZY,
 		FunXLLX, XLLX, FunXXXZ, XXXZ, FunSFDYXL, SFDYXL, FunSFZGXL, SFZGXL, FunBTZ, BTZ,
-		FunXWZ, XWZ, FunXLCX, XLCX, FunFJ, FJ);
-	//data.setUpdater(payload.getUsername());
-	//data.setUpdateTime(SimpleDateTimeFormat::format());
+		FunXWZ, XWZ, FunXLCX, XLCX, FunFJ, FJ, FunPIMPERSONID, PIMPERSONID);
+	//使用SimpleDateTimeFormat工具生成当前时间的字符串
+	//string currentTime = SimpleDateTimeFormat::format();
+	//data.setUpdateDate(currentTime);
 	// TODO: 调用dao操作数据库
 	EducationDAO dao;
-	return dao.updateEducaiton(data);
+	return dao.updateEducaiton(data) == 1;
 }
 
-bool EducationService::removeEducation(string id)
+bool EducationService::removeEducation(const EducationDeleteSingleDTO::Wrapper& dto)
 {
-	EducationDAO postDeleteDAO;
-	return postDeleteDAO.deleteEducaiton(id) == 1;
+	// 组装DO对象
+	EducationDO data;
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, FunPIMEDUCATIONID,  PIMEDUCATIONID, FunPIMPERSONID, PIMPERSONID);
+	EducationDAO dao;
+	return dao.deleteEducaiton(data) == 1;
 }
 
 bool EducationService::removeEducationNotSingle(const EducationDeleteNotSingleDTO::Wrapper& dto)
 {
-	EducationDAO postDeleteDAO;
-	auto sqlSession = postDeleteDAO.getSqlSession();
-	//开启事务
-	sqlSession->beginTransaction();
+	//EducationDAO postDeleteDAO;
+	//auto sqlSession = postDeleteDAO.getSqlSession();
+	////开启事务
+	//sqlSession->beginTransaction();
 	bool isSuccess = true;
-	for (const auto& item : *dto->deleteIds) {
+	/*for (const auto& item : *dto->deleteIds) {
 		if (postDeleteDAO.deleteEducaiton(item->c_str()) != 1)
 		{
 			isSuccess = false;
 			return isSuccess;
 		}
 	}
-	sqlSession->commitTransaction();
+	sqlSession->commitTransaction();*/
 	return isSuccess;
 }

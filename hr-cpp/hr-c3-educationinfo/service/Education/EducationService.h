@@ -11,7 +11,7 @@
 #include "domain/query/EducationPage/EducationPageQuery.h"
 #include "domain/query/EducationSingle/EducationSingleQuery.h"
 #include "domain/dto/EducationDelete/EducationDeleteDTO.h"
-
+#include "domain/dto/EducationAdd/EducationAddDTO.h"
 class EducationService 
 {
 public:
@@ -29,17 +29,17 @@ public:
 	 * 添加指定员工教育信息
 	 * 负责人：chen jun
 	 */
-	uint64_t saveEducation(const EducationSingleDTO::Wrapper& dto);
+	int saveEducation(const EducationAddDTO::Wrapper& dto);
 	/**
 	 * 修改
 	 * 负责人：Chen jun
 	 */
-	bool updateEducation(const EducationSingleDTO::Wrapper& dto);
+	bool updateEducation(const EducationAddDTO::Wrapper& dto);
 	/**
 	* 删除单条
 	* 负责人 : Chen jun
 	*/
-	bool removeEducation(string id);
+	bool removeEducation(const EducationDeleteSingleDTO::Wrapper& dto);
 	/**
 	* 删除多条
 	* 负责人 : Chen jun
@@ -50,6 +50,7 @@ public:
 
 
 #endif // !_EDUCATIONSERVICE_H_#pragma once
+#include "domain/dto/EducationAdd/EducationAddDTO.h"
 
 
 

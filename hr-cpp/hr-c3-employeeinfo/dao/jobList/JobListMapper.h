@@ -29,7 +29,7 @@ public:
 	JobListDO mapper(ResultSet* res)const override
 	{
 		JobListDO data;
-		data.setJboName(res->getString(1));
+		data.setJobName(res->getString(1));
 		return data;
 	}
 

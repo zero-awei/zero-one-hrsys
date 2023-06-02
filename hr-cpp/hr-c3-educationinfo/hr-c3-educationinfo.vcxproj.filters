@@ -78,6 +78,9 @@
     <ClInclude Include="dao\Education\EducationMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\dto\EducationAdd\EducationAddDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

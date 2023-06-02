@@ -23,7 +23,7 @@
 
 class JobListDO
 {
-	CC_SYNTHESIZE(string, jobName, JboName)
+	CC_SYNTHESIZE(string, jobName, JobName)
 public:
 	JobListDO() {
 		jobName = "";

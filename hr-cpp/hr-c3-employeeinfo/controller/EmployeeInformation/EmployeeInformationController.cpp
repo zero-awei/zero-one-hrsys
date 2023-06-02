@@ -3,18 +3,18 @@
 #include "service/EmployeeInformation/EmployeeInformationServicer.h"
 
 //分页查询员工列表
-//EmployeeInformationPageJsonVO::Wrapper EmployeeInformationController::execEmployeeInformation(const EmployeeInformationPageQuery::Wrapper& query)
-//{
-//	// 定义一个Service
-//	EmployeeInformationServicer service;
-//	// 查询数据
-//	auto result = service.listAll(query);
-//	// 响应结果
-//	auto jvo = EmployeeInformationPageJsonVO::createShared();
-//	jvo->success(result); 
-//	return jvo;
-//
-//}
+EmployeeInformationPageJsonVO::Wrapper EmployeeInformationController::execEmployeeInformation(const EmployeeInformationPageQuery::Wrapper& query)
+{
+	// 定义一个Service
+	EmployeeInformationServicer service;
+	// 查询数据
+	auto result = service.listAll(query);
+	// 响应结果
+	auto jvo = EmployeeInformationPageJsonVO::createShared();
+	jvo->success(result); 
+	return jvo;
+
+}
 //导入员工信息
 Uint64JsonVO::Wrapper EmployeeInformationController::execImportEmployeeInfo(const EmployeeInformationDTO::Wrapper& importInfo)
 {
@@ -50,20 +50,20 @@ Uint64JsonVO::Wrapper EmployeeInformationController::execImportEmployeeInfo(cons
 
 }
 //导出员工信息(导出本页在前端完成)
-//StringJsonVO::Wrapper EmployeeInformationController::execExportEmployeeInfo(const EmployeeExportQuery::Wrapper& query)
-//{
-//	auto jvo = StringJsonVO::createShared();
-//	// 定义一个Service
-//	EmployeeInformationServicer service;
-//	//// 查询数据
-//	// auto result = service.exportData(query);
-//	// if (!result.empty()) {
-//	// 	jvo->success(result);
-//	// } else {
-//	// 	jvo->fail("export fail");
-//	// }
-//	return jvo;
-//}
+StringJsonVO::Wrapper EmployeeInformationController::execExportEmployeeInfo(const EmployeeExportQuery::Wrapper& query)
+{
+	auto jvo = StringJsonVO::createShared();
+	// 定义一个Service
+	EmployeeInformationServicer service;
+	//// 查询数据
+	// auto result = service.exportData(query);
+	// if (!result.empty()) {
+	// 	jvo->success(result);
+	// } else {
+	// 	jvo->fail("export fail");
+	// }
+	return jvo;
+}
 
 //新增员工信息 
 Uint64JsonVO::Wrapper EmployeeInformationController::execAddEmployee(const EmployeeInformationDTO::Wrapper& dto)

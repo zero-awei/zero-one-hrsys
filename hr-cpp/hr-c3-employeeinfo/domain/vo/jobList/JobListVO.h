@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: Detachment
- @Date: 2023/05/29 21:41:08
+ @Date: 2023/05/31 21:21:12
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,30 +17,24 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _JOBLISTDAO_H_
-#define _JOBLISTDAO_H_
-#include "BaseDAO.h"
-#include "../../domain/do/jobList/JobListDO.h"
-#include "JobListMapper.h"
-#include "../../domain/query/jobList/JobListQuery.h"
+#ifndef _JOBLISTVO_H_
+#define _JOBLISTVO_H_
 
-/* *
-* 岗位信息
-* 执行人：Detachment
-*/
-class JobListDAO : public BaseDAO
+#include "../../GlobalInclude.h"
+#include "../../query/jobList/JobListQuery.h"
+
+#include OATPP_CODEGEN_BEGIN(DTO)
+
+class JobListJsonVO : public JsonVO<JobListQuery::Wrapper>
 {
-public:
-	/* *
-	* 统计分页条数
-	* 执行人：Detachment
-	*/
-	uint64_t count(const JobListQuery::Wrapper& query);
-	/* *
-	* 分页查询岗位列表
-	* 执行人：Detachment
-	*/
-	list<JobListDO> selectJobList(const JobListQuery::Wrapper& query);
+	DTO_INIT(JobListJsonVO, JsonVO<JobListQuery::Wrapper>);
+	
 };
+class JobListPageJsonVO : public JsonVO<JobListPageQuery::Wrapper>
+{
+	DTO_INIT(JobListPageJsonVO, JsonVO<JobListPageQuery::Wrapper>);
 
-#endif // !_JOBLISTDAO_H_
+};
+#include OATPP_CODEGEN_END(DTO)
+
+#endif // !_JOBLISTVO_H_

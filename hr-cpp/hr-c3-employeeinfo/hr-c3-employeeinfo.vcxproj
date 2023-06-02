@@ -203,6 +203,7 @@
     <ClInclude Include="domain\query\orgquery\ValidOrgQuery.h" />
     <ClInclude Include="domain\vo\EmployeeInformation\EmployeeInformationVO.h" />
     <ClInclude Include="domain\vo\employeeInfo\EmployeeInfoVO.h" />
+    <ClInclude Include="domain\vo\jobList\JobListVO.h" />
     <ClInclude Include="domain\vo\org\ImportVO.h" />
     <ClInclude Include="domain\vo\org\MemberVO.h" />
     <ClInclude Include="domain\vo\org\OrgSectorVO.h" />

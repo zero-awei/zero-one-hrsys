@@ -25,6 +25,10 @@
 #define ASSIGNINFO_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
+if (query->assignId) { \
+	sql << " AND PIMDISTIRBUTIONID=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->assignId.getValue("")); \
+} \
 if (query->id) { \
 	sql << " AND PIMPERSONID=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); \
@@ -86,27 +90,27 @@ std::list<AssignInfoDO> AssignInfoDAO::selectWithPage(const AssignInfoQuery::Wra
 	return sqlSession->executeQuery<AssignInfoDO, AssignInfoMapper>(sqlStr, mapper, params);
 }
 
-std::list<AssignInfoDO> AssignInfoDAO::selectById(const string& id)
+std::list<AssignInfoDO> AssignInfoDAO::selectById(const string& assignId)
 {
-	string sql = "SELECT * FROM t_pimdistirbution WHERE PIMPERSONID LIKE CONCAT('%',?,'%')";
+	string sql = "SELECT * FROM t_pimdistirbution WHERE PIMDISTIRBUTIONID LIKE CONCAT('%',?,'%')";
 	AssignInfoMapper mapper;
-	return sqlSession->executeQuery<AssignInfoDO, AssignInfoMapper>(sql, mapper, "%s", id);
+	return sqlSession->executeQuery<AssignInfoDO, AssignInfoMapper>(sql, mapper, "%s", assignId);
 }
 
 uint64_t AssignInfoDAO::insert(const AssignInfoDO& iObj)
 {
-	string sql = "INSERT INTO t_pimdistirbution (PIMPERSONID,FPLX,FPZT,CFPLX,ORMORGNAME,ORMORGSECTORNAME,ORMDUTYNAME,ORMPOSTNAME,RZKSSJ,RZJSSJ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%s%s%s", iObj.getId(), iObj.getAssign(),iObj.getAssignState() ,iObj.getEtype(),iObj.getOrganize(),iObj.getDepart(),iObj.getJob(),iObj.getPost(),iObj.getStartTime(),iObj.getEndTime());
+	string sql = "INSERT INTO t_pimdistirbution (PIMDISTIRBUTIONID,PIMPERSONID,FPLX,FPZT,CFPLX,ORMORGNAME,ORMORGSECTORNAME,ORMDUTYNAME,ORMPOSTNAME,RZKSSJ,RZJSSJ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s%s",iObj.getAssignId(), iObj.getId(), iObj.getAssign(),iObj.getAssignState() ,iObj.getEtype(),iObj.getOrganize(),iObj.getDepart(),iObj.getJob(),iObj.getPost(),iObj.getStartTime(),iObj.getEndTime());
 }
 
 int AssignInfoDAO::update(const AssignInfoDO& uObj)
 {
-	string sql = "UPDATE t_pimdistirbution SET FPLX=?,FPZT=?, CFPLX=?, ORMORGNAME=?,ORMORGSECTORNAME=?,ORMDUTYNAME=?,ORMPOSTNAME=?,RZKSSJ=?,RZJSSJ=? WHERE PIMPERSONID=?";
-	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s", uObj.getAssign(), uObj.getAssignState(),uObj.getEtype(), uObj.getOrganize(), uObj.getDepart(), uObj.getJob(), uObj.getPost(), uObj.getStartTime(), uObj.getEndTime(),uObj.getId());
+	string sql = "UPDATE t_pimdistirbution SET PIMPERSONID=?,FPLX=?,FPZT=?, CFPLX=?, ORMORGNAME=?,ORMORGSECTORNAME=?,ORMDUTYNAME=?,ORMPOSTNAME=?,RZKSSJ=?,RZJSSJ=? WHERE PIMDISTIRBUTIONID=?";
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s%s", uObj.getId(),uObj.getAssign(), uObj.getAssignState(),uObj.getEtype(), uObj.getOrganize(), uObj.getDepart(), uObj.getJob(), uObj.getPost(), uObj.getStartTime(), uObj.getEndTime(),uObj.getAssignId());
 }
 
-int AssignInfoDAO::deleteById(string id)
+int AssignInfoDAO::deleteById(string assignId)
 {
-	string sql = "DELETE FROM t_pimdistirbution WHERE PIMPERSONID=?";
-	return sqlSession->executeUpdate(sql, "%s", id);
+	string sql = "DELETE FROM t_pimdistirbution WHERE PIMDISTIRBUTIONID=?";
+	return sqlSession->executeUpdate(sql, "%s", assignId);
 }

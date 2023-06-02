@@ -19,6 +19,7 @@
 
 #include "stdafx.h"
 #include "EmployeeInfoController.h"
+#include "domain/vo/jobList/JobListVO.h"
 
 
 EmployeeInfoVO::Wrapper EmployeeInfoController::execEmployeeQuery(const EmployeeInfoQuery::Wrapper& query)
@@ -38,12 +39,12 @@ StringJsonVO::Wrapper EmployeeInfoController::execEmployeeModify(const EmployeeI
 		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	if (dto->age < 0 || dto->name->empty() || dto->idtype->empty() || dto->idnum->empty())
+	if (dto->age < 0 )
 	{
 		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	if (dto->idtype != nullptr && (dto->idtype != "10" || dto->idtype != "20" || dto->idtype != "30"))
+	if (dto->idtype.getValue({}) != "10" && dto->idtype.getValue({}) != "20" && dto->idtype.getValue({}) != "30")
 	{
 		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
@@ -53,12 +54,12 @@ StringJsonVO::Wrapper EmployeeInfoController::execEmployeeModify(const EmployeeI
 	if (service.updateEmployee(dto)) {
 		jvo->success(dto->pimpersonid);
 	}
-	else{
+	else {
 		jvo->fail(dto->pimpersonid);
 	}
 	return jvo;
 }
-StringJsonVO::Wrapper EmployeeInfoController:: execEmployeePut(const EmployeeInfoAddDTO::Wrapper& dto){
+StringJsonVO::Wrapper EmployeeInfoController::execEmployeePut(const EmployeeInfoAddDTO::Wrapper& dto) {
 	//auto vo = StringJsonVO::createShared();
 	auto jvo = StringJsonVO::createShared();
 	if (!dto->empid || !dto->name || !dto->idType || !dto->idNum)
@@ -66,28 +67,30 @@ StringJsonVO::Wrapper EmployeeInfoController:: execEmployeePut(const EmployeeInf
 		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	if (dto->idType!=nullptr&&(dto->idType!="10"|| dto->idType != "20"|| dto->idType != "30"))
+	if (dto->idType.getValue({}) != "10" && dto->idType.getValue({}) != "20" && dto->idType.getValue({}) != "30")//另一张状态表里
 	{
 		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	if(dto->phoneNum.get()->length() != 11 || dto->state!="10"||dto->state!="20"||dto->state!="30")
+	if (dto->phoneNum.get()->length() != 11 && dto->state.getValue({}) != "10" && dto->state.getValue({}) != "20" && dto->state.getValue({}) != "30")//同理
 	{
 		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 	EmployeeInfoService service;
 	if (service.insertEmployee(dto)) {
-		jvo->success(dto->pimpersonid);
+		jvo->success(dto->empid);
 	}
 	else {
-		jvo->fail(dto->pimpersonid);
+		jvo->fail(dto->empid);
 	}
 	//vo->success("Job list information query success");
 	return jvo;
 }
-StringJsonVO::Wrapper EmployeeInfoController::execJobListQuery(const JobListQuery::Wrapper& query) {
-	auto vo = StringJsonVO::createShared();
-	vo->success("Job list information query success");
-	return vo;
+JobListPageJsonVO::Wrapper EmployeeInfoController::execJobListQuery(const JobListQuery::Wrapper& query) {
+	JobListService service;
+	auto jvo = JobListPageJsonVO::createShared();
+	auto res = service.listAll(query);
+	jvo->success(res);
+	return jvo;
 }

@@ -20,7 +20,8 @@ public:
 	bool updateData(const AssignInfoDTO::Wrapper& dto);
 	// 通过ID删除数据
 	bool removeData(string id);
-
+	// 查询详细数据
+	AssignInfoDTO::Wrapper QueryDetail(const AssignInfoDTO::Wrapper& dto);
 	string exportData(const AssignExportQuery::Wrapper &query);
 };
 
