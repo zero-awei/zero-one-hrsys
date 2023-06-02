@@ -16,20 +16,10 @@
 class DeleteLegalEntityQuery : public PageQuery
 {
 	DTO_INIT(DeleteLegalEntityQuery, PageQuery);
-	// 法人主体名称
-	DTO_FIELD(String, ormsignorgname);
-	DTO_FIELD_INFO(ormsignorgname) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.name");
-	}
-	// 签约主体单位名称
-	DTO_FIELD(String, contractsignorgname);
-	DTO_FIELD_INFO(contractsignorgname) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.contractsignorgname");
-	}
-	// 默认签约主体
-	DTO_FIELD(UInt64, isdefaultsignorg);
-	DTO_FIELD_INFO(isdefaultsignorg) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.isdefaultsignorg");
+	//法人主体标识ORMSIGNORGID
+	DTO_FIELD(List<String>, ormsignorgid);
+	DTO_FIELD_INFO(ormsignorgid) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.ormsignorgid");
 	}
 };
 

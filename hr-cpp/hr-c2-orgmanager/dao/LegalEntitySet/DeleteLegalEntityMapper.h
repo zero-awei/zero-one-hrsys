@@ -20,23 +20,10 @@ public:
 		data.setORMSIGNORGNAME(resultSet->getString(1));//this
 		data.setCONTRACTSIGNORGNAME(resultSet->getString(2));//要连表查询//this
 		data.setISDEFAULTSIGNORG(resultSet->getUInt64(3));//this
-
-		//data.setYgzt(resultSet->getString(3));
-		//data.setOrganizationName(resultSet->getString(3));
-		//data.setZgzsbh(resultSet->getString(5));
-		//data.setBcardNumber(resultSet->getString(6));	
-		//data.setZslx(resultSet->getString(8));
-		//data.setZghqrq(resultSet->getString(9));
-		//data.setZcdw(resultSet->getString(10));
-		//data.setZgsydw(resultSet->getString(11));
-		//data.setFzyxq(resultSet->getString(12));
-		//data.setSxrq(resultSet->getString(13));
 		return data;
 	}
 };
-/*
-*get里面是查到的符合条件的表的列数,要与实际的列数相对应才行，里面只找了要查的三个量
-*/
+
 
 
 /*
