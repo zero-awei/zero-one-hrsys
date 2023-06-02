@@ -40,6 +40,8 @@
     <ClCompile Include="service\JobTitleInfo\JobTitleInfo.cpp" />
     <ClCompile Include="uselib\excel\ExportExcel.cpp" />
     <ClCompile Include="uselib\fastdfs\UseFastDfs.cpp" />
+    <ClCompile Include="service\reitirement\contractManagerService.cpp" />
+    <ClCompile Include="dao\retirementDAO\contractManagerDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -124,6 +126,13 @@
     <ClInclude Include="domain\do\retirement\retirementDO.h" />
     <ClInclude Include="uselib\excel\ExportExcel.h" />
     <ClInclude Include="uselib\fastdfs\UseFastDfs.h" />
+    <ClInclude Include="domain\query\RetirementQuery\contractManagerQuery.h" />
+    <ClInclude Include="domain\dto\retirement\contractManagerDto.h" />
+    <ClInclude Include="domain\do\retirement\contractManagerDO.h" />
+    <ClInclude Include="domain\vo\RetirementVo\contractManagerVo.h" />
+    <ClInclude Include="service\reitirement\contractManagerService.h" />
+    <ClInclude Include="dao\retirementDAO\contractManagerDAO.h" />
+    <ClInclude Include="dao\retirementDAO\contractManagerMapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />

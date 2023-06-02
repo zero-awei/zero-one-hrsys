@@ -199,6 +199,12 @@ retirement_gan:
   work_state: 在岗状态
   department: 部门
   organization: 组织
+  contract_type: 合同类型
+  contract_id: 合同编号
+  start_date: 开始日期
+  stop_date: 结束日期
+
+
 
 contract:
   upload: 导入合同

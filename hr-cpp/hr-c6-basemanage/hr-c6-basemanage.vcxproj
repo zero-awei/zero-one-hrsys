@@ -183,6 +183,7 @@
     <ClCompile Include="dao\JobTitle\JobTitleDAO.cpp" />
     <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mg.cpp" />
     <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mh.cpp" />
+    <ClCompile Include="dao\retirementDAO\contractManagerDAO.cpp" />
     <ClCompile Include="dao\retirementDAO\retirementDAO.cpp" />
     <ClCompile Include="dao\TerminationReminder\TerminationReminderDAO.cpp" />
     <ClCompile Include="main.cpp" />
@@ -195,6 +196,7 @@
     <ClCompile Include="service\laborDispatch\LaborDispatchService-mh.cpp" />
     <ClCompile Include="service\Gosh\GoshService.cpp" />
     <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
+    <ClCompile Include="service\reitirement\contractManagerService.cpp" />
     <ClCompile Include="service\reitirement\retirementService.cpp" />
     <ClCompile Include="service\TerminationReminder\TerminationReminderServicecpp.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -235,6 +237,8 @@
     <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mg.h" />
     <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mh.h" />
     <ClInclude Include="dao\laborDispatch\LaborDispatchMapper-mh.h" />
+    <ClInclude Include="dao\retirementDAO\contractManagerDAO.h" />
+    <ClInclude Include="dao\retirementDAO\contractManagerMapper.h" />
     <ClInclude Include="dao\retirementDAO\retirementDAO.h" />
     <ClInclude Include="dao\retirementDAO\retirementMapper.h" />
     <ClInclude Include="dao\TerminationReminder\TerminationReminderDAO.h" />
@@ -243,6 +247,7 @@
     <ClInclude Include="domain\do\expenseLedger\ExpenseLedgerDO.h" />
     <ClInclude Include="domain\do\ExpenseLedge\ExpenseLedge.h" />
     <ClInclude Include="domain\do\laborDispatch\LaborDispatchDO.h" />
+    <ClInclude Include="domain\do\retirement\contractManagerDO.h" />
     <ClInclude Include="domain\do\retirement\retirementDO.h" />
     <ClInclude Include="domain\do\TerminationReminder\TerminationReminderDO.h" />
     <ClInclude Include="domain\dto\ContractDTO\ContractDTO_.h" />
@@ -250,9 +255,11 @@
     <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
     <ClInclude Include="domain\dto\JobTitleInfo\JobTitleInfoDTO.h" />
     <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO-mg.h" />
+    <ClInclude Include="domain\dto\retirement\contractManagerDto.h" />
     <ClInclude Include="domain\dto\TerminationReminderDTO\TerminationReminderDTO.h" />
     <ClInclude Include="domain\query\ExpenseLedger\ExpenseLedgerQuery.h" />
     <ClInclude Include="domain\query\LaborDispatch\LaborDispatchQuery-mg.h" />
+    <ClInclude Include="domain\query\RetirementQuery\contractManagerQuery.h" />
     <ClInclude Include="domain\query\RetirementQuery\RetirementQuery.h" />
     <ClInclude Include="domain\query\TerminationReminder\TerminationReminderQuery.h" />
     <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h" />
@@ -285,6 +292,7 @@
     <ClInclude Include="domain\vo\LaborDispatch\LaborDispatchVO.h" />
     <ClInclude Include="domain\query\Gosh\ContractQuery.h" />
     <ClInclude Include="domain\vo\Gosh\ContractVO.h" />
+    <ClInclude Include="domain\vo\RetirementVo\contractManagerVo.h" />
     <ClInclude Include="domain\vo\RetirementVo\RetirementVo.h" />
     <ClInclude Include="domain\vo\TerminationReminderVO\TerminationReminderVO.h" />
     <ClInclude Include="Macros.h" />
@@ -296,6 +304,7 @@
     <ClInclude Include="service\laborDispatch\LaborDispatchService-mg.h" />
     <ClInclude Include="service\laborDispatch\LaborDispatchService-mh.h" />
     <ClInclude Include="service\Gosh\GoshService.h" />
+    <ClInclude Include="service\reitirement\contractManagerService.h" />
     <ClInclude Include="service\reitirement\retirementService.h" />
     <ClInclude Include="service\sample\ContractService.h" />
     <ClInclude Include="domain\vo\muggle\LaborDispatchJsonVO.h" />

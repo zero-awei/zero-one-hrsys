@@ -25,7 +25,7 @@ class RetirementQuery_gan :public PageQuery {
 		info->description = ZH_WORDS_GETTER("retirement_gan.query.name");
 	}
 	DTO_FIELD(String, idcard);
-	// 查询的第二个参数，员工身份证
+	// 查询的第三个参数，员工身份证
 	DTO_FIELD_INFO(idcard) {
 		info->description = "zheng jian hao ma";
 	}
@@ -38,6 +38,16 @@ class RetirementQuery_gan :public PageQuery {
 	// 部门
 	DTO_FIELD_INFO(department) {
 		info->description = "bu men";
+	}
+	DTO_FIELD(String, employee_state);
+	// 员工状态
+	DTO_FIELD_INFO(employee_state) {
+		info->description = "yuan gong zhuang tai";
+	}
+	DTO_FIELD(String, work_state);
+	// 在岗状态
+	DTO_FIELD_INFO(work_state) {
+		info->description = "zai gong zhuang tai";
 	}
 };
 

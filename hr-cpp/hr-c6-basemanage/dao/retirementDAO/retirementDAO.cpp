@@ -27,6 +27,14 @@ if (query->department) { \
 	sql << " AND t_pimperson.ORMORGSECTORNAME=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->department.getValue("")); \
 } \
+if (query->employee_state) { \
+	sql << " AND t_pimperson.YGZT=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->employee_state.getValue("")); \
+} \
+if (query->work_state) { \
+	sql << " AND t_pimperson.ZGZT=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->work_state.getValue("")); \
+} \
 /*
 if (query->sex) { \
 	sql << " AND CZRID=?"; \

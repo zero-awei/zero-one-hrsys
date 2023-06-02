@@ -52,7 +52,11 @@ public:
 		info->queryParams.add<String>("department").description = ZH_WORDS_GETTER("retirement_gan.query.department");
 		info->queryParams["department"].required = false;
 
+		info->queryParams.add<String>("employee_state").description = ZH_WORDS_GETTER("retirement_gan.query.employee_state");
+		info->queryParams["employee_state"].required = false;
 
+		info->queryParams.add<String>("work_state").description = ZH_WORDS_GETTER("retirement_gan.query.work_state");
+		info->queryParams["work_state"].required = false;
 	}
 	// 3.2 定义查询接口处理
 		/*
@@ -79,58 +83,10 @@ public:
 		API_HANDLER_RESP_VO(execQueryTest(query));
 	}
 
-	/*
-	// 3.1 定义新增接口描述
-	ENDPOINT_INFO(addTest) {
-		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("retirement_gan.post.summary");
-		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-	}
-	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/add-retirement", addTest, BODY_DTO(RetirementDTO::Wrapper, dto)) {
-		// 响应结果
-		API_HANDLER_RESP_VO(execAddSample1(dto));
-	}
-
-
-	// 3.1 定义修改接口描述
-	ENDPOINT_INFO(changeTest) {
-		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("retirement_gan.update.summary");
-		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-	}
-	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/change-retirement", changeTest, BODY_DTO(RetirementDTO::Wrapper, dto)) {
-		// 响应结果
-		API_HANDLER_RESP_VO(execModifySample(dto));
-	}
-
-	// 3.1 定义删除接口描述
-	ENDPOINT_INFO(removeTest) {
-		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("retirement_gan.delete.summary");
-		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-	}
-	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/remove-retirement", removeTest, BODY_DTO(RetirementDTO::Wrapper, dto)) {
-		// 响应结果
-		API_HANDLER_RESP_VO(execRemoveSample(dto));
-	}
-	*/
 private:
 	//定义接口的执行函数
 	RetirementQueryPageJsonVO::Wrapper execQueryTest(const RetirementQuery_gan::Wrapper& query);
 
-	/*
-	Uint64JsonVO::Wrapper execAddSample1(const RetirementDTO::Wrapper& dto);
-
-	Uint64JsonVO::Wrapper execModifySample(const RetirementDTO::Wrapper& dto);
-	// 3.3 演示删除数据
-	Uint64JsonVO::Wrapper execRemoveSample(const RetirementDTO::Wrapper& dto);
-	*/
 };
 
 // 0 取消API控制器使用宏

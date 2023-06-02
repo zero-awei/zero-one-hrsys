@@ -4,9 +4,9 @@
 
 #include "domain/vo/BaseJsonVO.h"
 #include "domain/query/PageQuery.h"
-#include "domain/dto/retirement/RetiremetDto.h"
-#include "domain/vo/RetirementVo/RetirementVo.h"
-
+#include "domain/dto/retirement/contractManagerDto.h"
+#include "domain/vo/RetirementVo/contractManagerVo.h"
+#include "domain/query/RetirementQuery/contractManagerQuery.h"
 
 // 0 定义API控制器使用宏  (api控制器是处理传入请求，返回响应的)
 
@@ -33,9 +33,29 @@ public:
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数类型
-		API_DEF_ADD_RSP_JSON_WRAPPER(RetirementQueryPageJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(contractManagerQueryPageJsonVO);
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
+		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("retirement_gan.query.id");
+		info->queryParams["id"].required = false;
+
+		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("retirement_gan.query.name");
+		info->queryParams["name"].required = false;
+
+		info->queryParams.add<String>("Employee_status").description = ZH_WORDS_GETTER("retirement_gan.employee_state");
+		info->queryParams["Employee_status"].required = false;
+
+		info->queryParams.add<String>("contract_id").description = ZH_WORDS_GETTER("retirement_gan.query.contract_id");
+		info->queryParams["contract_id"].required = false;
+
+		info->queryParams.add<String>("contract_type").description = ZH_WORDS_GETTER("retirement_gan.query.contract_type");
+		info->queryParams["contract_type"].required = false;
+
+		info->queryParams.add<String>("start_date").description = ZH_WORDS_GETTER("retirement_gan.query.start_date");
+		info->queryParams["start_date"].required = false;
+
+		info->queryParams.add<String>("stop_date").description = ZH_WORDS_GETTER("retirement_gan.query.stop_date");
+		info->queryParams["stop_date"].required = false;
 	}
 	// 3.2 定义查询接口处理
 		/*
@@ -46,14 +66,14 @@ public:
 		queryTest：接口名字
 		QUERIES(QueryParams, qp1)：表示请求是表单数据，请求的参数都放到qp1中
 		*/
-	ENDPOINT(API_M_GET, "/Contract-management/Page-query-Contract", Contract_Page_query, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qp1))
+	ENDPOINT(API_M_GET, "/contract-management/Page-query-Contract", Contract_Page_query, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qp1))
 	{
 		/*
 		解析查询参数(解析为领域模型对象) 也就是query与dto
 		首先调用API_HANDLER_QUERY_PARAM宏解析请求中的查询参数(也就是pq1)，
 		将其解析（转换）为PageQuery类的对象，并以名称query保存在内存中。
 		*/
-		API_HANDLER_QUERY_PARAM(query, PageQuery, qp1);
+		API_HANDLER_QUERY_PARAM(query, contractManagerQuery, qp1);
 		/*
 		响应结果
 		然后调用execQueryTest()方法执行查询操作，
@@ -62,10 +82,9 @@ public:
 		API_HANDLER_RESP_VO(execQueryContractmanage(query));
 	}
 
-
 private:
 	//定义接口的执行函数
-	StringJsonVO::Wrapper execQueryContractmanage(const PageQuery::Wrapper& query);
+	contractManagerQueryPageJsonVO::Wrapper execQueryContractmanage(const contractManagerQuery::Wrapper& query);
 
 };
 
