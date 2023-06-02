@@ -36,7 +36,7 @@ public:
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.contractsignorgname");
 	}*/
 	//  默认签约主体
-	DTO_FIELD(String, isdefaultsignorg);
+	DTO_FIELD(String, isdefaultsignorg) = "1";
 	DTO_FIELD_INFO(isdefaultsignorg) {
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.isdefaultsignorg");
 	}
