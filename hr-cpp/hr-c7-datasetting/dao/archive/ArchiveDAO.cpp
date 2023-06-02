@@ -31,7 +31,7 @@ if (query->numid) {\
 uint64_t ArchiveDAO::count(const ArchiveQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM archive";
+	sql << "SELECT COUNT(*) FROM t_archivescenter";
 	ARCHIVE_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
@@ -40,7 +40,7 @@ uint64_t ArchiveDAO::count(const ArchiveQuery::Wrapper& query)
 std::list<ArchiveDO> ArchiveDAO::selectWithPage(const ArchiveQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT * FROM archive";
+	sql << "SELECT * FROM t_archivescenter";
 	ARCHIVE_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	ArchiveMapper mapper;
@@ -50,25 +50,25 @@ std::list<ArchiveDO> ArchiveDAO::selectWithPage(const ArchiveQuery::Wrapper& que
 
 std::list<ArchiveDO> ArchiveDAO::selectByName(const string& name)
 {
-	string sql = "SELECT * FROM archive WHERE `archivename` LIKE CONCAT('%',?,'%')";
+	string sql = "SELECT * FROM t_archivescenter WHERE `ARCHIVESCENTERNAME` LIKE CONCAT('%',?,'%')";
 	ArchiveMapper mapper;
 	return sqlSession->executeQuery<ArchiveDO, ArchiveMapper>(sql, mapper, "%s", name);
 }
 
 uint64_t ArchiveDAO::insert(const ArchiveDO& iObj)
 {
-	string sql = "INSERT INTO `archive` (`sortid`, `archivename`, `cabinetnum`,`layernum`,`numid`) VALUES (?, ?, ?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%i%s%i%i%i", iObj.getsortID(), iObj.getarchiveName(), iObj.getcabinetNum(),iObj.getlayerNum(), iObj.getnumID());
+	string sql = "INSERT INTO `t_archivescenter` (`SERIALNO`, `ARCHIVESCENTERNAME`, `CABINETNO`,`LAYERNO`,`ARCHIVESCENTERID`) VALUES (?, ?, ?, ?, ?)";
+	return sqlSession->executeInsert(sql, "%i%s%i%i%i", iObj.getsortID(), iObj.getarchiveName(), iObj.getcabinetNum(), iObj.getlayerNum(), iObj.getnumID());
 }
 
 int ArchiveDAO::update(const ArchiveDO& uObj)
 {
-	string sql = "UPDATE `archive` SET `archivename`=?, `cabinetnum`=? ,`layernum`=?,`numid`=? WHERE `sortid`=?";
-	return sqlSession->executeUpdate(sql, "%s%i%i%i%i", uObj.getarchiveName(), uObj.getcabinetNum(), uObj.getlayerNum(), uObj.getnumID(),uObj.getsortID());
+	string sql = "UPDATE `t_archivescenter` SET `ARCHIVESCENTERNAME`=?, `CABINETNO`=? ,`LAYERNO`=?,`BNUMBER`=? WHERE `SERIALNO`=?";
+	return sqlSession->executeUpdate(sql, "%s%i%i%i%i", uObj.getarchiveName(), uObj.getcabinetNum(), uObj.getlayerNum(), uObj.getnumID(), uObj.getsortID());
 }
 
 int ArchiveDAO::deleteById(uint64_t id)
 {
-	string sql = "DELETE FROM `archive` WHERE `sortid`=?";
+	string sql = "DELETE FROM `t_archivescenter` WHERE `SERIALNO`=?";
 	return sqlSession->executeUpdate(sql, "%ull", id);
 }
