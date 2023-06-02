@@ -2,7 +2,7 @@ const routes = [
   {
     path: '/home',
     name: 'Home',
-    redirect: { name: 'Dashboard' },
+    redirect: { name: 'pimportalview' },
     component: () => import('@/views/HomeView.vue'),
     children: [
       {

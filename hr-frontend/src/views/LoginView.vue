@@ -1,35 +1,46 @@
 <template>
-<div class="box">
-  <div class="container">
-    <div class="login-box">
-      <h1 class="login-title">人力资源管理系统</h1>
-      <el-form :model="formData" ref="form" class="login-form">
-        <el-form-item>
-          <div class="input-container">
-            <label class="el-form-item__label">账号</label>
-            <el-input v-model="formData.username" class="login-input"></el-input>
-          </div>
-        </el-form-item>
-        <el-form-item>
-          <div class="input-container">
-            <label class="el-form-item__label">密码</label>
-            <el-input v-model="formData.password" type="password" class="login-input"></el-input>
-          </div>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" class="login-button" @click="submitForm">登录</el-button>
-        </el-form-item>
-      </el-form>
-      <!-- TODO[TEST_CODE]: 测试代码后期发布需要删除 -->
-      <hr/>
-      <router-link to="/sample" class="sample-link">进入示例演示页面</router-link>
+  <div class="box">
+    <div class="container">
+      <div class="login-box">
+        <h1 class="login-title">人力资源管理系统</h1>
+        <el-form :model="formData" ref="form" class="login-form">
+          <el-form-item>
+            <div class="input-container">
+              <label class="el-form-item__label">账号</label>
+              <el-input
+                v-model="formData.username"
+                class="login-input"
+              ></el-input>
+            </div>
+          </el-form-item>
+          <el-form-item>
+            <div class="input-container">
+              <label class="el-form-item__label">密码</label>
+              <el-input
+                v-model="formData.password"
+                type="password"
+                class="login-input"
+              ></el-input>
+            </div>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" class="login-button" @click="submitForm"
+              >登录</el-button
+            >
+          </el-form-item>
+        </el-form>
+        <!-- TODO[TEST_CODE]: 测试代码后期发布需要删除 -->
+        <hr />
+        <router-link to="/sample" class="sample-link"
+          >进入示例演示页面</router-link
+        >
+      </div>
     </div>
   </div>
-</div>
   <!-- 验证码组件 -->
   <Verify
     mode="pop"
-    :captchaType="captchaType"    
+    :captchaType="captchaType"
     :imgSize="{ width: '400px', height: '200px' }"
     ref="verify"
     @success="handleSuccess"
@@ -134,19 +145,18 @@ function handleSuccess(res) {
 
   // doLogin(res.captchaVerification)
 }
-
 </script>
 
 <style>
-.box{
+.box {
   width: 100vw;
   height: 100vh;
   background-color: rgb(29, 67, 89);
 }
 .container {
   display: flex;
-  background-image: url("../../images/login_two.jpg");
-  background-size:160vb 90vh ;
+  background-image: url('../../images/login_two.jpg');
+  background-size: 160vb 90vh;
   background-position: center;
   background-repeat: no-repeat;
   justify-content: center;
@@ -172,14 +182,14 @@ function handleSuccess(res) {
   margin-bottom: 30px;
 }
 
-.el-form-item__label{
+.el-form-item__label {
   color: rgb(81, 100, 115);
   display: block;
   margin: 5px 20px;
   font-weight: 100;
   font-size: 18px;
 }
-.el-input__wrapper{
+.el-input__wrapper {
   height: 50px;
   width: 350px;
   border: 1px solid rgb(214, 222, 228);
