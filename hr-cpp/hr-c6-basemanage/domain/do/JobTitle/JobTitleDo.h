@@ -35,8 +35,8 @@ private:
 
 	// 职称等级
 	CC_SYNTHESIZE(string, jobtitle_grades, Jobtitle_Grades);
-	//// 职称获取月数
-	//CC_SYNTHESIZE(string, employment_month, Employment_Month);
+	// 职称获取月数
+	CC_SYNTHESIZE(string, employment_month, Employment_Month);
 	// 职称聘用时间
 	CC_SYNTHESIZE(string, title_employment_time, Title_Employment_Time);
 	// 签发机构
