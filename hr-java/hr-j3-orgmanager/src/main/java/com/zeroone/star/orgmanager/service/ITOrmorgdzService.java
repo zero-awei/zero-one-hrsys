@@ -14,7 +14,7 @@ import com.zeroone.star.project.j3.dto.orgmanager.OrgAddressDto;
  * @since 2023-05-30
  */
 public interface ITOrmorgdzService extends IService<TOrmorgdz> {
-    boolean deleteOrgAddress(OrgAddressDto ids);
+    boolean deleteOrgAddress(OrgAddressDto orgAddressDto);
 
-    ExportOrgAddressDto exportOrgAddress(OrgAddressDto ids) throws Exception;
+    ExportOrgAddressDto exportOrgAddress(OrgAddressDto orgAddressDto) throws Exception;
 }

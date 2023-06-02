@@ -68,15 +68,15 @@ public class OrgInfoController implements OrgInfoApis {
     @DeleteMapping("delete-org-address")
     @ApiOperation("删除指定组织地址信息（支持批量）")
     @Override
-    public JsonVO<Boolean> deleteOrgAddress(@RequestBody OrgAddressDto ids) {
-        return JsonVO.success(itOrmorgdzService.deleteOrgAddress(ids));
+    public JsonVO<Boolean> deleteOrgAddress(@RequestBody OrgAddressDto orgAddressDto) {
+        return JsonVO.success(itOrmorgdzService.deleteOrgAddress(orgAddressDto));
     }
 
     @GetMapping("export-org-address")
     @ApiOperation("导出指定组织地址信息")
     @Override
-    public JsonVO<ExportOrgAddressDto> exportOrgAddress(@RequestBody OrgAddressDto ids) {
-        return JsonVO.success(itOrmorgdzService.exportOrgAddress(ids));
+    public JsonVO<ExportOrgAddressDto> exportOrgAddress(@RequestBody OrgAddressDto orgAddressDto) throws Exception {
+        return JsonVO.success(itOrmorgdzService.exportOrgAddress(orgAddressDto));
     }
 
     @PutMapping("add-org-info")

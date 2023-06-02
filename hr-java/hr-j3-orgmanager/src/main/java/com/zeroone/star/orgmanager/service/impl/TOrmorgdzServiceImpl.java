@@ -32,8 +32,8 @@ public class TOrmorgdzServiceImpl extends ServiceImpl<TOrmorgdzMapper, TOrmorgdz
     private FastDfsClientComponent fastDfsClientComponent;
 
     @Override
-    public boolean deleteOrgAddress(OrgAddressDto ids) {
-        int flag = baseMapper.deleteBatchIds(ids.getIds());
+    public boolean deleteOrgAddress(OrgAddressDto orgAddressDto) {
+        int flag = baseMapper.deleteBatchIds(orgAddressDto.getIds());
         if (flag!=0){
             return true;
         }
@@ -41,9 +41,9 @@ public class TOrmorgdzServiceImpl extends ServiceImpl<TOrmorgdzMapper, TOrmorgdz
     }
 
     @Override
-    public ExportOrgAddressDto exportOrgAddress(OrgAddressDto ids) throws Exception{
+    public ExportOrgAddressDto exportOrgAddress(OrgAddressDto orgAddressDto) throws Exception{
         //查询数据
-        List<TOrmorgdz> tOrmorgdzs = baseMapper.selectBatchIds(ids.getIds());
+        List<TOrmorgdz> tOrmorgdzs = baseMapper.selectBatchIds(orgAddressDto.getIds());
         // 创建输出流
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         // 导出数据到输出流
@@ -55,10 +55,11 @@ public class TOrmorgdzServiceImpl extends ServiceImpl<TOrmorgdzMapper, TOrmorgdz
         if (fastDfsFileInfo == null) {
             return null;
         }
-        // 返回下载地址
-        ExportOrgAddressDto orgAddressDto =new ExportOrgAddressDto();
-        orgAddressDto.setUrl(fastDfsClientComponent.fetchUrl(fastDfsFileInfo, "http://", true));
 
-        return orgAddressDto;
+        // 返回下载地址
+        ExportOrgAddressDto exportOrgAddressDto =new ExportOrgAddressDto();
+        exportOrgAddressDto.setUrl(fastDfsClientComponent.fetchUrl(fastDfsFileInfo, "http://", true));
+
+        return exportOrgAddressDto;
     }
 }
