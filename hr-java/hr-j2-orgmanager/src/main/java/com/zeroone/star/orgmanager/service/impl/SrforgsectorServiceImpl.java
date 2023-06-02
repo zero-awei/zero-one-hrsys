@@ -98,8 +98,7 @@ public class SrforgsectorServiceImpl extends ServiceImpl<SrforgsectorMapper, Srf
         if (query.getDepartmentName() != null) {
             wrapper.like(Srforgsector::getOrgsectorname, query.getDepartmentName());
         }
-        List<Srforgsector> srforgsectors = srforgsectorMapper.selectList(wrapper);
-        List<DepartmentDTO> departments = msSrforgsectorMapper.dosToDTOS(srforgsectors);
+        List<DepartmentDTO> departments = msSrforgsectorMapper.dosToDTOS(srforgsectorMapper.selectList(wrapper));
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         component.export("测试", out, DepartmentDTO.class, departments);
         FastDfsFileInfo info = fastDfsClientComponent.uploadFile(out.toByteArray(), "xlsx");

@@ -1,16 +1,34 @@
 package com.zeroone.star.orgmanager.service.impl;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zeroone.star.orgmanager.entity.Ormbmkqdz;
+import com.zeroone.star.orgmanager.entity.Srforgsector;
 import com.zeroone.star.orgmanager.mapper.TOrmbmkqdzMapper;
 import com.zeroone.star.orgmanager.service.ITOrmbmkqdzService;
+import com.zeroone.star.project.components.easyexcel.EasyExcelComponent;
+import com.zeroone.star.project.components.fastdfs.FastDfsClientComponent;
+import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
+import com.zeroone.star.project.dto.orgmanager.DepartmentDTO;
+import com.zeroone.star.project.dto.orgmanager.DeptKqdzDTO;
+import com.zeroone.star.project.dto.orgmanager.ExportDTO;
 import com.zeroone.star.project.dto.orm.OrmBmkqdzDTO;
+import com.zeroone.star.project.query.orgmanager.ExportAttendanceAddressQuery;
 import com.zeroone.star.project.vo.JsonVO;
+import lombok.SneakyThrows;
+import org.mapstruct.Mapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.io.ByteArrayOutputStream;
 import java.time.LocalDateTime;
+import java.util.List;
+
+@Mapper(componentModel = "spring")
+interface MsOrmbmkqdzMapper {
+    List<DeptKqdzDTO> dosToDTOS(List<Ormbmkqdz> ormbmkqdzs);
+}
 
 /**
  * <p>
@@ -38,6 +56,32 @@ public class TOrmbmkqdzServiceImpl extends ServiceImpl<TOrmbmkqdzMapper, Ormbmkq
         int res = tOrmbmkqdzMapper.updateAttendanceAddress(ormBmkqdzDTO);
         return JsonVO.success("更新成功");
         //return res == 1 ? JsonVO.success("更新成功"):JsonVO.fail("更新失败");
+    }
+
+    @Resource
+    private MsOrmbmkqdzMapper msOrmbmkqdzMapper;
+
+    @Resource
+    private EasyExcelComponent component;
+
+    @Resource
+    private FastDfsClientComponent fastDfsClientComponent;
+
+    @SneakyThrows
+    @Override
+    public ExportDTO exportAttendanceAddress(ExportAttendanceAddressQuery query) {
+        LambdaQueryWrapper<Ormbmkqdz> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(Ormbmkqdz::getOrmorgsectorid, query.getDepartmentId());
+        List<DeptKqdzDTO> deptkqdzs = msOrmbmkqdzMapper.dosToDTOS(baseMapper.selectList(wrapper));
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        component.export("测试", out, DeptKqdzDTO.class, deptkqdzs);
+        FastDfsFileInfo info = fastDfsClientComponent.uploadFile(out.toByteArray(), "xlsx");
+        if (info == null) {
+            return null;
+        }
+        ExportDTO exportDTO = new ExportDTO();
+        exportDTO.setUrl(fastDfsClientComponent.fetchUrl(info, "http://", true));
+        return exportDTO;
     }
 
 

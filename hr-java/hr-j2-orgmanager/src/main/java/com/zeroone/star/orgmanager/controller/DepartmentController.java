@@ -40,7 +40,7 @@ public class DepartmentController implements DepartmentApis {
     @GetMapping("export-attendance-address")
     @Override
     public JsonVO<ExportDTO> execExportAttendanceAddress(ExportAttendanceAddressQuery query) {
-        return null;
+        return JsonVO.success(ormbmkqdzService.exportAttendanceAddress(query));
     }
 
     @Resource
