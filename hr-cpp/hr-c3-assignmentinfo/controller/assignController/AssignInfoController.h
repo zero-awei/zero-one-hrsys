@@ -79,7 +79,7 @@ public:
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, AssignInfoQuery, queryParams);
 		// 响应结果
-		API_HANDLER_RESP_VO(execAssignQuery(userQuery));
+		API_HANDLER_RESP_VO(execAssignQuery(userQuery, authObject->getPayload()));
 	}
 	// 3.1 定义新增接口描述
 	ENDPOINT_INFO(addAssignInfo) {
@@ -220,7 +220,7 @@ private:
 	StringJsonVO::Wrapper execAddAssignInfo(const AssignInfoDTO::Wrapper& dto);
 	StringJsonVO::Wrapper execDeleteAssignInfo(const AssignInfoDTO::Wrapper& dto);
 	//ImportAssignInfoJsonVO::Wrapper execImportAssignInfo(const ImportAssignInfoDTO::Wrapper& dto);
-	AssignInfoPageJsonVO::Wrapper execAssignQuery(const AssignInfoQuery::Wrapper& query);
+	AssignInfoPageJsonVO::Wrapper execAssignQuery(const AssignInfoQuery::Wrapper& query, const PayloadDTO& payload);
 	AssignInfoJsonVO::Wrapper execAssignQueryDetail(const AssignInfoQueryDetail::Wrapper& dto, const PayloadDTO& payload);
 	StringJsonVO::Wrapper execModifyAssignInfo(const AssignInfoDTO::Wrapper& dto);
 };

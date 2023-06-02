@@ -109,7 +109,7 @@ StringJsonVO::Wrapper AssignInfoController::execModifyAssignInfo(const AssignInf
 	return jvo;
 }
 
-AssignInfoPageJsonVO::Wrapper AssignInfoController::execAssignQuery(const AssignInfoQuery::Wrapper& query)
+AssignInfoPageJsonVO::Wrapper AssignInfoController::execAssignQuery(const AssignInfoQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	// 定义一个Service
 	AssignInfoService service;
