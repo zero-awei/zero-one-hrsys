@@ -1,34 +1,37 @@
-#ifndef _CONTRACTINFODO_
+ï»¿#ifndef _CONTRACTINFODO_
 #define _CONTRACTINFODO_
 #include "../DoInclude.h"
 #include "../hr-sample/Macros.h"
 class ContractInfoDO
 {
-	// 1Ô±¹¤±àºÅt_pimperson.YGBH
+	// 1å‘˜å·¥ç¼–å·t_pimperson.YGBH
 	CC_SYNTHESIZE(string, id, Id);
-	// 2Ô±¹¤ĞÕÃût_pimperson.PIMPERSONNAME
+	// 2å‘˜å·¥å§“åt_pimperson.PIMPERSONNAME
 	CC_SYNTHESIZE(string, name, Name);
-	//3ºÏÍ¬Àà±ğt_pimcontract.HTLX
+	//3åˆåŒç±»åˆ«t_pimcontract.HTLX
 	CC_SYNTHESIZE(string, type, Type);
-	//4ºÏÍ¬ÀàĞÍt_pimcontract.CONTRACTTYPE
+	//4åˆåŒç±»å‹t_pimcontract.CONTRACTTYPE
 	CC_SYNTHESIZE(string, variety, Variety);
-	//5ÆğÊ¼ÈÕÆÚt_pimcontract.QSRQ
+	//5èµ·å§‹æ—¥æœŸt_pimcontract.QSRQ
 	CC_SYNTHESIZE(string, date, Date);
-	//6ºÏÍ¬×´Ì¬t_pimcontract.HTZT
+	//6åˆåŒçŠ¶æ€t_pimcontract.HTZT
 	CC_SYNTHESIZE(string, condition, Condition);
-	//7Ô±¹¤ËùÊôµ¥Î»t_pimcontract.ORMORGNAME
+	//7å‘˜å·¥æ‰€å±å•ä½t_pimcontract.ORMORGNAME
 	CC_SYNTHESIZE(string, department_m, Department_m);
-	//8ºÏÍ¬Ç©¶©µ¥Î»t_pimcontract.LEGALORG
+	//8åˆåŒç­¾è®¢å•ä½t_pimcontract.LEGALORG
 	CC_SYNTHESIZE(string, department_c, Department_c);
-	//9ÊÔÓÃµ½ÆÚÊ±¼ät_pimcontract.SYDQSJ
+	//9è¯•ç”¨åˆ°æœŸæ—¶é—´t_pimcontract.SYDQSJ
 	CC_SYNTHESIZE(string, try_end, Try_end);
-	//10±¸×¢t_pimcontract.DEMO
+	//10å¤‡æ³¨t_pimcontract.DEMO
 	CC_SYNTHESIZE(string, tip, Tip);
-	//11Ô±¹¤ĞÅÏ¢±êÊ¶t_pimcontract.PIMCONTRACTID (key)
+	//11å‘˜å·¥ä¿¡æ¯æ ‡è¯†t_pimcontract.PIMCONTRACTID (key)
 	CC_SYNTHESIZE(string, infoid, Infoid);
-	//12ºÏÍ¬½áÊøÈÕÆÚt_pimcontract.JSRQ
+	//12åˆåŒç»“æŸæ—¥æœŸt_pimcontract.JSRQ
 	CC_SYNTHESIZE(string, date_end, Date_end);
-
+	//13åˆåŒç¼–å·t_pimcontract.HTBH
+	CC_SYNTHESIZE(string, contract_num, Contract_num);
+	//14å‘˜å·¥çŠ¶æ€t_pimperson.YGZT
+	CC_SYNTHESIZE(string, emp_condition, Emp_condition);
 public:
 	ContractInfoDO() {
 		id = "";
@@ -43,6 +46,8 @@ public:
 		tip = "";
 		infoid = "";
 		date_end = "";
+		contract_num = "";
+		emp_condition = "";
 	}
 };
 

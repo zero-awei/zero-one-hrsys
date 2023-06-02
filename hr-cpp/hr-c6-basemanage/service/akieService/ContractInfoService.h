@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #ifndef _Contract_Info_SERVICE_
 #define _Contract_Info_SERVICE_
@@ -8,18 +8,18 @@
 #include "domain/dto/ContractDTO/ContractDTO_.h"
 
 /**
- * akieÊµÏÖservice
+ * akieå®ç°service
  */
 class ContractInfoService
 {
 public:
-	// ²é¿´Ö¸¶¨ºÏÍ¬ĞÅÏ¢
+	// æŸ¥çœ‹æŒ‡å®šåˆåŒä¿¡æ¯
 	ContractDTO_::Wrapper listContract(const ContractQuery_::Wrapper& query);
-	// ĞŞ¸ÄÖ¸¶¨ºÏÍ¬
+	// ä¿®æ”¹æŒ‡å®šåˆåŒ
 	bool updateContract(const ContractDTO_::Wrapper& dto);
-	// ÏÂÔØºÏÍ¬
+	// ä¸‹è½½åˆåŒ
 	std::string downloadContract(const ContractDownloadQuery::Wrapper& query);
-	// ±£´æÊı¾İ
+	// ä¿å­˜æ•°æ®
 	uint64_t saveData(const ContractDTO_::Wrapper& dto);
 };
 

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #ifndef _Contract_Info_DAO_
 #define _Contract_Info_DAO_
 #include "BaseDAO.h"
@@ -6,21 +6,21 @@
 #include "domain/query/ContractQuery/ContractQuery_.h"
 
 /**
- * Ê¾Àı±íÊı¾İ¿â²Ù×÷ÊµÏÖ
+ * ç¤ºä¾‹è¡¨æ•°æ®åº“æ“ä½œå®ç°
  */
 class ContractInfoDAO : public BaseDAO
 {
 public:
-	// Í¨¹ıid²éÑ¯ºÏÍ¬ĞÅÏ¢
+	// é€šè¿‡idæŸ¥è¯¢åˆåŒä¿¡æ¯
 	list<ContractInfoDO> selectByInfoid(const string& infoid);
 
-	//¸üĞÂÖ¸¶¨ºÏÍ¬
+	//æ›´æ–°æŒ‡å®šåˆåŒ
 	int update(const ContractInfoDO& uObj);
 
-	//°´rowsµ¼³öÊı¾İ
-	std::list<ContractInfoDO> downloadByRows(oatpp::String sequence, UInt64 rows);
+	//æŒ‰rowså¯¼å‡ºæ•°æ®
+	std::list<ContractInfoDO> downloadByFiltration(const ContractDownloadQuery::Wrapper& query);
 
-	// ²åÈëÊı¾İ
+	// æ’å…¥æ•°æ®
 	uint64_t insert(const ContractInfoDO& iObj);
 };
 #endif // !_SAMPLE_DAO_

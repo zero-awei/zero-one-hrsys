@@ -217,6 +217,7 @@ contract:
     type: 合同类别
     variety: 合同类型
     date: 起始日期
+    date(>=): 起始日期(>=)
     condition: 合同状态
     department_m: 合同管理单位
     department_c: 合同签订单位
@@ -224,9 +225,12 @@ contract:
     tip: 备注
     infoid: 合同信息标识
     date_end: 合同到期时间
+    date_end(<=): 合同到期时间(<=)
+    contract_num: 合同编号
+    emp_condition: 员工状态
     name_example: 韩**
   export:
-    rows: 导出数据条数
+    rows: 导出数据条数(最大5000条)
     sequence: 导出数据顺序
 
 jobtitle:
