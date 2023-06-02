@@ -85,8 +85,49 @@ const asideMenus = reactive([
   }
 ])
 
+//表头数据
+//表格表名
+const tableTitle = ref('人员列表')
+//新增表单的表名
+const addTitle = ref('人员列表编辑')
+//功能按键需求配置
+const tableOperations = reactive([
+  {
+    name: '新增'
+  },
+])
+//新增表单所需栏目
+const dataitem = reactive([
+  {
+    label: '员工姓名',
+    name: 'name',
+    type: String,
+  },
+  {
+    label: '员工编号',
+    name: 'ID',
+    type: Array,
+    //如果是选项请配置以下属性
+    options: [
+      {
+        id: 1,
+        optionData: "111"
+      },
+      {
+        id: 2,
+        optionData: "222"
+      },
+    ]
+  },
+  {
+    label: '备注',
+    name: 'remark',
+    type: 'Text',
+  },
+])
+
 //表单数据
-const xmlData = [
+const xmlData = ref([
   { id: 1, name: '档案编号', prop: 'id' },
   { id: 2, name: '管理单位', prop: 'name' },
   { id: 3, name: '档案保管地', prop: 'dabgd' },
@@ -98,8 +139,8 @@ const xmlData = [
   { id: 9, name: '所属单位', prop: 'unit' },
   { id: 10, name: '档案未转出月数', prop: 'months' },
   { id: 11, name: '档案借阅状态', prop: 'loanStatus' }
-]
-
+])
+const newXmlData = ref([])
 //注入表格数据
 const tableData = [
   {
@@ -220,51 +261,20 @@ const userData = reactive({
     }
   ]
 })
-//新增表单所需栏目
-const dataitem = reactive([
-  {
-    label:'员工姓名',
-    name:'name',
-    type:String,
-  },
-  {
-    label:'员工编号',
-    name:'ID',
-    type:Array,
-    //如果是选项请配置以下属性
-    options:[
-      {
-        id:1,
-        optionData:"111"
-      },
-      {
-        id:2,
-        optionData:"222"
-      },
-    ]   
-  },
-  {
-    label:'备注',
-    name:'remark',
-    type:'Text',
-  },
-])
-
 
 export const useInfoStore = defineStore('archivesInfo', {
   state: () => ({
     //记录侧边栏菜单
-    menus: null,
+    menus: asideMenus,
     //配置功能按键
-    tableOperations: [{ name: '新增' }],
-    //新增表单所需栏目配置
-    dataitem: [],
+    tableOperations: null,
     //记录表格表名
-    tableTitle: '',
+    tableTitle: null,
     //新增按钮表单表名
-    addTitle: '',
+    addTitle: null,
     //记录表单数据
     xmlData: xmlData,
+    newXmlData: '',
     //记录表格数据
     tableData: null,
     //用户信息
@@ -276,7 +286,7 @@ export const useInfoStore = defineStore('archivesInfo', {
   }),
   actions: {
     //加载侧边栏菜单
-    async asideData() {
+    asideData() {
       //发送请求获取表单所需栏目
       // let data = await Request.requestForm(
       //   Request.GET,
@@ -289,10 +299,10 @@ export const useInfoStore = defineStore('archivesInfo', {
 
     //根据搜索内容筛选数据
     filter(val) {
-      console.log(`output->`, val)
+      //未完
     },
 
-    async getData(val) {
+   addData(val) {
       //发送请求获取表单所需栏目
       // let data = await Request.requestForm(
       //   Request.GET,
@@ -301,11 +311,11 @@ export const useInfoStore = defineStore('archivesInfo', {
       // )
       // this.dataitem = data.data
       //写保存数据的逻辑
-      this.dataitem=dataitem
+      this.dataitem = dataitem
       this.dataitem.push(val)
     },
 
-    async savaTableData() {
+    savaTableData() {
       // 发送请求获取表格数据
       // let data = await Request.requestForm(
       //   Request.GET,
@@ -315,7 +325,13 @@ export const useInfoStore = defineStore('archivesInfo', {
       // this.tableData = data.data
       this.tableData = tableData
     },
-    async editInfo(){
+    getNewXmlData(checkStatus) {
+      newXmlData.value = xmlData.value.filter((item) => {
+        return checkStatus.value.includes(item.name)
+      })
+      // xmlData.value  = newXmlData
+    },
+    editInfo() {
       // 发送请求获取表格数据
       // let data = await Request.requestForm(
       //   Request.GET,
@@ -323,9 +339,9 @@ export const useInfoStore = defineStore('archivesInfo', {
       //   null
       // )
       // this.userData = data.data
-      this.userData=userData
+      this.userData = userData
       provide('userData', userData)
     }
-    
+
   }
 })

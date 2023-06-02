@@ -20,7 +20,6 @@ const tableOperations = reactive([
   {
     name: '新增'
   },
-  {
 ])
 //新增表单所需栏目配置
 const dataitem = reactive([

@@ -1,4 +1,3 @@
-//例子
 <template>
   <div class="common-layout">
     <el-container>
@@ -10,6 +9,8 @@
           <TableHead :tableTitle="$store.tableTitle" :addTitle="$store.addTitle" :tableOperations="$store.tableOperations" :saveData="$store.addData">
             <Search :filter="filter" class="search"></Search>
             <div class="filter">
+              //导出
+
               <Filter></Filter>
             </div>
           </TableHead>
@@ -39,10 +40,6 @@ import MainTable from '../../../components/MainTable.vue'
 import ColumnFilter from '@/components/columnFilter/ColumnFilter.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
 import Filter from '@/components/filter/Filter.vue'
-// import Employees from '@/components/Employees/Employees.vue'
-// import Edit from '@/components/edit/Edit.vue'
-// import MessageBox from '@/components/feedback/MessageBox.vue'
-// import Notification from '@/components/feedback/Notification.vue'
 import { useInfoStore } from '@/stores/archievesManage/archievesInfo.js'
 
 const $store = useInfoStore()
