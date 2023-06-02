@@ -23,8 +23,9 @@
 #include "controller/Router.h"
 #include "controller/OtherComponent.hpp"
 #include "DbInit.h"
+#define HTTP_SERVER_DEMO
 #ifdef HTTP_SERVER_DEMO
-#include "uselib/jwt/TestToken.h"
+#include "uselib/jwt/EmployeeInformationToken.h"
 #endif
 
 #ifdef USE_NACOS
@@ -130,7 +131,7 @@ bool getStartArg(int argc, char* argv[]) {
 int main(int argc, char* argv[]) {
 #ifdef HTTP_SERVER_DEMO
 	// 测试生成 JWT Token
-	TestToken::generateToken();
+	EmployeeInformationToken::generateToken();
 #endif
 
 	// 服务器参数初始化

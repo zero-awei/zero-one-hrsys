@@ -3,7 +3,7 @@
 #include "service/EmployeeInformation/EmployeeInformationServicer.h"
 
 //分页查询员工列表
-EmployeeInformationPageJsonVO::Wrapper EmployeeInformationController::execEmployeeInformation(const EmployeeInformationPageQuery::Wrapper& query)
+EmployeeInformationPageJsonVO::Wrapper EmployeeInformationController::execEmployeeInformation(const EmployeeInformationPageQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	// 定义一个Service
 	EmployeeInformationServicer service;
