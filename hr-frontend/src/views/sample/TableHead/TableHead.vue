@@ -1,5 +1,4 @@
 <template>
-
   <TableHead :tableTitle="tableTitle" 
              :addTitle="addTitle" 
              :tableOperations ="tableOperations" 
@@ -23,18 +22,38 @@ const tableOperations = reactive([
   {
     name:'新增'
   }, 
+  {
+    name:'新增'
+  }, 
 ])
 //新增表单所需栏目配置
+const dataitem = reactive([
   {
+    label:'员工姓名',
+    name:'name',
+    type:String,
   },
   {
+    label:'员工编号',
+    name:'ID',
+    type:Array,
     //如果是选项请配置以下属性
     options:[
       {
+        id:1,
+        optionData:"111"
       },
       {
+        id:2,
+        optionData:"222"
+      },
+    ]   
   },
   {
+    label:'备注',
+    name:'remark',
+    type:'Text',
+  },
 ])
 
 const saveData = (val)=>{

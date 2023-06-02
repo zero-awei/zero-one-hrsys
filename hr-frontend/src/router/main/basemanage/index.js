@@ -132,24 +132,44 @@ const routes = [
   },
   {
     path: '/dispatch',
-    name: '劳务派遣公司',
+    name: 'Dispatch',
     component: () => import('@/views/baseManage/contractManage/Dispatch.vue')
   },
   {
     path: '/contract',
-    name: '合同信息',
+    name: 'Contract',
     component: () => import('@/views/baseManage/contractManage/Contract.vue')
   },
   {
     path: '/initsigning',
-    name: '初签(续签)提醒',
+    name: 'InitSigning',
     component: () => import('@/views/baseManage/contractManage/InitSigning.vue')
   },
   {
     path: '/termination',
-    name: '终止提醒',
+    name: 'Termination',
     component: () => import('@/views/baseManage/contractManage/Termination.vue')
-  }
+  },
+  {
+    path: '/certificateinfo',
+    name: 'CertificateInfo',
+    component: () => import('@/views/baseManage/certificateManage/CertificateInfo.vue')
+  },
+  {
+    path: '/jobtitleinfo',
+    name: 'JobTitleInfo',
+    component: () => import('@/views/baseManage/jobTitleManage/JobTitleInfo.vue')
+  },
+  {
+    path: '/businessabroad',
+    name: 'BusinessAbroad',
+    component: () => import('@/views/baseManage/goAbroad/BusinessAbroad.vue')
+  },
+  {
+    path: '/privateabroad',
+    name: 'PrivateAbroad',
+    component: () => import('@/views/baseManage/goAbroad/PrivateAbroad.vue')
+  },
 ]
 
 export default routes

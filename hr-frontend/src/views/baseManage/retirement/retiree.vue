@@ -23,7 +23,7 @@
   </el-container>
 </template>
     
-    <script lang="ts" setup>
+<script lang="ts" setup>
 import TableHead from '@/components/table/head/TableHead.vue'
 import MainTable from '../../../components/MainTable.vue'
 import Search from '@/components/SearchBox.vue'

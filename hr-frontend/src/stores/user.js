@@ -128,7 +128,56 @@ let testMenus = [
     ]
   },
   {
-    id: 9,
+    id: 5,
+    text: '证书管理',
+    icon: 'IconUser',
+    children: [
+      {
+        id: 2,
+        text: '证书信息',
+        path: '/certificateinfo',
+        icon: 'IconUser',
+        pid: 2
+      }
+    ]
+  },
+  {
+    id: 6,
+    text: '职称管理',
+    icon: 'IconUser',
+    children: [
+      {
+        id: 2,
+        text: '职称信息',
+        path: '/jobtitleinfo',
+        icon: 'IconUser',
+        pid: 2
+      }
+    ]
+  },
+  {
+    id: 7,
+    text: '出(国)境管理',
+    icon: 'IconUser',
+    children: [
+      {
+        id: 2,
+        text: '因公出(国)境',
+        path: '/businessabroad',
+        icon: 'IconUser',
+        pid: 2
+      },
+      {
+        id: 3,
+        text: '因私出(国)境',
+        path: '/privateabroad',
+        icon: 'IconUser',
+        pid: 2
+      }
+    ]
+  },
+  {
+    id: 8,
     text: '离(退)休管理',
     icon: 'IconUser',
     children: [
@@ -149,7 +198,6 @@ let testMenus = [
     ]
   },
   {
-    id: 4,
     text: '标准化数据设置',
     icon: 'IconTickets',
     children: [

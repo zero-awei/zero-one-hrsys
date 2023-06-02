@@ -94,10 +94,10 @@ function submitForm() {
   // $router.push('/home')
 
   // 弹出验证码框
-  useVerify('clickWord')
+  //useVerify('clickWord')
 
   //TODO[TEST_CODE]:测试登录
-  // doLogin('dddd')
+  doLogin('dddd')
 }
 
 // 验证码组件引用
