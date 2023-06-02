@@ -34,6 +34,10 @@ public:
 		EmployeeInformationPageDO data;
 		//人员信息标识
 		data.setPersonId(resultSet->getString(1));
+		//建立人
+		data.setCreateMan(resultSet->getString(4));
+		//建立时间
+		data.setCreateMan(resultSet->getString(7));
 
 		// 姓名
 		data.setName(resultSet->getString(3));

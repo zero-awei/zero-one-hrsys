@@ -20,6 +20,8 @@
 #include "EmployeeInformationServicer.h"
 #include "dao/EmployeeInformation/EmployeeInformationDAO.h"
 #include "SnowFlake.h"
+#include "SimpleDateTimeFormat.h"
+#include "CustomerAuthorizeHandler.h"
 
 // 分页查询所有数据
 EmployeeInformationPageDTO::Wrapper EmployeeInformationServicer::listAll(const EmployeeInformationPageQuery::Wrapper& query)
@@ -75,7 +77,7 @@ EmployeeInformationPageDTO::Wrapper EmployeeInformationServicer::listAll(const E
 	return pages;
 }
 //新增员工信息
-uint64_t EmployeeInformationServicer::saveData(const EmployeeInformationDTO::Wrapper& dto)
+uint64_t EmployeeInformationServicer::saveData(const EmployeeInformationDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	// 组装DO数据
 	EmployeeInformationPageDO data;
@@ -102,12 +104,18 @@ uint64_t EmployeeInformationServicer::saveData(const EmployeeInformationDTO::Wra
 	////员工状态
 	//data.setState(dto->state.getValue(""));
 
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, PersonId, personId, Name, name, Age, age, Id, id, Organize, organize, Depart, depart, Job, job, Post, post, IdMum, idMum, Birthday, birthday, Phone, phone, State, state);
-	
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, PersonId, personId, CreateMan, createMan, CreateDate, createDate,\
+	Name, name, Age, age, Id, id, Organize, organize, Depart, depart, Job, job, Post, post, IdMum, idMum, Birthday, birthday, Phone, phone, State, state);
+
 	// 生成主键
 	SnowFlake sf(1, 3);//雪花算法
 	data.setPersonId(to_string(sf.nextId()));
-	
+	//建立人
+	data.setCreateMan(payload.getUsername());
+	//建立时间
+	SimpleDateTimeFormat sdtf;//获取当前时间格式字符串
+	data.setCreateDate(sdtf.format());
+
 	// 需要再服务器生成的数据
 	data.setName(dto->name);
 	data.setAge(dto->age);

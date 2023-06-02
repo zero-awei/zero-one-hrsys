@@ -28,11 +28,13 @@ class EmployeeInformationPageDO
 {
 	//人员信息标识
 	CC_SYNTHESIZE(string, personId, PersonId);
-
+	//建立人
+	CC_SYNTHESIZE(string, createMan, CreateMan);
+	//建立时间
+	CC_SYNTHESIZE(string, createDate, CreateDate);
 
 	// 姓名
 	CC_SYNTHESIZE(string, name, Name);
-
 	// 年龄
 	CC_SYNTHESIZE(int32_t, age, Age);
 	//编号

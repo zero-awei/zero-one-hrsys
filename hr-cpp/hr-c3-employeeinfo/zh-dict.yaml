@@ -19,6 +19,8 @@ user:
   menusub: 子菜单
 employee:
  field:
+  createMan: 建立人
+  createDate: 建立时间
   personId: 人员信息标识
   id: 员工编号
   name: 员工姓名

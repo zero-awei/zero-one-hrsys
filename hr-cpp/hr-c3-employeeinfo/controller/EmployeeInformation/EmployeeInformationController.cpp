@@ -16,7 +16,7 @@ EmployeeInformationPageJsonVO::Wrapper EmployeeInformationController::execEmploy
 
 }
 //导入员工信息
-Uint64JsonVO::Wrapper EmployeeInformationController::execImportEmployeeInfo(const EmployeeInformationDTO::Wrapper& importInfo)
+Uint64JsonVO::Wrapper EmployeeInformationController::execImportEmployeeInfo(const EmployeeInformationDTO::Wrapper& importInfo, const PayloadDTO& payload)
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
@@ -37,7 +37,7 @@ Uint64JsonVO::Wrapper EmployeeInformationController::execImportEmployeeInfo(cons
 	// 定义一个Service
 	EmployeeInformationServicer service;
 	// 执行数据新增
-	uint64_t id = service.saveData(importInfo);
+	uint64_t id = service.saveData(importInfo, payload);
 	if (id >= 0) {
 		jvo->success(UInt64(id));
 	}
@@ -99,7 +99,7 @@ EmployeeInformationPageJsonVO::Wrapper EmployeeInformationController::execExport
 
 }
 //新增员工信息 
-Uint64JsonVO::Wrapper EmployeeInformationController::execAddEmployee(const EmployeeInformationDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper EmployeeInformationController::execAddEmployee(const EmployeeInformationDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
@@ -120,7 +120,7 @@ Uint64JsonVO::Wrapper EmployeeInformationController::execAddEmployee(const Emplo
 	// 定义一个Service
 	EmployeeInformationServicer service;
 	// 执行数据新增
-	uint64_t id = service.saveData(dto);
+	uint64_t id = service.saveData(dto,payload);
 	if (id >= 0) {
 		jvo->success(UInt64(id));
 	}

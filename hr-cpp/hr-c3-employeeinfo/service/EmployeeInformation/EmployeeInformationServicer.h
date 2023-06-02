@@ -32,7 +32,7 @@ public:
 	// 分页查询所有数据
 	EmployeeInformationPageDTO::Wrapper listAll(const EmployeeInformationPageQuery::Wrapper& query);
 	//新增员工信息
-	uint64_t saveData(const EmployeeInformationDTO::Wrapper& dto);
+	uint64_t saveData(const EmployeeInformationDTO::Wrapper& dto, const PayloadDTO& payload);
 
 };
 
