@@ -68,7 +68,6 @@ class LaborDispatchQuery : public PageQuery
 	DTO_FIELD_INFO(updatedate) {
 		info->description = ZH_WORDS_GETTER("ldconpany.field.UPDATEDATE");
 	}
-
 };
 
 #include OATPP_CODEGEN_END(DTO)

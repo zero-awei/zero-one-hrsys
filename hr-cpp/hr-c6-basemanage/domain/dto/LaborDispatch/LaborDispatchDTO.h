@@ -77,6 +77,7 @@ class LaborDispatchDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("ldconpany.field.UPDATEDATE");
 	}
 };
+
 /**
 * 修改传输对象
 */
@@ -139,6 +140,18 @@ class LaborDispatchRemoveDTO : public oatpp::DTO
 };
 
 
+/**
+ * 导出传输对象
+ */
+class LaborDispatchExportDTO : public oatpp::DTO
+{
+	DTO_INIT(LaborDispatchExportDTO, DTO);
+	//字段列表
+	DTO_FIELD(List<String>, ziduan) = {"PIMLABOURCAMPANYNAME","ORGNAME","LXDZ","LXR","LXFS","REGCAPITAL","LEGALPEROSN","UPDATEDATE" };
+	DTO_FIELD_INFO(ziduan) {
+		info->description = ZH_WORDS_GETTER("ldconpany.field.ZIDUAN");
+	}
+};
 /**
  * 分页传输对象
  */
