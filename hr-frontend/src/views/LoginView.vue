@@ -19,19 +19,6 @@
         <el-form-item>
           <el-button type="primary" class="login-button" @click="submitForm">登录</el-button>
         </el-form-item>
-        <el-form-item>
-          <div class="other-login">
-            <span class="other-login-text">其他登录方式</span>
-            <div class="login-icons">
-              <div class="login-icon" @click="showQQAuth">
-                <img src="http://ehrpcm.ibizlab.cn/assets/img/QQ.svg" alt="QQ" class="login-icon-img">
-              </div>
-              <div class="login-icon" @click="showWechatAuth">
-                <img src="http://ehrpcm.ibizlab.cn/assets/img/weixin.svg" alt="微信" class="login-icon-img">
-              </div>
-            </div>
-          </div>
-        </el-form-item>
       </el-form>
       <!-- TODO[TEST_CODE]: 测试代码后期发布需要删除 -->
       <hr/>
@@ -147,19 +134,7 @@ function handleSuccess(res) {
 
   // doLogin(res.captchaVerification)
 }
-/**
- * 弹出QQ授权登录提示
- */
- function showQQAuth() {
-  ElMessage.info('QQ授权登录暂未支持');
-}
 
-/**
- * 弹出微信授权登录提示
- */
-function showWechatAuth() {
-  ElMessage.info('微信授权登录暂未支持');
-}
 </script>
 
 <style>
@@ -231,40 +206,6 @@ function showWechatAuth() {
   border-color: #3c56d7;
 }
 
-.other-login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: -5px;
-}
-
-.other-login-text {
-  font-size: 17px;
-  color: #999999;
-}
-
-.login-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top:10px;
-}
-
-.login-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin: 0 10px ;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.login-icon-img {
-  width: 40px;
-  height: 40px;
-}
 .sample-link {
   display: block;
   text-align: center;
