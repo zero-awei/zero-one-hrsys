@@ -1,10 +1,7 @@
 package com.zeroone.star.dashboard.controller;
 
 
-import com.zeroone.star.dashboard.service.IBisEducationService;
-import com.zeroone.star.dashboard.service.IBisRegisterTService;
-import com.zeroone.star.dashboard.service.ISrforgService;
-import com.zeroone.star.dashboard.service.ITPimpersonService;
+import com.zeroone.star.dashboard.service.*;
 import com.zeroone.star.project.dashboard.DashboardApis;
 import com.zeroone.star.project.dashboard.OrgDistributeApis;
 import com.zeroone.star.project.dashboard.OrgPersonCountApis;
@@ -98,9 +95,6 @@ public class DashboardController implements DashboardApis, OrgDistributeApis, Or
         List<OrgDistributeDTO> list = srforgService.listOrgDistribute();
         return JsonVO.success(list);
     }
-
-    @Resource
-    private ITPimpersonService pimpersonService;
 
     @ApiOperation(value = "组织人数")
     @GetMapping("query-org-person-count")
