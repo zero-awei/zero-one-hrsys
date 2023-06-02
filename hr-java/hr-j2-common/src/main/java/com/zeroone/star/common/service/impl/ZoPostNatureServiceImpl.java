@@ -1,9 +1,9 @@
 package com.zeroone.star.common.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zeroone.star.common.entity.ZoPostNature;
 import com.zeroone.star.common.mapper.ZoPostNatureMapper;
 import com.zeroone.star.common.service.IZoPostNatureService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
 import org.springframework.stereotype.Service;
 

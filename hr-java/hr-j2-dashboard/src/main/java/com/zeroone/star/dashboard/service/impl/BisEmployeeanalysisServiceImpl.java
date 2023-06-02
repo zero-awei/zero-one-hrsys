@@ -5,7 +5,6 @@ import com.zeroone.star.dashboard.entity.BisEmployeeanalysis;
 import com.zeroone.star.dashboard.mapper.BisEmployeeanalysisMapper;
 import com.zeroone.star.dashboard.service.IBisEmployeeanalysisService;
 import com.zeroone.star.project.dto.dashboard.AgencyProjectStaffDTO;
-import com.zeroone.star.project.dto.dashboard.OrgEmployeeCountDTO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -23,10 +22,6 @@ import java.util.List;
 public class BisEmployeeanalysisServiceImpl extends ServiceImpl<BisEmployeeanalysisMapper, BisEmployeeanalysis> implements IBisEmployeeanalysisService {
     @Resource
     private BisEmployeeanalysisMapper bisEmployeeanalysisMapper;
-    @Override
-    public List<OrgEmployeeCountDTO> getOrgCount() {
-        return bisEmployeeanalysisMapper.selectOrgEmployeeCount();
-    }
 
     @Override
     public List<AgencyProjectStaffDTO> listAgencyProjectStaff() {
