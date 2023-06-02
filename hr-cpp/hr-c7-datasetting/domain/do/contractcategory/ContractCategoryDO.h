@@ -6,9 +6,16 @@
 
 class ContractCategoryDO
 {
-	CC_SYNTHESIZE(string, id, Id);
-	CC_SYNTHESIZE(string, name, Name);
-	// 你可以根据需要添加其他变量
+	CC_SYNTHESIZE(std::string, id, Id);
+	CC_SYNTHESIZE(std::string, name, Name);
+	CC_SYNTHESIZE(std::string, createDate, CreateDate);
+	CC_SYNTHESIZE(std::string, enable, Enable);
+	CC_SYNTHESIZE(std::string, createMan, CreateMan);
+	CC_SYNTHESIZE(std::string, updateMan, UpdateMan);
+	CC_SYNTHESIZE(std::string, updateDate, UpdateDate);
+	CC_SYNTHESIZE(std::string, sbm, Sbm);
+	CC_SYNTHESIZE(std::string, lx, Lx);
+	CC_SYNTHESIZE(std::string, ormOrgId, OrmOrgId);
 };
 
 #endif // !_CONTRACTCATEGORYDO_H_
