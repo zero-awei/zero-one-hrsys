@@ -37,7 +37,7 @@ public:
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("Title.field.name");
-		info->queryParams["name"].addExample("default", String("shi gong yuan"));
+		info->queryParams["name"].addExample("default", String(ZH_WORDS_GETTER("Title.field.name")));
 		info->queryParams["name"].required = false;
 	}
 	ENDPOINT(API_M_GET, "/Title/query-Title", queryTitle, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
@@ -81,7 +81,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/Title/delete-Title", removeTitle, BODY_DTO(TitleDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/Title/delete-Title", removeTitle, BODY_DTO(TitleDTO_delete::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveTitle(dto));
 	}
@@ -93,7 +93,7 @@ private:
 	// 3.3 演示修改数据
 	Uint64JsonVO::Wrapper execModifyTitle(const TitleDTO::Wrapper& dto);
 	// 3.3 演示删除数据
-	Uint64JsonVO::Wrapper execRemoveTitle(const TitleDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execRemoveTitle(const TitleDTO_delete::Wrapper& dto);
 };
 
 // 0 取消API控制器使用宏

@@ -67,7 +67,7 @@ Uint64JsonVO::Wrapper TitleController::execModifyTitle(const TitleDTO::Wrapper& 
 }
 
 // 删除数据
-Uint64JsonVO::Wrapper TitleController::execRemoveTitle(const TitleDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper TitleController::execRemoveTitle(const TitleDTO_delete::Wrapper& dto)
 {
     // 创建响应对象
     auto jvo = Uint64JsonVO::createShared();
