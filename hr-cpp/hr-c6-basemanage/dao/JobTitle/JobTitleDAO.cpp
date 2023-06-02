@@ -65,8 +65,8 @@ list<JobTitleDO> JobTitleDAO::selectAll(const JobTitleQuery::Wrapper& query)
 {
 	stringstream sql;
 	sql << "select tpt.PIMTITLEID as '职称信息标识',tpp.YGBH as '员工编号',tpp.PIMPERSONNAME as '员工姓名',tpr.PERSONSTATEMGRNAME as '员工状态',tpp.ORMORGNAME as '组织',";
-	sql << "tpg.PIMTITLECATALOGUENAME as '职称名称',tpt.ZCHQRQ as '职称获取日期',tpt.ZCBH as '证书编号',tpt.MAJORENGAGED as '专业类别',";
-	sql << "btt.TITLEGRADENAME as '职称等级', tpt.EMPLOYTIME as '职称聘用时间', tpt.LSSUINGAGENCY as '签发机构', tpt.REVIEWBODY as '评审单位', tpp.HIGHTITLE as '最高职称'";
+	sql << "tpg.PIMTITLECATALOGUENAME as '职称名称',tpt.ZCHQRQ as '职称获取日期',tpt.ZCBH as '证书编号',tpt.MAJORENGAGED as '专业类别',btt.TITLEGRADENAME as '职称等级',";
+	sql << "ROUND(DATEDIFF(CURRENT_DATE(), tpt.ZCHQRQ) / 30,0) as '获取月数',tpt.EMPLOYTIME as '职称聘用时间', tpt.LSSUINGAGENCY as '签发机构', tpt.REVIEWBODY as '评审单位', tpp.HIGHTITLE as '最高职称'";
 	sql << "from t_pimtitle as tpt LEFT JOIN t_pimperson as tpp on tpt.PIMPERSONID = tpp.PIMPERSONID LEFT JOIN t_pimtitlecatalogue as tpc ON ";
 	sql << "tpt.PIMTITLEID = tpc.PIMTITLEID LEFT JOIN bis_titlegrade_t as btt on tpt.ZCDJ = btt.TITLEGRADEVALUE LEFT JOIN bis_professoranalysis_t as bpt ON bpt.EMPLOYEEID = tpt.EMPLOYTIME ";
 	sql << "LEFT JOIN t_personstatemgr  as tpr ON tpr.PERSONSTATECODE = tpp.YGZT LEFT JOIN t_pimtitlecatalogue as tpg ON tpg.PIMTITLECATALOGUEID = tpt.PIMTITLECATALOGUEID ";

@@ -86,7 +86,7 @@ title:
  add:
   summary: "新增职称信息"
  file:
-  postfile: "上传附件--用于新增职称信息的附件的上传功能"
+  postfile: "上传附件--用于新增职称信息的附件的上传"
   suffix: "文件名后缀"
  field:
   id: 表id-主键

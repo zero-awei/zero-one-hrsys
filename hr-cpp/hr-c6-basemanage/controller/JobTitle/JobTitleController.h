@@ -55,9 +55,9 @@ public:
 		info->queryParams.add<String>("employee_name").description = ZH_WORDS_GETTER("title.field.employee_name");
 		info->queryParams["employee_name"].addExample("default", NULL);
 		info->queryParams["employee_name"].required = false;
-		info->queryParams.add<String>("org_nam").description = ZH_WORDS_GETTER("title.field.org_name");
-		info->queryParams["org_nam"].addExample("default", NULL);
-		info->queryParams["org_nam"].required = false;
+		info->queryParams.add<String>("org_name").description = ZH_WORDS_GETTER("title.field.org_name");
+		info->queryParams["org_name"].addExample("default", NULL);
+		info->queryParams["org_name"].required = false;
 		info->queryParams.add<String>("jobtitle_name").description = ZH_WORDS_GETTER("title.field.jobtitle_name");
 		info->queryParams["jobtitle_name"].addExample("default", NULL);
 		info->queryParams["jobtitle_name"].required = false;
@@ -96,9 +96,9 @@ public:
 		info->queryParams.add<String>("employee_name").description = ZH_WORDS_GETTER("title.field.employee_name");
 		info->queryParams["employee_name"].addExample("default", NULL);
 		info->queryParams["employee_name"].required = false;
-		info->queryParams.add<String>("org_nam").description = ZH_WORDS_GETTER("title.field.org_name");
-		info->queryParams["org_nam"].addExample("default", NULL);
-		info->queryParams["org_nam"].required = false;
+		info->queryParams.add<String>("org_name").description = ZH_WORDS_GETTER("title.field.org_name");
+		info->queryParams["org_name"].addExample("default", NULL);
+		info->queryParams["org_name"].required = false;
 		info->queryParams.add<String>("jobtitle_name").description = ZH_WORDS_GETTER("title.field.jobtitle_name");
 		info->queryParams["jobtitle_name"].addExample("default", NULL);
 		info->queryParams["jobtitle_name"].required = false;
