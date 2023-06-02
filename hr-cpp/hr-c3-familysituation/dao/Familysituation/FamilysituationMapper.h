@@ -30,11 +30,13 @@ public:
 	{
 		FamilysituationDO data;
 		data.setId(resultSet->getString(1));
+		data.setPersonId(resultSet->getString(15));
 		data.setName(resultSet->getString(2));
 		data.setRelationship(resultSet->getString(7));
 		data.setDoctype(resultSet->getString(21));
 		data.setIdentification(resultSet->getString(16));
 		data.setGender(resultSet->getString(8));
+		data.setDob(resultSet->getString(9));
 		data.setAge(resultSet->getInt(10));
 		data.setWorkplace(resultSet->getString(12));
 		data.setJob(resultSet->getString(13));

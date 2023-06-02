@@ -26,7 +26,7 @@ FamilysituationPageDTO::Wrapper FamilysituationService::listAll(const Familysitu
 	for (FamilysituationDO sub : result)
 	{
 		auto dto = FamilysituationDTO::createShared();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, name, Name, frelationship, Relationship, doctype, Doctype, \
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id, personid, PersonId, name, Name, frelationship, Relationship, doctype, Doctype, \
 			identification, Identification, gender, Gender, dob, Dob, age, Age, workplace, Workplace, job, Job, \
 			politicalstatus, Politicalstatus, testament, Testament, ice, Ice);
 			pages->addData(dto);
@@ -39,20 +39,15 @@ FamilysituationDTO::Wrapper FamilysituationService::getOne(const Familysituation
 	// 构建返回对象
 	auto data = FamilysituationDTO::createShared();
 
-	// 查询数据总条数
+	// 初始化dao对象
 	FamilysituationDAO dao;
-	uint64_t count = dao.count(query);
-	if (count <= 0)
-	{
-		return data;
-	}
 
 	// 指定查询数据
 	list<FamilysituationDO> result = dao.selectWithOne(query);
 	// 将DO转换成DTO
 	for (FamilysituationDO sub : result)
 	{
-		ZO_STAR_DOMAIN_DO_TO_DTO(data, sub, name, Name, frelationship, Relationship, doctype, Doctype, \
+		ZO_STAR_DOMAIN_DO_TO_DTO(data, sub, id, Id, personid, PersonId, name, Name, frelationship, Relationship, doctype, Doctype, \
 			identification, Identification, gender, Gender, dob, Dob, age, Age, workplace, Workplace, job, Job, \
 			politicalstatus, Politicalstatus, testament, Testament, ice, Ice);
 	}
@@ -90,7 +85,7 @@ bool FamilysituationService::removeData(const FamilysituationDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	FamilysituationDO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, PersonId, personid, Id, id);
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Id, id);
 	FamilysituationDAO dao;
 	return dao.deleteById(data) == 1;
 }

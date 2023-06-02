@@ -40,7 +40,7 @@ Uint64JsonVO::Wrapper FamilysituationController::execAddFamilysituation(const Fa
 		return vo;
 	}
 	// 有效值校验
-	if (dto->id->empty() || dto->personid->empty())
+	if (dto->id->empty())
 	{
 		vo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return vo;
@@ -64,7 +64,7 @@ Uint64JsonVO::Wrapper FamilysituationController::execModifyFamilysituation(const
 {
 	auto vo = Uint64JsonVO::createShared();
 	// 有效值校验
-	if (dto->id->empty() || dto->personid->empty())
+	if (dto->id->empty())
 	{
 		vo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return vo;
@@ -88,13 +88,13 @@ Uint64JsonVO::Wrapper FamilysituationController::execRemoveFamilysituation(const
 {
 	auto vo = Uint64JsonVO::createShared();
 	// 非空校验
-	if (!dto->id || !dto->personid)
+	if (!dto->id)
 	{
 		vo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return vo;
 	}
 	// 有效值校验
-	if (dto->id->empty() || dto->personid->empty())
+	if (dto->id->empty())
 	{
 		vo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return vo;

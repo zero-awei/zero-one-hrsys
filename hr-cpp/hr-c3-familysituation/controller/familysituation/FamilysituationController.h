@@ -81,10 +81,8 @@ public: // 定义接口
  		info->summary = ZH_WORDS_GETTER("familysituation.getone.summary");
  		// 定义响应参数格式
  		API_DEF_ADD_RSP_JSON_WRAPPER(FamilysituationJsonVO);
- 		info->queryParams.add<String>("personid").description = ZH_WORDS_GETTER("familysituation.field.personid");
- 		info->queryParams["personid"].addExample("default", String("1"));
 		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("familysituation.field.id");
-		info->queryParams["id"].addExample("default", String(1));
+		info->queryParams["id"].addExample("default", String("12239214873271218176"));
  	}
  	// 定义查询指定家庭情况接口处理
  	ENDPOINT(API_M_GET, "/queryOne-by-family-situation", queryOneFamilysituation, QUERIES(QueryParams, queryParams))

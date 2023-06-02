@@ -86,7 +86,9 @@ std::list<FamilysituationDO> FamilysituationDAO::selectWithOne(const Familysitua
 {
 	stringstream sql;
 	sql << "SELECT * FROM t_pimfaminfo";
-	FAMILY_TERAM_PARSE(query, sql);
+	SqlParams params;
+	sql << " WHERE `PIMFAMINFOID`=?";
+	SQLPARAMS_PUSH(params, "s", std::string, query->id.getValue("")); 
 	FamilysituationMapper mapper;
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<FamilysituationDO, FamilysituationMapper>(sqlStr, mapper, params);
