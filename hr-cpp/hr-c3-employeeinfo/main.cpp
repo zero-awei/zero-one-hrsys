@@ -23,6 +23,7 @@
 #include "controller/Router.h"
 #include "controller/OtherComponent.hpp"
 #include "DbInit.h"
+#define HTTP_SERVER_DEMO
 #ifdef HTTP_SERVER_DEMO
 #include "uselib/jwt/TestToken.h"
 #endif

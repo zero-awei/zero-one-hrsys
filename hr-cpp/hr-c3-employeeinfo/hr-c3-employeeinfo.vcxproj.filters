@@ -192,6 +192,9 @@
     <ClInclude Include="domain\vo\jobList\JobListVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="uselib\jwt\TestToken.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -240,6 +243,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="service\org\OrgService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\jwt\TestToken.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

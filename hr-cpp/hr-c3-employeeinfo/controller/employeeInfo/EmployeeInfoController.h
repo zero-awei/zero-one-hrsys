@@ -27,6 +27,7 @@
 #include "oatpp/web/mime/multipart/PartList.hpp"
 #include "ApiHelper.h"
 #include "Macros.h"
+#include "../../../lib-oatpp/include/domain/dto/PayloadDTO.h"
 #include "ServerInfo.h"
 #include "../../domain/query/employeeInfo/EmployeeInfoQuery.h"
 #include "../../domain/dto/employeeInfo/EmployeeInfoDTO.h"
@@ -80,6 +81,7 @@ public:
 	*/
 	ENDPOINT_INFO(employeePost) {
 		info->summary = ZH_WORDS_GETTER("employee.post.summary");
+		API_DEF_ADD_AUTH();
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 // 		API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("employee.field.name"), "HHH", true);
 // 		API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("employee.field.id"), "666", true);
@@ -88,7 +90,7 @@ public:
 // 		API_DEF_ADD_QUERY_PARAMS(String, "phone", ZH_WORDS_GETTER("employee.field.phone"), "10086", false);
 // 		API_DEF_ADD_QUERY_PARAMS(String, "state", ZH_WORDS_GETTER("employee.field.state"), "on", false);
 	};
-	API_HANDLER_ENDPOINT(API_M_POST, "/employee-info/employee-post", employeePost, BODY_DTO(EmployeeInfoAddDTO::Wrapper, dto), execEmployeePut(dto));
+	API_HANDLER_ENDPOINT_AUTH(API_M_POST, "/employee-info/employee-post", employeePost, BODY_DTO(EmployeeInfoAddDTO::Wrapper, dto), execEmployeePut(dto, {}));
 	/* *
 	* 修改指定员工员工信息接口
 	* 执行人：Detachment
@@ -154,7 +156,7 @@ private: // 定义接口执行函数
 	* 增加员工信息执行接口
 	* 执行人：Detachment
 	*/
-	StringJsonVO::Wrapper execEmployeePut(const EmployeeInfoAddDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execEmployeePut(const EmployeeInfoAddDTO::Wrapper& dto,const PayloadDTO& payLoad);
 	/* *
 	* 岗位列表查询执行接口
 	* 执行人：Detachment

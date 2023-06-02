@@ -21,7 +21,6 @@
 #include "EmployeeInfoController.h"
 #include "domain/vo/jobList/JobListVO.h"
 
-
 EmployeeInfoVO::Wrapper EmployeeInfoController::execEmployeeQuery(const EmployeeInfoQuery::Wrapper& query)
 {
 	EmployeeInfoService service;
@@ -59,7 +58,7 @@ StringJsonVO::Wrapper EmployeeInfoController::execEmployeeModify(const EmployeeI
 	}
 	return jvo;
 }
-StringJsonVO::Wrapper EmployeeInfoController::execEmployeePut(const EmployeeInfoAddDTO::Wrapper& dto) {
+StringJsonVO::Wrapper EmployeeInfoController::execEmployeePut(const EmployeeInfoAddDTO::Wrapper& dto,const PayloadDTO& payLoad) {
 	//auto vo = StringJsonVO::createShared();
 	auto jvo = StringJsonVO::createShared();
 	if (!dto->empid || !dto->name || !dto->idType || !dto->idNum)
