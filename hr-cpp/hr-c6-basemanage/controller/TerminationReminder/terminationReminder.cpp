@@ -13,10 +13,10 @@ TerminationReminderPageJsonVO::Wrapper TerminationReminderController::execQueryL
 	return vo;
 }
 
-StringJsonVO::Wrapper TerminationReminderController::execExportAll(const PageQuery::Wrapper& query)
+StringJsonVO::Wrapper TerminationReminderController::execExportAll(const TerminationReminderQuery::Wrapper& query)
 {
 	TerminationReminderService service;
-	auto  result = service.exportAll();
+	auto  result = service.exportAll(query);
 	auto vo = StringJsonVO::createShared();
 	vo->success(result);
 	return vo;

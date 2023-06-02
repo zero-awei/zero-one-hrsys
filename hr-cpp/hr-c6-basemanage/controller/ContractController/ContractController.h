@@ -16,59 +16,88 @@ using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
 
-//��ѯ��ͬ�������
+//合同查询信息params
 #define QUERYCONTRACTINFO \
 info->queryParams.add<String>("infoid").description = ZH_WORDS_GETTER("contract.filed.infoid");\
 info->queryParams["infoid"].addExample("default", String("2632DB4D-6440-4699-8584-5F944BABAA40"))
 
+//合同导出params
+#define DOWNLOADCONTRACTINFO \
+info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("contract.filed.id");\
+info->queryParams["id"].addExample("default", String("1921****"));\
+info->queryParams["id"].required = false;\
+info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("contract.filed.name");\
+info->queryParams["name"].addExample("default", String(""));\
+info->queryParams["name"].required = false;\
+info->queryParams.add<String>("emp_condition").description = ZH_WORDS_GETTER("contract.filed.emp_condition");\
+info->queryParams["emp_condition"].addExample("default", String(""));\
+info->queryParams["emp_condition"].required = false;\
+info->queryParams.add<String>("contract_num").description = ZH_WORDS_GETTER("contract.filed.contract_num");\
+info->queryParams["contract_num"].addExample("default", String(""));\
+info->queryParams["contract_num"].required = false;\
+info->queryParams.add<String>("type").description = ZH_WORDS_GETTER("contract.filed.type");\
+info->queryParams["type"].addExample("default", String(""));\
+info->queryParams["type"].required = false;\
+info->queryParams.add<String>("variety").description = ZH_WORDS_GETTER("contract.filed.variety");\
+info->queryParams["variety"].addExample("default", String(""));\
+info->queryParams["variety"].required = false;\
+info->queryParams.add<String>("condition").description = ZH_WORDS_GETTER("contract.filed.condition");\
+info->queryParams["condition"].addExample("default", String(""));\
+info->queryParams["condition"].required = false;\
+info->queryParams.add<String>("date").description = ZH_WORDS_GETTER("contract.filed.date(>=)");\
+info->queryParams["date"].addExample("default", String(""));\
+info->queryParams["date"].required = false;\
+info->queryParams.add<String>("date_end").description = ZH_WORDS_GETTER("contract.filed.date_end(<=)");\
+info->queryParams["date_end"].addExample("default", String(""));\
+info->queryParams["date_end"].required = false
 
 using namespace oatpp;
 
-// 0 ����API������ʹ�ú�
+// 0 定义API控制器使用宏  (api控制器是处理传入请求，返回响应的)
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
-class ContractController : public oatpp::web::server::api::ApiController // 1 �̳п�����
+class ContractController : public oatpp::web::server::api::ApiController // 1 继承控制器
 {
-	// 2 ����������������
+	// 2 定义控制器访问入口
 	API_ACCESS_DECLARE(ContractController);
 
 public:
-	// 3.1.1 �ӿ�����:�鿴ָ����ͬ
+	// 3.1.1 查询合同接口描述
 	ENDPOINT_INFO(queryContract) {
-		// ����ӿڱ���
+		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("contract.check");
-		// ���Ĭ����Ȩ����
+		// 定义默认授权参数
 		API_DEF_ADD_AUTH();
-		// ������Ӧ��������
+		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(ContractJsonVO_);
-		// ���������ѯ����
+		// 合同查询信息params
 		QUERYCONTRACTINFO;
 	}
-	// 3.1.2 ����ӿڶ˵�
+	// 3.1.2 查询合同接口处理
 	ENDPOINT(API_M_GET, "/contract-management/query-contract-info", queryContract, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
-		// ������ѯ����������������ģ�Ͷ���
+		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(query, ContractQuery_, qps);
-		// ��Ӧ���
+		// 响应结果
 		API_HANDLER_RESP_VO(execQueryContract(query));
 	}
 
-	//3.2.1 �ӿ�����:�޸�ָ����ͬ
+	//3.2.1 更新合同接口描述
 	ENDPOINT_INFO(updateContract) {
-		// ����ӿڱ���
+		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("contract.update");
-		// ������Ӧ������ʽ
+		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-		// ���������ѯ����
+
 		//UPDATECONTRACTINFO;
 	}
 
-	// 3.2.2 ����ӿڶ˵�
+	// 3.2.2 更新合同接口处理
 	ENDPOINT(API_M_PUT, "/contract-management/update-contract-info", updateContract, BODY_DTO(ContractDTO_::Wrapper, dto)) {
-		// ��Ӧ���
+		// 响应结果
 		API_HANDLER_RESP_VO(execUpdateContract(dto));
 	}
 
-	//3.3.1 �ӿ�����:�����ͬ
+	//3.3.1 导入合同接口描述
 	ENDPOINT_INFO(uploadContract) {
 		info->summary = ZH_WORDS_GETTER("contract.upload");
 		info->addConsumes<oatpp::swagger::Binary>("application/octet-stream");
@@ -76,27 +105,24 @@ public:
 		info->queryParams["suffix"].description = ZH_WORDS_GETTER("user.file.suffix");
 		info->queryParams["suffix"].addExample("xlsx", String(".xlsx"));
 	}
-	// 3.3.2 ����ӿڶ˵�
-	// �����ļ��ϴ��˵㴦��
+	// 3.3.2 导入合同接口处理
 	ENDPOINT(API_M_POST, "/contract-management/upload-contract-info", uploadContract, BODY_STRING(String, body), QUERY(String, suffix)) {
-		// ִ���ļ������߼�
+		// ִ响应结果
 		API_HANDLER_RESP_VO(execUploadContract(body, suffix));
 	}
 
-	//3.4.1 �ӿ�����:������ͬ
+	//3.4.1 导出合同接口描述
 	ENDPOINT_INFO(downloadContract) {
 		info->summary = ZH_WORDS_GETTER("contract.download");
-		// ������Ӧ������ʽ
+		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-		// ���������ѯ����
-		info->queryParams.add<UInt8>("rows").description = ZH_WORDS_GETTER("contract.export.rows");
-		info->queryParams["rows"].addExample("default", UInt64(1));
+		//合同导出params
+		info->queryParams.add<UInt64>("rows").description = ZH_WORDS_GETTER("contract.export.rows");
+		info->queryParams["rows"].addExample("default", UInt64(1000));
 		info->queryParams["rows"].required = true;
-		info->queryParams.add<String>("sequence").description = ZH_WORDS_GETTER("contract.export.sequence");
-		info->queryParams["sequence"].addExample("default", String("ASC"));
-		info->queryParams["sequence"].required = true;
+		DOWNLOADCONTRACTINFO;
 	}
-	// 3.4.2 ����ӿڶ˵�
+	// 3.4.2 导出合同接口处理
 	ENDPOINT(API_M_GET, "/contract-management/download-contract-info", downloadContract, QUERIES(QueryParams, qps)) {
 		API_HANDLER_QUERY_PARAM(query, ContractDownloadQuery, qps);
 		API_HANDLER_RESP_VO(execDownloadContract(query));
@@ -105,22 +131,16 @@ public:
 
 
 private:
-	//��ͬ��ѯ
+	//
 	ContractJsonVO_::Wrapper execQueryContract(const ContractQuery_::Wrapper& query);
-	//�޸ĺ�ͬ
+	//
 	Uint64JsonVO::Wrapper execUpdateContract(const ContractDTO_::Wrapper& dto);
-	//�����ͬ
+	//
 	StringJsonVO::Wrapper execUploadContract(const String& fileBody, const String& suffix);
-
-	/*
-	* ������Ŀ��ǩ�����5000����
-	* ����DAO��ѯ���ݿ⣬���غ��װ��Excel�ļ������浽FastDFS�ļ�������
-	* ����ֵ���ļ�������ƴ����������
-	* �����ˣ�akie
-	*/
+	//
 	StringJsonVO::Wrapper execDownloadContract(const ContractDownloadQuery::Wrapper& query);
 };
-// 0 ȡ��API������ʹ�ú�
+// 0 
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
 
 #endif 

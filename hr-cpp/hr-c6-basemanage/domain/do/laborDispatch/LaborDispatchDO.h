@@ -55,6 +55,8 @@ class LaborDispatchDO
 	CC_SYNTHESIZE(string, regcapital, Regcapital);
 	//·¨ÈË
 	CC_SYNTHESIZE(string, legalperson, Legalperson);
+	//×Ö¶Î
+	CC_SYNTHESIZE(string, ziduan, Ziduan);
 
 public:
 	LaborDispatchDO() {
@@ -75,6 +77,7 @@ public:
 		ormorgid = "";
 		regcapital = "";
 		legalperson = "";
+		ziduan = "";
 	}
 };
 

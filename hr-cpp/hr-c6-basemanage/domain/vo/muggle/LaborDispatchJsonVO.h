@@ -26,9 +26,9 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class LaborDispatchJsonMVO : public JsonVO<LaborDispatchPageDTO::Wrapper>
+class LaborDispatchJsonMVO : public JsonVO<LaborDispatchPageMDTO::Wrapper>
 {
-	DTO_INIT(LaborDispatchJsonMVO, JsonVO<LaborDispatchPageDTO::Wrapper>);
+	DTO_INIT(LaborDispatchJsonMVO, JsonVO<LaborDispatchPageMDTO::Wrapper>);
 };
 
 

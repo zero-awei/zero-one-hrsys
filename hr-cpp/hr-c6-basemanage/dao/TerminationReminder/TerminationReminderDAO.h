@@ -15,5 +15,5 @@ public:
 	// 分页查询数据
 	list<TerminationReminderDO> selectWithPage(const TerminationReminderQuery::Wrapper& query);
 	//查询全部
-	list<TerminationReminderDO> selectAll();
+	list<TerminationReminderDO> selectAll(const TerminationReminderQuery::Wrapper& query);
 };

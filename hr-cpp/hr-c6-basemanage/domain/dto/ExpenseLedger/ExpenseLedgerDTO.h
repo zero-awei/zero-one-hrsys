@@ -66,7 +66,7 @@ class ExpenseLedgerDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("expenseledger.field.FYLB");
 	}
 	// 费用金额
-	DTO_FIELD(Float32, fyje);
+	DTO_FIELD(Float64, fyje);
 	DTO_FIELD_INFO(fyje) {
 		info->description = ZH_WORDS_GETTER("expenseledger.field.FYJE");
 	}

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #ifndef _ContractInfo_MAPPER_
 #define _ContractInfo_MAPPER_
 
@@ -6,7 +6,7 @@
 #include "domain/do/contractInfoakie/ContractInfoDO.h"
 
 /**
- * Ê¾Àı±í×Ö¶ÎÆ¥ÅäÓ³Éä
+ * ç¤ºä¾‹è¡¨å­—æ®µåŒ¹é…æ˜ å°„
  */
 class ContractInfoMapper : public Mapper<ContractInfoDO>
 {
@@ -26,6 +26,8 @@ public:
 		data.setTip(resultSet->getString(10));
 		data.setInfoid(resultSet->getString(11));
 		data.setDate_end(resultSet->getString(12));
+		data.setContract_num(resultSet->getString(13));
+		data.setEmp_condition(resultSet->getString(14));
 		return data;
 	}
 };

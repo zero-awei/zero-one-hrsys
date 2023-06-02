@@ -20,10 +20,11 @@ public:
 		data.setCertificate_Id(resultSet->getString(8));
 		data.setProfessional_Cate(resultSet->getString(9));
 		data.setJobtitle_Grades(resultSet->getString(10));
-		data.setTitle_Employment_Time(resultSet->getString(11));
-		data.setIssuing_Authority(resultSet->getString(12));
-		data.setJudging_Unit(resultSet->getString(13));
-		data.setB_Highest_Professional_Title(resultSet->getString(14));
+		data.setEmployment_Month(resultSet->getString(11));
+		data.setTitle_Employment_Time(resultSet->getString(12));
+		data.setIssuing_Authority(resultSet->getString(13));
+		data.setJudging_Unit(resultSet->getString(14));
+		data.setB_Highest_Professional_Title(resultSet->getString(15));
 		return data;
 	}
 };

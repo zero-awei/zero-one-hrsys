@@ -94,32 +94,81 @@ bool LaborDispatchService::removeData_ld(string id)
 	return dao.deleteById_ld(id) == 1;
 }
 
-std::string LaborDispatchService::LaborDispatchExport_ld(const LaborDispatchQuery::Wrapper& query)
+std::string LaborDispatchService::LaborDispatchExport_ld(const LaborDispatchQuery::Wrapper& query, const LaborDispatchExportDTO::Wrapper& dto)
 {
 	vector<vector<string>> data;
 	LaborDispatchDAO dao;
 	list<LaborDispatchDO> result =dao.selectWrithPage_Export(query);
-	data.push_back({
-		ZH_WORDS_GETTER("ldcompany.field.PIMLABOURCAMPANYNAME"),
-		ZH_WORDS_GETTER("ldcompany.field.ORGNAME"),
-		ZH_WORDS_GETTER("ldcompany.field.LXDZ"),
-		ZH_WORDS_GETTER("ldcompany.field.LXR"),
-		ZH_WORDS_GETTER("ldcompany.field.LXFS"),
-		ZH_WORDS_GETTER("ldcompany.field.REGCAPITAL"),
-		ZH_WORDS_GETTER("ldcompany.field.LEGALPEROSN"),
-		ZH_WORDS_GETTER("ldcompany.field.UPDATEDATE")
-		});
+	auto flag = dto->ziduan->begin();
+	vector<string> row1;
+	while (flag != dto->ziduan->end()) {
+		if (flag->getValue("") == "PIMLABOURCAMPANYNAME") {
+			row1.push_back(ZH_WORDS_GETTER("ldcompany.field.PIMLABOURCAMPANYNAME"));
+		}
+		else if (flag->getValue("") == "ORGNAME") {
+			row1.push_back(ZH_WORDS_GETTER("ldcompany.field.ORGNAME"));
+		}
+		else if (flag->getValue("") == "LXDZ") {
+			row1.push_back(ZH_WORDS_GETTER("ldcompany.field.LXDZ"));
+		}
+		else if (flag->getValue("") == "LXR") {
+			row1.push_back(ZH_WORDS_GETTER("ldcompany.field.LXR"));
+		}
+		else if (flag->getValue("") == "LXFS") {
+			row1.push_back(ZH_WORDS_GETTER("ldcompany.field.LXFS"));
+		}
+		else if (flag->getValue("") == "REGCAPITAL") {
+			row1.push_back(ZH_WORDS_GETTER("ldcompany.field.REGCAPITAL"));
+		}
+		else if (flag->getValue("") == "LEGALPEROSN") {
+			row1.push_back(ZH_WORDS_GETTER("ldcompany.field.LEGALPEROSN"));
+		}
+		else if (flag->getValue("") == "UPDATEDATE") {
+			row1.push_back(ZH_WORDS_GETTER("ldcompany.field.UPDATEDATE"));
+		}
+		flag++;
+	}
+	data.push_back(row1);
 	stringstream ss;
+	
 	for (LaborDispatchDO sub : result) {
+		auto flag = dto->ziduan->begin();
 		vector<string> row;
-		DO_TO_VECTOR(Name);
-		DO_TO_VECTOR(Unit);
-		DO_TO_VECTOR(Lxdz);
-		DO_TO_VECTOR(Lxr);
-		DO_TO_VECTOR(Lxfs);
-		DO_TO_VECTOR(Regcapital);
-		DO_TO_VECTOR(Legalperson);
-		DO_TO_VECTOR(Updatedate);
+		while (flag != dto->ziduan->end())
+		{
+			if (flag->getValue("") == "PIMLABOURCAMPANYNAME") {
+				DO_TO_VECTOR(Name);
+				flag++;
+			}
+			else if (flag->getValue("") == "ORGNAME") {
+				DO_TO_VECTOR(Unit);
+				flag++;
+			}
+			else if (flag->getValue("") == "LXDZ") {
+				DO_TO_VECTOR(Lxdz);
+				flag++;
+			}
+			else if (flag->getValue("") == "LXR") {
+				DO_TO_VECTOR(Lxr);
+				flag++;
+			}
+			else if (flag->getValue("") == "LXFS") {
+				DO_TO_VECTOR(Lxfs);
+				flag++;
+			}
+			else if (flag->getValue("") == "REGCAPITAL") {
+				DO_TO_VECTOR(Regcapital);
+				flag++;
+			}
+			else if (flag->getValue("") == "LEGALPEROSN") {
+				DO_TO_VECTOR(Legalperson);
+				flag++;
+			}
+			else if (flag->getValue("") == "UPDATEDATE") {
+				DO_TO_VECTOR(Updatedate);
+				flag++;
+			}
+		}
 		data.push_back(row);
 	}
 	ss << "./tmp/excel" << chrono::system_clock::now().time_since_epoch().count() << ".xlsx";

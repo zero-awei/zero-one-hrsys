@@ -65,13 +65,12 @@ std::list<TerminationReminderDO> TerminationReminderDAO::selectWithPage(const Te
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<TerminationReminderDO, TerminationReminderMapper>(sqlStr, mapper, params);
 }
-std::list<TerminationReminderDO> TerminationReminderDAO::selectAll()
+std::list<TerminationReminderDO> TerminationReminderDAO::selectAll(const TerminationReminderQuery::Wrapper& query)
 {
 	stringstream sql;
 	//            员工id,        员工姓名,员工所属单位，员工状态， 到达时间，合同编号，合同签订单位,合同类别,合同类型，开始日期，结束日期
 	sql << "SELECT pp.YGBH,pp.PIMPERSONNAME,pc.ORMORGNAME,pp.YGZT,pp.DBDWSJ, pc.HTBH, pc.LEGALORG,pc.CONTRACTTYPE,pc.HTLX,pc.QSRQ,pc.JSRQ FROM t_pimcontract pc,t_pimperson pp";
-	sql << " WHERE pc.PIMPERSONID = pp.PIMPERSONID";
-	SqlParams params;
+	TERMINATION_TERAM_PARSE(query, sql);
 	TerminationReminderMapper mapper;
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<TerminationReminderDO, TerminationReminderMapper>(sqlStr, mapper, params);

@@ -32,6 +32,6 @@ public:
 	//通过ID删除数据
 	bool removeData_ld(string id);
 	//导出数据
-	string LaborDispatchExport_ld(const LaborDispatchQuery::Wrapper& query);
+	string LaborDispatchExport_ld(const LaborDispatchQuery::Wrapper& query, const LaborDispatchExportDTO::Wrapper& dto);
 };
 #endif // !_LABORDISPATCHSERVICE_H_

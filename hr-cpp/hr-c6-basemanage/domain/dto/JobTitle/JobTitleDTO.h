@@ -81,11 +81,11 @@ class JobTitleDTO : public oatpp::DTO {
 		info->description = ZH_WORDS_GETTER("title.field.jobtitle_grades");
 	}
 
-	//// 职称获取月数
-	//DTO_FIELD(String, employment_month);
-	//DTO_FIELD_INFO(employment_month) {
-	//	info->description = ZH_WORDS_GETTER("title.field.employment_month");
-	//}
+	// 职称获取月数
+	DTO_FIELD(String, employment_month);
+	DTO_FIELD_INFO(employment_month) {
+		info->description = ZH_WORDS_GETTER("title.field.employment_month");
+	}
 
 	// 职称聘用时间
 	DTO_FIELD(String, title_employment_time);

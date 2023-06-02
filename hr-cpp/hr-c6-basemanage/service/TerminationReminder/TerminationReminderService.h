@@ -16,5 +16,5 @@ public:
 	TerminationReminderPageDTO::Wrapper listAll(const TerminationReminderQuery::Wrapper& query);
 	// ±£´æÊý¾Ý
 	//uint64_t saveData(const TerminationReminderDTO::Wrapper& dto);
-	std::string exportAll();
+	std::string exportAll(const TerminationReminderQuery::Wrapper& query);
 };

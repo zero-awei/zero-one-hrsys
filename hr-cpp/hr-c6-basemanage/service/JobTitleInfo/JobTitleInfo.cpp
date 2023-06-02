@@ -4,11 +4,18 @@
 #include "../../uselib/excel/ExportExcel.h"
 #include "../../uselib/fastdfs/UseFastDfs.h"
 
-std::string JobTitleInfoService::listAllJobTitle(const JobTitleInfoDTO::Wrapper& query)
+std::string JobTitleInfoService::listAllJobTitle(const JobTitleDTO::Wrapper& query)
 {
 	std::string url;
 	JobTitleInfoDAO dao;
-	uint64_t count = dao.count(query);
+	auto countQuery = JobTitleQuery::createShared();
+	countQuery->employee_id = query->employee_id;
+	countQuery->employee_name = query->employee_name;
+	countQuery->org_name = query->org_name;
+	countQuery->jobtitle_name = query->jobtitle_name;
+	countQuery->jobtitle_grades = query->jobtitle_grades;
+	countQuery->b_highest_professional_title = query->b_highest_professional_title;
+	uint64_t count = dao.count(countQuery);
 	if (count <= 0)
 	{
 		return url;
@@ -36,8 +43,8 @@ std::string JobTitleInfoService::listAllJobTitle(const JobTitleInfoDTO::Wrapper&
 	}
 
 	// 生成数据表表头
-	vector<string> head = dao.getHead();
-	head.erase(head.begin() + 12,head.end());
+	vector<string> head/* = dao.getHead()*/;
+	//head.erase(head.begin() + 12,head.end());
 	data.insert(data.begin(), head);
 	// 生成Excel
 	ExportExcel excel;
@@ -47,12 +54,40 @@ std::string JobTitleInfoService::listAllJobTitle(const JobTitleInfoDTO::Wrapper&
 	return url;
 }
 
-JobTitleInfoDTO::Wrapper JobTitleInfoService::queryDataDetail(const JobTitleInfoDTO::Wrapper& query)
+JobTitleDTO::Wrapper JobTitleInfoService::queryDataDetail(const JobTitleDTO::Wrapper& query)
 {
-	return JobTitleInfoDTO::Wrapper();
+	JobTitleInfoDAO dao;
+	auto resD0 = dao.selectAll(query);
+	auto resDTO = JobTitleDTO::createShared();
+	resDTO->employee_id = resD0.front().getEmployee_Id();
+	resDTO->employee_name = resD0.front().getEmployee_Name();
+	resDTO->employee_state = resD0.front().getEmployee_State();
+	resDTO->org_name = resD0.front().getOrg_Name();
+	resDTO->get_time = resD0.front().getGet_Time();
+	resDTO->professional_cate = resD0.front().getProfessional_Cate();
+	resDTO->jobtitle_grades = resD0.front().getJobtitle_Grades();
+	resDTO->title_employment_time = resD0.front().getTitle_Employment_Time();
+	resDTO->org_name = resD0.front().getOrg_Name();
+	resDTO->issuing_authority = resD0.front().getIssuing_Authority();
+	resDTO->judging_unit = resD0.front().getJudging_Unit();
+	resDTO->b_highest_professional_title = resD0.front().getB_Highest_Professional_Title();
+	return resDTO;
 }
 
-bool JobTitleInfoService::updateData(const JobTitleInfoDTO::Wrapper& dto)
+bool JobTitleInfoService::updateData(const JobTitleDTO::Wrapper& dto)
 {
-	return false;
+	JobTitleInfoDAO dao;
+	JobTitleDO data;
+	data.setEmployee_Id(dto->employee_id);
+	data.setEmployee_Name(dto->employee_name);
+	data.setEmployee_State(dto->employee_state);
+	data.setOrg_Name(dto->org_name);
+	data.setJobtitle_Name(dto->jobtitle_name);
+	data.setJobtitle_Grades(dto->jobtitle_grades);
+	data.setGet_Time(dto->get_time);
+	data.setProfessional_Cate(dto->professional_cate);
+	data.setTitle_Employment_Time(dto->title_employment_time);
+	data.setIssuing_Authority(dto->issuing_authority);
+	data.setJudging_Unit(dto->judging_unit);
+	return !!dao.update(data);
 }

@@ -74,6 +74,14 @@
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\include;D:\vs studio\VC\Tools\MSVC\14.35.32215\atlmfc\include</IncludePath>
     <LibraryPath>D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\lib\x86;D:\vs studio\VC\Tools\MSVC\14.35.32215\atlmfc\include;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>

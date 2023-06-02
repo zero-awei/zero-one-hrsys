@@ -64,6 +64,7 @@ ldcompany:
   LEGALPEROSN: 法人
   REGCAPITAL: 注册本金
   UPDATEDATE: 更新时间
+  ZIDUAN: 字段
 
 
 contract_gosh:
@@ -86,7 +87,7 @@ title:
  add:
   summary: "新增职称信息"
  file:
-  postfile: "上传附件--用于新增职称信息的附件的上传功能"
+  postfile: "上传附件--用于新增职称信息的附件的上传"
   suffix: "文件名后缀"
  field:
   id: 表id-主键
@@ -107,23 +108,28 @@ title:
   title_employee_time: 职称获取时间
   b_highest_professional_title: 是否最高职称
   attachment: 上传附件
+
 labordispatch_mug:
  get:
   summary: 查看指定公司信息
  modify:
   summary: 修改指定公司信息
  field:
-  corporatename: 公司名称
-  corporateaddress: 公司地址
-  corporatecontact: 公司联系人
-  corporatenumber: 公司联系电话
   PIMLABOURCAMPANYNAME: 公司名称
   PIMLABOURCAMPANYID: 公司标识
+  CREATEDATE: 建立时间
+  CREATEMAN: 建立人
+  UPDATEMAN: 更新人
+  JYFW: 经营范围 
   LXDZ: 联系地址
   LXR: 联系人
   LXFS: 联系方式
+  GSJJ: 公司简介
+  PIMPERSONID: 人员信息标识
+  ORMORGID: 组织标识
+  ORGNAME: 组织名称
+  LEGALPEROSN: 法人
   REGCAPITAL: 注册本金
-  LEGALPERSON: 法人
   UPDATEDATE: 更新时间
 
 expenseledger_mug:
@@ -218,6 +224,7 @@ contract:
     type: 合同类别
     variety: 合同类型
     date: 起始日期
+    date(>=): 起始日期(>=)
     condition: 合同状态
     department_m: 合同管理单位
     department_c: 合同签订单位
@@ -225,9 +232,12 @@ contract:
     tip: 备注
     infoid: 合同信息标识
     date_end: 合同到期时间
+    date_end(<=): 合同到期时间(<=)
+    contract_num: 合同编号
+    emp_condition: 员工状态
     name_example: 韩**
   export:
-    rows: 导出数据条数
+    rows: 导出数据条数(最大5000条)
     sequence: 导出数据顺序
 
 jobtitle:

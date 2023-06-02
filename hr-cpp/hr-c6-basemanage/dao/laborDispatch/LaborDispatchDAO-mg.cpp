@@ -46,7 +46,9 @@ uint64_t LaborDispatchMDAO::count(const LaborDispatchMQuery::Wrapper& query)
 std::list<LaborDispatchDO> LaborDispatchMDAO::selectByCorporateID(const LaborDispatchMQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT * FROM t_pimlabourcampany";
+	//sql << "SELECT * FROM t_pimlabourcampany";
+	sql << "SELECT PIMLABOURCAMPANYID,PIMLABOURCAMPANYNAME,t_srforg.ORGNAME,LXDZ,LXR,LXFS,REGCAPITAL,LEGALPEROSN,t_pimlabourcampany.UPDATEDATE FROM `t_pimlabourcampany` ";
+	sql << " JOIN t_srforg ON t_pimlabourcampany.ORMORGID = t_srforg.ORGID ";
 	LABORDISPATCH_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	LaborDispatchMapper mapper;
@@ -56,6 +58,7 @@ std::list<LaborDispatchDO> LaborDispatchMDAO::selectByCorporateID(const LaborDis
 
 int LaborDispatchMDAO::update(const LaborDispatchDO& uDo)
 {
-	string sql = "UPDATE `t_pimlabourcampany` SET  `LXDZ`=?, `LXR`=?, `LXFS`=?, `LEGALPEROSN`=?, `REGCAPITAL`=?, `GSJJ`=? WHERE `PIMLABOURCAMPANYNAME`=?";
-	return sqlSession->executeUpdate(sql,"%s%s%s%s%s%s%s",uDo.getLxdz(),uDo.getLxr(),uDo.getLxfs(),uDo.getLegalperson(),uDo.getRegcapital(),uDo.getGsjj(), uDo.getName());
+	string sql = "UPDATE `t_pimlabourcampany` SET  `PIMLABOURCAMPANYNAME`=?,`ORMORGID`=?,`LXDZ`=?, `LXR`=?, `LXFS`=?, `LEGALPEROSN`=?, `REGCAPITAL`=?, `GSJJ`=? ";
+	sql += "WHERE `PIMLABOURCAMPANYID`=?";
+	return sqlSession->executeUpdate(sql,"%s%s%s%s%s%s%s%s%s",uDo.getName(),uDo.getOrmorgid(),uDo.getLxdz(),uDo.getLxr(),uDo.getLxfs(),uDo.getLegalperson(),uDo.getRegcapital(),uDo.getGsjj(), uDo.getId());
 }
