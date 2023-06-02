@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #ifndef _ContractInfo_MAPPER_
 #define _ContractInfo_MAPPER_
 
@@ -6,7 +6,7 @@
 #include "domain/do/contractInfoakie/ContractInfoDO.h"
 
 /**
- * Ê¾Àı±í×Ö¶ÎÆ¥ÅäÓ³Éä
+ * ç¤ºä¾‹è¡¨å­—æ®µåŒ¹é…æ˜ å°„
  */
 class ContractInfoMapper : public Mapper<ContractInfoDO>
 {

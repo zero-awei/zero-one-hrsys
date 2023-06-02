@@ -1,11 +1,11 @@
-#ifndef __CONTRACTDTO__
+ï»¿#ifndef __CONTRACTDTO__
 #define __CONTRACTDTO__
 
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-//DTO:ºÏÍ¬ĞÅÏ¢
+//DTO:åˆåŒä¿¡æ¯
 class ContractDTO_ : public oatpp::DTO
 {
 public:
@@ -73,13 +73,23 @@ public:
 		info->description = ZH_WORDS_GETTER("contract.filed.date_end");
 	}
 
+	DTO_FIELD(String, emp_condition);
+	DTO_FIELD_INFO(emp_condition) {
+		info->description = ZH_WORDS_GETTER("contract.filed.emp_condition");
+	}
+
+	DTO_FIELD(String, contract_num);
+	DTO_FIELD_INFO(contract_num) {
+		info->description = ZH_WORDS_GETTER("contract.filed.contract_num");
+	}
+
 };
 
 
 
 
 
-//DTO:µ¼³öµØÖ·
+//DTO:å¯¼å‡ºåœ°å€
 class DownloadPathDTO : public PageDTO<ContractDTO_::Wrapper>
 {
 public:
@@ -87,7 +97,7 @@ public:
 
 	DTO_INIT(DownloadPathDTO, PageDTO<ContractDTO_::Wrapper>);
 
-	// ÏÂÔØÂ·¾¶
+	// ä¸‹è½½è·¯å¾„
 	DTO_FIELD(String, DownloadPath);
 	DTO_FIELD_INFO(DownloadPath) {
 		info->description = ZH_WORDS_GETTER("contract.downloadpath");

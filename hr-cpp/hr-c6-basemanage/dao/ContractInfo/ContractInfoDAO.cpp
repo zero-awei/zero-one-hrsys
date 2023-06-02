@@ -1,9 +1,9 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "ContractInfoDAO.h"
 #include "ContractInfoMapper.h"
 #include "SnowFlake.h"
 #include <sstream>
-//¶¨ÒåÌõ¼ş½âÎöºê£¬¼õÉÙÖØ¸´´úÂë
+//å®šä¹‰æ¡ä»¶è§£æå®ï¼Œå‡å°‘é‡å¤ä»£ç 
 #define DOWNLOAD_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE t_pimcontract.PIMPERSONID = t_pimperson.PIMPERSONID"; \
@@ -36,11 +36,11 @@ if (query->condition) { \
 	SQLPARAMS_PUSH(params, "s", std::string, query->condition.getValue("")); \
 } \
 if (query->date) { \
-	sql << " AND t_pimcontract.QSRQ=?"; \
+	sql << " AND t_pimcontract.QSRQ>=?"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->date.getValue("")); \
 } \
 if (query->date_end) { \
-	sql << " AND t_pimcontract.JSRQ=? "; \
+	sql << " AND t_pimcontract.JSRQ<=? "; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->date_end.getValue("")); \
 }
 
@@ -48,7 +48,7 @@ std::list<ContractInfoDO> ContractInfoDAO::selectByInfoid(const string& infoid)
 {	
 	stringstream sql;
 
-	sql << "SELECT t_pimperson.YGBH, t_pimperson.PIMPERSONNAME, t_pimcontract.HTLX, t_pimcontract.CONTRACTTYPE, t_pimcontract.QSRQ, t_pimcontract.HTZT, t_pimcontract.ORMORGNAME, t_pimcontract.LEGALORG, t_pimcontract.SYDQSJ, t_pimcontract.DEMO, t_pimcontract.PIMCONTRACTID, t_pimcontract.JSRQ ";
+	sql << "SELECT t_pimperson.YGBH, t_pimperson.PIMPERSONNAME, t_pimcontract.HTLX, t_pimcontract.CONTRACTTYPE, t_pimcontract.QSRQ, t_pimcontract.HTZT, t_pimcontract.ORMORGNAME, t_pimcontract.LEGALORG, t_pimcontract.SYDQSJ, t_pimcontract.DEMO, t_pimcontract.PIMCONTRACTID, t_pimcontract.JSRQ ,t_pimcontract.HTBH, t_pimperson.YGZT ";
 	sql << "FROM t_pimperson,t_pimcontract ";
 	sql << "WHERE t_pimcontract.PIMPERSONID = t_pimperson.PIMPERSONID AND t_pimcontract.PIMCONTRACTID = '" << infoid << "'";
 	
@@ -67,7 +67,8 @@ int ContractInfoDAO::update(const ContractInfoDO& uObj)
 	sql << "t_pimcontract.QSRQ = '" << uObj.getDate() << "', t_pimcontract.HTZT = '" << uObj.getCondition() << "', ";
 	sql << "t_pimcontract.ORMORGNAME = '" << uObj.getDepartment_m() << "', t_pimcontract.LEGALORG = '" << uObj.getDepartment_c() << "', ";
 	sql << "t_pimcontract.SYDQSJ = '" << uObj.getTry_end() << "', t_pimcontract.DEMO = '" << uObj.getTip() << "', ";
-	sql << "t_pimcontract.JSRQ = '" << uObj.getDate_end() << "'";
+	sql << "t_pimcontract.JSRQ = '" << uObj.getDate_end() << "', t_pimcontract.HTBH = '" << uObj.getContract_num() << "', ";
+	sql << "t_pimperson.YGZT = '" << uObj.getEmp_condition() << "'";
 	sql << "WHERE t_pimcontract.PIMCONTRACTID = '" << uObj.getInfoid() << "' AND t_pimcontract.PIMPERSONID = t_pimperson.PIMPERSONID";
 
 	string sqlStr = sql.str();
@@ -94,14 +95,19 @@ std::list<ContractInfoDO> ContractInfoDAO::downloadByFiltration(const ContractDo
 uint64_t ContractInfoDAO::insert(const ContractInfoDO& iObj)
 {
 	SnowFlake sf(1, 6);
-	UInt64 sf1 = sf.nextId();
-	UInt64 sf2 = sf.nextId();
+	//åˆåŒä¿¡æ¯æ ‡è¯†ç”Ÿæˆ
+	string sf1 = std::to_string(sf.nextId());
+	//std::cout << "åˆåŒä¿¡æ¯æ ‡è¯†: " << sf1 << endl;
+	//å‘˜å·¥ä¿¡æ¯æ ‡è¯†ç”Ÿæˆ
+	string sf2 = std::to_string(sf.nextId());
+	//std::cout << "å‘˜å·¥ä¿¡æ¯æ ‡è¯†: " << sf2 << endl;
 
-	string sql1 = "INSERT INTO `t_pimcontract` (`HTLX`, `CONTRACTTYPE`, `QSRQ`,`HTZT`,`ORMORGNAME`,`LEGALORG`,`SYDQSJ`,`DEMO`,`JSRQ`, `PIMCONTRACTID`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	uint64_t res1 = sqlSession->executeInsert(sql1, "%s%s%s%s%s%s%s%s%s%ull", iObj.getType(), iObj.getVariety(), iObj.getDate(), iObj.getCondition(), iObj.getDepartment_m(),iObj.getDepartment_c(), iObj.getTry_end(), iObj.getTip(), iObj.getDate_end(), sf1);
+	string sql1 = "INSERT INTO `t_pimperson` (`YGBH`, `PIMPERSONNAME`, `PIMPERSONID`, `YGZT`) VALUES (?, ?, ?, ?)";
+	uint64_t res1 = sqlSession->executeInsert(sql1, "%s%s%s%s", iObj.getId(), iObj.getName(), sf2, iObj.getEmp_condition());
 
-	string sql2 = "INSERT INTO `t_pimperson` (`YGBH`, `PIMPERSONNAME`, `PIMPERSONID`) VALUES (?, ?, ?)";
-	uint64_t res2 = sqlSession->executeInsert(sql2, "%s%s%ull", iObj.getId(), iObj.getName(), sf2);
+	string sql2 = "INSERT INTO `t_pimcontract` (`HTLX`, `CONTRACTTYPE`, `QSRQ`,`HTZT`,`ORMORGNAME`,`LEGALORG`,`SYDQSJ`,`DEMO`,`JSRQ`, `PIMCONTRACTID`, `HTBH`, `PIMPERSONID`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	uint64_t res2 = sqlSession->executeInsert(sql2, "%s%s%s%s%s%s%s%s%s%s%s%s", iObj.getType(), iObj.getVariety(), iObj.getDate(), iObj.getCondition(), iObj.getDepartment_m(),iObj.getDepartment_c(), iObj.getTry_end(), iObj.getTip(), iObj.getDate_end(), sf1, iObj.getContract_num(), sf2);
+
 
 	return res2;
 }

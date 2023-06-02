@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "ContractInfoService.h"
 #include "../../dao/ContractInfo/ContractInfoDAO.h"
 #include "domain/dto/ContractDTO/ContractDTO_.h"
@@ -9,12 +9,12 @@
 
 ContractDTO_::Wrapper ContractInfoService::listContract(const ContractQuery_::Wrapper& query)
 {
-	// ¹¹½¨·µ»Ø¶ÔÏó
+	// æ„å»ºè¿”å›å¯¹è±¡
 	auto res = ContractDTO_::createShared();
-	//dao²ãÂß¼­ÔËËã
+	//daoå±‚é€»è¾‘è¿ç®—
 	ContractInfoDAO dao;
 	list<ContractInfoDO> result = dao.selectByInfoid((string)(query->infoid.getValue("")));
-	// ½«DO×ª»»³ÉDTO
+	// å°†DOè½¬æ¢æˆDTO
 	for (ContractInfoDO sub : result)
 	{
 		auto dto = ContractDTO_::createShared();
@@ -30,6 +30,8 @@ ContractDTO_::Wrapper ContractInfoService::listContract(const ContractQuery_::Wr
 		dto->tip = sub.getTip();
 		dto->infoid = sub.getInfoid();
 		dto->date_end = sub.getDate_end();
+		dto->contract_num = sub.getContract_num();
+		dto->emp_condition = sub.getEmp_condition();
 		//ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id, name, Name, type, Type, variety, Variety, date, Date, condition, Condition, department_m, Department_m, department_c, Department_c, date_end, Date_end, tip, Tip);
 		res = dto;
 	}
@@ -38,23 +40,24 @@ ContractDTO_::Wrapper ContractInfoService::listContract(const ContractQuery_::Wr
 
 bool ContractInfoService::updateContract(const ContractDTO_::Wrapper& dto)
 {
-	//×ª¸ödo
+	//è½¬ä¸ªdo
 	ContractInfoDO cdo;
-	cdo.setId(dto->id.getValue("A"));
-	cdo.setName(dto->name.getValue("akie"));
-	cdo.setType(dto->type.getValue("A"));
-	cdo.setVariety(dto->variety.getValue("A"));
-	cdo.setDate(dto->date.getValue("2023-05-02 19:57:59"));
-	cdo.setCondition(dto->condition.getValue("A"));
-	cdo.setDepartment_m(dto->department_m.getValue("A"));
-	cdo.setDepartment_c(dto->department_c.getValue("A"));
-	cdo.setDate_end(dto->date_end.getValue("2023-05-02 19:57:59"));
-	cdo.setTip(dto->tip.getValue("A"));
-	cdo.setTry_end(dto->try_end.getValue("2023-05-02 19:57:59"));
-	cdo.setInfoid(dto->infoid.getValue("20CC5477-A38D-4D4A-AA41-1B28EA363497"));
-
-	ZO_STAR_DOMAIN_DTO_TO_DO(cdo, dto, Name, name, Type, type, Variety, variety, Date, date, Condition, condition, Department_m, department_m, Department_c, department_c, Try_end, try_end, Tip, tip, Infoid, infoid, Date_end, date_end)
-	//dao²ãÂß¼­ÔËËã
+	cdo.setId(dto->id.getValue(""));
+	cdo.setName(dto->name.getValue(""));
+	cdo.setType(dto->type.getValue(""));
+	cdo.setVariety(dto->variety.getValue(""));
+	cdo.setDate(dto->date.getValue(""));
+	cdo.setCondition(dto->condition.getValue(""));
+	cdo.setDepartment_m(dto->department_m.getValue(""));
+	cdo.setDepartment_c(dto->department_c.getValue(""));
+	cdo.setDate_end(dto->date_end.getValue(""));
+	cdo.setTip(dto->tip.getValue(""));
+	cdo.setTry_end(dto->try_end.getValue(""));
+	cdo.setInfoid(dto->infoid.getValue(""));
+	cdo.setContract_num(dto->contract_num.getValue(""));
+	cdo.setEmp_condition(dto->emp_condition.getValue(""));
+	//ZO_STAR_DOMAIN_DTO_TO_DO(cdo, dto, Name, name, Type, type, Variety, variety, Date, date, Condition, condition, Department_m, department_m, Department_c, department_c, Try_end, try_end, Tip, tip, Infoid, infoid, Date_end, date_end)
+	//daoå±‚é€»è¾‘è¿ç®—
 	ContractInfoDAO dao;
 	return dao.update(cdo) == 1;
 }
@@ -63,26 +66,26 @@ bool ContractInfoService::updateContract(const ContractDTO_::Wrapper& dto)
 std::string ContractInfoService::downloadContract(const ContractDownloadQuery::Wrapper& query)
 {
 	const String suffix = ".xlsx";
-	// ¸ù¾İÊ±¼ä´ÁÉú³ÉÒ»¸öÁÙÊ±ÎÄ¼şÃû³Æ
+	// æ ¹æ®æ—¶é—´æˆ³ç”Ÿæˆä¸€ä¸ªä¸´æ—¶æ–‡ä»¶åç§°
 	std::stringstream ss;
 	ss << "public/static/file/";
-	// ¼ÆËãÊ±¼ä´Á
+	// è®¡ç®—æ—¶é—´æˆ³
 	auto now = std::chrono::system_clock::now();
 	auto tm_t = std::chrono::system_clock::to_time_t(now);
 	ss << std::put_time(std::localtime(&tm_t), "%Y%m%d%H%M%S");
-	// »ñÈ¡ºÁÃë
+	// è·å–æ¯«ç§’
 	auto tSeconds = std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch());
 	auto tMilli = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
 	auto ms = tMilli - tSeconds;
 	ss << std::setfill('0') << std::setw(3) << ms.count();
-	// Æ´½Óºó×ºÃû
+	// æ‹¼æ¥åç¼€å
 	ss << suffix.getValue("");
-	// ÁÙÊ±ÎÄ¼şÃû³Æ
+	// ä¸´æ—¶æ–‡ä»¶åç§°
 	std::string fileName = ss.str();
-	// ±£´æÎÄ¼şµ½ÁÙÊ±Ä¿Â¼
+	// ä¿å­˜æ–‡ä»¶åˆ°ä¸´æ—¶ç›®å½•
 	//fileBody.saveToFile(fileName.c_str());
 
-	//dao²ãÂß¼­ÔËËã
+	//daoå±‚é€»è¾‘è¿ç®—
 	ContractInfoDAO dao;
 	auto res = dao.downloadByFiltration(query);
 	//auto dto = ContractDTO_::createShared();
@@ -124,19 +127,19 @@ std::string ContractInfoService::downloadContract(const ContractDownloadQuery::W
 		data[i].push_back(sub.getEmp_condition());
 		i++;
 	}
-	// ×¢Òâ£ºÒòÎªxlnt²»ÄÜ´æ´¢·Çutf8±àÂëµÄ×Ö·û£¬ËùÒÔÖĞÎÄ×ÖĞèÒª×ª»»±àÂë
-	std::string sheetName = CharsetConvertHepler::ansiToUtf8("Êı¾İ±í1");
+	// æ³¨æ„ï¼šå› ä¸ºxlntä¸èƒ½å­˜å‚¨éutf8ç¼–ç çš„å­—ç¬¦ï¼Œæ‰€ä»¥ä¸­æ–‡å­—éœ€è¦è½¬æ¢ç¼–ç 
+	std::string sheetName = CharsetConvertHepler::ansiToUtf8("æ•°æ®è¡¨1");
 
-	// ±£´æµ½ÎÄ¼ş
+	// ä¿å­˜åˆ°æ–‡ä»¶
 	ExcelComponent excel;
 	excel.writeVectorToFile(fileName, sheetName, data);
 
-	// ²âÊÔÉÏ´«µ½FastDFSÎÄ¼ş·şÎñÆ÷
+	// æµ‹è¯•ä¸Šä¼ åˆ°FastDFSæ–‡ä»¶æœåŠ¡å™¨
 #ifdef LINUX
-	//¶¨Òå¿Í»§¶Ë¶ÔÏó
+	//å®šä¹‰å®¢æˆ·ç«¯å¯¹è±¡
 	FastDfsClient client("conf/client.conf", 3);
 #else
-	//¶¨Òå¿Í»§¶Ë¶ÔÏó
+	//å®šä¹‰å®¢æˆ·ç«¯å¯¹è±¡
 	FastDfsClient client("8.130.87.15");
 #endif
 	std::string fieldName = client.uploadFile(fileName);
@@ -148,7 +151,7 @@ std::string ContractInfoService::downloadContract(const ContractDownloadQuery::W
 
 uint64_t ContractInfoService::saveData(const ContractDTO_::Wrapper& dto)
 {
-	// ×é×°DOÊı¾İ
+	// ç»„è£…DOæ•°æ®
 	ContractInfoDO data;
 	data.setId(dto->id.getValue(""));
 	data.setName(dto->name.getValue(""));
@@ -162,11 +165,13 @@ uint64_t ContractInfoService::saveData(const ContractDTO_::Wrapper& dto)
 	data.setTip(dto->tip.getValue(""));
 	data.setInfoid(dto->infoid.getValue(""));
 	data.setDate_end(dto->date_end.getValue(""));
+	data.setContract_num(dto->contract_num.getValue(""));
+	data.setEmp_condition(dto->emp_condition.getValue(""));
 
 	//std::cout << dto->tip.getValue("");
 	//data.setAge(dto->age.getValue(1));
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Id, id, Name, name, Type, type, Variety, variety, Date, date, Condition, condition, Department_m, department_m, Department_c, department_c, Date_end, date_end, Tip, tip, Infoid, infoid, Try_end, try_end)
-	// Ö´ĞĞÊı¾İÌí¼Ó
+	//ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Id, id, Name, name, Type, type, Variety, variety, Date, date, Condition, condition, Department_m, department_m, Department_c, department_c, Date_end, date_end, Tip, tip, Infoid, infoid, Try_end, try_end)
+	// æ‰§è¡Œæ•°æ®æ·»åŠ 
 	ContractInfoDAO dao;
 	return dao.insert(data);
 }

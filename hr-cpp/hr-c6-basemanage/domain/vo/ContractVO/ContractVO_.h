@@ -1,4 +1,4 @@
-#ifndef __CONTRACTPAGEVO__
+Ôªø#ifndef __CONTRACTPAGEVO__
 #define __CONTRACTPAGEVO__
 
 #include "../../GlobalInclude.h"
@@ -6,13 +6,13 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-//∫œÕ¨–≈œ¢JsonVo
+//ÂêàÂêå‰ø°ÊÅØJsonVo
 class ContractJsonVO_ : public JsonVO<ContractDTO_::Wrapper>
 {
 	DTO_INIT(ContractJsonVO_, JsonVO<ContractDTO_::Wrapper>);
 };
 
-//¬∑æ∂JsonVo
+//Ë∑ØÂæÑJsonVo
 class DownloadPathJsonVO : public JsonVO<DownloadPathDTO::Wrapper>
 {
 	DTO_INIT(DownloadPathJsonVO, JsonVO<DownloadPathDTO::Wrapper>);

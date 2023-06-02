@@ -1,4 +1,4 @@
-#ifndef __CONTRACTQUERY__
+ï»¿#ifndef __CONTRACTQUERY__
 #define __CONTRACTQUERY__
 
 #include "../../GlobalInclude.h"
@@ -6,7 +6,7 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-//ºÏÍ¬ĞÅÏ¢query
+//åˆåŒä¿¡æ¯query
 class ContractQuery_ : public PageQuery
 {
 	DTO_INIT(ContractQuery_, PageQuery);
@@ -73,7 +73,7 @@ class ContractQuery_ : public PageQuery
 
 };
 
-//µ¼³ö×¨ÓÃquery
+//å¯¼å‡ºä¸“ç”¨query
 class ContractDownloadQuery : public PageQuery
 {
 	DTO_INIT(ContractDownloadQuery, PageQuery);
