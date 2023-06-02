@@ -22,7 +22,7 @@
 #include "BaseDAO.h"
 #include "../../domain/do/expenseLedger/ExpenseLedgerDO.h"
 #include "../../domain/query/ExpenseLedger/ExpenseLedgerQuery.h"
-#include "../../domain/dto/ExpenseLedge/ExpenseLedgeDTO.h"
+#include "../../domain/dto/ExpenseLedger/ExpenseLedgerDTO.h"
 
 class ExpenseLedgerDAO : public BaseDAO
 {
@@ -33,7 +33,7 @@ public:
 	std::list<ExpenseLedgerDO> selectByPageQuery(const ExpenseLedgerPageQuery::Wrapper& query);
 
 	// �����������ݣ���ѯ�������ݣ�
-	std::list<ExpenseLedgerDO> selectAll(const ExpenseLedgeDTO::Wrapper& query);
+	std::list<ExpenseLedgerDO> selectAll(const ExpenseLedgerDTO::Wrapper& query);
 
 	// �޸�����
 	int update(const ExpenseLedgerDO& uObj);
@@ -41,5 +41,7 @@ public:
 	uint64_t insert(const ExpenseLedgerDO& ido);
 	// ɾ������
 	uint64_t deleteById(const ExpenseLedgerDO& obj);
+
+	vector<string> getHead(const ExpenseLedgerDTO::Wrapper& query);
 };
 #endif

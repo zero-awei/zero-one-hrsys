@@ -42,7 +42,7 @@ std::string JobTitleInfoService::listAllJobTitle(const JobTitleDTO::Wrapper& que
 	}
 
 	// 生成数据表表头
-	vector<string> head/* = dao.getHead()*/;
+	vector<string> head = dao.getHead(query);
 	//head.erase(head.begin() + 12,head.end());
 	data.insert(data.begin(), head);
 	// 生成Excel
@@ -58,6 +58,7 @@ JobTitleDTO::Wrapper JobTitleInfoService::queryDataDetail(const JobTitleDTO::Wra
 	JobTitleInfoDAO dao;
 	auto resD0 = dao.selectAll(query);
 	auto resDTO = JobTitleDTO::createShared();
+	resDTO->id = resD0.front().getId();
 	resDTO->employee_id = resD0.front().getEmployee_Id();
 	resDTO->employee_name = resD0.front().getEmployee_Name();
 	resDTO->employee_state = resD0.front().getEmployee_State();

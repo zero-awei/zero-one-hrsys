@@ -40,6 +40,7 @@
     <ClCompile Include="service\JobTitleInfo\JobTitleInfo.cpp" />
     <ClCompile Include="uselib\excel\ExportExcel.cpp" />
     <ClCompile Include="uselib\fastdfs\UseFastDfs.cpp" />
+    <ClCompile Include="service\Expense\ExpenseLedgeService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -124,6 +125,8 @@
     <ClInclude Include="domain\do\retirement\retirementDO.h" />
     <ClInclude Include="uselib\excel\ExportExcel.h" />
     <ClInclude Include="uselib\fastdfs\UseFastDfs.h" />
+    <ClInclude Include="service\Expense\ExpenseLedgeService.h" />
+    <ClInclude Include="dao\expenseLedger\ExportExpenseMapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\ContractController\ContractController.h" />

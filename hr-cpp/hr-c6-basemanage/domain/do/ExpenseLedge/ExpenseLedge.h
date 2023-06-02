@@ -3,6 +3,8 @@
 #include "../Doinclude.h"
 class ExpenseLedgeDO
 {
+	//费用ID
+	CC_SYNTHESIZE(string, id, ID);
 	//费用类别
 	CC_SYNTHESIZE(string, name, Name);
 	//费用金额
@@ -16,6 +18,7 @@ class ExpenseLedgeDO
 
 public:
 	ExpenseLedgeDO() {
+		id = "";
 		name = "";
 		money = 0;
 		people_num = 0;

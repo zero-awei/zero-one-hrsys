@@ -20,6 +20,7 @@
 #include <sstream>
 #include "ExpenseLedgerDAO.h"
 #include "ExpenseLedgerMapper.h"
+#include "ExportExpenseMapper.h"
 #include "../dao-sql-macro/macro.h"
 
 #define EXPENSELEDGER_TERAM_PARSE(query, sql) \
@@ -78,18 +79,16 @@ if (query->ormorgid) { \
 	SQLPARAMS_PUSH(params, "s", std::string, query->ormorgid.getValue("")); \
 } \
 
-inline SqlParams expenseledge_teram_parse(const ExpenseLedgeDTO::Wrapper & query, stringstream & sql)
-{
-	SqlParams params;
-	sql << " WHERE 1=1";
-	SQLPARAMS_INT_PUSH(FFRS);
-	SQLPARAMS_STRING_PUSH(PIMEXPACCOUNTID);
-	SQLPARAMS_FLOAT_PUSH(FYJE);
-	SQLPARAMS_STRING_PUSH(PIMEXPACCOUNTNAME);
-	SQLPARAMS_STRING_PUSH(FFSJ);
-	SQLPARAMS_STRING_PUSH(FFYBZ);
-	return params;
-}
+#define EXPENSELEDGEREXPORT_TERAM_PARSE(query, sql) \
+SqlParams params; \
+if (query->pimexpaccountid) { \
+	sql << " AND `PIMEXPACCOUNTID`=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->pimexpaccountid.getValue("")); \
+} \
+if (query->fylb) { \
+	sql << " AND `FYLB`=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->fylb.getValue("")); \
+} \
 
 uint64_t ExpenseLedgerDAO::count(const ExpenseLedgerPageQuery::Wrapper& query)
 {
@@ -113,42 +112,35 @@ std::list<ExpenseLedgerDO> ExpenseLedgerDAO::selectByPageQuery(const ExpenseLedg
 	return sqlSession->executeQuery<ExpenseLedgerDO, ExpenseLedgerMapper>(sqlStr, mapper, params);
 }
 
-std::list<ExpenseLedgerDO> ExpenseLedgerDAO::selectAll(const ExpenseLedgeDTO::Wrapper& query)
+std::list<ExpenseLedgerDO> ExpenseLedgerDAO::selectAll(const ExpenseLedgerDTO::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT * FROM t_pimexpaccount";
-	SqlParams params = expenseledge_teram_parse(query, sql);
-	ExpenseLedgerMapper mapper;
+	sql << "select tpa.FYLB as '费用类别', tpa.FYJE as '费用金额', tpa.FFRS as '费用人数', tpa.FFSJ as '发放时间', tpa.FFYBZ as '费用标准', tpa.BZ as '备注' FROM t_pimexpaccount as tpa ";
+	sql << "WHERE 1=1 ";
+	EXPENSELEDGEREXPORT_TERAM_PARSE(query, sql);
+	ExportExpenseMapper mapper;
 	string sqlStr = sql.str();
-	return sqlSession->executeQuery<ExpenseLedgerDO, ExpenseLedgerMapper>(sqlStr, mapper, params);
+	return sqlSession->executeQuery<ExpenseLedgerDO, ExportExpenseMapper>(sqlStr, mapper, params);
 }
 
 int ExpenseLedgerDAO::update(const ExpenseLedgerDO& uObj)
 {
 	stringstream sql;
-	stringstream fmts;
-	sql << "UPDATE `t_pimexpaccount` SET ";
-	SQLPARAMS_UPDATE_STRING(name);
-	SQLPARAMS_UPDATE_STRING(updateman);
-	SQLPARAMS_UPDATE_STRING(createdate);
-	SQLPARAMS_UPDATE_STRING(createman);
-	SQLPARAMS_UPDATE_STRING(updatedate);
-	SQLPARAMS_UPDATE_STRING(fylb);
-	SQLPARAMS_UPDATE_FLOAT(fyje);
-	SQLPARAMS_UPDATE_INT(ffrs);
-	SQLPARAMS_UPDATE_STRING(ffsj);
-	SQLPARAMS_UPDATE_STRING(fybz);
-	SQLPARAMS_UPDATE_PUSH_FINAL(bz,"%s",id);
+	stringstream fmts; fmts << "%s%d%i%s%s%s%s";
+	sql << "UPDATE `t_pimexpaccount` as tpa SET \
+		tpa.FYLB = ?,\
+		tpa.FYJE = ?,\
+		tpa.FFRS = ?,\
+		tpa.FFSJ = ?,\
+		tpa.FFYBZ = ?,\
+		tpa.BZ = ?\
+		WHERE tpa.PIMEXPACCOUNTID = ?";
+	cout << sql.str() << endl;
 	return sqlSession->executeUpdate(sql.str(), fmts.str().c_str(),
-		uObj.getName(),
-		uObj.getUpdateman(),
-		uObj.getCreatedate(),
-		uObj.getCreateman(),
-		uObj.getUpdatedate(),
 		uObj.getFylb(),
 		uObj.getFyje(),
 		uObj.getFfrs(),
-		uObj.getFfsj(),
+		uObj.getFyje(),
 		uObj.getFybz(),
 		uObj.getBz(),
 		uObj.getId());
@@ -164,5 +156,16 @@ uint64_t ExpenseLedgerDAO::deleteById(const ExpenseLedgerDO& obj)
 {
 	string sql = "DELETE FROM `t_pimexpaccount` WHERE `PIMEXPACCOUNTID` = ?";
 	return sqlSession->executeUpdate(sql,"%s",obj.getId());
+}
+
+vector<string> ExpenseLedgerDAO::getHead(const ExpenseLedgerDTO::Wrapper& query)
+{
+	vector<string> head;
+	head.push_back(u8"费用类别");
+	head.push_back(u8"费用金额");
+	head.push_back(u8"发放人数");
+	head.push_back(u8"发放时间");
+	head.push_back(u8"费用标准");
+	return head;
 }
 
