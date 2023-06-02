@@ -183,6 +183,8 @@
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\Language\LanguageService.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\fastdfs\UseFastDFS.h" />
+    <ClInclude Include="uselib\jwt\TestToken.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\ExportLanguage\ExportLanguage.cpp" />
@@ -199,6 +201,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="uselib\fastdfs\UseFastDFS.cpp" />
+    <ClCompile Include="uselib\jwt\TestToken.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\lib-common\lib-common.vcxproj">
