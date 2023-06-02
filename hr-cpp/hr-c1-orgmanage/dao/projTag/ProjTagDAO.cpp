@@ -64,6 +64,20 @@ if (__QUERY__->order == "DESC") { \
 		__SQL__ << " ORDER BY `XH` DESC"; \
 }
 
+/**
+ * 项目标签更新条件匹配宏
+ */
+#define UPDATE_TERAM_PARSE(__DO__, __SQL__) \
+SqlParams params; \
+if (__DO__.getTagName() != "") { \
+	__SQL__ << " `ORMXMBQNAME`=?,"; \
+	SQLPARAMS_PUSH(params, "s", std::string, __DO__.getTagName()); \
+} \
+if (__DO__.getOrgId() != "") { \
+	__SQL__ << " `ORMORGID`=?,"; \
+	SQLPARAMS_PUSH(params, "s", std::string, __DO__.getOrgId()); \
+}
+
 bool ProjTagDAO::insert(const ProjTagDO& iObj)
 {
 	// ORMXMBQID CREATEMAN ORMXMBQNAME UPDATEMAN CREATEDATE UPDATEDATE ORMORGID
@@ -102,10 +116,16 @@ std::list<OrgListDO> ProjTagDAO::selectOrgList(const OrgListQuery::Wrapper& quer
 
 bool ProjTagDAO::updateProjTag(const ProjTagDO& data)
 {
-	string sql = "UPDATE `t_ormxmbq` SET `UPDATEDATE` = ?, `UPDATEMAN` = ?, \
-		`ORMXMBQNAME` = ?, `ORMORGID` = ? WHERE `ORMXMBQID` = ?";
-	return sqlSession->executeUpdate(sql, "%s%s%s%s%s", data.getUpdateTime(), data.getUpdater(), \
-		data.getTagName(), data.getOrgId(), data.getId());
+	stringstream ss;
+	ss << "UPDATE `t_ormxmbq` SET ";
+	UPDATE_TERAM_PARSE(data, ss);
+	ss << " `UPDATEDATE`=?, `UPDATEMAN`=? WHERE `ORMXMBQID` = ? ";
+	SQLPARAMS_PUSH(params, "s", std::string, data.getUpdateTime());
+	SQLPARAMS_PUSH(params, "s", std::string, data.getUpdater());
+	SQLPARAMS_PUSH(params, "s", std::string, data.getId());
+
+	string sql = ss.str();
+	return sqlSession->executeUpdate(sql, params);
 }
 
 std::list<std::string> ProjTagDAO::insertMultiTag(const std::list<ProjTagDO>& data)
