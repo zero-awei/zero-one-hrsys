@@ -7,10 +7,16 @@ JobUpdateJsonVO::Wrapper JobUpdateController::execUpdateJobinfo(const JobUpdateD
 {
 	// 定义返回数据对象
 	auto jvo = JobUpdateJsonVO::createShared();
-	dto->updateMan = payload.getUsername();
-	dto->updateDate = SimpleDateTimeFormat::format();
+
+	// 数据校验
+	if (!dto->ormPostId || dto->ormPostId->empty())
+	{
+		jvo->init({}, RS_PARAMS_INVALID);
+		return jvo;
+	}
+	
 	JobUpdateService service;
-	if (service.uodateJobInfo(dto)) {
+	if (service.updateJobInfo(dto, payload)) {
 		jvo->success(dto);
 	}
 	else {

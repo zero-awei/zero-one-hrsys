@@ -132,5 +132,7 @@
     <ClInclude Include="service\itemLabel\ItemLabelService.h" />
     <ClInclude Include="dao\itemLabel\ItemLabelDAO.h" />
     <ClInclude Include="dao\itemLabel\ItemLabelMapper.h" />
+    <ClInclude Include="domain\dto\jobSet\jobUpdate\JobUpdateDTO.h" />
+    <ClInclude Include="domain\dto\jobSet\jobDownload\JobDownloadDTO.h" />
   </ItemGroup>
 </Project>

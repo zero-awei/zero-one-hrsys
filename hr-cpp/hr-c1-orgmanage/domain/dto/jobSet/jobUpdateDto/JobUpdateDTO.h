@@ -62,17 +62,15 @@ class JobUpdateDTO : public oatpp::DTO
 	DTO_FIELD_INFO(ormOrgId) {
 		info->description = ZH_WORDS_GETTER("orgmanage.dto.ormOrgId");
 	}
-
-	// 更新时间
-	DTO_FIELD(String, updateDate);
-	DTO_FIELD_INFO(updateDate) {
-		info->description = ZH_WORDS_GETTER("orgmanage.dto.updateDate");
+	// 建议交流年限
+	DTO_FIELD(UInt32, nx);
+	DTO_FIELD_INFO(nx) {
+		info->description = ZH_WORDS_GETTER("jobSet.add.yearLimit");
 	}
-
-	// 更新人
-	DTO_FIELD(String, updateMan);
-	DTO_FIELD_INFO(updateMan) {
-		info->description = ZH_WORDS_GETTER("orgmanage.dto.updateMan");
+	// 必须交流年限
+	DTO_FIELD(UInt32, bxjlnx);
+	DTO_FIELD_INFO(bxjlnx) {
+		info->description = ZH_WORDS_GETTER("jobSet.add.mustYearLimit");
 	}
 };
 

@@ -249,7 +249,9 @@
     <ClInclude Include="domain\dto\jobDownload\JobDownloadDTO.h" />
     <ClInclude Include="domain\dto\jobSet\ImportJobDTO.h" />
     <ClInclude Include="domain\dto\jobSet\jobDownloadDto\JobDownloadDTO.h" />
+    <ClInclude Include="domain\dto\jobSet\jobDownload\JobDownloadDTO.h" />
     <ClInclude Include="domain\dto\jobSet\jobUpdateDto\JobUpdateDTO.h" />
+    <ClInclude Include="domain\dto\jobSet\jobUpdate\JobUpdateDTO.h" />
     <ClInclude Include="domain\dto\jobUpdate\JobUpdateDTO.h" />
     <ClInclude Include="domain\dto\orgbz\PageQueryBzDTO.h" />
     <ClInclude Include="domain\dto\postSet\PostDeleteDTO.h" />

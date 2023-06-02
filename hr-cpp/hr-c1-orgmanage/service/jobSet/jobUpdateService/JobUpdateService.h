@@ -15,7 +15,7 @@
 class JobUpdateService
 {
 public:
-	bool uodateJobInfo(const JobUpdateDTO::Wrapper& dto);
+	bool updateJobInfo(const JobUpdateDTO::Wrapper& dto, const PayloadDTO& payload);
 };
 
 #endif // ! _JOB_UPDATE_SERVICE_
