@@ -23,7 +23,7 @@ class LegalEntitySetService
 {
 public:
 	// 分页查询所有数据
-	//LegalEntitySetQueryPageDTO::Wrapper listAll(const LegalEntitySetQuery::Wrapper& query);
+	LegalEntitySetQueryPageDTO::Wrapper listAll(const LegalEntitySetQuery::Wrapper& query);
 	// 保存数据
 	uint64_t insertData(const LegalEntitySetDTO::Wrapper& dto, const PayloadDTO& payload);
 	// 修改数据

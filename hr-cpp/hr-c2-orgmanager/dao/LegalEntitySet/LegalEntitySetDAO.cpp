@@ -38,20 +38,17 @@ std::list<LegalEntitySetDO> LegalEntitySetDAO::legalerNamePullDownList() {
 }
 
 uint64_t LegalEntitySetDAO::insert(const LegalEntitySetDO& iObj) {
-	string sql = "INSERT IGNORE INTO t_contractsignorg (CONTRACTSIGNORGNAME, CONTRACTSIGNORGID, ORMORGID, ORMSIGNORGID, ISDEFAULTSIGNORG) VALUES (?,?,?,?,?)";
-	return sqlSession->executeUpdate(sql, "%s%s%s%s%s", iObj.getCONTRACTSIGNORGNAME(), iObj.getCONTRACTSIGNORGID(), iObj.getORMORGID(), iObj.getORMSIGNORGID(), iObj.getISDEFAULTSIGNORG());
+	string sql = "INSERT IGNORE INTO t_contractsignorg (CREATEDATE, CREATEMAN, SIGNORGID, UPDATEDATE, UPDATEMAN, CONTRACTSIGNORGNAME, CONTRACTSIGNORGID, ORMORGID, ORMSIGNORGID, ISDEFAULTSIGNORG) VALUES (?,?,?,?,?,?,?,?,?,?)";
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s",iObj.getCREATEDATE(), iObj.getCREATEMAN(), iObj.getSIGNORGID(), iObj.getUPDATEDATE(), iObj.getUPDATEMAN(),  iObj.getCONTRACTSIGNORGNAME(), iObj.getCONTRACTSIGNORGID(), iObj.getORMORGID(), iObj.getORMSIGNORGID(), iObj.getISDEFAULTSIGNORG());
 }
 
-//
-//int LegalEntitySetDAO::update1(const LegalEntitySetDO& uObj) {
-//	string sql = "UPDATE t_ormsignorg SET  ORMSIGNORGNAME=? WHERE ORMSIGNORGID=?";
-//	return sqlSession->executeUpdate(sql, "%s%s", uObj.getORMSIGNORGNAME(), uObj.getORMSIGNORGID());
-//}
-//
-//int LegalEntitySetDAO::update2(const LegalEntitySetDO& uObj) {
-//	string sql = "UPDATE t_contractsignorg SET CONTRACTSIGNORGNAME=?, ISDEFAULTSIGNORG=? WHERE CONTRACTSIGNORGID=?";
-//	return sqlSession->executeUpdate(sql, "%s%s%s", uObj.getCONTRACTSIGNORGNAME(), uObj.getISDEFAULTSIGNORG(), uObj.getCONTRACTSIGNORGID());
-//}
+
+int LegalEntitySetDAO::update(const LegalEntitySetDO& uObj) {
+	string sql = "UPDATE t_contractsignorg SET ORMORGID=?, SIGNORGID=?, ISDEFAULTSIGNORG=? WHERE ORMSIGNORGID=?";
+	return sqlSession->executeUpdate(sql, "%s%s%i%s",  uObj.getORMORGID(), 
+		  uObj.getSIGNORGID(), atoi(uObj.getISDEFAULTSIGNORG().c_str()), uObj.getORMSIGNORGID());
+}
+
 
 
 /* -------------------------------------------法人主体设置查询功能--TripleGold ----------------------------------------------------------*/

@@ -32,13 +32,13 @@ uint64_t LegalEntitySetService::insertData(const LegalEntitySetDTO::Wrapper& dto
 	SnowFlake snowid(1, 2); 
 	// 组装DO数据
 	LegalEntitySetDO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMORGID, ormorgid, ORMSIGNORGID, ormsignorgid, ISDEFAULTSIGNORG, isdefaultsignorg)
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMORGID, ormorgid, ORMSIGNORGID, ormsignorgid, SIGNORGID, signorgid, ISDEFAULTSIGNORG, isdefaultsignorg)
 	SimpleDateTimeFormat time;
 	data.setCONTRACTSIGNORGID(to_string(snowid.nextId()));
 	data.setCREATEDATE(time.format());
 	data.setCONTRACTSIGNORGNAME(payload.getUsername());
 	data.setCREATEMAN(payload.getUsername());
-	data.setSIGNORGID(to_string(snowid.nextId()));
+	//data.setSIGNORGID(to_string(snowid.nextId()));
 	data.setUPDATEDATE(time.format());
 	data.setUPDATEMAN(payload.getUsername());
 	// 执行数据添加
@@ -49,12 +49,11 @@ uint64_t LegalEntitySetService::insertData(const LegalEntitySetDTO::Wrapper& dto
 bool LegalEntitySetService::updateData(const LegalEntitySetDTO::Wrapper& dto) {
 	// 组装DO数据
 	LegalEntitySetDO data;
-	/*ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME,
-		contractsignorgname, ISDEFAULTSIGNORG, isdefaultsignorg)*/
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMORGID, ormorgid, ORMSIGNORGID, ormsignorgid, 
+		SIGNORGID, signorgid, ISDEFAULTSIGNORG, isdefaultsignorg)
 	// 执行数据修改
 	LegalEntitySetDAO dao;
-	//return dao.update1(data) && dao.update2(data);
-	return true;
+	return dao.update(data);
 }
 
 // 删除数据 
@@ -66,30 +65,30 @@ bool LegalEntitySetService::updateData(const LegalEntitySetDTO::Wrapper& dto) {
 
 
 /* ----------------------------------法人主体维护Service层具体实现--（组织管理-数据设置-法人主体维护）--TripleGold ------------------------------------------------*/
-//LegalEntitySetQueryPageDTO::Wrapper LegalEntitySetService::listAll(const LegalEntitySetQuery::Wrapper& query)
-//{
-//	// 构建返回对象
-//	auto pages = LegalEntitySetQueryPageDTO::createShared();
-//	pages->pageIndex = query->pageIndex;
-//	pages->pageSize = query->pageSize;
-//
-//	// 查询数据总条数
-//	LegalEntitySetDAO dao;
-//	uint64_t count = dao.count(query);
-//	if (count <= 0) {
-//		return pages;
-//	}
-//
-//	// 分页查询数据
-//	pages->total = count;
-//	pages->calcPages();
-//	list<LegalEntitySetDO> result = dao.selectWithPage(query);
-//	// 将DO转换成DTO
-//	for (LegalEntitySetDO sub : result)
-//	{
-//		auto dto = LegalEntitySetQueryDTO::createShared();
-//		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, ormsignorgid, ORMSIGNORGID, ormorgid, ORMORGID, signorgid, SIGNORGID, isdefaultsignorg, ISDEFAULTSIGNORG);
-//		pages->addData(dto);
-//	}
-//	return pages;
-//}
+LegalEntitySetQueryPageDTO::Wrapper LegalEntitySetService::listAll(const LegalEntitySetQuery::Wrapper& query)
+{
+	// 构建返回对象
+	auto pages = LegalEntitySetQueryPageDTO::createShared();
+	pages->pageIndex = query->pageIndex;
+	pages->pageSize = query->pageSize;
+
+	// 查询数据总条数
+	LegalEntitySetDAO dao;
+	uint64_t count = dao.count(query);
+	if (count <= 0) {
+		return pages;
+	}
+
+	// 分页查询数据
+	pages->total = count;
+	pages->calcPages();
+	list<LegalEntitySetDO> result = dao.selectWithPage(query);
+	// 将DO转换成DTO
+	for (LegalEntitySetDO sub : result)
+	{
+		auto dto = LegalEntitySetQueryDTO::createShared();
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, ormsignorgid, ORMSIGNORGID, ormorgid, ORMORGID, signorgid, SIGNORGID, isdefaultsignorg, ISDEFAULTSIGNORG);
+		pages->addData(dto);
+	}
+	return pages;
+}

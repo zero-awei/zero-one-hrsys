@@ -31,20 +31,20 @@ public:
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.ormsignorgid");
 	}
 	// 签约主体单位名称
-	DTO_FIELD(String, contractsignorgname);
+	/*DTO_FIELD(String, contractsignorgname);
 	DTO_FIELD_INFO(contractsignorgname) {
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.contractsignorgname");
-	}
+	}*/
 	//  默认签约主体
 	DTO_FIELD(String, isdefaultsignorg);
 	DTO_FIELD_INFO(isdefaultsignorg) {
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.isdefaultsignorg");
 	}
 	// 签约主体单位标识
-	DTO_FIELD(String, contractsignorgid);
+	/*DTO_FIELD(String, contractsignorgid);
 	DTO_FIELD_INFO(contractsignorgid) {
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.contractsignorgid");
-	}
+	}*/
 	// 管理单位标识
 	DTO_FIELD(String, ormorgid);
 	DTO_FIELD_INFO(ormorgid) {
@@ -72,10 +72,10 @@ public:
 	//}
 	
 	// 法人主体标识
-	/*DTO_FIELD(String, signorgid);
+	DTO_FIELD(String, signorgid);
 	DTO_FIELD_INFO(signorgid) {
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.signorgid");
-	}*/
+	}
 };
 
 /**
