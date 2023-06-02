@@ -89,12 +89,12 @@ StringJsonVO::Wrapper LaborDispatchConstroller::execRemoveLaborDispatch_ld(const
 	return vo;
 }
 
-StringJsonVO::Wrapper LaborDispatchConstroller::execExportLaborDispatch_ld(const LaborDispatchQuery::Wrapper& query)
+StringJsonVO::Wrapper LaborDispatchConstroller::execExportLaborDispatch_ld(const LaborDispatchQuery::Wrapper& query, const LaborDispatchExportDTO::Wrapper& dto)
 {
 	//定义返回数据对象
 	auto vo = StringJsonVO::createShared();
 	LaborDispatchService service;
-	string filedName = service.LaborDispatchExport_ld(query);
+	string filedName = service.LaborDispatchExport_ld(query,dto);
 	//响应结果
 	if (filedName.empty()) {
 		vo->fail("export failed!");

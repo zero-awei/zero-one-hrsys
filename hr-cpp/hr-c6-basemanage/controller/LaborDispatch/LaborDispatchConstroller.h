@@ -97,11 +97,11 @@ public:
 		info->queryParams["lxfs"].required = false;
 	}
 	// 3.2 定义导出接口处理
-	ENDPOINT(API_M_POST, "/contract-management/export-laborDispatchInformation", exportCor, QUERIES(QueryParams, queryExport)) {
+	ENDPOINT(API_M_POST, "/contract-management/export-laborDispatchInformation", exportCor, QUERIES(QueryParams, queryExport),BODY_DTO(LaborDispatchExportDTO::Wrapper, dto)) {
 		//解析查询参数
 		API_HANDLER_QUERY_PARAM(query, LaborDispatchQuery, queryExport);
 		//响应结果
-		API_HANDLER_RESP_VO(execExportLaborDispatch_ld(query));
+		API_HANDLER_RESP_VO(execExportLaborDispatch_ld(query,dto));
 	}
 
 private: //  定义接口执行函数
@@ -112,7 +112,7 @@ private: //  定义接口执行函数
 	//3.3 删除数据
 	StringJsonVO::Wrapper execRemoveLaborDispatch_ld(const LaborDispatchRemoveDTO::Wrapper& dto);
 	//3.3 导出数据
-	StringJsonVO::Wrapper execExportLaborDispatch_ld(const LaborDispatchQuery::Wrapper& query);
+	StringJsonVO::Wrapper execExportLaborDispatch_ld(const LaborDispatchQuery::Wrapper& query, const LaborDispatchExportDTO::Wrapper& dto);
 
 };
 

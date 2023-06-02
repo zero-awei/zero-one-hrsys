@@ -64,6 +64,7 @@ ldcompany:
   LEGALPEROSN: 法人
   REGCAPITAL: 注册本金
   UPDATEDATE: 更新时间
+  ZIDUAN: 字段
 
 
 contract_gosh:
