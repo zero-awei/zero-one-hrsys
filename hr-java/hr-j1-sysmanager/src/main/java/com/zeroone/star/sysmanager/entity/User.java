@@ -57,5 +57,15 @@ public class User implements Serializable {
      */
     private Integer isEnable;
 
+    /**
+     * creator
+     */
+    private String creator;
+
+
+    /**
+     * createtime
+     */
+    private LocalDateTime createtime;
 
 }

@@ -2,11 +2,10 @@ package com.zeroone.star.sysmanager.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.zeroone.star.project.components.user.UserHolder;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.usermanager.UserDTO;
-import com.zeroone.star.project.query.PageQuery;
 import com.zeroone.star.project.query.sysmanager.usermanager.UserConditionalQuery;
 import com.zeroone.star.project.query.sysmanager.usermanager.UserQuery;
 import com.zeroone.star.sysmanager.entity.User;
@@ -17,10 +16,8 @@ import org.apache.logging.log4j.util.Strings;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
-import java.lang.reflect.Field;
+import javax.annotation.Resource;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * <p>
@@ -34,6 +31,8 @@ import java.util.List;
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
 
+    @Resource
+    UserHolder userHolder;
     @Override
     public PageDTO<UserDTO> listAllUsers(@Validated UserQuery query) {
         Page<User> page = new Page<>(query.getPageIndex(), query.getPageSize());
@@ -68,10 +67,17 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     public Boolean saveUser(UserDTO dto) {
         User user = new User();
-        BeanUtil.copyProperties(dto,user);
-        LocalDateTime now = LocalDateTime.now();
-        user.setRegistTime(now);
-        return baseMapper.insert(user)>=1;
+        try {
+            String username = userHolder.getCurrentUser().getUsername();
+            BeanUtil.copyProperties(dto,user);
+            LocalDateTime now = LocalDateTime.now();
+            user.setRegistTime(now);
+            user.setCreatetime(now);
+            user.setCreator(username);
+            return baseMapper.insert(user)>=1;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override
