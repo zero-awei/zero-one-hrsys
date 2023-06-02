@@ -11,8 +11,12 @@ import com.zeroone.star.project.components.fastdfs.FastDfsClientComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.orgmanager.DepartmentDTO;
+import com.zeroone.star.project.dto.orgmanager.DeptDTO;
 import com.zeroone.star.project.dto.orgmanager.ExportDTO;
-import com.zeroone.star.project.query.orgmanager.*;
+import com.zeroone.star.project.query.orgmanager.DepartmentQuery;
+import com.zeroone.star.project.query.orgmanager.DeptInfoQuery;
+import com.zeroone.star.project.query.orgmanager.ExportDepartmentsQuery;
+import com.zeroone.star.project.vo.JsonVO;
 import lombok.SneakyThrows;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Service;
@@ -56,20 +60,11 @@ public class SrforgsectorServiceImpl extends ServiceImpl<SrforgsectorMapper, Srf
     @Resource
     private MsSrforgsectorMapper msSrforgsectorMapper;
 
-    @Override
-    public Boolean removeDept(DeptQuery1 deptQuery1) {
-        if (srforgsectorMapper.deleteById(deptQuery1.getOrgSectorId()) > 0) {
-            return true;
-        }
-        return false;
-    }
 
     @Override
-    public Boolean removeDepts(DeptQuery2 deptQuery2) {
-        if (srforgsectorMapper.deleteDepts(deptQuery2) > 0) {
-            return true;
-        }
-        return false;
+    public JsonVO<String> removeDeptByIds(DeptDTO deptDTO) {
+        srforgsectorMapper.deleteDeptByIds(deptDTO);
+        return JsonVO.success("删除成功！");
     }
 
     @Override

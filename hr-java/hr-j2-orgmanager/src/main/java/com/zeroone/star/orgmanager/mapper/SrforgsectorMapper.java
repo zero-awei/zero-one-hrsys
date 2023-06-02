@@ -3,6 +3,7 @@ package com.zeroone.star.orgmanager.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.zeroone.star.orgmanager.entity.Srforgsector;
 import com.zeroone.star.project.dto.orgmanager.DepartmentDTO;
+import com.zeroone.star.project.dto.orgmanager.DeptDTO;
 import com.zeroone.star.project.query.orgmanager.DepartmentQuery;
 import com.zeroone.star.project.query.orgmanager.DeptQuery2;
 import org.apache.ibatis.annotations.Mapper;
@@ -20,7 +21,7 @@ import java.util.List;
 @Mapper
 public interface SrforgsectorMapper extends BaseMapper<Srforgsector> {
     /**
-     * @param deptQuery2: 部门信息对象
+     * @param deptDTO: 部门信息对象
      * @return int
      * @author 乐天
      * @description：批量删除部门信息
@@ -33,4 +34,5 @@ public interface SrforgsectorMapper extends BaseMapper<Srforgsector> {
      * @return
      */
     List<DepartmentDTO> selectAllDepartment(DepartmentQuery query);
+    void deleteDeptByIds(DeptDTO deptDTO);
 }

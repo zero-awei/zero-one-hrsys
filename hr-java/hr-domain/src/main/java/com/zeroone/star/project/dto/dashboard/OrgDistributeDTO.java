@@ -13,8 +13,8 @@ import lombok.Data;
 @ApiModel("组织分布信息数据对象")
 @Data
 public class OrgDistributeDTO {
-    @ApiModelProperty(value = "组织标识", example = "020369F7-AFE6-4014-82D9-30915844D604")
-    private String orgId;
-    @ApiModelProperty(value = "组织名称", example = "湖南公司")
+    @ApiModelProperty(value = "组织名称", example = "山东公司")
     private String orgName;
+    @ApiModelProperty(value = "组织人数", example = "120")
+    private Integer number;
 }

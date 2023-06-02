@@ -123,21 +123,24 @@ public class CommonController implements CommonApis {
     }
 
     @Resource
-    private IOrmpostlibService ormpostlibService;
+    private IZoPostTypeService zoPostTypeService;
 
-    @ApiOperation(value = "获取岗位分类下拉列表")
-    @GetMapping("/query-post-classification")
+    @ApiOperation(value = "岗位分类下拉列表")
+    @GetMapping("/query-post-type")
     @Override
-    public JsonVO<List<GwTypeDTO>> queryGwfl() {
-        List<GwTypeDTO> list = ormpostlibService.getGwType();
+    public JsonVO<List<DropdownListOptionDTO>> queryPostType() {
+        List<DropdownListOptionDTO> list = zoPostTypeService.listPostType();
         return JsonVO.success(list);
     }
 
-    @ApiOperation(value = "获取岗位性质下拉列表")
+    @Resource
+    private IZoPostNatureService zoPostNatureService;
+
+    @ApiOperation(value = "岗位性质下拉列表")
     @GetMapping("/query-post-nature")
     @Override
-    public JsonVO<List<PostNatureDTO>> queryPostNature() {
-        List<PostNatureDTO> list = ormpostlibService.getPostNature();
+    public JsonVO<List<DropdownListOptionDTO>> queryPostNature() {
+        List<DropdownListOptionDTO> list = zoPostNatureService.listPostNature();
         return JsonVO.success(list);
     }
 
