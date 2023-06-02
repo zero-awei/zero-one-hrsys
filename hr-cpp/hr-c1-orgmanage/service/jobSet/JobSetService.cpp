@@ -129,7 +129,7 @@ std::string JobSetService::saveJob(const AddJobDTO::Wrapper& dto, const PayloadD
 	data.setUpdateMan(name);
 	data.setOrmPostId(id);
 
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, OrmPostName, postName, OrmOrgId, orgId, GwType, jobType, Gwfl, jobClass, IsTemp, isTemp, IsConfidential, isConfidential, PostNature, postNature, IsKeyPostion, isKeyPostion, StartStopSign, sign);
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, OrmPostName, postName, OrmOrgId, orgId, GwType, jobType, Gwfl, jobClass, IsTemp, isTemp, IsConfidential, isConfidential, PostNature, postNature, IsKeyPostion, isKeyPostion, StartStopSign, sign, Nx, yearLimit, Bxjlnx, mustYearLimit);
 
 	// 调用DAO操作数据库
 	JobSetDAO dao;

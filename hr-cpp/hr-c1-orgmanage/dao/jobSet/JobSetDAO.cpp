@@ -65,12 +65,13 @@ bool JobSetDAO::insertJob(const PostDetailDO& data)
 	stringstream ss;
 	ss << "INSERT INTO `t_ormpost` (`ORMPOSTID`, `ORMPOSTNAME`, `ISKEYPOSTION`, `CREATEMAN`";
 	ss << ", `UPDATEMAN`, `CREATEDATE`, `UPDATEDATE`, `ORMORGID`, `GWTYPE`, `GWFL`, `ISCONFIDENTIAL`";
-	ss << ", `ISTEMP`, `POSTNATURE`, `STARTSTOPSIGN`) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	ss << ", `ISTEMP`, `POSTNATURE`, `STARTSTOPSIGN`, `NX`, `BXJLNX`) VALUE";
+	ss << " (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 	string sql = ss.str();
-	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s", 
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%ui%ui", 
 		data.getOrmPostId(), data.getOrmPostName(), data.getIsKeyPostion(), data.getCreateMan(), 
 		data.getUpdateMan(), data.getCreateDate(), data.getUpdateDate(), data.getOrmOrgId(), 
 		data.getGwType(), data.getGwfl(), data.getIsConfidential(), data.getIsTemp(), 
-		data.getPostNature(), data.getStartStopSign());
+		data.getPostNature(), data.getStartStopSign(), data.getNx(), data.getBxjlnx());
 }

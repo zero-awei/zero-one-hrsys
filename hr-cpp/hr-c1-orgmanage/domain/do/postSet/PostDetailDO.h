@@ -27,7 +27,7 @@
 class PostDetailDO
 {
 	// 排序标号*
-	CC_SYNTHESIZE(uint64_t, xh,Xh);
+	CC_SYNTHESIZE(uint32_t, xh,Xh);
 	// 岗位分类*
 	CC_SYNTHESIZE(string, gwfl, Gwfl);
 	// 是否保密岗*
@@ -35,9 +35,9 @@ class PostDetailDO
 	// 岗位集名称*
 	CC_SYNTHESIZE(string, ormPostName, OrmPostName);
 	// 建议交流年限*
-	CC_SYNTHESIZE(uint64_t, nx,Nx);
+	CC_SYNTHESIZE(uint32_t, nx,Nx);
 	// 必须交流年限*
-	CC_SYNTHESIZE(uint64_t, bxjlnx, Bxjlnx);
+	CC_SYNTHESIZE(uint32_t, bxjlnx, Bxjlnx);
 	// 是否关键岗位*
 	CC_SYNTHESIZE(string, isKeyPostion, IsKeyPostion);
 	// 岗位性质*

@@ -80,6 +80,8 @@ jobSet:
   postNature: 岗位性质
   isKeyPostion: 是否关键岗位
   sign: 启用标识
+  yearLimit: 建议交流年限
+  mustYearLimit: 必须交流年限
 
 #项目标签-导出岗位标签
 projTag:

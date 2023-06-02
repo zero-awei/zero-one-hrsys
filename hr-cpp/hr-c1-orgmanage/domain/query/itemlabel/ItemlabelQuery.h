@@ -31,42 +31,41 @@ class ItemLabelQuery : public PageQuery
 {
 	DTO_INIT(ItemLabelQuery, PageQuery);
 
-
 	// 项目编号
-	DTO_FIELD(String, id);
+	/*DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("ormanage.dto.id");
-	}
+	}*/
 	// 创建人
-	DTO_FIELD(String, name);
+	/*DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
 		info->description = ZH_WORDS_GETTER("ormanage.dto.name");
-	}
+	}*/
 	//创建时间
-	DTO_FIELD(String, createTime);
+	/*DTO_FIELD(String, createTime);
 	DTO_FIELD_INFO(createTime) {
 		info->description = ZH_WORDS_GETTER("ormanage.dto.createtime");
-	}
+	}*/
 	//更新时间
-	DTO_FIELD(String, updataTime);
+	/*DTO_FIELD(String, updataTime);
 	DTO_FIELD_INFO(updataTime) {
 		info->description = ZH_WORDS_GETTER("ormanage.dto.uptime");
-	}
+	}*/
 	// 项目标签
 	DTO_FIELD(String, itemLabel);
 	DTO_FIELD_INFO(itemLabel) {
 		info->description = ZH_WORDS_GETTER("ormanage.dto.label");
 	}
 	//组织ID
-	DTO_FIELD(String,ormorgId);
+	/*DTO_FIELD(String,ormorgId);
 	DTO_FIELD_INFO(ormorgId) {
 		info->description = ZH_WORDS_GETTER("ormanage.dto.ormorgid");
-	}
+	}*/
 	//项目标签标识
-	DTO_FIELD(String,ormxbqId);
+	/*DTO_FIELD(String,ormxbqId);
 	DTO_FIELD_INFO(ormxbqId) {
 		info->description = ZH_WORDS_GETTER("ormanage.dto.ormxbqid");
-	}
+	}*/
 
 };
 

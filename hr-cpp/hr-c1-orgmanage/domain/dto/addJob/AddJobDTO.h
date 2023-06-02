@@ -77,7 +77,16 @@ class AddJobDTO : public oatpp::DTO
 	DTO_FIELD_INFO(sign) {
 		info->description = ZH_WORDS_GETTER("jobSet.add.sign");
 	}
-
+	// 建议交流年限
+	DTO_FIELD(UInt32, yearLimit);
+	DTO_FIELD_INFO(yearLimit) {
+		info->description = ZH_WORDS_GETTER("jobSet.add.yearLimit");
+	}
+	// 必须交流年限
+	DTO_FIELD(UInt32, mustYearLimit);
+	DTO_FIELD_INFO(mustYearLimit) {
+		info->description = ZH_WORDS_GETTER("jobSet.add.mustYearLimit");
+	}
 public:
 	AddJobDTO()
 	{
@@ -90,6 +99,8 @@ public:
 		jobType = "";
 		orgId = "";
 		postName = "";
+		yearLimit = 1;
+		mustYearLimit = 1;
 	}
 };
 
