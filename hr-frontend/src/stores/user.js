@@ -128,7 +128,7 @@ let testMenus = [
     ]
   },
   {
-    id: 2,
+    id: 9,
     text: '离(退)休管理',
     icon: 'IconUser',
     children: [
