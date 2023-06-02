@@ -36,12 +36,11 @@ class LegalEntitySetDO {
 	CC_SYNTHESIZE(string, ormorgid, ORMORGID);
 	// 法人主体标识
 	CC_SYNTHESIZE(string, signorgid, SIGNORGID);
-	//
+	// 默认签约主体 
 	CC_SYNTHESIZE(string, isdefaultsignorg, ISDEFAULTSIGNORG);
 	// 法人主体标识
 	CC_SYNTHESIZE(string, ormsignorgid, ORMSIGNORGID);
 	
-
 	LegalEntitySetDO() {
 		contractsignorgname = "";
 		contractsignorgid = "";

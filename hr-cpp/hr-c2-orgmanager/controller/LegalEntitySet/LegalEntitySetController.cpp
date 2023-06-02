@@ -13,20 +13,12 @@
 
 新增法人设置（支持批量新增）** `LegalEntitySet`
 */ 
-Uint64JsonVO::Wrapper LegalEntitySetController::execAddLegalEntitySet(const LegalEntitySetDTO::Wrapper& dto) {
+Uint64JsonVO::Wrapper LegalEntitySetController::execAddLegalEntitySet(const List<LegalEntitySetDTO::Wrapper> & dto, const PayloadDTO& payload) {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
-	// 定义一个Service
-	LegalEntitySetService service;
-	// 执行数据新增
-	uint64_t id = service.insertData(dto);
-	if (id > 0) {
-		jvo->success(UInt64(id));
-	}
-	else {
-		jvo->fail(UInt64(id));
-	}
-	//响应结果
+	int length = dto->size();
+
+	// 响应结果
 	return jvo;
 }
 
@@ -66,14 +58,14 @@ StringJsonVO::Wrapper LegalEntitySetController::execModifyLegalEntitySet(const L
 
 /*---------------------------------- 法人主体设置控制器具体实现--（组织管理-数据设置-法人主体设置）--TripleGold -------------------------------*/
 
-LegalEntitySetQueryPageJsonVO::Wrapper LegalEntitySetController::execQueryLES(const LegalEntitySetQuery::Wrapper& query)
-{
-	// 定义一个Service
-	LegalEntitySetService service;
-	// 查询数据
-	auto result = service.listAll(query);
-	// 响应结果
-	auto jvo = LegalEntitySetQueryPageJsonVO::createShared();
-	jvo->success(result);
-	return jvo;
-}
+//LegalEntitySetQueryPageJsonVO::Wrapper LegalEntitySetController::execQueryLES(const LegalEntitySetQuery::Wrapper& query)
+//{
+//	// 定义一个Service
+//	LegalEntitySetService service;
+//	// 查询数据
+//	auto result = service.listAll(query);
+//	// 响应结果
+//	auto jvo = LegalEntitySetQueryPageJsonVO::createShared();
+//	jvo->success(result);
+//	return jvo;
+//}

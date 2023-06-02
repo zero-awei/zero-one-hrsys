@@ -38,17 +38,18 @@ namespace multipart = oatpp::web::mime::multipart;
 class LegalEntitySetController : public oatpp::web::server::api::ApiController {
 	API_ACCESS_DECLARE(LegalEntitySetController); // 2 定义控制器访问入口
 public:
-
+	
 	ENDPOINT_INFO(addLegalEntitySet) {
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("LegalEntitySet.post.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/org/add-LegalerSeting", addLegalEntitySet, BODY_DTO(LegalEntitySetDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/org/add-LegalEntitySet", addLegalEntitySet, API_HANDLER_AUTH_PARAME, BODY_DTO(List<LegalEntitySetDTO::Wrapper>, dto)) {
 		// 响应结果
-		API_HANDLER_RESP_VO(execAddLegalEntitySet(dto));
+		API_HANDLER_RESP_VO(execAddLegalEntitySet(dto, authObject->getPayload()));
 	}
 
 	ENDPOINT_INFO(exportLegalEntitySet) {
@@ -81,9 +82,9 @@ public:
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("ormsignorgname").description = ZH_WORDS_GETTER("LegalEntitySet.field.ormsignorgname");
-		info->queryParams["ormsignorgname"].addExample("default", String(ZH_WORDS_GETTER("LegalEntitySet.sample.name1")));
-		info->queryParams["ormsignorgname"].required = false;
+		info->queryParams.add<String>("ormsignorgid").description = ZH_WORDS_GETTER("LegalEntitySet.field.ormsignorgname");
+		info->queryParams["ormsignorgid"].addExample("default", String(ZH_WORDS_GETTER("LegalEntitySet.sample.name1")));
+		info->queryParams["ormsignorgid"].required = false;
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/org/query-LegalEntitySetPullDownList", queryLegalEntitySetPullDownList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
@@ -110,36 +111,36 @@ public:
 
 	/* ---------------------------法人主体设置控制器设计--（组织管理-数据设置-法人主体设置）--TripleGold ----------------------------*/
 	// 定义查询法人主体信息接口描述
-	ENDPOINT_INFO(queryLES) {
-		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("LegalEntitySet.query.summary");
-		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
-		API_DEF_ADD_AUTH();
-		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(LegalEntitySetQueryPageJsonVO);
-		// 定义分页参数描述
-		API_DEF_ADD_PAGE_PARAMS();
-		// 定义其他查询参数描述
-		// 签约主体单位名称
-		info->queryParams.add<String>("contractsignorgname").description = ZH_WORDS_GETTER("LegalEntitySet.field.ormsignorgname");
-		info->queryParams["contractsignorgname"].addExample("default", String(ZH_WORDS_GETTER("LegalEntitySet.sample.name1")));
-		info->queryParams["contractsignorgname"].required = false;
-		// 管理单位标识当作管理单位名称
-		info->queryParams.add<String>("ormorgid").description = ZH_WORDS_GETTER("LegalEntitySet.field.ormorgid");
-		info->queryParams["ormorgid"].addExample("default", String("102"));
-		info->queryParams["ormorgid"].required = false;
-	}
-	// 定义查询法人主体信息接口处理
-	ENDPOINT(API_M_GET, "/org/query-LES", queryLES, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
-		// 解析查询参数
-		API_HANDLER_QUERY_PARAM(legalEntitySetQuery, LegalEntitySetQuery, queryParams);
-		// 响应结果
-		API_HANDLER_RESP_VO(execQueryLES(legalEntitySetQuery));
-	}
+	//ENDPOINT_INFO(queryLES) {
+	//	// 定义接口标题
+	//	info->summary = ZH_WORDS_GETTER("LegalEntitySet.query.summary");
+	//	// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+	//	API_DEF_ADD_AUTH();
+	//	// 定义响应参数格式
+	//	API_DEF_ADD_RSP_JSON_WRAPPER(LegalEntitySetQueryPageJsonVO);
+	//	// 定义分页参数描述
+	//	API_DEF_ADD_PAGE_PARAMS();
+	//	// 定义其他查询参数描述
+	//	// 签约主体单位名称
+	//	info->queryParams.add<String>("contractsignorgname").description = ZH_WORDS_GETTER("LegalEntitySet.field.ormsignorgname");
+	//	info->queryParams["contractsignorgname"].addExample("default", String(ZH_WORDS_GETTER("LegalEntitySet.sample.name1")));
+	//	info->queryParams["contractsignorgname"].required = false;
+	//	// 管理单位标识当作管理单位名称
+	//	info->queryParams.add<String>("ormorgid").description = ZH_WORDS_GETTER("LegalEntitySet.field.ormorgid");
+	//	info->queryParams["ormorgid"].addExample("default", String("102"));
+	//	info->queryParams["ormorgid"].required = false;
+	//}
+	//// 定义查询法人主体信息接口处理
+	//ENDPOINT(API_M_GET, "/org/query-LES", queryLES, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	//	// 解析查询参数
+	//	API_HANDLER_QUERY_PARAM(legalEntitySetQuery, LegalEntitySetQuery, queryParams);
+	//	// 响应结果
+	//	API_HANDLER_RESP_VO(execQueryLES(legalEntitySetQuery));
+	//}
 
 private:
 	// 增加法人主体设置
-	Uint64JsonVO::Wrapper execAddLegalEntitySet(const LegalEntitySetDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execAddLegalEntitySet(const List<LegalEntitySetDTO::Wrapper> & dto, const PayloadDTO& payload);
 	// 导出法人主体设置
 	LegalEntitySetPageJsonVO::Wrapper execExportLegalEntitySet(const LegalEntitySetQuery::Wrapper& query, const PayloadDTO& payload);
 	// 法人主体名称下拉列表
@@ -147,7 +148,7 @@ private:
 	// 更新法人主体设置
 	StringJsonVO::Wrapper execModifyLegalEntitySet(const LegalEntitySetDTO::Wrapper& dto);
 	// 分页查询数据
-	LegalEntitySetQueryPageJsonVO::Wrapper execQueryLES(const LegalEntitySetQuery::Wrapper& query);
+	//LegalEntitySetQueryPageJsonVO::Wrapper execQueryLES(const LegalEntitySetQuery::Wrapper& query);
 };
 
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen

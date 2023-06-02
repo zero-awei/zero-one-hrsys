@@ -22,6 +22,7 @@
 class LegalEntitySetDTO : public oatpp::DTO {
 public: 
 	LegalEntitySetDTO() {};
+	LegalEntitySetDTO(String ormsignorgid):ormsignorgid(ormsignorgid) {};
 	LegalEntitySetDTO(String ormsignorgid, String ormsignorgname, String contractsignorgname, String isdefaultsignorg) {	};
 	DTO_INIT(LegalEntitySetDTO, DTO);
 	// 法人主体标识
@@ -34,7 +35,7 @@ public:
 	DTO_FIELD_INFO(contractsignorgname) {
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.contractsignorgname");
 	}
-	// // 默认签约主体
+	//  默认签约主体
 	DTO_FIELD(String, isdefaultsignorg);
 	DTO_FIELD_INFO(isdefaultsignorg) {
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.isdefaultsignorg");
@@ -44,36 +45,37 @@ public:
 	DTO_FIELD_INFO(contractsignorgid) {
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.contractsignorgid");
 	}
-	// 更新人
-	DTO_FIELD(String, updateman);
-	DTO_FIELD_INFO(updateman) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.updateman");
-	}
-	// 建立人
-	DTO_FIELD(String, createman);
-	DTO_FIELD_INFO(createman) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.createman");
-	}
-	// 建立时间
-	DTO_FIELD(String, createdate);
-	DTO_FIELD_INFO(createdate) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.createdate");
-	}
-	// 更新时间
-	DTO_FIELD(String, updatedate);
-	DTO_FIELD_INFO(updatedate) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.updatedate");
-	}
 	// 管理单位标识
 	DTO_FIELD(String, ormorgid);
 	DTO_FIELD_INFO(ormorgid) {
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.ormorgid");
 	}
+	//// 更新人
+	//DTO_FIELD(String, updateman);
+	//DTO_FIELD_INFO(updateman) {
+	//	info->description = ZH_WORDS_GETTER("LegalEntitySet.field.updateman");
+	//}
+	//// 建立人
+	//DTO_FIELD(String, createman);
+	//DTO_FIELD_INFO(createman) {
+	//	info->description = ZH_WORDS_GETTER("LegalEntitySet.field.createman");
+	//}
+	//// 建立时间
+	//DTO_FIELD(String, createdate);
+	//DTO_FIELD_INFO(createdate) {
+	//	info->description = ZH_WORDS_GETTER("LegalEntitySet.field.createdate");
+	//}
+	//// 更新时间
+	//DTO_FIELD(String, updatedate);
+	//DTO_FIELD_INFO(updatedate) {
+	//	info->description = ZH_WORDS_GETTER("LegalEntitySet.field.updatedate");
+	//}
+	
 	// 法人主体标识
-	DTO_FIELD(String, signorgid);
+	/*DTO_FIELD(String, signorgid);
 	DTO_FIELD_INFO(signorgid) {
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.signorgid");
-	}
+	}*/
 };
 
 /**

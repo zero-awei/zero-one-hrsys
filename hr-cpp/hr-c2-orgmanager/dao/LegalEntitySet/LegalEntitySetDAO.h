@@ -26,13 +26,12 @@ public:
 	// 分页查询数据
 	//list<LegalEntitySetDO> selectWithPage(const LegalEntitySetQuery::Wrapper& query);
 	// 插入数据
-	//uint64_t insert1(const LegalEntitySetDO& iObj);
-	//uint64_t insert2(const LegalEntitySetDO& iObj);
+	uint64_t insert(const LegalEntitySetDO& iObj);
 	// 修改数据
 	//int update1(const LegalEntitySetDO& uObj);
 	//int update2(const LegalEntitySetDO& uObj);
 	// 法人主体名称下拉列表  
-	//std::list<LegalEntitySetDO> legalerNamePullDownList();
+	std::list<LegalEntitySetDO> legalerNamePullDownList();
 	// 统计数据条数
 	uint64_t count(const LegalEntitySetQuery::Wrapper& query);
 	// 分页查询数据

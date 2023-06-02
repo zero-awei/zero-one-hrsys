@@ -23,10 +23,9 @@ public:
 	LegalEntitySetDO mapper(ResultSet* resultSet) const override
 	{
 		LegalEntitySetDO data;
-		data.setORMSIGNORGID(resultSet->getString(1));
-		data.setORMORGID(resultSet->getString(2));
-		data.setSIGNORGID(resultSet->getString(3));
-		data.setISDEFAULTSIGNORG(resultSet->getString(4));
+		data.setORMORGID(resultSet->getString(1));
+		data.setORMSIGNORGID(resultSet->getString(2));
+		data.setISDEFAULTSIGNORG(resultSet->getString(3));
 		return data;
 	}
 };
@@ -37,7 +36,7 @@ public:
 	LegalEntitySetDO mapper(ResultSet* resultSet) const override
 	{
 		LegalEntitySetDO data;
-		data.setORMORGID(resultSet->getString(1));
+		data.setORMSIGNORGID(resultSet->getString(1));
 		return data;
 	}
 };
