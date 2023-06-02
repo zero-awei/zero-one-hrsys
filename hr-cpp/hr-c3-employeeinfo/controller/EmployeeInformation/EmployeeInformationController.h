@@ -192,7 +192,6 @@ public: // 定义接口
 	}
 	
 	//定义新增员工信息接口端点描述
-
 	ENDPOINT_INFO(addEmployee) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("orgsector.field.summary");
