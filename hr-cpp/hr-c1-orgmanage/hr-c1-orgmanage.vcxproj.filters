@@ -36,6 +36,10 @@
     <ClCompile Include="service\jobSet\jobUpdateService\JobUpdateService.cpp" />
     <ClCompile Include="dao\jobSet\jobUpdateDAO\JobUpdteDAO.cpp" />
     <ClCompile Include="dao\jobSet\jobExportDAO\JobExportDAO.cpp" />
+    <ClCompile Include="dao\orgbz\PageQueryBzDAO.cpp" />
+    <ClCompile Include="service\orgbz\PageQueryBzService.cpp" />
+    <ClCompile Include="service\itemLabel\ItemLabelService.cpp" />
+    <ClCompile Include="dao\itemLabel\ItemLabelDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -119,5 +123,14 @@
     <ClInclude Include="domain\vo\jobSet\JobUpdateVO\JobUpdateVO.h" />
     <ClInclude Include="domain\vo\jobSet\JobDownloadVO\JobDownloadVO.h" />
     <ClInclude Include="domain\vo\jobUpdate\JobUpdateVO.h" />
+    <ClInclude Include="dao\orgbz\PageQueryBzDAO.h" />
+    <ClInclude Include="dao\orgbz\PageQueryBzMapper.h" />
+    <ClInclude Include="domain\do\orgbz\PageQueryBzDO.h" />
+    <ClInclude Include="domain\dto\orgbz\PageQueryBzDTO.h" />
+    <ClInclude Include="domain\vo\orgbz\PageQueryBzVO.h" />
+    <ClInclude Include="service\orgbz\PageQueryBzService.h" />
+    <ClInclude Include="service\itemLabel\ItemLabelService.h" />
+    <ClInclude Include="dao\itemLabel\ItemLabelDAO.h" />
+    <ClInclude Include="dao\itemLabel\ItemLabelMapper.h" />
   </ItemGroup>
 </Project>

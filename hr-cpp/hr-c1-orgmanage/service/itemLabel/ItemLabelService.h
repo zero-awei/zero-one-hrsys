@@ -1,8 +1,9 @@
-ï»¿/*
+#pragma once
+/*
  Copyright Zero One Star. All rights reserved.
 
- @Author: awei
- @Date: 2022/10/25 10:58:42
+ @Author: yuanchen
+ @Date: 2023/05/31 20:58:49
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,17 +17,21 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "ItemLabelController.h"
-#include "service/itemLabel/ItemLabelService.h"
+#ifndef _ITEMLABELSERVICE_H_
+#define _ITEMLABELSERVICE_H_
+#include "domain/dto/itemLabel/ItemLabelDTO.h"
+#include "domain/query/itemlabel/ItemlabelQuery.h"
+#include <list>
+#include "domain/vo/itemLabel/ItemLabelVO.h"
 
-ItemLabelPageJsonVO::Wrapper ItemLabelController::execQueryItemLabel(const ItemLabelQuery::Wrapper& query)
+/**
+ * ÏîÄ¿±êÇ©-²éÑ¯Ö¸¶¨ÏîÄ¿±êÇ©
+ * ¸ºÔðÈË£ºÔµ³¾
+ */
+class ItemLabeService
 {
-	// æž„å»ºè¿”å›žå¯¹è±¡
-	auto vo = ItemLabelPageJsonVO::createShared();
-	ItemLabeService service;
-	auto pdto = service.listItemLabel(query);
-	// ç›¸åº”è¿”å›ž
-	vo->success(pdto);
-	return vo;
-}
+public:
+	ItemLabelPageDTO::Wrapper listItemLabel(const ItemLabelQuery::Wrapper& query);
+};
+
+#endif // !_ITEMLABELSERVICE_H_

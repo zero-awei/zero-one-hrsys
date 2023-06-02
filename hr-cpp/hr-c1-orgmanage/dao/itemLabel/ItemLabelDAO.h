@@ -1,8 +1,9 @@
-ï»¿/*
+#pragma once
+/*
  Copyright Zero One Star. All rights reserved.
 
- @Author: awei
- @Date: 2022/10/25 10:58:42
+ @Author: yuanchen
+ @Date: 2023/05/31 21:23:16
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,17 +17,20 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
-#include "ItemLabelController.h"
-#include "service/itemLabel/ItemLabelService.h"
+#ifndef _ITEMLABELDAO_H_
+#define _ITEMLABELDAO_H_
+#include "BaseDAO.h"
+#include "domain/do/projTag/ProjTagDO.h"
+#include "domain/query/itemlabel/ItemlabelQuery.h"
 
-ItemLabelPageJsonVO::Wrapper ItemLabelController::execQueryItemLabel(const ItemLabelQuery::Wrapper& query)
+/**
+ * ÏîÄ¿±êÇ© - ²éÑ¯Ö¸¶¨±êÇ©ÏêÇé
+ * ¸ºÔðÈË£ºÔµ³¾
+ */
+class ItemLabelDAO : public BaseDAO
 {
-	// æž„å»ºè¿”å›žå¯¹è±¡
-	auto vo = ItemLabelPageJsonVO::createShared();
-	ItemLabeService service;
-	auto pdto = service.listItemLabel(query);
-	// ç›¸åº”è¿”å›ž
-	vo->success(pdto);
-	return vo;
-}
+public:
+	std::list<ProjTagDO> selectItemLabelList(const ItemLabelQuery::Wrapper& query);
+};
+
+#endif // !_ITEMLABELDAO_H_

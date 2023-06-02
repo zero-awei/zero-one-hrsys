@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -25,56 +25,57 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * ²âÊÔ¹¦ÄÜ´«ÊäÊı¾İÀàĞÍ
+ * æµ‹è¯•åŠŸèƒ½ä¼ è¾“æ•°æ®ç±»å‹
  */
 class ItemLabelDTO : public oatpp::DTO
 {
-public:
-	ItemLabelDTO() {};
-	ItemLabelDTO(String id, String itemLabel,String name,String  ormxbqId,String createTime,String updataTime, String ormorgId):
-		id(id),name(name), ormxbqId(ormxbqId), createTime(createTime), updataTime(updataTime), itemLabel(itemLabel), ormorgId(ormorgId) {};
-
 	DTO_INIT(ItemLabelDTO, DTO);
 
-	// ÏîÄ¿±àºÅ
-	DTO_FIELD(String, id);
-	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("ormanage.dto.id");
+	// æ›´æ–°äºº
+	DTO_FIELD(String, updataman);
+	DTO_FIELD_INFO(updataman) {
+		info->description = ZH_WORDS_GETTER("projTag.field.updateman");
 	}
-	// ´´½¨ÈË
+	// åˆ›å»ºäºº
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
 		info->description = ZH_WORDS_GETTER("ormanage.dto.name");
 	}
-	//ÅÅĞòºÅ
+	//é¡¹ç›®æ ‡ç­¾æ ‡è¯†
 	DTO_FIELD(String, ormxbqId);
 	DTO_FIELD_INFO(ormxbqId) {
 		info->description = ZH_WORDS_GETTER("ormanage.dto.ormxbqid");
 	}
-	//´´½¨Ê±¼ä
-	 DTO_FIELD(String,createTime);
+	//åˆ›å»ºæ—¶é—´
+	DTO_FIELD(String, createTime);
 	DTO_FIELD_INFO(createTime) {
 		info->description = ZH_WORDS_GETTER("ormanage.dto.createtime");
 	}
-	//¸üĞÂÊ±¼ä
-	DTO_FIELD(String,updataTime);
+	//æ›´æ–°æ—¶é—´
+	DTO_FIELD(String, updataTime);
 	DTO_FIELD_INFO(updataTime) {
 		info->description = ZH_WORDS_GETTER("ormanage.dto.uptime");
 	}
-	// ÏîÄ¿±êÇ©
-	DTO_FIELD(String,itemLabel);
+	// é¡¹ç›®æ ‡ç­¾
+	DTO_FIELD(String, itemLabel);
 	DTO_FIELD_INFO(itemLabel) {
 		info->description = ZH_WORDS_GETTER("ormanage.dto.label");
 	}
-	//×éÖ¯ID
-	DTO_FIELD(String,ormorgId);
+	//ç»„ç»‡ID
+	DTO_FIELD(String, ormorgId);
 	DTO_FIELD_INFO(ormorgId) {
 		info->description = ZH_WORDS_GETTER("ormanage.dto.ormorgid");
 	}
+public:
+	ItemLabelDTO() {};
+	ItemLabelDTO(String updataman, String itemLabel, String name, String  ormxbqId, String createTime, String updataTime, String ormorgId) :
+		updataman(updataman), name(name), ormxbqId(ormxbqId), createTime(createTime), updataTime(updataTime), itemLabel(itemLabel), ormorgId(ormorgId) {};
+
+
 };
 
 /**
- * ²âÊÔ¹¦ÄÜ·ÖÒ³´«ÊäÊı¾İÀàĞÍ
+ * æµ‹è¯•åŠŸèƒ½åˆ†é¡µä¼ è¾“æ•°æ®ç±»å‹
  */
 class ItemLabelPageDTO : public PageDTO<ItemLabelDTO::Wrapper>
 {
