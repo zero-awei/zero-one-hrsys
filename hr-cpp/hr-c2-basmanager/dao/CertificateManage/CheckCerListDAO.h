@@ -18,7 +18,6 @@ public:
 	uint64_t count(const CheckCerListQuery::Wrapper& query);
 	// 分页查询数据
 	list<CertificateDO> selectWithPage(const CheckCerListQuery::Wrapper& query);
-	// 通过证书名称查询数据
-	list<CertificateDO> selectByName(const string& pimVocationalName);
+
 };
 #endif // !_SAMPLE_DAO_

@@ -30,10 +30,11 @@ CheckCerListPageDTO::Wrapper CheckCerListService::listAll(const CheckCerListQuer
 		auto dto = CheckCerListDTO::createShared();
 		// 		dto->id = sub.getId();
 		// 		dto->name = sub.getName();
-		// 		dto->sex = sub.getSex();
+		//// 		dto->sex = sub.getSex();
 		// 		dto->age = sub.getAge();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, ygbh, Ygbh, pimperSonName, PimperSonName, pimVocationalName, PimVocationalName)
-			pages->addData(dto);
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, ygbh, Ygbh, nameOfPAndV, NameOfPAndV, pimperSonName, PimperSonName, ygzt, Ygzt, zz, ZZ, pimvocationalid, Pimvocationalid, bcardNumber, BcardNumber,
+			pimVocationalName, PimVocationalName, zslx, Zslx, zghqrq, Zghqrq, zgsydw, Zgsydw, zcdw, Zcdw, fzyxq, Fzyxq, sxrq, Sxrq)
+		pages->addData(dto);
 
 	}
 	return pages;

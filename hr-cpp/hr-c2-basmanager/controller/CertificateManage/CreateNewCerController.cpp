@@ -3,6 +3,7 @@
 #include "CreateNewCerController.h"
 #include "../../service/CertificateManage/CreateNewCerService.h"
 
+
 Uint64JsonVO::Wrapper CreateNewCerController::execAddNewCer(const CreateNewCerDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
@@ -14,12 +15,15 @@ Uint64JsonVO::Wrapper CreateNewCerController::execAddNewCer(const CreateNewCerDT
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
-	// 有效值校验
+	// 有效值校验 ygbh, pimvocationalid, bcardNumber, pimVocationalName, zslx, zghqrq, zgsydw, zcdw(对时间格式进行检验)
+
 	if (dto->ygbh < 0 || dto->pimVocationalName->empty())
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
+
+
 	// 执行数据新增
 	CreateNewCerService service;
 	uint64_t id = service.saveData(dto);
@@ -30,6 +34,5 @@ Uint64JsonVO::Wrapper CreateNewCerController::execAddNewCer(const CreateNewCerDT
 	{
 		jvo->fail(UInt64(id));
 	}
-
 	return jvo;
 }

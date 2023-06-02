@@ -67,18 +67,18 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(ExportRetireesController); //人员花名册 - （离退休员工 - 导出员工）--pine
 	ROUTER_SIMPLE_BIND(FormerEmployeesController);
 	ROUTER_SIMPLE_BIND(UpdateCertificateController);	
-	ROUTER_SIMPLE_BIND(RraineeController);  // 见习员工 swagger效果测试
-	ROUTER_SIMPLE_BIND(TempStaffController);//挂职人员swagger效果测试
-	ROUTER_SIMPLE_BIND(EmployeeInfoController);//人员信息查询swagger效果测试
-	ROUTER_SIMPLE_BIND(CertificateTypeController); //证书类型查询swagger效果测试
-	ROUTER_SIMPLE_BIND(CheckCerListController);
-	ROUTER_SIMPLE_BIND(CreateNewCerController);
-	ROUTER_SIMPLE_BIND(CheckRetiresListController);
-	ROUTER_SIMPLE_BIND(ExportRetireesController);
-	ROUTER_SIMPLE_BIND(EmployeePageController); //（人员花名册 - 人员花名册 - 分页查询员工数据）--洛洛
-	ROUTER_SIMPLE_BIND(CertifDeleteController); //（证书管理 - 证书信息 - 删除证书）--洛洛
-	ROUTER_SIMPLE_BIND(ExportCertifController); //（证书管理 - 证书信息 - 导出证书）--洛洛
-	ROUTER_SIMPLE_BIND(ExportEmployeeController);//（人员花名册 - 人员花名册 - 导出员工（导出本页在前端完成））--洛洛
+	//ROUTER_SIMPLE_BIND(RraineeController);  // 见习员工 swagger效果测试
+	//ROUTER_SIMPLE_BIND(TempStaffController);//挂职人员swagger效果测试
+	//ROUTER_SIMPLE_BIND(EmployeeInfoController);//人员信息查询swagger效果测试
+	//ROUTER_SIMPLE_BIND(CertificateTypeController); //证书类型查询swagger效果测试
+	//ROUTER_SIMPLE_BIND(CheckCerListController);
+	//ROUTER_SIMPLE_BIND(CreateNewCerController);
+	//ROUTER_SIMPLE_BIND(CheckRetiresListController);
+	//ROUTER_SIMPLE_BIND(ExportRetireesController);
+	//ROUTER_SIMPLE_BIND(EmployeePageController); //（人员花名册 - 人员花名册 - 分页查询员工数据）--洛洛
+	//ROUTER_SIMPLE_BIND(CertifDeleteController); //（证书管理 - 证书信息 - 删除证书）--洛洛
+	//ROUTER_SIMPLE_BIND(ExportCertifController); //（证书管理 - 证书信息 - 导出证书）--洛洛
+	//ROUTER_SIMPLE_BIND(ExportEmployeeController);//（人员花名册 - 人员花名册 - 导出员工（导出本页在前端完成））--洛洛
 }
 
 #ifdef HTTP_SERVER_DEMO

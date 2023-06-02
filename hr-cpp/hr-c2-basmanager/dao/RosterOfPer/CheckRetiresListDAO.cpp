@@ -10,19 +10,30 @@
 #define CERLIST_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql << " WHERE 1=1"; \
+if (query->idAndName) { \
+    sql << " AND t2.ygbh=?"; \
+    SQLPARAMS_PUSH(params, "s", std::string, query->idAndName.getValue("")); \
+} \
+if (query->idAndName) { \
+    sql << " OR t2.pimpersonname=?"; \
+    SQLPARAMS_PUSH(params, "s", std::string, query->idAndName.getValue("")); \
+} \
 if (query->ygbh) { \
-    sql << " AND CAST(ygbh AS CHAR) LIKE CONCAT('%', ?, '%')"; \
+    sql << " AND t2.ygbh = ?"; \
     SQLPARAMS_PUSH(params, "i", uint64_t, query->ygbh.getValue(0)); \
 } \
 if (query->pimpersonname) { \
-    sql << " AND pimpersonname = ?"; \
+    sql << " AND t2.pimpersonname = ?"; \
     SQLPARAMS_PUSH(params, "s", std::string, query->pimpersonname.getValue("")); \
 }
-//支持模糊查询
+
 uint64_t CheckRetiresListDAO::count(const CheckRetiresListQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM t_pimperson ";
+	sql << "SELECT COUNT(*) \
+			FROM t_pcmydmx t1\
+			LEFT JOIN t_pimperson t2\
+			ON t1.PIMPERSONID = t2.PIMPERSONID";
 
 	CERLIST_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
@@ -32,7 +43,28 @@ uint64_t CheckRetiresListDAO::count(const CheckRetiresListQuery::Wrapper& query)
 std::list<RetiredEmployeesDO> CheckRetiresListDAO::selectWithPage(const CheckRetiresListQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT ygbh, pimpersonname FROM t_pimperson ";
+	sql << "SELECT \
+			t2.ygbh,\
+			t2.pimpersonname,\
+			t2.xb,\
+			t3.nj,\
+			t2.postaladdress,\
+			t2.retiPlace,\
+			t2.jtlxr,\
+			t2.jtlxrdh,\
+			t2.zz,\
+			t2.bm,\
+			t2.`RANK`,\
+			t1.yzw,\
+			t1.ygw,\
+			t2.txdq,\
+			t2.sjtxrq,\
+			t2.lxdh,\
+			t2.spdylje\
+			FROM\
+			t_pimperson t2\
+			LEFT JOIN t_pcmydmx t1 ON t1.PIMPERSONID = t2.PIMPERSONID\
+			LEFT JOIN t_trmhmatser t3 ON t3.PIMPERSONID = t2.PIMPERSONID";
 
 	CERLIST_TERAM_PARSE(query, sql);
 
@@ -43,9 +75,9 @@ std::list<RetiredEmployeesDO> CheckRetiresListDAO::selectWithPage(const CheckRet
 	return sqlSession->executeQuery<RetiredEmployeesDO, CheckRetiresListMapper>(sqlStr, mapper, params);
 }
 
-std::list<RetiredEmployeesDO> CheckRetiresListDAO::selectByYgbh(const string& ygbh)
-{
-	string sql = "SELECT * FROM t_pimperson WHERE `ygbh` LIKE CONCAT('%',?,'%')";
-	CheckRetiresListMapper mapper;
-	return sqlSession->executeQuery<RetiredEmployeesDO, CheckRetiresListMapper>(sql, mapper, "%s", ygbh);
-}
+/*
+ + t_pimperson t2 +t_pcmydmx t1
+2人员信息
+1退休异动
+3 t_trmhmatser引入年龄字段
+*/

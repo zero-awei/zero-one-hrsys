@@ -18,19 +18,18 @@ public:
 	{
 		CertificateDO data;
 		data.setYgbh(resultSet->getUInt64(1));//this
-		data.setPimVocationalName(resultSet->getString(2));//this
-
-
-		//data.setYgzt(resultSet->getString(3));
-		//data.setOrganizationName(resultSet->getString(3));
-		//data.setZgzsbh(resultSet->getString(5));
-		//data.setBcardNumber(resultSet->getString(6));	
-		//data.setZslx(resultSet->getString(8));
-		//data.setZghqrq(resultSet->getString(9));
-		//data.setZcdw(resultSet->getString(10));
-		//data.setZgsydw(resultSet->getString(11));
-		//data.setFzyxq(resultSet->getString(12));
-		//data.setSxrq(resultSet->getString(13));
+		data.setPimvocationalid(resultSet->getString(2));//证书唯一标识
+		data.setBcardNumber(resultSet->getString(3));
+		data.setPimVocationalName(resultSet->getString(4));//this		
+		data.setZslx(resultSet->getString(5));
+		data.setZghqrq(resultSet->getString(6));
+		data.setZcdw(resultSet->getString(7));
+		data.setZgsydw(resultSet->getString(8));
+		data.setFzyxq(resultSet->getString(9));
+		data.setSxrq(resultSet->getString(10));
+		data.setNSQK(resultSet->getString(11));//插入独有字段
+		data.setSYQK(resultSet->getString(12));
+		data.setALTERATION(resultSet->getString(13));
 		return data;
 	}
 };

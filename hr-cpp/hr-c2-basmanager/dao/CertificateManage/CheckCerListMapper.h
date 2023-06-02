@@ -18,19 +18,19 @@ public:
 	{
 		CertificateDO data;
 		data.setYgbh(resultSet->getUInt64(1));//this
-		data.setPimperSonName(resultSet->getString(2));//要连表查询//this
-		data.setPimVocationalName(resultSet->getString(3));//this
-
-		//data.setYgzt(resultSet->getString(3));
-		//data.setOrganizationName(resultSet->getString(3));
-		//data.setZgzsbh(resultSet->getString(5));
-		//data.setBcardNumber(resultSet->getString(6));	
-		//data.setZslx(resultSet->getString(8));
-		//data.setZghqrq(resultSet->getString(9));
-		//data.setZcdw(resultSet->getString(10));
-		//data.setZgsydw(resultSet->getString(11));
-		//data.setFzyxq(resultSet->getString(12));
-		//data.setSxrq(resultSet->getString(13));
+		data.setPimperSonName(resultSet->getString(2));//this
+		data.setYgzt(resultSet->getString(3));
+		data.setZZ(resultSet->getString(4));
+		data.setPimvocationalid(resultSet->getString(5));//证书唯一标识
+		data.setBcardNumber(resultSet->getString(6));
+		data.setPimVocationalName(resultSet->getString(7));//this		
+		data.setZslx(resultSet->getString(8));
+		data.setZghqrq(resultSet->getString(9));
+		data.setZcdw(resultSet->getString(10));
+		data.setZgsydw(resultSet->getString(11));
+		data.setFzyxq(resultSet->getString(12));
+		data.setSxrq(resultSet->getString(13));
+		data.setSxrq(resultSet->getString(13));
 		return data;
 	}
 };

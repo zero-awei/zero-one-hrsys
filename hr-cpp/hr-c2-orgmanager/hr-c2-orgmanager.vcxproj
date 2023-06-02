@@ -183,13 +183,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\LegalEntityMai\LegalEntityMaiController.cpp" />
+    <ClCompile Include="controller\LegalEntitySet\DeleteLegalEntityController.cpp" />
     <ClCompile Include="controller\LegalEntitySet\ExportLegalerSetingController.cpp" />
     <ClCompile Include="controller\LegalEntitySet\LegalerNamePullDownListController.cpp" />
     <ClCompile Include="controller\LegalEntitySet\UpdateLegalerSetingMessageController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\LegalEntitySet\DeleteLegalEntityDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\LegalEntityMai\LegalEntityMaiService.cpp" />
+    <ClCompile Include="service\LegalEntitySet\DeleteLegalEntityService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -199,31 +202,40 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\LegalEntityMai\LegalEntityMaiController.h" />
+    <ClInclude Include="controller\LegalEntitySet\DeleteLegalEntityController.h" />
     <ClInclude Include="controller\LegalEntitySet\ExportLegalerSetingController.h" />
     <ClInclude Include="controller\LegalEntitySet\LegalerNamePullDownListController.h" />
     <ClInclude Include="controller\LegalEntitySet\UpdateLegalerSetingMessageController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\LegalEntitySet\DeleteLegalEntityDAO.h" />
+    <ClInclude Include="dao\LegalEntitySet\DeleteLegalEntityMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\LegalEntityMai\ormsignorgDO.h" />
     <ClInclude Include="domain\do\LegalEntitySet\ExportLegalerSetingDO.h" />
+    <ClInclude Include="domain\do\LegalEntitySet\LegalEntitySetDO.h" />
     <ClInclude Include="domain\do\LegalEntitySet\LegalerNamePullDownListDO.h" />
     <ClInclude Include="domain\do\LegalEntitySet\UpdateLegalerSetingMessageDO.h" />
     <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDTO.h" />
+    <ClInclude Include="domain\dto\LegalEntitySet\DeleteLegalEntityDTO.h" />
     <ClInclude Include="domain\dto\LegalEntitySet\ExportLegalerSetingDTO.h" />
     <ClInclude Include="domain\dto\LegalEntitySet\LegalerNamePullDownListDTO.h" />
     <ClInclude Include="domain\dto\LegalEntitySet\UpdateLegalerSetingMessageDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\LegalEntityMai\LegalEntityMaiQuery.h" />
+    <ClInclude Include="domain\query\LegalEntitySet\DeleteLegalEntityQuery.h" />
     <ClInclude Include="domain\query\LegalEntitySet\ExportLegalerSetingQuery.h" />
     <ClInclude Include="domain\query\LegalEntitySet\LegalerNamePullDownListQuery.h" />
     <ClInclude Include="domain\vo\LegalEntityMai\LegalEntityMaiVO.h" />
+    <ClInclude Include="domain\vo\LegalEntitySet\DeleteLegalEntityVO.h" />
     <ClInclude Include="domain\vo\LegalEntitySet\ExportLegalerSetingVO.h" />
     <ClInclude Include="domain\vo\LegalEntitySet\LegalerNamePullDownListVO.h" />
     <ClInclude Include="domain\vo\LegalEntitySet\UpdateLegalerSetingMessageVO.h" />
     <ClInclude Include="Macros.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\LegalEntityMai\LegalEntityMaiService.h" />
+    <ClInclude Include="service\LegalEntitySet\DeleteLegalEntityService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

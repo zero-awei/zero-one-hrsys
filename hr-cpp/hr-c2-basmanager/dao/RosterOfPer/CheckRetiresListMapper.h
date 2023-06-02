@@ -19,6 +19,21 @@ public:
 		RetiredEmployeesDO data;
 		data.setygbh(resultSet->getUInt64(1));//this
 		data.setpimpersonname(resultSet->getString(2));//this
+		data.setxb(resultSet->getString(3));//this
+		data.setnj(resultSet->getString(4));//this
+		data.setpostaladdress(resultSet->getString(5));//this
+		data.setretiPlace(resultSet->getString(6));//this
+		data.setjtlxr(resultSet->getString(7));//this
+		data.setjtlxrdh(resultSet->getString(8));//this
+		data.setzz(resultSet->getString(9));//this
+		data.setbm(resultSet->getString(10));//this
+		data.setrank(resultSet->getString(11));//this
+		data.setyzw(resultSet->getString(12));//this
+		data.setygw(resultSet->getString(13));//this
+		data.settxdq(resultSet->getString(14));//this
+		data.setsjtxrq(resultSet->getString(15));//this
+		data.setlxdh(resultSet->getString(16));//this
+		data.setspdylje(resultSet->getString(17));//this
 
 
 		return data;

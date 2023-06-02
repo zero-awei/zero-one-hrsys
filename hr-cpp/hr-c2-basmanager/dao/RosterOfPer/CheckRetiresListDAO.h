@@ -18,7 +18,6 @@ public:
 	uint64_t count(const CheckRetiresListQuery::Wrapper& query);
 	// 分页查询数据
 	list<RetiredEmployeesDO> selectWithPage(const CheckRetiresListQuery::Wrapper& query);
-	// 通过名称查询数据
-	list<RetiredEmployeesDO> selectByYgbh(const string& ygbh);
+
 };
 #endif // !_SAMPLE_DAO_

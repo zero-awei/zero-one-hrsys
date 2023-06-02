@@ -39,6 +39,9 @@ public://  定义接口（定义接口描述与接口端点）
 		//定义分页查询参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		//添加其他查询参数，required表示是否必须（员工编号、证书名称）
+		info->queryParams.add<String>("nameOfPAndV").description = ZH_WORDS_GETTER("cermanage.field.nameOfPAndV");
+		info->queryParams["nameOfPAndV"].addExample("default", String(""));
+		info->queryParams["nameOfPAndV"].required = false;
 		info->queryParams.add<UInt64>("ygbh").description = ZH_WORDS_GETTER("cermanage.field.ygbh");
 		info->queryParams["ygbh"].addExample("default", String(""));
 		info->queryParams["ygbh"].required = false;
@@ -50,7 +53,7 @@ public://  定义接口（定义接口描述与接口端点）
 		info->queryParams["pimVocationalName"].required = false;
 	}
 	//4 定义查询接口处理
-	ENDPOINT(API_M_GET, "/bas/query-CerList", queryCheckCerList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/bas/query-CheckCerList", queryCheckCerList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		API_HANDLER_QUERY_PARAM(query, CheckCerListQuery, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryCheckCerList(query, authObject->getPayload()));

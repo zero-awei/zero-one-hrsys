@@ -9,6 +9,8 @@
 
 uint64_t CreateNewCerDAO::insert(const CertificateDO& iObj)
 {
-	string sql = "INSERT INTO `t_pimvocational` (`PIMVOCATIONALID`, `ygbh`, `pimVocationalName`) VALUES (?, ?, ?);";
-	return sqlSession->executeInsert(sql, "%s%i%s", iObj.getPimvocationalid(), iObj.getYgbh(), iObj.getPimVocationalName());
+	string sql = "INSERT INTO t_pimvocational (ygbh, pimvocationalid, bcardNumber, pimVocationalName, zslx, zghqrq, zgsydw, zcdw,fzyxq,sxrq,nsqk,syqk,alteration)\
+					VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?); ";
+	return sqlSession->executeUpdate(sql, "%i%s%s%s%s%s%s%s%s%s%s%s%s", iObj.getYgbh(), iObj.getPimvocationalid(), iObj.getBcardNumber(), iObj.getPimVocationalName(), iObj.getZslx(), iObj.getZghqrq(), iObj.getZgsydw(), iObj.getZcdw(), iObj.getFzyxq(), iObj.getSxrq(), iObj.getNSQK(), iObj.getSYQK(), iObj.getALTERATION());
 }
+

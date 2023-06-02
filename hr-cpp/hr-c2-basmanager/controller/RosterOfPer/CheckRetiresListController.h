@@ -39,6 +39,9 @@ public://  定义接口（定义接口描述与接口端点）
 		//定义分页查询参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		//添加其他查询参数，required表示是否必须
+		info->queryParams.add<String>("idAndName").description = ZH_WORDS_GETTER("rosterofper.field.idAndName");
+		info->queryParams["idAndName"].addExample("default", String(""));
+		info->queryParams["idAndName"].required = false;
 		info->queryParams.add<UInt64>("ygbh").description = ZH_WORDS_GETTER("rosterofper.field.ygbh");
 		info->queryParams["ygbh"].addExample("default", String(""));
 		info->queryParams["ygbh"].required = false;

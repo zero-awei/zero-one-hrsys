@@ -11,6 +11,8 @@ class RetiredEmployeesDO
 {
 	// 员工编号
 	CC_SYNTHESIZE(uint64_t, ygbh, ygbh);
+	//姓名+编号
+	CC_SYNTHESIZE(string, idAndName, idAndName);
 	// 员工姓名
 	CC_SYNTHESIZE(string, pimpersonname, pimpersonname);//修改
 	// 性别
@@ -18,7 +20,7 @@ class RetiredEmployeesDO
 	// 年龄
 	CC_SYNTHESIZE(string, nj, nj);
 	// 通讯地址
-	CC_SYNTHESIZE(string, address, address);
+	CC_SYNTHESIZE(string, postaladdress, postaladdress);
 	// 退休地
 	CC_SYNTHESIZE(string, retiPlace, retiPlace);
 	// 家庭联系人
@@ -49,7 +51,7 @@ public:
 		pimpersonname = "";
 		xb = "";
 		nj = "-1";
-		address = "";
+		postaladdress = "";
 		retiPlace = "";
 		jtlxr = "";
 		jtlxrdh = "";
