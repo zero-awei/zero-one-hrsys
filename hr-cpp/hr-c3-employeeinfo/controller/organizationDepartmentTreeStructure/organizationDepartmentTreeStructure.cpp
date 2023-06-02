@@ -1,34 +1,17 @@
 #include "stdafx.h"
 #include "organizationDepartmentTreeStructure.h"
+#include "tree/TreeUtil.h"
+#include "service/org/TreeOrgMapper.h"
 
-// 查询根组织
-OrgJsonVO::Wrapper organizationDepartmentTreeStructure::execRootOrgQuery(const RootOrgQuery::Wrapper& rootQuery, const std::shared_ptr<CustomerAuthorizeObject> &authObject)
-{
-	// 定义一个MemberJsonVO对象
-	auto jvo = OrgJsonVO::createShared();
-
+// 查询根组
+OrgTreeVO::Wrapper organizationDepartmentTreeStructure::execOrgTreeQuery(const std::shared_ptr<CustomerAuthorizeObject> &authObject) {
 	OrgService service;
-	auto result = service.getRootOrg(rootQuery, authObject->getPayload().getId());
-	jvo->success(result);
-	return jvo;
-}
-//查询有效组织
-OrgJsonVO::Wrapper organizationDepartmentTreeStructure::execValidOrgQuery(const ValidOrgQuery::Wrapper& validOrg)
-{
-	auto jvo = OrgJsonVO::createShared();
-
-	OrgService service;
-	auto result = service.getValidOrg(validOrg);
-	jvo->success(result);
-	return jvo;
-}
-//查询部门
-OrgSectorVO::Wrapper organizationDepartmentTreeStructure::execSectorOrgQuery(const SectorQuery::Wrapper& sectorOrg)
-{
-	auto jvo = OrgSectorVO::createShared();
-
-	OrgService service;
-	auto result = service.getSector(sectorOrg);
-	jvo->success(result);
-	return jvo;
+	auto res = service.getOrgTree(authObject->getPayload().getId());
+	// auto res = service.getOrgTree("jisen");
+	auto vo = OrgTreeVO::createShared();
+	for (const auto &one : res)
+	{
+		vo->data->push_back(OrgTreeDTO::Wrapper(one, OrgTreeDTO::Wrapper::Class::getType()));
+	}
+	return vo;
 }

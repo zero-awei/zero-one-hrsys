@@ -2,8 +2,8 @@
 /*
  Copyright Zero One Star. All rights reserved.
 
- @Author: J1senn
- @Date: 2022/10/25 14:23:49
+ @Author: awei
+ @Date: 2023/02/16 17:02:58
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,23 +17,26 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _Org_DAO_
-#define _Org_DAO_
-#include "BaseDAO.h"
-#include "../../domain/do/org/OrgTreeDO.h"
-#include "../../dao/org/OrgTreeMapper.h"
+#ifndef _ORGTREE_VO_
+#define _ORGTREE_VO_
+#include "../../GlobalInclude.h"
+#include "../../dto/org/OrgTreeDTO.h"
+
+#include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 示例表数据库操作实现
+ * 定义一个示例菜单显示JsonVO对象，用于响应给前端
  */
-class OrgDAO : public BaseDAO
+class OrgTreeVO : public JsonVO<List<OrgTreeDTO::Wrapper>>
 {
+	DTO_INIT(OrgTreeVO, JsonVO<List<OrgTreeDTO::Wrapper>>);
 public:
-    // 查询根组织数据
-    list<OrgTreeDO> selectRootOrg(const string &userId);
-    // 查询某个父组织下面的组织
-    list<OrgTreeDO> selectValidOrg(const string& parentId); 
-
-    list<OrgTreeDO> selectOrgSector(const string& parentId); 
+	// 在构造函数中实例化data列表
+	OrgTreeVO() {
+		this->data = {};
+	}
 };
-#endif // !_Org_DAO_
+
+#include OATPP_CODEGEN_END(DTO)
+
+#endif // !_ORGTREE_VO_
