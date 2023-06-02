@@ -29,13 +29,12 @@ std::string JobTitleInfoService::listAllJobTitle(const JobTitleDTO::Wrapper& que
 		vector<string> temp;
 		temp.push_back(sub.getEmployee_Id());
 		temp.push_back(sub.getEmployee_Name());
-		temp.push_back(sub.getCertificate_Id());
 		temp.push_back(sub.getOrg_Name());
 		temp.push_back(sub.getJobtitle_Name());
-		temp.push_back(sub.getJobtitle_Grades());
 		temp.push_back(sub.getGet_Time());
 		temp.push_back(sub.getProfessional_Cate());
-		temp.push_back(sub.getProfessional_Name());
+		temp.push_back(sub.getJobtitle_Grades());
+		temp.push_back(sub.getTitle_Employment_Time());
 		temp.push_back(sub.getIssuing_Authority());
 		temp.push_back(sub.getJudging_Unit());
 		temp.push_back(sub.getB_Highest_Professional_Title());
