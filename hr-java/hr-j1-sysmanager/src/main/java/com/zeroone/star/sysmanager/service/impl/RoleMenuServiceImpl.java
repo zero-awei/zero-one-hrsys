@@ -1,5 +1,6 @@
 package com.zeroone.star.sysmanager.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zeroone.star.project.dto.sysmanager.rolemenumanager.RoleMenuDTO;
 import com.zeroone.star.sysmanager.mapper.RoleMenuMapper;
 import com.zeroone.star.sysmanager.service.RoleMenuService;
@@ -9,6 +10,13 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ * The implementation of {@link RoleMenuService}, base on {@link ServiceImpl}
+ *
+ * @author sleephea
+ * @see RoleMenuService
+ * @see ServiceImpl
+ */
 @Service
 public class RoleMenuServiceImpl implements RoleMenuService {
     @Resource
