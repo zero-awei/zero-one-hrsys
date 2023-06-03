@@ -111,7 +111,7 @@ uint64_t EmployeeInformationServicer::saveData(const EmployeeInformationDTO::Wra
 	SnowFlake sf(1, 3);//雪花算法
 	data.setPersonId(to_string(sf.nextId()));
 	//建立人
-	data.setCreateMan(payload.getUsername());
+	data.setCreateMan(payload.getId());
 	//建立时间
 	SimpleDateTimeFormat sdtf;//获取当前时间格式字符串
 	data.setCreateDate(sdtf.format());
