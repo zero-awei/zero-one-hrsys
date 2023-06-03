@@ -1,5 +1,6 @@
 package com.zeroone.star.common.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.zeroone.star.common.entity.TSrfcodeitem;
 import com.zeroone.star.common.mapper.TSrfcodeitemMapper;
@@ -11,6 +12,7 @@ import com.zeroone.star.project.j3.query.common.EducationTypeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -65,12 +67,41 @@ public class TSrfcodeitemServiceImpl extends ServiceImpl<TSrfcodeitemMapper, TSr
 
     @Override
     public List<String> listEducationType(EducationTypeQuery education) {
-        return null;
+        //创建条件
+        LambdaQueryWrapper<TSrfcodeitem> queryWrapper = new LambdaQueryWrapper<>();
+        //获取id
+        queryWrapper.eq(TSrfcodeitem::getCodelistid, education.getCode());
+        //查询数据
+        List<TSrfcodeitem> tSrfcodeitems = baseMapper.selectList(queryWrapper);
+        //创建返回结果集合
+        List<String> list = new ArrayList<>();
+        if (tSrfcodeitems.size()>0) {
+            for (TSrfcodeitem tSrfcodeitem : tSrfcodeitems) {
+                String name = tSrfcodeitem.getCodeitemname();
+                list.add(name);
+            }
+        }
+        return list;
     }
 
     @Override
     public List<String> listDisciplineType(DisciplineTypeQuery discipline) {
-        return null;
+        //创建条件
+        LambdaQueryWrapper<TSrfcodeitem> queryWrapper = new LambdaQueryWrapper<>();
+        //获取id
+        queryWrapper.eq(TSrfcodeitem::getCodelistid, discipline.getCode());
+        //查询数据
+        List<TSrfcodeitem> tSrfcodeitems = baseMapper.selectList(queryWrapper);
+        //创建返回结果集合
+        List<String> list = new ArrayList<>();
+        if (tSrfcodeitems.size()>0) {
+            for (TSrfcodeitem tSrfcodeitem : tSrfcodeitems) {
+                String name = tSrfcodeitem.getCodeitemname();
+                list.add(name);
+            }
+        }
+        return list;
+
     }
 
 

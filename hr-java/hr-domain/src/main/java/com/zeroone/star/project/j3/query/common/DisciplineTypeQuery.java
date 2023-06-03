@@ -23,5 +23,5 @@ import javax.validation.constraints.NotBlank;
 public class DisciplineTypeQuery {
     @NotBlank(message = "查询字段名不能为空")
     @ApiModelProperty(value = "查询单个字段(学科)", example = "discipline")
-    private  String discipline;
+    private  String code;
 }
