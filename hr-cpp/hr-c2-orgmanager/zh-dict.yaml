@@ -77,7 +77,7 @@ LegalEntitySet:
  sample:
   name1: 东北1
  field:
-  ormsignorgname: 签约主体单位名称
+  contractsignorgname: 签约主体单位名称
   contractsignorgid: 签约主体单位标识
   updateman: 更新人
   createman: 建立人

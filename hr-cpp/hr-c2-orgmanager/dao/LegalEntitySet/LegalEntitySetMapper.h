@@ -23,10 +23,11 @@ public:
 	LegalEntitySetDO mapper(ResultSet* resultSet) const override
 	{
 		LegalEntitySetDO data;
-		data.setORMSIGNORGID(resultSet->getString(1));
-		data.setORMORGID(resultSet->getString(2));
-		data.setSIGNORGID(resultSet->getString(3));
-		data.setISDEFAULTSIGNORG(resultSet->getString(4));
+		data.setCONTRACTSIGNORGID(resultSet->getString(1));
+		data.setCONTRACTSIGNORGNAME(resultSet->getString(2));
+		data.setORMSIGNORGID(resultSet->getString(3));
+		data.setORMORGID(resultSet->getString(4));
+		data.setISDEFAULTSIGNORG(resultSet->getString(5));
 		return data;
 	}
 };

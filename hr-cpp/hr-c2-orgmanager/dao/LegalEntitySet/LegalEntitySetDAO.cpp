@@ -19,7 +19,9 @@
 SqlParams params; \
 sql<<" WHERE 1=1"; \
 if (query->contractsignorgname) { \
-	sql << " AND `CONTRACTSIGNORGNAME`=?"; \
+	sql << " AND (`CONTRACTSIGNORGNAME`=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->contractsignorgname.getValue("")); \
+	sql << " OR ORMORGID=?)"; \
 	SQLPARAMS_PUSH(params, "s", std::string, query->contractsignorgname.getValue("")); \
 } \
 if (query->ormorgid) { \
@@ -71,7 +73,7 @@ uint64_t LegalEntitySetDAO::count(const LegalEntitySetQuery::Wrapper& query)
 std::list<LegalEntitySetDO> LegalEntitySetDAO::selectWithPage(const LegalEntitySetQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT ORMSIGNORGID, ORMORGID, SIGNORGID, ISDEFAULTSIGNORG FROM t_contractsignorg";
+	sql << "SELECT CONTRACTSIGNORGID, CONTRACTSIGNORGNAME, ORMSIGNORGID, ORMORGID, ISDEFAULTSIGNORG FROM t_contractsignorg";
 	SAMPLE_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	LegalEntitySetMapper mapper;
