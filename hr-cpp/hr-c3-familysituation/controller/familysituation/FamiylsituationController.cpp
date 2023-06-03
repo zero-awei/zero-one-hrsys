@@ -29,7 +29,7 @@ FamilysituationJsonVO::Wrapper FamilysituationController::execOneQueryFamilysitu
 
 
 // 添加响应
-Uint64JsonVO::Wrapper FamilysituationController::execAddFamilysituation(const FamilysituationDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper FamilysituationController::execAddFamilysituation(const FamilysituationDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto vo = Uint64JsonVO::createShared();
 	// 参数校验
@@ -47,8 +47,10 @@ Uint64JsonVO::Wrapper FamilysituationController::execAddFamilysituation(const Fa
 	}
 	// 定义一个Service
 	FamilysituationService service;
+	// 传入权限验证信息
+	auto authId = payload.getUsername();
 	// 执行数据新增
-	auto result = service.saveData(dto);
+	auto result = service.saveData(dto, authId);
 	if (result == 0) {
 		vo->success(UInt64(result));
 	}
@@ -60,7 +62,7 @@ Uint64JsonVO::Wrapper FamilysituationController::execAddFamilysituation(const Fa
 }
 
 // 修改响应
-Uint64JsonVO::Wrapper FamilysituationController::execModifyFamilysituation(const FamilysituationDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper FamilysituationController::execModifyFamilysituation(const FamilysituationDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto vo = Uint64JsonVO::createShared();
 	// 有效值校验
@@ -72,7 +74,7 @@ Uint64JsonVO::Wrapper FamilysituationController::execModifyFamilysituation(const
 	// 定义一个Service
 	FamilysituationService service;
 	// 执行数据修改
-	auto result = service.updateData(dto);
+	auto result = service.updateData(dto, payload.getUsername());
 	if (result) {
 		vo->success(UInt64(result));
 	}

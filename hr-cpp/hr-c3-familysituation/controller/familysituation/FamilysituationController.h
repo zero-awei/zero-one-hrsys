@@ -30,7 +30,6 @@
 
 // API助手
 #include "ApiHelper.h"
-#include "SimpleDateTimeFormat.h"
 #include "CharsetConvertHepler.h"
 
 // 文件上传
@@ -97,28 +96,32 @@ public: // 定义接口
 	{
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("familysituation.post.summary");
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	// 定义添加接口处理
-	ENDPOINT(API_M_POST, "/add-by-family-situation", addFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
+	ENDPOINT(API_M_POST, "/add-by-family-situation", addFamilysituation, API_HANDLER_AUTH_PARAME, BODY_DTO(FamilysituationDTO::Wrapper, dto))
 	{
 		// 响应结果
-		API_HANDLER_RESP_VO(execAddFamilysituation(dto));
+		API_HANDLER_RESP_VO(execAddFamilysituation(dto, authObject->getPayload()));
 	}
 	// 定义修改接口描述
 	ENDPOINT_INFO(modifyFamilysituation)
 	{
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("familysituation.put.summary");
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	// 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/modify-by-family-situation", modifyFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
+	ENDPOINT(API_M_PUT, "/modify-by-family-situation", modifyFamilysituation, API_HANDLER_AUTH_PARAME, BODY_DTO(FamilysituationDTO::Wrapper, dto))
 	{
 		// 响应结果
-		API_HANDLER_RESP_VO(execModifyFamilysituation(dto));
+		API_HANDLER_RESP_VO(execModifyFamilysituation(dto, authObject->getPayload()));
 	}
 	// 定义删除接口描述
 	ENDPOINT_INFO(removeFamilysituation)
@@ -173,9 +176,9 @@ private: // 定义接口执行函数
 	// 指定查询数据响应
 	FamilysituationJsonVO::Wrapper execOneQueryFamilysituation(const FamilysituationQuery::Wrapper& query);
 	// 添加数据响应
-	Uint64JsonVO::Wrapper execAddFamilysituation(const FamilysituationDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execAddFamilysituation(const FamilysituationDTO::Wrapper& dto, const PayloadDTO& payload);
 	// 修改数据响应
-	Uint64JsonVO::Wrapper execModifyFamilysituation(const FamilysituationDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execModifyFamilysituation(const FamilysituationDTO::Wrapper& dto, const PayloadDTO& payload);
 	// 删除数据响应
 	Uint64JsonVO::Wrapper execRemoveFamilysituation(const FamilysituationDTO::Wrapper& dto);
 	// 导入数据响应

@@ -22,7 +22,7 @@
 
 #include "domain/dto/familysituation/FamilysituationDTO.h"
 #include "domain/query/Familysituation/FamilysituationQuery.h"
-#include "domain/vo/familysituation/FamilysituationVO.h"
+#include "domain/vo/familysituation/FamilysituationVO.h" 
 
 class FamilysituationService
 {
@@ -32,9 +32,9 @@ public:
 	// 指定查询数据
 	FamilysituationDTO::Wrapper getOne(const FamilysituationQuery::Wrapper& query);
 	// 保存数据
-	uint64_t saveData(const FamilysituationDTO::Wrapper& dto);
+	uint64_t saveData(const FamilysituationDTO::Wrapper& dto, const std::string authId);
 	// 修改数据
-	bool updateData(const FamilysituationDTO::Wrapper& dto);
+	bool updateData(const FamilysituationDTO::Wrapper& dto, const std::string authId);
 	// 通过ID删除数据
 	bool removeData(const FamilysituationDTO::Wrapper& dto);
 };
