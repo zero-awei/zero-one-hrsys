@@ -24,6 +24,7 @@
 #include "domain/dto/Language/LanguageDTO.h"
 #include "domain/query/LanguagePage/LanguagePageQuery.h"
 #include "domain/dto/ImportLanguage/ImportLanguageDTO.h"
+#include "domain/dto/DeleteLanguage/DeleteLanguageDTO.h"
 
 /**
  * 语言能力相关服务实现
@@ -40,7 +41,7 @@ public:
 	int saveData(const LanguageDTO::Wrapper& dto);
 	// 修改数据
 	bool updateData(const LanguageDTO::Wrapper& dto);
-	// 通过ID删除数据
-	bool removeData(string id);
+	//删除数据
+	int removeData(const DeleteLanguageDTO::Wrapper& dto);
 };
 #endif // !_LANGUAGE_SERVICE_

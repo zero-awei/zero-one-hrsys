@@ -35,7 +35,7 @@ language:
  put:
   summary: 修改一条语言数据
  delete:
-  summary: 删除一条语言数据
+  summary: 删除语言数据(支持批量删除)
 sample:
  get:
   summary: 分页查询示例数据

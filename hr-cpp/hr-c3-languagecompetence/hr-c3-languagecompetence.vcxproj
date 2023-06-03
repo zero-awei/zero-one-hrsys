@@ -171,6 +171,7 @@
     <ClInclude Include="dao\Language\LanguageMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\Language\LanguageDO.h" />
+    <ClInclude Include="domain\dto\DeleteLanguage\DeleteLanguageDTO.h" />
     <ClInclude Include="domain\dto\DownloadLanguage\DownloadLanguageDTO.h" />
     <ClInclude Include="domain\dto\ImportLanguage\ImportLanguageDTO.h" />
     <ClInclude Include="domain\dto\Language\LanguageDTO.h" />

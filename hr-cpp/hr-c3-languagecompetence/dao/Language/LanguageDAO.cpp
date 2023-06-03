@@ -119,7 +119,7 @@ int LanguageDAO::update(const LanguageDO& uObj)
 		uObj.getAttachment(), uObj.getLanguageType(), uObj.getUpdateMan(), uObj.getLanguageLevel(), uObj.getLanguageAbilityID());
 }
 
-int LanguageDAO::deleteById(string id)
+int LanguageDAO::deleteById(std::string id)
 {
 	//Êý¾Ý¿âÉ¾³ýÓï¾ä
 	string sql = "DELETE FROM `t_pimlanguageability` WHERE `PIMLANGUAGEABILITYID` = ?";

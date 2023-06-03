@@ -27,7 +27,7 @@ public:
 	// 修改数据
 	int update(const LanguageDO& uObj);
 	// 通过ID删除数据
-	int deleteById(string id);
+	int deleteById(std::string id);
 };
 
 #endif  // !_LANGUAGE_DAO_
