@@ -173,22 +173,22 @@ const routes = [
   {
     path:'/archivesinfo',
     name:'档案信息',
-    component:()=>import('@/views/baseMange/archivesManage/ArchivesInfo.vue')
+    component:()=>import('@/views/baseManage/archivesManage/ArchivesInfo.vue')
   },
   {
     path:'/onfilereminder',
     name:'非员工在档提醒',
-    component:()=>import('@/views/baseMange/archivesManage/OnFileReminder.vue')
+    component:()=>import('@/views/baseManage/archivesManage/OnFileReminder.vue')
   },
   {
     path:'/outfilereminder',
     name:'员工不在档提醒',
-    component:()=>import('@/views/baseMange/archivesManage/OutFileReminder.vue')
+    component:()=>import('@/views/baseManage/archivesManage/OutFileReminder.vue')
   },
   {
     path:'/filetransferrecord',
     name:'档案转出记录',
-    component:()=>import('@/views/baseMange/archivesManage/FileTransferRecord.vue')
+    component:()=>import('@/views/baseManage/archivesManage/FileTransferRecord.vue')
   },
 ]
 
