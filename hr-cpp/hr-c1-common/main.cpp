@@ -53,9 +53,9 @@ bool getStartArg(int argc, char* argv[]) {
 #ifdef USE_NACOS
 	// Nacos配置参数
 	std::string nacosAddr = "47.120.11.10:8848";
-	std::string nacosNs = "4833404f-4b82-462e-889a-3c508160c6b4";
+	std::string nacosNs = "hr-dev";
 	std::string serviceName = "hr-c1-common";
-	std::string regIp = "192.168.24.19";
+	std::string regIp = "47.113.146.200";
 #endif
 
 	// 开始解析

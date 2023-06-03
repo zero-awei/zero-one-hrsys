@@ -41,7 +41,7 @@
  */
 bool getStartArg(int argc, char* argv[]) {
 	// 服务器端口
-	std::string serverPort = "8090";
+	std::string serverPort = "8091";
 	// 数据库连接信息
 	std::string dbUsername = "root";
 	std::string dbPassword = "114514mysql";
@@ -52,7 +52,7 @@ bool getStartArg(int argc, char* argv[]) {
 #ifdef USE_NACOS
 	// Nacos配置参数
 	std::string nacosAddr = "47.120.11.10:8848";
-	std::string nacosNs = "4833404f-4b82-462e-889a-3c508160c6b4";
+	std::string nacosNs = "hr-dev";
 	std::string serviceName = "hr-c1-orgmanage";
 	std::string regIp = "47.113.146.200";
 #endif
