@@ -23,6 +23,7 @@
 #include "controller/Router.h"
 #include "controller/OtherComponent.hpp"
 #include "DbInit.h"
+#include "uselib/jwt/TestToken.h"
 //#ifdef HTTP_SERVER_DEMO
 //#include "uselib/jwt/TestToken.h"
 //#endif
@@ -44,17 +45,17 @@ bool getStartArg(int argc, char* argv[]) {
 	std::string serverPort = "8090";
 	// 数据库连接信息
 	std::string dbUsername = "root";
-	std::string dbPassword = "123456";
-	std::string dbName = "test";
-	std::string dbHost = "127.0.0.1";
+	std::string dbPassword = "20020211";
+	std::string dbName = "zohr_sys";
+	std::string dbHost = "192.168.24.19";
 	int dbPort = 3306;
 	int dbMax = 25;
 #ifdef USE_NACOS
 	// Nacos配置参数
-	std::string nacosAddr = "192.168.220.128:8848";
+	std::string nacosAddr = "47.120.11.10:8848";
 	std::string nacosNs = "4833404f-4b82-462e-889a-3c508160c6b4";
-	std::string serviceName = "feign-cpp-sample";
-	std::string regIp = "192.168.220.128";
+	std::string serviceName = "hr-c1-common";
+	std::string regIp = "192.168.24.19";
 #endif
 
 	// 开始解析
@@ -135,6 +136,9 @@ int main(int argc, char* argv[]) {
 
 	// 服务器参数初始化
 	bool isSetDb = getStartArg(argc, argv);
+
+	// 生成 JWT Token
+	TestToken::generateToken();
 
 #ifdef USE_NACOS
 	// 创建Nacos客户端对象

@@ -40,9 +40,10 @@ class ArmyLevelTypeController : public oatpp::web::server::api::ApiController
 public: // 定义接口
 	ENDPOINT_INFO(queryArmyLevelType) {
 		info->summary = ZH_WORDS_GETTER("common.controller.armyLevelType");
+		API_DEF_ADD_AUTH();
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
 	}
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/army-level-type"), queryArmyLevelType) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/army-level-type"), queryArmyLevelType, API_HANDLER_AUTH_PARAME) {
 		API_HANDLER_RESP_VO(execQueryArmyLevelType());
 	}
 private: // 定义接口执行函数

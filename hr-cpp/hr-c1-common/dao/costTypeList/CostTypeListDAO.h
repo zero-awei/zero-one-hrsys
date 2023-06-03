@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #ifndef _COSTTYPELISTDAO_H_
 #define _COSTTYPELISTDAO_H_
 
@@ -8,19 +8,19 @@
 class CostTypeListDAO : public BaseDAO
 {
 private:
-	// Ö°³ÆµÈ¼¶¶ÔÓ¦¹şÏ£±í
+	// èŒç§°ç­‰çº§å¯¹åº”å“ˆå¸Œè¡¨
 	unordered_map<string, string> costType = {
-		{"10", u8"ÀÏ¸É²¿»î¶¯·Ñ"},
-		{"20", u8"½ò²¹Ìù"},
-		{"30", u8"ÆóÒµĞ§Òæ½±½ğ"},
-		{"40", u8"Ìå¼ì·Ñ"},
-		{"50", u8"Ò½ÁÆ·Ñ"},
-		{"60", u8"ÆäËû·ÑÓÃ£¨±¸×¢Ã÷Ï¸£©"}
+		{"10", u8"è€å¹²éƒ¨æ´»åŠ¨è´¹"},
+		{"20", u8"æ´¥è¡¥è´´"},
+		{"30", u8"ä¼ä¸šæ•ˆç›Šå¥–é‡‘"},
+		{"40", u8"ä½“æ£€è´¹"},
+		{"50", u8"åŒ»ç–—è´¹"},
+		{"60", u8"å…¶ä»–è´¹ç”¨ï¼ˆå¤‡æ³¨æ˜ç»†ï¼‰"}
 	};
 public:
-	// ²éÑ¯Êı¾İ
+	// æŸ¥è¯¢æ•°æ®
 	list<CostTypeDO> listAll();
-	// ·µ»ØÏÂÀ­ÁĞ±í
+	// è¿”å›ä¸‹æ‹‰åˆ—è¡¨
 	unordered_map<string, string> getMapList();
 };
 

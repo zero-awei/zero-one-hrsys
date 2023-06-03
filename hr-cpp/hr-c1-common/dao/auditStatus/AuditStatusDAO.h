@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #ifndef _AUDITSTATUSDAO_H_
 #define _AUDITSTATUSDAO_H_
 
@@ -8,17 +8,17 @@
 class AuditStatusDAO : public BaseDAO
 {
 private:
-	// ÉóºË×´Ì¬¶ÔÓ¦¹şÏ£±í
+	// å®¡æ ¸çŠ¶æ€å¯¹åº”å“ˆå¸Œè¡¨
 	unordered_map<string, string> auditStatus = {
-		{"10", u8"´ıÉóºË"},
-		{"20", u8"ÉóºËÖĞ"},
-		{"30", u8"ÉóºËÍ¨¹ı"},
-		{"40", u8"ÉóºËÎ´Í¨¹ı"}
+		{"10", u8"å¾…å®¡æ ¸"},
+		{"20", u8"å®¡æ ¸ä¸­"},
+		{"30", u8"å®¡æ ¸é€šè¿‡"},
+		{"40", u8"å®¡æ ¸æœªé€šè¿‡"}
 	};
 public:
-	// ²éÑ¯Êı¾İ
+	// æŸ¥è¯¢æ•°æ®
 	list<AuditStatusDO> listAll();
-	// ·µ»ØÏÂÀ­ÁĞ±í
+	// è¿”å›ä¸‹æ‹‰åˆ—è¡¨
 	unordered_map<string, string> getMapList();
 };
 

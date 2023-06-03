@@ -1,15 +1,15 @@
 /*
  Copyright Zero One Star. All rights reserved.
-
- @Author: rice
- @Date: 2023/5/17 8:30:04
-
+ 
+ @Author: awei
+ @Date: 2022/10/24 23:23:22
+ 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
-
-	  https://www.apache.org/licenses/LICENSE-2.0
-
+ 
+      https://www.apache.org/licenses/LICENSE-2.0
+ 
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,19 +17,16 @@
  limitations under the License.
 */
 #include "stdafx.h"
-#include "ProfCertsListController.h"
-#include "service/certs/profCertsService/ProfCertsService.h"
+#include "TestToken.h"
+#include "JWTUtil.h"
+#include <iostream>
 
-ProfCertsListJsonVO::Wrapper ProfCertsListController::execQueryProfCertsList(const ProfCertsQuery::Wrapper& query)
-{	
-	auto vo = ProfCertsListJsonVO::createShared();
-	ProfCertsService profCertsService;
-	auto dto = profCertsService.listAll(query);
-	if (dto->rows->size() <= 0) {
-		vo->fail(dto);
-	}
-	else {
-		vo->success(dto);
-	}
-	return vo;
+void TestToken::generateToken()
+{
+	PayloadDTO p;
+	p.getAuthorities().push_back("SUPER_ADMIN");
+	p.setUsername(u8"roumiou");
+	p.setId("1");
+	p.setExp(3600 * 30);
+	std::cout << JWTUtil::generateTokenByRsa(p, RSA_PRIV_KEY->c_str()) << std::endl;
 }

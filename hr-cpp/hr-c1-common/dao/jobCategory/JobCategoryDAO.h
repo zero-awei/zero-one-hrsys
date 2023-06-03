@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -25,18 +25,18 @@
 class JobCategoryDAO : public BaseDAO
 {
 private:
-	// ¸ÚÎ»ÀàĞÍ¶ÔÓ¦¹şÏ£±í
+	// å²—ä½ç±»å‹å¯¹åº”å“ˆå¸Œè¡¨
 	unordered_map<string, string> jobCategory = {
-		{"9171", u8"·¿Îİ½¨ÖşÀà"},
-		{"9191", u8"»ù´¡ÉèÊ©Àà"},
-		{"9163", u8"½ğÈÚÍ¶×ÊÀà"},
-		{"9183", u8"¿±²ìÉè¼ÆÀà"},
-		{"9153", u8"Ö°ÄÜ¹ÜÀíÀà"},
+		{"9171", u8"æˆ¿å±‹å»ºç­‘ç±»"},
+		{"9191", u8"åŸºç¡€è®¾æ–½ç±»"},
+		{"9163", u8"é‡‘èæŠ•èµ„ç±»"},
+		{"9183", u8"å‹˜å¯Ÿè®¾è®¡ç±»"},
+		{"9153", u8"èŒèƒ½ç®¡ç†ç±»"},
 	};
 public:
-	// ²éÑ¯Êı¾İ
+	// æŸ¥è¯¢æ•°æ®
 	list<JobCategoryDO> selectAll();
-	// ·µ»ØÏÂÀ­ÁĞ±í
+	// è¿”å›ä¸‹æ‹‰åˆ—è¡¨
 	unordered_map<string, string> getMapList();
 };
 
