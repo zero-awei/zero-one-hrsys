@@ -1,9 +1,9 @@
- #pragma once
+#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
  @Author: awei
- @Date: 2022/10/25 11:34:14
+ @Date: 2023/05/29 23:23:25
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,28 +17,30 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _SAMPLE_VO_
-#define _SAMPLE_VO_
+#ifndef _LEGALENTITYMAIDELETEDTO_H_
+#define _LEGALENTITYMAIDELETEDTO_H_
 
 #include "../../GlobalInclude.h"
-#include "../../dto/sample/SampleDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/**
- * 示例显示JsonVO，用于响应给客户端的Json对象
- */
-class SampleJsonVO : public JsonVO<SampleDTO::Wrapper> {
-	DTO_INIT(SampleJsonVO, JsonVO<SampleDTO::Wrapper>);
-};
+/* 构建法人主体维护批量删除DTO--（组织管理-数据设置-法人主体维护）--TripleGold */
+class LegalEntityMaiDelDTO : public oatpp::DTO
+{
+	DTO_INIT(LegalEntityMaiDelDTO, DTO);
+	// 删除数据ID数组
+	DTO_FIELD(List<String>, Ids) = {};
+	DTO_FIELD_INFO(Ids) {
+		info->description = ZH_WORDS_GETTER("LegalEntityMai.delete.cnt");
+	}
 
-/**
- * 示例分页显示JsonVO，用于响应给客户端的Json对象
- */
-class SamplePageJsonVO : public JsonVO<SamplePageDTO::Wrapper> {
-	DTO_INIT(SamplePageJsonVO, JsonVO<SamplePageDTO::Wrapper>);
+	//// 法人主体标识
+	//DTO_FIELD(String, ORMSIGNORGID);
+	//DTO_FIELD_INFO(ORMSIGNORGID) {
+	//	info->description = ZH_WORDS_GETTER("LegalEntityMai.field.id");
+	//}
 };
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif // !_SAMPLE_VO_
+#endif // !_LEGALENTITYMAIDELETEDTO_H_

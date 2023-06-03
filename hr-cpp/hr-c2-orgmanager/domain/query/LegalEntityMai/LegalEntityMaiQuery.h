@@ -25,7 +25,7 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/* 定义法人主体分页查询对象*/
+/* 法人主体维护分页查询对象定义--（组织管理-数据设置-法人主体维护）--TripleGold */
 class LegalEntityMaiQuery : public PageQuery
 {
 	DTO_INIT(LegalEntityMaiQuery, PageQuery);

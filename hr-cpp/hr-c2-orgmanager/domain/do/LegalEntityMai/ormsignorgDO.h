@@ -22,34 +22,39 @@
 
 #include "../DoInclude.h"
 
-/* 法人主体维护数据库实体 */
+/* 法人主体维护数据库表t_ormsignorg实体--（组织管理-数据设置-法人主体维护）--TripleGold */
 
-class t_ormsignorgDO
+class OrmsignorgDO
 {
 	// 法人主体标识
-	CC_SYNTHESIZE(string, id, ORMSIGNORGID);
-	// 更新人
-	CC_SYNTHESIZE(string, updateman, UPDATEMAN);
-	// 建立人
-	CC_SYNTHESIZE(string, createman, CREATEMAN);
-	// 建立时间
-	CC_SYNTHESIZE(string, createdate, CREATEDATE);
+	CC_SYNTHESIZE(string, id, Id);
 	// 法人主体名称
-	CC_SYNTHESIZE(string, name, ORMSIGNORGNAME);
-	// 更新时间
-	CC_SYNTHESIZE(string, updatedate, UPDATEDATE);
+	CC_SYNTHESIZE(string, name, Name);
 	// 组织编号
-	CC_SYNTHESIZE(string, orgcode, ORGCODE);
+	CC_SYNTHESIZE(string, orgcode, Code);
+	// 更新人
+	CC_SYNTHESIZE(string, updateman, Updateman);
+	// 建立人
+	CC_SYNTHESIZE(string, createman, Createman);
+	// 建立时间
+	CC_SYNTHESIZE(string, createdate, CreateDate);
+	// 更新时间
+	CC_SYNTHESIZE(string, updatedate, Updatedate);
 	// 简称
-	CC_SYNTHESIZE(string, shortForm, ZZJC);
+	CC_SYNTHESIZE(string, shortForm, Zzjc);
 public:
-	t_ormsignorgDO() {};
-	// 有参构造函数
-	t_ormsignorgDO(string id, string updateman) {
-		this->id = id;
-		this->updateman = updateman;
+	OrmsignorgDO() {
+		id = "";
+		name = "";
+		orgcode = "";
 	}
-	t_ormsignorgDO(string id, string updateman, string createman, string createdate,
+	OrmsignorgDO(std::vector<std::string> vec)
+	{
+		int i = 0;
+		setName(vec[i++]);
+		setCode(vec[i++]);
+	}
+	/*OrmsignorgDO(string id, string updateman, string createman, string createdate,
 		string name, string updatedate, string orgcode, string shortForm) {
 		this->id = id;
 		this->updateman = updateman;
@@ -59,6 +64,6 @@ public:
 		this->updatedate = updatedate;
 		this->orgcode = orgcode;
 		this->shortForm = shortForm;
-	}
+	}*/
 };
 #endif // !_T_ORMSIGNORGDO_H_

@@ -54,6 +54,18 @@
     <ClCompile Include="service\LegalEntitySet\DeleteLegalEntityService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="controller\LegalEntitySet\LegalEntitySetController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\LegalEntityMai\LegalEntityMaiDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\LegalEntitySet\LegalEntitySetDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\LegalEntitySet\LegalEntitySetService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
@@ -168,6 +180,54 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="service\LegalEntitySet\DeleteLegalEntityService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\LegalEntitySet\LegalEntitySetController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\LegalEntityMai\LegalEntityMaiDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\LegalEntityMai\LegalEntityMaiMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\LegalEntitySet\LegalEntitySetDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\LegalEntitySet\LegalEntitySetMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\LegalEntitySet\LegalEntitySetUpdateDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiAddDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDelDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiMqDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\LegalEntitySet\LegalEntityAddSetDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\LegalEntitySet\LegalEntitySetDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\LegalEntitySet\LegalEntitySetQueryDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\LegalEntitySet\LegalEntitySetUpdateDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\LegalEntitySet\LegalEntitySetQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\LegalEntitySet\LegalEntitySetVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\LegalEntitySet\LegalEntitySetService.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

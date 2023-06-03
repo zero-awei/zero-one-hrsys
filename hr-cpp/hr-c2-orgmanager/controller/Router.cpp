@@ -26,6 +26,7 @@
 #include "uselib/ws/WSController.h"
 #endif
 #include "LegalEntityMai/LegalEntityMaiController.h"
+#include "LegalEntitySet/LegalEntitySetController.h"
 #include "LegalEntitySet/ExportLegalerSetingController.h"
 #include "LegalEntitySet/LegalerNamePullDownListController.h"
 #include "LegalEntitySet/UpdateLegalerSetingMessageController.h"
@@ -55,16 +56,11 @@ void Router::initRouter()
 #ifdef HTTP_SERVER_DEMO
 	createSampleRouter();
 #endif
-
 	//#TIP :系统扩展路由定义，写在这个后面
-	ROUTER_SIMPLE_BIND(LegalEntityMaiController); 
-	ROUTER_SIMPLE_BIND(ExportLegalerSetingController);
-	ROUTER_SIMPLE_BIND(LegalerNamePullDownListController);
-	ROUTER_SIMPLE_BIND(UpdateLegalerSetingMessageController);
 	ROUTER_SIMPLE_BIND(LegalEntityMaiController);
 	ROUTER_SIMPLE_BIND(DeleteLegalEntityController);//法人主体设置--删除法人设置(支持批量删除)--pine
 	ROUTER_SIMPLE_BIND(ImportLeagalPerSettingController);
-
+	ROUTER_SIMPLE_BIND(LegalEntitySetController);
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -74,7 +70,6 @@ void Router::createSampleRouter()
 	ROUTER_SIMPLE_BIND(SampleController);
 	// 绑定用户控制器
 	ROUTER_SIMPLE_BIND(UserController);
-
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());
 }

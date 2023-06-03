@@ -140,10 +140,16 @@ cermanage:
  delete:
   summary: 删除一条示例数据
  field:
-  id: 编号
-  age: 年龄
-  name: 姓名
-  sex: 性别，如：男
+  ygbh: 员工编号
+  pcmjxszzkhjgjlname: 员工姓名
+  zz: 组织
+  bm: 部门
+  zw: 职务
+  gw: 岗位
+  duration: 见习期限（月）
+  ksrq: 到本单位时间
+  jsrq: 见习到期时间
+
   ygbh : 员工编号
   nameOfPAndV: 人员姓名、证书名称
   pimperSonName : 员工姓名 

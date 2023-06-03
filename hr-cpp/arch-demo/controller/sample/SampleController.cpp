@@ -72,7 +72,8 @@ Uint64JsonVO::Wrapper SampleController::execModifySample(const SampleDTO::Wrappe
 	// 参数校验
 	if (!dto->id || dto->id <= 0)
 	{
-		 
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
 	}
 	// 定义一个Service
 	SampleService service;

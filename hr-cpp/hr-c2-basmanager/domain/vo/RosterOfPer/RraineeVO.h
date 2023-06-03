@@ -19,8 +19,8 @@ class RraineeJsonVO : public JsonVO<RraineeDTO::Wrapper> {
 /**
  * 示例分页显示JsonVO，用于响应给客户端的Json对象
  */
-class RraineePageJsonVO : public JsonVO<RraineeDTO::Wrapper> {
-	DTO_INIT(RraineePageJsonVO, JsonVO<RraineeDTO::Wrapper>);
+class RraineePageJsonVO : public JsonVO<RraineePageDTO::Wrapper> {
+	DTO_INIT(RraineePageJsonVO, JsonVO<RraineePageDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)
