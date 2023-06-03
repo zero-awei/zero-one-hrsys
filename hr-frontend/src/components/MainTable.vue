@@ -3,7 +3,7 @@
     <el-table
       class-name="hr-maintable__form"
       ref="multipleTableRef"
-      max-height="calc(95vh - 40px)"
+      max-height="calc(95vh - 130px)"
       :data="tableData"
       style="width: 100%; text-align: center"
       @selection-change="handleSelectionChange"
@@ -18,7 +18,7 @@
         :key="item.id"
         :label="item.name"
         :prop="item.prop"
-        width="150"
+        min-width="150"
         sortable
       />
     </el-table>

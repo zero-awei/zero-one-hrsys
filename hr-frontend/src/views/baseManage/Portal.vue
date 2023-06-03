@@ -1,7 +1,7 @@
 <template>
-  <el-row>
+  <el-row style="margin: 20px 10px">
     <el-col :span="24">
-      <el-row :gutter="20">
+      <el-row :gutter="20" style="margin: 0">
         <el-col :span="8">
           <el-card>
             <echarts :options="$store.pieChart" />
