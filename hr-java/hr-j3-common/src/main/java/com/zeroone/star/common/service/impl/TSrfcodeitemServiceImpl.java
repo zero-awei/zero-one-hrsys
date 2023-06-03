@@ -6,6 +6,8 @@ import com.zeroone.star.common.mapper.TSrfcodeitemMapper;
 import com.zeroone.star.common.service.ITSrfcodeitemService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
+import com.zeroone.star.project.j3.query.common.DisciplineTypeQuery;
+import com.zeroone.star.project.j3.query.common.EducationTypeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -59,6 +61,16 @@ public class TSrfcodeitemServiceImpl extends ServiceImpl<TSrfcodeitemMapper, TSr
                 .map(item -> new DropdownListOptionDTO(item.getCodeitemid(), item.getCodeitemname()))
                 .collect(Collectors.toList());
         return dropdownListOptions;
+    }
+
+    @Override
+    public List<String> listEducationType(EducationTypeQuery education) {
+        return null;
+    }
+
+    @Override
+    public List<String> listDisciplineType(DisciplineTypeQuery discipline) {
+        return null;
     }
 
 
