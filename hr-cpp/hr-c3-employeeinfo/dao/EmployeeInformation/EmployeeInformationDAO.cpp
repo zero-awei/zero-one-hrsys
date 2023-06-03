@@ -99,6 +99,6 @@ std::list<EmployeeInformationPageDO> EmployeeInformationDAO::selectWithPage(cons
 // ²åÈëÊý¾Ý
 uint64_t EmployeeInformationDAO::insert(const EmployeeInformationPageDO& iObj)
 {
-	string sql= "INSERT INTO `t_pimperson` (`PIMPERSONID`,`PIMPERSONNAME`,`NL`,`YGBH`,`ZZ`,`BM`,`ZW`,`GW`,`ZJHM`,`CSRQ`,`LXDH`,`YGZT`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	return sqlSession->executeUpdate(sql,"%s%s%i%s%s%s%s%s%s%s%s%s",iObj.getPersonId(),iObj.getName(),iObj.getAge(),iObj.getId(),iObj.getOrganize(),iObj.getDepart(),iObj.getJob(), iObj.getPost(),iObj.getIdMum(),iObj.getBirthday(),iObj.getPhone(),iObj.getState());
+	string sql= "INSERT INTO `t_pimperson` (`PIMPERSONID`,`CREATEMAN`,`CREATEDATE`,`PIMPERSONNAME`,`NL`,`YGBH`,`ZZ`,`BM`,`ZW`,`GW`,`ZJHM`,`CSRQ`,`LXDH`,`YGZT`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	return sqlSession->executeUpdate(sql,"%s%s%s%s%i%s%s%s%s%s%s%s%s%s",iObj.getPersonId(),iObj.getCreateMan(),iObj.getCreateDate(),iObj.getName(),iObj.getAge(),iObj.getId(),iObj.getOrganize(),iObj.getDepart(),iObj.getJob(), iObj.getPost(),iObj.getIdMum(),iObj.getBirthday(),iObj.getPhone(),iObj.getState());
 }

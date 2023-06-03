@@ -215,6 +215,7 @@
     <ClInclude Include="service\jobList\JobListService.h" />
     <ClInclude Include="service\org\OrgService.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\jwt\EmployeeInformationToken.h" />
     <ClInclude Include="uselib\jwt\TestToken.h" />
   </ItemGroup>
   <ItemGroup>
@@ -239,6 +240,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="uselib\jwt\EmployeeInformationToken.cpp" />
     <ClCompile Include="uselib\jwt\TestToken.cpp" />
   </ItemGroup>
   <ItemGroup>

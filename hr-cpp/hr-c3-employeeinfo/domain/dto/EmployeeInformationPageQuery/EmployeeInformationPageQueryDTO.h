@@ -18,7 +18,16 @@ class EmployeeInformationDTO : public oatpp::DTO
 	DTO_FIELD_INFO(personId) {
 		info->description = ZH_WORDS_GETTER("employee.field.personId");
 	}
-
+	//建立人
+	DTO_FIELD(String, createMan);
+	DTO_FIELD_INFO(createMan) {
+		info->description = ZH_WORDS_GETTER("employee.field.createMan");
+	}
+	//建立时间
+	DTO_FIELD(String, createDate);
+	DTO_FIELD_INFO(createDate) {
+		info->description = ZH_WORDS_GETTER("employee.field.createDate");
+	}
 	// 姓名
 	DTO_FIELD(String, name);
 	DTO_FIELD_INFO(name) {
