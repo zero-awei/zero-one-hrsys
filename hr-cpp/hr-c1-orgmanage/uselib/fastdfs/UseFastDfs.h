@@ -19,7 +19,9 @@
 */
 #ifndef _USEFASTDFS_H_
 #define _USEFASTDFS_H_
+
 #include <string>
+#include <sstream>
 
 class UseFastDfs
 {
@@ -30,7 +32,7 @@ public:
 	UseFastDfs(std::string host_ = "") 
 		: host(host_)
 	{
-		stringstream ss;
+		std::stringstream ss;
 		ss << "http://" << host << ":8888/";
 		url_prefix = ss.str();
 	}

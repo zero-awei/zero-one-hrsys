@@ -10,7 +10,7 @@
 #include "Macros.h"
 #include "ServerInfo.h"
 #include "domain/dto/jobDownload/JobDownloadDTO.h"
-#include "domain/vo/JobDownload/JobDownloadVO.h"
+#include "domain/vo/jobDownload/JobDownloadVO.h"
 #include "domain/query/postSet/PostDetailQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)

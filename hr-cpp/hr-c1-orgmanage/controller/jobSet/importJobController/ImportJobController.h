@@ -29,6 +29,7 @@
 #include "CharsetConvertHepler.h"
 #include "domain/vo/jobSet/ImportJobVO.h"
 #include "../lib-common/include/CommonMacros.h"
+#include <iostream>
 
 // 文件上传
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"

@@ -20,6 +20,9 @@
 #include "stdafx.h"
 #include "ExportExcel.h"
 #include "ExcelComponent.h"
+#include <chrono>
+#include <iostream>
+#include <iomanip>
 using namespace std;
 
 // 注意：为了保证在Linux平台不乱码，需要保证本源码文件的编码为 UTF8 BOM 编码格式
@@ -28,7 +31,7 @@ using namespace std;
  * @param: data将要上传的数据二维向量
  * @return: 返回Excel文件路径
  */
-std::string ExportExcel::exportExcel(const vector<vector<string>> &data)
+std::string ExportExcel::exportExcel(const std::vector<std::vector<std::string>> &data)
 {
 	// 定义保存数据位置和页签名称
 	// 根据时间戳生成一个临时文件名称

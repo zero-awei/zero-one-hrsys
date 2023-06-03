@@ -20,13 +20,16 @@
 #ifndef _EXPORTEXCEL_H_
 #define _EXPORTEXCEL_H_
 
+#include <string>
+#include <vector>
+
 /**
  * Excel 组件, 用于导出数据
  */
 class ExportExcel
 {
 public:
-	static std::string exportExcel(const vector<vector<string>>& data);
+	static std::string exportExcel(const std::vector<std::vector<std::string>>& data);
 };
 
 #endif // _EXPORTEXCEL_H_

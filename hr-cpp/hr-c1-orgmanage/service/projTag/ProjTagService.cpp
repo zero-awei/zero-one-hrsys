@@ -28,8 +28,8 @@
 #include "uselib/fastdfs/UseFastDfs.h"
 #include "SnowFlake.h"
 // ÎÄ¼þµ½DOºê
-#define FILE_TO_DO(target, src, f1, f2) target.set##f1(src##f2);
-#define INDEX(x, y) [x][y]
+#define FILE_TO_DO(target, src, f1, f2) target.set##f1(src.f2);
+#define INDEX(x, y) at(x).at(y)
 #define ZO_STAR_FILE_TO_DO(target, src, ...) \
 ZO_STAR_EXPAND(ZO_STAR_PASTE(target, src, FILE_TO_DO, __VA_ARGS__))
 
