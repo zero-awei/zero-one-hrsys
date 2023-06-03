@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ee0ca5ee-2af7-4137-8f34-28ff41251b79}</ProjectGuid>
+    <ProjectGuid>{B779BE94-21B0-475F-91A7-98180E496229}</ProjectGuid>
     <RootNamespace>hrc2orgmanager</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
