@@ -1,48 +1,45 @@
 #include "stdafx.h"
 #include "ContractCategoryController.h"
+#include "service/ContractCategory/ContractCategoryService.h"
 
-ContractCategoryPageJsonVO::Wrapper ContractCategoryController::execQueryContractCategory(const ContractCategoryQuery::Wrapper& query)
+ContractCategoryPageDTO::Wrapper ContractCategoryController::execQueryContractCategory(const ContractCategoryQuery::Wrapper& query)
 {
-	// 响应结果
-	// 创建响应对象
-	auto jvo = ContractCategoryPageJsonVO::createShared();
-	// 创建分页对象
-	auto pdto = ContractCategoryPageDTO::createShared();
-	pdto->addData(ContractCategoryDTO::createShared("1", "zs"));
-	pdto->addData(ContractCategoryDTO::createShared("2", "ls"));
-	jvo->success(pdto);
-	return jvo;
+	ContractCategoryService service;
+	return service.listAll(query);
 }
 
 Uint64JsonVO::Wrapper ContractCategoryController::execAddContractCategory(const ContractCategoryDTO::Wrapper& dto)
 {
-	// 定义返回数据对象
+	ContractCategoryService service;
+	uint64_t result = service.addContractCategory(dto);
 	auto jvo = Uint64JsonVO::createShared();
-
-
-	//响应结果
-	jvo->success(1);
+	if (result > 0)
+		jvo->success(result);
+	else
+		jvo->fail(result);
 	return jvo;
 }
 
 Uint64JsonVO::Wrapper ContractCategoryController::execModifyContractCategory(const ContractCategoryDTO::Wrapper& dto)
 {
-	// 定义返回数据对象
+	ContractCategoryService service;
+	uint64_t result = service.modifyContractCategory(dto);
 	auto jvo = Uint64JsonVO::createShared();
-
-
-	// 响应结果
-	jvo->success(1);
+	if (result > 0)
+		jvo->success(result);
+	else
+		jvo->fail(result);
 	return jvo;
 }
 
-Uint64JsonVO::Wrapper ContractCategoryController::execRemoveContractCategory(const ContractCategoryDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper ContractCategoryController::execRemoveContractCategory(uint64_t id)
 {
-	// 定义返回数据对象
+	ContractCategoryService service;
+	bool result = service.removeContractCategory(id);
 	auto jvo = Uint64JsonVO::createShared();
-
-
-	// 响应结果
-	jvo->success(1);
+	if (result)
+		jvo->success(1);
+	else
+		jvo->fail(-1);
 	return jvo;
 }
