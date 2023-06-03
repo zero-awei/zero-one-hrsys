@@ -161,7 +161,7 @@
   <ItemGroup>
     <ClInclude Include="controller\archivesLevel\ArchivesLevelsController.h" />
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
-    <ClInclude Include="controller\auditstatusController.h\AuditstatusController.h" />
+    <ClInclude Include="controller\auditStatus\AuditStatusController.h" />
     <ClInclude Include="controller\awardLevel\AwardLevelController.h" />
     <ClInclude Include="controller\certDropDownList\certTypeList\CertTypeListController.h" />
     <ClInclude Include="controller\certDropDownList\profCertsList\ProfCertsListController.h" />
@@ -276,11 +276,12 @@
     <ClInclude Include="service\statusContract\StatusContractService.h" />
     <ClInclude Include="service\typeContractList\TypeContractService.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\jwt\TestToken.h" />
     <ClInclude Include="uselib\pullListRedis\UseLibRedis.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\archivesLevel\ArchivesLevelsController.cpp" />
-    <ClCompile Include="controller\auditstatusController.h\AuditstatusController.cpp" />
+    <ClCompile Include="controller\auditStatus\AuditStatusController.cpp" />
     <ClCompile Include="controller\awardLevel\AwardLevelController.cpp" />
     <ClCompile Include="controller\certDropDownList\certTypeList\CertTypeListController.cpp" />
     <ClCompile Include="controller\certDropDownList\profCertsList\ProfCertsListController.cpp" />
@@ -343,6 +344,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="uselib\jwt\TestToken.cpp" />
     <ClCompile Include="uselib\pullListRedis\UseLibRedis.cpp" />
   </ItemGroup>
   <ItemGroup>

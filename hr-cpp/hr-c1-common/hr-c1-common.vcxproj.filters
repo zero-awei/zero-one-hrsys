@@ -18,7 +18,6 @@
     <ClCompile Include="controller\jobCategory\JobCategoryController.cpp" />
     <ClCompile Include="controller\dismissReason\DismissReasonController.cpp" />
     <ClCompile Include="controller\leaveReason\LeaveReasonController.cpp" />
-    <ClCompile Include="controller\auditstatusController.h\AuditstatusController.cpp" />
     <ClCompile Include="controller\typeContract\TypeContractListController.cpp" />
     <ClCompile Include="controller\contractType\ContractTypeController.cpp" />
     <ClCompile Include="service\armyLevelType\ArmyLevelTypeService.cpp" />
@@ -61,6 +60,8 @@
     <ClCompile Include="dao\archivesLevel\ArchivesLevelsDAO.cpp" />
     <ClCompile Include="service\contractType\ContractTypeService.cpp" />
     <ClCompile Include="dao\contractType\ContractTypeDAO.cpp" />
+    <ClCompile Include="controller\auditStatus\AuditStatusController.cpp" />
+    <ClCompile Include="uselib\jwt\TestToken.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -102,7 +103,6 @@
     <ClInclude Include="domain\do\typeContract\TypeContractDO.h" />
     <ClInclude Include="domain\dto\typeContract\TypeContractDTO.h" />
     <ClInclude Include="domain\vo\typeContract\TypeContractVO.h" />
-    <ClInclude Include="controller\auditstatusController.h\AuditstatusController.h" />
     <ClInclude Include="controller\typeContract\TypeContractListController.h" />
     <ClInclude Include="controller\contractType\ContractTypeController.h" />
     <ClInclude Include="domain\do\jobLevelTypeList\JobLevelTypeDO.h" />
@@ -182,6 +182,8 @@
     <ClInclude Include="domain\dto\contractType\TypeContractDTO.h" />
     <ClInclude Include="domain\dto\contractType\ContractTypeDTO.h" />
     <ClInclude Include="domain\vo\contractType\ContractTypeVO.h" />
+    <ClInclude Include="controller\auditStatus\AuditStatusController.h" />
+    <ClInclude Include="uselib\jwt\TestToken.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
