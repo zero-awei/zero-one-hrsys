@@ -66,7 +66,7 @@ LegalEntitySet:
  post:
   summary: 新增法人主体设置（支持批量新增）
  delete:
-  summary: 删除法人主体设置（支持批量删除）
+  summary: 法人主体设置--删除法人设置(支持批量删除)--pine
  import:
   summary: （数据设置——法人主体设置——导入法人主体设置)--洛洛  
  export:
@@ -80,3 +80,6 @@ LegalEntitySet:
   updatedate: 更新时间
   orgcode: 组织编号
   short: 简称
+  contractsignorgname: 签约主体单位名称
+  isdefaultsignorg: 默认签约主体
+  ormsignorgid: 法人主体标识

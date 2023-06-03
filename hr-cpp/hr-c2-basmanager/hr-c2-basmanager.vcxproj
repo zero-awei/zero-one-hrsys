@@ -204,6 +204,8 @@
     <ClInclude Include="dao\CertificateManage\CertificateTypeMapper.h" />
     <ClInclude Include="dao\CertificateManage\CheckCerListDAO.h" />
     <ClInclude Include="dao\CertificateManage\CheckCerListMapper.h" />
+    <ClInclude Include="dao\CertificateManage\CreateNewCerDAO.h" />
+    <ClInclude Include="dao\CertificateManage\CreateNewCerMapper.h" />
     <ClInclude Include="dao\CertificateManage\DeleteCertifDAO.h" />
     <ClInclude Include="dao\CertificateManage\EmployeeInfoDAO.h" />
     <ClInclude Include="dao\CertificateManage\EmployeeInfoMapper.h" />
@@ -211,6 +213,8 @@
     <ClInclude Include="dao\CertificateManage\ExportCertifMapper.h" />
     <ClInclude Include="dao\CertificateManage\SpercificCertificateDAO.h" />
     <ClInclude Include="dao\CertificateManage\SpercificCertificateMapper.h" />
+    <ClInclude Include="dao\RosterOfPer\CheckRetiresListDAO.h" />
+    <ClInclude Include="dao\RosterOfPer\CheckRetiresListMapper.h" />
     <ClInclude Include="dao\RosterOfPer\EmployeePageDAO.h" />
     <ClInclude Include="dao\RosterOfPer\EmployeePageMapper.h" />
     <ClInclude Include="dao\RosterOfPer\ExportEmployeeDAO.h" />
@@ -291,10 +295,13 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\CertificateManage\CertificateTypeService.h" />
+    <ClInclude Include="service\CertificateManage\CheckCerListService.h" />
+    <ClInclude Include="service\CertificateManage\CreateNewCerService.h" />
     <ClInclude Include="service\CertificateManage\DeleteCertifService.h" />
     <ClInclude Include="service\CertificateManage\EmployeeInfoService.h" />
     <ClInclude Include="service\CertificateManage\ExportCertifService.h" />
     <ClInclude Include="service\CertificateManage\SpercificCertificateService.h" />
+    <ClInclude Include="service\RosterOfPer\CheckRetiresListService.h" />
     <ClInclude Include="service\RosterOfPer\EmployeePageService.h" />
     <ClInclude Include="service\RosterOfPer\ExportEmployeeService.h" />
     <ClInclude Include="service\RosterOfPer\FormerEmployeesService.h" />
@@ -324,10 +331,12 @@
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="dao\CertificateManage\CertificateTypeDAO.cpp" />
     <ClCompile Include="dao\CertificateManage\CheckCerListDAO.cpp" />
+    <ClCompile Include="dao\CertificateManage\CreateNewCerDAO.cpp" />
     <ClCompile Include="dao\CertificateManage\DeleteCertifDAO.cpp" />
     <ClCompile Include="dao\CertificateManage\EmployeeInfoDAO.cpp" />
     <ClCompile Include="dao\CertificateManage\ExportCertifDAO.cpp" />
     <ClCompile Include="dao\CertificateManage\SpercificCertificateDAO.cpp" />
+    <ClCompile Include="dao\RosterOfPer\CheckRetiresListDAO.cpp" />
     <ClCompile Include="dao\RosterOfPer\EmployeePageDAO.cpp" />
     <ClCompile Include="dao\RosterOfPer\ExportEmployeeDAO.cpp" />
     <ClCompile Include="dao\RosterOfPer\FormerEmployeesDAO.cpp" />
@@ -336,9 +345,12 @@
     <ClCompile Include="dao\RosterOfPer\TemporaryStaffDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\CertificateManage\CertificateTypeService.cpp" />
+    <ClCompile Include="service\CertificateManage\CheckCerListService.cpp" />
+    <ClCompile Include="service\CertificateManage\CreateNewCerService.cpp" />
     <ClCompile Include="service\CertificateManage\DeleteCertifService.cpp" />
     <ClCompile Include="service\CertificateManage\EmployeeInfoService.cpp" />
     <ClCompile Include="service\CertificateManage\SpercificCertificateService.cpp" />
+    <ClCompile Include="service\RosterOfPer\CheckRetiresListService.cpp" />
     <ClCompile Include="service\RosterOfPer\EmployeePageService.cpp" />
     <ClCompile Include="service\RosterOfPer\ExportEmployeeService.cpp" />
     <ClCompile Include="service\RosterOfPer\FormerEmployeesService.cpp" />

@@ -29,6 +29,7 @@
 #include "LegalEntitySet/ExportLegalerSetingController.h"
 #include "LegalEntitySet/LegalerNamePullDownListController.h"
 #include "LegalEntitySet/UpdateLegalerSetingMessageController.h"
+#include "LegalEntitySet/DeleteLegalEntityController.h"
 
 #include "LegalEntitySet/ImportLeagalPerSettingController.h"
 
@@ -61,6 +62,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(LegalerNamePullDownListController);
 	ROUTER_SIMPLE_BIND(UpdateLegalerSetingMessageController);
 	ROUTER_SIMPLE_BIND(LegalEntityMaiController);
+	ROUTER_SIMPLE_BIND(DeleteLegalEntityController);//法人主体设置--删除法人设置(支持批量删除)--pine
 	ROUTER_SIMPLE_BIND(ImportLeagalPerSettingController);
 
 }

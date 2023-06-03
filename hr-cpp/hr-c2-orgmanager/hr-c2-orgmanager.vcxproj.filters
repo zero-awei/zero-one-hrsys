@@ -45,6 +45,15 @@
     <ClCompile Include="controller\LegalEntitySet\ImportLeagalPerSettingController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="controller\LegalEntitySet\DeleteLegalEntityController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\LegalEntitySet\DeleteLegalEntityDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\LegalEntitySet\DeleteLegalEntityService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
@@ -135,6 +144,30 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="service\LegalEntitySet\ImportLeagalPerSettingService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\LegalEntitySet\DeleteLegalEntityController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\LegalEntitySet\DeleteLegalEntityDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\LegalEntitySet\DeleteLegalEntityMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\LegalEntitySet\LegalEntitySetDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\LegalEntitySet\DeleteLegalEntityDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\LegalEntitySet\DeleteLegalEntityQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\LegalEntitySet\DeleteLegalEntityVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\LegalEntitySet\DeleteLegalEntityService.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

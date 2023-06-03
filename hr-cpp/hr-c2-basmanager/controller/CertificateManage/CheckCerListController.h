@@ -38,24 +38,30 @@ public://  定义接口（定义接口描述与接口端点）
 		API_DEF_ADD_RSP_JSON_WRAPPER(CheckCerListPageJsonVO);
 		//定义分页查询参数描述
 		API_DEF_ADD_PAGE_PARAMS();
-		//添加其他查询参数，required表示是否必须
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("cermanage.field.name");
-		info->queryParams["name"].addExample("default", String("li ming"));
-		info->queryParams["name"].required = false;
-		info->queryParams.add<String>("sex").description = ZH_WORDS_GETTER("cermanage.field.sex");
-		info->queryParams["sex"].addExample("default", String("N"));
-		info->queryParams["sex"].required = false;
+		//添加其他查询参数，required表示是否必须（员工编号、证书名称）
+		info->queryParams.add<String>("nameOfPAndV").description = ZH_WORDS_GETTER("cermanage.field.nameOfPAndV");
+		info->queryParams["nameOfPAndV"].addExample("default", String(""));
+		info->queryParams["nameOfPAndV"].required = false;
+		info->queryParams.add<String>("ygbh").description = ZH_WORDS_GETTER("cermanage.field.ygbh");
+		info->queryParams["ygbh"].addExample("default", String(""));
+		info->queryParams["ygbh"].required = false;
+		info->queryParams.add<String>("pimperSonName").description = ZH_WORDS_GETTER("cermanage.field.pimperSonName");
+		info->queryParams["pimperSonName"].addExample("default", String(""));
+		info->queryParams["pimperSonName"].required = false;
+		info->queryParams.add<String>("pimVocationalName").description = ZH_WORDS_GETTER("cermanage.field.pimVocationalName");
+		info->queryParams["pimVocationalName"].addExample("default", String(""));
+		info->queryParams["pimVocationalName"].required = false;
 	}
-	//4 定义新增接口处理
-	ENDPOINT(API_M_GET, "/bas/query-CerList", queryCheckCerList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	//4 定义查询接口处理
+	ENDPOINT(API_M_GET, "/bas/query-CheckCerList", queryCheckCerList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		API_HANDLER_QUERY_PARAM(query, CheckCerListQuery, queryParams);
 		// 响应结果
-		API_HANDLER_RESP_VO(execQueryCheckCerList(query));
+		API_HANDLER_RESP_VO(execQueryCheckCerList(query, authObject->getPayload()));
 	}
 
 private://定义执行函数
 	// 分页查询数据
-	CheckCerListPageJsonVO::Wrapper execQueryCheckCerList(const PageQuery::Wrapper& query);
+	CheckCerListPageJsonVO::Wrapper execQueryCheckCerList(const CheckCerListQuery::Wrapper& query, const PayloadDTO& payload);
 
 };
 
