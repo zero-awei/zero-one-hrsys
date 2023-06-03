@@ -34,7 +34,7 @@ import java.util.Objects;
 @Service
 public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements MenuService {
 
-    private MenuService menuService;
+
 
     private static final String Menu_ROOT_ID = "0";
 
@@ -80,7 +80,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
             queryWrapper.eq(Menu::getLevel, level);
         }
         // 执行分页查询
-        Page<Menu> resultPage = menuService.page(page, queryWrapper);
+        Page<Menu> resultPage = page(page, queryWrapper);
 
         return JsonVO.success(PageDTO.create(resultPage, MenuDTO.class));
     }
@@ -93,32 +93,32 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         // 字段 id 为 varchar(64) 类型，不能设置为自增，需要自己指定
         // 判断 id 是否重复
         String id = dto.getId();
-        Menu checkMenu = menuService.getById(id);
+        Menu checkMenu = getById(id);
         if (Objects.nonNull(checkMenu)) {
             return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "id 重复");
         }
         // 判断 priority 是否存在
         Integer priority = dto.getPriority();
-        boolean priorityNotExist = Objects.isNull(menuService.getOne(new QueryWrapper<Menu>().lambda().eq(Menu::getPriority,priority)));
+        boolean priorityNotExist = Objects.isNull(getById(priority));
         if(priorityNotExist){
             return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(),"priority 不存在");
         }
         // 判断 icon 是否存在
         String icon = dto.getIcon();
-        boolean iconNotExist = Objects.isNull(menuService.getOne(new QueryWrapper<Menu>().lambda().eq(Menu::getIcon, icon)));
+        boolean iconNotExist = Objects.isNull(getById(icon));
         if(iconNotExist) {
             return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "icon 不存在");
         }
         // 判断 parent_menu_id 是否存在
         String parent_menu_id = dto.getParent_menu_id();
-        boolean parent_menu_idNotExist = Objects.isNull(menuService.getById(parent_menu_id));
+        boolean parent_menu_idNotExist = Objects.isNull(getById(parent_menu_id));
         if (parent_menu_idNotExist) {
             return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "parent menu id 不存在");
         }
         // 将 dto 的非空属性赋值给 menu 权限，然后添加权限
         Menu menu = new Menu();
         BeanUtil.copyProperties(dto, menu, CopyOptions.create().setIgnoreNullValue(true));
-        boolean result = menuService.save(menu);
+        boolean result = save(menu);
 
         if (result) {
             return JsonVO.success(true);
@@ -132,25 +132,25 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     @Override
     public JsonVO<Boolean> modifyMenu(MenuDTO dto) {
         String id = dto.getId();
-        Menu menu = menuService.getById(id);
+        Menu menu = getById(id);
         if (Objects.isNull(menu)) {
             return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "权限不存在");
         }
         // 判断 icon 是否存在
         String icon = dto.getIcon();
-        boolean iconNotExist = Objects.isNull(menuService.getOne(new QueryWrapper<Menu>().lambda().eq(Menu::getIcon, icon)));
+        boolean iconNotExist = Objects.isNull(getById(icon));
         if(iconNotExist) {
             return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "icon 不存在");
         }
         // 判断 parent_menu_id 是否存在
         String parent_menu_id = dto.getParent_menu_id();
-        boolean parent_menu_idNotExist = Objects.isNull(menuService.getById(parent_menu_id));
+        boolean parent_menu_idNotExist = Objects.isNull(getById(parent_menu_id));
         if (parent_menu_idNotExist) {
             return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "parent menu id 不存在");
         }
         // 将 dto 的非空属性赋值给 menu 权限，然后更新权限
         BeanUtil.copyProperties(dto, menu, CopyOptions.create().setIgnoreNullValue(true));
-        boolean result = menuService.updateById(menu);
+        boolean result = updateById(menu);
 
         if (result) {
             return JsonVO.success(true);
@@ -167,11 +167,11 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
             // 不能删除根权限
             return JsonVO.create(false, ResultStatus.FORBIDDEN.getCode(), "不能删除主菜单");
         }
-        Menu menu = menuService.getById(id);
+        Menu menu = getById(id);
         if (Objects.isNull(menu)) {
             return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "菜单不存在");
         }
-        boolean result = menuService.removeById(menu);
+        boolean result = removeById(menu);
 
         if (result) {
             return JsonVO.success(true);
@@ -196,7 +196,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
             queryWrapper.or(wrapper -> wrapper.like(field.getColumn(), queryLike));
         }
         // 执行分页查询
-        Page<Menu> resultPage = menuService.page(page, queryWrapper);
+        Page<Menu> resultPage = page(page, queryWrapper);
 
         return JsonVO.success(PageDTO.create(resultPage, MenuDTO.class));
     }
@@ -205,7 +205,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     //修改状态
     @Override
     public JsonVO<Boolean> modifyStatus(String id) {
-        Menu menu = menuService.getById(id);
+        Menu menu = getById(id);
         if (Objects.isNull(menu)) {
             return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "菜单不存在");
         }
@@ -219,7 +219,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         } else {
             menu.setIsEnable(1);
         }
-        boolean result = menuService.updateById(menu);
+        boolean result = updateById(menu);
 
         if (result) {
             return JsonVO.success(true);
