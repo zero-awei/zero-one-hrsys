@@ -1,29 +1,20 @@
-
+//例子
 <template>
   <div class="common-layout">
     <el-container>
-      <el-aside width="200px">
-        <Aside :menus="menus" style="height: 95vh"></Aside>
-      </el-aside>
       <el-container>
         <el-header>
-          <TableHead :tableTitle="$store.tableTitle" :addTitle="$store.addTitle" :tableOperations="$store.tableOperations" :saveData="$store.addData">
-            <Search :filter="filter" class="search"></Search>
-            <div class="filter">
-              //导出
-
-              <Filter></Filter>
-            </div>
-          </TableHead>
+          <TableHead :tableTitle="$store.tableTitle" :tableOperations="$store.tableOperations"/>
+          <Search :filter="filter" class="search"></Search>
         </el-header>
         <el-main>
           <div class="table">
-            <MainTable :tableData="$store.tableData" :xmlData="$store.newXmlData"></MainTable>
+            <MainTable :tableData="$store.tableData" :xmlData="newXmlData"></MainTable>
           </div>
         </el-main>
         <el-footer>
           <div class="footer">
-            <ColumnFilter :xmlData="$store.xmlData" :parentMethod="$store.getNewXmlData">
+            <ColumnFilter :xmlData="$store.xmlData" :parentMethod="getNewXmlData">
             </ColumnFilter>
             <Pagination></Pagination>
           </div>
@@ -36,33 +27,53 @@
 <script setup>
 import TableHead from '@/components/table/head/TableHead.vue'
 import Search from '@/components/SearchBox.vue'
-import Aside from '@/components/aside/Aside.vue'
-import MainTable from '../../../components/MainTable.vue'
+import MainTable from '@/components/MainTable.vue'
 import ColumnFilter from '@/components/columnFilter/ColumnFilter.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
-import Filter from '@/components/filter/Filter.vue'
-import { useInfoStore } from '@/stores/archievesManage/archievesInfo.js'
+// import Filter from '@/components/filter/Filter.vue'
+import { useRecordStore } from '@/stores/fileTransferRecord'
 
-const $store = useInfoStore()
-//侧边栏
-$store.asideData() 
+const $store = useRecordStore()
 //表格数据
-$store.savaTableData()
-$store.getNewXmlData(checkStatus)
-//将新增的数据保存
-// const saveData = (val)=>{
-//   $store.addData(val)
-// }
-
+$store.initTableData()
+// 将新增的数据保存
+const saveData = (val) => {
+  $store.addData(val)
+}
+//获取新表单数据
+function getNewXmlData(checkStatus) {
+  newXmlData.value = $store.xmlData.filter((item) => {
+    return checkStatus.value.includes(item.name)
+  })
+}
+const newXmlData = ref([])
+newXmlData.value = [...$store.xmlData]
 </script>
 
 <style lang="scss" scoped>
+.container {
+  display: flex;
+  /* 使用一个 flex 容器实现布局 */
+  flex-direction: column;
+  /* 竖直方向排列 */
+  height: 100vh;
+  /* 设置高度为视口高度，使布局充满整个屏幕 */
+}
+
+.search {
+  flex: 0 0 auto;
+  /* 不伸缩、不收缩，固定高度 */
+  float: right;
+}
+
+.maintable {
+  position: absolute;
+}
 .footer {
+  position: relative;
+  margin-top: 35%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.filter {
-  color: purple;
 }
 </style>
