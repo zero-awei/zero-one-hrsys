@@ -43,7 +43,6 @@ public:
 	DTO_FIELD_INFO(ORGCODE) {
 		info->description = ZH_WORDS_GETTER("LegalEntityMai.field.orgcode");
 	}
-
 };
 
 #include OATPP_CODEGEN_END(DTO)

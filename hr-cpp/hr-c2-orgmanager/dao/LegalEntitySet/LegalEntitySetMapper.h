@@ -38,7 +38,7 @@ public:
 	LegalEntitySetDO mapper(ResultSet* resultSet) const override
 	{
 		LegalEntitySetDO data;
-		data.setORMORGID(resultSet->getString(1));
+		data.setORMSIGNORGID(resultSet->getString(1));
 		return data;
 	}
 };

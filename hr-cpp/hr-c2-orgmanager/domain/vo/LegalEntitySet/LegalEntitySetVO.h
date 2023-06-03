@@ -37,7 +37,7 @@ class LegalEntitySetPageJsonVO : public JsonVO<LegalEntitySetPageDTO::Wrapper> {
 };
 
 
-// 查询用JsonVO-TripleGold
+// 查询用JsonVO - TripleGold
 class LegalEntitySetQueryJsonVO : public JsonVO<LegalEntitySetQueryDTO::Wrapper> {
 	DTO_INIT(LegalEntitySetQueryJsonVO, JsonVO<LegalEntitySetQueryDTO::Wrapper>);
 };

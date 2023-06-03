@@ -18,40 +18,40 @@
 
 LegalEntitySetPullDownDTO::Wrapper LegalEntitySetService::legalEntityPulldownList() {
 	LegalEntitySetDAO dao;
-	//std::list<LegalEntitySetDO> date = dao.legalerNamePullDownList();
+	std::list<LegalEntitySetDO> date = dao.legalerNamePullDownList();
 	auto dto = LegalEntitySetPullDownDTO::createShared();
-	/*for (auto it : date) {
-		string str = it.getORMSIGNORGNAME();
+	for (auto it : date) {
+		string str = it.getORMSIGNORGID();
 		dto->legalEntitySetPullDownList->push_back(LegalEntitySetDTO::createShared(str));
-	}*/
+	}
 	return dto;
 }
 
-uint64_t LegalEntitySetService::insertData(const LegalEntitySetDTO::Wrapper& dto) {
+uint64_t LegalEntitySetService::insertData(const LegalEntitySetAddDTO::Wrapper& dto, const PayloadDTO& payload) {
 	//雪花算法 生成唯一标识
 	SnowFlake snowid(1, 2); 
 	// 组装DO数据
-	LegalEntitySetDO data;
-	//ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME,
-	//	contractsignorgname, ISDEFAULTSIGNORG, isdefaultsignorg)
-	data.setORMSIGNORGID(to_string(snowid.nextId()));
+	LegalEntitySetDO data; 
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, CONTRACTSIGNORGNAME, contractsignorgname, ORMORGID, ormorgid, ORMSIGNORGID, ormsignorgid, ISDEFAULTSIGNORG, isdefaultsignorg)
+	SimpleDateTimeFormat time;
 	data.setCONTRACTSIGNORGID(to_string(snowid.nextId()));
+	data.setCREATEDATE(time.format());
+	data.setCREATEMAN(payload.getUsername());
+	data.setUPDATEDATE(time.format());
+	data.setUPDATEMAN(payload.getUsername());
+	//data.setSIGNORGID(payload->getId());
 	// 执行数据添加
 	LegalEntitySetDAO dao;
-	//dao.insert1(data);
-	//return dao.insert2(data);
-	return 0;
+	return dao.insert(data);
 }
 
-bool LegalEntitySetService::updateData(const LegalEntitySetDTO::Wrapper& dto) {
+bool LegalEntitySetService::updateData(const LegalEntitySetUpdateDTO::Wrapper& dto) {
 	// 组装DO数据
 	LegalEntitySetDO data;
-	/*ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ORMSIGNORGNAME, ormsignorgname, CONTRACTSIGNORGNAME,
-		contractsignorgname, ISDEFAULTSIGNORG, isdefaultsignorg)*/
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, CONTRACTSIGNORGNAME, contractsignorgname,  ORMORGID, ormorgid, ORMSIGNORGID, ormsignorgid, ISDEFAULTSIGNORG, isdefaultsignorg)
 	// 执行数据修改
 	LegalEntitySetDAO dao;
-	//return dao.update1(data) && dao.update2(data);
-	return true;
+	return dao.update(data);
 }
 
 // 删除数据 

@@ -200,5 +200,11 @@
     <ClInclude Include="domain\dto\LegalEntitySet\LegalEntitySetQueryDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\dto\LegalEntitySet\LegalEntityAddSetDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\LegalEntitySet\LegalEntitySetUpdateDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
