@@ -1,11 +1,8 @@
 package com.zeroone.star.common.controller;
 
-import com.zeroone.star.common.service.ITSrfcodeitemService;
-import com.zeroone.star.common.service.impl.TOrmdutyServiceImpl;
-import com.zeroone.star.common.service.impl.TOrmpostServiceImpl;
-import com.zeroone.star.common.service.ITPimlanguageabilityService;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.common.CommonApis;
+import com.zeroone.star.project.j3.dto.DropdownListDTO;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
 import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
 import com.zeroone.star.project.j3.query.common.*;
@@ -13,9 +10,11 @@ import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -37,10 +36,11 @@ public class CommonController implements CommonApis {
     @Autowired
     TOrmpostServiceImpl tOrmpostService;
 
-    @Autowired
-    TOrmdutyServiceImpl tOrmdutyService;
-    @Autowired
-    ITPimlanguageabilityService languageabilityService;
+    @Resource
+    private ITSrforgsectorService itSrforgsectorService;
+    @Resource
+    private ITSrfcodeitemService itSrfcodeitemService;
+
     @GetMapping("query-start-position-title")
     @ApiOperation("职务名称下拉列表")
     @Override
@@ -107,8 +107,8 @@ public class CommonController implements CommonApis {
     @GetMapping("query-sector-name")
     @ApiOperation("部门名称下拉列表")
     @Override
-    public JsonVO<List<DropdownListOptionDTO>> querySectorName(SectorNameQuery sectorNameQuery) {
-        return null;
+    public JsonVO<List<DropdownListDTO>> querySectorName(SectorNameQuery sectorNameQuery) {
+        return JsonVO.success(itSrforgsectorService.listSectorName(sectorNameQuery));
     }
 
 //    @GetMapping("query-languageAbility-list")
@@ -121,15 +121,15 @@ public class CommonController implements CommonApis {
     @GetMapping("query-learning-forms")
     @ApiOperation("学习形式下拉列表")
     @Override
-    public JsonVO<List<DropdownListOptionDTO>> queryLearningForms() {
-        return null;
+    public JsonVO<List<DropdownListDTO>> queryLearningForms() {
+        return JsonVO.success(itSrfcodeitemService.listLearningForms());
     }
 
     @GetMapping("query-school-nature")
     @ApiOperation("学校性质下拉列表")
     @Override
-    public JsonVO<List<DropdownListOptionDTO>> querySchoolNature() {
-        return null;
+    public JsonVO<List<DropdownListDTO>> querySchoolNature() {
+        return JsonVO.success(itSrfcodeitemService.listSchoolNature());
     }
 
     @GetMapping("query-common-discipline")
@@ -177,8 +177,8 @@ public class CommonController implements CommonApis {
 
     @GetMapping("query-language-level")
     @ApiOperation("外语等级下拉列表")
-    public JsonVO<List<String>> queryLanguageLevel(){
+    public JsonVO<List<String>> queryLanguageLevel() {
         String id = "F1990A43-1ED9-4001-BA4A-1F3B221653A4";
-        return  JsonVO.success(languageabilityService.queryLanguageLevel(id));//外语等级id
+        return JsonVO.success(languageabilityService.queryLanguageLevel(id));//外语等级id
     }
 }

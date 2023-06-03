@@ -2,7 +2,9 @@ package com.zeroone.star.project.j3.orgmanager;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sample.SampleDTO;
+import com.zeroone.star.project.j3.dto.AddOrgInfoDTO;
 import com.zeroone.star.project.j3.dto.DeleteDTO;
+import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.j3.dto.ExportDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.ModifyOrgAddressDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
@@ -71,10 +73,10 @@ public interface OrgInfoApis {
     /**
      * 添加组织信息
      *
-     * @param orgInfoDTO 添加组织的内容
-     * @return 是否添加成功
+     * @param addOrgInfoDTO 添加组织的内容
+     * @return 是否添加成功信息
      */
-    JsonVO<Boolean> addOryData(OrgInfoDTO orgInfoDTO);
+    JsonVO<String> addOryData(AddOrgInfoDTO addOrgInfoDTO);
 
     /**
      * 分页查询指定组织地址列表

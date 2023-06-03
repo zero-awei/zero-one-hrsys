@@ -1,5 +1,6 @@
 package com.zeroone.star.orgmanager.controller;
 
+import com.zeroone.star.orgmanager.service.ITSrforgService;
 import com.zeroone.star.orgmanager.entity.TOrmduty;
 import com.zeroone.star.orgmanager.entity.TOrmorginfo;
 import com.zeroone.star.orgmanager.service.ITOrmorginfoService;
@@ -10,11 +11,12 @@ import com.zeroone.star.orgmanager.service.ITOrmorgdzService;
 import com.zeroone.star.orgmanager.service.ITSrforgService;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sample.SampleDTO;
+import com.zeroone.star.project.j3.dto.AddOrgInfoDTO;
 import com.zeroone.star.project.j3.dto.DeleteDTO;
+import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.j3.dto.ExportDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.ModifyOrgAddressDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
-import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.j3.orgmanager.OrgInfoApis;
 import com.zeroone.star.project.j3.query.OrgQuery;
 import com.zeroone.star.project.vo.JsonVO;
@@ -24,6 +26,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.annotation.Resource;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -48,6 +51,9 @@ public class OrgInfoController implements OrgInfoApis {
     ITSrforgService itSrforgService;
     @Autowired
     ITOrmorgdzService ormorgdzService;
+
+    @Resource
+    ITSrforgService itSrforgService;
 
     @DeleteMapping("remove-org-address")
     @ApiOperation("删除组织地址")
@@ -109,12 +115,19 @@ public class OrgInfoController implements OrgInfoApis {
         return null;
     }
 
-    @PutMapping("add-org-info")
-    @ApiOperation("添加组织00")
+    @PostMapping("add-org-info")
+    @ApiOperation("添加组织")
     @Override
-    public JsonVO<Boolean> addOryData(@RequestBody OrgInfoDTO orgInfoDTO) {
-        return JsonVO.success(true);
+    public JsonVO<String> addOryData(@RequestBody AddOrgInfoDTO addOrgInfoDTO){
+        try {
+            itSrforgService.saveOryData(addOrgInfoDTO);
+            return JsonVO.success("添加成功");
+        }catch (Exception e){
+            return JsonVO.fail("添加失败");
+        }
+
     }
+
 
     @Override
     public JsonVO<PageDTO<SampleDTO>> queryAllOrg(OrgQuery condition) {

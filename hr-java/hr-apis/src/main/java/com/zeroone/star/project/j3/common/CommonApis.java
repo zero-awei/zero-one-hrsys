@@ -1,14 +1,12 @@
 package com.zeroone.star.project.j3.common;
 
 import com.zeroone.star.project.dto.PageDTO;
+import com.zeroone.star.project.j3.dto.DropdownListDTO;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
-import com.zeroone.star.project.j3.dto.RelationshipDTO;
 import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
 import com.zeroone.star.project.j3.query.common.*;
 import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -88,17 +86,17 @@ public interface CommonApis {
      * 部门名称下拉列表
      * 库： t_orgSector
      *
-     * @return 部门名称下拉列表
+     * @param sectorNameQuery 组织id和部门关键字
+     * @return 查询对象
      */
-    JsonVO<List<DropdownListOptionDTO>> querySectorName(SectorNameQuery sectorNameQuery);
+    JsonVO<List<DropdownListDTO>> querySectorName(SectorNameQuery sectorNameQuery);
 
     /**
      * 学习形式下拉列表
-     * sql:SELECT * FROM `t_srfcodeitem` WHERE CODELISTID = 'FC4B9F96-E6E4-4170-9587-9DB970C57AA3'
      *
      * @return 学习形式List
      */
-    JsonVO<List<DropdownListOptionDTO>> queryLearningForms();
+    JsonVO<List<DropdownListDTO>> queryLearningForms();
 
     /**
      * 学科类型下拉列表
@@ -110,11 +108,10 @@ public interface CommonApis {
 
     /**
      * 学校性质下拉列表
-     * sql:SELECT * FROM `t_srfcodeitem` WHERE CODELISTID = 'FDA27067-9E4F-4DC1-9676-2D65375359A9'
      *
      * @return 学校性质List
      */
-    JsonVO<List<DropdownListOptionDTO>> querySchoolNature();
+    JsonVO<List<DropdownListDTO>> querySchoolNature();
 
     /**
      * 分页查询某人的语言能力

@@ -1,15 +1,5 @@
 package com.zeroone.star.orgmanager.controller;
 
-import cn.hutool.core.date.DateTime;
-import com.zeroone.star.orgmanager.entity.TOrmduty;
-import com.zeroone.star.orgmanager.mapper.TOrmdutyMapper;
-import com.zeroone.star.orgmanager.service.ITOrmdutyService;
-import com.zeroone.star.project.components.easyexcel.EasyExcelComponent;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.zeroone.star.orgmanager.entity.TOrmduty;
-import com.zeroone.star.orgmanager.mapper.TOrmdutyMapper;
-import com.zeroone.star.orgmanager.service.ITOrmdutyService;
 import com.zeroone.star.project.components.fastdfs.FastDfsClientComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
 import com.zeroone.star.project.dto.DataTransCallBack;
@@ -71,6 +61,8 @@ public class JobSetController implements JobSetApis {
     TOrmdutyMapper tOrmdutyMapper;
     @Resource
     private FastDfsClientComponent fastDfsClientComponent;
+    @Resource
+    private ITOrmdutyService itOrmdutyService;
 
     @Value("${fastdfs.nginx-servers}")
     private String fileServerUrl;
@@ -173,9 +165,7 @@ public class JobSetController implements JobSetApis {
     @ApiOperation("通过名称查找职位详情")
     @Override
     public JsonVO<PageDTO<JobDTO>> queryJobByName(JobByNameQuery condition) {
-        //测试接收数据
-        System.out.println(condition.getName());
-        return null;
+        return JsonVO.success(itOrmdutyService.listJobByName(condition));
     }
 
     @DeleteMapping("delete-position")
