@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * <p>
@@ -19,11 +20,13 @@ import lombok.Data;
 @ApiModel("下拉列表选项传输对象")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class DropdownListOptionDTO {
     @ApiModelProperty(value = "列表项编号", example = "1")
     private String key;
     @ApiModelProperty(value = "列表项值", example = "身份证")
     private String value;
+
 
 
 }

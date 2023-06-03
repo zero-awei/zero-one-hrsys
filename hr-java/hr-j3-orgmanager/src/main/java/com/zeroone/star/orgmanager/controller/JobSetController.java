@@ -126,7 +126,6 @@ public class JobSetController implements JobSetApis {
         service.importExcelData(fastDfsFileInfo);
 
 
-
         // 返回下载地址
         return JsonVO.success("导入成功");
     }
@@ -135,14 +134,14 @@ public class JobSetController implements JobSetApis {
     @ApiOperation("查询职务")
     @Override
     public JsonVO<PageDTO<JobTitleDTO>> queryJobTitleList(PageQuery pageQuery) {
-        Page<TOrmduty> tOrmdutyPage =new Page<>(pageQuery.getPageIndex(),pageQuery.getPageSize());
-        Page<JobTitleDTO> jobTitleDTOPage = new Page<>(pageQuery.getPageIndex(),pageQuery.getPageSize());
+        Page<TOrmduty> tOrmdutyPage = new Page<>(pageQuery.getPageIndex(), pageQuery.getPageSize());
+        Page<JobTitleDTO> jobTitleDTOPage = new Page<>(pageQuery.getPageIndex(), pageQuery.getPageSize());
         LambdaQueryWrapper<TOrmduty> queryWrapper = new LambdaQueryWrapper<>();
         // 默认按序号升序排序职务 后续增加可以按照编号 姓名 修改时间排序
         queryWrapper.orderByAsc(TOrmduty::getXh);
-        itOrmdutyService.page(tOrmdutyPage,queryWrapper);
+        itOrmdutyService.page(tOrmdutyPage, queryWrapper);
         //对象拷贝
-        BeanUtils.copyProperties(tOrmdutyPage,jobTitleDTOPage,"records");
+        BeanUtils.copyProperties(tOrmdutyPage, jobTitleDTOPage, "records");
         List<TOrmduty> records = tOrmdutyPage.getRecords();
         List<JobTitleDTO> dtoList = records.stream().map((item) -> {
             JobTitleDTO jobTitleDTO = new JobTitleDTO();
@@ -152,13 +151,13 @@ public class JobSetController implements JobSetApis {
             return jobTitleDTO;
         }).collect(Collectors.toList());
         jobTitleDTOPage.setRecords(dtoList);
-        return JsonVO.create(PageDTO.create(jobTitleDTOPage,JobTitleDTO.class),ResultStatus.SUCCESS);
+        return JsonVO.create(PageDTO.create(jobTitleDTOPage, JobTitleDTO.class), ResultStatus.SUCCESS);
     }
 
     @PutMapping("modifyJobTitles/{ormdutyid}")
     @ApiOperation("更新若干职务信息")
     @Override
-    public JsonVO<Boolean> modifyJobTitle(@PathVariable String ormdutyid,@RequestBody JobTitleDTO jobTitleDTO) {
+    public JsonVO<Boolean> modifyJobTitle(@PathVariable String ormdutyid, @RequestBody JobTitleDTO jobTitleDTO) {
 
         TOrmduty tOrmduty = new TOrmduty();
         tOrmduty.setOrmdutyid(ormdutyid);
@@ -189,7 +188,7 @@ public class JobSetController implements JobSetApis {
     }
 
 
-    @PostMapping ("add-position")
+    @PostMapping("add-position")
     @ApiOperation("批量新增职务信息(支持批量)")
     @Override
     public JsonVO<Boolean> AddPosition(@RequestBody JobTitleDTO jobTitleDTO) {
@@ -203,7 +202,7 @@ public class JobSetController implements JobSetApis {
         tOrmduty.setCreateman("1944DE89-8E28-4D10-812C-CAEEAAE8A927");
         tOrmduty.setUpdateman("1944DE89-8E28-4D10-812C-CAEEAAE8A927");
         boolean res = itOrmdutyService.save(tOrmduty);
-        return res? JsonVO.success(res) : JsonVO.fail(res);
+        return res ? JsonVO.success(res) : JsonVO.fail(res);
     }
 
     @Override
