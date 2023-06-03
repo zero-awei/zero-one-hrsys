@@ -17,8 +17,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _Assign_Info_Query
-#define _Assign_Info_Query
+#ifndef _ASSIGN_INFO_QUERY
+#define _ASSIGN_INFO_QUERY
 
 
 #include "../../GlobalInclude.h"
@@ -54,7 +54,15 @@ class AssignInfoQuery : public PageQuery
 	API_DTO_FIELD_DEFAULT(String, startTime, ZH_WORDS_GETTER("employee.field.startTime"));
 	// 任职结束时间
 	API_DTO_FIELD_DEFAULT(String, endTime, ZH_WORDS_GETTER("employee.field.endTime"));
+	//创建人
+	API_DTO_FIELD_DEFAULT(String, createMan, ZH_WORDS_GETTER("employee.t_pimperson.createMan"));
+	//创建时间
+	API_DTO_FIELD_DEFAULT(String, createDate, ZH_WORDS_GETTER("employee.t_pimperson.createDate"));
+	//更新人
+	API_DTO_FIELD_DEFAULT(String, updateMan, ZH_WORDS_GETTER("employee.t_pimperson.updateMan"));
+	//更新时间
+	API_DTO_FIELD_DEFAULT(String, updateDate, ZH_WORDS_GETTER("employee.t_pimperson.updateDate"));
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_Assign_Info_Query
+#endif // !_ASSIGN_INFO_QUERY

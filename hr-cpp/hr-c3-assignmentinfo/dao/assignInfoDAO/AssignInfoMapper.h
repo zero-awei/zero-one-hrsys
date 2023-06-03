@@ -43,6 +43,10 @@ public:
 		data.setPost(resultSet->getString(39));
 		data.setStartTime(resultSet->getString(6));
 		data.setEndTime(resultSet->getString(1));
+		data.setCreateMan(resultSet->getString(7));
+		data.setCreateDate(resultSet->getString(9));
+		data.setUpdateMan(resultSet->getString(5));
+		data.setUpdateDate(resultSet->getString(11));
 		return data;
 	}
 };
