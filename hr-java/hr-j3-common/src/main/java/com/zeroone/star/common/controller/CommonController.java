@@ -136,14 +136,14 @@ public class CommonController implements CommonApis {
     @ApiOperation("获取学科下拉列表")
     @Override
     public JsonVO<List<String>> listDisciplineType(DisciplineTypeQuery discipline) {
-        return null;
+        return JsonVO.success(TSrfcodeitemService.listDisciplineType(discipline));
     }
 
     @GetMapping("query-common-education")
     @ApiOperation("获取学历下拉列表")
     @Override
     public JsonVO<List<String>> listEducationType(EducationTypeQuery education) {
-        return null;
+        return JsonVO.success(TSrfcodeitemService.listEducationType(education));
     }
 
 
