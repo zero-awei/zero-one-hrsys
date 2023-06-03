@@ -54,19 +54,28 @@ class FamilysituationDO
 	CC_SYNTHESIZE(int, testament, Testament);
 	// 是否紧急联系人
 	CC_SYNTHESIZE(string, ice, Ice);
+	// 权限验证人员ID
+	CC_SYNTHESIZE(string, authid, AuthId);
+	// 操作时间
+	CC_SYNTHESIZE(string, opertime, Opertime);
 public:
 	FamilysituationDO() {
-		id = -1;
+		id = "";
+		personid = "";
+		frelationship = "";
 		name = "";
 		gender = "";
 		age = -1;
 		workplace = "";
 		job = "";
 		politicalstatus = "";
+		doctype = "";
 		identification = "";
 		dob = "";
 		testament = -1;
 		ice = "";
+		authid = "";
+		opertime = "";
 	}
 };
 

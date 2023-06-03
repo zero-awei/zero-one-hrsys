@@ -1,11 +1,10 @@
 #include "stdafx.h"
 #include "FamilysituationController.h"
 #include "FastDfsClient.h"
-#include "SnowFlake.h"
 #include "../../service/familysituation/FamilysituationService.h"
 
 // 分页查询响应
-FamilysituationPageJsonVO::Wrapper FamilysituationController::execQueryByFamilysituation(const FamilysituationQuery::Wrapper& query)
+FamilysituationPageJsonVO::Wrapper FamilysituationController::execQueryByFamilysituation(const FamilysituationQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	FamilysituationService service;
 	// 查询数据
@@ -30,11 +29,9 @@ FamilysituationJsonVO::Wrapper FamilysituationController::execOneQueryFamilysitu
 
 
 // 添加响应
-Uint64JsonVO::Wrapper FamilysituationController::execAddFamilysituation(const FamilysituationDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper FamilysituationController::execAddFamilysituation(const FamilysituationDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto vo = Uint64JsonVO::createShared();
-	SnowFlake c3(1, 3);
-	dto->id = to_string(c3.nextId());
 	// 参数校验
 	// 非空校验
 	if (!dto->id || !dto->personid)
@@ -43,15 +40,17 @@ Uint64JsonVO::Wrapper FamilysituationController::execAddFamilysituation(const Fa
 		return vo;
 	}
 	// 有效值校验
-	if (dto->id->empty() || dto->personid->empty())
+	if (dto->id->empty())
 	{
 		vo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return vo;
 	}
 	// 定义一个Service
 	FamilysituationService service;
+	// 传入权限验证信息
+	auto authId = payload.getUsername();
 	// 执行数据新增
-	auto result = service.saveData(dto);
+	auto result = service.saveData(dto, authId);
 	if (result == 0) {
 		vo->success(UInt64(result));
 	}
@@ -63,11 +62,11 @@ Uint64JsonVO::Wrapper FamilysituationController::execAddFamilysituation(const Fa
 }
 
 // 修改响应
-Uint64JsonVO::Wrapper FamilysituationController::execModifyFamilysituation(const FamilysituationDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper FamilysituationController::execModifyFamilysituation(const FamilysituationDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto vo = Uint64JsonVO::createShared();
 	// 有效值校验
-	if (dto->id->empty() || dto->personid->empty())
+	if (dto->id->empty())
 	{
 		vo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return vo;
@@ -75,7 +74,7 @@ Uint64JsonVO::Wrapper FamilysituationController::execModifyFamilysituation(const
 	// 定义一个Service
 	FamilysituationService service;
 	// 执行数据修改
-	auto result = service.updateData(dto);
+	auto result = service.updateData(dto, payload.getUsername());
 	if (result) {
 		vo->success(UInt64(result));
 	}
@@ -83,7 +82,6 @@ Uint64JsonVO::Wrapper FamilysituationController::execModifyFamilysituation(const
 	{
 		vo->fail(UInt64(result));
 	}
-	vo->success(UInt64(1));
 	return vo;
 }
 
@@ -92,13 +90,13 @@ Uint64JsonVO::Wrapper FamilysituationController::execRemoveFamilysituation(const
 {
 	auto vo = Uint64JsonVO::createShared();
 	// 非空校验
-	if (!dto->id || !dto->personid)
+	if (!dto->id)
 	{
 		vo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return vo;
 	}
 	// 有效值校验
-	if (dto->id->empty() || dto->personid->empty())
+	if (dto->id->empty())
 	{
 		vo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return vo;

@@ -34,8 +34,12 @@ class FamilysituationDTO : public oatpp::DTO
 	DTO_INIT(FamilysituationDTO, DTO);
 	// 员工编号
 	API_DTO_FIELD_DEFAULT(String, personid, ZH_WORDS_GETTER("familysituation.field.personid"));
-	//家庭情况编号
+	// 家庭情况编号
 	API_DTO_FIELD_DEFAULT(String, id, ZH_WORDS_GETTER("familysituation.field.id"));
+	// 操作人员ID
+	DTO_FIELD(String, authid);
+	// 操作时间
+	DTO_FIELD(String, opertime);
 	// 关系
 	API_DTO_FIELD_DEFAULT(String, frelationship, ZH_WORDS_GETTER("familysituation.field.relationship"));
 	// 姓名
