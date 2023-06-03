@@ -4,6 +4,7 @@ import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sample.SampleDTO;
 import com.zeroone.star.project.j3.dto.DeleteDTO;
 import com.zeroone.star.project.j3.dto.ExportDTO;
+import com.zeroone.star.project.j3.dto.orgmanager.ExportOrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.ModifyOrgAddressDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
 import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
@@ -65,7 +66,7 @@ public interface OrgInfoApis {
      *
      * @param ids,ids
      */
-    JsonVO<Boolean> exportOrgAddress(OrgAddressDto ids);
+    JsonVO<ExportOrgAddressDto> exportOrgAddress(OrgAddressDto ids) throws Exception;
 
 
     /**

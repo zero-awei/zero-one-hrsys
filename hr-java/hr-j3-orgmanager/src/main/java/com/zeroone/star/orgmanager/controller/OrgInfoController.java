@@ -12,6 +12,7 @@ import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sample.SampleDTO;
 import com.zeroone.star.project.j3.dto.DeleteDTO;
 import com.zeroone.star.project.j3.dto.ExportDTO;
+import com.zeroone.star.project.j3.dto.orgmanager.ExportOrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.ModifyOrgAddressDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
 import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
@@ -98,15 +99,15 @@ public class OrgInfoController implements OrgInfoApis {
     @ApiOperation("删除指定组织地址信息（支持批量）")
     @Override
     public JsonVO<Boolean> deleteOrgAddress(@RequestBody OrgAddressDto ids) {
-        return null;
+        return JsonVO.success(ormorgdzService.deleteOrgAddress(ids));
     }
 
     @GetMapping("export-org-address")
     @ApiOperation("导出指定组织地址信息")
     @Override
-    public JsonVO<Boolean> exportOrgAddress(OrgAddressDto orgAddressDto) {
+    public JsonVO<ExportOrgAddressDto> exportOrgAddress(OrgAddressDto ids) throws Exception {
 
-        return null;
+        return JsonVO.success(ormorgdzService.exportOrgAddress(ids));
     }
 
     @PutMapping("add-org-info")

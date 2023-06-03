@@ -30,6 +30,6 @@ public interface ITOrmorgdzService extends IService<TOrmorgdz> {
 
 	boolean deleteOrgAddress(OrgAddressDto orgAddressDto);
 
-	ExportOrgAddressDto exportOrgAddress(OrgAddressDto orgAddressDto) throws Exception;
+	ExportOrgAddressDto exportOrgAddress(OrgAddressDto ids) throws Exception;
 
 }
