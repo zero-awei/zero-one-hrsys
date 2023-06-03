@@ -129,7 +129,6 @@
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="domain\query\Gosh\ContractQuery.h" />
-    <ClInclude Include="domain\query\Gosh\PersonQuery.h" />
     <ClInclude Include="controller\GoshController\TestController.h" />
     <ClInclude Include="controller\JobTitle\JobTitleController.h" />
     <ClInclude Include="domain\do\JobTitle\JobTitleDO.h" />

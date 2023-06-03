@@ -41,6 +41,8 @@ class ContractDO
 	CC_SYNTHESIZE(string, department_m, Department_m);
 	//16备注
 	CC_SYNTHESIZE(string, tip, Tip);
+	//17是否展示列
+	CC_SYNTHESIZE(string, row_show, Row_show);
 public:
 	ContractDO() {
 		personid = "";
@@ -59,6 +61,7 @@ public:
 		rest = "";
 		department_m = "";
 		tip = "";
+		row_show = "11111111111111";
 	}
 };
 

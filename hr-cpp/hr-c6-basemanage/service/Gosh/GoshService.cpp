@@ -28,21 +28,62 @@ ContractPageDTO_gs::Wrapper GoshService::listContract(const ContractQuery::Wrapp
 	for (ContractDO sub : result)
 	{
 		auto dto = ContractDTO_gs::createShared();
-		dto->personid = sub.getPersonid();
-		dto->id = sub.getId();
-		dto->name = sub.getName();
-		dto->type = sub.getType();
-		dto->variety = sub.getVariety();
-		dto->date = sub.getDate();
-		dto->condition = sub.getCondition();
-		dto->department_c = sub.getDepartment_c();
-		dto->date_end = sub.getDate_end();
-		dto->person_department = sub.getPerson_department();
-		dto->person_condition = sub.getPerson_condition();
-		dto->date_arrive = sub.getDate_arrive();
-		dto->date_over = sub.getDate_over();
-		dto->rest = sub.getRest();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, personid, Personid, id, Id, name, Name, type, Type,variety,Variety,date,Date, condition, Condition, department_c, Department_c, date_end, Date_end, person_department, Person_department, person_condition, Person_condition, date_arrive, Date_arrive, date_over, Date_over, rest, Rest);
+		if (int(string(query->row_show)[0]) == 49) {
+			dto->personid = sub.getPersonid();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, personid, Personid);
+		} 
+		if (int(string(query->row_show)[1]) == 49) {
+			dto->id = sub.getId();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id);
+		}
+		if (int(string(query->row_show)[2]) == 49) {
+			dto->name = sub.getName();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, name, Name);
+		}
+		if (int(string(query->row_show)[3]) == 49) {
+			dto->type = sub.getType();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, type, Type);
+		}
+		if (int(string(query->row_show)[4]) == 49) {
+			dto->variety = sub.getVariety();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, variety, Variety);
+		}
+		if (int(string(query->row_show)[5]) == 49) {
+			dto->date = sub.getDate();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, date, Date);
+		}
+		if (int(string(query->row_show)[6]) == 49) {
+			dto->condition = sub.getCondition();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, condition, Condition);
+		}
+		if (int(string(query->row_show)[7]) == 49) {
+			dto->department_c = sub.getDepartment_c();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, department_c, Department_c);
+		}
+		if (int(string(query->row_show)[8]) == 49) {
+			dto->date_end = sub.getDate_end();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, date_end, Date_end);
+		}
+		if (int(string(query->row_show)[9]) == 49) {
+			dto->person_department = sub.getPerson_department();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, person_department, Person_department);
+		}
+		if (int(string(query->row_show)[10]) == 49) {
+			dto->person_condition = sub.getPerson_condition();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, person_condition, Person_condition);
+		}
+		if (int(string(query->row_show)[11]) == 49) {
+			dto->date_arrive = sub.getDate_arrive();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, date_arrive, Date_arrive);
+		}
+		if (int(string(query->row_show)[12]) == 49) {
+			dto->date_over = sub.getDate_over();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, date_over, Date_over);
+		}
+		if (int(string(query->row_show)[13]) == 49) {
+			dto->rest = sub.getRest();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, rest, Rest);
+		}
 		pages->addData(dto);
 	}
 	return pages;
@@ -59,21 +100,62 @@ ContractPageDTO_gs::Wrapper GoshService::listPerson(const ContractQuery::Wrapper
 	for (ContractDO sub : result)
 	{
 		auto dto = ContractDTO_gs::createShared();
-		dto->personid = sub.getPersonid();
-		dto->id = sub.getId();
-		dto->name = sub.getName();
-		dto->type = sub.getType();
-		dto->variety = sub.getVariety();
-		dto->date = sub.getDate();
-		dto->condition = sub.getCondition();
-		dto->department_c = sub.getDepartment_c();
-		dto->date_end = sub.getDate_end();
-		dto->person_department = sub.getPerson_department();
-		dto->person_condition = sub.getPerson_condition();
-		dto->date_arrive = sub.getDate_arrive();
-		dto->date_over = sub.getDate_over();
-		dto->rest = sub.getRest();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, personid, Personid, id, Id, name, Name, type, Type, variety, Variety, date, Date, condition, Condition, department_c, Department_c, date_end, Date_end, person_department, Person_department, person_condition, Person_condition, date_arrive, Date_arrive, date_over, Date_over, rest, Rest);
+		if (int(string(query->row_show)[0]) == 49) {
+			dto->personid = sub.getPersonid();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, personid, Personid);
+		}
+		if (int(string(query->row_show)[1]) == 49) {
+			dto->id = sub.getId();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, id, Id);
+		}
+		if (int(string(query->row_show)[2]) == 49) {
+			dto->name = sub.getName();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, name, Name);
+		}
+		if (int(string(query->row_show)[3]) == 49) {
+			dto->type = sub.getType();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, type, Type);
+		}
+		if (int(string(query->row_show)[4]) == 49) {
+			dto->variety = sub.getVariety();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, variety, Variety);
+		}
+		if (int(string(query->row_show)[5]) == 49) {
+			dto->date = sub.getDate();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, date, Date);
+		}
+		if (int(string(query->row_show)[6]) == 49) {
+			dto->condition = sub.getCondition();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, condition, Condition);
+		}
+		if (int(string(query->row_show)[7]) == 49) {
+			dto->department_c = sub.getDepartment_c();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, department_c, Department_c);
+		}
+		if (int(string(query->row_show)[8]) == 49) {
+			dto->date_end = sub.getDate_end();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, date_end, Date_end);
+		}
+		if (int(string(query->row_show)[9]) == 49) {
+			dto->person_department = sub.getPerson_department();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, person_department, Person_department);
+		}
+		if (int(string(query->row_show)[10]) == 49) {
+			dto->person_condition = sub.getPerson_condition();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, person_condition, Person_condition);
+		}
+		if (int(string(query->row_show)[11]) == 49) {
+			dto->date_arrive = sub.getDate_arrive();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, date_arrive, Date_arrive);
+		}
+		if (int(string(query->row_show)[12]) == 49) {
+			dto->date_over = sub.getDate_over();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, date_over, Date_over);
+		}
+		if (int(string(query->row_show)[13]) == 49) {
+			dto->rest = sub.getRest();
+			ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, rest, Rest);
+		}
 		pages->addData(dto);
 	}
 	return pages;

@@ -44,6 +44,7 @@ if (query->variety) { \
 	SQLPARAMS_PUSH(params, "s", std::string, query->variety.getValue("")); \
 }
 
+
 uint64_t GoshDAO::count(const ContractQuery::Wrapper & query)
 {
 	stringstream sql;
@@ -62,7 +63,6 @@ std::list<ContractDO> GoshDAO::selectWithPage(const ContractQuery::Wrapper& quer
 	sql << "FROM `t_pimcontract` inner join `t_pimperson` on t_pimcontract.`PIMPERSONID`=t_pimperson.`PIMPERSONID`";
 	SAMPLE_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
-	
 	GoshMapper mapper;
 	string sqlStr = sql.str();
 	return sqlSession->executeQuery<ContractDO, GoshMapper>(sqlStr, mapper, params);

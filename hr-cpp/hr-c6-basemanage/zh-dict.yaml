@@ -75,6 +75,23 @@ contract_gosh:
   summary: 修改一条合同数据
  delete:
   summary: 删除多条合同数据
+ field:
+  personid: 员工编号
+  id: 合同编号
+  name: 员工姓名
+  type: 合同类别
+  variety: 合同类型
+  date: 起始日期
+  condition: 合同状态
+  department_c: 合同签订单位
+  date_end: 试用到期时间
+  person_department: 员工所属单位
+  person_condition: 员工状态
+  date_arrive: 到本单位时间
+  date_over: 结束日期
+  rest: 合同剩余天数
+  row_show: 选择展示列
+
 title:
  query:
   summary: "分页查询职称列表"

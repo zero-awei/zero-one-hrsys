@@ -264,7 +264,6 @@
     <ClInclude Include="domain\query\ContractQuery.h" />
     <ClInclude Include="domain\query\ContractQuery\ContractQuery.h" />
     <ClInclude Include="domain\query\ContractQuery\ContractQuery_.h" />
-    <ClInclude Include="domain\query\Gosh\PersonQuery.h" />
     <ClInclude Include="domain\query\JobTitle\JobTitleQuery.h" />
     <ClInclude Include="domain\vo\ContractVO.h" />
     <ClInclude Include="domain\vo\ContractVO\ContractVO.h" />
