@@ -102,3 +102,34 @@ list<SecondedPersonnelDO> LoanedPerDAO::selectWithPage(const LoanedPerPageQuery:
 	return sqlSession->executeQuery<SecondedPersonnelDO, LoanedPerMapper>(sqlStr, mapper, params);
 }
 
+list<SecondedPersonnelDO> LoanedPerDAO::selectExportDatas(const LoanedPerPageQuery::Wrapper& query)
+{
+	stringstream sql;
+	sql << "SELECT\
+		distir.PIMDISTIRBUTIONID,\
+		person.PIMPERSONNAME,\
+		distir.YGBH,\
+		distir.YZZ,\
+		distir.YBM,\
+		duty.ORMDUTYNAME YZW,\
+		gw.ORMPOSTNAME YGW,\
+		distir.ORMORGNAME XZZ,\
+		distir.ORMORGSECTORNAME XBM,\
+		distir.ORMDUTYNAME XZW,\
+		distir.ORMPOSTNAME XGW,\
+		distir.YDZT,\
+		jdmx.JDJSRQ,\
+		jdmx.JDKSRQ \
+		FROM\
+		t_pimperson AS person\
+		INNER JOIN t_pimdistirbution AS distir ON person.PIMPERSONID = distir.PIMPERSONID\
+		INNER JOIN t_pcmydjdmx AS jdmx ON distir.PIMDISTIRBUTIONID = jdmx.PIMDISTIRBUTIONID\
+		INNER JOIN t_ormpost AS gw ON distir.ORMPOSTID = gw.ORMPOSTID\
+		INNER JOIN t_ormduty AS duty ON distir.ORMDUTYID = duty.ORMDUTYID";
+	LOANEDPER_TERAM_PARSE(query, sql);
+	sql << " LIMIT 5000";
+	LoanedPerMapper mapper;
+	string sqlStr = sql.str();
+	return sqlSession->executeQuery<SecondedPersonnelDO, LoanedPerMapper>(sqlStr, mapper, params);
+}
+

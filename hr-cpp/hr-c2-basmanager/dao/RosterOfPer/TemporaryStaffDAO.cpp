@@ -42,16 +42,13 @@ list<TemporaryStaffDO> TemporaryStaffDAO::selectWithPage(const TempStaffQuery::W
 	return sqlSession->executeQuery<TemporaryStaffDO, TempStaffMapper>(sqlStr, mapper, params);
 }
 
-list<TemporaryStaffDO> TemporaryStaffDAO::selectByName(const string& name)
+list<TemporaryStaffDO> TemporaryStaffDAO::selectExportDatas(const TempStaffQuery::Wrapper& query)
 {
-	string sql = "SELECT YGBH,PIMPERSONNAME,YGZT,GZZT,GZZZ,GZBM,GZKSSJ,GZJSSJ FROM t_pimperson WHERE `PIMPERSONNAME` LIKE CONCAT('%',?,'%')";
+	stringstream sql;
+	sql << "SELECT YGBH,PIMPERSONNAME,YGZT,GZZT,GZZZ,GZBM,GZKSSJ,GZJSSJ,PIMPERSONID FROM t_pimperson";
+	TEMPSTAFF_TERAM_PARSE(query, sql);
+	sql << " LIMIT 5000";
 	TempStaffMapper mapper;
-	return sqlSession->executeQuery<TemporaryStaffDO, TempStaffMapper>(sql, mapper, "%s", name);
-}
-
-list<TemporaryStaffDO> TemporaryStaffDAO::selectById(const string& id)
-{
-	string sql = "SELECT YGBH,PIMPERSONNAME,YGZT,GZZT,GZZZ,GZBM,GZKSSJ,GZJSSJ FROM t_pimperson WHERE `PIMPERSONNAME` LIKE CONCAT(?,'%')";
-	TempStaffMapper mapper;
-	return sqlSession->executeQuery<TemporaryStaffDO, TempStaffMapper>(sql, mapper, "%s", id);
+	string sqlStr = sql.str();
+	return sqlSession->executeQuery<TemporaryStaffDO, TempStaffMapper>(sqlStr, mapper, params);
 }

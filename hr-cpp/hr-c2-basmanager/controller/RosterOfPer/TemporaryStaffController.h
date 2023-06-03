@@ -66,10 +66,10 @@ public:
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		//定义分页参数
-		info->queryParams.add<UInt64>("pageIndex").description = API_PAGE_INDEX_DESC; 
-		info->queryParams["pageIndex"].addExample("default", oatpp::UInt64(1)); 
-		info->queryParams.add<UInt64>("pageSize").description = API_PAGE_SIZE_DESC; 
-		info->queryParams["pageSize"].addExample("default", oatpp::UInt64(10));
+		//info->queryParams.add<UInt64>("pageIndex").description = API_PAGE_INDEX_DESC; 
+		//info->queryParams["pageIndex"].addExample("default", oatpp::UInt64(1)); 
+		//info->queryParams.add<UInt64>("pageSize").description = API_PAGE_SIZE_DESC; 
+		//info->queryParams["pageSize"].addExample("default", oatpp::UInt64(10));
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("idandname").description = ZH_WORDS_GETTER("TempStaff.field.idandname");
 		info->queryParams["idandname"].addExample("default", String(""));

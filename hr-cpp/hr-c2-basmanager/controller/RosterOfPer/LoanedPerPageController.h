@@ -90,14 +90,38 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		//定义分页参数
 		// 定义分页参数描述
-		API_DEF_ADD_PAGE_PARAMS();
+		//API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("loanedperpage.field.employeename");
-		info->queryParams["name"].addExample("default", String(""));
-		info->queryParams["name"].required = false;
-		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("loanedperpage.field.employeeid");
-		info->queryParams["id"].addExample("default", String(""));
-		info->queryParams["id"].required = false;
+		info->queryParams.add<String>("idAndName").description = ZH_WORDS_GETTER("loanedperpage.field.idAndName");
+		info->queryParams["idAndName"].addExample("default", String(""));
+		info->queryParams["idAndName"].required = false;
+		info->queryParams.add<String>("pimPersonName").description = ZH_WORDS_GETTER("loanedperpage.field.pimPersonName");
+		info->queryParams["pimPersonName"].addExample("default", String(""));
+		info->queryParams["pimPersonName"].required = false;
+		info->queryParams.add<String>("ygbh").description = ZH_WORDS_GETTER("loanedperpage.field.ygbh");
+		info->queryParams["ygbh"].addExample("default", String(""));
+		info->queryParams["ygbh"].required = false;
+		info->queryParams.add<String>("zz").description = ZH_WORDS_GETTER("loanedperpage.field.zz1");
+		info->queryParams["zz"].addExample("default", String(""));
+		info->queryParams["zz"].required = false;
+		info->queryParams.add<String>("bm").description = ZH_WORDS_GETTER("loanedperpage.field.bm1");
+		info->queryParams["bm"].addExample("default", String(""));
+		info->queryParams["bm"].required = false;
+		info->queryParams.add<String>("zw").description = ZH_WORDS_GETTER("loanedperpage.field.zw1");
+		info->queryParams["zw"].addExample("default", String(""));
+		info->queryParams["zw"].required = false;
+		info->queryParams.add<String>("gw").description = ZH_WORDS_GETTER("loanedperpage.field.gw1");
+		info->queryParams["gw"].addExample("default", String(""));
+		info->queryParams["gw"].required = false;
+		info->queryParams.add<String>("fp").description = ZH_WORDS_GETTER("loanedperpage.field.fp");
+		info->queryParams["fp"].addExample("default", String(""));
+		info->queryParams["fp"].required = false;
+		info->queryParams.add<String>("lx").description = ZH_WORDS_GETTER("loanedperpage.field.lx");
+		info->queryParams["lx"].addExample("default", String(""));
+		info->queryParams["lx"].required = false;
+		info->queryParams.add<String>("fpzt").description = ZH_WORDS_GETTER("loanedperpage.field.fpzt");
+		info->queryParams["fpzt"].addExample("default", String(""));
+		info->queryParams["fpzt"].required = false;
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/get-loanedPer", queryExportLoanedPer, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
