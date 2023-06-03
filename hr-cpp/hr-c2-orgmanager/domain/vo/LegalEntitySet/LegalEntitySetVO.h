@@ -15,6 +15,7 @@
 */
 #include "../../GlobalInclude.h"
 #include "domain/dto/LegalEntitySet/LegalEntitySetDTO.h"
+#include "../../dto/LegalEntitySet/LegalEntitySetQueryDTO.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
@@ -24,6 +25,10 @@ class LegalEntitySetJsonVO : public JsonVO<LegalEntitySetDTO::Wrapper> {
 	DTO_INIT(LegalEntitySetJsonVO, JsonVO<LegalEntitySetDTO::Wrapper>);
 };
 
+class LegalEntitySetPullDownJsonVO : public JsonVO<LegalEntitySetPullDownDTO::Wrapper> {
+	DTO_INIT(LegalEntitySetPullDownJsonVO, JsonVO<LegalEntitySetPullDownDTO::Wrapper>);
+};
+
 /**
  * 示例分页显示JsonVO，用于响应给客户端的Json对象
  */
@@ -31,5 +36,14 @@ class LegalEntitySetPageJsonVO : public JsonVO<LegalEntitySetPageDTO::Wrapper> {
 	DTO_INIT(LegalEntitySetPageJsonVO, JsonVO<LegalEntitySetPageDTO::Wrapper>);
 };
 
+
+// 查询用JsonVO-TripleGold
+class LegalEntitySetQueryJsonVO : public JsonVO<LegalEntitySetQueryDTO::Wrapper> {
+	DTO_INIT(LegalEntitySetQueryJsonVO, JsonVO<LegalEntitySetQueryDTO::Wrapper>);
+};
+
+class LegalEntitySetQueryPageJsonVO : public JsonVO<LegalEntitySetQueryPageDTO::Wrapper> {
+	DTO_INIT(LegalEntitySetQueryPageJsonVO, JsonVO<LegalEntitySetQueryPageDTO::Wrapper>);
+};
 #include OATPP_CODEGEN_END(DTO)
 #endif // !_LEGALENTITYSET_VO_
