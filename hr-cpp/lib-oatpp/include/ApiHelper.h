@@ -88,16 +88,6 @@ static std::shared_ptr<__CLASS__> createShared(OATPP_COMPONENT(std::shared_ptr<O
 #define API_PAGE_INDEX_DESC u8"查询页码"
 #define API_PAGE_SIZE_DESC u8"查询条数"
 #define API_PERSON_defalut_DESC u8"李四"
-#define API_INIT_PERSON_DESC u8"个人信息"
-#define API_INIT_PERSON_DESC u8"员工姓名"
-#define API_INIT_PERSONID_DESC u8"员工编号"
-#define API_INIT_PERSONCONDITION_DESC u8"员工状态"
-#define API_INIT_CONTRACTID_DESC u8"合同编号"
-#define API_INIT_CONTRACTIDTYPE_DESC u8"合同类别"
-#define API_INIT_CONTRACTCONDITION_DESC u8"合同状态"
-#define API_INIT_DATESTART_DESC u8"起始日期"
-#define API_INIT_DATEEND_DESC u8"结束日期"
-#define API_INIT_CONTRACTVARIETY_DESC u8"合同类型"
 
 #else
 #define API_PAGE_INDEX_DESC "page index"
@@ -109,6 +99,12 @@ info->queryParams.add<UInt64>("pageIndex").description = API_PAGE_INDEX_DESC;\
 info->queryParams["pageIndex"].addExample("default", oatpp::UInt64(1)); \
 info->queryParams.add<UInt64>("pageSize").description = API_PAGE_SIZE_DESC; \
 info->queryParams["pageSize"].addExample("default", oatpp::UInt64(10)); 
+//选择显示列参数说明
+#define API_DEF_SHOW_PAGE_PARAMS()\
+info->queryParams.add<String>("row_show").description = ZH_WORDS_GETTER("contract_gosh.field.row_show");\
+info->queryParams["row_show"].addExample("default", oatpp::String("11111111111111"));\
+info->queryParams["row_show"].required = false;
+//info->queryParams["row_show"].addExample("default", oatpp::List<String>{("1"),("1"),("1"),("1"),("1"),("1"),("1"),("1"),("1"),("1"),("1"),("1"),("1"),("1")}); 
 /**
  * API描述定义
  * @param __API_FUN_NAME__: Api端点名称
