@@ -20,7 +20,7 @@ if (query->nameOfPAndV) { \
 } \
 if (query->ygbh) { \
     sql << " AND t1.ygbh = ?"; \
-    SQLPARAMS_PUSH(params, "i", uint64_t, query->ygbh.getValue(0)); \
+    SQLPARAMS_PUSH(params, "s", std::string, query->ygbh.getValue("")); \
 } \
 if (query->pimperSonName) { \
     sql << " AND t2.pimperSonName=?"; \
@@ -51,7 +51,7 @@ std::list<CertificateDO> CheckCerListDAO::selectWithPage(const CheckCerListQuery
 			t2.pimperSonName,\
 			t2.ygzt,\
 			t2.zz,\
-			t1.pimvocationalid,\
+			t1.zgzsbh,\
 			t1.bcardNumber,\
 			t1.pimVocationalName,\
 			t1.zslx,\
@@ -59,7 +59,13 @@ std::list<CertificateDO> CheckCerListDAO::selectWithPage(const CheckCerListQuery
 			t1.zgsydw,\
 			t1.zcdw,\
 			t1.sxrq,\
-			t1.fzyxq\
+			t1.fzyxq,\
+			t1.pimpersonid,\
+			t1.regisnumber,\
+			t1.socsecpayunit,\
+			t1.cszcsj,\
+			t1.xzcsj,\
+			t1.pimvocationalid\
 			FROM\
 			t_pimvocational t1\
 			LEFT JOIN t_pimperson t2 ON t1.PIMPERSONID = t2.PIMPERSONID";

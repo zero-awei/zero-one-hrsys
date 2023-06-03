@@ -14,7 +14,7 @@ class CheckRetiresListQuery : public PageQuery
 {
 	DTO_INIT(CheckRetiresListQuery, PageQuery);
 	// Ô±¹¤±àºÅ
-	DTO_FIELD(UInt64, ygbh);
+	DTO_FIELD(String, ygbh);
 	DTO_FIELD_INFO(ygbh) {
 		info->description = ZH_WORDS_GETTER("rosterofper.field.ygbh");
 	}

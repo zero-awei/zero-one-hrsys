@@ -42,7 +42,7 @@ public://  定义接口（定义接口描述与接口端点）
 		info->queryParams.add<String>("idAndName").description = ZH_WORDS_GETTER("rosterofper.field.idAndName");
 		info->queryParams["idAndName"].addExample("default", String(""));
 		info->queryParams["idAndName"].required = false;
-		info->queryParams.add<UInt64>("ygbh").description = ZH_WORDS_GETTER("rosterofper.field.ygbh");
+		info->queryParams.add<String>("ygbh").description = ZH_WORDS_GETTER("rosterofper.field.ygbh");
 		info->queryParams["ygbh"].addExample("default", String(""));
 		info->queryParams["ygbh"].required = false;
 		info->queryParams.add<String>("pimpersonname").description = ZH_WORDS_GETTER("rosterofper.field.pimpersonname");

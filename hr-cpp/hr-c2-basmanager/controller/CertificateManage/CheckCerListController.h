@@ -42,7 +42,7 @@ public://  定义接口（定义接口描述与接口端点）
 		info->queryParams.add<String>("nameOfPAndV").description = ZH_WORDS_GETTER("cermanage.field.nameOfPAndV");
 		info->queryParams["nameOfPAndV"].addExample("default", String(""));
 		info->queryParams["nameOfPAndV"].required = false;
-		info->queryParams.add<UInt64>("ygbh").description = ZH_WORDS_GETTER("cermanage.field.ygbh");
+		info->queryParams.add<String>("ygbh").description = ZH_WORDS_GETTER("cermanage.field.ygbh");
 		info->queryParams["ygbh"].addExample("default", String(""));
 		info->queryParams["ygbh"].required = false;
 		info->queryParams.add<String>("pimperSonName").description = ZH_WORDS_GETTER("cermanage.field.pimperSonName");

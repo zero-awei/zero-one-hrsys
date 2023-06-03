@@ -32,8 +32,8 @@ CheckCerListPageDTO::Wrapper CheckCerListService::listAll(const CheckCerListQuer
 		// 		dto->name = sub.getName();
 		//// 		dto->sex = sub.getSex();
 		// 		dto->age = sub.getAge();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, ygbh, Ygbh, nameOfPAndV, NameOfPAndV, pimperSonName, PimperSonName, ygzt, Ygzt, zz, ZZ, pimvocationalid, Pimvocationalid, bcardNumber, BcardNumber,
-			pimVocationalName, PimVocationalName, zslx, Zslx, zghqrq, Zghqrq, zgsydw, Zgsydw, zcdw, Zcdw, fzyxq, Fzyxq, sxrq, Sxrq)
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, ygbh, Ygbh, nameOfPAndV, NameOfPAndV, pimperSonName, PimperSonName, ygzt, Ygzt, zz, ZZ, zgzsbh, ZGZSBH, bcardNumber, BcardNumber,
+			pimVocationalName, PimVocationalName, zslx, Zslx, zghqrq, Zghqrq, zgsydw, Zgsydw, zcdw, Zcdw, fzyxq, Fzyxq, sxrq, Sxrq, pimpersonid, PIMPERSONID, regisnumber, REGISNUMBER, socsecpayunit, SOCSECPAYUNIT, cszcsj, CSZCSJ, xzcsj, XZCSJ, pimvocationalid, Pimvocationalid)
 		pages->addData(dto);
 
 	}

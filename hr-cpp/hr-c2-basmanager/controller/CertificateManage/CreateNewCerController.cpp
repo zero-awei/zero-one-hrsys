@@ -17,7 +17,7 @@ Uint64JsonVO::Wrapper CreateNewCerController::execAddNewCer(const CreateNewCerDT
 	}
 	// 有效值校验 ygbh, pimvocationalid, bcardNumber, pimVocationalName, zslx, zghqrq, zgsydw, zcdw(对时间格式进行检验)
 
-	if (dto->ygbh < 0 || dto->pimVocationalName->empty())
+	if (dto->ygbh->empty() || dto->pimVocationalName->empty())
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;

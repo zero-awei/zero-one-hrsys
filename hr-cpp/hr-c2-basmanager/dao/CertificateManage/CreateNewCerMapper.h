@@ -17,19 +17,24 @@ public:
 	CertificateDO mapper(ResultSet* resultSet) const override
 	{
 		CertificateDO data;
-		data.setYgbh(resultSet->getUInt64(1));//this
+		data.setYgbh(resultSet->getString(1));//this
 		data.setPimvocationalid(resultSet->getString(2));//证书唯一标识
 		data.setBcardNumber(resultSet->getString(3));
 		data.setPimVocationalName(resultSet->getString(4));//this		
 		data.setZslx(resultSet->getString(5));
 		data.setZghqrq(resultSet->getString(6));
-		data.setZcdw(resultSet->getString(7));
-		data.setZgsydw(resultSet->getString(8));
-		data.setFzyxq(resultSet->getString(9));
-		data.setSxrq(resultSet->getString(10));
-		data.setNSQK(resultSet->getString(11));//插入独有字段
-		data.setSYQK(resultSet->getString(12));
-		data.setALTERATION(resultSet->getString(13));
+		data.setZgsydw(resultSet->getString(7));
+		data.setZcdw(resultSet->getString(8));
+		data.setSxrq(resultSet->getString(9));
+		data.setNSQK(resultSet->getString(10));
+		data.setSYQK(resultSet->getString(11));
+		data.setALTERATION(resultSet->getString(12));
+		data.setPIMPERSONID(resultSet->getString(13));
+		data.setZGZSBH(resultSet->getString(14));
+		data.setREGISNUMBER(resultSet->getString(15));
+		data.setSOCSECPAYUNIT(resultSet->getString(16));
+		data.setCSZCSJ(resultSet->getString(17));
+		data.setXZCSJ(resultSet->getString(18));
 		return data;
 	}
 };

@@ -20,7 +20,7 @@ if (query->idAndName) { \
 } \
 if (query->ygbh) { \
     sql << " AND t2.ygbh = ?"; \
-    SQLPARAMS_PUSH(params, "i", uint64_t, query->ygbh.getValue(0)); \
+    SQLPARAMS_PUSH(params, "s", std::string, query->ygbh.getValue("")); \
 } \
 if (query->pimpersonname) { \
     sql << " AND t2.pimpersonname = ?"; \

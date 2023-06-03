@@ -21,7 +21,7 @@ public:
 	//CheckRetiresListDTO(UInt64 id, String name) :id(id), name(name) {};
 	DTO_INIT(CheckRetiresListDTO, DTO);
 	// Ô±¹¤±àºÅ
-	DTO_FIELD(UInt64, ygbh);
+	DTO_FIELD(String, ygbh);
 	DTO_FIELD_INFO(ygbh) {
 		info->description = ZH_WORDS_GETTER("rosterofper.field.ygbh");
 	}

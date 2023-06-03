@@ -100,8 +100,9 @@ cermanage:
   ygbh : 员工编号
   nameOfPAndV: 人员姓名、证书名称
   pimperSonName : 员工姓名 
+  pimpersonid: 员工唯一标识
   pimVocationalName : 证书名称
-  pimvocationalid: 证书编号(证书唯一标识)
+  pimvocationalid: 证书唯一标识
   bcardNumber: 一建配套B证编号
   zslx: 证书类型
   zghqrq: 签发日期
@@ -112,6 +113,11 @@ cermanage:
   nsqk: 年审情况
   syqk: 使用情况
   alteration: 变更情况
+  regisnumber: 证书注册编号
+  zgzsbh: 证书编号
+  socsecpayunit: 社保缴纳单位
+  cszcsj: 初始注册时间
+  xzcsj: 续注册时间
 
 rosterofper:
  get:

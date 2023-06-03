@@ -17,7 +17,7 @@ public:
 	RetiredEmployeesDO mapper(ResultSet* resultSet) const override
 	{
 		RetiredEmployeesDO data;
-		data.setygbh(resultSet->getUInt64(1));//this
+		data.setygbh(resultSet->getString(1));//this
 		data.setpimpersonname(resultSet->getString(2));//this
 		data.setxb(resultSet->getString(3));//this
 		data.setnj(resultSet->getString(4));//this
