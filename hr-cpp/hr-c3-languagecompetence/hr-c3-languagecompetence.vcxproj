@@ -171,6 +171,7 @@
     <ClInclude Include="dao\Language\LanguageMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\Language\LanguageDO.h" />
+    <ClInclude Include="domain\dto\DeleteLanguage\DeleteLanguageDTO.h" />
     <ClInclude Include="domain\dto\DownloadLanguage\DownloadLanguageDTO.h" />
     <ClInclude Include="domain\dto\ImportLanguage\ImportLanguageDTO.h" />
     <ClInclude Include="domain\dto\Language\LanguageDTO.h" />
@@ -183,6 +184,8 @@
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\Language\LanguageService.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\fastdfs\UseFastDFS.h" />
+    <ClInclude Include="uselib\jwt\TestToken.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\ExportLanguage\ExportLanguage.cpp" />
@@ -199,6 +202,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="uselib\fastdfs\UseFastDFS.cpp" />
+    <ClCompile Include="uselib\jwt\TestToken.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\lib-common\lib-common.vcxproj">

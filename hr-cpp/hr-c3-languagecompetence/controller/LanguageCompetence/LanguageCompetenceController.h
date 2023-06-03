@@ -31,6 +31,7 @@
 #include "oatpp/web/mime/multipart/FileProvider.hpp"
 #include "oatpp/web/mime/multipart/Reader.hpp"
 #include "oatpp/web/mime/multipart/PartList.hpp"
+#include "domain/dto//DeleteLanguage/DeleteLanguageDTO.h"
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
@@ -52,8 +53,7 @@ public: // 定义接口
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		API_DEF_ADD_QUERY_PARAMS(String, "personID", ZH_WORDS_GETTER("sample.field.id"), "66958E87-91A4-4DA8-8124-060E93B47EBE", false);
-		//API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("sample.field.name"), "li ming", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "personID", ZH_WORDS_GETTER("sample.field.id"), "66958E87-91A4-4DA8-8124-060E93B47EBE", true);
 	}
 	//定义分页查询接口处理
 	//API_HANDLER_ENDPOINT_QUERY_AUTH(API_M_GET, "/user/query-langugae", queryLanguage, LanguagePageQuery, execQueryLanguage(query, authObject->getPayload()));
@@ -72,8 +72,7 @@ public: // 定义接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(LanguageJsonVO);
 		// 定义其他表单参数描述
-		API_DEF_ADD_QUERY_PARAMS(String, "personID", ZH_WORDS_GETTER("sample.field.id"), "66958E87-91A4-4DA8-8124-060E93B47EBE", false);
-		//API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("sample.field.name"), "li ming", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "languageAbilityID", ZH_WORDS_GETTER("language.field.id"), "3A1F9BF1-2C9A-4249-80C2-A1F0E8B367B0", true);
 	}
 	//定义查询接口处理
 	ENDPOINT(API_M_GET, "/language/query-one-langugae", queryOneLanguage, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
@@ -97,18 +96,18 @@ public: // 定义接口
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddLanguage(dto, authObject->getPayload()));
 	}
-	//定义删除接口描述
+	//定义删除接口描述(支持批量删除）
 	ENDPOINT_INFO(deleteLanguage) {
 		//定义接口标题
 		info->summary = ZH_WORDS_GETTER("language.delete.summary");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(BooleanJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(Int32JsonVO);
 		//API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
-	//定义删除接口处理
-	ENDPOINT(API_M_DEL, "/language/delete-language", deleteLanguage, API_HANDLER_AUTH_PARAME, BODY_DTO(LanguageDTO::Wrapper, dto)) {
+	//定义删除接口处理(支持批量删除）
+	ENDPOINT(API_M_DEL, "/language/delete-language", deleteLanguage, API_HANDLER_AUTH_PARAME, BODY_DTO(DeleteLanguageDTO::Wrapper, dto)) {
 		//响应结果
 		API_HANDLER_RESP_VO(execDeleteLanguage(dto, authObject->getPayload()));
 	}
@@ -133,13 +132,10 @@ private: // 定义接口执行函数
 	//定义查询接口接口执行函数
 	LanguageJsonVO::Wrapper execQueryOneLanguage(const LanguageQuery::Wrapper& query, const PayloadDTO& payload);
 	//定义新增接口执行函数
-	//Uint64JsonVO::Wrapper execAddLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);
 	Int32JsonVO::Wrapper execAddLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);
 	//定义删除接口执行函数
-	//Uint64JsonVO::Wrapper execDeleteLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);
-	BooleanJsonVO::Wrapper execDeleteLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);
+	Int32JsonVO::Wrapper execDeleteLanguage(const DeleteLanguageDTO::Wrapper& dto, const PayloadDTO& payload);
 	//定义修改接口执行函数
-	//Uint64JsonVO::Wrapper execUpdateLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);
 	BooleanJsonVO::Wrapper execUpdateLanguage(const LanguageDTO::Wrapper& dto, const PayloadDTO& payload);
 };
 

@@ -4,6 +4,7 @@
 #include "../../dao/Language/LanguageDAO.h"
 #include "SnowFlake.h"
 #include "SimpleDateTimeFormat.h"
+#include "bsoncxx/third_party/mnmlstc/core/range.hpp"
 
 /**
  * 语言能力service层实现
@@ -103,11 +104,14 @@ bool LanguageService::updateData(const LanguageDTO::Wrapper& dto)
 	return dao.update(data) == 1;
 }
 
-bool LanguageService::removeData(string id)
+int LanguageService::removeData(const DeleteLanguageDTO::Wrapper& dto)
 {
-	//组装DO数据
-	LanguageDO data;
 	//执行数据删除
 	LanguageDAO dao;
-	return dao.deleteById(id);
+	int count = 0;
+	for (auto it = dto->languageAbilityID->begin(); it != dto->languageAbilityID->end(); ++it)
+	{
+		count += dao.deleteById(*it);
+	}
+	return count;
 }

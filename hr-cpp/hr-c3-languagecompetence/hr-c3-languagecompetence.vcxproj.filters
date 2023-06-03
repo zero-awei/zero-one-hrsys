@@ -78,6 +78,15 @@
     <ClInclude Include="dao\Language\LanguageMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="uselib\jwt\TestToken.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\fastdfs\UseFastDFS.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\DeleteLanguage\DeleteLanguageDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -105,6 +114,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="dao\Language\LanguageDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\jwt\TestToken.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\fastdfs\UseFastDFS.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
