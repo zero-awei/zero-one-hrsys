@@ -169,25 +169,25 @@ const routes = [
     path: '/privateabroad',
     name: 'PrivateAbroad',
     component: () => import('@/views/baseManage/goAbroad/PrivateAbroad.vue')
-  },,
+  },
   {
     path:'/archivesinfo',
-    name:'档案信息',
+    name:'ArchivesInfo',
     component:()=>import('@/views/baseManage/archivesManage/ArchivesInfo.vue')
   },
   {
     path:'/onfilereminder',
-    name:'非员工在档提醒',
+    name:'OnFileReminder',
     component:()=>import('@/views/baseManage/archivesManage/OnFileReminder.vue')
   },
   {
     path:'/outfilereminder',
-    name:'员工不在档提醒',
+    name:'OutFileReminder',
     component:()=>import('@/views/baseManage/archivesManage/OutFileReminder.vue')
   },
   {
     path:'/filetransferrecord',
-    name:'档案转出记录',
+    name:'FileTransferRecord',
     component:()=>import('@/views/baseManage/archivesManage/FileTransferRecord.vue')
   },
 ]
