@@ -3,10 +3,41 @@ import Request from '@/apis/request'
 // 测试菜单数据
 let testMenus = [
   {
-    id: '0',
+    id: 0,
     text: '门户首页',
     icon: 'DataAnalysis',
     path: '/pimportalview'
+  },
+  {
+    id: 1,
+    text: '人员信息',
+    icon: 'IconSetting',
+    children: [
+      {
+        id: 2,
+
+        text: '员工信息',
+        path: '/employee',
+        icon: 'IconSetting',
+        pid: 1
+      },
+      {
+        id: 3,
+
+        text: '自助信息审核',
+        path: '/review',
+        icon: 'IconSetting',
+        pid: 1
+      },
+      {
+        id: 4,
+
+        text: '黑名单',
+        path: '/blacklist',
+        icon: 'IconSetting',
+        pid: 1
+      }
+    ]
   },
   {
     id: 0,
@@ -53,48 +84,120 @@ let testMenus = [
       },
       {
         id: 4,
+
         text: '挂职员工',
         icon: 'IconSetting',
         path: '/gzryhmcgridview'
-      },
-      {
-        id: 5,
-        text: '人员信息测试页面',
-        icon: 'IconSetting',
-        path: '/userInfo'
       }
     ]
   },
+
   {
-    id: 1,
-    text: '人员信息',
-    icon: 'IconSetting',
+    id: 2,
+    text: '合同管理',
+    icon: 'IconUser',
     children: [
       {
         id: 2,
-        text: '员工信息',
-        path: '/employee',
-        icon: 'IconSetting',
-        pid: 1
+        text: '劳务派遣公司',
+        path: '/dispatch',
+        icon: 'IconUser',
+        pid: 2
       },
       {
         id: 3,
-        text: '自助信息审核',
-        path: '/review',
-        icon: 'IconSetting',
-        pid: 1
+        text: '合同信息',
+        path: '/contract',
+        icon: 'IconUser',
+        pid: 2
       },
       {
         id: 4,
-        text: '黑名单',
-        path: '/blacklist',
-        icon: 'IconSetting',
-        pid: 1
+        text: '初签(续签)提醒',
+        path: '/initsigning',
+        icon: 'IconUser',
+        pid: 2
+      },
+      {
+        id: 5,
+        text: '终止提醒',
+        path: '/termination',
+        icon: 'IconUser',
+        pid: 2
       }
     ]
   },
   {
-    id: 4,
+    id: 5,
+    text: '证书管理',
+    icon: 'IconUser',
+    children: [
+      {
+        id: 2,
+        text: '证书信息',
+        path: '/certificateinfo',
+        icon: 'IconUser',
+        pid: 2
+      }
+    ]
+  },
+  {
+    id: 6,
+    text: '职称管理',
+    icon: 'IconUser',
+    children: [
+      {
+        id: 2,
+        text: '职称信息',
+        path: '/jobtitleinfo',
+        icon: 'IconUser',
+        pid: 2
+      }
+    ]
+  },
+  {
+    id: 7,
+    text: '出(国)境管理',
+    icon: 'IconUser',
+    children: [
+      {
+        id: 2,
+        text: '因公出(国)境',
+        path: '/businessabroad',
+        icon: 'IconUser',
+        pid: 2
+      },
+      {
+        id: 3,
+        text: '因私出(国)境',
+        path: '/privateabroad',
+        icon: 'IconUser',
+        pid: 2
+      }
+    ]
+  },
+  {
+    id: 8,
+    text: '离(退)休管理',
+    icon: 'IconUser',
+    children: [
+      {
+        id: 2,
+        text: '离(退)休人员',
+        path: '/retiree',
+        icon: 'IconUser',
+        pid: 2
+      },
+      {
+        id: 3,
+        text: '费用台账',
+        path: '/expense',
+        icon: 'IconUser',
+        pid: 2
+      }
+    ]
+  },
+  {
     text: '标准化数据设置',
     icon: 'IconTickets',
     children: [
@@ -110,14 +213,37 @@ let testMenus = [
         text: '职称目录',
         path: '/jobtitlecatalog',
         icon: 'IconTickets',
+
         pid: 4
       },
       {
         id: 6,
+
         text: '档案室',
         path: '/archives',
         icon: 'IconTickets',
         pid: 4
+      },
+      {
+        id: 2,
+        text: '合同类别',
+        path: '/contractCatrgory',
+        icon: 'IconTickets',
+        pid: 3
+      },
+      {
+        id: 3,
+        text: '合同类型',
+        path: '/contractType',
+        icon: 'IconTickets',
+        pid: 3
+      },
+      {
+        id: 4,
+        text: '执业资格证书',
+        path: '/practiceCertificate',
+        icon: 'IconTickets',
+        pid: 3
       }
     ]
   },

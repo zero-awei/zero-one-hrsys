@@ -2,15 +2,14 @@ const routes = [
   {
     path: '/home',
     name: 'Home',
-    redirect: { name: 'Dashboard' },
+    redirect: { name: 'pimportalview' },
     component: () => import('@/views/HomeView.vue'),
     children: [
       {
         path: '/dashboard',
         name: 'Dashboard',
         component: () => import('@/views/dashboard/Dashboard.vue')
-      },
-      
+      }
     ]
   }
 ]
@@ -20,5 +19,4 @@ const secondRouter = import.meta.glob('./**/index.js', { eager: true })
 for (const path in secondRouter) {
   routes[0].children.push(...secondRouter[path].default)
 }
-
 export default routes

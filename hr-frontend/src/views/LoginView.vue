@@ -1,54 +1,46 @@
 <template>
-  <div class="container">
-    <div class="login-box">
-      <h1 class="login-title">基础管理系统</h1>
-      <el-form :model="formData" ref="form" class="login-form">
-        <el-form-item>
-          <div class="input-container">
-            <label class="el-form-item__label">账号</label>
-            <el-input v-model="formData.username" class="login-input"></el-input>
-          </div>
-        </el-form-item>
-        <el-form-item>
-          <div class="input-container">
-            <label class="el-form-item__label">密码</label>
-            <el-input v-model="formData.password" type="password" class="login-input"></el-input>
-          </div>
-        </el-form-item>
-        <el-form-item>
-          <div class="input-container">
-            <label class="el-form-item__label">验证码</label>
-            <div class="vc-input-container">
-              <el-input v-model="formData.vertification" type="text" class="vc-input"></el-input>
+  <div class="box">
+    <div class="container">
+      <div class="login-box">
+        <h1 class="login-title">人力资源管理系统</h1>
+        <el-form :model="formData" ref="form" class="login-form">
+          <el-form-item>
+            <div class="input-container">
+              <label class="el-form-item__label">账号</label>
+              <el-input
+                v-model="formData.username"
+                class="login-input"
+              ></el-input>
             </div>
-          </div>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" class="login-button" @click="submitForm">登录</el-button>
-        </el-form-item>
-        <el-form-item>
-          <div class="other-login">
-            <span class="other-login-text">其他登录方式</span>
-            <div class="login-icons">
-              <div class="login-icon" @click="showQQAuth">
-                <img src="http://ehrpcm.ibizlab.cn/assets/img/QQ.svg" alt="QQ" class="login-icon-img">
-              </div>
-              <div class="login-icon" @click="showWechatAuth">
-                <img src="http://ehrpcm.ibizlab.cn/assets/img/weixin.svg" alt="微信" class="login-icon-img">
-              </div>
+          </el-form-item>
+          <el-form-item>
+            <div class="input-container">
+              <label class="el-form-item__label">密码</label>
+              <el-input
+                v-model="formData.password"
+                type="password"
+                class="login-input"
+              ></el-input>
             </div>
-          </div>
-        </el-form-item>
-      </el-form>
-      <!-- TODO[TEST_CODE]: 测试代码后期发布需要删除 -->
-      <hr/>
-      <router-link to="/sample" class="sample-link">进入示例演示页面</router-link>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" class="login-button" @click="submitForm"
+              >登录</el-button
+            >
+          </el-form-item>
+        </el-form>
+        <!-- TODO[TEST_CODE]: 测试代码后期发布需要删除 -->
+        <hr />
+        <router-link to="/sample" class="sample-link"
+          >进入示例演示页面</router-link
+        >
+      </div>
     </div>
   </div>
   <!-- 验证码组件 -->
   <Verify
     mode="pop"
-    :captchaType="captchaType.value"    
+    :captchaType="captchaType"
     :imgSize="{ width: '400px', height: '200px' }"
     ref="verify"
     @success="handleSuccess"
@@ -58,7 +50,7 @@
 <script setup>
 import Verify from '@/components/verifition/Verify.vue'
 import Request from '@/apis/request'
-// import { ref, reactive } from 'vue'
+import { ref, reactive } from 'vue'
 import { login } from '@/apis/login'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
@@ -102,7 +94,7 @@ function submitForm() {
   // $router.push('/home')
 
   // 弹出验证码框
-  // useVerify('blockPuzzle')
+  //useVerify('clickWord')
 
   //TODO[TEST_CODE]:测试登录
   doLogin('dddd')
@@ -151,28 +143,20 @@ function handleSuccess(res) {
       ElMessage.error('账号或密码错误')
     })
 
-  doLogin(res.captchaVerification)
-}
-/**
- * 弹出QQ授权登录提示
- */
- function showQQAuth() {
-  ElMessage.info('QQ授权登录暂未支持');
-}
-
-/**
- * 弹出微信授权登录提示
- */
-function showWechatAuth() {
-  ElMessage.info('微信授权登录暂未支持');
+  // doLogin(res.captchaVerification)
 }
 </script>
 
 <style>
+.box {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(29, 67, 89);
+}
 .container {
   display: flex;
-  background-image: url("../../images/loginimg.jpeg");
-  background-size:210vb 100vh ;
+  background-image: url('../../images/login_two.jpg');
+  background-size: 160vb 90vh;
   background-position: center;
   background-repeat: no-repeat;
   justify-content: center;
@@ -181,12 +165,13 @@ function showWechatAuth() {
 }
 
 .login-box {
-  width: 420px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  width: 350px;
+  position: absolute;
+  right: 20%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  padding: 0;
 }
 
 .login-title {
@@ -197,41 +182,33 @@ function showWechatAuth() {
   margin-bottom: 30px;
 }
 
-.login-form {
-  margin-top: 35px;
+.el-form-item__label {
+  color: rgb(81, 100, 115);
+  display: block;
+  margin: 5px 20px;
+  font-weight: 100;
+  font-size: 18px;
 }
-
-.login-input {
-  height: 40px;
+.el-input__wrapper {
+  height: 50px;
+  width: 350px;
+  border: 1px solid rgb(214, 222, 228);
+  border-radius: 40px;
+  margin: 0;
+  box-sizing: border-box;
   font-size: 20px;
+  font-weight: 200;
   color: #333333;
-  border: none;
-  border-radius: 4.8px;
-  padding-left: 10px;
+  padding: 20px;
 }
-
-.vc-input-container {
-  display: flex;
-  align-items: center;
-}
-
-.vc-input {
-  height: 40px;
-  font-size: 20px;
-  color: #333333;
-  border: none;
-  border-radius: 4.8px;
-  padding-left: 10px;
-  width: 150px;
-}
-
 .login-button {
   height: 40px;
-  width: 110px;
+  width: 350px;
   font-size: 20px;
   margin: 10px auto 0px;
-  background-color: #4460f1;
+  background-color: #102940;
   border-color: #4460f1;
+  border-radius: 40px;
 }
 
 .login-button:hover {
@@ -239,40 +216,6 @@ function showWechatAuth() {
   border-color: #3c56d7;
 }
 
-.other-login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: -5px;
-}
-
-.other-login-text {
-  font-size: 16px;
-  color: #999999;
-}
-
-.login-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top:10px;
-}
-
-.login-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin: 0 10px ;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.login-icon-img {
-  width: 36px;
-  height: 36px;
-}
 .sample-link {
   display: block;
   text-align: center;
