@@ -28,8 +28,9 @@ public:
 	// 分页查询所有数据	
 	PimarmycadresFindPageDTO::Wrapper listAll(const PimarmycadresPageQuery::Wrapper& query);
 
-	// 增加一条数据
-	uint64_t saveData(const AddPimarmycadresDTO::Wrapper& dto);
+	uint64_t saveData(const AddPimarmycadresDTO::Wrapper& dto, const PayloadDTO& payload);
+
+
 
 
 	//删除数据(支持批量删除)
@@ -37,7 +38,7 @@ public:
 
 
 	//执行导入（即批量增加数据）
-	uint64_t saveManyData(const oatpp::String& fileBody, const oatpp::String& suffix, const oatpp:: String& pimpersonid);
+	uint64_t saveManyData(const std::string fileName, const oatpp::String& pimpersonid, const oatpp::String& createName);
 
 	//列表详细
 	PimarmycadresDTO::Wrapper listDetail(const PimarmycadresQuery::Wrapper& query);

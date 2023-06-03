@@ -26,24 +26,24 @@ if (query->annexPath) { \
 	sql << " AND `FJ`=?"; \
 	SQLPARAMS_PUSH(params, "i", std::string, query->annexPath.getValue(0)); \
 }
-
 ;
+
 std::list<PimarmycadresFindDO> PimarmycadresDAO::selectWithPage(const PimarmycadresPageQuery::Wrapper & query)
 {
 	stringstream sql;	
 	sql << "SELECT * FROM `t_pimarmycadres`";
 	SAMPLE_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
-	PimarmycadresMapper mapper;
+	PimarmycadresPageMapper mapper;
 	string sqlStr = sql.str();
-	return sqlSession->executeQuery<PimarmycadresFindDO, PimarmycadresMapper>(sqlStr, mapper, params);
+	return sqlSession->executeQuery<PimarmycadresFindDO, PimarmycadresPageMapper>(sqlStr, mapper, params);
 }
 
 uint64_t PimarmycadresDAO::insert(const AddPimarmycadresDO& iObj)
 {
-	string sql = "INSERT INTO `t_pimarmycadres` (`PIMPERSONID`, `TROOPTYPE`, `LEVELTYPE`,`FSSJ`.`FJ`) VALUES (?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%i", iObj.getpIMID(), 
-		iObj.getfORM(), iObj.getlEVEL(),iObj.getoCCURTIME(),iObj.getaNNEXPATH());
+	string sql = "INSERT INTO `t_pimarmycadres` (`PIMPERSONID`, `TROOPTYPE`, `LEVELTYPE`,`FSSJ`,`FJ`,`PIMARMYCADRESID`) VALUES (?, ?, ? ,? ,? ,? )";
+	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s", iObj.getpIMID(), 
+		iObj.getfORM(), iObj.getlEVEL(),iObj.getoCCURTIME(),iObj.getaNNEXPATH(),iObj.getpIMARMYCADRESID());
 }
 
 uint64_t PimarmycadresDAO::count(const PimarmycadresPageQuery::Wrapper& query)
@@ -52,9 +52,10 @@ uint64_t PimarmycadresDAO::count(const PimarmycadresPageQuery::Wrapper& query)
 	sql << "SELECT COUNT(*) FROM t_pimarmycadres";
 	SAMPLE_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
+	cout << sqlStr << endl;
 	return sqlSession->executeQueryNumerical(sqlStr, params);
 }
-
+	
 list<PimarmycadresFindDO> PimarmycadresDAO::selectDetail(const PimarmycadresQuery::Wrapper& query)
 {
 	return list<PimarmycadresFindDO>();
@@ -69,8 +70,8 @@ int PimarmycadresDAO::update(const PimarmycadresDO& uObj)
 
 int PimarmycadresDAO::deleteById(std::string pimpersonid, std::string pimarmycadresid)
 {
-	string sql = "DELETE FROM `t_pimarmycadres` WHERE `pimarmycadresid`=?";
-	return sqlSession->executeUpdate(sql, "%ull", pimarmycadresid);
+	string sql = "DELETE FROM `t_pimarmycadres` WHERE `PIMARMYCADRESID`=? OR `PIMPERSONID`=?";
+	return sqlSession->executeUpdate(sql, "%s%s", pimarmycadresid,pimpersonid);
 }
 
 

@@ -33,6 +33,7 @@ DTO_FIELD_INFO(field) { \
 class DelPimarmycadresDTO : public oatpp::DTO
 {
 	DTO_INIT(DelPimarmycadresDTO, DTO);
+
 	DTO_FIELD(List<String>, deleteById)= {};
 	DTO_FIELD_INFO(deleteById) {
 		info->description = ZH_WORDS_GETTER("pimarmcadres.field.list<Pimamrmycadresid>");
