@@ -4,15 +4,14 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-/**
- * <p>
- * 描述：TODO
- * </p>
- * <p>版权：&copy;01星球</p>
- * <p>地址：01星球总部</p>
- * @version 1.0.0
- */
+import java.util.Date;
 
+
+/**
+ * The {@link RightDTO}
+ *
+ * @author authoralankay
+ */
 @Data
 @ApiModel("权限修改")
 public class RightDTO {
@@ -23,7 +22,7 @@ public class RightDTO {
     @ApiModelProperty(value = "权限名称",example = "增加权限")
     private String name;
 
-    @ApiModelProperty(value = "链接地址", example = "/login")
+    @ApiModelProperty(value = "链接地址", example = "/add-right")
     private String linkUrl;
 
     @ApiModelProperty(value = "显示级别", example = "1")
@@ -40,4 +39,13 @@ public class RightDTO {
 
     @ApiModelProperty(value = "是否启用", example = "1")
     private Integer isEnable;
+
+    @ApiModelProperty(value = "创建人", example = "authoralankay")
+    private String creator;
+
+    @ApiModelProperty(value = "创建时间", example = "yyyy-MM-dd HH:mm:ss")
+    private Date createTime;
+
+    @ApiModelProperty(value = "更新时间",example = "yyyy-MM-dd HH:mm:ss")
+    private Date updateTime;
 }
