@@ -7,6 +7,8 @@
 #include "domain/dto/LegalEntitySet/LegalEntitySetDTO.h"
 #include "domain/query/LegalEntitySet/LegalEntitySetQuery.h"
 #include "domain/do/LegalEntitySet/LegalEntitySetDO.h"
+#include "domain/dto/LegalEntitySet/LegalEntityAddSetDTO.h"
+#include "domain/dto/LegalEntitySet/LegalEntitySetUpdateDTO.h"
 //#include "domain/dto/LegalEntitySet/LegalEntitySetQueryDTO.h"
 /*
 组织管理 ——数据设置 —— 法人主体设置  -- cpt
@@ -25,9 +27,9 @@ public:
 	// 分页查询所有数据
 	LegalEntitySetQueryPageDTO::Wrapper listAll(const LegalEntitySetQuery::Wrapper& query);
 	// 保存数据
-	uint64_t insertData(const LegalEntitySetDTO::Wrapper& dto, const PayloadDTO& payload);
+	uint64_t insertData(const LegalEntitySetAddDTO::Wrapper& dto, const PayloadDTO& payload);
 	// 修改数据
-	bool updateData(const LegalEntitySetDTO::Wrapper& dto );
+	bool updateData(const LegalEntitySetUpdateDTO::Wrapper& dto );
 	// 通过ID删除数据
 	//bool removeData(uint64_t id);
 	LegalEntitySetPullDownDTO::Wrapper legalEntityPulldownList();

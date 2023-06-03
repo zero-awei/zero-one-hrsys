@@ -13,7 +13,7 @@
 
 新增法人设置（支持批量新增）** `LegalEntitySet`
 */ 
-Uint64JsonVO::Wrapper LegalEntitySetController::execAddLegalEntitySet(const List<LegalEntitySetDTO::Wrapper> & dto, const PayloadDTO& payload) {
+Uint64JsonVO::Wrapper LegalEntitySetController::execAddLegalEntitySet(const List<LegalEntitySetAddDTO::Wrapper> & dto, const PayloadDTO& payload) {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
 	//非空校验
@@ -21,9 +21,9 @@ Uint64JsonVO::Wrapper LegalEntitySetController::execAddLegalEntitySet(const List
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 	}
 	LegalEntitySetService service;
-	//service.insertData(dto, payload);
+	//service.insertData(*dto->begin(), payload);
 	for (auto it = dto->begin(); it != dto->end(); it++) {
-		if (! service.insertData(*it, payload)) {
+		if (!service.insertData(*it, payload)) {
 			jvo->fail(1);
 			return jvo;
 		}
@@ -47,7 +47,7 @@ LegalEntitySetPullDownJsonVO::Wrapper LegalEntitySetController::execLegalEntityS
 	return vo;
 }
 
-StringJsonVO::Wrapper LegalEntitySetController::execModifyLegalEntitySet(const LegalEntitySetDTO::Wrapper& dto) {
+StringJsonVO::Wrapper LegalEntitySetController::execModifyLegalEntitySet(const LegalEntitySetUpdateDTO::Wrapper& dto) {
 	auto jvo = StringJsonVO::createShared();
 	// 参数校验
 	if (!dto->ormsignorgid || dto->ormsignorgid == "") {

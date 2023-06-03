@@ -23,10 +23,10 @@ public:
 	LegalEntitySetDO mapper(ResultSet* resultSet) const override
 	{
 		LegalEntitySetDO data;
-		data.setORMSIGNORGID(resultSet->getString(1));
-		data.setORMORGID(resultSet->getString(2));
-		data.setSIGNORGID(resultSet->getString(3));
-		data.setISDEFAULTSIGNORG(resultSet->getString(4));
+		data.setCONTRACTSIGNORGNAME(resultSet->getString(1)); // 签约单位主体名称
+		data.setORMORGID(resultSet->getString(2)); // 管理单位id 
+		data.setORMSIGNORGID(resultSet->getString(3)); // 法人主体id 
+		data.setISDEFAULTSIGNORG(resultSet->getString(4)); // 默认签约主体
 		return data;
 	}
 };

@@ -38,12 +38,12 @@ public:
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		/*info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("sample.field.name");
-		info->queryParams["name"].addExample("default", String("li ming"));
-		info->queryParams["name"].required = false;
-		info->queryParams.add<String>("sex").description = ZH_WORDS_GETTER("sample.field.sex");
-		info->queryParams["sex"].addExample("default", String("N"));
-		info->queryParams["sex"].required = false;*/
+		/*info->queryParams.add<String>("ygbh").description = ZH_WORDS_GETTER("RosterOfPer.field.ygbh");
+		info->queryParams["ygbh"].addExample("default", String("li ming"));
+		info->queryParams["ygbh"].required = false;
+		info->queryParams.add<String>("pcmjxszzkhjgjlname").description = ZH_WORDS_GETTER("RosterOfPer.field.pcmjxszzkhjgjlname");
+		info->queryParams["pcmjxszzkhjgjlname"].addExample("default", String(""));
+		info->queryParams["pcmjxszzkhjgjlname"].required = false;*/
 	}
 	// 3.2 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/query-RraineePageQueryEmployeeList", queryRrainee, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {

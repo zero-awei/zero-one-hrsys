@@ -244,7 +244,7 @@ public:
 	// Parameter: const SqlParams & params SQLÓï¾äÌî³ä²ÎÊý
 	//************************************
 	uint64_t executeInsert(const string& sql, const SqlParams& params);
-	
+
 	//************************************
 	// Method:    executeQueryNumerical
 	// FullName:  SqlSession::executeQueryNumerical

@@ -215,8 +215,10 @@
     <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiDTO.h" />
     <ClInclude Include="domain\dto\LegalEntityMai\LegalEntityMaiMqDTO.h" />
     <ClInclude Include="domain\dto\LegalEntitySet\ImportLeagalPerSettingDTO.h" />
+    <ClInclude Include="domain\dto\LegalEntitySet\LegalEntityAddSetDTO.h" />
     <ClInclude Include="domain\dto\LegalEntitySet\LegalEntitySetDTO.h" />
     <ClInclude Include="domain\dto\LegalEntitySet\LegalEntitySetQueryDTO.h" />
+    <ClInclude Include="domain\dto\LegalEntitySet\LegalEntitySetUpdateDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\LegalEntityMai\LegalEntityMaiQuery.h" />
     <ClInclude Include="domain\query\LegalEntitySet\LegalEntitySetQuery.h" />

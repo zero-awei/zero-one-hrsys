@@ -38,19 +38,15 @@ std::list<LegalEntitySetDO> LegalEntitySetDAO::legalerNamePullDownList() {
 }
 
 uint64_t LegalEntitySetDAO::insert(const LegalEntitySetDO& iObj) {
-	string sql = "INSERT IGNORE INTO t_contractsignorg (CREATEDATE, CREATEMAN, SIGNORGID, UPDATEDATE, UPDATEMAN, CONTRACTSIGNORGNAME, CONTRACTSIGNORGID, ORMORGID, ORMSIGNORGID, ISDEFAULTSIGNORG) VALUES (?,?,?,?,?,?,?,?,?,?)";
-	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s",iObj.getCREATEDATE(), iObj.getCREATEMAN(), iObj.getSIGNORGID(), iObj.getUPDATEDATE(), iObj.getUPDATEMAN(),  iObj.getCONTRACTSIGNORGNAME(), iObj.getCONTRACTSIGNORGID(), iObj.getORMORGID(), iObj.getORMSIGNORGID(), iObj.getISDEFAULTSIGNORG());
+	string sql = "INSERT IGNORE INTO t_contractsignorg (CREATEDATE, CREATEMAN, UPDATEDATE, UPDATEMAN, CONTRACTSIGNORGNAME, CONTRACTSIGNORGID, ORMORGID, ORMSIGNORGID, ISDEFAULTSIGNORG) VALUES (?,?,?,?,?,?,?,?,?)";
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s",iObj.getCREATEDATE(), iObj.getCREATEMAN(), iObj.getUPDATEDATE(), iObj.getUPDATEMAN(),  iObj.getCONTRACTSIGNORGNAME(), iObj.getCONTRACTSIGNORGID(), iObj.getORMORGID(), iObj.getORMSIGNORGID(), iObj.getISDEFAULTSIGNORG());
 }
-
 
 int LegalEntitySetDAO::update(const LegalEntitySetDO& uObj) {
-	string sql = "UPDATE t_contractsignorg SET ORMORGID=?, SIGNORGID=?, ISDEFAULTSIGNORG=? WHERE ORMSIGNORGID=?";
-	return sqlSession->executeUpdate(sql, "%s%s%i%s",  uObj.getORMORGID(), 
-		  uObj.getSIGNORGID(), atoi(uObj.getISDEFAULTSIGNORG().c_str()), uObj.getORMSIGNORGID());
+	string sql = "UPDATE t_contractsignorg SET CONTRACTSIGNORGNAME=?, ORMORGID=?, ORMSIGNORGID=?, ISDEFAULTSIGNORG=? WHERE CONTRACTSIGNORGID=?";
+	return sqlSession->executeUpdate(sql, "%s%s%s%i%s", uObj.getCONTRACTSIGNORGNAME(),
+		uObj.getORMORGID(),  uObj.getSIGNORGID(), atoi(uObj.getISDEFAULTSIGNORG().c_str()), uObj.getCONTRACTSIGNORGID());
 }
-
-
-
 /* -------------------------------------------法人主体设置查询功能--TripleGold ----------------------------------------------------------*/
 uint64_t LegalEntitySetDAO::count(const LegalEntitySetQuery::Wrapper& query)
 {

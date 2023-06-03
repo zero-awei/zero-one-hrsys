@@ -70,7 +70,6 @@ public:
 	//DTO_FIELD_INFO(updatedate) {
 	//	info->description = ZH_WORDS_GETTER("LegalEntitySet.field.updatedate");
 	//}
-	
 	// 法人主体标识
 	DTO_FIELD(String, signorgid);
 	DTO_FIELD_INFO(signorgid) {
@@ -85,15 +84,13 @@ class LegalEntitySetPageDTO : public PageDTO<LegalEntitySetDTO::Wrapper> {
 	DTO_INIT(LegalEntitySetPageDTO, PageDTO<LegalEntitySetDTO::Wrapper>);
 };
 
-class LegalEntitySetPullDownDTO : public oatpp::DTO
-{
+class LegalEntitySetPullDownDTO : public oatpp::DTO {
 	DTO_INIT(LegalEntitySetPullDownDTO, DTO);
 	DTO_FIELD(List<LegalEntitySetDTO::Wrapper>, legalEntitySetPullDownList) = {};
 	DTO_FIELD_INFO(legalEntitySetPullDownList) {
 		info->description = ZH_WORDS_GETTER("LegalEntitySet.dto.legalEntitySetPullDownList");
 	}
 };
-
 
 #include OATPP_CODEGEN_END(DTO)
 #endif // !_LEGALENTITYSET_DTO_

@@ -21,8 +21,10 @@
 #include "domain/vo/BaseJsonVO.h"
 #include "domain/do/LegalEntitySet/LegalEntitySetDO.h"
 #include "domain/dto/LegalEntitySet/LegalEntitySetDTO.h"
+#include "domain/dto/LegalEntitySet/LegalEntityAddSetDTO.h"
 #include "domain/vo/LegalEntitySet/LegalEntitySetVO.h"
 #include "domain/query/LegalEntitySet/LegalEntitySetQuery.h"
+#include "domain/dto/LegalEntitySet/LegalEntitySetUpdateDTO.h"
 
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
 #include "oatpp/web/mime/multipart/FileProvider.hpp"
@@ -47,7 +49,7 @@ public:
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	ENDPOINT(API_M_POST, "/org/add-LegalEntitySet", addLegalEntitySet, API_HANDLER_AUTH_PARAME, BODY_DTO(List<LegalEntitySetDTO::Wrapper>, dto)) {
+	ENDPOINT(API_M_POST, "/org/add-LegalEntitySet", addLegalEntitySet, API_HANDLER_AUTH_PARAME, BODY_DTO(List<LegalEntitySetAddDTO::Wrapper>, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddLegalEntitySet(dto, authObject->getPayload()));
 	}
@@ -104,7 +106,7 @@ public:
 		info->queryParams["name"].addExample("default", String("li ming"));
 	}
 	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/org/update-LegalEntitySet", modifyLegalEntitySet, BODY_DTO(LegalEntitySetDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/org/update-LegalEntitySet", modifyLegalEntitySet, BODY_DTO(LegalEntitySetUpdateDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyLegalEntitySet(dto));
 	}
@@ -140,13 +142,13 @@ public:
 
 private:
 	// 增加法人主体设置
-	Uint64JsonVO::Wrapper execAddLegalEntitySet(const List<LegalEntitySetDTO::Wrapper> & dto, const PayloadDTO& payload);
+	Uint64JsonVO::Wrapper execAddLegalEntitySet(const List<LegalEntitySetAddDTO::Wrapper> & dto, const PayloadDTO& payload);
 	// 导出法人主体设置
 	LegalEntitySetPageJsonVO::Wrapper execExportLegalEntitySet(const LegalEntitySetQuery::Wrapper& query, const PayloadDTO& payload);
 	// 法人主体名称下拉列表
 	LegalEntitySetPullDownJsonVO::Wrapper execLegalEntitySetPullDownList();
 	// 更新法人主体设置
-	StringJsonVO::Wrapper execModifyLegalEntitySet(const LegalEntitySetDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execModifyLegalEntitySet(const LegalEntitySetUpdateDTO::Wrapper& dto);
 	// 分页查询数据
 	LegalEntitySetQueryPageJsonVO::Wrapper execQueryLES(const LegalEntitySetQuery::Wrapper& query);
 };
