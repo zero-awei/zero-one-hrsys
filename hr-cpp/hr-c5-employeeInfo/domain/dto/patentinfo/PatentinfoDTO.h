@@ -138,6 +138,65 @@ public:
 };
 
 /**
+ * 修改专利信息传输对象
+ */
+	class ModifyPatentinfoDTO : public oatpp::DTO
+{
+
+public:
+
+	DTO_INIT(ModifyPatentinfoDTO, DTO);
+
+	//PIMPATENTID : 专利信息编码
+	DTO_FIELD(String, pimpatentid);
+	DTO_FIELD_INFO(pimpatentid) {
+		info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.pimpatentid");
+	}
+	//ZLH:专利号
+	DTO_FIELD(String, zlh);
+	DTO_FIELD_INFO(zlh) {
+		info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.zlh");
+	}
+	//PIMPATENTNAME : 专利名称
+	DTO_FIELD(String, pimpatentname);
+	DTO_FIELD_INFO(pimpatentname) {
+		info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.pimpatentname");
+	}
+	//ZLHQSJ : 专利获取时间
+	DTO_FIELD(String, zlhqsj);
+	DTO_FIELD_INFO(zlhqsj) {
+		info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.zlhqsj");
+	}
+	//ZLPZGB : 专利批准国别
+	DTO_FIELD(String, zlpzgb);
+	DTO_FIELD_INFO(zlpzgb) {
+		info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.zlpzgb");
+	}
+	//ENCLOLURE : 附件
+	DTO_FIELD(String, enclolure);
+	DTO_FIELD_INFO(enclolure) {
+		info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.enclolure");
+	}
+	//UPDATEDATE : 更新时间
+	DTO_FIELD(String, updatedate);
+	DTO_FIELD_INFO(updatedate) {
+		info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.updatedate");
+	}
+	//UPDATEMAN : 更新人
+	DTO_FIELD(String, updateman);
+	DTO_FIELD_INFO(updateman) {
+		info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.updateman");
+	}
+
+};
+
+
+
+
+
+
+
+/**
  * 分页传输对象
  */
 class PatentinfoPageDTO : public PageDTO<PatentinfoDTO::Wrapper>

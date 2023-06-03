@@ -238,7 +238,7 @@ int PatentinfoDAO::update(const PatentinfoDO& uObj)
 	}
 
 	if (uObj.getPIMPATENTID() != "string") {
-		sql << "WHERE PIMPATENTID = ?";
+		sql << " WHERE PIMPATENTID = ?";
 		SQLPARAMS_PUSH(params, "s", std::string, uObj.getPIMPATENTID());
 	}
 	string sqlStr = sql.str();

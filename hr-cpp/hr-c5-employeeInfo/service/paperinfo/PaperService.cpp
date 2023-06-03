@@ -50,11 +50,11 @@ PaperinfoDTO::Wrapper PaperService::listAll(const string& st)
 }
 
 // 修改数据
-bool PaperService::updateData(const PaperinfoDTO::Wrapper& dto)
+bool PaperService::updateData(const ModifyPaperinfoDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	PaperinfoDO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, PIMPAPERNAME, pimpapername, CBS, cbs, KWMC, kwmc, KWQS, kwqs, FBSJ, fbsj, GRZLWZZZDPM, grzlwzzzdpm, FJ, fj, PIMPAPERID, pimpaperid)
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, PIMPAPERNAME, pimpapername, CBS, cbs, KWMC, kwmc, KWQS, kwqs, FBSJ, fbsj, GRZLWZZZDPM, grzlwzzzdpm, FJ, fj, PIMPAPERID, pimpaperid,UPDATEDATE,updatedate,UPDATEMAN,updateman)
 		// 执行数据修改
 		PaperinfoDAO dao;
 	return dao.update(data) == 1;

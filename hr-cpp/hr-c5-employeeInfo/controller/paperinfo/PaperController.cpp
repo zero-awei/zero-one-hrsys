@@ -16,7 +16,7 @@ PaperinfoJsonVO::Wrapper PaperController::execSelectByPimpaperid(const String& s
 }
 
 ////修改指定员工论文信息（单条修改）
-Uint64JsonVO::Wrapper PaperController::execModifyByPimpaperid(const PaperinfoDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper PaperController::execModifyByPimpaperid(const ModifyPaperinfoDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();

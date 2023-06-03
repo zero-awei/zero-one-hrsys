@@ -19,7 +19,7 @@ public:
 	PatentinfoDTO::Wrapper listAll(const string& pimpatentid);
 
 	// ÐÞ¸ÄÊý¾Ý
-	bool updateData(const PatentinfoDTO::Wrapper& dto);
+	bool updateData(const ModifyPatentinfoDTO::Wrapper& dto);
 
 };
 

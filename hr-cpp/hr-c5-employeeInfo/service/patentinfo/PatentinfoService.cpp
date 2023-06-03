@@ -46,11 +46,11 @@ PatentinfoDTO::Wrapper PatentinfoService::listAll(const string& pimpatentid)
 
 
 // 修改数据
-bool PatentinfoService::updateData(const PatentinfoDTO::Wrapper& dto)
+bool PatentinfoService::updateData(const ModifyPatentinfoDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	PatentinfoDO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ZLH, zlh, PIMPATENTNAME, pimpatentname, ZLHQSJ, zlhqsj, ZLPZGB, zlpzgb, ENCLOLURE, enclolure, PIMPATENTID, pimpatentid)
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ZLH, zlh, PIMPATENTNAME, pimpatentname, ZLHQSJ, zlhqsj, ZLPZGB, zlpzgb, ENCLOLURE, enclolure, PIMPATENTID, pimpatentid,UPDATEDATE,updatedate, UPDATEMAN,updateman)
 		// 执行数据修改
 		PatentinfoDAO dao;
 	return dao.update(data) == 1;

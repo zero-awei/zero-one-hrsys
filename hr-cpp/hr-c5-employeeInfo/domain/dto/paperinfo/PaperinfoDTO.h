@@ -8,7 +8,7 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 专利信息传输对象
+ * 论文信息传输对象
  */
 class PaperinfoDTO : public oatpp::DTO
 {
@@ -151,6 +151,97 @@ public:
 
 };
 
+/**
+ * 修改论文信息传输对象
+ */
+class ModifyPaperinfoDTO : public oatpp::DTO
+{
+
+public:
+	ModifyPaperinfoDTO() {};
+
+	DTO_INIT(ModifyPaperinfoDTO, DTO);
+
+	//PIMPAPERID:论文信息标识
+	DTO_FIELD(String, pimpaperid);
+	DTO_FIELD_INFO(pimpaperid) {
+		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.pimpaperid");
+	}
+
+	//PIMPAPERNAME:论文名称
+	DTO_FIELD(String, pimpapername);
+	DTO_FIELD_INFO(pimpapername) {
+		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.pimpapername");
+	}
+	//CBS:出版社
+	DTO_FIELD(String, cbs);
+	DTO_FIELD_INFO(cbs) {
+		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.cbs");
+	}
+	//KWMC:刊物名称
+	DTO_FIELD(String, kwmc);
+	DTO_FIELD_INFO(kwmc) {
+		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.kwmc");
+	}
+	//KWQS:刊物期数
+	DTO_FIELD(String, kwqs);
+	DTO_FIELD_INFO(kwqs) {
+		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.kwqs");
+	}
+	//FBSJ:发表时间
+	DTO_FIELD(String, fbsj);
+	DTO_FIELD_INFO(fbsj) {
+		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.fbsj");
+	}
+	//GRZLWZZZDPM:个人在论文著作中的排名
+	DTO_FIELD(String, grzlwzzzdpm);
+	DTO_FIELD_INFO(grzlwzzzdpm) {
+		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.grzlwzzzdpm");
+	}
+	//FJ:附件
+	DTO_FIELD(String, fj);
+	DTO_FIELD_INFO(fj) {
+		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.fj");
+	}
+
+
+
+
+
+
+
+	//CBSHKWMC:出版社或刊物名称
+	DTO_FIELD(String, cbshkwmc);
+	DTO_FIELD_INFO(cbshkwmc) {
+		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.cbshkwmc");
+	}
+	//CREATEDATE:建立时间
+	DTO_FIELD(String, createdate);
+	DTO_FIELD_INFO(createdate) {
+		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.createdate");
+	}
+	//CREATEMAN:建立人
+	DTO_FIELD(String, createman);
+	DTO_FIELD_INFO(createman) {
+		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.createman");
+	}
+	//ENABLE
+	DTO_FIELD(String, enable);
+	DTO_FIELD_INFO(enable) {
+		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.enable");
+	}
+	//UPDATEDATE:更新时间
+	DTO_FIELD(String, updatedate);
+	DTO_FIELD_INFO(updatedate) {
+		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.updatedate");
+	}
+	//UPDATEMAN:更新人
+	DTO_FIELD(String, updateman);
+	DTO_FIELD_INFO(updateman) {
+		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.updateman");
+	}
+
+};
 /**
  * 分页传输对象
  */

@@ -16,7 +16,7 @@ public:
 	// 查询指定论文信息详情
 	PaperinfoDTO::Wrapper listAll(const string& st);
 	// 修改数据
-	bool updateData(const PaperinfoDTO::Wrapper& dto);
+	bool updateData(const ModifyPaperinfoDTO::Wrapper& dto);
 };
 
 #endif // !_PAPER_SERVICE_
