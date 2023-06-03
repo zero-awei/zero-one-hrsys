@@ -4,6 +4,8 @@ import com.zeroone.star.orgmanager.entity.TOrmorgdz;
 import com.zeroone.star.orgmanager.mapper.TOrmorgdzMapper;
 import com.zeroone.star.orgmanager.service.ITOrmorgdzService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
+import com.zeroone.star.project.j3.dto.orgmanager.ExportOrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.ModifyOrgAddressDTO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,5 +50,15 @@ public class TOrmorgdzServiceImpl extends ServiceImpl<TOrmorgdzMapper, TOrmorgdz
 			row += i;
 		}
 		return row;
+	}
+
+	@Override
+	public boolean deleteOrgAddress(OrgAddressDto orgAddressDto) {
+		return false;
+	}
+
+	@Override
+	public ExportOrgAddressDto exportOrgAddress(OrgAddressDto orgAddressDto) throws Exception {
+		return null;
 	}
 }
