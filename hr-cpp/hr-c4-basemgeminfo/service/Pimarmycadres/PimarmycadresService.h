@@ -12,12 +12,12 @@
 #ifndef _PIMARMYCADRESSERVICE_H_
 #define _PIMARMYCADRESSERVICE_H_
 
-#include "domain/dto/Pimarmycadres/PimarmycadresFindDTO.h"
-#include "domain/dto/Pimarmycadres/AddPimarmycadresDTO.h"
-#include "domain/dto/Pimarmycadres/DelPimarmycadresDTO.h"
-#include "domain/query/Pimarmycadres/PimarmycadresPageQuery.h"
-#include "domain/dto/Pimarmycadres/PimarmycadresIntoDTO.h"
-#include "domain/query/Pimarmycadres/PimarmycadresQuery.h"
+#include "domain/dto/pimarmycadres/PimarmycadresFindDTO.h"
+#include "domain/dto/pimarmycadres/AddPimarmycadresDTO.h"
+#include "domain/dto/pimarmycadres/DelPimarmycadresDTO.h"
+#include "domain/query/pimarmycadres/PimarmycadresPageQuery.h"
+#include "domain/dto/pimarmycadres/PimarmycadresIntoDTO.h"
+#include "domain/query/pimarmycadres/PimarmycadresQuery.h"
 //#include"D:\bigÏîÄ¿\zero-one-hrsys\hr-cpp\lib-oatpp\include\oatpp\web\server\api\ApiController.hpp"
 #include"../lib-oatpp/include/oatpp/web/server/api/ApiController.hpp"
 #include <oatpp/web/client/ApiClient.hpp>

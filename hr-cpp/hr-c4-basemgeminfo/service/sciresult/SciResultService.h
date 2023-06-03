@@ -2,11 +2,11 @@
 #ifndef _SCIRESULTSERVICE_H_
 #define _SCIRESULTSERVICE_H_
 #include <list>
-#include "domain/vo/SciResult/SciResultVO.h"
-#include "domain/query/SciResult/SciResultQuery.h"
-#include "domain/dto/SciResult/AddSciResultDTO.h"
-#include "domain/dto/SciResult/DelSciResultDTO.h"
-#include "domain/dto/SciResult/Add2SciResultDTO.h"
+#include "domain/vo/sciresult/SciResultVO.h"
+#include "domain/query/sciresult/SciResultQuery.h"
+#include "domain/dto/sciresult/AddSciResultDTO.h"
+#include "domain/dto/sciresult/DelSciResultDTO.h"
+#include "domain/dto/sciresult/Add2SciResultDTO.h"
 
 using namespace oatpp;
 

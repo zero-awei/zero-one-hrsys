@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "MilitaryController.h"
 #include "../../service/military/MilitaryService.h"
+#include <iostream>
 
 MilitaryJsonVO::Wrapper MilitaryController::execQueryMilitary(const MilitaryDetailQuery::Wrapper& query) {
 	// ÏìÓ¦½á¹û

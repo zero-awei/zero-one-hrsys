@@ -5,13 +5,13 @@
 #define _PIMARMYCADRESDAO_H_
 
 #include "BaseDAO.h"
-#include "domain/query/Pimarmycadres/PimarmycadresPageQuery.h"
-#include "domain/do/Pimarmycadres/PimarmycadresFindDO.h"
+#include "domain/query/pimarmycadres/PimarmycadresPageQuery.h"
+#include "domain/do/pimarmycadres/PimarmycadresFindDO.h"
 
 
-#include "../../domain/do/Pimarmycadres/AddPimarmycadresDO.h"
-#include "../../domain/query/Pimarmycadres/PimarmycadresQuery.h"
-#include "../../domain/do/Pimarmycadres/PimarmycadresDO.h"
+#include "../../domain/do/pimarmycadres/AddPimarmycadresDO.h"
+#include "../../domain/query/pimarmycadres/PimarmycadresQuery.h"
+#include "../../domain/do/pimarmycadres/PimarmycadresDO.h"
 
 class PimarmycadresDAO : public BaseDAO
 {

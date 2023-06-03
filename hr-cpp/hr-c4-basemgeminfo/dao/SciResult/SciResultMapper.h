@@ -21,7 +21,7 @@
 #ifndef _SCIRESULTMAPPER_H_
 #define _SCIRESULTMAPPER_H_
 #include "Mapper.h"
-#include "../../domain/do/SciResult/SciResultDO.h"
+#include "../../domain/do/sciresult/SciResultDO.h"
 
 class SciResultMapper : public Mapper<SciResultDO>
 {

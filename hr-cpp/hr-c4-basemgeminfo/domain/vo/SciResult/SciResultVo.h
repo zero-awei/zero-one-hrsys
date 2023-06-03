@@ -21,7 +21,7 @@
 #define _SAMPLE_VO_
 
 #include "../../GlobalInclude.h"
-#include "../../dto/SciResult/SciResultDTO.h"
+#include "../../dto/sciresult/SciResultDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 

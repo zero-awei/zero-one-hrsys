@@ -25,7 +25,6 @@
 #include "Macros.h"
 #include "domain/dto/PayloadDTO.h"
 
-
 using namespace oatpp;
 /**
  * µº»ÎRocketMQ

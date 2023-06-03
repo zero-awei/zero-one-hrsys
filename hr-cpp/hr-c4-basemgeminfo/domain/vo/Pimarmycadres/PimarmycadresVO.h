@@ -21,7 +21,7 @@
 #define _PIMARMYCADRESFINDVO_H_
 
 #include "../../GlobalInclude.h"
-#include "../../dto/Pimarmycadres/PimarmycadresFindDTO.h"
+#include "../../dto/pimarmycadres/PimarmycadresFindDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 

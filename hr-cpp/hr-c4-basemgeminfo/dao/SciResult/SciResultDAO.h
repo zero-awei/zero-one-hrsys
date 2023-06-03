@@ -20,8 +20,8 @@
 #ifndef _SCIRESULTDAO_H_
 #define _SCIRESULTDAO_H_
 #include "BaseDAO.h"
-#include "../../domain/do/SciResult/SciResultDO.h"
-#include "../../domain/query/SciResult/SciResultQuery.h"
+#include "../../domain/do/sciresult/SciResultDO.h"
+#include "../../domain/query/sciresult/SciResultQuery.h"
 
 class SciResultDAO : public BaseDAO
 {

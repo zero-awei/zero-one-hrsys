@@ -8,6 +8,13 @@
 #include "domain/do/work-history/WorkHistoryIntoDO.h"
 #include "SnowFlake.h"
 #include "SimpleDateTimeFormat.h"
+
+#ifdef LINUX
+#include "../../ServerInfo.h"
+#include "NacosClient.h"
+#include "YamlHelper.h"
+#endif
+
 #include "FastDfsClient.h"
 
 WorkHistoryDTO::Wrapper WorkHistoryService::listDetail(const WorkHistoryQuery::Wrapper& query)
@@ -126,8 +133,10 @@ bool WorkHistoryService::removeData(const DelWorkHistoryDTO::Wrapper& dto)
 uint64_t WorkHistoryService::saveManyData(const std::string fileName, const String& pimpersonid, const String& createName)
 {
 
-
+	
 #ifdef LINUX
+	// 下载链接前缀
+	std::string urlPrefix;
 	//定义客户端对象
 	// 定义一个Nacos客户端对象，用于获取配置
 	NacosClient ns(ServerInfo::getInstance().getNacosAddr(), ServerInfo::getInstance().getNacosNs());
@@ -199,7 +208,7 @@ uint64_t WorkHistoryService::saveManyData(const std::string fileName, const Stri
 		dao.insert(data);
 
 	}
-
+	return uint64_t(1);
 }
 
 std::string WorkHistoryService::exportData(const WorkHistoryExportQuery::Wrapper& query)
@@ -274,9 +283,10 @@ std::string WorkHistoryService::exportData(const WorkHistoryExportQuery::Wrapper
 	//fileBody.saveToFile(fileName.c_str());
 
 
-
+	std::string urlPrefix;
 	// 上传到FastDFS文件服务器
 #ifdef LINUX
+	
 	//定义客户端对象
 	// 定义一个Nacos客户端对象，用于获取配置
 	NacosClient ns(ServerInfo::getInstance().getNacosAddr(), ServerInfo::getInstance().getNacosNs());
@@ -288,6 +298,7 @@ std::string WorkHistoryService::exportData(const WorkHistoryExportQuery::Wrapper
 	// 定义客户端对象
 	FastDfsClient client(config, false);
 #else
+	urlPrefix = "http://192.168.80.129:8888/";
 	//定义客户端对象
 	FastDfsClient client("192.168.80.129");
 #endif
@@ -295,7 +306,7 @@ std::string WorkHistoryService::exportData(const WorkHistoryExportQuery::Wrapper
 	std::cout << "upload fieldname is : " << fieldName << std::endl;
 	ss.str("");
 	ss.clear();
-	ss << "http://192.168.80.129:8888/" << fieldName;
+	ss << urlPrefix << fieldName;
 
 
 	cout << ss.str() << endl;

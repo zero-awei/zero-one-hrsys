@@ -30,9 +30,6 @@
     <ClInclude Include="domain\GlobalInclude.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\OtherComponent.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="controller\Router.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -81,22 +78,22 @@
     <ClInclude Include="controller\SciResult\SciResultController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\SciResult\AddSciResultDTO.h">
+    <ClInclude Include="domain\dto\sciresult\AddSciResultDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\SciResult\DelSciResultDTO.h">
+    <ClInclude Include="domain\dto\sciresult\DelSciResultDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\SciResult\IntoSciResultDTO.h">
+    <ClInclude Include="domain\dto\sciresult\IntoSciResultDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\SciResult\SciResultDTO.h">
+    <ClInclude Include="domain\dto\sciresult\SciResultDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\SciResult\SciResultQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\SciResult\SciResultVo.h">
+    <ClInclude Include="domain\vo\SciResult\SciResultVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="controller\contract\ContractController.h">
@@ -114,7 +111,7 @@
     <ClInclude Include="domain\dto\contract\ContractDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\military\militaryDTO.h">
+    <ClInclude Include="domain\dto\military\MilitaryDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\contract\ContractQuery.h">
@@ -255,16 +252,16 @@
     <ClInclude Include="domain\do\scientific\Scientific.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\Pimarmycadres\AddPimarmycadresDTO.h">
+    <ClInclude Include="domain\dto\pimarmycadres\AddPimarmycadresDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\Pimarmycadres\DelPimarmycadresDTO.h">
+    <ClInclude Include="domain\dto\pimarmycadres\DelPimarmycadresDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\Pimarmycadres\PimarmycadresFindDTO.h">
+    <ClInclude Include="domain\dto\pimarmycadres\PimarmycadresFindDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\Pimarmycadres\PimarmycadresIntoDTO.h">
+    <ClInclude Include="domain\dto\pimarmycadres\PimarmycadresIntoDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\dto\PimarmycadresDTO\PimarmycadresDTO.h">
@@ -321,7 +318,7 @@
     <ClInclude Include="domain\do\SciResult\SciResultDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\SciResult\Add2SciResultDTO.h">
+    <ClInclude Include="domain\dto\sciresult\Add2SciResultDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresQuery.h">
@@ -370,6 +367,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="service\scientific\ScientificService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\work-history\ModWorkHistoryDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

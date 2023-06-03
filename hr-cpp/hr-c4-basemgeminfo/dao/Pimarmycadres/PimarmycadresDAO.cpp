@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "PimarmycadresDAO.h"
 #include "PimarmycadresMapper.h"
-#include "../hr-c4-basemgeminfo/domain/do/Pimarmycadres/PimarmycadresFindDO.h"
+#include "../hr-c4-basemgeminfo/domain/do/pimarmycadres/PimarmycadresFindDO.h"
 
 #define SAMPLE_TERAM_PARSE(query, sql) \
 SqlParams params; \

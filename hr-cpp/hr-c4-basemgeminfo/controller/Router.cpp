@@ -19,14 +19,14 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-#include "SciResult/SciResultController.h"
+#include "sciresult/SciResultController.h"
 #include "work-history/WorkHistoryController.h"
 #include "certificate-information/CertificateInformationController.h"
 #include"contract/ContractController.h"
 #include "jobtitle-information/JobTitleInformationController.h"
 #include"military/MilitaryController.h"
 #include "work-history/WorkHistoryController.h"
-#include "controller/Pimarmycadres/PimarmycadresController.h"
+#include "controller/pimarmycadres/PimarmycadresController.h"
 #include "controller/rewardandpunish/RewardAndPunishController.h"
 
 
@@ -58,9 +58,9 @@ Router::Router(Endpoints* docEndpoints, HttpRouter* router)
 
 void Router::initRouter()
 {
-#ifdef HTTP_SERVER_DEMO
-	createSampleRouter();
-#endif
+//#ifdef HTTP_SERVER_DEMO
+//	createSampleRouter();
+//#endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
 	ROUTER_SIMPLE_BIND(SciResultController);
@@ -90,17 +90,17 @@ void Router::initRouter()
 
 
 
-#ifdef HTTP_SERVER_DEMO
-void Router::createSampleRouter()
-{
-	// 绑定控制器
-	ROUTER_SIMPLE_BIND(CertificateInformationController);
-	// 绑定控制器
-	ROUTER_SIMPLE_BIND(JobTitleInformationController);
-	// 绑定控制器
-	ROUTER_SIMPLE_BIND(WorkHistoryController);
-
-	// 绑定WebSocket控制器
-	router->addController(WSContorller::createShared());
-}
-#endif
+//#ifdef HTTP_SERVER_DEMO
+//void Router::createSampleRouter()
+//{
+//	// 绑定控制器
+//	ROUTER_SIMPLE_BIND(CertificateInformationController);
+//	// 绑定控制器
+//	ROUTER_SIMPLE_BIND(JobTitleInformationController);
+//	// 绑定控制器
+//	ROUTER_SIMPLE_BIND(WorkHistoryController);
+//
+//	// 绑定WebSocket控制器
+//	router->addController(WSContorller::createShared());
+//}
+//#endif

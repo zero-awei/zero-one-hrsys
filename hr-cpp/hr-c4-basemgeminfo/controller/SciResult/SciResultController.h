@@ -22,13 +22,13 @@
 
 #include "domain/vo/BaseJsonVO.h"
 #include "ApiHelper.h"
-#include "domain/query/SciResult/SciResultQuery.h"
-#include "domain/vo/SciResult/SciResultVO.h"
-#include "domain/dto/SciResult/DelSciResultDTO.h"
-#include "domain/dto/SciResult/SciResultDTO.h"
-#include "domain/dto/SciResult/AddSciResultDTO.h"
-#include "domain/dto/SciResult/Add2SciResultDTO.h"
-#include "domain/dto/SciResult/IntoSciResultDTO.h"
+#include "domain/query/sciresult/SciResultQuery.h"
+#include "domain/vo/sciresult/SciResultVO.h"
+#include "domain/dto/sciresult/DelSciResultDTO.h"
+#include "domain/dto/sciresult/SciResultDTO.h"
+#include "domain/dto/sciresult/AddSciResultDTO.h"
+#include "domain/dto/sciresult/Add2SciResultDTO.h"
+#include "domain/dto/sciresult/IntoSciResultDTO.h"
 #include <oatpp-swagger/Types.hpp>
 #include OATPP_CODEGEN_BEGIN(ApiController) // 0
 

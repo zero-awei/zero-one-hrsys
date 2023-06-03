@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "ArchivesController.h"
-#include "../../service/Archives/ArchivesService.h"
+#include "../../service/archives/ArchivesService.h"
 
 ArchivesPageJsonVO::Wrapper ArchivesController::execQueryTest(const ArchivesQuery::Wrapper& query) {
 	// 定义一个Service

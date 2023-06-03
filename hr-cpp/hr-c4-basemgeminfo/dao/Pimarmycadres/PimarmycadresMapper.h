@@ -1,5 +1,5 @@
 #pragma once
-#include"../hr-c4-basemgeminfo/domain/do/Pimarmycadres/PimarmycadresDO.h"
+#include"../hr-c4-basemgeminfo/domain/do/pimarmycadres/PimarmycadresDO.h"
 
 
 class PimarmycadresMapper :public  Mapper<PimarmycadresFindDO> {

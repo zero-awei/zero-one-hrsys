@@ -50,7 +50,7 @@ void TestRocket::testRocket(const String& fileName, const String& pimpersonid, c
 	// 创建发送消息回调
 	cb = make_shared<RocketClient::RSendCallback>([](SendStatus staus)
 		{
-			std::cout << "RSendCallback send status: " << staus << endl;
+			//std::cout << "RSendCallback send status: " << staus << endl;
 		});
 	
 	// 测试开启订阅

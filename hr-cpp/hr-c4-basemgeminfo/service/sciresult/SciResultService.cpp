@@ -1,12 +1,12 @@
 #include "stdafx.h"
 #include "SciResultService.h"
-#include"../../dao/SciResult/SciResultDAO.h"
+#include"../../dao/sciresult/SciResultDAO.h"
 #include <SnowFlake.h>
 #include <SimpleDateTimeFormat.h>
 #include "ExcelComponent.h"
 #include "FastDfsClient.h"
 #include "CharsetConvertHepler.h"
-#include "domain/do/SciResult/SciResultDO.h"
+#include "domain/do/sciresult/SciResultDO.h"
 using namespace oatpp;
 SciResultPageDTO::Wrapper SciResultService::listAll(const SciResultQuery::Wrapper& query)
 {
@@ -151,5 +151,6 @@ uint64_t SciResultService::saveManyData(const String& fileBody, const oatpp::dat
 
 	}
 
+	return uint64_t(1);
 	//Ö´ÐÐÌí¼ÓÂß¼­
 }

@@ -8,7 +8,6 @@
 #include "domain/dto/work-history/WorkHistoryIntoDTO.h"
 #include "uselib/rocketmq/TestRocket.h"
 #include "../Router.h"
-#include "uselib/rocketmq/ExportRocket.h"
 
 
 WorkHistoryFindVO::Wrapper WorkHistoryController::execQueryPageWorkHistory(const WorkHistoryPageQuery::Wrapper& query)

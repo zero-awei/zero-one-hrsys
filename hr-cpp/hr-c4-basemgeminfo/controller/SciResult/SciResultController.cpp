@@ -18,7 +18,7 @@
 */
 #include "stdafx.h"
 #include "SciResultController.h"
-#include"../../service/SciResult/SciResultService.h"
+#include"../../service/sciresult/SciResultService.h"
 //≤È—Ø
 SciResultPageJsonVO::Wrapper SciResultController::execQueryTest(const SciResultQuery::Wrapper& query)
 {

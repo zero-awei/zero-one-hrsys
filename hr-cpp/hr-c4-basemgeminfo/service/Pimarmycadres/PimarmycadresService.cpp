@@ -1,12 +1,12 @@
 
 #include "stdafx.h"
 #include "PimarmycadresService.h"
-#include "dao/Pimarmycadres/PimarmycadresDAO.h"
-#include "domain/do/Pimarmycadres/DelPimarmycadresDO.h"
-#include "domain/do/Pimarmycadres/AddPimarmycadresDO.h"
+#include "dao/pimarmycadres/PimarmycadresDAO.h"
+#include "domain/do/pimarmycadres/DelPimarmycadresDO.h"
+#include "domain/do/pimarmycadres/AddPimarmycadresDO.h"
 #include "ExcelComponent.h"
 #include "CharsetConvertHepler.h"
-#include "domain/do/Pimarmycadres/PimarmycadresIntoDO.h"
+#include "domain/do/pimarmycadres/PimarmycadresIntoDO.h"
 #include "SnowFlake.h"
 #include "SimpleDateTimeFormat.h"
 #include "FastDfsClient.h"
@@ -79,7 +79,7 @@ uint64_t PimarmycadresService::saveManyData(const oatpp::String& fileBody, const
 		dao.insert(data);
 
 	}
-
+	return uint64_t(1);
 	//Ö´ÐÐÌí¼ÓÂß¼­
 }
 
