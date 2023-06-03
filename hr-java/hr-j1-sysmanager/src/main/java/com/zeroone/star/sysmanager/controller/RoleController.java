@@ -5,7 +5,6 @@ import com.zeroone.star.project.sysmanager.RoleApis;
 import com.zeroone.star.project.vo.JsonVO;
 import com.zeroone.star.sysmanager.service.IRoleService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
@@ -55,7 +54,8 @@ public class RoleController implements RoleApis {
     public JsonVO<Boolean> addOneRole(RoleDTO dto) {
         if (dto.getId()==null&& dto.getDescription()==null&&
             dto.getName()==null&&
-            dto.getKeyword()==null){
+            dto.getKeyword()==null&& dto.getCreator()==null
+            ){
             return  JsonVO.fail(false);
 
         }

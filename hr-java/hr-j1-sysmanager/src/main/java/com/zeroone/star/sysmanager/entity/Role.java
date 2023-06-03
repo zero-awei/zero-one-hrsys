@@ -1,10 +1,13 @@
 package com.zeroone.star.sysmanager.entity;
 
+import com.alibaba.excel.annotation.format.DateTimeFormat;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.util.Date;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -49,6 +52,16 @@ public class Role implements Serializable {
      * 是否启用
      */
     private Integer isEnable;
+    /**
+     * 创建人
+     */
+    private String creator;
+
+    /**
+     * 创建时间
+     */
+
+    private Date createTime;
 
 
 }
