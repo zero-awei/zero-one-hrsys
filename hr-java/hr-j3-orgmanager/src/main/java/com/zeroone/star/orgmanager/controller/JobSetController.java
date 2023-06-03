@@ -100,8 +100,15 @@ public class JobSetController implements JobSetApis {
         if (fastDfsFileInfo == null) {
             return JsonVO.fail(null);
         }
+
+        //调用service执行逻辑
+
+        service.importExcelData(fastDfsFileInfo);
+
+
+
         // 返回下载地址
-        return JsonVO.success(fastDfsClientComponent.fetchUrl(fastDfsFileInfo, "http://" + fileServerUrl, true));
+        return JsonVO.success("导入成功");
     }
 
     @GetMapping("queryJobList")

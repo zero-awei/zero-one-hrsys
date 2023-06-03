@@ -2,6 +2,7 @@ package com.zeroone.star.orgmanager.service;
 
 import com.zeroone.star.orgmanager.entity.TOrmduty;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
 
 /**
  * <p>
@@ -12,5 +13,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2023-05-25
  */
 public interface ITOrmdutyService extends IService<TOrmduty> {
+
+    void importExcelData(FastDfsFileInfo fastDfsFileInfo) throws Exception;
 
 }
