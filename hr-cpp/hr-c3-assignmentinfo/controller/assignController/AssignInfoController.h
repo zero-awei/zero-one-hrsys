@@ -104,6 +104,7 @@ public:
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		//API_DEF_ADD_QUERY_PARAMS(String, "assignId", ZH_WORDS_GETTER("employee.t_pimperson.assignId"), "", true);
 	}
 	// 3.2 定义删除接口处理
 	ENDPOINT(API_M_DEL, "/delete-assign-info", deleteAssignInfo, API_HANDLER_AUTH_PARAME, BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
