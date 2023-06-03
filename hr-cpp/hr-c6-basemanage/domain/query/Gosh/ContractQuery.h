@@ -93,6 +93,11 @@ class ContractQuery : public PageQuery
 	DTO_FIELD_INFO(tip) {
 		info->description = ZH_WORDS_GETTER("contract.field.tip");
 	}
+	//ÅÐ¶ÏÊÇ·ñÑ¡ÔñÁÐ
+	DTO_FIELD(String, row_show);
+	DTO_FIELD_INFO(row_show) {
+		info->description = ZH_WORDS_GETTER("contract.field.row_show");
+	}
 };
 
 #include OATPP_CODEGEN_END(DTO)

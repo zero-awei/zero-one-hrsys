@@ -56,32 +56,36 @@ public:
 		API_DEF_ADD_PAGE_PARAMS();
 		//过滤参数描述
 		//1.员工编号
-		info->queryParams.add<String>("personid").description = API_INIT_PERSONID_DESC;
+		info->queryParams.add<String>("personid").description = ZH_WORDS_GETTER("contract_gosh.field.personid");
+		//ZH_WORDS_GETTER("person_gosh.get.summary");
 		info->queryParams["personid"].required = false;
 		//2.员工姓名
-		info->queryParams.add<String>("name").description = API_INIT_PERSON_DESC;
+		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("contract_gosh.field.name");
 		info->queryParams["name"].required = false;
 		//3、员工状态
-		info->queryParams.add<String>("person_condition").description = API_INIT_PERSONCONDITION_DESC;
+		info->queryParams.add<String>("person_condition").description = ZH_WORDS_GETTER("contract_gosh.field.person_condition");
 		info->queryParams["person_condition"].required = false;
 		//4、合同编号
-		info->queryParams.add<String>("id").description = API_INIT_CONTRACTID_DESC;
+		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("contract_gosh.field.id");
 		info->queryParams["id"].required = false;
 		//5、合同类别
-		info->queryParams.add<String>("type").description = API_INIT_CONTRACTIDTYPE_DESC;
+		info->queryParams.add<String>("type").description = ZH_WORDS_GETTER("contract_gosh.field.type");
 		info->queryParams["type"].required = false;
 		//6、合同状态
-		info->queryParams.add<String>("condition").description = API_INIT_CONTRACTCONDITION_DESC;
+		info->queryParams.add<String>("condition").description = ZH_WORDS_GETTER("contract_gosh.field.condition");
 		info->queryParams["condition"].required = false;
 		//7、起始日期
-		info->queryParams.add<String>("date").description = API_INIT_DATESTART_DESC;
+		info->queryParams.add<String>("date").description = ZH_WORDS_GETTER("contract_gosh.field.date");
 		info->queryParams["date"].required = false;
 		//8、结束日期
-		info->queryParams.add<String>("date_over").description = API_INIT_DATEEND_DESC;
+		info->queryParams.add<String>("date_over").description = ZH_WORDS_GETTER("contract_gosh.field.date_over");
 		info->queryParams["date_over"].required = false;
 		//9、合同类型
-		info->queryParams.add<String>("variety").description = API_INIT_CONTRACTVARIETY_DESC;
+		info->queryParams.add<String>("variety").description = ZH_WORDS_GETTER("contract_gosh.field.variety");
 		info->queryParams["variety"].required = false;
+		//--------------------------------------------------------------------选择显示字段列
+		API_DEF_SHOW_PAGE_PARAMS();
+		
 	}
 	 //3.2 定义查询合同接口端点
 	ENDPOINT(API_M_GET, "/contract-management/query-contract", queryContract, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
@@ -99,9 +103,10 @@ public:
 		// 定义响应参数类型
 		API_DEF_ADD_RSP_JSON_WRAPPER(ContractPageJsonVO);
 		// 定义分页查询参数描述
-		info->queryParams.add<String>("name").description = API_INIT_PERSON_DESC;
+		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("contract_gosh.field.name");
 		info->queryParams["name"].addExample("default", String("li ming"));
 		info->queryParams["name"].required = true;
+		API_DEF_SHOW_PAGE_PARAMS();
 	}
 	//3.2 定义查询个人信息接口处理
 	ENDPOINT(API_M_GET, "/contract-management/query-person", queryPerson, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams, qps)) {
