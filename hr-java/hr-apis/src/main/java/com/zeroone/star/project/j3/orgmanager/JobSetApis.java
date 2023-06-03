@@ -63,11 +63,12 @@ public interface JobSetApis {
 
     /**
      * 修改所选若干个职务
-     * @param ormdutyid 职务标识id
-     * @param jobTitleDTO  修改职务信息传输对象
+     *
+     * @param ormdutyid   职务标识id
+     * @param jobTitleDTO 修改职务信息传输对象
      * @return
      */
-    JsonVO<Boolean> modifyJobTitle(String ormdutyid,JobTitleDTO jobTitleDTO);
+    JsonVO<Boolean> modifyJobTitle(String ormdutyid, JobTitleDTO jobTitleDTO);
 
 
     /**
@@ -87,11 +88,13 @@ public interface JobSetApis {
     @PostMapping("add-position")
     @ApiOperation("批量职务组织信息(支持批量)/前端传送多个请求")
     JsonVO<Boolean> AddPosition(@RequestBody JobTitleDTO jobTitleDTO);
-/**
- *  导出组织（导出本页在前端完成）
- * @return {@link com.zeroone.star.project.vo.JsonVO<com.zeroone.star.project.j3.dto.ExportDTO>}
- * @Author H_lzu
- * @Date 16:27 2023/5/24
- */
+
+    /**
+     * 导出组织（导出本页在前端完成）
+     *
+     * @return {@link com.zeroone.star.project.vo.JsonVO<com.zeroone.star.project.j3.dto.ExportDTO>}
+     * @Author H_lzu
+     * @Date 16:27 2023/5/24
+     */
     JsonVO<ExportDTO> exportAllOrgs();
 }

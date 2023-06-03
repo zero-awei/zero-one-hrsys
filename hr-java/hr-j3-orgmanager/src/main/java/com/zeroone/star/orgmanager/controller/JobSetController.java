@@ -188,8 +188,7 @@ public class JobSetController implements JobSetApis {
         return res ? JsonVO.success(res) : JsonVO.fail(res);
     }
 
-    @PostMapping("add-position")
-    @ApiOperation("批量新增组织信息(支持批量)")
+
     @PostMapping ("add-position")
     @ApiOperation("批量新增职务信息(支持批量)")
     @Override
@@ -205,6 +204,11 @@ public class JobSetController implements JobSetApis {
         tOrmduty.setUpdateman("1944DE89-8E28-4D10-812C-CAEEAAE8A927");
         boolean res = itOrmdutyService.save(tOrmduty);
         return res? JsonVO.success(res) : JsonVO.fail(res);
+    }
+
+    @Override
+    public JsonVO<ExportDTO> exportAllOrgs() {
+        return null;
     }
 
 

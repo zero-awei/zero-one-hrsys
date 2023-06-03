@@ -1,6 +1,7 @@
 package com.zeroone.star.common.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.zeroone.star.common.entity.TOrmduty;
 import com.zeroone.star.common.entity.TOrmpost;
 import com.zeroone.star.common.mapper.TOrmpostMapper;
 import com.zeroone.star.common.service.ITOrmpostService;
@@ -51,4 +52,5 @@ public class TOrmpostServiceImpl extends ServiceImpl<TOrmpostMapper, TOrmpost> i
 		}
 		return postList;
 	}
+
 }
