@@ -1,5 +1,10 @@
 package com.zeroone.star.common.controller;
 
+import com.zeroone.star.common.service.ITOrmdutyService;
+import com.zeroone.star.common.service.ITPimlanguageabilityService;
+import com.zeroone.star.common.service.ITSrfcodeitemService;
+import com.zeroone.star.common.service.ITSrforgsectorService;
+import com.zeroone.star.common.service.impl.TOrmpostServiceImpl;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.common.CommonApis;
 import com.zeroone.star.project.j3.dto.DropdownListDTO;
@@ -10,6 +15,7 @@ import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,9 +39,12 @@ import java.util.List;
 @RequestMapping("common")
 @Api(tags = "通用接口")
 public class CommonController implements CommonApis {
-    @Autowired
+    @Resource
     TOrmpostServiceImpl tOrmpostService;
-
+    @Resource
+    ITOrmdutyService tOrmdutyService;
+    @Resource
+    ITPimlanguageabilityService languageabilityService;
     @Resource
     private ITSrforgsectorService itSrforgsectorService;
     @Resource
@@ -76,7 +85,6 @@ public class CommonController implements CommonApis {
     public JsonVO<List<DropdownListOptionDTO>> queryTypeofMilitaryTransfer() {
         return JsonVO.success(TSrfcodeitemService.listDistributionStatus("军转类型"));
     }
-
 
 
     @GetMapping("query-distribution-form")
@@ -168,6 +176,7 @@ public class CommonController implements CommonApis {
     public JsonVO<List<DropdownListOptionDTO>> queryAllocation() {
         return JsonVO.success(TSrfcodeitemService.listDistributionStatus("分配类型"));
     }
+
     @GetMapping("query-language-type")
     @ApiOperation("语种类型下拉列表")
     public JsonVO<List<String>> queryLanguageType() {

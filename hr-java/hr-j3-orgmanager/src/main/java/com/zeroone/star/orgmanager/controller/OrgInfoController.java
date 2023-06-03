@@ -47,13 +47,12 @@ import java.util.List;
 @RequestMapping("orginfo")
 @Api(tags = "组织信息管理")
 public class OrgInfoController implements OrgInfoApis {
-    @Autowired
-    ITSrforgService itSrforgService;
-    @Autowired
-    ITOrmorgdzService ormorgdzService;
-
     @Resource
     ITSrforgService itSrforgService;
+    @Resource
+    ITOrmorgdzService ormorgdzService;
+
+
 
     @DeleteMapping("remove-org-address")
     @ApiOperation("删除组织地址")

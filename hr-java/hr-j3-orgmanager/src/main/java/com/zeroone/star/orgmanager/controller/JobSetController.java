@@ -1,5 +1,11 @@
 package com.zeroone.star.orgmanager.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.zeroone.star.orgmanager.entity.TOrmduty;
+import com.zeroone.star.orgmanager.mapper.TOrmdutyMapper;
+import com.zeroone.star.orgmanager.service.ITOrmdutyService;
+import com.zeroone.star.project.components.easyexcel.EasyExcelComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsClientComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
 import com.zeroone.star.project.dto.DataTransCallBack;
@@ -61,8 +67,7 @@ public class JobSetController implements JobSetApis {
     TOrmdutyMapper tOrmdutyMapper;
     @Resource
     private FastDfsClientComponent fastDfsClientComponent;
-    @Resource
-    private ITOrmdutyService itOrmdutyService;
+
 
     @Value("${fastdfs.nginx-servers}")
     private String fileServerUrl;
