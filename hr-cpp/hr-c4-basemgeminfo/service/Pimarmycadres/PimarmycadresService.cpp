@@ -1,4 +1,3 @@
-
 #include "stdafx.h"
 #include "PimarmycadresService.h"
 #include "dao/Pimarmycadres/PimarmycadresDAO.h"
@@ -11,35 +10,25 @@
 #include "SimpleDateTimeFormat.h"
 #include "FastDfsClient.h"
 
-uint64_t PimarmycadresService::saveManyData(const oatpp::String& fileBody, const oatpp::String& suffix, const oatpp::String& pimpersonid)
+
+uint64_t PimarmycadresService::saveManyData(const std::string fileName, const oatpp::String& pimpersonid, const oatpp::String& createName)
 {
-	// 根据时间戳生成一个临时文件名称
-	std::stringstream ss;
-	ss << "public/static/Excel/";
+	FastDfsClient client("8.130.87.15");
 
-	// 计算时间戳
-	auto now = std::chrono::system_clock::now();
-	auto tm_t = std::chrono::system_clock::to_time_t(now);
-	ss << std::put_time(std::localtime(&tm_t), "%Y%m%d%H%M%S");
-	// 获取毫秒
-	auto tSeconds = std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch());
-	auto tMilli = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
-	auto ms = tMilli - tSeconds;
-	ss << std::setfill('0') << std::setw(3) << ms.count();
-	// 拼接后缀名
-	ss << suffix.getValue("");
-
-	// 临时文件名称
-	std::string fileName = ss.str();
-	// 保存文件到临时目录
-	fileBody.saveToFile(fileName.c_str());
+	string name;
+	if (!fileName.empty())
+	{
+		std::string path = "";
+		name = client.downloadFile(fileName,&path );
+		std::cout << "download savepath is : " << name << std::endl;
+	}
 
 	// 保存到文件
 	ExcelComponent excel;
 
-	std::string sheetName = CharsetConvertHepler::ansiToUtf8("工作履历表");
+	std::string sheetName = CharsetConvertHepler::ansiToUtf8("军转干部表");
 	// 从文件中读取
-	auto readData = excel.readIntoVector(fileName, sheetName);
+	auto readData = excel.readIntoVector(name, sheetName);
 
 	PimarmycadresDAO dao;
 
@@ -66,21 +55,23 @@ uint64_t PimarmycadresService::saveManyData(const oatpp::String& fileBody, const
 			continue;
 		}
 		AddPimarmycadresDO data(row);
-		//记录id
+		//雪花算法生产id
 		data.setpIMARMYCADRESID(to_string(sf.nextId()));
 
-		//人员id
 		data.setpIMID(pimpersonid);
-
 		//更新时间
 		SimpleDateTimeFormat times;
+		data.setcREATEDATE(times.format());
+		data.setuPDATEDATE(times.format());
+		data.setcREATEMAN(createName);
+		data.setuPDATEMAN(createName);
 
 		//插入数据
 		dao.insert(data);
 
 	}
 
-	//执行添加逻辑
+
 }
 
 PimarmycadresDTO::Wrapper PimarmycadresService::listDetail(const PimarmycadresQuery::Wrapper& query)
@@ -145,12 +136,14 @@ PimarmycadresFindPageDTO::Wrapper PimarmycadresService::listAll(const Pimarmycad
 			annexPath, aNNEXPATH);
 
 		pages->addData(dto);
-
+		dto.getPtr().get()->annexPath;
 	}
+	
+
 	return pages;
 }
 
-uint64_t PimarmycadresService::saveData(const AddPimarmycadresDTO::Wrapper& dto)
+uint64_t PimarmycadresService::saveData(const AddPimarmycadresDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	// 组装DO数据
 	AddPimarmycadresDO data;
@@ -165,8 +158,19 @@ uint64_t PimarmycadresService::saveData(const AddPimarmycadresDTO::Wrapper& dto)
 		pIMARMYCADRESID,pimarmycadresid)
 		// 执行数据添加
 		PimarmycadresDAO dao;
+	SnowFlake sf(1, 4);
+	SimpleDateTimeFormat times;
+	data.setpIMARMYCADRESID(to_string(sf.nextId()));
+
+	data.setcREATEMAN(payload.getUsername());
+	data.setuPDATEMAN(payload.getUsername());
+	data.setcREATEDATE(times.format());
+	data.setuPDATEDATE(times.format());
+
+		
 	return dao.insert(data);
 }
+
 
 bool PimarmycadresService::removeData(const DelPimarmycadresDTO::Wrapper& dto)
 {

@@ -66,7 +66,7 @@ std::list<WorkHistoryFindDO> WorkHistoryDAO::selectWithPage(const WorkHistoryPag
 	SAMPLE_TERAM_PARSE(query, sql);
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
 	WorkHistoryPageMapper mapper;
-	std::string sqlStr = sql.str();
+	std::string sqlStr = sql.str();	
 	return sqlSession->executeQuery<WorkHistoryFindDO, WorkHistoryPageMapper>(sqlStr, mapper, params);
 }
 

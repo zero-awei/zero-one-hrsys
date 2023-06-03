@@ -227,7 +227,8 @@ pimarmycadres:
   summary: 批量删除军转干部信息
  post:
   summary: 新增一条数据
-
+ file: 
+  summary: 导入文件
  field:
   list<pimarmycardesid>: 批量删除
   pimarmycadresid: 军转干部信息

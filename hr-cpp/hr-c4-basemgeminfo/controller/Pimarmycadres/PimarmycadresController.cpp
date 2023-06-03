@@ -3,22 +3,24 @@
 #include "ExcelComponent.h"
 #include "CharsetConvertHepler.h"
 #include "FastDfsClient.h"
-
-
+#include "service/Pimarmycadres/PimarmycadresService.h"
+#include "uselib/rocketmq/TestRocket.h"
 
 PimarmycadresFindVO::Wrapper PimarmycadresController::execQueryPimarmycadres(const PimarmycadresPageQuery::Wrapper& query)
 {
 	auto vo = PimarmycadresFindVO::createShared();
 
 	auto pdto = PimarmycadresFindPageDTO::createShared();
-
+	PimarmycadresService service;
+	pdto = service.listAll(query);
 	vo->success(pdto);
 
 	return vo;
 
 }
 
-Uint64JsonVO::Wrapper PimarmycadresController::execAddPimarmycadres(const AddPimarmycadresDTO::Wrapper& dto)
+
+Uint64JsonVO::Wrapper PimarmycadresController::execAddPimarmycadres(const AddPimarmycadresDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	auto jvo = Uint64JsonVO::createShared();
 
@@ -28,8 +30,13 @@ Uint64JsonVO::Wrapper PimarmycadresController::execAddPimarmycadres(const AddPim
 	}
 	jvo->success(1);
 
+
+	PimarmycadresService service;
+	uint64_t id = service.saveData(dto, payload);
+
 	return jvo;
 }
+
 
 Uint64JsonVO::Wrapper PimarmycadresController::execDelPimarmycadres(const DelPimarmycadresDTO::Wrapper& dto)
 {
@@ -54,13 +61,32 @@ Uint64JsonVO::Wrapper PimarmycadresController::execDelPimarmycadres(const DelPim
 		}
 	}
 
-	jvo->success(1);
+	PimarmycadresService service;
+	if (service.removeData(dto))
+	{
+		jvo->success(1);
+	}
+	else
+	{
+		jvo->fail(1);
+	}
 
 	return jvo;
 }
 
-StringJsonVO::Wrapper PimarmycadresController::execIntoPimarmycadres(const String body, const String suffix)
+
+StringJsonVO::Wrapper PimarmycadresController::execIntoPimarmycadres(const String& body, const String& suffix,const String& pimpersonid,const PayloadDTO& payload)
 {
+	auto jvo = StringJsonVO::createShared();
+	if (!pimpersonid || !body || !suffix)
+	{
+		jvo->fail("导入失败,文件为空");
+	}
+	if (pimpersonid->empty() || body->empty() || suffix->empty())
+	{
+		jvo->fail("导入失败,没有数据");
+	}
+
 	// 根据时间戳生成一个临时文件名称
 	std::stringstream ss;
 	ss << "public/static/Excel/";
@@ -75,44 +101,34 @@ StringJsonVO::Wrapper PimarmycadresController::execIntoPimarmycadres(const Strin
 	auto ms = tMilli - tSeconds;
 	ss << std::setfill('0') << std::setw(3) << ms.count();
 	// 拼接后缀名
-	ss << suffix.getValue("");
+	ss <<"." << suffix.getValue("");
 
 	// 临时文件名称
 	std::string fileName = ss.str();
 	// 保存文件到临时目录
 	body.saveToFile(fileName.c_str());
 
+	// 上传到FastDFS文件服务器
+#ifdef LINUX
+	//定义客户端对象
+	FastDfsClient client("conf/client.conf", 3);
+#else
+	//定义客户端对象
+	FastDfsClient client("8.130.87.15");
+#endif
+	std::string fieldName = client.uploadFile(fileName);
+	std::cout << "upload fieldname is : " << fieldName << std::endl;
+	ss.str("");
+	ss.clear();
+	ss << "http://8.130.87.15:8888/" << fieldName;
 
-	// 保存到文件
-	ExcelComponent excel;
+	cout << ss.str() << endl;
 
-	auto jvo = StringJsonVO::createShared();
-	std::string sheetName = CharsetConvertHepler::ansiToUtf8("军转干部");
-	// 从文件中读取
-	auto readData = excel.readIntoVector(fileName, sheetName);
-	for (auto row : readData)
-	{
-		//判断文件中是否有数据
-		for (int j = 0; j < row.size(); ++j)
-		{
-			if (row[j].empty())
-			{
-				jvo->fail("文件不存在");
-				return jvo;
-			}
-			cout << CharsetConvertHepler::utf8ToAnsi(row[j]) << "   ";
-		}
-		cout << endl;
-
-
-		//添加数据到dto中
-
-
-
-	}
+	//TestRocket::getInstance().testRocket(fieldName, pimpersonid, payload);
 
 	//执行添加逻辑
-
+	PimarmycadresService service;
+	service.saveManyData(fileName, pimpersonid,payload.getUsername());
 
 
 	jvo->success("文件导入成功");

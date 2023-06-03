@@ -36,6 +36,15 @@
 #include <boost/throw_exception.hpp>
 #include <boost/throw_exception.hpp>
 
+#include "ServerInfo.h"
+
+#include "domain/query/Pimarmycadres/PimarmycadresQuery.h"
+//#include "domain/dto/Pimarmycadres/ModPimarmycadresDTO.h"
+//#include "domain/vo/Pimarmycadres/ModPimarmycadresVO.h"
+#include "domain/vo/Pimarmycadres/PimarmycadresVO.h"
+#include "domain/dto/Pimarmycadres/PimarmycadresIntoDTO.h"
+
+
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
@@ -67,6 +76,8 @@ public: // 定义接口
 		API_HANDLER_QUERY_PARAM(query, PimarmycadresPageQuery, qps);
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryPimarmycadres(query));
+		
+		
 		//PimarmycadresFindVO::Wrapper execQueryPimarmycadres(const PimarmycadresPageQuery::Wrapper & query);
 	}
 
@@ -74,13 +85,14 @@ public: // 定义接口
 	ENDPOINT_INFO(addPimarmycadres) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("pimarmycadres.post.summary");
+		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 定义新增接口处理
-	ENDPOINT(API_M_POST, "/Pimarmycadres/add", addPimarmycadres, BODY_DTO(AddPimarmycadresDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/Pimarmycadres/add", addPimarmycadres, API_HANDLER_AUTH_PARAME, BODY_DTO(AddPimarmycadresDTO::Wrapper, dto)) {
 		// 响应结果
-		API_HANDLER_RESP_VO(execAddPimarmycadres(dto));
+		API_HANDLER_RESP_VO(execAddPimarmycadres(dto, authObject->getPayload()));
 	}
 
 	// 定义批量删除接口描述
@@ -98,16 +110,19 @@ public: // 定义接口
 
 	// 定义一个单文件导入接口
 	ENDPOINT_INFO(postFile) {
+		API_DEF_ADD_AUTH();
 		info->summary = ZH_WORDS_GETTER("pimarmycadres.file.summary");
 		info->addConsumes<oatpp::swagger::Binary>("application/octet-stream");
 		API_DEF_ADD_RSP_JSON(StringJsonVO::Wrapper);
-		info->queryParams["suffix"].description = ZH_WORDS_GETTER("pimarmycadres.file.suffix");
-		info->queryParams["suffix"].addExample("xlsx", String(".xlsx"));
+		info->queryParams.add<String>("pimpersonid").description = ZH_WORDS_GETTER("pimarmycadres.field.pimpersonid");
+		info->queryParams["pimpersonid"].addExample("default", String("1002"));
+		/*info->queryParams["suffix"].description = ZH_WORDS_GETTER("pimarmycadres.file.suffix");
+		info->queryParams["suffix"].addExample("xlsx", String(".xlsx"));*/
 	}
 	// 定义文件上传端点处理
-	ENDPOINT(API_M_POST, "/pimarmycadres/file", postFile, BODY_STRING(String, body), QUERY(String, suffix)) {
+	ENDPOINT(API_M_POST, "/pimarmycadres/file", postFile, API_HANDLER_AUTH_PARAME, BODY_STRING(String, body), QUERY(String, suffix), QUERY(String, pimpersonid)) {
 		// 执行文件保存逻辑
-		API_HANDLER_RESP_VO(execIntoPimarmycadres(body, suffix));
+		API_HANDLER_RESP_VO(execIntoPimarmycadres(body, suffix,pimpersonid,authObject->getPayload()));
 	}
 
 private:
@@ -116,13 +131,14 @@ private:
 	PimarmycadresFindVO::Wrapper execQueryPimarmycadres(const PimarmycadresPageQuery::Wrapper& query);
 
 	//定义增加执行函数
-	Uint64JsonVO::Wrapper execAddPimarmycadres(const AddPimarmycadresDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execAddPimarmycadres(const AddPimarmycadresDTO::Wrapper& dto, const PayloadDTO& payload);
 
 	//定义删除执行函数
 	Uint64JsonVO::Wrapper execDelPimarmycadres(const DelPimarmycadresDTO::Wrapper& dto);
 
 	//定义导入执行函数
-	StringJsonVO::Wrapper execIntoPimarmycadres(const String body, const String suffix);
+	StringJsonVO::Wrapper execIntoPimarmycadres(const String& body, const String& suffix,const String& pimpersonid, const PayloadDTO& payload);
+
 
 };
 

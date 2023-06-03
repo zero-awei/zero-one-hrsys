@@ -19,6 +19,19 @@ class AddPimarmycadresDO {
 	//军转干部记录id
 	CC_SYNTHESIZE(string, PIMARMYCADRESID,pIMARMYCADRESID);
 
+
+	//创建人
+	CC_SYNTHESIZE(std::string, CREATEMAN, cREATEMAN);
+
+	//更新人
+	CC_SYNTHESIZE(std::string, UPDATEMAN, uPDATEMAN);
+
+	//创建时间
+	CC_SYNTHESIZE(std::string, CREATEDATE, cREATEDATE);
+
+	//更新时间
+	CC_SYNTHESIZE(std::string, UPDATEDATE, uPDATEDATE);
+
 	AddPimarmycadresDO() = default;
 
 	AddPimarmycadresDO(std::vector<std::string> vec) {
