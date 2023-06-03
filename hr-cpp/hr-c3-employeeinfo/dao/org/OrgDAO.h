@@ -20,9 +20,8 @@
 #ifndef _Org_DAO_
 #define _Org_DAO_
 #include "BaseDAO.h"
-#include "../../domain/do/org/OrgDO.h"
-#include "../../domain/query/orgquery/RootOrgQuery.h"
-#include "../../domain/query/orgquery/ValidOrgQuery.h"
+#include "../../domain/do/org/OrgTreeDO.h"
+#include "../../dao/org/OrgTreeMapper.h"
 
 /**
  * 示例表数据库操作实现
@@ -31,8 +30,10 @@ class OrgDAO : public BaseDAO
 {
 public:
     // 查询根组织数据
-    list<OrgDO> selectRootOrg(const RootOrgQuery::Wrapper &query, string userId);
+    list<OrgTreeDO> selectRootOrg(const string &userId);
     // 查询某个父组织下面的组织
-    list<OrgDO> selectValidOrg(const ValidOrgQuery::Wrapper &query); 
+    list<OrgTreeDO> selectValidOrg(const string& parentId); 
+
+    list<OrgTreeDO> selectOrgSector(const string& parentId); 
 };
 #endif // !_Org_DAO_

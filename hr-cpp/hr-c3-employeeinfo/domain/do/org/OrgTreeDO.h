@@ -3,7 +3,7 @@
  Copyright Zero One Star. All rights reserved.
 
  @Author: J1senn
- @Date: 2022/10/25 14:21:55
+ @Date: 2023/02/17 16:25:30
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,27 +17,24 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _ORGSECTOR_MAPPER_
-#define _ORGSECTOR_MAPPER_
+#ifndef _ORGTREEDO_H_
+#define _ORGTREEDO_H_
 
-#include "Mapper.h"
-#include "../../domain/do/org/OrgSectorDO.h"
-
-/**
- * 示例表字段匹配映射
- */
-class OrgSectorMapper : public Mapper<OrgSectorDO>
+#include "../DoInclude.h"
+class OrgTreeDO
 {
+	// 根组织ID
+	CC_SYNTHESIZE(string, orgtype, OrgType);
+    // 组织名字
+	CC_SYNTHESIZE(string, orgname, OrgName);
+    // 组织id
+	CC_SYNTHESIZE(string, orgid, OrgID);
+    // 父组织名字
+	// CC_SYNTHESIZE(string, porgname, Porgname);
+    // 父组织id
+	CC_SYNTHESIZE(string, porgid, PorgID);
 public:
-	OrgSectorDO mapper(ResultSet* resultSet) const override
-	{
-		OrgSectorDO data;
-		data.setOrgSectorID(resultSet->getString(1));
-		data.setOrgSectorName(resultSet->getString(2));
-		data.setOrgID(resultSet->getString(3));
-		data.setOrgName(resultSet->getString(4));
-		return data;
-	}
+	OrgTreeDO() {}
 };
 
-#endif // !_ORGSECTOR_MAPPER_
+#endif // !_ORGTREEDO_H_
