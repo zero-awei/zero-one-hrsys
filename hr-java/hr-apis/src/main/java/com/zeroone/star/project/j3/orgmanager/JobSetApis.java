@@ -1,15 +1,16 @@
 package com.zeroone.star.project.j3.orgmanager;
 
 import com.zeroone.star.project.dto.PageDTO;
-import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.dto.*;
 
 import com.zeroone.star.project.dto.sample.SampleDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.JobTitleDTO;
 import com.zeroone.star.project.j3.query.JobByNameQuery;
+import com.zeroone.star.project.query.PageQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -52,19 +53,21 @@ public interface JobSetApis {
 
 
     /**
-     * 查询职务列表
+     * 分页查询职务列表
      *
      * @return
      */
-    public JsonVO<PageDTO<JobTitleDTO>> queryJobTitleList();
+    @GetMapping("queryJobList")
+    @ApiOperation("查询职务")
+    JsonVO<PageDTO<JobTitleDTO>> queryJobTitleList(PageQuery pageQuery);
 
     /**
      * 修改所选若干个职务
-     *
-     * @param jobTitleDTOList
+     * @param ormdutyid 职务标识id
+     * @param jobTitleDTO  修改职务信息传输对象
      * @return
      */
-    public JsonVO<Boolean> modifyJobTitle(List<JobTitleDTO> jobTitleDTOList);
+    JsonVO<Boolean> modifyJobTitle(String ormdutyid,JobTitleDTO jobTitleDTO);
 
 
     /**
@@ -78,11 +81,17 @@ public interface JobSetApis {
 
 
     @DeleteMapping("delete-position")
-    @ApiOperation("删除组织信息(支持批量)")
+    @ApiOperation("删除职务信息(支持批量)")
     JsonVO<Boolean> DeletePosition(@RequestBody DeletePositionDTO deletePositionDTO);
 
     @PostMapping("add-position")
-    @ApiOperation("批量新增组织信息(支持批量)")
-    JsonVO<Boolean> AddPosition(@RequestBody AddPositionDTO addPositionDTO);
-
+    @ApiOperation("批量职务组织信息(支持批量)/前端传送多个请求")
+    JsonVO<Boolean> AddPosition(@RequestBody JobTitleDTO jobTitleDTO);
+/**
+ *  导出组织（导出本页在前端完成）
+ * @return {@link com.zeroone.star.project.vo.JsonVO<com.zeroone.star.project.j3.dto.ExportDTO>}
+ * @Author H_lzu
+ * @Date 16:27 2023/5/24
+ */
+    JsonVO<ExportDTO> exportAllOrgs();
 }

@@ -3,6 +3,11 @@ package com.zeroone.star.orgmanager.service;
 import com.zeroone.star.orgmanager.entity.TOrmduty;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.zeroone.star.orgmanager.entity.TOrmduty;
+
+import java.util.List;
 
 /**
  * <p>
@@ -15,5 +20,17 @@ import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
 public interface ITOrmdutyService extends IService<TOrmduty> {
 
     void importExcelData(FastDfsFileInfo fastDfsFileInfo) throws Exception;
+    /**
+     * 更新职务信息
+     * @param tOrmduty
+     * @return
+     */
+    boolean updateByOrmdutyId(TOrmduty tOrmduty);
 
+    /**
+     * 批量删除职务信息
+     * @param ids
+     * @return
+     */
+    boolean deleteByOrmdutyIds(List<String> ids);
 }

@@ -3,6 +3,7 @@ package com.zeroone.star.common.controller;
 import com.zeroone.star.common.service.ITSrfcodeitemService;
 import com.zeroone.star.common.service.impl.TOrmdutyServiceImpl;
 import com.zeroone.star.common.service.impl.TOrmpostServiceImpl;
+import com.zeroone.star.common.service.ITPimlanguageabilityService;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.common.CommonApis;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
@@ -38,7 +39,8 @@ public class CommonController implements CommonApis {
 
     @Autowired
     TOrmdutyServiceImpl tOrmdutyService;
-
+    @Autowired
+    ITPimlanguageabilityService languageabilityService;
     @GetMapping("query-start-position-title")
     @ApiOperation("职务名称下拉列表")
     @Override
@@ -109,12 +111,12 @@ public class CommonController implements CommonApis {
         return null;
     }
 
-    @GetMapping("queryList")
-    @ApiOperation("分页查询某人的语言能力")
-    @Override
-    public JsonVO<PageDTO<List<LanguageAbilityDTO>>> queryLanguageAbilityList(LanguageAbilityQuery personId) {
-        return null;
-    }
+//    @GetMapping("query-languageAbility-list")
+//    @ApiOperation("分页查询某人的语言能力")
+//    @Override
+//    public JsonVO<PageDTO<List<LanguageAbilityDTO>>> queryLanguageAbilityList(LanguageAbilityQuery personId) {
+//        return null;
+//    }
 
     @GetMapping("query-learning-forms")
     @ApiOperation("学习形式下拉列表")
@@ -148,8 +150,9 @@ public class CommonController implements CommonApis {
     @GetMapping("query-relationship")
     @ApiOperation("与本人关系列表")
     @Override
-    public JsonVO<List<DropdownListOptionDTO>> queryRelationship() {
-        return null;
+    public JsonVO<List<String>> queryRelationship() {
+        String id = "4E74D429-DE85-41BB-B900-6009A23895D6";
+        return JsonVO.success(languageabilityService.queryRelationship(id));
     }
 
     @GetMapping("query-entry-channel")
@@ -165,9 +168,17 @@ public class CommonController implements CommonApis {
     public JsonVO<List<DropdownListOptionDTO>> queryAllocation() {
         return JsonVO.success(TSrfcodeitemService.listDistributionStatus("分配类型"));
     }
-@GetMapping("query-language-type")
-@ApiOperation("语种类型下拉列表")
-    public JsonVO<List<DropdownListOptionDTO>> queryLanguageType() {
-        return null;
+    @GetMapping("query-language-type")
+    @ApiOperation("语种类型下拉列表")
+    public JsonVO<List<String>> queryLanguageType() {
+        String id = "4AD0B58B-E3E7-44B2-8F67-302C8F95C7E9"; //语种类型id
+        return JsonVO.success(languageabilityService.queryLanguageType(id));
+    }
+
+    @GetMapping("query-language-level")
+    @ApiOperation("外语等级下拉列表")
+    public JsonVO<List<String>> queryLanguageLevel(){
+        String id = "F1990A43-1ED9-4001-BA4A-1F3B221653A4";
+        return  JsonVO.success(languageabilityService.queryLanguageLevel(id));//外语等级id
     }
 }

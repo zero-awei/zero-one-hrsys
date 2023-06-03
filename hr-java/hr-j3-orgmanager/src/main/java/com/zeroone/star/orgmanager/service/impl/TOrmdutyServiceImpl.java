@@ -1,5 +1,6 @@
 package com.zeroone.star.orgmanager.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zeroone.star.orgmanager.entity.TOrmduty;
 import com.zeroone.star.orgmanager.mapper.TOrmdutyMapper;
@@ -16,6 +17,12 @@ import javax.annotation.Resource;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import com.zeroone.star.project.dto.PageDTO;
+import com.zeroone.star.project.j3.dto.orgmanager.JobTitleDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -76,5 +83,15 @@ public class TOrmdutyServiceImpl extends ServiceImpl<TOrmdutyMapper, TOrmduty> i
 //
 //            service.save(entity);
         }
+    @Autowired
+    TOrmdutyMapper tOrmdutyMapper;
+    @Override
+    public boolean updateByOrmdutyId(TOrmduty tOrmduty) {
+        return tOrmdutyMapper.updateOrmdutyById(tOrmduty);
+    }
 
+    @Override
+    public boolean deleteByOrmdutyIds(List<String> ids) {
+        return tOrmdutyMapper.deleteByOrmdutyids(ids);
+    }
 }
