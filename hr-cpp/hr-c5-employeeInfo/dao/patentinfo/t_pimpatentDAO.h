@@ -18,6 +18,7 @@ public:
 	uint64_t count(const PatentinfoQuery::Wrapper& query);
 	// 分页查询数据
 	list<PatentinfoDO> selectWithPage(const PatentinfoQuery::Wrapper& query);
+
 	// 通过员工编号删除数据
 	int deleteById(string pimpaperid);
 	// 通过DTO查询数据ID

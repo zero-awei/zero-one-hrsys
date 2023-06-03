@@ -16,8 +16,10 @@ if (query->PIMPATENTID) { \
 // 添加指定员工的专利信息
 uint64_t t_pimpatentDAO::insert(const PatentinfoDO& iObj)
 {
-	string sql = "INSERT INTO `t_pimpatent` (`ZLH`, `PIMPATENTNAME`, `ZLHQSJ`, `ZLPZGB`, `ENCLOLURE`) VALUES (?, ?, ?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%s%s%s", iObj.getZLH(), iObj.getPIMPATENTNAME(), iObj.getZLHQSJ(), iObj.getZLPZGB(),iObj.getENCLOLURE());
+	string sql = "INSERT INTO `t_pimpatent` (`ZLH`, `PIMPATENTNAME`, `ZLHQSJ`, `ZLPZGB`, `ENCLOLURE`,\
+		`CREATEDATE`, `UPDATEDATE`, `CREATEMAN`, `UPDATEMAN`,`PIMPATENTID`) VALUES (?, ?, ?, ?, ?,?, ?, ?, ?, ?)";
+	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%s%s%s", iObj.getZLH(), iObj.getPIMPATENTNAME(), iObj.getZLHQSJ(), iObj.getZLPZGB(),iObj.getENCLOLURE()\
+		, iObj.getCREATEDATE(), iObj.getUPDATEDATE(), iObj.getCREATEMAN(), iObj.getUPDATEMAN(), iObj.getPIMPATENTID());
 }
 
 // 统计数据条数
@@ -47,6 +49,6 @@ list<PatentinfoDO> t_pimpatentDAO::selectWithPage(const PatentinfoQuery::Wrapper
 // 通过专利编号删除数据
 int t_pimpatentDAO::deleteById(string pimpatentid)
 {
-	string sql = "DELETE FROM `t_pimpatent` WHERE `PIMPATENTID`=?";
+	std::string sql = "delete from t_pimpatent where PIMPATENTID=?";
 	return sqlSession->executeUpdate(sql, "%s", pimpatentid);
 }

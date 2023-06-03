@@ -20,16 +20,17 @@ class DelPatentDTO : public oatpp::DTO
 
 public:
     DTO_INIT(DelPatentDTO, DTO);
-    //DTO_FIELD(List<String>, deleteById) = {};
-    //DTO_FIELD_INFO(deleteById) {
-    //    info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.PIMPATENTID");
-    //}
-    //
-    //人员信息id
-    DTO_FIELD(String, pimpatentid);
-    DTO_FIELD_INFO(pimpatentid) {
+    DTO_FIELD(List<String>, deleteById) = {};
+    DTO_FIELD_INFO(deleteById) {
         info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.PIMPATENTID");
     }
+    
+    DTO_INIT_(String, pimpatentid, "patentInformation.pimpatent.PIMPATENTID");
+    ////人员信息id
+    //DTO_FIELD(String, pimpatentid);
+    //DTO_FIELD_INFO(pimpatentid) {
+    //    info->description = ZH_WORDS_GETTER("patentInformation.pimpatent.PIMPATENTID");
+    //}
 };
 
 

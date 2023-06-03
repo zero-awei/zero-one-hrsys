@@ -1,29 +1,29 @@
 #pragma once
 
-#ifndef _T_PIMPATENT_SERVICE_
-#define _T_PIMPATENT_SERVICE_
-#include <list>
+#ifndef PATENTINFO_SERVICE_
+#define PATENTINFO_SERVICE_
 #include "domain/vo/patentinfo/PatentinfoVO.h"
 #include "domain/query/patentinfo/PatentinfoQuery.h"
 #include "domain/dto/patentinfo/PatentinfoDTO.h"
 #include "domain/dto/patentinfo/DelPatentDTO.h"
+#include "domain/dto/patentinfo/AddPatentDTO.h"
+//#include "oatpp/core/data/mapping/type/Object.hpp"
 
 /**
  * 论文信息服务实现
  */
-class patentinfoService
+class PatentinfoService
 {
 public:
 	// 分页查询所有数据
 	PatentinfoPageDTO::Wrapper listAll(const PatentinfoQuery::Wrapper& query);
 
 
-	// 保存数据
-	uint64_t saveData(const PatentinfoDTO::Wrapper& dto);
+	// 添加数据
+	uint64_t saveData(const AddPatentDTO::Wrapper& dto);
 	
 	// 通过ID删除数据 支持批量删除
-	//bool removeData(string id);
-	bool removeData(const DelPatentDTO::Wrapper& dto);
+	bool removeData(const oatpp::List<oatpp::String>& dto);
 
 
 	// 查询数据ID

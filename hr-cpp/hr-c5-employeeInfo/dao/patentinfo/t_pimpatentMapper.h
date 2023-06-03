@@ -19,6 +19,11 @@ public:
 		data.setZLHQSJ(resultSet->getString(3));
 		data.setZLPZGB(resultSet->getString(4));
 		data.setENCLOLURE(resultSet->getString(5));
+		data.setPIMPATENTID(resultSet->getString(6));
+		//data.setCREATEDATE(resultSet->getString(7));
+		//data.setUPDATEDATE(resultSet->getString(8));
+		//data.setCREATEMAN(resultSet->getString(9));
+		//data.setUPDATEMAN(resultSet->getString(10));
 		return data;
 	}
 };
