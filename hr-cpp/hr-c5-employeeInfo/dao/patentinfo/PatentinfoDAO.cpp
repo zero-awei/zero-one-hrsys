@@ -219,6 +219,24 @@ int PatentinfoDAO::update(const PatentinfoDO& uObj)
 		SQLPARAMS_PUSH(params, "s", std::string, uObj.getENCLOLURE());
 		CountMark++;
 	}
+
+	if (uObj.getUPDATEDATE() != "string") {
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " UPDATEDATE= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getUPDATEDATE());
+		CountMark++;
+	}
+	if (uObj.getUPDATEMAN() != "string") {
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " UPDATEMAN= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getUPDATEMAN());
+		CountMark++;
+	}
+
 	if (uObj.getPIMPATENTID() != "string") {
 		sql << "WHERE PIMPATENTID = ?";
 		SQLPARAMS_PUSH(params, "s", std::string, uObj.getPIMPATENTID());

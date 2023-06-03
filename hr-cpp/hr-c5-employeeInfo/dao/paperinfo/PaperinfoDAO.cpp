@@ -113,6 +113,22 @@ int PaperinfoDAO::update(const PaperinfoDO& uObj)
 		SQLPARAMS_PUSH(params, "s", std::string, uObj.getFJ());
 		CountMark++;
 	}
+	if (uObj.getUPDATEDATE() != "string") {
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " UPDATEDATE= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getUPDATEDATE());
+		CountMark++;
+	}
+	if (uObj.getUPDATEMAN() != "string") {
+		if (CountMark != 0) {
+			sql << ",";
+		}
+		sql << " UPDATEMAN= ? ";
+		SQLPARAMS_PUSH(params, "s", std::string, uObj.getUPDATEMAN());
+		CountMark++;
+	}
 
 	if (uObj.getPIMPAPERID() != "string") {
 		sql << "WHERE PIMPAPERID = ?";
