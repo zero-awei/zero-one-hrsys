@@ -2,6 +2,8 @@ package com.zeroone.star.orgmanager.service;
 
 import com.zeroone.star.orgmanager.entity.TOrmorgdz;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
+import com.zeroone.star.project.j3.dto.orgmanager.ExportOrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.ModifyOrgAddressDTO;
 
 import java.util.List;
@@ -25,5 +27,9 @@ public interface ITOrmorgdzService extends IService<TOrmorgdz> {
 	 * @return int
 	 */
 	public int updateOrgAddress(List<ModifyOrgAddressDTO> modifyOrgAddressDTOs);
+
+	boolean deleteOrgAddress(OrgAddressDto orgAddressDto);
+
+	ExportOrgAddressDto exportOrgAddress(OrgAddressDto ids) throws Exception;
 
 }
