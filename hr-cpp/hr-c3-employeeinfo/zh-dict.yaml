@@ -146,10 +146,12 @@ org:
     validorg: 有效组织
     sector: 部门
     companyflag: 是否为根组织
+    orgtype: 组织类型（公司或者部门）
     orgname: 组织名字 
     orgid: 组织id
     porgname: 父组织名字
     porgid: 父组织id
+    children: 子组织
 orgsector:
   field:
     orgsectorname: 部门名字

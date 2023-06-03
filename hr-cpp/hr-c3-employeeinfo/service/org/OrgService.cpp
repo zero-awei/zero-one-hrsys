@@ -18,77 +18,52 @@
 */
 #include "stdafx.h"
 #include "OrgService.h"
+#include "tree/TreeUtil.h"
+#include "service/org/TreeOrgMapper.h"
+#include <iostream>
 
-OrgPageDTO::Wrapper OrgService::getRootOrg(const RootOrgQuery::Wrapper &query, const string &userID)
-{
-	auto pages = OrgPageDTO::createShared();
-	pages->pageIndex = query->pageIndex;
-	pages->pageSize = query->pageSize;
-
-	OrgDAO dao;
-	list<OrgDO> result = dao.selectRootOrg(query, userID);
-	if (!result.empty())
-	{
-		for (auto org : result)
-		{
-			auto dto = OrgDTO::createShared();
-			ZO_STAR_DOMAIN_DO_TO_DTO(dto, org,
-									companyflag, CompanyFlag,
-									orgname, OrgName,
-									orgid, OrgID, 
-									porgname, Porgname,
-									porgid, PorgID);
-			pages->addData(dto);
-		}
+// 查询部门结构树
+vector<shared_ptr<OrgTreeDTO>> OrgService::getOrgTree(const string& userID) {
+	OrgDAO orgDao;
+	list<OrgTreeDO> top = orgDao.selectRootOrg(userID);
+	list<OrgTreeDO> mid;
+	list<OrgTreeDO> bottom;
+	for (const auto &org : top) {
+		mid.splice(mid.end(), orgDao.selectValidOrg(org.getOrgID()));
 	}
-	return pages;
-}
-
-OrgPageDTO::Wrapper OrgService::getValidOrg(const ValidOrgQuery::Wrapper &query)
-{
-	auto pages = OrgPageDTO::createShared();
-	pages->pageIndex = query->pageIndex;
-	pages->pageSize = query->pageSize;
-
-	OrgDAO dao;
-	list<OrgDO> result = dao.selectValidOrg(query);
-	if (!result.empty())
-	{
-		for (auto org : result)
-		{
-			auto dto = OrgDTO::createShared();
-			ZO_STAR_DOMAIN_DO_TO_DTO(dto, org,
-									companyflag, CompanyFlag,
-									orgname, OrgName,
-									orgid, OrgID, 
-									porgname, Porgname,
-									porgid, PorgID);
-			pages->addData(dto);
-		}
+	for (const auto& org : mid) {
+		bottom.splice(bottom.end(), orgDao.selectOrgSector(org.getOrgID()));
 	}
-	return pages;
-}
 
-OrgSectorPageDTO::Wrapper OrgService::getSector(const SectorQuery::Wrapper &query)
-{
-	auto pages = OrgSectorPageDTO::createShared();
-	pages->pageIndex = query->pageIndex;
-	pages->pageSize = query->pageSize;
+	// for (const auto& org : top) {
+	// 	std::cout << org.getOrgType() << " " << org.getOrgID() << " " << org.getOrgName() << " " << org.getPorgID() << std::endl;
+	// }
+	// for (const auto& org : mid) {
+	// 	std::cout << org.getOrgType() << " " << org.getOrgID() << " " << org.getOrgName() << " " << org.getPorgID() << std::endl;
+	// }
+	// for (const auto& org : bottom) {
+	// 	std::cout << org.getOrgType() << " " << org.getOrgID() << " " << org.getOrgName() << " " << org.getPorgID() << std::endl;
+	// }
+	// std::cout << "top: " << top.size() << std::endl;
+	// std::cout << "mid: " << mid.size() << std::endl;
+	// std::cout << "bot: " << bottom.size() << std::endl;
 
-	OrgSectorDAO dao;
-	list<OrgSectorDO> result = dao.selectOrgSector(query);
-	if (!result.empty())
-	{
-		for (auto org : result)
-		{
-			auto dto = OrgSectorDTO::createShared();
-			ZO_STAR_DOMAIN_DO_TO_DTO(dto, org,
-									orgsectorname, OrgSectorName,
-									orgsectorid, OrgSectorID,
-									orgid, OrgID,
-									orgname, OrgName);
-			pages->addData(dto);
-		}
+	// transform to make tree
+	for (auto &org : top) {
+		org.setPorgID(std::string(""));
 	}
-	return pages;
+	top.splice(top.end(), mid);
+	top.splice(top.end(), bottom);
+
+	// 转换为树形结构
+	list<shared_ptr<TreeNode>> res = TreeUtil::listToTree<OrgTreeDO>(top, TreeOrgMapper());
+	// std::cout << "res: " << res.size() << std::endl;
+	vector<shared_ptr<OrgTreeDTO>> v;
+	for (const auto &one : res)
+	{
+		// vo->data->push_back(MenuDTO::Wrapper(dynamic_pointer_cast<MenuDTO>(one), MenuDTO::Wrapper::Class::getType()));
+		v.emplace_back(dynamic_pointer_cast<OrgTreeDTO>(one));
+	}
+
+	return v;
 }
