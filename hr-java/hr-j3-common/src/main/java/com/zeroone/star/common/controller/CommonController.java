@@ -31,19 +31,30 @@ import java.util.List;
 @RequestMapping("common")
 @Api(tags = "通用接口")
 public class CommonController implements CommonApis {
+    @Autowired
+    TOrmpostServiceImpl tOrmpostService;
+
+    @Autowired
+    TOrmdutyServiceImpl tOrmdutyService;
 
     @GetMapping("query-start-position-title")
     @ApiOperation("职务名称下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryPositionTitle(PositionTitleDropdownListQuery query) {
-        return null;
+        List<DropdownListOptionDTO> dropdownListOptionDTOS = tOrmdutyService.ListDuty();
+        JsonVO<List<DropdownListOptionDTO>> jsonVO = new JsonVO<>();
+        jsonVO.setData(dropdownListOptionDTOS);
+        return jsonVO;
     }
 
     @GetMapping("query-start-job-title")
     @ApiOperation("岗位名称下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryJobTitle(JobTitleDropdownListQuery query) {
-        return null;
+        List<DropdownListOptionDTO> dropdownListOptionDTOS = tOrmpostService.listPosts(query);
+        JsonVO<List<DropdownListOptionDTO>> jsonVO = new JsonVO<>();
+        jsonVO.setData(dropdownListOptionDTOS);
+        return jsonVO;
     }
 
     @GetMapping("query-reward-levels")

@@ -6,6 +6,8 @@ import com.zeroone.star.orgmanager.service.ITOrmorginfoService;
 import com.zeroone.star.project.components.easyexcel.EasyExcelComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsClientComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
+import com.zeroone.star.orgmanager.service.ITOrmorgdzService;
+import com.zeroone.star.orgmanager.service.ITSrforgService;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sample.SampleDTO;
 import com.zeroone.star.project.j3.dto.DeleteDTO;
@@ -42,6 +44,10 @@ import java.util.List;
 @RequestMapping("orginfo")
 @Api(tags = "组织信息管理")
 public class OrgInfoController implements OrgInfoApis {
+    @Autowired
+    ITSrforgService itSrforgService;
+    @Autowired
+    ITOrmorgdzService ormorgdzService;
 
     @DeleteMapping("remove-org-address")
     @ApiOperation("删除组织地址")
@@ -53,15 +59,32 @@ public class OrgInfoController implements OrgInfoApis {
     @PutMapping("modify-org-info")
     @ApiOperation("修改组织信息")
     @Override
-    public JsonVO<Boolean> modifyOrgInfo(@ModelAttribute OrgInfoDTO orgInfoDTO) {
-        return null;
+    public JsonVO modifyOrgInfo(@ModelAttribute OrgInfoDTO orgInfoDTO) {
+        boolean isSuccess = itSrforgService.updateOrgInfo(orgInfoDTO);
+        if (isSuccess) {
+            return JsonVO.success("修改成功");
+        }else {
+            return JsonVO.fail("修改失败");
+        }
     }
 
     @PutMapping("modify-org-address")
     @ApiOperation("修改组织地址信息（导入的地址也通过这个接口更新）")
     @Override
-    public JsonVO<Boolean> modifyOrgAddress(@RequestBody List<ModifyOrgAddressDTO> modifyOrgAddressDTOs) {
-        return null;
+    public JsonVO modifyOrgAddress(@RequestBody List<ModifyOrgAddressDTO> modifyOrgAddressDTOs) {
+        //修改成功条数
+        int successRow = ormorgdzService.updateOrgAddress(modifyOrgAddressDTOs);
+        //需要修改的数据条数
+        int size = modifyOrgAddressDTOs.size();
+        int fail = size -successRow;
+        if (fail == 0){
+            return JsonVO.success("全部修改成功！");
+        } else if (fail < size && fail >0) {
+            return JsonVO.success("修改成功"+successRow+"条,"+fail+"条失败！");
+        } else if (fail == size) {
+            return JsonVO.fail("全部修改失败！");
+        }
+        return JsonVO.fail("修改失败");
     }
 
     @DeleteMapping("remove-org-info")
