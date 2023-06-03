@@ -15,9 +15,9 @@ public:
 	// 分页查询所有数据
 	AssignInfoPageDTO::Wrapper listAll(const AssignInfoQuery::Wrapper& query);
 	// 保存数据
-	uint64_t saveData(const AssignInfoDTO::Wrapper& dto);
+	uint64_t saveData(const AssignInfoDTO::Wrapper& dto,const PayloadDTO& payload);
 	// 修改数据
-	bool updateData(const AssignInfoDTO::Wrapper& dto);
+	bool updateData(const AssignInfoDTO::Wrapper& dto,const PayloadDTO& payload);
 	// 通过ID删除数据
 	bool removeData(string id);
 	// 查询详细数据

@@ -26,3 +26,7 @@ employee:
    post: 岗位
    startTime: 任职开始时间
    endTime: 任职结束时间
+   createMan: 创建人
+   createDate: 创建时间
+   updateMan: 更新人
+   updateDate: 更新时间

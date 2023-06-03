@@ -21,7 +21,7 @@
 #include "../../service/assignInfo/AssignInfoService.h"
 
 
-StringJsonVO::Wrapper AssignInfoController::execAddAssignInfo(const AssignInfoDTO::Wrapper& dto)
+StringJsonVO::Wrapper AssignInfoController::execAddAssignInfo(const AssignInfoDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	// 定义返回数据对象
 	auto jvo = StringJsonVO::createShared();
@@ -36,7 +36,7 @@ StringJsonVO::Wrapper AssignInfoController::execAddAssignInfo(const AssignInfoDT
 	// 定义一个Service
 	AssignInfoService service;
 	// 执行数据新增
-	auto id = service.saveData(dto);
+	auto id = service.saveData(dto,payload);
 	if (id > 0) {
 		jvo->success(String(id));
 	}
@@ -82,20 +82,20 @@ StringJsonVO::Wrapper AssignInfoController::execDeleteAssignInfo(const AssignInf
 //	return jvo;     
 //}
 
-StringJsonVO::Wrapper AssignInfoController::execModifyAssignInfo(const AssignInfoDTO::Wrapper& dto)
+StringJsonVO::Wrapper AssignInfoController::execModifyAssignInfo(const AssignInfoDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	//// 定义返回数据对象
 	auto jvo = StringJsonVO::createShared();
 	//// 参数校验
-	//if (!dto->id)
-	//{
-	//	jvo->init(String(-1), RS_PARAMS_INVALID);
-	//	return jvo;
-	//}
+	if (!dto->assignId)
+	{
+		jvo->init(String(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
 
 	// 定义一个Service
 	AssignInfoService service;
-	auto id = service.updateData(dto);
+	auto id = service.updateData(dto,payload);
 	// 执行数据修改
 	if (id > 0) {
 		jvo->success(String(id));

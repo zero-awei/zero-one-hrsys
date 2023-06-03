@@ -68,7 +68,23 @@ if (query->startTime) { \
 if (query->endTime) { \
 	sql << " AND RZJSSJ=?"; \
 	SQLPARAMS_PUSH(params, "s",std::string , query->endTime.getValue("")); \
-}
+}\
+if (query->createMan) { \
+	sql << " AND CREATEMAN=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->createMan.getValue("")); \
+}\
+if (query->createDate) { \
+	sql << " AND CREATEDATE=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->createDate.getValue("")); \
+}\
+if (query->updateMan) { \
+	sql << " AND UPDATEMAN=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->updateMan.getValue("")); \
+}\
+if (query->updateDate) { \
+	sql << " AND UPDATEDATE=?"; \
+	SQLPARAMS_PUSH(params, "s", std::string, query->updateDate.getValue("")); \
+}\
 
 uint64_t AssignInfoDAO::count(const AssignInfoQuery::Wrapper & query)
 {
@@ -99,14 +115,14 @@ std::list<AssignInfoDO> AssignInfoDAO::selectById(const string& assignId)
 
 uint64_t AssignInfoDAO::insert(const AssignInfoDO& iObj)
 {
-	string sql = "INSERT INTO t_pimdistirbution (PIMDISTIRBUTIONID,PIMPERSONID,FPLX,FPZT,CFPLX,ORMORGNAME,ORMORGSECTORNAME,ORMDUTYNAME,ORMPOSTNAME,RZKSSJ,RZJSSJ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s%s",iObj.getAssignId(), iObj.getId(), iObj.getAssign(),iObj.getAssignState() ,iObj.getEtype(),iObj.getOrganize(),iObj.getDepart(),iObj.getJob(),iObj.getPost(),iObj.getStartTime(),iObj.getEndTime());
+	string sql = "INSERT INTO t_pimdistirbution (PIMDISTIRBUTIONID,PIMPERSONID,FPLX,FPZT,CFPLX,ORMORGNAME,ORMORGSECTORNAME,ORMDUTYNAME,ORMPOSTNAME,RZKSSJ,RZJSSJ,CREATEMAN,CREATEDATE,UPDATEMAN,UPDATEDATE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s",iObj.getAssignId(), iObj.getId(), iObj.getAssign(),iObj.getAssignState() ,iObj.getEtype(),iObj.getOrganize(),iObj.getDepart(),iObj.getJob(),iObj.getPost(),iObj.getStartTime(),iObj.getEndTime(),iObj.getCreateMan(),iObj.getCreateDate(),iObj.getUpdateMan(),iObj.getUpdateDate());
 }
 
 int AssignInfoDAO::update(const AssignInfoDO& uObj)
 {
-	string sql = "UPDATE t_pimdistirbution SET PIMPERSONID=?,FPLX=?,FPZT=?, CFPLX=?, ORMORGNAME=?,ORMORGSECTORNAME=?,ORMDUTYNAME=?,ORMPOSTNAME=?,RZKSSJ=?,RZJSSJ=? WHERE PIMDISTIRBUTIONID=?";
-	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s%s", uObj.getId(),uObj.getAssign(), uObj.getAssignState(),uObj.getEtype(), uObj.getOrganize(), uObj.getDepart(), uObj.getJob(), uObj.getPost(), uObj.getStartTime(), uObj.getEndTime(),uObj.getAssignId());
+	string sql = "UPDATE t_pimdistirbution SET PIMPERSONID=?,FPLX=?,FPZT=?, CFPLX=?, ORMORGNAME=?,ORMORGSECTORNAME=?,ORMDUTYNAME=?,ORMPOSTNAME=?,RZKSSJ=?,RZJSSJ=?,CREATEMAN=?,CREATEDATE=?,UPDATEMAN=?,UPDATEDATE=? WHERE PIMDISTIRBUTIONID=?";
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s", uObj.getId(),uObj.getAssign(), uObj.getAssignState(),uObj.getEtype(), uObj.getOrganize(), uObj.getDepart(), uObj.getJob(), uObj.getPost(), uObj.getStartTime(), uObj.getEndTime(), uObj.getCreateMan(), uObj.getCreateDate(), uObj.getUpdateMan(), uObj.getUpdateDate(), uObj.getAssignId());
 }
 
 int AssignInfoDAO::deleteById(string assignId)

@@ -36,6 +36,9 @@
     <ClCompile Include="service\assignInfo\AssignInfoService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="uselib\jwt\AssignInfoToken.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
@@ -84,6 +87,24 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="dao\assignInfoDAO\AssignInfoMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\assignInfo\AssignInfoQueryDetailVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\assignInfo\AssignInfoQueryVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\assignInfo\ImportAssignInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\assignInfo\ModifyAssignInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\assignInfo\AssignInfoQueryService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\jwt\AssignInfoToken.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

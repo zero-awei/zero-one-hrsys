@@ -48,6 +48,14 @@ class AssignInfoDO
 	CC_SYNTHESIZE(string, startTime, StartTime);
 	// 任职结束时间
 	CC_SYNTHESIZE(string, endTime, EndTime);
+	//创建人
+	CC_SYNTHESIZE(string, createMan, CreateMan);
+	//创建时间
+	CC_SYNTHESIZE(string, createDate, CreateDate);
+	//更新人
+	CC_SYNTHESIZE(string, updateMan, UpdateMan);
+	//更新时间
+	CC_SYNTHESIZE(string, updateDate, UpdateDate);
 
 public:
 	AssignInfoDO() {
@@ -62,6 +70,10 @@ public:
 		post = "";
 		startTime = "";
 		endTime = "";
+		createMan = "";
+		createDate = "";
+		updateMan = "";
+		updateDate = "";
 	}
 };
 

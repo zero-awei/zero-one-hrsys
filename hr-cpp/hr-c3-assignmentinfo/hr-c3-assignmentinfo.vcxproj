@@ -188,6 +188,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="uselib\jwt\AssignInfoToken.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\assignController\AssignInfoController.h" />
@@ -211,6 +212,7 @@
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\assignInfo\AssignInfoQueryService.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\jwt\AssignInfoToken.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

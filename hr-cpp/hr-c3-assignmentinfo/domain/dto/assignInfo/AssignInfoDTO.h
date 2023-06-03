@@ -55,6 +55,14 @@ class AssignInfoDTO : public oatpp::DTO
 	API_DTO_FIELD_DEFAULT(String, startTime, ZH_WORDS_GETTER("employee.t_pimperson.startTime"));
 	// 任职结束时间
 	API_DTO_FIELD_DEFAULT(String, endTime, ZH_WORDS_GETTER("employee.t_pimperson.endTime"));
+	//创建人
+	API_DTO_FIELD_DEFAULT(String, createMan, ZH_WORDS_GETTER("employee.t_pimperson.createMan"));
+	//创建时间
+	API_DTO_FIELD_DEFAULT(String, createDate, ZH_WORDS_GETTER("employee.t_pimperson.createDate"));
+	//更新人
+	API_DTO_FIELD_DEFAULT(String, updateMan, ZH_WORDS_GETTER("employee.t_pimperson.updateMan"));
+	//更新时间
+	API_DTO_FIELD_DEFAULT(String, updateDate, ZH_WORDS_GETTER("employee.t_pimperson.updateDate"));
 };
 
 /**

@@ -86,23 +86,27 @@ public:
 	ENDPOINT_INFO(addAssignInfo) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("employee.post.summary");
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/add-assign-info", addAssignInfo, BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/add-assign-info", addAssignInfo, API_HANDLER_AUTH_PARAME, BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
 		// 响应结果
-		API_HANDLER_RESP_VO(execAddAssignInfo(dto));
+		API_HANDLER_RESP_VO(execAddAssignInfo(dto,authObject->getPayload()));
 	}
 	// 3.1 定义删除接口描述
 	ENDPOINT_INFO(deleteAssignInfo) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("employee.delete.summary");
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/delete-assign-info", deleteAssignInfo, BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/delete-assign-info", deleteAssignInfo, API_HANDLER_AUTH_PARAME, BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execDeleteAssignInfo(dto));
 	}
@@ -110,20 +114,24 @@ public:
 	ENDPOINT_INFO(modifyAssignInfo) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("employee.put.summary");
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/modify-assign-info", modifyAssignInfo, BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/modify-assign-info", modifyAssignInfo, API_HANDLER_AUTH_PARAME,BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
 		// 响应结果
-		API_HANDLER_RESP_VO(execModifyAssignInfo(dto));
+		API_HANDLER_RESP_VO(execModifyAssignInfo(dto,authObject->getPayload()));
 	}
 	// [其他] 定义一个单文件上传接口
 	ENDPOINT_INFO(importAssignInfo) {
 		info->summary = ZH_WORDS_GETTER("employee.post.upload");
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	ENDPOINT(API_M_POST, "/upload-assign-info", importAssignInfo, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
+	ENDPOINT(API_M_POST, "/upload-assign-info", importAssignInfo, API_HANDLER_AUTH_PARAME, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
 			/* 创建multipart容器 */
 			auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
 			/* 创建multipart读取器 */
@@ -140,6 +148,10 @@ public:
 			multipartReader.setPartReader("post", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 			multipartReader.setPartReader("startTime", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 			multipartReader.setPartReader("endTime", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+			multipartReader.setPartReader("createMan", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+			multipartReader.setPartReader("createDate", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+			multipartReader.setPartReader("updateMan", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+			multipartReader.setPartReader("updateDate", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 			/* 配置读取器读取文件到文件 */
 			multipartReader.setPartReader("file", multipart::createFilePartReader("public/static/file/test.png"));
 			/* 读取请求体中的数据 */
@@ -158,6 +170,10 @@ public:
 			auto post = multipartContainer->getNamedPart("post");
 			auto startTime = multipartContainer->getNamedPart("startTime");
 			auto endTime = multipartContainer->getNamedPart("endTime");
+			auto createMan = multipartContainer->getNamedPart("createMan");
+			auto createDate = multipartContainer->getNamedPart("createDate");
+			auto updateMan = multipartContainer->getNamedPart("updateMan");
+			auto updateDate = multipartContainer->getNamedPart("updateDate");
 			/* 断言表单数据是否正确 */
 			OATPP_ASSERT_HTTP(assignId, Status::CODE_400, "assignId is null");
 			OATPP_ASSERT_HTTP(id, Status::CODE_400, "id is null");
@@ -170,6 +186,10 @@ public:
 			OATPP_ASSERT_HTTP(post, Status::CODE_400, "post is null");
 			OATPP_ASSERT_HTTP(startTime, Status::CODE_400, "startTime is null");
 			OATPP_ASSERT_HTTP(endTime, Status::CODE_400, "endTime is null");
+			OATPP_ASSERT_HTTP(createMan, Status::CODE_400, "createMan is null");
+			OATPP_ASSERT_HTTP(createDate, Status::CODE_400, "createDate is null");
+			OATPP_ASSERT_HTTP(updateMan, Status::CODE_400, "updateMan is null");
+			OATPP_ASSERT_HTTP(updateDate, Status::CODE_400, "updateDate is null");
 			/* 打印应表单数据 */
 			OATPP_LOGD("Multipart", "assignId='%s'", assignId->getPayload()->getInMemoryData()->c_str());
 			OATPP_LOGD("Multipart", "id='%s'", id->getPayload()->getInMemoryData()->c_str());
@@ -182,6 +202,10 @@ public:
 			OATPP_LOGD("Multipart", "post='%s'", post->getPayload()->getInMemoryData()->c_str());
 			OATPP_LOGD("Multipart", "startTime='%s'", startTime->getPayload()->getInMemoryData()->c_str());
 			OATPP_LOGD("Multipart", "endTime='%s'", endTime->getPayload()->getInMemoryData()->c_str());
+			OATPP_LOGD("Multipart", "createMan='%s'", createMan->getPayload()->getInMemoryData()->c_str());
+			OATPP_LOGD("Multipart", "createDate='%s'", createDate->getPayload()->getInMemoryData()->c_str());
+			OATPP_LOGD("Multipart", "updateMan='%s'", updateMan->getPayload()->getInMemoryData()->c_str());
+			OATPP_LOGD("Multipart", "updateDate='%s'", updateDate->getPayload()->getInMemoryData()->c_str());
 			/* 获取文件部分 */
 			auto filePart = multipartContainer->getNamedPart("file");
 			/* 断言文件是否获取到 */
@@ -234,12 +258,12 @@ public:
 
 private:
 	// 3.3 演示新增数据
-	StringJsonVO::Wrapper execAddAssignInfo(const AssignInfoDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execAddAssignInfo(const AssignInfoDTO::Wrapper& dto, const PayloadDTO& payload);
 	StringJsonVO::Wrapper execDeleteAssignInfo(const AssignInfoDTO::Wrapper& dto);
 	//ImportAssignInfoJsonVO::Wrapper execImportAssignInfo(const ImportAssignInfoDTO::Wrapper& dto);
 	AssignInfoPageJsonVO::Wrapper execAssignQuery(const AssignInfoQuery::Wrapper& query, const PayloadDTO& payload);
 	AssignInfoJsonVO::Wrapper execAssignQueryDetail(const AssignInfoQueryDetail::Wrapper& dto, const PayloadDTO& payload);
-	StringJsonVO::Wrapper execModifyAssignInfo(const AssignInfoDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execModifyAssignInfo(const AssignInfoDTO::Wrapper& dto, const PayloadDTO& payload);
 	StringJsonVO::Wrapper execExportAssign(const AssignExportQuery::Wrapper& query);
 };
 
