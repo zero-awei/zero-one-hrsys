@@ -46,6 +46,23 @@ class PaperinfoDO
 	CC_SYNTHESIZE(string, kwqs, KWQS);
 	//REASON:拒绝原因
 	CC_SYNTHESIZE(string, reason, REASON);
+
+	//ENABLE : 
+	CC_SYNTHESIZE(string, enable, ENABLE);
+	//ORGID : 组织标识1
+	CC_SYNTHESIZE(string, orgid, ORGID);
+	//ORGSECTORID : 部门标识1
+	CC_SYNTHESIZE(string, orgsectorid, ORGSECTORID);
+	//ORMORGID : 组织标识2
+	CC_SYNTHESIZE(string, ormorgid, ORMORGID);
+	//ORMORGSECTORID : 部门标识2
+	CC_SYNTHESIZE(string, ormorgsectorid, ORMORGSECTORID);
+	//PIMPERSONNAME : 员工姓名
+	CC_SYNTHESIZE(string, pimpersonname, PIMPERSONNAME);
+	//YGBH : 员工编号
+	CC_SYNTHESIZE(string, ygbh, YGBH);
+
+
 public:
     PaperinfoDO() {
 
@@ -69,6 +86,14 @@ public:
 		kwqs = "";
 		reason = "";
  
+		enable = "";
+		orgid = "";
+		orgsectorid = "";
+		ormorgid = "";
+		ormorgsectorid = "";
+		pimpersonname = "";
+		ygbh = "";
+
     }
 };
 

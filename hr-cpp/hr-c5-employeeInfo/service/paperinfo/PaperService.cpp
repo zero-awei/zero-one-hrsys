@@ -35,7 +35,16 @@ PaperinfoDTO::Wrapper PaperService::listAll(const string& st)
 			cbs, CBS,
 			kwmc, KWMC,
 			kwqs, KWQS,
-			reason, REASON )
+			reason, REASON,
+		
+			enable,ENABLE,
+			orgid, ORGID,
+			orgsectorid, ORGSECTORID,
+			ormorgid, ORMORGID,
+			ormorgsectorid, ORMORGSECTORID,
+			pimpapername,PIMPERSONNAME,
+			ygbh,YGBH
+		)
 	}
 	return dto;
 }

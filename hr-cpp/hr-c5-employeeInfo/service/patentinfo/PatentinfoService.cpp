@@ -29,7 +29,17 @@ PatentinfoDTO::Wrapper PatentinfoService::listAll(const string& pimpatentid)
 			jlglbh, JLGLBH,
 			jlczz, JLCZZ,
 			enclolure, ENCLOLURE,
-			reason, REASON)
+			reason, REASON,
+
+			orgid, ORGID,
+			orgsectorid, ORGSECTORID,
+			ormorgid, ORMORGID,
+			ormorgsectorid, ORMORGSECTORID,
+			pimpersonname, PIMPERSONNAME,
+			ygbh, YGBH,
+
+			enable,ENABLE
+		)
 	}
 	return dto;
 }

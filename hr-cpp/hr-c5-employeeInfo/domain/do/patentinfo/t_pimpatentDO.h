@@ -16,6 +16,8 @@ class PatentinfoDO
     CC_SYNTHESIZE(string, pimpatentid, PIMPATENTID);
     //ZLHQSJ : 专利获取时间
     CC_SYNTHESIZE(string, zlhqsj, ZLHQSJ);
+	//ENABLE : 
+	CC_SYNTHESIZE(string, enable, ENABLE);
     //PIMPATENTNAME : 专利名称
     CC_SYNTHESIZE(string, pimpatentname, PIMPATENTNAME);
     //UPDATEMAN : 更新人
@@ -40,6 +42,23 @@ class PatentinfoDO
     CC_SYNTHESIZE(string, enclolure, ENCLOLURE);
     //REASON : 拒绝原因
     CC_SYNTHESIZE(string, reason, REASON);
+
+
+
+
+	//ORGID : 组织标识1
+	CC_SYNTHESIZE(string, orgid, ORGID);
+	//ORGSECTORID : 部门标识1
+	CC_SYNTHESIZE(string, orgsectorid, ORGSECTORID);
+	//ORMORGID : 组织标识2
+	CC_SYNTHESIZE(string, ormorgid, ORMORGID);
+	//ORMORGSECTORID : 部门标识2
+	CC_SYNTHESIZE(string, ormorgsectorid, ORMORGSECTORID);
+	//PIMPERSONNAME : 员工姓名
+	CC_SYNTHESIZE(string, pimpersonname, PIMPERSONNAME);
+	//YGBH : 员工编号
+	CC_SYNTHESIZE(string, ygbh, YGBH);
+
 public:
     PatentinfoDO() {
 
@@ -47,6 +66,7 @@ public:
         updatedate = "";
         pimpatentid = "";
         zlhqsj = "";
+		enable = "";
         pimpatentname = "";
         updateman = "";
         createman = "";
@@ -59,6 +79,13 @@ public:
         jlczz = "";
         enclolure = "";
         reason = "";
+
+		orgid = "";
+		orgsectorid = "";
+		ormorgid = "";
+		ormorgsectorid = "";
+		pimpersonname = "";
+		ygbh = "";
     }
 };
 

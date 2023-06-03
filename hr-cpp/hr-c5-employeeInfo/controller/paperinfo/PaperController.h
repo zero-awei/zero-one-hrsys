@@ -32,7 +32,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(PaperinfoJsonVO);
 		//专利信息编码
 		info->queryParams.add<String>("pimpaperid").description = ZH_WORDS_GETTER("paperInformation.pimpaper.pimpaperid");
-		info->queryParams["pimpaperid"].addExample("default", String("123456789"));
+		info->queryParams["pimpaperid"].addExample("default", String("FB0BE96B-1F65-4190-9AD7-9AD1C60450A5"));
 		info->queryParams["pimpaperid"].required = true;
 	}
 	// 4 定义接口端点

@@ -72,6 +72,13 @@ patentInformation:
   jlczz: 记录操作者
   enclolure: 附件
   reason: 拒绝原因
+  enable: enable
+  orgid: 组织标识
+  orgsectorid: 部门标识
+  ormorgid: 组织标识
+  ormorgsectorid: 部门标识
+  pimpersonname: 员工姓名
+  ygbh: 员工编号
 paperInformation:
  select:
   summary: 查看指定员工论文信息（指定论文信息详情）
@@ -97,6 +104,13 @@ paperInformation:
   kwmc: 刊物名称
   kwqs: 刊物期数
   reason: 拒绝原因
+  enable: enable
+  orgid: 组织标识
+  orgsectorid: 部门标识
+  ormorgid: 组织标识
+  ormorgsectorid: 部门标识
+  pimpersonname: 员工姓名
+  ygbh: 员工编号
 paperinfo:
  field:
   fbsj: 发表时间

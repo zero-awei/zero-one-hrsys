@@ -2,12 +2,12 @@
 #include "PatentinfoController.h"
 #include "../../service/patentinfo/PatentinfoService.h"
 
-PatentinfoJsonVO::Wrapper PatentinfoController::execQueryPatentinfo(const String& query)
+PatentinfoJsonVO::Wrapper PatentinfoController::execQueryPatentinfo(const String& str)
 {
 	// 定义一个Service
 	PatentinfoService service;
 	// 查询数据
-	auto result = service.listAll(query);
+	auto result = service.listAll(str);
 	//创建响应对象
 	auto vo = PatentinfoJsonVO::createShared();
 	vo->success(result);

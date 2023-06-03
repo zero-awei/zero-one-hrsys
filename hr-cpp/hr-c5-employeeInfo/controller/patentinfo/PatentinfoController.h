@@ -41,7 +41,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(PatentinfoJsonVO);
 		//专利信息编码
 		info->queryParams.add<String>("pimpatentid").description = ZH_WORDS_GETTER("patentInformation.pimpatent.pimpatentid");
-		info->queryParams["pimpatentid"].addExample("default", String("123456789"));
+		info->queryParams["pimpatentid"].addExample("default", String("E436974B-BA1A-4478-8716-6F1DC15ADFC8"));
 		info->queryParams["pimpatentid"].required = true;
 	}
 	// 4 定义接口端点
@@ -126,7 +126,7 @@ private: // 定义接口执行函数
 	Uint64JsonVO::Wrapper execRemovePatent(const PatentinfoDTO::Wrapper& dto);
 
 	//查看指定员工专利信息（指定专利信息详情）
-	PatentinfoJsonVO::Wrapper execQueryPatentinfo(const String& query);
+	PatentinfoJsonVO::Wrapper execQueryPatentinfo(const String& str);
 
 	//修改指定员工专利信息（单条修改）
 	Uint64JsonVO::Wrapper execModifyPatentinfo(const PatentinfoDTO::Wrapper& dto);

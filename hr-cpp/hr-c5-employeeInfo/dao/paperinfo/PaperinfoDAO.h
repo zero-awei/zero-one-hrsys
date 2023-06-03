@@ -3,7 +3,7 @@
 #define _PAPERINFO_DAO_
 #include "BaseDAO.h"
 #include "../../domain/query//paperinfo/PaperQuery.h"
-#include "../../domain/do/paperinfo/paperinfo.h"
+#include "../../domain/do/paperinfo/paperinfoDO.h"
 
 /**
  * 论文表数据库操作实现
