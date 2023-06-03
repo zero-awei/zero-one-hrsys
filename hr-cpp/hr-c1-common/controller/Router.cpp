@@ -26,7 +26,7 @@
 #endif
 
 //测试
-#include"auditstatusController.h/AuditstatusController.h"
+#include "auditStatus/AuditstatusController.h"
 #include "certDropDownList/profCertsList/ProfCertsListController.h"
 #include "certDropDownList/certTypeList/CertTypeListController.h"
 #include "contractType/ContractTypeController.h"
@@ -42,7 +42,7 @@
 #include "awardLevel/AwardLevelController.h"
 #include "jobCategory/JobCategoryController.h"
 #include "typeContract/TypeContractListController.h"
-#include"evaluationTypesController.h/EvaluationTypesController.h"
+#include "evaluationTypesController.h/EvaluationTypesController.h"
 #include "contractStatus/ContractStatusController.h"
 
 // 如果定义了关闭Swagger文档宏
