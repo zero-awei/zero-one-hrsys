@@ -44,17 +44,17 @@ bool getStartArg(int argc, char* argv[]) {
 	std::string serverPort = "8090";
 	// 数据库连接信息
 	std::string dbUsername = "root";
-	std::string dbPassword = "123456";
-	std::string dbName = "test";
-	std::string dbHost = "127.0.0.1";
-	int dbPort = 3306;
+	std::string dbPassword = "114514mysql";
+	std::string dbName = "zohr_sys";
+	std::string dbHost = "8.130.89.148";
+	int dbPort = 3965;
 	int dbMax = 25;
 #ifdef USE_NACOS
 	// Nacos配置参数
-	std::string nacosAddr = "192.168.220.128:8848";
+	std::string nacosAddr = "47.120.11.10:8848";
 	std::string nacosNs = "4833404f-4b82-462e-889a-3c508160c6b4";
-	std::string serviceName = "feign-cpp-sample";
-	std::string regIp = "192.168.220.128";
+	std::string serviceName = "hr-c1-orgmanage";
+	std::string regIp = "47.113.146.200";
 #endif
 
 	// 开始解析
