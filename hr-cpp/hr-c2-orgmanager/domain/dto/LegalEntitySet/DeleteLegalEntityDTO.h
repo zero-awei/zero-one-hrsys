@@ -17,10 +17,10 @@ public:
 	//无参构造
 	DeleteLegalEntityDTO() {};
 	DTO_INIT(DeleteLegalEntityDTO, DTO);
-	//法人主体标识ORMSIGNORGID
-	DTO_FIELD(List<String>, ormsignorgid);
-	DTO_FIELD_INFO(ormsignorgid) {
-		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.ormsignorgid");
+	//签约主体单位标识
+	DTO_FIELD(List<String>, contractsignorgid);
+	DTO_FIELD_INFO(contractsignorgid) {
+		info->description = ZH_WORDS_GETTER("LegalEntitySet.field.contractsignorgid");
 	}
 
 };

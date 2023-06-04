@@ -6,23 +6,13 @@
 #include "DeleteLegalEntityMapper.h"
 #include <sstream>
 //t_ormsignorg + t_contractsignorg
-int DeleteLegalEntityDAO::update1(string id)
+int DeleteLegalEntityDAO::update(string id)
 {
-	string sql = "UPDATE t_contractsignorg SET ORMSIGNORGID = NULL WHERE ORMSIGNORGID = ?;";
-	return sqlSession->executeUpdate(sql, "s", id);
-}
-int DeleteLegalEntityDAO::update2(string id)
-{
-	string sql = "UPDATE t_pimcontract SET ORMSIGNORGID = NULL WHERE ORMSIGNORGID =?;";
-	return sqlSession->executeUpdate(sql, "s", id);
-}
-int DeleteLegalEntityDAO::update3(string id)
-{
-	string sql = "UPDATE t_pimvocational SET ORMSIGNORGID = NULL WHERE ORMSIGNORGID = ?;";
+	string sql = "UPDATE t_pimcontract SET CONTRACTSIGNORGID = NULL WHERE CONTRACTSIGNORGID =?;";
 	return sqlSession->executeUpdate(sql, "s", id);
 }
 int DeleteLegalEntityDAO::deleteById(string id)
 {
-	string sql = "DELETE FROM t_ormsignorg WHERE ORMSIGNORGID =?;";
+	string sql = "DELETE FROM t_contractsignorg WHERE CONTRACTSIGNORGID =?;";
 	return sqlSession->executeUpdate(sql, "s", id);
 }

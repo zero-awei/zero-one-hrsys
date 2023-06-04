@@ -17,9 +17,10 @@ public:
 	LegalEntitySetDO mapper(ResultSet* resultSet) const override
 	{
 		LegalEntitySetDO data;
-		data.setORMSIGNORGID(resultSet->getString(1));//this
-		data.setCONTRACTSIGNORGNAME(resultSet->getString(2));//要连表查询//this
-		data.setISDEFAULTSIGNORG(resultSet->getString(3));//this
+		data.setCONTRACTSIGNORGID(resultSet->getString(1));//this
+		//data.setORMSIGNORGID(resultSet->getString(1));//this
+		//data.setCONTRACTSIGNORGNAME(resultSet->getString(2));//要连表查询//this
+		//data.setISDEFAULTSIGNORG(resultSet->getString(3));//this
 		return data;
 	}
 };
