@@ -212,7 +212,6 @@
     <ClInclude Include="service\org\OrgService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="uselib\jwt\EmployeeInformationToken.h" />
-    <ClInclude Include="uselib\jwt\TestToken.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\EmployeeInformation\EmployeeInformationController.cpp" />
@@ -236,7 +235,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="uselib\jwt\EmployeeInformationToken.cpp" />
-    <ClCompile Include="uselib\jwt\TestToken.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\lib-common\lib-common.vcxproj">

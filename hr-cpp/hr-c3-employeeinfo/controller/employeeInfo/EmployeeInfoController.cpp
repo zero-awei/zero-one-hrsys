@@ -30,7 +30,7 @@ EmployeeInfoVO::Wrapper EmployeeInfoController::execEmployeeQuery(const Employee
 	return jvo;
 }
 
-StringJsonVO::Wrapper EmployeeInfoController::execEmployeeModify(const EmployeeInfoDTO::Wrapper& dto) {
+StringJsonVO::Wrapper EmployeeInfoController::execEmployeeModify(const EmployeeInfoDTO::Wrapper& dto, const PayloadDTO& payLoad) {
 	//auto vo = StringJsonVO::createShared();
 	auto jvo = StringJsonVO::createShared();
 	if (!dto->empid || !dto->name || !dto->idtype || !dto->idnum)
@@ -50,7 +50,7 @@ StringJsonVO::Wrapper EmployeeInfoController::execEmployeeModify(const EmployeeI
 	}
 	//vo->success("Employee information modify success");
 	EmployeeInfoService service;
-	if (service.updateEmployee(dto)) {
+	if (service.updateEmployee(dto,payLoad)) {
 		jvo->success(dto->pimpersonid);
 	}
 	else {
@@ -77,7 +77,7 @@ StringJsonVO::Wrapper EmployeeInfoController::execEmployeePut(const EmployeeInfo
 		return jvo;
 	}
 	EmployeeInfoService service;
-	if (service.insertEmployee(dto)) {
+	if (service.insertEmployee(dto,payLoad)) {
 		jvo->success(dto->empid);
 	}
 	else {
