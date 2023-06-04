@@ -1,4 +1,4 @@
-﻿# CMakeList.txt: arch-demo 的 CMake 项目，在此处包括源代码并定义
+# CMakeList.txt: arch-demo 的 CMake 项目，在此处包括源代码并定义
 # 项目特定的逻辑。
 #
 cmake_minimum_required (VERSION 3.8)
@@ -7,7 +7,7 @@ cmake_minimum_required (VERSION 3.8)
 add_definitions(-DHTTP_SERVER_DEMO)
 
 # 设置文件名称
-set (appName arch-demo)
+set (appName hr-c3-assignmentinfo)
 
 # 包含库目录
 include_directories ("./")

@@ -83,5 +83,4 @@ add_subdirectory ("lib-common")
 # 这是示例模块，后期可以不编译它
 # add_subdirectory ("arch-demo")
 # 在后面添加你的模块
-add_subdirectory("hr-c1-orgmanage")
-add_subdirectory("hr-c1-common")
+add_subdirectory("hr-c3-assignmentinfo")

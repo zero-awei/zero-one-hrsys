@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>零壹聊天室</title>
+</head>
+<body>
+<h1>Chat Client</h1>
+<div>
+    <input id="clientId" placeholder="输入ID" value="1">
+    <input onclick="init()" value="连接服务器" type="button"><br><br>
+    <input id="receiverId" placeholder="输入接收人ID" value="all"><br><br>
+    <textarea id="message" style="margin: 0; height: 197px; width: 362px;"
+              placeholder="发送消息内容"></textarea><br>
+    <input onclick="send()" value="发送消息" type="button">
+    <input onclick="closeConnect()" value="关闭连接" type="button">
+</div>
+<div id="output"></div>
+<script type="text/javascript" language="JavaScript">
+    //屏幕回显输出方法
+    function writeToScreen(message) {
+        let pre = document.createElement("p");
+        pre.style.wordWrap = "break-word";
+        pre.innerHTML = message;
+        document.getElementById("output").appendChild(pre);
+    }
+
+    //初始化websocket
+    let echo_websocket = null;
+    function init() {
+        if (echo_websocket) return;
+        let clientId = document.getElementById("clientId").value;
+        let wsUri = "ws://localhost:8090/chat?id=" + clientId;
+        writeToScreen("连接到" + wsUri);
+        //1.创建WebSocket客户端对象
+        echo_websocket = new WebSocket(wsUri);
+        //2.开门握手完成回调
+        echo_websocket.onopen = function (evt) {
+            console.log(evt);
+            writeToScreen("连接打开成功 !");
+        };
+        //3.监听服务端的消息
+        echo_websocket.onmessage = function (evt) {
+            writeToScreen("接收服务端消息:<br> " + evt.data);
+        };
+        //4.如果连接中断
+        echo_websocket.onerror = function (evt) {
+            writeToScreen('<span style="color: red;">ERROR:'+evt.data+'</span>');
+            //关闭连接
+            closeConnect();
+        };
+        //5.注册close事件
+        echo_websocket.onclose = function(evt){
+            writeToScreen('<span style="color: green;">INFO：关闭连接</span> ');
+            if(evt.reason){
+                writeToScreen
+                (`<span style="color: red;">错误信息：${evt.reason}</span> `);
+            }
+            echo_websocket = null;
+        }
+    }
+
+    //6.向服务发送消息
+    function send() {
+        let message = document.getElementById("message").value;
+        let receiver = document.getElementById("receiverId").value;
+        echo_websocket.send(receiver + "::" + message);
+        writeToScreen("发送消息: " + message);
+    }
+
+    //7.如果不需要通讯，那么关闭连接
+    function closeConnect() {
+        echo_websocket.close();
+        echo_websocket = null;
+    }
+</script>
+</body>
+</html>
