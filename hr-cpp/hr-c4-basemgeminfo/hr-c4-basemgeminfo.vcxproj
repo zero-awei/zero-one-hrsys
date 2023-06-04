@@ -201,6 +201,8 @@
     <ClInclude Include="dao\scientific\ScientificMapper.h" />
     <ClInclude Include="dao\SciResult\SciResultDAO.h" />
     <ClInclude Include="dao\SciResult\SciResultMapper.h" />
+    <ClInclude Include="dao\trainingrecord\TrainingRecordDAO.h" />
+    <ClInclude Include="dao\trainingrecord\TrainingRecordMapper.h" />
     <ClInclude Include="dao\work-history\WorkHistoryDAO.h" />
     <ClInclude Include="dao\work-history\WorkHistoryMapper.h" />
     <ClInclude Include="domain\do\archives\ArchivesDO.h" />
@@ -285,8 +287,10 @@
     <ClInclude Include="service\contract\ContractService.h" />
     <ClInclude Include="service\military\MilitaryService.h" />
     <ClInclude Include="service\Pimarmycadres\PimarmycadresService.h" />
+    <ClInclude Include="service\rewardandpunish\RewardAndPunishService.h" />
     <ClInclude Include="service\scientific\ScientificService.h" />
     <ClInclude Include="service\sciresult\SciResultService.h" />
+    <ClInclude Include="service\trainingrecord\TrainingRecordService.h" />
     <ClInclude Include="service\work-history\WorkHistoryService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="uselib\rocketmq\TestRocket.h" />
@@ -314,6 +318,7 @@
     <ClCompile Include="dao\rewardandpunish\RewardAndPunishDAO.cpp" />
     <ClCompile Include="dao\scientific\ScientificDAO.cpp" />
     <ClCompile Include="dao\SciResult\SciResultDAO.cpp" />
+    <ClCompile Include="dao\trainingrecord\TrainingRecordDAO.cpp" />
     <ClCompile Include="dao\work-history\WorkHistoryDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\Archives\ArchivesService.cpp" />
@@ -322,8 +327,10 @@
     <ClCompile Include="service\contract\ContractService.cpp" />
     <ClCompile Include="service\military\MilitaryService.cpp" />
     <ClCompile Include="service\Pimarmycadres\PimarmycadresService.cpp" />
+    <ClCompile Include="service\rewardandpunish\RewardAndPunishService.cpp" />
     <ClCompile Include="service\scientific\ScientificService.cpp" />
     <ClCompile Include="service\sciresult\SciResultService.cpp" />
+    <ClCompile Include="service\trainingrecord\TrainingRecordService.cpp" />
     <ClCompile Include="service\work-history\WorkHistoryService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
