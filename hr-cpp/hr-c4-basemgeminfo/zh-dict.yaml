@@ -297,3 +297,31 @@ trainingrecord:
  trainend: 培训结束时间
  pxkc: 培训课程
  pxjg: 培训机构
+rewardandpunishmentinformation:
+ file:
+  summary: 文件上传
+  suffix: 文件后缀
+ get:
+  summary: 分页查询奖惩信息
+ post:
+  summary: 新增一条奖惩信息
+ put:
+  summary: 修改一条奖惩信息
+ delete:
+  summary: 删除一条奖惩信息
+ field:
+  lx: 奖惩分类
+  pimrewardpunishmentname: 奖惩名称
+  jcjb: 奖惩级别
+  jlsj: 奖惩时间
+  jcsj: 奖惩事件
+  bz: 备注
+  fj: 附件
+  pimpersionid: 人员信息id
+  pimrewardpunishmentid: 奖惩的独有信息id
+  updateman: 更新人
+  createman: 建立人
+  createdate: 建立日期
+  updatedate: 更新日期
+  suffix: 导入文件后缀名
+  body: 导入文件主体
