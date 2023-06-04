@@ -22,8 +22,8 @@
 #include "./employeeInfo/EmployeeInfoController.h"
 
 #ifdef HTTP_SERVER_DEMO
-#include "user/UserController.h"
-#include "sample/SampleController.h"
+//#include "user/UserController.h"
+//#include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
 
@@ -63,9 +63,9 @@ void Router::initRouter()
 void Router::createSampleRouter()
 {
 	// 绑定示例控制器
-	ROUTER_SIMPLE_BIND(SampleController);
+	//ROUTER_SIMPLE_BIND(SampleController);
 	// 绑定用户控制器
-	ROUTER_SIMPLE_BIND(UserController);
+	//ROUTER_SIMPLE_BIND(UserController);
 	
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());

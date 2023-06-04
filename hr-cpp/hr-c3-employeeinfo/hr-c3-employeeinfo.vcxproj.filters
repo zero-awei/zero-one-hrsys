@@ -180,6 +180,15 @@
     <ClInclude Include="dao\org\OrgTreeMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="uselib\ws\WSController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\ws\WSInstanceListener.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\ws\WSListener.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -228,6 +237,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="uselib\jwt\EmployeeInformationToken.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\ws\WSInstanceListener.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\ws\WSListener.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
