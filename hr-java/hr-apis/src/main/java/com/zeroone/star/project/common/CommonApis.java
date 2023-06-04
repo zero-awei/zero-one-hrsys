@@ -118,7 +118,7 @@ public interface CommonApis {
      *
      * @return 查询结果
      */
-    JsonVO<List<DropdownListOptionDTO>> queryHouseholdRegistrationType();
+    JsonVO<List<DropdownListOptionDTO>> queryHouseholdType();
 
     /**
      * 获取城市名称类型下拉列表

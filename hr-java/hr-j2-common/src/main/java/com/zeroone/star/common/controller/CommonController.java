@@ -1,5 +1,6 @@
 package com.zeroone.star.common.controller;
 
+import com.zeroone.star.common.entity.TSrfcodeitem;
 import com.zeroone.star.common.service.*;
 import com.zeroone.star.project.common.CommonApis;
 import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
@@ -146,6 +147,9 @@ public class CommonController implements CommonApis {
         return JsonVO.success(list);
     }
 
+    @Resource
+    private ITSrfcodeitemService srfcodeitemService;
+
     @ApiOperation(value = "获取民族类型下拉列表")
     @GetMapping("query-ethnic-type")
     @Override
@@ -154,10 +158,10 @@ public class CommonController implements CommonApis {
     }
 
     @ApiOperation(value = "获取户口类型下拉列表")
-    @GetMapping("query-household-registration")
+    @GetMapping("query-household-type")
     @Override
-    public JsonVO<List<DropdownListOptionDTO>> queryHouseholdRegistrationType() {
-        return null;
+    public JsonVO<List<DropdownListOptionDTO>> queryHouseholdType() {
+        return JsonVO.success(srfcodeitemService.listHouseHoldType());
     }
 
     @ApiOperation(value = "获取城市名称下拉列表")
