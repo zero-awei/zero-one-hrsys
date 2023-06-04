@@ -1,33 +1,23 @@
 const routes = [
   {
-    path: '/un-1',
-    name: 'UN1',
-    component: () => import('@/views/status/404.vue')
+    path: '/rightsmanage',
+    name: '权限管理',
+    component: () => import('@/views/sysManage/RightsManage.vue')
   },
   {
-    path: '/un-2',
-    name: 'UN2',
-    component: () => import('@/views/status/403.vue')
+    path: '/menumanage',
+    name: '菜单管理',
+    component: () => import('@/views/sysManage/MenuManage.vue')
   },
   {
-    path: '/un-3',
-    name: 'UN3',
-    component: () => import('@/views/status/404.vue')
+    path: '/rolesmanage',
+    name: '角色管理',
+    component: () => import('@/views/sysManage/RolesManage.vue')
   },
   {
-    path: '/un-4',
-    name: 'UN4',
-    component: () => import('@/views/status/403.vue')
-  },
-  {
-    path: '/un-5',
-    name: 'UN5',
-    component: () => import('@/views/status/404.vue')
-  },
-  {
-    path: '/un-6',
-    name: 'UN6',
-    component: () => import('@/views/status/403.vue')
+    path: '/usersmanage',
+    name: '用户管理',
+    component: () => import('@/views/sysManage/UsersManage.vue')
   }
 ]
 
