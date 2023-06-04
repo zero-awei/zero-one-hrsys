@@ -184,11 +184,8 @@
   <ItemGroup>
     <ClCompile Include="controller\LegalEntityMai\LegalEntityMaiController.cpp" />
     <ClCompile Include="controller\LegalEntitySet\DeleteLegalEntityController.cpp" />
-    <ClCompile Include="controller\LegalEntitySet\ExportLegalerSetingController.cpp" />
     <ClCompile Include="controller\LegalEntitySet\ImportLeagalPerSettingController.cpp" />
     <ClCompile Include="controller\LegalEntitySet\LegalEntitySetController.cpp" />
-    <ClCompile Include="controller\LegalEntitySet\LegalerNamePullDownListController.cpp" />
-    <ClCompile Include="controller\LegalEntitySet\UpdateLegalerSetingMessageController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="dao\LegalEntityMai\LegalEntityMaiDAO.cpp" />

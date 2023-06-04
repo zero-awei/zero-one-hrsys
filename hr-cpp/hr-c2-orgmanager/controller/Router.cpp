@@ -27,9 +27,6 @@
 #endif
 #include "LegalEntityMai/LegalEntityMaiController.h"
 #include "LegalEntitySet/LegalEntitySetController.h"
-//#include "LegalEntitySet/ExportLegalerSetingController.h"
-//#include "LegalEntitySet/LegalerNamePullDownListController.h"
-//#include "LegalEntitySet/UpdateLegalerSetingMessageController.h"
 #include "LegalEntitySet/DeleteLegalEntityController.h"
 
 #include "LegalEntitySet/ImportLeagalPerSettingController.h"
