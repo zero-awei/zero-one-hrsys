@@ -10,7 +10,7 @@ class RewardAndPunishDAO : public BaseDAO
 {
 public:
 	// 查询详情数据
-	list<RewardAndPunishDO> selectDetail(const RewardAndPunishViewQuery::Wrapper& query);
+	list<RewardAndPunishDO> selectDetail(const RewardAndPunishDetailQuery::Wrapper& query);
 	// 修改数据
 	int update(const RewardAndPunishDO& uObj);
 	// 分页查询数据
@@ -19,4 +19,3 @@ public:
 };
 
 #endif
-
