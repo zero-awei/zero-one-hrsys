@@ -99,6 +99,11 @@ public class RoleController implements RoleApis {
     @Resource
     private RoleMenuService roleMenuService;
 
+    /**
+     * @author sleepea
+     * @param dto 用户菜单对象
+     * @return
+     */
     @PostMapping("/assign-menus")
     @ApiOperation(value = "角色分配菜单")
     @Override
@@ -132,6 +137,11 @@ public class RoleController implements RoleApis {
         }
     }
 
+    /**
+     * author sleepea
+     * @param dto 用户菜单对象
+     * @return
+     */
     @DeleteMapping("/delete-menus")
     @ApiOperation(value = "角色删除菜单")
     @Override
@@ -168,6 +178,11 @@ public class RoleController implements RoleApis {
     @Resource
     private RolePowerService rolePowerService;
 
+    /**
+     * @author sleephea
+     * @param dto 用户权限对象
+     * @return
+     */
     @PostMapping("/assign-permissions")
     @ApiOperation(value = "角色分配权限")
     @Override
@@ -201,6 +216,11 @@ public class RoleController implements RoleApis {
         }
     }
 
+    /**
+     * @author sleephea
+     * @param dto 用户权限对象
+     * @return
+     */
     @DeleteMapping("/delete-permissions")
     @ApiOperation(value = "角色删除权限")
     @Override
