@@ -18,4 +18,6 @@ import java.util.List;
 public interface ITSrfcodeitemService extends IService<TSrfcodeitem> {
 
     List<DropdownListOptionDTO> listHouseHoldType();
+
+    List<DropdownListOptionDTO> listEthnicType();
 }

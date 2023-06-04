@@ -32,8 +32,13 @@ public class TSrfcodeitemServiceImpl extends ServiceImpl<TSrfcodeitemMapper, TSr
     public List<DropdownListOptionDTO> listHouseHoldType() {
         LambdaQueryWrapper<TSrfcodeitem> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(TSrfcodeitem::getCodelistid, "3F6DFE3C-1751-4696-AA60-6C63107437DE");
-        List<DropdownListOptionDTO> dtos = msSrfcodeitemMapper.dos2DTOs(baseMapper.selectList(wrapper));
-        System.out.println(dtos);
-        return dtos;
+        return msSrfcodeitemMapper.dos2DTOs(baseMapper.selectList(wrapper));
+    }
+
+    @Override
+    public List<DropdownListOptionDTO> listEthnicType() {
+        LambdaQueryWrapper<TSrfcodeitem> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(TSrfcodeitem::getCodelistid, "5CF8B6F8-0A7C-499E-80C6-DFD71151E537");
+        return msSrfcodeitemMapper.dos2DTOs(baseMapper.selectList(wrapper));
     }
 }

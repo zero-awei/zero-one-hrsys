@@ -154,7 +154,7 @@ public class CommonController implements CommonApis {
     @GetMapping("query-ethnic-type")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryEthnicType() {
-        return null;
+        return JsonVO.success(srfcodeitemService.listEthnicType());
     }
 
     @ApiOperation(value = "获取户口类型下拉列表")
