@@ -1,4 +1,5 @@
 #pragma once
+
 #ifndef _REWARDANDPUNISHQUERY_H_
 #define _REWARDANDPUNISHQUERY_H_
 
@@ -6,14 +7,14 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class RewardAndPunishViewQuery : public oatpp::DTO
+class RewardAndPunishDetailQuery : public oatpp::DTO
 {
-	DTO_INIT(RewardAndPunishViewQuery, DTO);
+	DTO_INIT(RewardAndPunishDetailQuery, DTO);
 
-	// 奖励惩罚标识（主键）
-	DTO_FIELD(String, PIMREWARDPUNISHMENTID);
-	DTO_FIELD_INFO(PIMREWARDPUNISHMENTID) {
-		info->description = ZH_WORDS_GETTER("rewardandpunish.PIMREWARDPUNISHMENTID");
+	// 奖惩记录主键标识
+	DTO_FIELD(String, pimrewardpunishmentid);
+	DTO_FIELD_INFO(pimrewardpunishmentid) {
+		info->description = ZH_WORDS_GETTER("rewardandpunish.pimrewardpunishmentid");
 	}
 };
 
@@ -21,10 +22,10 @@ class RewardAndPunishDownloadQuery : public oatpp::DTO
 {
 	DTO_INIT(RewardAndPunishDownloadQuery, DTO);
 
-	// 人员信息标识
-	DTO_FIELD(String, PIMPERSONID);
-	DTO_FIELD_INFO(PIMPERSONID) {
-		info->description = ZH_WORDS_GETTER("rewardandpunish.PIMPERSONID");
+	// 奖惩记录 人员信息标识
+	DTO_FIELD(String, pimpersonid);
+	DTO_FIELD_INFO(pimpersonid) {
+		info->description = ZH_WORDS_GETTER("rewardandpunish.pimpersonid");
 	}
 };
 
