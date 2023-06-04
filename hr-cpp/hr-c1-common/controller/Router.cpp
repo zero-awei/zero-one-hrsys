@@ -42,7 +42,7 @@
 #include "awardLevel/AwardLevelController.h"
 #include "jobCategory/JobCategoryController.h"
 #include "typeContract/TypeContractListController.h"
-#include "evaluationTypesController.h/EvaluationTypesController.h"
+#include "evaluationTypes/EvaluationTypesController.h"
 #include "contractStatus/ContractStatusController.h"
 
 // 如果定义了关闭Swagger文档宏
