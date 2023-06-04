@@ -4,11 +4,13 @@
 #include "../DoInclude.h"
 
 class RewardAndPunishDO {
+
 	CC_SYNTHESIZE(string, createdate,_CREATEDATE);
 	CC_SYNTHESIZE(string, updatedate, _UPDATEDATE);
 	CC_SYNTHESIZE(string, pimrewardpunishmentname, _PIMREWARDPUNISHMENTNAME);
 	CC_SYNTHESIZE(string, updateman, _UPDATEMAN);
 	CC_SYNTHESIZE(string, createman, _CREATEMAN);
+	CC_SYNTHESIZE(string, enable, _ENABLE);
 	CC_SYNTHESIZE(string, fj, _FJ);
 	CC_SYNTHESIZE(string, lx, _LX);
 	CC_SYNTHESIZE(string, csrq, _CSRQ);

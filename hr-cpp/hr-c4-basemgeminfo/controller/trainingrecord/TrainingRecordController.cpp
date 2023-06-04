@@ -1,13 +1,17 @@
 #include "stdafx.h"
 #include "TrainingRecordController.h"
+#include "../../service/trainingrecord/TrainingRecordService.h"
 
 //@Author: Diaukray
 
-StringJsonVO::Wrapper TrainingRecordController::execQueryTest(const PageQuery::Wrapper& query)
+TrainingRecordPageJsonVO::Wrapper TrainingRecordController::execQueryTrainingRecord(const TrainingRecordPageQuery::Wrapper& query, const PayloadDTO& payload)
 {
-	
-	auto vo = StringJsonVO::createShared();
-	vo->success("TrainingRecord PageQuery Success");
-	return vo;
-
+	// 定义一个Service
+	TrainingRecordService service;
+	// 查询数据
+	auto result = service.listAll(query);
+	//// 响应结果
+	auto jvo = TrainingRecordPageJsonVO::createShared();
+	jvo->success(result);
+	return jvo;
 }
