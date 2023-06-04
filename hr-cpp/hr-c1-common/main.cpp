@@ -173,10 +173,10 @@ int main(int argc, char* argv[]) {
 		}
 	}
 	// 注册服务
-	nacosClient.registerInstance(
+	/*nacosClient.registerInstance(
 		ServerInfo::getInstance().getRegIp(),
 		atoi(ServerInfo::getInstance().getServerPort().c_str()),
-		ServerInfo::getInstance().getServiceName());
+		ServerInfo::getInstance().getServiceName());*/
 #endif
 
 	// 初始数据库连接
@@ -203,10 +203,10 @@ int main(int argc, char* argv[]) {
 
 #ifdef USE_NACOS
 	// 反注册服务
-	nacosClient.deregisterInstance(
+	/*nacosClient.deregisterInstance(
 		ServerInfo::getInstance().getRegIp(),
 		atoi(ServerInfo::getInstance().getServerPort().c_str()),
-		ServerInfo::getInstance().getServiceName());
+		ServerInfo::getInstance().getServiceName());*/
 #endif
 	return 0;
 }
