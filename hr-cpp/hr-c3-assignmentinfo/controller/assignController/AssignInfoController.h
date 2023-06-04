@@ -37,32 +37,32 @@ using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
 /*
-	ÅĞ¶ÏstringÊÇ·ñÎª×ÔÈ»Êı
+	åˆ¤æ–­stringæ˜¯å¦ä¸ºè‡ªç„¶æ•°
 */
 
-// 0 ¶¨ÒåAPI¿ØÖÆÆ÷Ê¹ÓÃºê
+// 0 å®šä¹‰APIæ§åˆ¶å™¨ä½¿ç”¨å®
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
 /**
- * ¿ØÖÆÆ÷£¬¹©Ô±¹¤·ÖÅäĞÅÏ¢Ê¹ÓÃ
+ * æ§åˆ¶å™¨ï¼Œä¾›å‘˜å·¥åˆ†é…ä¿¡æ¯ä½¿ç”¨
  */
-class AssignInfoController : public oatpp::web::server::api::ApiController // 1 ¼Ì³Ğ¿ØÖÆÆ÷
+class AssignInfoController : public oatpp::web::server::api::ApiController // 1 ç»§æ‰¿æ§åˆ¶å™¨
 {
-	// 2 ¶¨Òå¿ØÖÆÆ÷·ÃÎÊÈë¿Ú
+	// 2 å®šä¹‰æ§åˆ¶å™¨è®¿é—®å…¥å£
 	API_ACCESS_DECLARE(AssignInfoController);
-	// 3 ¶¨Òå½Ó¿Ú
+	// 3 å®šä¹‰æ¥å£
 public:
-	// 3.1 ¶¨Òå²éÑ¯½Ó¿ÚÃèÊö
+	// 3.1 å®šä¹‰æŸ¥è¯¢æ¥å£æè¿°
 	ENDPOINT_INFO(assignQuery) {
-		// ¶¨Òå½Ó¿Ú±êÌâ
+		// å®šä¹‰æ¥å£æ ‡é¢˜
 		info->summary = ZH_WORDS_GETTER("employee.get.summary");
-		// ¶¨ÒåÄ¬ÈÏÊÚÈ¨²ÎÊı£¨¿ÉÑ¡¶¨Òå£¬Èç¹û¶¨ÒåÁË£¬ÏÂÃæENDPOINTÀïÃæĞèÒª¼ÓÈëAPI_HANDLER_AUTH_PARAME£©
+		// å®šä¹‰é»˜è®¤æˆæƒå‚æ•°ï¼ˆå¯é€‰å®šä¹‰ï¼Œå¦‚æœå®šä¹‰äº†ï¼Œä¸‹é¢ENDPOINTé‡Œé¢éœ€è¦åŠ å…¥API_HANDLER_AUTH_PARAMEï¼‰
 		API_DEF_ADD_AUTH();
-		// ¶¨ÒåÏìÓ¦²ÎÊı¸ñÊ½
+		// å®šä¹‰å“åº”å‚æ•°æ ¼å¼
 		API_DEF_ADD_RSP_JSON_WRAPPER(AssignInfoPageJsonVO);
-		// ¶¨Òå·ÖÒ³²ÎÊıÃèÊö
+		// å®šä¹‰åˆ†é¡µå‚æ•°æè¿°
 		API_DEF_ADD_PAGE_PARAMS();
-		// ¶¨ÒåÆäËû±íµ¥²ÎÊıÃèÊö
+		// å®šä¹‰å…¶ä»–è¡¨å•å‚æ•°æè¿°
 		info->queryParams.add<String>("assignId").description = ZH_WORDS_GETTER("employee.t_pimperson.assignId");
 		info->queryParams["assignId"].addExample("default", String(""));
 		info->queryParams["assignId"].required = false;
@@ -76,68 +76,68 @@ public:
 		info->queryParams["endTime"].addExample("default", String(""));
 		info->queryParams["endTime"].required = false;
 	}
-	ENDPOINT(API_M_GET, "/query-assign-info", assignQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
-		// ½âÎö²éÑ¯²ÎÊı
+	ENDPOINT(API_M_GET, "/employee-info/query-assign-info", assignQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+		// è§£ææŸ¥è¯¢å‚æ•°
 		API_HANDLER_QUERY_PARAM(userQuery, AssignInfoQuery, queryParams);
-		// ÏìÓ¦½á¹û
+		// å“åº”ç»“æœ
 		API_HANDLER_RESP_VO(execAssignQuery(userQuery, authObject->getPayload()));
 	}
-	// 3.1 ¶¨ÒåĞÂÔö½Ó¿ÚÃèÊö
+	// 3.1 å®šä¹‰æ–°å¢æ¥å£æè¿°
 	ENDPOINT_INFO(addAssignInfo) {
-		// ¶¨Òå½Ó¿Ú±êÌâ
+		// å®šä¹‰æ¥å£æ ‡é¢˜
 		info->summary = ZH_WORDS_GETTER("employee.post.summary");
-		// ¶¨ÒåÄ¬ÈÏÊÚÈ¨²ÎÊı£¨¿ÉÑ¡¶¨Òå£¬Èç¹û¶¨ÒåÁË£¬ÏÂÃæENDPOINTÀïÃæĞèÒª¼ÓÈëAPI_HANDLER_AUTH_PARAME£©
+		// å®šä¹‰é»˜è®¤æˆæƒå‚æ•°ï¼ˆå¯é€‰å®šä¹‰ï¼Œå¦‚æœå®šä¹‰äº†ï¼Œä¸‹é¢ENDPOINTé‡Œé¢éœ€è¦åŠ å…¥API_HANDLER_AUTH_PARAMEï¼‰
 		API_DEF_ADD_AUTH();
-		// ¶¨ÒåÏìÓ¦²ÎÊı¸ñÊ½
+		// å®šä¹‰å“åº”å‚æ•°æ ¼å¼
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	// 3.2 ¶¨ÒåĞÂÔö½Ó¿Ú´¦Àí
-	ENDPOINT(API_M_POST, "/add-assign-info", addAssignInfo, API_HANDLER_AUTH_PARAME, BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
-		// ÏìÓ¦½á¹û
+	// 3.2 å®šä¹‰æ–°å¢æ¥å£å¤„ç†
+	ENDPOINT(API_M_POST, "/employee-info/add-assign-info", addAssignInfo, API_HANDLER_AUTH_PARAME, BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
+		// å“åº”ç»“æœ
 		API_HANDLER_RESP_VO(execAddAssignInfo(dto,authObject->getPayload()));
 	}
-	// 3.1 ¶¨ÒåÉ¾³ı½Ó¿ÚÃèÊö
+	// 3.1 å®šä¹‰åˆ é™¤æ¥å£æè¿°
 	ENDPOINT_INFO(deleteAssignInfo) {
-		// ¶¨Òå½Ó¿Ú±êÌâ
+		// å®šä¹‰æ¥å£æ ‡é¢˜
 		info->summary = ZH_WORDS_GETTER("employee.delete.summary");
-		// ¶¨ÒåÄ¬ÈÏÊÚÈ¨²ÎÊı£¨¿ÉÑ¡¶¨Òå£¬Èç¹û¶¨ÒåÁË£¬ÏÂÃæENDPOINTÀïÃæĞèÒª¼ÓÈëAPI_HANDLER_AUTH_PARAME£©
+		// å®šä¹‰é»˜è®¤æˆæƒå‚æ•°ï¼ˆå¯é€‰å®šä¹‰ï¼Œå¦‚æœå®šä¹‰äº†ï¼Œä¸‹é¢ENDPOINTé‡Œé¢éœ€è¦åŠ å…¥API_HANDLER_AUTH_PARAMEï¼‰
 		API_DEF_ADD_AUTH();
-		// ¶¨ÒåÏìÓ¦²ÎÊı¸ñÊ½
+		// å®šä¹‰å“åº”å‚æ•°æ ¼å¼
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 		//API_DEF_ADD_QUERY_PARAMS(String, "assignId", ZH_WORDS_GETTER("employee.t_pimperson.assignId"), "", true);
 	}
-	// 3.2 ¶¨ÒåÉ¾³ı½Ó¿Ú´¦Àí
-	ENDPOINT(API_M_DEL, "/delete-assign-info", deleteAssignInfo, API_HANDLER_AUTH_PARAME, BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
-		// ÏìÓ¦½á¹û
+	// 3.2 å®šä¹‰åˆ é™¤æ¥å£å¤„ç†
+	ENDPOINT(API_M_DEL, "/employee-info/delete-assign-info", deleteAssignInfo, API_HANDLER_AUTH_PARAME, BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
+		// å“åº”ç»“æœ
 		API_HANDLER_RESP_VO(execDeleteAssignInfo(dto));
 	}
-	// 3.1 ¶¨ÒåĞŞ¸Ä½Ó¿ÚÃèÊö
+	// 3.1 å®šä¹‰ä¿®æ”¹æ¥å£æè¿°
 	ENDPOINT_INFO(modifyAssignInfo) {
-		// ¶¨Òå½Ó¿Ú±êÌâ
+		// å®šä¹‰æ¥å£æ ‡é¢˜
 		info->summary = ZH_WORDS_GETTER("employee.put.summary");
-		// ¶¨ÒåÄ¬ÈÏÊÚÈ¨²ÎÊı£¨¿ÉÑ¡¶¨Òå£¬Èç¹û¶¨ÒåÁË£¬ÏÂÃæENDPOINTÀïÃæĞèÒª¼ÓÈëAPI_HANDLER_AUTH_PARAME£©
+		// å®šä¹‰é»˜è®¤æˆæƒå‚æ•°ï¼ˆå¯é€‰å®šä¹‰ï¼Œå¦‚æœå®šä¹‰äº†ï¼Œä¸‹é¢ENDPOINTé‡Œé¢éœ€è¦åŠ å…¥API_HANDLER_AUTH_PARAMEï¼‰
 		API_DEF_ADD_AUTH();
-		// ¶¨ÒåÏìÓ¦²ÎÊı¸ñÊ½
+		// å®šä¹‰å“åº”å‚æ•°æ ¼å¼
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	// 3.2 ¶¨ÒåĞŞ¸Ä½Ó¿Ú´¦Àí
-	ENDPOINT(API_M_PUT, "/modify-assign-info", modifyAssignInfo, API_HANDLER_AUTH_PARAME,BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
-		// ÏìÓ¦½á¹û
+	// 3.2 å®šä¹‰ä¿®æ”¹æ¥å£å¤„ç†
+	ENDPOINT(API_M_PUT, "/employee-info/modify-assign-info", modifyAssignInfo, API_HANDLER_AUTH_PARAME,BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
+		// å“åº”ç»“æœ
 		API_HANDLER_RESP_VO(execModifyAssignInfo(dto,authObject->getPayload()));
 	}
-	// [ÆäËû] ¶¨ÒåÒ»¸öµ¥ÎÄ¼şÉÏ´«½Ó¿Ú
+	// [å…¶ä»–] å®šä¹‰ä¸€ä¸ªå•æ–‡ä»¶ä¸Šä¼ æ¥å£
 	ENDPOINT_INFO(importAssignInfo) {
 		info->summary = ZH_WORDS_GETTER("employee.post.upload");
-		// ¶¨ÒåÄ¬ÈÏÊÚÈ¨²ÎÊı£¨¿ÉÑ¡¶¨Òå£¬Èç¹û¶¨ÒåÁË£¬ÏÂÃæENDPOINTÀïÃæĞèÒª¼ÓÈëAPI_HANDLER_AUTH_PARAME£©
+		// å®šä¹‰é»˜è®¤æˆæƒå‚æ•°ï¼ˆå¯é€‰å®šä¹‰ï¼Œå¦‚æœå®šä¹‰äº†ï¼Œä¸‹é¢ENDPOINTé‡Œé¢éœ€è¦åŠ å…¥API_HANDLER_AUTH_PARAMEï¼‰
 		API_DEF_ADD_AUTH();
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	ENDPOINT(API_M_POST, "/upload-assign-info", importAssignInfo, API_HANDLER_AUTH_PARAME, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
-			/* ´´½¨multipartÈİÆ÷ */
+	ENDPOINT(API_M_POST, "/employee-info/upload-assign-info", importAssignInfo, API_HANDLER_AUTH_PARAME, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
+			/* åˆ›å»ºmultipartå®¹å™¨ */
 			auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
-			/* ´´½¨multipart¶ÁÈ¡Æ÷ */
+			/* åˆ›å»ºmultipartè¯»å–å™¨ */
 			multipart::Reader multipartReader(multipartContainer.get());
-			/* ÅäÖÃ¶ÁÈ¡Æ÷¶ÁÈ¡±íµ¥×Ö¶Î */
+			/* é…ç½®è¯»å–å™¨è¯»å–è¡¨å•å­—æ®µ */
 			multipartReader.setPartReader("assignId", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 			multipartReader.setPartReader("id", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 			multipartReader.setPartReader("assign", multipart::createInMemoryPartReader(-1 /* max-data-size */));
@@ -153,13 +153,13 @@ public:
 			multipartReader.setPartReader("createDate", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 			multipartReader.setPartReader("updateMan", multipart::createInMemoryPartReader(-1 /* max-data-size */));
 			multipartReader.setPartReader("updateDate", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			/* ÅäÖÃ¶ÁÈ¡Æ÷¶ÁÈ¡ÎÄ¼şµ½ÎÄ¼ş */
+			/* é…ç½®è¯»å–å™¨è¯»å–æ–‡ä»¶åˆ°æ–‡ä»¶ */
 			multipartReader.setPartReader("file", multipart::createFilePartReader("public/static/file/test.png"));
-			/* ¶ÁÈ¡ÇëÇóÌåÖĞµÄÊı¾İ */
+			/* è¯»å–è¯·æ±‚ä½“ä¸­çš„æ•°æ® */
 			request->transferBody(&multipartReader);
-			/* ´òÓ¡partÊıÁ¿ */
+			/* æ‰“å°partæ•°é‡ */
 			OATPP_LOGD("Multipart", "parts_count=%d", multipartContainer->count());
-			/* »ñÈ¡±íµ¥Êı¾İ */
+			/* è·å–è¡¨å•æ•°æ® */
 			auto assignId = multipartContainer->getNamedPart("assignId");
 			auto id = multipartContainer->getNamedPart("id");
 			auto assign = multipartContainer->getNamedPart("assign");
@@ -175,7 +175,7 @@ public:
 			auto createDate = multipartContainer->getNamedPart("createDate");
 			auto updateMan = multipartContainer->getNamedPart("updateMan");
 			auto updateDate = multipartContainer->getNamedPart("updateDate");
-			/* ¶ÏÑÔ±íµ¥Êı¾İÊÇ·ñÕıÈ· */
+			/* æ–­è¨€è¡¨å•æ•°æ®æ˜¯å¦æ­£ç¡® */
 			OATPP_ASSERT_HTTP(assignId, Status::CODE_400, "assignId is null");
 			OATPP_ASSERT_HTTP(id, Status::CODE_400, "id is null");
 			OATPP_ASSERT_HTTP(assign, Status::CODE_400, "assign is null");
@@ -191,7 +191,7 @@ public:
 			OATPP_ASSERT_HTTP(createDate, Status::CODE_400, "createDate is null");
 			OATPP_ASSERT_HTTP(updateMan, Status::CODE_400, "updateMan is null");
 			OATPP_ASSERT_HTTP(updateDate, Status::CODE_400, "updateDate is null");
-			/* ´òÓ¡Ó¦±íµ¥Êı¾İ */
+			/* æ‰“å°åº”è¡¨å•æ•°æ® */
 			OATPP_LOGD("Multipart", "assignId='%s'", assignId->getPayload()->getInMemoryData()->c_str());
 			OATPP_LOGD("Multipart", "id='%s'", id->getPayload()->getInMemoryData()->c_str());
 			OATPP_LOGD("Multipart", "assign='%s'", assign->getPayload()->getInMemoryData()->c_str());
@@ -207,46 +207,46 @@ public:
 			OATPP_LOGD("Multipart", "createDate='%s'", createDate->getPayload()->getInMemoryData()->c_str());
 			OATPP_LOGD("Multipart", "updateMan='%s'", updateMan->getPayload()->getInMemoryData()->c_str());
 			OATPP_LOGD("Multipart", "updateDate='%s'", updateDate->getPayload()->getInMemoryData()->c_str());
-			/* »ñÈ¡ÎÄ¼ş²¿·Ö */
+			/* è·å–æ–‡ä»¶éƒ¨åˆ† */
 			auto filePart = multipartContainer->getNamedPart("file");
-			/* ¶ÏÑÔÎÄ¼şÊÇ·ñ»ñÈ¡µ½ */
+			/* æ–­è¨€æ–‡ä»¶æ˜¯å¦è·å–åˆ° */
 			OATPP_ASSERT_HTTP(filePart, Status::CODE_400, "file is null");
-			/* ´òÓ¡ÎÄ¼şÃû³Æ */
+			/* æ‰“å°æ–‡ä»¶åç§° */
 			OATPP_LOGD("Multipart", "file='%s'", filePart->getFilename()->c_str());
-			/* ÏìÓ¦OK */
+			/* å“åº”OK */
 			return createResponse(Status::CODE_200, "OK");
 	}
 
-	// 3.1 ¶¨Òå²éÑ¯½Ó¿ÚÃèÊö
+	// 3.1 å®šä¹‰æŸ¥è¯¢æ¥å£æè¿°
 	ENDPOINT_INFO(assignQueryDetail) {
-		// ¶¨Òå½Ó¿Ú±êÌâ
+		// å®šä¹‰æ¥å£æ ‡é¢˜
 		info->summary = ZH_WORDS_GETTER("employee.get.detail");
-		// ¶¨ÒåÄ¬ÈÏÊÚÈ¨²ÎÊı£¨¿ÉÑ¡¶¨Òå£¬Èç¹û¶¨ÒåÁË£¬ÏÂÃæENDPOINTÀïÃæĞèÒª¼ÓÈëAPI_HANDLER_AUTH_PARAME£©
+		// å®šä¹‰é»˜è®¤æˆæƒå‚æ•°ï¼ˆå¯é€‰å®šä¹‰ï¼Œå¦‚æœå®šä¹‰äº†ï¼Œä¸‹é¢ENDPOINTé‡Œé¢éœ€è¦åŠ å…¥API_HANDLER_AUTH_PARAMEï¼‰
 		API_DEF_ADD_AUTH();
-		// ¶¨ÒåÏìÓ¦²ÎÊı¸ñÊ½
+		// å®šä¹‰å“åº”å‚æ•°æ ¼å¼
 		API_DEF_ADD_RSP_JSON_WRAPPER(AssignInfoJsonVO);
-		//ÏêÏ¸²éÑ¯·ÖÅäĞÅÏ¢²»ĞèÒª·ÖÒ³
-		// ¶¨Òå·ÖÒ³²ÎÊıÃèÊö
+		//è¯¦ç»†æŸ¥è¯¢åˆ†é…ä¿¡æ¯ä¸éœ€è¦åˆ†é¡µ
+		// å®šä¹‰åˆ†é¡µå‚æ•°æè¿°
 		//API_DEF_ADD_PAGE_PARAMS();
-		// ¶¨ÒåÆäËû±íµ¥²ÎÊıÃèÊö
+		// å®šä¹‰å…¶ä»–è¡¨å•å‚æ•°æè¿°
 		info->queryParams.add<String>("assignId").description = ZH_WORDS_GETTER("employee.t_pimperson.assignId");
 		info->queryParams["assignId"].addExample("default", String("E3D4260E-D2D6-4884-A6BE-FF6547BDF229"));
 		info->queryParams["assignId"].required = true;
 	}
-	// 3.2 ¶¨Òå²éÑ¯½Ó¿Ú´¦Àí
-	ENDPOINT(API_M_GET, "/query-assign-info-detail", assignQueryDetail, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
-		// ½âÎö²éÑ¯²ÎÊı
+	// 3.2 å®šä¹‰æŸ¥è¯¢æ¥å£å¤„ç†
+	ENDPOINT(API_M_GET, "/employee-info/query-assign-info-detail", assignQueryDetail, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+		// è§£ææŸ¥è¯¢å‚æ•°
 		API_HANDLER_QUERY_PARAM(userQuery, AssignInfoQueryDetail, queryParams);
-		// ÏìÓ¦½á¹û
+		// å“åº”ç»“æœ
 		API_HANDLER_RESP_VO(execAssignQueryDetail(userQuery, authObject->getPayload()));
 	}
 
 	ENDPOINT_INFO(exportAssignInfo) {
 		info->summary = ZH_WORDS_GETTER("export.summary");
-		// ¶¨ÒåÄ¬ÈÏÊÚÈ¨²ÎÊı£¨¿ÉÑ¡¶¨Òå£¬Èç¹û¶¨ÒåÁË£¬ÏÂÃæENDPOINTÀïÃæĞèÒª¼ÓÈëAPI_HANDLER_AUTH_PARAME£©
+		// å®šä¹‰é»˜è®¤æˆæƒå‚æ•°ï¼ˆå¯é€‰å®šä¹‰ï¼Œå¦‚æœå®šä¹‰äº†ï¼Œä¸‹é¢ENDPOINTé‡Œé¢éœ€è¦åŠ å…¥API_HANDLER_AUTH_PARAMEï¼‰
 		API_DEF_ADD_AUTH();
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-		// ¶¨Òå·ÖÒ³²ÎÊıÃèÊö
+		// å®šä¹‰åˆ†é¡µå‚æ•°æè¿°
 		API_DEF_ADD_PAGE_PARAMS();
 		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.field.id");
 		info->queryParams["id"].addExample("default", String("0000001"));
@@ -258,7 +258,7 @@ public:
 	}
 
 private:
-	// 3.3 ÑİÊ¾ĞÂÔöÊı¾İ
+	// 3.3 æ¼”ç¤ºæ–°å¢æ•°æ®
 	StringJsonVO::Wrapper execAddAssignInfo(const AssignInfoDTO::Wrapper& dto, const PayloadDTO& payload);
 	StringJsonVO::Wrapper execDeleteAssignInfo(const AssignInfoDTO::Wrapper& dto);
 	//ImportAssignInfoJsonVO::Wrapper execImportAssignInfo(const ImportAssignInfoDTO::Wrapper& dto);
@@ -268,6 +268,6 @@ private:
 	StringJsonVO::Wrapper execExportAssign(const AssignExportQuery::Wrapper& query);
 };
 
-// 0 È¡ÏûAPI¿ØÖÆÆ÷Ê¹ÓÃºê
+// 0 å–æ¶ˆAPIæ§åˆ¶å™¨ä½¿ç”¨å®
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
 #endif // _ASSIGN_CONTROLLER_
