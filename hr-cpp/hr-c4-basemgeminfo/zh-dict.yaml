@@ -31,7 +31,7 @@ sample:
   sex: 性别，如：男
 workhistory:
  file:
-  summary: 导入工作履历
+  summary: 文件上传
   suffix: 文件后缀
  field:
   list<pimworkhistoryid>: 履历的独有信息，用来批量删除的
@@ -41,17 +41,12 @@ workhistory:
   rzkssj: 任职开始时间
   rzjssj: 任职结束时间
   ormorgname: 工作单位
-  ormorgsectorname: 部门
+  bm: 部门
   ormdutyname: 职务
   ormpostname: 岗位
   cfplx: 兼职主要类型
   experience: 是否主要经历
   enable: 是否主要经历
-  suffix: 导入文件后缀名
-  body: 导入文件主体
-  update: 更新时间
-  updatedate: 更新时间
-  updateman: 更新人
  put:
   summary: 单条修改工作履历数据
  export:
@@ -65,7 +60,7 @@ workhistory:
  delete:
   summary: 删除数据(支持批量删除)  
  select:
-  summary: 指定工作履历详情
+  summary: 查询数据
   
 sciresult:
  field:
@@ -86,21 +81,24 @@ sciresult:
   REASON: 拒绝原因
   list<delSciResult>: 用来批量删除的
   listsciresult: 导入
- into: 
-  summary: 科研成果导入
-  fileinto: 导入科研成果
-  suffix: 文件名
+Into: 
+ fileinto: 导入科研成果
 contract:
  get:
-  summary: 查看指定员工合同信息(分页查询列表)
- PIMPERSONID: 人员信息标识
- HTBH: 合同编号
- HTLX: 合同类别
- CONTRACTTYPE: 合同类型
- QSRQ: 起始日期
- JSRQ: 结束日期
- HTZT: 合同状态
- SYDQSJ: 试用到期时间
+  summary: 分页查询合同数据
+ id: 合同编号
+ unit: 员工所属单位
+ state: 员工状态
+ unitTime: 员工到本单位时间
+ contractID: 合同编号
+ contractUnit: 合同签订单位
+ contractCategory: 合同类别
+ contractType: 合同类型
+ startDate: 合同起始日期
+ endDate: 合同结束日期
+ contractStatus: 合同状态
+ remaining: 合同剩余天数
+ trialExpiration: 合同试用到期时间
 military:
  get: 
   summary: 查看指定员工军转干部(指定军转干部详情)
@@ -146,8 +144,6 @@ jobtitleinformation:
  get:
   summary: 分页查询职称信息
  field:
-  employeeid: 员工编号
-  organization_name: 员工姓名
   state: 员工状态
   ormorgname: 组织
   professoranalysis_name: 职称名称 
@@ -163,7 +159,6 @@ certificateinformation:
  get:
   summary: 分页查询证书信息
  field:
-  ygbh: 员工编号
   state: 员工状态
   ormorgname: 组织
   zgzsbh: 证书编号
@@ -195,7 +190,6 @@ scientific:
  updateman: 更新人
  pimresearchfindingsname: 科研成果名称
  fj: 附件
- enable: ENBLE
  createdate: 建立时间
  updatedate: 更新时间
  createman: 建立人
@@ -225,23 +219,17 @@ scientific:
 pimarmycadres:
  get:
   summary: 分页查询军转干部数据
- delete:
-  summary: 批量删除军转干部信息
- post:
-  summary: 新增一条数据
- file: 
-  summary: 导入文件
  field:
   list<pimarmycardesid>: 批量删除
   pimarmycadresid: 军转干部信息
   pimid: 员工编号
-  form: 类型
+  type: 类型
   level: 级别
   occurtime: 发生时间
-  annexPath: 附件路径
   summary: 文件上传
   suffix: 文件后缀
- 
+ post:
+  summary: 新增一条数据
 rewardandpunish:
  get:
   summary: 查看指定员工奖惩记录（指定奖惩信息详情）
@@ -274,3 +262,38 @@ rewardandpunish:
  yxqjsrq: 影响期结束日期
  department: 授予单位
  reason: 拒绝原因
+trainingrecord:
+ get:
+  summary: 分页查询员工培训记录
+ trmtrianpersonid: 培训人员标识
+ trmtrianpersonname: 参培人员
+ createman: 建立人
+ createdate: 建立时间
+ updateman: 更新人
+ updatedate: 更新时间
+ enable: 可行
+ trmtrainplantermid: 培训计划项标识
+ pimpersonid: 人员信息标识
+ gw: 岗位
+ fjh: 房间号
+ jsfs: 接送方式
+ zw: 职务
+ fs: 分数
+ nj: 年龄
+ ygbh: 员工编号
+ zz: 单位
+ bm: 部门
+ xb: 性别
+ lxdh: 联系电话
+ trainres: 培训结果
+ pxkssj: 培训开始时间
+ trmtrainplantermname: 培训计划项名称
+ pimpersonname: 员工姓名
+ trmtraingencyname: 培训机构
+ trmtraincoursename: 培训课程
+ pxjssj: 培训结束时间
+ pxbj: 培训班级
+ trainbegin: 培训开始时间
+ trainend: 培训结束时间
+ pxkc: 培训课程
+ pxjg: 培训机构
