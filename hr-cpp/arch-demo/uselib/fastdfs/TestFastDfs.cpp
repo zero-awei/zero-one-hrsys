@@ -36,7 +36,7 @@ void TestFastDfs::testDfs(string fileName)
 #else
 	//定义客户端对象
 	FastDfsClient client("192.168.220.128");
-#endif
+#endif 
 
 	//测试上传
 	std::string fieldName = client.uploadFile(fileName);
