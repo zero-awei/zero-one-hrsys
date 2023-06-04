@@ -162,24 +162,24 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="controller\ExportLanguage\ExportLanguage.h" />
-    <ClInclude Include="controller\ImportLanguage\ImportLanguageController.h" />
-    <ClInclude Include="controller\LanguageCompetence\LanguageCompetenceController.h" />
+    <ClInclude Include="controller\exportLanguage\ExportLanguage.h" />
+    <ClInclude Include="controller\importLanguage\ImportLanguageController.h" />
+    <ClInclude Include="controller\languageCompetence\LanguageCompetenceController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
-    <ClInclude Include="dao\Language\LanguageDAO.h" />
-    <ClInclude Include="dao\Language\LanguageMapper.h" />
+    <ClInclude Include="dao\language\LanguageDAO.h" />
+    <ClInclude Include="dao\language\LanguageMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\do\Language\LanguageDO.h" />
-    <ClInclude Include="domain\dto\DeleteLanguage\DeleteLanguageDTO.h" />
-    <ClInclude Include="domain\dto\DownloadLanguage\DownloadLanguageDTO.h" />
-    <ClInclude Include="domain\dto\ImportLanguage\ImportLanguageDTO.h" />
-    <ClInclude Include="domain\dto\Language\LanguageDTO.h" />
+    <ClInclude Include="domain\do\language\LanguageDO.h" />
+    <ClInclude Include="domain\dto\deleteLanguage\DeleteLanguageDTO.h" />
+    <ClInclude Include="domain\dto\downloadLanguage\DownloadLanguageDTO.h" />
+    <ClInclude Include="domain\dto\importLanguage\ImportLanguageDTO.h" />
+    <ClInclude Include="domain\dto\language\LanguageDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
-    <ClInclude Include="domain\query\EmployeeLanguareQuery\EmployeeLanguareQuery.h" />
-    <ClInclude Include="domain\query\LanguagePage\LanguagePageQuery.h" />
-    <ClInclude Include="domain\query\Language\LanguageQuery.h" />
-    <ClInclude Include="domain\vo\Language\LanguageVO.h" />
+    <ClInclude Include="domain\query\employeeLanguareQuery\EmployeeLanguareQuery.h" />
+    <ClInclude Include="domain\query\languagePage\LanguagePageQuery.h" />
+    <ClInclude Include="domain\query\language\LanguageQuery.h" />
+    <ClInclude Include="domain\vo\language\LanguageVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\Language\LanguageService.h" />
@@ -188,12 +188,12 @@
     <ClInclude Include="uselib\jwt\TestToken.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="controller\ExportLanguage\ExportLanguage.cpp" />
-    <ClCompile Include="controller\ImportLanguage\ImportLanguageController.cpp" />
-    <ClCompile Include="controller\LanguageCompetence\LanguageCompetenceController.cpp" />
+    <ClCompile Include="controller\exportLanguage\ExportLanguage.cpp" />
+    <ClCompile Include="controller\importLanguage\ImportLanguageController.cpp" />
+    <ClCompile Include="controller\languageCompetence\LanguageCompetenceController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
-    <ClCompile Include="dao\Language\LanguageDAO.cpp" />
+    <ClCompile Include="dao\language\LanguageDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\Language\LanguageService.cpp" />
     <ClCompile Include="stdafx.cpp">

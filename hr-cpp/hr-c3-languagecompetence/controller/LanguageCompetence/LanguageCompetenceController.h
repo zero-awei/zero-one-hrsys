@@ -57,7 +57,7 @@ public: // 定义接口
 	}
 	//定义分页查询接口处理
 	//API_HANDLER_ENDPOINT_QUERY_AUTH(API_M_GET, "/user/query-langugae", queryLanguage, LanguagePageQuery, execQueryLanguage(query, authObject->getPayload()));
-	ENDPOINT(API_M_GET, "/language/query-langugae", queryLanguage, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/employee-info/query-langugae", queryLanguage, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		//解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, LanguagePageQuery, queryParams);
 		// 响应结果
@@ -75,7 +75,7 @@ public: // 定义接口
 		API_DEF_ADD_QUERY_PARAMS(String, "languageAbilityID", ZH_WORDS_GETTER("language.field.id"), "3A1F9BF1-2C9A-4249-80C2-A1F0E8B367B0", true);
 	}
 	//定义查询接口处理
-	ENDPOINT(API_M_GET, "/language/query-one-langugae", queryOneLanguage, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/employee-info/query-one-langugae", queryOneLanguage, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		//解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, LanguageQuery, queryParams);
 		// 响应结果
@@ -92,7 +92,7 @@ public: // 定义接口
 		//API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	//定义新增接口处理
-	ENDPOINT(API_M_POST, "/language/add-language", addLanguage, API_HANDLER_AUTH_PARAME, BODY_DTO(LanguageDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/employee-info/add-language", addLanguage, API_HANDLER_AUTH_PARAME, BODY_DTO(LanguageDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddLanguage(dto, authObject->getPayload()));
 	}
@@ -107,7 +107,7 @@ public: // 定义接口
 		//API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	//定义删除接口处理(支持批量删除）
-	ENDPOINT(API_M_DEL, "/language/delete-language", deleteLanguage, API_HANDLER_AUTH_PARAME, BODY_DTO(DeleteLanguageDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/employee-info/delete-language", deleteLanguage, API_HANDLER_AUTH_PARAME, BODY_DTO(DeleteLanguageDTO::Wrapper, dto)) {
 		//响应结果
 		API_HANDLER_RESP_VO(execDeleteLanguage(dto, authObject->getPayload()));
 	}
@@ -122,7 +122,7 @@ public: // 定义接口
 		//API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	//定义修改接口处理
-	ENDPOINT(API_M_PUT, "/language/update-language", updateLanguage, API_HANDLER_AUTH_PARAME, BODY_DTO(LanguageDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/employee-info/update-language", updateLanguage, API_HANDLER_AUTH_PARAME, BODY_DTO(LanguageDTO::Wrapper, dto)) {
 		//响应结果
 		API_HANDLER_RESP_VO(execUpdateLanguage(dto, authObject->getPayload()));
 	}

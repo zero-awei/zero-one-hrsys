@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "UseFastDFS.h"
-#include "FastDfsClient.h"
 #include <iostream>
 
 #ifdef LINUX
@@ -8,6 +7,8 @@
 #include "NacosClient.h"
 #include "YamlHelper.h"
 #endif
+
+#include "FastDfsClient.h"
 
 /**
  * 实现调用FastDFS
