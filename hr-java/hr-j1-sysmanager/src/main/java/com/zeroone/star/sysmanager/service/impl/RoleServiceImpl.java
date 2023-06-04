@@ -15,6 +15,7 @@ import org.mapstruct.Mapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -29,7 +30,6 @@ import java.util.Objects;
 interface MsRoleMapper {
     /**
      * sample do 转换 role dto
-     *
      * @param role do对象
      * @return dto对象
      */
@@ -66,6 +66,9 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IR
         role.setKeyword(roleDTO.getKeyword());
         role.setDescription(roleDTO.getDescription());
         role.setIsEnable(roleDTO.getIsEnable());
+        //角色创建者
+        role.setCreator(roleDTO.getCreator());
+
 
         int result = baseMapper.insert(role);
 

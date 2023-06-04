@@ -4,11 +4,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 @ApiModel("角色管理")
 public class RoleDTO {
 
-    @ApiModelProperty(value = "编号", example = "2")
+    @ApiModelProperty(value = "编号", example = "3")
     private String id;
 
     @ApiModelProperty(value = "角色名", example = "普通管理员")
@@ -22,4 +24,9 @@ public class RoleDTO {
 
     @ApiModelProperty(value = "是否启用", example = "1")
     private Integer isEnable;
+
+    @ApiModelProperty(value = "创建人", example = "Alan")
+    private String creator;
+    @ApiModelProperty(value = "创建时间", example = "把✔取消，创建时间按默认")
+    private Date createTime;
 }
