@@ -101,35 +101,79 @@ std::vector<std::string> JobTitleInfoDAO::getHead(const JobTitleDTO::Wrapper& qu
 {
 	// 构建返回对象
 	vector<std::string> head;
-	if (query->employee_id)
-		head.push_back(u8"");
+	//if (query->employee_id)
+		head.push_back(u8"员工编号");
+	//if (query->employee_name)
+		head.push_back(u8"员工姓名");
+	//if (query->org_name)
+		head.push_back(u8"组织");
+	//if (query->jobtitle_name)
+		head.push_back(u8"职称名称");
+	//if (query->get_time)
+		head.push_back(u8"获取时间");
+	//if (query->professional_cate)
+		head.push_back(u8"专业类别");
+		head.push_back(u8"职称等级");
+		head.push_back(u8"职称聘用时间");
+		head.push_back(u8"签发机构");
+		head.push_back(u8"评审单位");
+		head.push_back(u8"是否最高职称");
 	return head;
 }
 
 int JobTitleInfoDAO::update(const JobTitleDO& uObj)
 {
 	stringstream sql;
-	stringstream fmts;
-	sql << "UPDATE `bis_professoranalysis_t` SET ";
-	SQLPARAMS_UPDATE_STRING(jobtitle_name);
-	SQLPARAMS_UPDATE_STRING(certificate_id);
-	SQLPARAMS_UPDATE_STRING(jobtitle_grades);
-	//SQLPARAMS_UPDATE_STRING(jobtype);
-	SQLPARAMS_UPDATE_STRING(professional_cate);
-	SQLPARAMS_UPDATE_STRING(get_time);
-	SQLPARAMS_UPDATE_STRING(employee_id);
-	SQLPARAMS_UPDATE_STRING(employee_name);
-	SQLPARAMS_UPDATE_PUSH_FINAL(org_name, "%s", id);
+	stringstream fmts; fmts<< "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s";
+	sql << "UPDATE t_pimtitle as tpt\
+		LEFT JOIN t_pimperson as tpp ON tpt.PIMPERSONID = tpp.PIMPERSONID\
+		LEFT JOIN t_pimtitlecatalogue as tpc ON tpt.PIMTITLEID = tpc.PIMTITLEID\
+		LEFT JOIN bis_titlegrade_t as btt on tpt.ZCDJ = btt.TITLEGRADEVALUE\
+		LEFT JOIN t_personstatemgr as tpr ON tpr.PERSONSTATECODE = tpp.YGZT\
+		LEFT JOIN t_pimtitlecatalogue as tpg ON tpg.PIMTITLECATALOGUEID = tpt.PIMTITLECATALOGUEID\
+		SET ";
+	sql << "tpp.YGBH = ?,\
+		tpp.PIMPERSONNAME = ?,\
+		tpr.PERSONSTATEMGRNAME = ?,\
+		tpp.ORMORGNAME = ?,\
+		tpg.PIMTITLECATALOGUENAME = ?,\
+		tpt.ZCHQRQ = ?,\
+		tpt.ZCBH = ?,\
+		tpt.MAJORENGAGED = ?,\
+		btt.TITLEGRADENAME = ?,\
+		tpt.EMPLOYTIME = ?,\
+		tpt.LSSUINGAGENCY = ?,\
+		tpt.REVIEWBODY = ?,\
+		tpp.HIGHTITLE = ?\
+		WHERE tpt.PIMTITLEID = ? AND tpp.YGBH = ?";
+	/*	tpp.YGBH = '123123',\
+		tpp.PIMPERSONNAME = '123342231',\
+		tpr.PERSONSTATEMGRNAME = '',\
+		tpp.ORMORGNAME = 'testOrg',\
+		tpg.PIMTITLECATALOGUENAME = '',\
+		tpt.ZCHQRQ = '2019-03-01 00:00:00',\
+		tpt.ZCBH = '12345678910',\
+		tpt.MAJORENGAGED = '',\
+		btt.TITLEGRADENAME = '',\
+		tpt.EMPLOYTIME = '2019-03-01 00:00:00',\
+		tpt.LSSUINGAGENCY = '未知',\
+		tpt.REVIEWBODY = '未知',\
+		tpp.HIGHTITLE = '未知'\
+		WHERE tpt.PIMTITLEID = '04CE5FCB-0581-4EA9-9A01-7B88A01A0027' AND tpp.YGBH = '1813****'; ";*/
+	cout << sql.str() << endl;
 	return sqlSession->executeUpdate(sql.str(), fmts.str().c_str(),
-		uObj.getJobtitle_Name(),
-		uObj.getCertificate_Id(),
-		uObj.getJobtitle_Grades(),
-		//uObj.getJobType(),
-		uObj.getProfessional_Cate(),
-		uObj.getGet_Time(),
 		uObj.getEmployee_Id(),
 		uObj.getEmployee_Name(),
+		uObj.getEmployee_State(),
 		uObj.getOrg_Name(),
-		//uObj.getOrgId(),
-		uObj.getId());
+		uObj.getJobtitle_Name(),
+		uObj.getGet_Time(),
+		uObj.getCertificate_Id(),
+		uObj.getProfessional_Cate(),
+		uObj.getJobtitle_Grades(),
+		uObj.getTitle_Employment_Time(),
+		uObj.getIssuing_Authority(),
+		uObj.getJudging_Unit(),
+		uObj.getB_Highest_Professional_Title(),
+		uObj.getId(),uObj.getEmployee_Id());
 }

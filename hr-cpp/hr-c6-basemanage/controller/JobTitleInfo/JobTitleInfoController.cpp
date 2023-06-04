@@ -27,8 +27,11 @@ Uint64JsonVO::Wrapper JobTitleInfoController::execModifyJobTitle(const JobTitleD
 {
 	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
-	UInt64 res_id{};
-	jvo->success(res_id);
-	// 响应结果
+	JobTitleInfoService service;
+	auto resBool = service.updateData(dto);
+	if (resBool)
+		jvo->success(resBool);
+	else
+		jvo->fail(resBool);
 	return jvo;
 }

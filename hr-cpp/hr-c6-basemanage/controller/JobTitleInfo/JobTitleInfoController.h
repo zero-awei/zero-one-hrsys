@@ -35,8 +35,11 @@ public:
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(JTQueryJsonVO);
 		// 定义其他表单参数描述
+		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("title.field.id");
+		info->queryParams["id"].addExample("default", String("04CE5FCB-0581-4EA9-9A01-7B88A01A0027"));
+		info->queryParams["id"].required = true;
 		info->queryParams.add<String>("employee_id").description = ZH_WORDS_GETTER("jobtitle.field.employee_id");
-		info->queryParams["employee_id"].addExample("default", String("1813****"));
+		info->queryParams["employee_id"].addExample("default", String("123321"));
 		info->queryParams["employee_id"].required = true;
 	}
 	// 3.2 定义查询接口处理
@@ -57,10 +60,10 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		// 定义其他表单参数描述
 		info->queryParams.add<String>("employee_id").description = ZH_WORDS_GETTER("jobtitle.field.employee_id");
-		info->queryParams["employee_id"].addExample("default", String("5021****"));
+		info->queryParams["employee_id"].addExample("default", String("123321"));
 		info->queryParams["employee_id"].required = false;
 		info->queryParams.add<String>("employee_name").description = ZH_WORDS_GETTER("jobtitle.field.employee_name");
-		info->queryParams["employee_name"].addExample("default", String("严**"));
+		info->queryParams["employee_name"].addExample("default", String(u8"哈哈哈"));
 		info->queryParams["employee_name"].required = false;
 		info->queryParams.add<String>("org_name").description = ZH_WORDS_GETTER("jobtitle.field.org_name");
 		info->queryParams["org_name"].addExample("default", String(""));

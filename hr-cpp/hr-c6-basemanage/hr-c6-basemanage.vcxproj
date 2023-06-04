@@ -198,6 +198,7 @@
     <ClCompile Include="dao\Sample\ContractDao.cpp" />
     <ClCompile Include="service\akieService\ContractInfoService.cpp" />
     <ClCompile Include="service\expenseLedger\ExpenseLedgerService.cpp" />
+    <ClCompile Include="service\Expense\ExpenseLedgeService.cpp" />
     <ClCompile Include="service\JobTitleInfo\JobTitleInfo.cpp" />
     <ClCompile Include="service\JobTitle\JobTitleService.cpp" />
     <ClCompile Include="service\laborDispatch\LaborDispatchService-mg.cpp" />
@@ -235,6 +236,7 @@
     <ClInclude Include="dao\dao-sql-macro\macro.h" />
     <ClInclude Include="dao\expenseLedger\ExpenseLedgerDAO.h" />
     <ClInclude Include="dao\expenseLedger\ExpenseLedgerMapper.h" />
+    <ClInclude Include="dao\expenseLedger\ExportExpenseMapper.h" />
     <ClInclude Include="dao\Gosh\GoshDAO.h" />
     <ClInclude Include="dao\Gosh\GoshMapper.h" />
     <ClInclude Include="controller\TerminationReminder\terminationReminder.h" />
@@ -306,6 +308,7 @@
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\akieService\ContractInfoService.h" />
     <ClInclude Include="service\expenseLedger\ExpenseLedgerService.h" />
+    <ClInclude Include="service\Expense\ExpenseLedgeService.h" />
     <ClInclude Include="service\JobTitleInfo\JobTitleInfo.h" />
     <ClInclude Include="service\JobTitle\JobTitleService.h" />
     <ClInclude Include="service\laborDispatch\LaborDispatchService-mg.h" />

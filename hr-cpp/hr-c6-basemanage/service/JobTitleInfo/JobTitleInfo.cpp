@@ -29,13 +29,12 @@ std::string JobTitleInfoService::listAllJobTitle(const JobTitleDTO::Wrapper& que
 		vector<string> temp;
 		temp.push_back(sub.getEmployee_Id());
 		temp.push_back(sub.getEmployee_Name());
-		temp.push_back(sub.getCertificate_Id());
 		temp.push_back(sub.getOrg_Name());
 		temp.push_back(sub.getJobtitle_Name());
-		temp.push_back(sub.getJobtitle_Grades());
 		temp.push_back(sub.getGet_Time());
 		temp.push_back(sub.getProfessional_Cate());
-		temp.push_back(sub.getProfessional_Name());
+		temp.push_back(sub.getJobtitle_Grades());
+		temp.push_back(sub.getTitle_Employment_Time());
 		temp.push_back(sub.getIssuing_Authority());
 		temp.push_back(sub.getJudging_Unit());
 		temp.push_back(sub.getB_Highest_Professional_Title());
@@ -43,7 +42,7 @@ std::string JobTitleInfoService::listAllJobTitle(const JobTitleDTO::Wrapper& que
 	}
 
 	// 生成数据表表头
-	vector<string> head/* = dao.getHead()*/;
+	vector<string> head = dao.getHead(query);
 	//head.erase(head.begin() + 12,head.end());
 	data.insert(data.begin(), head);
 	// 生成Excel
@@ -59,6 +58,7 @@ JobTitleDTO::Wrapper JobTitleInfoService::queryDataDetail(const JobTitleDTO::Wra
 	JobTitleInfoDAO dao;
 	auto resD0 = dao.selectAll(query);
 	auto resDTO = JobTitleDTO::createShared();
+	resDTO->id = resD0.front().getId();
 	resDTO->employee_id = resD0.front().getEmployee_Id();
 	resDTO->employee_name = resD0.front().getEmployee_Name();
 	resDTO->employee_state = resD0.front().getEmployee_State();
@@ -78,16 +78,19 @@ bool JobTitleInfoService::updateData(const JobTitleDTO::Wrapper& dto)
 {
 	JobTitleInfoDAO dao;
 	JobTitleDO data;
+	data.setId(dto->id);
 	data.setEmployee_Id(dto->employee_id);
 	data.setEmployee_Name(dto->employee_name);
 	data.setEmployee_State(dto->employee_state);
 	data.setOrg_Name(dto->org_name);
 	data.setJobtitle_Name(dto->jobtitle_name);
-	data.setJobtitle_Grades(dto->jobtitle_grades);
 	data.setGet_Time(dto->get_time);
+	data.setCertificate_Id(dto->certificate_id);
 	data.setProfessional_Cate(dto->professional_cate);
+	data.setJobtitle_Grades(dto->jobtitle_grades);
 	data.setTitle_Employment_Time(dto->title_employment_time);
 	data.setIssuing_Authority(dto->issuing_authority);
 	data.setJudging_Unit(dto->judging_unit);
+	data.setB_Highest_Professional_Title(dto->b_highest_professional_title);
 	return !!dao.update(data);
 }
