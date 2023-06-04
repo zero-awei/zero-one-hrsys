@@ -28,11 +28,7 @@
 #include "work-history/WorkHistoryController.h"
 #include "controller/pimarmycadres/PimarmycadresController.h"
 #include "controller/rewardandpunish/RewardAndPunishController.h"
-
-
-
-
-
+#include "rewardandpunishmentinformation/RewardAndPunishmentInformationController.h"
 #include "archives/ArchivesController.h"
 #include "scientific/ScientificController.h"
 #include "trainingrecord/TrainingRecordController.h"
@@ -83,7 +79,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(RewardAndPunishController);
 	//°ó¶¨TrainingRecordController
 	ROUTER_SIMPLE_BIND(TrainingRecordController);
-
+	ROUTER_SIMPLE_BIND(RewardAndPunishmentInformationController);
 }
 
 
