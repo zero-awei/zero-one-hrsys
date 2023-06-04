@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 /*
  Copyright Zero One Star. All rights reserved.
 
@@ -32,50 +32,50 @@
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
-// 0 ¶¨ÒåAPI¿ØÖÆÆ÷Ê¹ÓÃºê
+// 0 å®šä¹‰APIæ§åˆ¶å™¨ä½¿ç”¨å®
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
 /**
- * ¸ÚÎ»ÉèÖÃ - ²éÑ¯Ö¸¶¨¸ÚÎ»ÏêÇé¿ØÖÆÆ÷
- * ·µ»ØÖµ : PostDetailPageJsonVO - ·µ»ØÒ»¸ö·ÖÒ³¸ÚÎ»²éÑ¯ÁĞ±í
- * ¸ºÔğÈË : rice
+ * å²—ä½è®¾ç½® - æŸ¥è¯¢æŒ‡å®šå²—ä½è¯¦æƒ…æ§åˆ¶å™¨
+ * è¿”å›å€¼ : PostDetailPageJsonVO - è¿”å›ä¸€ä¸ªåˆ†é¡µå²—ä½æŸ¥è¯¢åˆ—è¡¨
+ * è´Ÿè´£äºº : rice
  */
-class PostQueryController : public oatpp::web::server::api::ApiController // 1 ¼Ì³Ğ¿ØÖÆÆ÷
+class PostQueryController : public oatpp::web::server::api::ApiController // 1 ç»§æ‰¿æ§åˆ¶å™¨
 {
-	// 2 ¶¨Òå¿ØÖÆÆ÷·ÃÎÊÈë¿Ú
+	// 2 å®šä¹‰æ§åˆ¶å™¨è®¿é—®å…¥å£
 	API_ACCESS_DECLARE(PostQueryController);
-	// 3 ¶¨Òå½Ó¿Ú
+	// 3 å®šä¹‰æ¥å£
 public:
-	// 3.1 ¶¨Òå²éÑ¯½Ó¿ÚÃèÊö
+	// 3.1 å®šä¹‰æŸ¥è¯¢æ¥å£æè¿°
 	ENDPOINT_INFO(queryByQuerySort) {
-		// ¶¨Òå½Ó¿Ú±êÌâ
+		// å®šä¹‰æ¥å£æ ‡é¢˜
 		info->summary = ZH_WORDS_GETTER("orgmanage.controller.postQuery");
-		// ¶¨ÒåÏìÓ¦²ÎÊı¸ñÊ½
+		// å®šä¹‰å“åº”å‚æ•°æ ¼å¼
 		API_DEF_ADD_RSP_JSON_WRAPPER(PostDetailPageJsonVO);
-		// ¶¨Òå·ÖÒ³²ÎÊıÃèÊö
+		// å®šä¹‰åˆ†é¡µå‚æ•°æè¿°
 		API_DEF_ADD_PAGE_PARAMS();
-		// ¶¨ÒåÆäËû±íµ¥²ÎÊıÃèÊö
-		info->queryParams.add<String>("queryPostName").description = u8"²éÑ¯¸ÚÎ»";
-		info->queryParams["queryPostName"].addExample("default", String(u8"ÈËÊÂ¹ÜÀí¸Ú"));
+		// å®šä¹‰å…¶ä»–è¡¨å•å‚æ•°æè¿°
+		info->queryParams.add<String>("queryPostName").description = u8"æŸ¥è¯¢å²—ä½";
+		info->queryParams["queryPostName"].addExample("default", String(u8"äººäº‹ç®¡ç†å²—"));
 		info->queryParams["queryPostName"].required = true;
-		info->queryParams.add<String>("sortTypeAndMethod").description = u8"ÅÅĞòÀà±ğÒÔ¼°ÉıĞò»ò½µĞò";
+		info->queryParams.add<String>("sortTypeAndMethod").description = u8"æ’åºç±»åˆ«ä»¥åŠå‡åºæˆ–é™åº";
 		info->queryParams["sortTypeAndMethod"].addExample("default", String(u8"xh,ASC"));
 		info->queryParams["sortTypeAndMethod"].required = true;
 		API_DEF_ADD_AUTH();
 	}
-	// 3.2 ¶¨Òå²éÑ¯½Ó¿Ú´¦Àí
+	// 3.2 å®šä¹‰æŸ¥è¯¢æ¥å£å¤„ç†
 	ENDPOINT(API_M_GET, PATH_TO_JOBSET("/query-by-query-sort"), queryByQuerySort, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
-		// ½âÎö²éÑ¯²ÎÊı
+		// è§£ææŸ¥è¯¢å‚æ•°
 		API_HANDLER_QUERY_PARAM(postDetailQuery, PostDetailQuery, queryParams);
-		// ÏìÓ¦½á¹û
+		// å“åº”ç»“æœ
 		API_HANDLER_RESP_VO(execQueryByQuerySort(postDetailQuery));
 	}
 	
 private:
-	// ²éÑ¯Ö¸¶¨¸ÚÎ»ÏêÇé
+	// æŸ¥è¯¢æŒ‡å®šå²—ä½è¯¦æƒ…
 	PostDetailPageJsonVO::Wrapper execQueryByQuerySort(const PostDetailQuery::Wrapper& postDetailQuery);
 };
 
-// 0 È¡ÏûAPI¿ØÖÆÆ÷Ê¹ÓÃºê
+// 0 å–æ¶ˆAPIæ§åˆ¶å™¨ä½¿ç”¨å®
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
 #endif // _POSTQUERY_CONTROLLER_
