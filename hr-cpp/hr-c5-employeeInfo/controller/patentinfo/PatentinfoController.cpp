@@ -44,11 +44,33 @@ Uint64JsonVO::Wrapper PatentinfoController::execAddPatent(const AddPatentDTO::Wr
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();
 	// 参数校验
+	// 非空校验
 	if (!dto->zlh || !dto->pimpatentname || !dto->zlhqsj || !dto->zlpzgb)
 	{
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
+	// 有效值校验
+	if (dto->zlh->empty() || dto->pimpatentname->empty() || dto->zlhqsj->empty() || dto->zlpzgb->empty())
+	{
+		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		return jvo;
+	}
+
+	// 定义一个Service
+	PatentinfoService service;
+	// 执行数据新增
+	int id = service.saveData(dto);
+	if (id > 0) {
+		jvo->success(UInt64(id));
+	}
+	else
+	{
+		jvo->fail(UInt64(id));
+	}
+	//响应结果
+	return jvo;
+
 
 }
 

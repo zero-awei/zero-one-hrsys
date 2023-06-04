@@ -13,7 +13,7 @@ class t_pimpatentDAO : public BaseDAO
 {
 public:
 	// 添加指定员工的专利信息
-	uint64_t insert(const PatentinfoDO& iObj);
+	uint64_t insert(const PatentinfoDO& iObj, string idStr, string datetime);
 	// 统计数据条数
 	uint64_t count(const PatentinfoQuery::Wrapper& query);
 	// 分页查询数据

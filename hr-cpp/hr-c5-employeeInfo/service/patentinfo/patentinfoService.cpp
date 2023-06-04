@@ -45,38 +45,45 @@
 //}
 
 
-//// 新增一条专利信息
-//uint64_t PatentinfoService::saveData(const AddPatentDTO::Wrapper& dto)
-//{
-//	//SnowFlake sf(1, 4);
-//	// 组装DO数据
-//	//SimpleDateTimeFormat times;
-//	PatentinfoDO data;
-//	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto,
-//		ZLH, zlh,
-//		PIMPATENTNAME, pimpatentname,
-//		ZLHQSJ, zlhqsj,
-//		ZLPZGB, zlpzgb,
-//		PIMPATENTID, pimpatentid
-//	)
-//		//ENCLOLURE, enclolure,
-//		//CREATEDATE, creatdate,
-//		//UPDATEDATE, updatedate,
-//		//CREATEMAN, createman,
-//		//UPDATEMAN, updateman,
-//
-//	//雪花算法生产履历id
-//	//data.setPIMPATENTID(to_string(sf.nextId()));
-//
-//	//data.setCREATEMAN(payload.getUsername());
-//	//data.setUPDATEMAN(payload.getUsername());
-//	//data.setCREATEDATE(times.format());
-//	//data.setUPDATEDATE(times.format());
-//
-//	// 执行数据添加
-//	t_pimpatentDAO dao;
-//	return dao.insert(data);
-//}
+// 新增一条专利信息
+int PatentinfoService::saveData(const AddPatentDTO::Wrapper& dto)
+{
+	//SnowFlake sf(1, 4);
+	// 组装DO数据
+	//SimpleDateTimeFormat times;
+	PatentinfoDO data;
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto,
+		ZLH, zlh,
+		PIMPATENTNAME, pimpatentname,
+		ZLHQSJ, zlhqsj,
+		ZLPZGB, zlpzgb,
+		PIMPATENTID, pimpatentid)
+		//ENCLOLURE, enclolure,
+		//CREATEDATE, creatdate,
+		//UPDATEDATE, updatedate,
+		//CREATEMAN, createman,
+		//UPDATEMAN, updateman,
+
+	//雪花算法生产履历id
+	SnowFlake snowFlake(1, 5);
+	uint64_t id = snowFlake.nextId();
+	string idStr = to_string(id);
+
+	// 生成当前时间
+	time_t rawtime;
+	struct tm* info;
+	char buffer[80];
+	time(&rawtime);
+	info = localtime(&rawtime);
+	strftime(buffer, 80, "%Y-%m-%d %H:%M:%S", info);
+	string datetime(buffer);
+
+
+	// 执行数据添加
+	t_pimpatentDAO dao;
+	return dao.insert(data, idStr, datetime);
+}
+
 
 
 // 删除专利信息（支持批量删除）

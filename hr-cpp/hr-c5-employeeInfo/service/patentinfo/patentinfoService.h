@@ -20,7 +20,7 @@ public:
 
 
 	// 添加数据
-	uint64_t saveData(const AddPatentDTO::Wrapper& dto);
+	int saveData(const AddPatentDTO::Wrapper& dto);
 	
 	// 通过ID删除数据 支持批量删除
 	bool removeData(const oatpp::List<oatpp::String>& dto);

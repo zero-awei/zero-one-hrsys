@@ -14,12 +14,12 @@ if (query->PIMPATENTID) { \
 
 
 // 添加指定员工的专利信息
-uint64_t t_pimpatentDAO::insert(const PatentinfoDO& iObj)
+uint64_t t_pimpatentDAO::insert(const PatentinfoDO& iObj, string idStr, string datetime)
 {
 	string sql = "INSERT INTO `t_pimpatent` (`ZLH`, `PIMPATENTNAME`, `ZLHQSJ`, `ZLPZGB`, `ENCLOLURE`,\
-		`CREATEDATE`, `UPDATEDATE`, `CREATEMAN`, `UPDATEMAN`,`PIMPATENTID`) VALUES (?, ?, ?, ?, ?,?, ?, ?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%s%s%s", iObj.getZLH(), iObj.getPIMPATENTNAME(), iObj.getZLHQSJ(), iObj.getZLPZGB(),iObj.getENCLOLURE()\
-		, iObj.getCREATEDATE(), iObj.getUPDATEDATE(), iObj.getCREATEMAN(), iObj.getUPDATEMAN(), iObj.getPIMPATENTID());
+		`CREATEDATE`, `UPDATEDATE`,`PIMPATENTID`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%s", iObj.getZLH(), iObj.getPIMPATENTNAME(), iObj.getZLHQSJ(), iObj.getZLPZGB(),iObj.getENCLOLURE()\
+		, datetime, datetime, idStr);
 }
 
 // 统计数据条数
