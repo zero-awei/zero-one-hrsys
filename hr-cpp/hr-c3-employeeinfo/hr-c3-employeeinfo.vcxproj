@@ -172,15 +172,13 @@
     <ClInclude Include="dao\jobList\JobListMapper.h" />
     <ClInclude Include="dao\org\OrgDAO.h" />
     <ClInclude Include="dao\org\OrgMapper.h" />
-    <ClInclude Include="dao\org\OrgSectorDAO.h" />
-    <ClInclude Include="dao\org\OrgSectorMapper.h" />
+    <ClInclude Include="dao\org\OrgTreeMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\EmployeeInformationPage\EmployeeInformationPageDO.h" />
     <ClInclude Include="domain\do\employeeInfo\EmployeeInfoDO.h" />
     <ClInclude Include="domain\do\jobList\JobListDO.h" />
     <ClInclude Include="domain\do\org\MemberDO.h" />
     <ClInclude Include="domain\do\org\OrgDO.h" />
-    <ClInclude Include="domain\do\org\OrgSectorDO.h" />
     <ClInclude Include="domain\do\Org\RootOrgDO.h" />
     <ClInclude Include="domain\do\Org\SectorDO.h" />
     <ClInclude Include="domain\do\Org\ValidOrgDO.h" />
@@ -190,7 +188,6 @@
     <ClInclude Include="domain\dto\org\ImportDTO.h" />
     <ClInclude Include="domain\dto\org\MemberDTO.h" />
     <ClInclude Include="domain\dto\org\OrgDTO.h" />
-    <ClInclude Include="domain\dto\org\OrgSectorDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\EmployeeInformationPageQuery\EmployeeExportQuery.h" />
     <ClInclude Include="domain\query\EmployeeInformationPageQuery\EmployeeInformationPageQuery.h" />
@@ -206,7 +203,6 @@
     <ClInclude Include="domain\vo\jobList\JobListVO.h" />
     <ClInclude Include="domain\vo\org\ImportVO.h" />
     <ClInclude Include="domain\vo\org\MemberVO.h" />
-    <ClInclude Include="domain\vo\org\OrgSectorVO.h" />
     <ClInclude Include="domain\vo\org\OrgVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
@@ -228,7 +224,6 @@
     <ClCompile Include="dao\employeeInfo\EmployeeInfoDAO.cpp" />
     <ClCompile Include="dao\jobList\JobListDAO.cpp" />
     <ClCompile Include="dao\org\OrgDAO.cpp" />
-    <ClCompile Include="dao\org\OrgSectorDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\EmployeeInformation\EmployeeInformationServicer.cpp" />
     <ClCompile Include="service\employeeInfo\EmployeeInfoService.cpp" />
