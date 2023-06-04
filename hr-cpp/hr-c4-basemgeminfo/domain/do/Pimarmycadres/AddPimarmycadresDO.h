@@ -36,7 +36,6 @@ class AddPimarmycadresDO {
 
 	AddPimarmycadresDO(std::vector<std::string> vec) {
 		int i = 0;
-		setpIMID(vec[i++]);
 		setfORM(vec[i++]);
 		setlEVEL(vec[i++]);
 		setoCCURTIME(vec[i++]);

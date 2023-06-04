@@ -38,7 +38,7 @@ public:
 
 
 	//执行导入（即批量增加数据）
-	uint64_t saveManyData(const std::string fileName, const oatpp::String& pimpersonid, const oatpp::String& createName);
+	uint64_t saveManyData(const oatpp::String& fileBody, const oatpp::data::mapping::type::String& suffix, const oatpp::data::mapping::type::String& pimpersonid, const PayloadDTO& payload);
 
 	//列表详细
 	PimarmycadresDTO::Wrapper listDetail(const PimarmycadresQuery::Wrapper& query);

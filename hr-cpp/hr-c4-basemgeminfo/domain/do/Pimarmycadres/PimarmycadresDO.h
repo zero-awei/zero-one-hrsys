@@ -37,6 +37,8 @@ class PimarmycadresDO {
 	CC_SYNTHESIZE(string, pimarmycadresid, Pimarmycadresid);
 
 
+
+
 };
 
 

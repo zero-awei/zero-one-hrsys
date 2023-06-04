@@ -75,7 +75,23 @@ Uint64JsonVO::Wrapper PimarmycadresController::execDelPimarmycadres(const DelPim
 }
 
 
-StringJsonVO::Wrapper PimarmycadresController::execIntoPimarmycadres(const String& body, const String& suffix,const String& pimpersonid,const PayloadDTO& payload)
+StringJsonVO::Wrapper PimarmycadresController::execIntoPimarmycadres(const String& body, const String& suffix, const String& pimpersonid, const PayloadDTO& payload)
+{
+	auto jvo = StringJsonVO::createShared();
+	if (!pimpersonid || !body || !suffix)
+	{
+		jvo->fail("导入失败,文件为空");
+	}
+	if (pimpersonid->empty() || body->empty() || suffix->empty())
+	{
+		jvo->fail("导入失败,没有数据");
+	}
+	PimarmycadresService service;
+	service.saveManyData(body, suffix, pimpersonid, payload);
+	jvo->success("文件导入成功");
+	return jvo;
+}
+/*
 {
 	auto jvo = StringJsonVO::createShared();
 	if (!pimpersonid || !body || !suffix)
@@ -134,5 +150,7 @@ StringJsonVO::Wrapper PimarmycadresController::execIntoPimarmycadres(const Strin
 	jvo->success("文件导入成功");
 	return jvo;
 }
+
+*/
 
 
