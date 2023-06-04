@@ -41,4 +41,11 @@ public class TSrfcodeitemServiceImpl extends ServiceImpl<TSrfcodeitemMapper, TSr
         wrapper.eq(TSrfcodeitem::getCodelistid, "5CF8B6F8-0A7C-499E-80C6-DFD71151E537");
         return msSrfcodeitemMapper.dos2DTOs(baseMapper.selectList(wrapper));
     }
+
+    @Override
+    public List<DropdownListOptionDTO> listCityName() {
+        LambdaQueryWrapper<TSrfcodeitem> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(TSrfcodeitem::getCodelistid, "A7EED128-1F50-40A6-BD36-2CF2A90AEC6A");
+        return msSrfcodeitemMapper.dos2DTOs(baseMapper.selectList(wrapper));
+    }
 }

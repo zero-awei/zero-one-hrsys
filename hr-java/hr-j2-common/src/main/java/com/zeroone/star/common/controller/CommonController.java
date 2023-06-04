@@ -1,6 +1,5 @@
 package com.zeroone.star.common.controller;
 
-import com.zeroone.star.common.entity.TSrfcodeitem;
 import com.zeroone.star.common.service.*;
 import com.zeroone.star.project.common.CommonApis;
 import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
@@ -168,7 +167,7 @@ public class CommonController implements CommonApis {
     @GetMapping("query-city-name")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryCityName() {
-        return null;
+        return JsonVO.success(srfcodeitemService.listCityName());
     }
 
     @ApiOperation(value = "获取区县下拉列表")
