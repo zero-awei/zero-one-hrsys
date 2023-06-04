@@ -50,8 +50,8 @@ public: // 定义接口
 		info->queryParams.add<String>("sequence").description = ZH_WORDS_GETTER("projTag.export.sequence");
 		info->queryParams["sequence"].addExample("default", String("ASC"));
 		info->queryParams["sequence"].required = true;*/
-		API_DEF_ADD_QUERY_PARAMS(UInt32, "line", "projTag.export.line", 1, true);
-		API_DEF_ADD_QUERY_PARAMS(String, "order", "projTag.export.order", "ASC", true);
+		API_DEF_ADD_QUERY_PARAMS(UInt32, "line", ZH_WORDS_GETTER("projTag.export.line"), 1, true);
+		API_DEF_ADD_QUERY_PARAMS(String, "order", ZH_WORDS_GETTER("projTag.export.order"), "ASC", true);
 	}
 
 	ENDPOINT(API_M_GET, PATH_TO_PROJTAG("/export-project-tag"), exportProjTag, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {

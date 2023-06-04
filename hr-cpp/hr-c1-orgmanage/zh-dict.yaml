@@ -156,7 +156,7 @@ ormanage:
   createtime: 创建时间
   id: 项目编号
   name: 创建人
-  label: 查询指定项目标签详情
+  itemlabel: 查询指定项目标签详情
   ormorgid: 项目ID
   ormxbqid: 项目标签标识
 
