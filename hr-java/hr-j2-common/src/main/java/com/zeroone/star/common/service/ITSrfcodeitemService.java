@@ -21,4 +21,6 @@ public interface ITSrfcodeitemService extends IService<TSrfcodeitem> {
     List<DropdownListOptionDTO> listEthnicType();
 
     List<DropdownListOptionDTO> listCityName();
+
+    List<DropdownListOptionDTO> listBloodType();
 }

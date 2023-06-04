@@ -7,7 +7,6 @@ import com.zeroone.star.common.mapper.TPimcityMapper;
 import com.zeroone.star.common.service.ITPimcityService;
 import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
 import com.zeroone.star.project.query.common.DistrictNameQuery;
-import com.zeroone.star.project.vo.JsonVO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;

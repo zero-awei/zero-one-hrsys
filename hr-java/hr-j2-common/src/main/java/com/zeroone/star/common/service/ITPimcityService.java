@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.zeroone.star.common.entity.TPimcity;
 import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
 import com.zeroone.star.project.query.common.DistrictNameQuery;
-import com.zeroone.star.project.vo.JsonVO;
 
 import java.util.List;
 

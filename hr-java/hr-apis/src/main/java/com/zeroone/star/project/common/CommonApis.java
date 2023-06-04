@@ -39,7 +39,7 @@ public interface CommonApis {
      *
      * @return
      */
-    JsonVO<List<StatusListDTO>> queryEmployeeStatus();
+    JsonVO<List<DropdownListOptionDTO>> queryEmployeeStatus();
 
     /**
      * 查询部门类型信息
@@ -76,7 +76,7 @@ public interface CommonApis {
      * @Author: Rqs
      * @Date: 2023/5/19 23:17
      */
-    JsonVO<List<ZzmmDTO>>  queryZzmm();
+    JsonVO<List<DropdownListOptionDTO>>  queryZzmm();
 
 
     /**

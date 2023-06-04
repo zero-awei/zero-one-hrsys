@@ -3,8 +3,6 @@ package com.zeroone.star.common.controller;
 import com.zeroone.star.common.service.*;
 import com.zeroone.star.project.common.CommonApis;
 import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
-import com.zeroone.star.project.dto.common.StatusListDTO;
-import com.zeroone.star.project.dto.common.ZzmmDTO;
 import com.zeroone.star.project.query.common.DistrictNameQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
@@ -32,14 +30,10 @@ import java.util.List;
 public class CommonController implements CommonApis {
 
     @Resource
-    ZzmmService zzmmService;
-
+    private CommonService service;
 
     @Resource
     private IStaffingControlService staffingControlService;
-
-    @Resource
-    IPimpersonService iPimpersonService;
 
     @ApiOperation(value = "获取编制控制下拉列表")
     @GetMapping("query-staffing-control")
@@ -48,21 +42,18 @@ public class CommonController implements CommonApis {
         return JsonVO.success(staffingControlService.listStaffingControl());
     }
 
-    @Resource
-    private IDocumentTypeService documentTypeService;
-
     @ApiOperation(value = "获取证件类型下拉列表")
     @GetMapping("query-document-type")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryDocumentType() {
-        return JsonVO.success(documentTypeService.listDocumentType());
+        return JsonVO.success(service.listDropdownList("证件类型"));
     }
 
     @ApiOperation(value = "员工状态下拉列表")
     @GetMapping("employee-status-list")
     @Override
-    public JsonVO<List<StatusListDTO>> queryEmployeeStatus() {
-        return JsonVO.success(iPimpersonService.listEmployeeStatus());
+    public JsonVO<List<DropdownListOptionDTO>> queryEmployeeStatus() {
+        return JsonVO.success(service.listDropdownList("员工状态(失效)"));
     }
 
     @Resource
@@ -85,14 +76,11 @@ public class CommonController implements CommonApis {
         return JsonVO.success(opService.listOp());
     }
 
-    @Resource
-    private OrService orService;
-
     @ApiOperation(value = "所属区域下拉列表")
     @GetMapping("query-orstatus")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryORStatus() {
-        return JsonVO.success(orService.listOr());
+        return JsonVO.success(service.listDropdownList("所属区域"));
     }
 
     @Resource
@@ -109,30 +97,22 @@ public class CommonController implements CommonApis {
     @ApiOperation(value = "政治面貌下拉列表")
     @GetMapping("query-zzmm")
     @Override
-    public JsonVO<List<ZzmmDTO>> queryZzmm() {
-        List<ZzmmDTO> zzmmDTOList = zzmmService.getZzmm();
-        return JsonVO.success(zzmmDTOList);
+    public JsonVO<List<DropdownListOptionDTO>> queryZzmm() {
+        return JsonVO.success(service.listDropdownList("政治面貌"));
     }
-
-    @Resource
-    private IBloodTypeService bloodTypeService;
 
     @ApiOperation(value = "血型下拉列表")
     @GetMapping("query-blood-type")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryBloodType() {
-        return JsonVO.success(bloodTypeService.listBloodType());
+        return JsonVO.success(service.listDropdownList("血型"));
     }
-
-    @Resource
-    private IZoPostTypeService zoPostTypeService;
 
     @ApiOperation(value = "岗位分类下拉列表")
     @GetMapping("/query-post-type")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryPostType() {
-        List<DropdownListOptionDTO> list = zoPostTypeService.listPostType();
-        return JsonVO.success(list);
+        return JsonVO.success(service.listDropdownList("岗位类型"));
     }
 
     @Resource
@@ -146,28 +126,25 @@ public class CommonController implements CommonApis {
         return JsonVO.success(list);
     }
 
-    @Resource
-    private ITSrfcodeitemService srfcodeitemService;
-
     @ApiOperation(value = "获取民族类型下拉列表")
     @GetMapping("query-ethnic-type")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryEthnicType() {
-        return JsonVO.success(srfcodeitemService.listEthnicType());
+        return JsonVO.success(service.listDropdownList("民族"));
     }
 
     @ApiOperation(value = "获取户口类型下拉列表")
     @GetMapping("query-household-type")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryHouseholdType() {
-        return JsonVO.success(srfcodeitemService.listHouseHoldType());
+        return JsonVO.success(service.listDropdownList("户口类型"));
     }
 
     @ApiOperation(value = "获取城市名称下拉列表")
     @GetMapping("query-city-name")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryCityName() {
-        return JsonVO.success(srfcodeitemService.listCityName());
+        return JsonVO.success(service.listDropdownList("籍贯（户籍所在地）"));
     }
 
     @Resource
@@ -180,26 +157,18 @@ public class CommonController implements CommonApis {
         return JsonVO.success(pimcityService.listDistrictName(query));
     }
 
-    @Resource
-    private IZoWorkStatusService workStatusService;
-
-    @Resource
-    private IZoMaritalStatusService maritalStatusService;
-
     @GetMapping("query-marital-status")
     @ApiOperation(value = "婚姻状况下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryMaritalStatus() {
-        List<DropdownListOptionDTO> dtoList = maritalStatusService.listMaritalStatus();
-        return JsonVO.success(dtoList);
+        return JsonVO.success(service.listDropdownList("婚姻状况"));
     }
 
     @GetMapping("query-work-status")
     @ApiOperation(value = "工作状态下拉列表")
     @Override
     public JsonVO<List<DropdownListOptionDTO>> queryWorkStatus() {
-        List<DropdownListOptionDTO> dtoList = workStatusService.listWorkStatus();
-        return JsonVO.success(dtoList);
+        return JsonVO.success(service.listDropdownList("员工状态(失效)"));
     }
 
 

@@ -48,4 +48,11 @@ public class TSrfcodeitemServiceImpl extends ServiceImpl<TSrfcodeitemMapper, TSr
         wrapper.eq(TSrfcodeitem::getCodelistid, "A7EED128-1F50-40A6-BD36-2CF2A90AEC6A");
         return msSrfcodeitemMapper.dos2DTOs(baseMapper.selectList(wrapper));
     }
+
+    @Override
+    public List<DropdownListOptionDTO> listBloodType() {
+        LambdaQueryWrapper<TSrfcodeitem> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(TSrfcodeitem::getCodelistid, "A7EED128-1F50-40A6-BD36-2CF2A90AEC6A");
+        return msSrfcodeitemMapper.dos2DTOs(baseMapper.selectList(wrapper));
+    }
 }
