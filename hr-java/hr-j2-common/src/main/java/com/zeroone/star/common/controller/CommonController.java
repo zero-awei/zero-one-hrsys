@@ -5,7 +5,7 @@ import com.zeroone.star.project.common.CommonApis;
 import com.zeroone.star.project.dto.common.DropdownListOptionDTO;
 import com.zeroone.star.project.dto.common.StatusListDTO;
 import com.zeroone.star.project.dto.common.ZzmmDTO;
-import com.zeroone.star.project.query.district_namestatuslist.DistrictNameStatusListQuery;
+import com.zeroone.star.project.query.common.DistrictNameQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -170,11 +170,14 @@ public class CommonController implements CommonApis {
         return JsonVO.success(srfcodeitemService.listCityName());
     }
 
+    @Resource
+    private ITPimcityService pimcityService;
+
     @ApiOperation(value = "获取区县下拉列表")
     @GetMapping("query-district-name")
     @Override
-    public JsonVO<List<DropdownListOptionDTO>> queryDistrictName(DistrictNameStatusListQuery query) {
-        return null;
+    public JsonVO<List<DropdownListOptionDTO>> queryDistrictName(DistrictNameQuery query) {
+        return JsonVO.success(pimcityService.listDistrictName(query));
     }
 
     @Resource

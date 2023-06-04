@@ -2,6 +2,7 @@ package com.zeroone.star.project.common;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.common.*;
+import com.zeroone.star.project.query.common.DistrictNameQuery;
 import com.zeroone.star.project.query.district_namestatuslist.DistrictNameStatusListQuery;
 import com.zeroone.star.project.vo.JsonVO;
 
@@ -132,7 +133,7 @@ public interface CommonApis {
      *
      * @return 查询结果
      */
-    JsonVO<List<DropdownListOptionDTO>> queryDistrictName(DistrictNameStatusListQuery query);
+    JsonVO<List<DropdownListOptionDTO>> queryDistrictName(DistrictNameQuery query);
 
 
     /**
