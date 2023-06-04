@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * The entity of {@link Right}
  *
@@ -33,4 +35,10 @@ public class Right {
      * 1: Enable 0: Not Enable
      */
     private Integer isEnable;
+
+    private String creator;
+
+    private Date createTime;
+
+    private Date updateTime;
 }

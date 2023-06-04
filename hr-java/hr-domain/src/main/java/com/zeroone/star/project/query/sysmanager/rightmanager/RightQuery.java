@@ -24,7 +24,7 @@ public class RightQuery extends PageQuery {
     @ApiModelProperty(value = "权限名称",example = "增加权限")
     private String name;
 
-    @ApiModelProperty(value = "链接地址", example = "/login")
+    @ApiModelProperty(value = "链接地址", example = "/add-right")
     private String linkUrl;
 
     @ApiModelProperty(value = "显示级别", example = "1")
