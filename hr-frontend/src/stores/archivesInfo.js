@@ -10,19 +10,19 @@ export const useInfoStore = defineStore('archivesInfo', {
             {
                 name: '新增'
             },
-            // {
+             // {
             //     name: '编辑'
-            // },
-            // {
+            // }, 
+            // {          
             //     name: '过滤'
             // }
         ],
         //记录表格表名
         tableTitle: '档案信息',
         //新增按钮表单表名
-        addTitle: '档案信息编辑',
+        addTitle: '档案信息',
         //新增表单所需栏目
-        dataitem: [
+        dataitem:reactive( [
             {
                 label: '借阅人',
                 name: 'borrower',
@@ -36,7 +36,7 @@ export const useInfoStore = defineStore('archivesInfo', {
             {
                 label: '归还时间',
                 name: 'returnTime',
-                type: Data,
+                type: Date,
             },
             {
                 label: '审批人',
@@ -68,7 +68,7 @@ export const useInfoStore = defineStore('archivesInfo', {
                     },
                 ]
             },
-        ],
+        ]),
         //记录表单数据
         xmlData: [
             { id: 1, name: '档案编号', prop: 'id' },
@@ -101,7 +101,7 @@ export const useInfoStore = defineStore('archivesInfo', {
             //   '/archives/archivesInfo/',
             //   null
             // )
-            // this.dataitem = data.data
+            // this.menus = data.data
             this.menus = [
                 {
                     path: '/sample',

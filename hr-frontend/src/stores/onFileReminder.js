@@ -4,91 +4,20 @@ import { defineStore } from 'pinia'
 export const useOnReminderStore = defineStore('onFileReminder', {
     state: () => ({
         //记录侧边栏菜单
-        menus: [
-            {
-                path: '/sample',
-                text: '员工信息',
-                icon: 'user'
-            },
-            {
-                path: '/sample/excel',
-                text: '分配信息',
-                icon: 'user'
-            },
-            {
-                path: '/sample/print',
-                text: '教育信息',
-                icon: 'user'
-            },
-            {
-                path: '/sample/edit',
-                text: '语言能力',
-                icon: 'user'
-            },
-            {
-                path: '/sample/sass',
-                text: '家庭情况',
-                icon: 'user'
-            },
-            {
-                path: '/sample/communication',
-                text: '工作履历',
-                icon: 'user'
-            },
-            {
-                path: '/sample/pagination',
-                text: '档案信息',
-                icon: 'user'
-            },
-            {
-                path: '/sample/sass',
-                text: '绩效信息',
-                icon: 'user'
-            },
-            {
-                path: '/sample/communication',
-                text: '考勤信息',
-                icon: 'user'
-            },
-            {
-                path: '/sample/pagination',
-                text: '合同信息',
-                icon: 'user'
-            },
-            {
-                path: '/sample/sass',
-                text: '证书信息',
-                icon: 'user'
-            },
-            {
-                path: '/sample/communication',
-                text: '奖励惩罚',
-                icon: 'user'
-            },
-            {
-                path: '/sample/pagination',
-                text: '培训记录',
-                icon: 'user'
-            },
-            {
-                path: '/sample/sass',
-                text: '军转干部',
-                icon: 'user'
-            },
-            {
-                path: '/sample/communication',
-                text: '学术成果',
-                icon: 'user'
-            },
-            {
-                path: '/sample/pagination',
-                text: '分页',
-                icon: 'user'
-            }
-        ],
+        menus: null,
         //记录表格表名
         tableTitle: null,
-        tableOperations: null,
+        tableOperations: [
+            {
+                name: '新增'
+            },
+            // {
+            //     name: '导出'
+            // },
+            // {
+            //     name: '过滤'
+            // }
+        ],
         //记录表单数据
         xmlData: [
             { id: 1, name: '档案编号', prop: 'id' },
@@ -121,7 +50,88 @@ export const useOnReminderStore = defineStore('onFileReminder', {
             //   null
             // )
             // this.dataitem = data.data
-            // this.menus = menus
+            this.menus = [
+                {
+                    path: '/sample',
+                    text: '员工信息',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/excel',
+                    text: '分配信息',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/print',
+                    text: '教育信息',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/edit',
+                    text: '语言能力',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/sass',
+                    text: '家庭情况',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/communication',
+                    text: '工作履历',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/pagination',
+                    text: '档案信息',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/sass',
+                    text: '绩效信息',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/communication',
+                    text: '考勤信息',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/pagination',
+                    text: '合同信息',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/sass',
+                    text: '证书信息',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/communication',
+                    text: '奖励惩罚',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/pagination',
+                    text: '培训记录',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/sass',
+                    text: '军转干部',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/communication',
+                    text: '学术成果',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/pagination',
+                    text: '分页',
+                    icon: 'user'
+                }
+            ]
         },
 
         //根据搜索内容筛选数据
@@ -139,8 +149,11 @@ export const useOnReminderStore = defineStore('onFileReminder', {
             this.tableTitle = '非员工在档提醒'
             this.tableOperations = [
                 {
-                    name: '导出'
+                    name: '新增'
                 },
+                // {
+                //     name: '导出'
+                // },
                 // {
                 //     name: '过滤'
                 // }
@@ -172,12 +185,6 @@ export const useOnReminderStore = defineStore('onFileReminder', {
                 },
             ]
         },
-        // getNewXmlData(checkStatus) {
-        //     this.newXmlData.value = this.xmlData.value.filter((item) => {
-        //         return checkStatus.value.includes(item.name)
-        //     })
-        //     this.xmlData.value= this.newXmlData
-        // },
         addData(val) {
             this.tableData.push(val)
         },

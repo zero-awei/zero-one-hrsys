@@ -90,6 +90,9 @@ export const useOutReminderStore = defineStore('onFileReminder', {
         tableTitle: '员工不在档提醒',
         tableOperations: [
             {
+                name: '新增'
+            },
+            {
                 name: '导出'
             },
             {

@@ -7,10 +7,9 @@
       <el-container>
         <el-header>
           <TableHead :tableTitle="$store.tableTitle" :tableOperations="$store.tableOperations" :saveData="saveData"
-            :addTitle="$store.addTitle" :dataitem="$store.dataitem">
-            <Search :filter="filter" class="search"></Search>
-          </TableHead>
-        <!-- <div class="filter">
+            :addTitle="$store.addTitle" :dataitem="$store.dataitem" />
+          <Search :filter="filter" class="search"></Search>
+          <!-- <div class="filter">
             <Filter></Filter>
             <Edit></Edit>
                   </div> -->
@@ -45,7 +44,7 @@ import { useInfoStore } from '@/stores/archivesInfo'
 
 const $store = useInfoStore()
 //侧边栏
-// $store.asideData()
+$store.asideData()
 //表格数据
 $store.initTableData()
 // 将新增的数据保存
