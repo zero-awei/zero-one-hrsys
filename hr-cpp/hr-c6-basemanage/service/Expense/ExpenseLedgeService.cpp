@@ -68,6 +68,7 @@ bool ExpenseLedgerService::updateData(const ExpenseLedgerDTO::Wrapper& dto)
 	data.setFfsj(dto->ffsj);
 	data.setFybz(dto->ffybz);
 	data.setBz(dto->bz);
+	data.setId(dto->pimexpaccountid);
 	auto res = dao.update(data);
 	return !!res;
 }

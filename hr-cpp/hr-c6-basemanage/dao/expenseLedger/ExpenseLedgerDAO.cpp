@@ -135,12 +135,12 @@ int ExpenseLedgerDAO::update(const ExpenseLedgerDO& uObj)
 		tpa.FFYBZ = ?,\
 		tpa.BZ = ?\
 		WHERE tpa.PIMEXPACCOUNTID = ?";
-	cout << sql.str() << endl;
+	//cout << sql.str() << endl;
 	return sqlSession->executeUpdate(sql.str(), fmts.str().c_str(),
 		uObj.getFylb(),
 		uObj.getFyje(),
 		uObj.getFfrs(),
-		uObj.getFyje(),
+		uObj.getFfsj(),
 		uObj.getFybz(),
 		uObj.getBz(),
 		uObj.getId());
