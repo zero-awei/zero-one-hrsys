@@ -7,7 +7,7 @@ cmake_minimum_required (VERSION 3.8)
 add_definitions(-DHTTP_SERVER_DEMO)
 
 # 设置文件名称
-set (appName arch-demo)
+set (appName hr-c2-basmanager)
 
 # 包含库目录
 include_directories ("./")
@@ -26,31 +26,7 @@ link_directories (${PROJECT_SOURCE_DIR}/lib-dy/lib64)
 # 将源代码添加到此项目的可执行文件
 file (GLOB_RECURSE SC_FILES ./*.cpp)
 
-# 排除xlnt案例编译【仅Demo项目需要配置】
-if(USE_XLNT STREQUAL OFF)
-	list (REMOVE_ITEM SC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/./uselib/excel/TestExcel.cpp")
-	message (STATUS "${appName}: not compile xlnt use case.")
-endif()
-# 排除fastdfs案例编译【仅Demo项目需要配置】
-if(USE_DFS STREQUAL OFF)
-	list (REMOVE_ITEM SC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/./uselib/fastdfs/TestFastDfs.cpp")
-	message (STATUS "${appName}: not compile fastdfs use case.")
-endif()
-# 排除redis案例编译【仅Demo项目需要配置】
-if(USE_REDIS STREQUAL OFF)
-	list (REMOVE_ITEM SC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/./uselib/redis/TestRedis.cpp")
-	message (STATUS "${appName}: not compile redis use case.")
-endif()
-# 排除RocketMQ案例编译【仅Demo项目需要配置】
-if(USE_ROCKETMQ STREQUAL OFF)
-	list (REMOVE_ITEM SC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/./uselib/rocketmq/TestRocket.cpp")
-	message (STATUS "${appName}: not compile rocketmq use case.")
-endif()
-# 排除MongoDB案例编译【仅Demo项目需要配置】
-if(USE_MONGO STREQUAL OFF)
-	list (REMOVE_ITEM SC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/./uselib/mongo/TestMongo.cpp")
-	message (STATUS "${appName}: not compile mongodb use case.")
-endif()
+
 
 # 编译可执行文件
 add_executable (${appName} ${SC_FILES})

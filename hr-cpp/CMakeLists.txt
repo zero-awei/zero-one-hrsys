@@ -80,6 +80,7 @@ endif()
 add_subdirectory ("lib-oatpp")
 add_subdirectory ("lib-mysql")
 add_subdirectory ("lib-common")
-# 这是示例模块，后期可以不编译它
-add_subdirectory ("arch-demo")
+
 # 在后面添加你的模块
+add_subdirectory ("hr-c2-basmanager")
+add_subdirectory ("hr-c2-orgmanager")
