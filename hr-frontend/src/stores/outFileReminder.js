@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 // import Request from '@/apis/request'
 
-export const useOnReminderStore = defineStore('onFileReminder', {
+export const useOutReminderStore = defineStore('onFileReminder', {
     state: () => ({
         //记录侧边栏菜单
         menus: [
@@ -145,7 +145,7 @@ export const useOnReminderStore = defineStore('onFileReminder', {
             // this.tableData = data.data
             this.tableData = [
                 {
-                    id: 001,
+                    id: '001',
                     name: '某大型集团公司',
                     dabgd: '公司本部',
                     archivesRoom: '档案室1111上层1',
@@ -157,7 +157,7 @@ export const useOnReminderStore = defineStore('onFileReminder', {
                     action: '调出档案'
                 },
                 {
-                    id: 002,
+                    id: '002',
                     name: '某大型集团公司',
                     dabgd: '公司本部',
                     archivesRoom: '档案室1111上层1',

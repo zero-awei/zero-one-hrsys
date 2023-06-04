@@ -45,7 +45,7 @@ import { useInfoStore } from '@/stores/archivesInfo'
 
 const $store = useInfoStore()
 //侧边栏
-$store.asideData()
+// $store.asideData()
 //表格数据
 $store.initTableData()
 // 将新增的数据保存

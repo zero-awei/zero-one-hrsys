@@ -4,99 +4,18 @@ import { defineStore } from 'pinia'
 export const useInfoStore = defineStore('archivesInfo', {
     state: () => ({
         //记录侧边栏菜单
-        menus: [
-            {
-                path: '/sample',
-                text: '员工信息',
-                icon: 'user'
-            },
-            {
-                path: '/sample/excel',
-                text: '分配信息',
-                icon: 'user'
-            },
-            {
-                path: '/sample/print',
-                text: '教育信息',
-                icon: 'user'
-            },
-            {
-                path: '/sample/edit',
-                text: '语言能力',
-                icon: 'user'
-            },
-            {
-                path: '/sample/sass',
-                text: '家庭情况',
-                icon: 'user'
-            },
-            {
-                path: '/sample/communication',
-                text: '工作履历',
-                icon: 'user'
-            },
-            {
-                path: '/sample/pagination',
-                text: '档案信息',
-                icon: 'user'
-            },
-            {
-                path: '/sample/sass',
-                text: '绩效信息',
-                icon: 'user'
-            },
-            {
-                path: '/sample/communication',
-                text: '考勤信息',
-                icon: 'user'
-            },
-            {
-                path: '/sample/pagination',
-                text: '合同信息',
-                icon: 'user'
-            },
-            {
-                path: '/sample/sass',
-                text: '证书信息',
-                icon: 'user'
-            },
-            {
-                path: '/sample/communication',
-                text: '奖励惩罚',
-                icon: 'user'
-            },
-            {
-                path: '/sample/pagination',
-                text: '培训记录',
-                icon: 'user'
-            },
-            {
-                path: '/sample/sass',
-                text: '军转干部',
-                icon: 'user'
-            },
-            {
-                path: '/sample/communication',
-                text: '学术成果',
-                icon: 'user'
-            },
-            {
-                path: '/sample/pagination',
-                text: '分页',
-                icon: 'user'
-            }
-        ],
+        menus: null,
         //配置功能按键
         tableOperations: [
             {
                 name: '新增'
             },
-            {
-                name: '编辑'
-            },
-            {
-                name: '过滤'
-            }
+            // {
+            //     name: '编辑'
+            // },
+            // {
+            //     name: '过滤'
+            // }
         ],
         //记录表格表名
         tableTitle: '档案信息',
@@ -166,12 +85,12 @@ export const useInfoStore = defineStore('archivesInfo', {
         ],
         //记录表格数据
         tableData: null,
-        //用户信息
-        userData: null,
-        //每页数据条数
-        pageSizes: [],
-        //总数据条数
-        total: null,
+        // //用户信息
+        // userData: null,
+        // //每页数据条数
+        // pageSizes: [],
+        // //总数据条数
+        // total: null,
     }),
     actions: {
         //加载侧边栏菜单
@@ -183,13 +102,94 @@ export const useInfoStore = defineStore('archivesInfo', {
             //   null
             // )
             // this.dataitem = data.data
-            this.menus = asideMenus
+            this.menus = [
+                {
+                    path: '/sample',
+                    text: '员工信息',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/excel',
+                    text: '分配信息',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/print',
+                    text: '教育信息',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/edit',
+                    text: '语言能力',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/sass',
+                    text: '家庭情况',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/communication',
+                    text: '工作履历',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/pagination',
+                    text: '档案信息',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/sass',
+                    text: '绩效信息',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/communication',
+                    text: '考勤信息',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/pagination',
+                    text: '合同信息',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/sass',
+                    text: '证书信息',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/communication',
+                    text: '奖励惩罚',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/pagination',
+                    text: '培训记录',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/sass',
+                    text: '军转干部',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/communication',
+                    text: '学术成果',
+                    icon: 'user'
+                },
+                {
+                    path: '/sample/pagination',
+                    text: '分页',
+                    icon: 'user'
+                }
+            ]
         },
 
         //根据搜索内容筛选数据
-        filter(val) {
-            //未完
-        },
+        // filter(val) {
+        //     //未完
+        // },
         initTableData() {
             // 发送请求获取表格数据
             // let data = await Request.requestForm(
@@ -200,7 +200,7 @@ export const useInfoStore = defineStore('archivesInfo', {
             // this.tableData = data.data
             this.tableData = [
                 {
-                    id: 001,
+                    id: '001',
                     name: '某大型集团公司',
                     dabgd: '公司本部',
                     archivesRoom: '档案室1111上层1',
@@ -213,7 +213,7 @@ export const useInfoStore = defineStore('archivesInfo', {
                     loanStatus: ''
                 },
                 {
-                    id: 002,
+                    id: '002',
                     name: '某大型集团公司',
                     dabgd: '公司本部',
                     archivesRoom: '档案室1111上层1',

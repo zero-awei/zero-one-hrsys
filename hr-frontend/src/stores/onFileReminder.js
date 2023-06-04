@@ -87,15 +87,8 @@ export const useOnReminderStore = defineStore('onFileReminder', {
             }
         ],
         //记录表格表名
-        tableTitle: '非员工在档提醒',
-        tableOperations: [
-            {
-                name: '导出'
-            },
-            {
-                name: '过滤'
-            }
-        ],
+        tableTitle: null,
+        tableOperations: null,
         //记录表单数据
         xmlData: [
             { id: 1, name: '档案编号', prop: 'id' },
@@ -143,9 +136,18 @@ export const useOnReminderStore = defineStore('onFileReminder', {
             //   null
             // )
             // this.tableData = data.data
+            this.tableTitle = '非员工在档提醒'
+            this.tableOperations = [
+                {
+                    name: '导出'
+                },
+                // {
+                //     name: '过滤'
+                // }
+            ]
             this.tableData = [
                 {
-                    id: 001,
+                    id: '001',
                     name: '某大型集团公司',
                     dabgd: '公司本部',
                     archivesRoom: '档案室1111上层1',
@@ -157,7 +159,7 @@ export const useOnReminderStore = defineStore('onFileReminder', {
                     action: '调出档案'
                 },
                 {
-                    id: 002,
+                    id: '002',
                     name: '某大型集团公司',
                     dabgd: '公司本部',
                     archivesRoom: '档案室1111上层1',

@@ -1,17 +1,17 @@
 <template>
   <div class="common-layout">
     <el-container>
-      <el-aside width="200px">
-        <!-- <Aside :menus="menus" style="height: 95vh"></Aside> -->
-      </el-aside>
+      <!-- <el-aside width="200px">
+        <Aside :menus="menus" style="height: 95vh"></Aside>
+      </el-aside> -->
       <el-container>
         <el-header>
-          <TableHead :tableTitle="$store.tableTitle" :addTitle="$store.addTitle" :tableOperations="$store.tableOperations" :dataitem="$store.dataitem" :saveData="saveData">
-            <Search :filter="filter" class="search"></Search>
-            <!-- <div class="filter">
+          <TableHead :tableTitle="$store.tableTitle" :addTitle="$store.addTitle"
+            :tableOperations="$store.tableOperations" />
+          <Search :filter="filter" class="search"></Search>
+          <!-- <div class="filter">
               <Filter></Filter>
             </div> -->
-          </TableHead>
         </el-header>
         <el-main>
           <div class="table">
@@ -38,11 +38,11 @@ import MainTable from '@/components/MainTable.vue'
 import ColumnFilter from '@/components/columnFilter/ColumnFilter.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
 import Filter from '@/components/filter/Filter.vue'
-import { useOnReminderStore} from '@/stores/onFileReminder'
+import {useOnReminderStore} from '@/stores/onFileReminder'
 
 const $store = useOnReminderStore()
 //侧边栏
-$store.asideData()
+// $store.asideData()
 //表格数据
 $store.initTableData()
 //获取新表单数据
@@ -54,19 +54,36 @@ function getNewXmlData(checkStatus) {
 const newXmlData = ref([])
 newXmlData.value = [...$store.xmlData]
 // 将新增的数据保存
-const saveData = (val)=>{
+const saveData = (val) => {
   $store.addData(val)
 }
 
 </script>
 
 <style lang="scss" scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.search {
+  flex: 0 0 auto;
+  float: right;
+}
+
+.maintable {
+  position: absolute;
+}
+
 .footer {
+  position: relative;
+  margin-top: 35%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .filter {
   color: purple;
-}
-</style>
+}</style>
