@@ -20,5 +20,5 @@ public:
 
 };
 
-#endif // !_SAMPLE_SERVICE_
+#endif // !_CHECK_RETIRES_LIST_SERVICE_
 

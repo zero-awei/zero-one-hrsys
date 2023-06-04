@@ -1,6 +1,6 @@
 #pragma once
 /*
-Ö¤Êé¹ÜÀí-ĞÂ½¨Ö¤Êé--pine
+ Ö¤Êé¹ÜÀí-ĞÂ½¨Ö¤Êé--pine
 */
 #ifndef  _CREATE_NEW_CER_MAPPER_
 #define  _CREATE_NEW_CER_MAPPER_
@@ -8,9 +8,6 @@
 #include "Mapper.h"
 #include "../../domain/do/CertificateManage/CertificateDO.h"
 
-/**
- * Ê¾Àı±í×Ö¶ÎÆ¥ÅäÓ³Éä
- */
 class CreateNewCerMapper : public Mapper<CertificateDO>
 {
 public:
@@ -51,4 +48,4 @@ mapper·½·¨½ÓÊÜÒ»¸öResultSet*²ÎÊı£¬¼´Ö¸ÏòResultSet¶ÔÏóµÄÖ¸Õë£¬²¢·µ»ØÒ»¸öSampleDO¶
 ×îºó£¬½«Ìî³äºÃµÄSampleDO¶ÔÏó·µ»Ø¡£
 Õâ¶Î´úÂëÕ¹Ê¾ÁËÒ»ÖÖ³£¼ûµÄÊı¾İÓ³ÉäÄ£Ê½£¬ÓÃÓÚ½«Êı¾İ¿â²éÑ¯½á¹ûÓ³Éäµ½×Ô¶¨ÒåµÄÊı¾İ¶ÔÏóÖĞ¡£
 */
-#endif // !_SAMPLE_MAPPER_
+#endif // !_CREATE_NEW_CER_MAPPER_

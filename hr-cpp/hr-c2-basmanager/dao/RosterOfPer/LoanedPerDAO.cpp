@@ -3,7 +3,9 @@
 #include "LoanedPerDAO.h"
 #include "LoanedPerMapper.h"
 #include <sstream>
-
+/**
+ * 借调人员数据库操作实现--(人员花名册-借调人员-分页查询员工列表)--luoluo
+ */
 #define LOANEDPER_TERAM_PARSE(query,sganql)\
 SqlParams params; \
 sql<<" WHERE 1=1"; \

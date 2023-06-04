@@ -24,4 +24,4 @@ class DeleteLegalEntityQuery : public PageQuery
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_CheckCerList_QUERY_
+#endif // !_DELETE_LEGAL_ENTITY_QUERY_

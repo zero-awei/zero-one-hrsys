@@ -1,4 +1,7 @@
 #pragma once
+/**
+ *  证书管理 —— 证书信息 —— 查询、更新指定证书 —— 楚孟献
+ */
 
 #ifndef _SPERCIFIC_CERTIFICATE_MAPPER_
 #define _SPERCIFIC_CERTIFICATE_MAPPER_

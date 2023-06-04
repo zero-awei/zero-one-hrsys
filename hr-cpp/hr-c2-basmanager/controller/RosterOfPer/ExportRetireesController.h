@@ -15,19 +15,19 @@
 
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
-// 0 定义API控制器使用宏
+// 定义API控制器使用宏
 #include OATPP_CODEGEN_BEGIN(ApiController) 
 
 /**
  * 人员花名册-（离退休员工-导出员工）--pine
  */
-class ExportRetireesController : public oatpp::web::server::api::ApiController // 1 继承控制器
+class ExportRetireesController : public oatpp::web::server::api::ApiController // 继承控制器
 {
-	// 2 定义控制器访问入口
+	// 定义控制器访问入口
 	API_ACCESS_DECLARE(ExportRetireesController);
 
 public://  定义接口（定义接口描述与接口端点）
-	// 3定义新增接口描述
+	// 定义新增接口描述
 	ENDPOINT_INFO(queryExportRetirees) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("rosterofper.get.outinfo");
@@ -45,7 +45,7 @@ public://  定义接口（定义接口描述与接口端点）
 		info->queryParams["sex"].addExample("default", String("N"));
 		info->queryParams["sex"].required = false;
 	}
-	//4 定义新增接口处理
+	// 定义新增接口处理
 	ENDPOINT(API_M_GET, "/bas/query-ExportRetirees", queryExportRetirees, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		API_HANDLER_QUERY_PARAM(query, ExportRetireesQuery, queryParams);
 		// 响应结果
@@ -58,6 +58,6 @@ private://定义执行函数
 
 };
 
-// 0 取消API控制器使用宏
+// 取消API控制器使用宏
 #include OATPP_CODEGEN_END(ApiController)
 #endif // _ExportRetirees_CONTROLLER_

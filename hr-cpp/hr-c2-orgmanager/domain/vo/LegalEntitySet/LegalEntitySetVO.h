@@ -18,9 +18,6 @@
 #include "../../dto/LegalEntitySet/LegalEntitySetQueryDTO.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/**
- * 示例显示JsonVO，用于响应给客户端的Json对象
- */
 class LegalEntitySetJsonVO : public JsonVO<LegalEntitySetDTO::Wrapper> {
 	DTO_INIT(LegalEntitySetJsonVO, JsonVO<LegalEntitySetDTO::Wrapper>);
 };
@@ -29,9 +26,6 @@ class LegalEntitySetPullDownJsonVO : public JsonVO<LegalEntitySetPullDownDTO::Wr
 	DTO_INIT(LegalEntitySetPullDownJsonVO, JsonVO<LegalEntitySetPullDownDTO::Wrapper>);
 };
 
-/**
- * 示例分页显示JsonVO，用于响应给客户端的Json对象
- */
 class LegalEntitySetPageJsonVO : public JsonVO<LegalEntitySetPageDTO::Wrapper> {
 	DTO_INIT(LegalEntitySetPageJsonVO, JsonVO<LegalEntitySetPageDTO::Wrapper>);
 };

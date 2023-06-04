@@ -2,6 +2,9 @@
 #include "FormerEmployeesDAO.h"
 #include "FormerEmployeesMapper.h"
 #include <sstream>
+/**
+ * 人员花名册 - 离职人员 - 楚孟献
+ */
 
 //定义条件解析宏
 #define FORMER_EMPLOYEES_PARSE(query,sql)\

@@ -14,7 +14,5 @@ public:
 	SpercificCertificateDTO::Wrapper querySpercificCertificate(const SpercificCertificateQuery::Wrapper &query);
 };
 
-
-
 #endif // !_SpercificCertificate_SERVICE_
 #pragma once

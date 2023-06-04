@@ -24,10 +24,10 @@ using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
 class RraineeController : public oatpp::web::server::api::ApiController {
-	API_ACCESS_DECLARE(RraineeController); // 2 定义控制器访问入口
+	API_ACCESS_DECLARE(RraineeController); // 定义控制器访问入口
 public:
 
-	// 3.1 定义查询接口描述
+	// 定义查询接口描述
 	ENDPOINT_INFO(queryRrainee) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("RosterOfPer.query.summary");
@@ -45,7 +45,7 @@ public:
 		info->queryParams["pcmjxszzkhjgjlname"].addExample("default", String(""));
 		info->queryParams["pcmjxszzkhjgjlname"].required = false;*/
 	}
-	// 3.2 定义查询接口处理
+	// 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/query-RraineePageQueryEmployeeList", queryRrainee, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, RraineeQuery, queryParams);
@@ -65,7 +65,7 @@ public:
 		// 定义其他表单参数描述
 	}
 
-	// 3.2 定义查询接口处理
+	// 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/export-RraineeExportEmployee", exportRrainee, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, RraineeQuery, queryParams);
@@ -109,7 +109,7 @@ public:
 
 
 private:
-	//3.3 演示分页查询数据
+	// 演示分页查询数据
 	RraineePageJsonVO::Wrapper execRraineeQuery(const RraineeQuery::Wrapper& query, const PayloadDTO& payload);
 	RraineePageJsonVO::Wrapper execRraineeExport(const RraineeQuery::Wrapper& query, const PayloadDTO& payload);
 };

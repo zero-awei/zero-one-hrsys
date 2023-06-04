@@ -15,6 +15,4 @@ public:
 	std::string exportData(const FormerEmployeesQuery::Wrapper& query);
 };
 
-
-
 #endif // !_FORMEREMPLOYEES_SERVICE_

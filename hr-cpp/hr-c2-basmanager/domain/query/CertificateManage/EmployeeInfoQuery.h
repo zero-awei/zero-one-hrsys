@@ -6,10 +6,10 @@
 #include "domain/query/PageQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
-
 /**
  * 人员信息分页查询对象--(证书管理-分页查询员工信息列表)--weixiaoman
  */
+
 class EmployeeInfoQuery : public PageQuery
 {
 	DTO_INIT(EmployeeInfoQuery, PageQuery);

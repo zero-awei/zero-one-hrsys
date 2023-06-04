@@ -1,9 +1,9 @@
-
 #include "stdafx.h"
 #include "CreateNewCerController.h"
 #include "../../service/CertificateManage/CreateNewCerService.h"
-
-
+/**
+  新建证书--(证书管理-新建证书)--pine
+ */
 Uint64JsonVO::Wrapper CreateNewCerController::execAddNewCer(const CreateNewCerDTO::Wrapper& dto)
 {
 	// 定义返回数据对象

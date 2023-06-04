@@ -1,5 +1,5 @@
 /*
-证书管理-新建证书--pine
+ 证书管理-新建证书--pine
 */
 #include "stdafx.h"
 #include "SnowFlake.h"

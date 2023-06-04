@@ -1,5 +1,4 @@
 #pragma once
-
 #ifndef _TEMPORARYSTAFFDTO_H_
 #define _TEMPORARYSTAFFDTO_H_
 #include "../../GlobalInclude.h"

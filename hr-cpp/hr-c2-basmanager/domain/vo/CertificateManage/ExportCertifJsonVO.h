@@ -10,16 +10,10 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/**
- * 示例显示JsonVO，用于响应给客户端的Json对象
- */
 class ExportCertifJsonVO : public JsonVO<ExportCertifDTO::Wrapper> {
 	DTO_INIT(ExportCertifJsonVO, JsonVO<ExportCertifDTO::Wrapper>);
 };
 
-/**
- * 示例分页显示JsonVO，用于响应给客户端的Json对象
- */
 class ExportCertifPageJsonVO : public JsonVO<ExportCertifPageDTO::Wrapper> {
 	DTO_INIT(ExportCertifPageJsonVO, JsonVO<ExportCertifPageDTO::Wrapper>);
 };

@@ -65,7 +65,7 @@ public:
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
 	}
-	// 3.2 定义查询接口处理
+	// 定义查询接口处理
 	ENDPOINT(API_M_GET, "/org/export-LegalerSeting", exportLegalEntitySet, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, LegalEntitySetQuery, queryParams);
@@ -73,7 +73,7 @@ public:
 		API_HANDLER_RESP_VO(execExportLegalEntitySet(userQuery, authObject->getPayload()));
 	}
 
-	// 3.1 定义查询接口描述
+	// 定义查询接口描述
 	ENDPOINT_INFO(queryLegalEntitySetPullDownList) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("LegalEntitySet.query.summary3");
@@ -88,7 +88,7 @@ public:
 		info->queryParams["ormsignorgid"].addExample("default", String(ZH_WORDS_GETTER("LegalEntitySet.sample.name1")));
 		info->queryParams["ormsignorgid"].required = false;
 	}
-	// 3.2 定义查询接口处理
+	// 定义查询接口处理
 	ENDPOINT(API_M_GET, "/org/query-LegalEntitySetPullDownList", queryLegalEntitySetPullDownList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, LegalEntitySetQuery, queryParams);
@@ -96,7 +96,7 @@ public:
 		API_HANDLER_RESP_VO(execLegalEntitySetPullDownList());
 	}
 
-	// 3.1 定义修改接口描述
+	// 定义修改接口描述
 	ENDPOINT_INFO(modifyLegalEntitySet) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("LegalEntitySet.put.summary");
@@ -105,7 +105,7 @@ public:
 		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("EmpInfo.field.name");
 		info->queryParams["name"].addExample("default", String("li ming"));
 	}
-	// 3.2 定义修改接口处理
+	// 定义修改接口处理
 	ENDPOINT(API_M_PUT, "/org/update-LegalEntitySet", modifyLegalEntitySet, BODY_DTO(LegalEntitySetUpdateDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyLegalEntitySet(dto));

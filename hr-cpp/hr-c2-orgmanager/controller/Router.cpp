@@ -50,24 +50,9 @@ Router::Router(Endpoints* docEndpoints, HttpRouter* router)
 
 void Router::initRouter()
 {
-#ifdef HTTP_SERVER_DEMO
-	createSampleRouter();
-#endif
 	//#TIP :系统扩展路由定义，写在这个后面
-	ROUTER_SIMPLE_BIND(LegalEntityMaiController);
+	ROUTER_SIMPLE_BIND(LegalEntityMaiController);//法人主体维护控制器设计--（组织管理-数据设置-法人主体维护）--TripleGold
 	ROUTER_SIMPLE_BIND(DeleteLegalEntityController);//法人主体设置--删除法人设置(支持批量删除)--pine
-	ROUTER_SIMPLE_BIND(ImportLeagalPerSettingController);
-	ROUTER_SIMPLE_BIND(LegalEntitySetController);
+	ROUTER_SIMPLE_BIND(ImportLeagalPerSettingController);//(法人主体设置-导入法人设置)--洛洛
+	ROUTER_SIMPLE_BIND(LegalEntitySetController);//法人主体设置  -- cpt
 }
-
-#ifdef HTTP_SERVER_DEMO
-void Router::createSampleRouter()
-{
-	// 绑定示例控制器
-	ROUTER_SIMPLE_BIND(SampleController);
-	// 绑定用户控制器
-	ROUTER_SIMPLE_BIND(UserController);
-	// 绑定WebSocket控制器
-	router->addController(WSContorller::createShared());
-}
-#endif

@@ -1,27 +1,8 @@
 #pragma once
-
 /**
  *  基础管理 —— 人员花名册 —— 试用员工 —— 楚孟献
  */
 
- /*
-  Copyright Zero One Star. All rights reserved.
-
-  @Author: awei
-  @Date: 2022/10/25 0:27:04
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-	   https://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
- */
 #ifndef _PROBATIONARY_EMPLOYEE_CONTROLLER_
 #define _PROBATIONARY_EMPLOYEE_CONTROLLER_
 
@@ -37,16 +18,16 @@
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
-// 0 定义API控制器使用宏
+// 定义API控制器使用宏
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
-class ProbationaryEmployeeController : public oatpp::web::server::api::ApiController // 1 继承控制器
+class ProbationaryEmployeeController : public oatpp::web::server::api::ApiController // 继承控制器
 {
-	// 2 定义控制器访问入口
+	// 定义控制器访问入口
 	API_ACCESS_DECLARE(ProbationaryEmployeeController);
-	// 3 定义接口
+	// 定义接口
 public:
-	// 3.1 定义查询接口描述 询问所有试用员工数据
+	// 定义查询接口描述 询问所有试用员工数据
 	ENDPOINT_INFO(queryProbationaryEmployee) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("probationaryemployee.get.summary");
@@ -90,7 +71,7 @@ public:
 		info->queryParams["zgzt"].required = false;
 
 	}
-	// 3.2 定义查询接口处理
+	// 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/query-all-ProbationaryEmployee", queryProbationaryEmployee, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(Query, ProbationaryEmployeeQuery, queryParams);
@@ -98,7 +79,7 @@ public:
 		API_HANDLER_RESP_VO(execQueryProbationaryEmployee(Query, authObject->getPayload()));
 	}
 
-	// 3.1 定义导出接口描述
+	// 定义导出接口描述
 	ENDPOINT_INFO(exportProbationaryEmployee) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("probationaryemployee.get.out");
@@ -139,7 +120,7 @@ public:
 		info->queryParams["zgzt"].addExample("default", String(""));
 		info->queryParams["zgzt"].required = false;
 	}
-	// 3.2 定义查询接口处理
+	// 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/get-ProbationaryEmployee", exportProbationaryEmployee, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(Query, ProbationaryEmployeeQuery, queryParams);
@@ -153,6 +134,6 @@ private:
 	StringJsonVO::Wrapper execExportProbationaryEmployee(const ProbationaryEmployeeQuery::Wrapper& query, const PayloadDTO& payload);
 };
 
-// 0 取消API控制器使用宏
+// 取消API控制器使用宏
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
-#endif // _SAMPLE_CONTROLLER_
+#endif // _PROBATIONARY_EMPLOYEE_CONTROLLER_

@@ -1,7 +1,10 @@
 #include "stdafx.h"
 #include "RraineeController.h"
 #include "service/RosterOfPer/RraineeService.h"
- 
+/**
+*  基础管理 —— 人员花名册 —— 见习员工  ——Cpt
+*/
+
 RraineePageJsonVO::Wrapper RraineeController::execRraineeQuery(const RraineeQuery::Wrapper& query, const PayloadDTO& payload){
 	RraineeService service;
 	// 查询数据

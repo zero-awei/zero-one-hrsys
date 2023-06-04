@@ -1,5 +1,8 @@
 #include "stdafx.h"
 #include "SpercificCertificateDAO.h"
+/**
+ *  证书管理 —— 证书信息 —— 查询、更新指定证书 —— 楚孟献
+ */
 
 int SpercificCertificateDAO::update(const SpercificCertificateDO& uObj)
 {

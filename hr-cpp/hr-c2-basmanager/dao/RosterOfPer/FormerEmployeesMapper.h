@@ -7,7 +7,7 @@
 #include "../../domain/do/RosterOfPer/FormerEmployeesDO.h"
 
 /**
- * 离职人员表字段匹配映射
+ * 离职人员表字段匹配映射- 楚孟献
  */
 class FormerEmployeesMapper :public Mapper<FormerEmployeesDO>
 {

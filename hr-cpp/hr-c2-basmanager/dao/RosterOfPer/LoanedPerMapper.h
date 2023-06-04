@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _LoanedPer_MAPPER_
-#define _LoanedPer_MAPPER_
+#ifndef _LOANEDPER_MAPPER_
+#define _LOANEDPER_MAPPER_
 #include "Mapper.h"
 #include "../../domain/do/RosterOfPer/SecondedPersonnelDO.h"
 /**
@@ -29,4 +29,4 @@ public:
 		return data;			   
 	}							   
 };								   
-#endif // !_LoanedPer_MAPPER_	   
+#endif // !_LOANEDPER_MAPPER_	   

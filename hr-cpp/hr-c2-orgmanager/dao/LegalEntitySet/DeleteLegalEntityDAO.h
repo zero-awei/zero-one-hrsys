@@ -18,4 +18,4 @@ public:
 	int deleteById(string id);
 
 };
-#endif // !_SAMPLE_DAO_
+#endif // !_DELETE_LEGAL_ENTITY_DAO_

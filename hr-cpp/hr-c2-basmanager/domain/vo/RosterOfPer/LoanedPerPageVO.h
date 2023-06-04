@@ -10,16 +10,10 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/**
- * 示例显示JsonVO，用于响应给客户端的Json对象
- */
 class LoanedPerVO : public JsonVO<LoanedPerDTO::Wrapper> {
 	DTO_INIT(LoanedPerVO, JsonVO<LoanedPerDTO::Wrapper>);
 };
 
-/**
- * 示例分页显示JsonVO，用于响应给客户端的Json对象
- */
 class LoanedPerPageVO : public JsonVO<LoanedPerPageDTO::Wrapper> {
 	DTO_INIT(LoanedPerPageVO, JsonVO<LoanedPerPageDTO::Wrapper>);
 };

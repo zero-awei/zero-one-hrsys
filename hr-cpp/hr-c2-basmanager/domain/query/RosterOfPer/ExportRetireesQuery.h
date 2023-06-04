@@ -8,7 +8,6 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 示例分页查询对象
  * (后面要拍改成新增证书)
  */
 class ExportRetireesQuery : public PageQuery
@@ -32,4 +31,4 @@ class ExportRetireesQuery : public PageQuery
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_ExportRetirees_QUERY_
+#endif // !_EXPORT_RETIREES_QUERY_

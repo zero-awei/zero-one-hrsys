@@ -8,9 +8,6 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/**
- * 示例传输对象
- */
 class ImportLeagalPerSettingDTO : public oatpp::DTO
 {
 	DTO_INIT(ImportLeagalPerSettingDTO, DTO);
@@ -35,10 +32,7 @@ class ImportLeagalPerSettingDTO : public oatpp::DTO
 		info->description = ZH_WORDS_GETTER("sample.field.sex");
 	}
 };
-//
-///**
-// * 示例分页传输对象
-// */
+
 //class SamplePageDTO : public PageDTO<ImportLeagalPerSettingDTO::Wrapper>
 //{
 //	DTO_INIT(SamplePageDTO, PageDTO<ImportLeagalPerSettingDTO::Wrapper>);

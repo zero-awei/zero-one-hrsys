@@ -8,9 +8,6 @@
 #include "Mapper.h"
 #include "../../domain/do/CertificateManage/CertificateDO.h"
 
-/**
- * Ê¾Àı±í×Ö¶ÎÆ¥ÅäÓ³Éä
- */
 class ChechCerListMapper : public Mapper<CertificateDO>
 {
 public:

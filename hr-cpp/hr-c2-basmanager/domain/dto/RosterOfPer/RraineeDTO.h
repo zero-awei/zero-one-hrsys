@@ -57,9 +57,6 @@ class RraineeDTO : public oatpp::DTO {
 	}
 };
 
-/**
- * 示例分页传输对象
- */
 class RraineePageDTO: public PageDTO<RraineeDTO::Wrapper> {
 	DTO_INIT(RraineePageDTO, PageDTO<RraineeDTO::Wrapper>);
 };

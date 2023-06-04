@@ -1,8 +1,9 @@
-
 #include "stdafx.h"
 #include "CheckCerListController.h"
 #include "../../service/CertificateManage/CheckCerListService.h"
-
+/**
+* 分页查询证书列表--(证书管理-分页查询证书列表)--pine
+ */
 CheckCerListPageJsonVO::Wrapper CheckCerListController::execQueryCheckCerList(const CheckCerListQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	////创建响应对象

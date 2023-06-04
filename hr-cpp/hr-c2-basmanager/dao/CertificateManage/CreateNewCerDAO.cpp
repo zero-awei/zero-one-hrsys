@@ -6,7 +6,6 @@
 #include "CreateNewCerMapper.h"
 #include <sstream>
 
-
 uint64_t CreateNewCerDAO::insert(const CertificateDO& iObj)
 {
 	string sql = "INSERT INTO t_pimvocational (ygbh, pimvocationalid, bcardNumber, pimVocationalName, zslx, zghqrq, zgsydw, zcdw,sxrq,nsqk,syqk,alteration,\

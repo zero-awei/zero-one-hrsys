@@ -1,5 +1,4 @@
 #pragma once
-
 #include "BaseDAO.h"
 #include "../../domain/do/RosterOfPer/FormerEmployeesDO.h"
 #include "../../domain/query/RosterOfPer/FormerEmployeesQuery.h"
@@ -7,6 +6,7 @@
 /**
  * 人员花名册 - 离职人员数据库操作实现 - 楚孟献
  */
+
 class FormerEmployeesDAO : public BaseDAO
 {
 public:

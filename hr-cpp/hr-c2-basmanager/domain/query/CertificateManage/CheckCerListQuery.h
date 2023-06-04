@@ -10,9 +10,6 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
- /**
- 证书管理-分页查询证书列表--pine
-  */
 class CheckCerListQuery : public PageQuery
 {
 	DTO_INIT(CheckCerListQuery, PageQuery);
@@ -135,4 +132,4 @@ class CheckCerListQuery : public PageQuery
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_CheckCerList_QUERY_
+#endif // !_CHECK_CER_QUERY_

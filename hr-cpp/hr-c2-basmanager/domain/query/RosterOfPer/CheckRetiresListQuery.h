@@ -8,7 +8,7 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
-人员花名册-离退休人员-分页查询员工列表--pine
+ 人员花名册-离退休人员-分页查询员工列表--pine
  */
 class CheckRetiresListQuery : public PageQuery
 {
@@ -111,4 +111,4 @@ class CheckRetiresListQuery : public PageQuery
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_CheckRetiresList_QUERY_
+#endif // !CheckRetiresListQuery

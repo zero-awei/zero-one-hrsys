@@ -17,6 +17,9 @@ LoanedPerPageVO::Wrapper LoanedPerPageController::execQueryLoanedPerPage(const L
 	return jvo;
 }
 
+/*
+（人员花名册-借调人员-导出证书（导出本页在前端完成））--未小满
+*/
 StringJsonVO::Wrapper LoanedPerPageController::execExportLoanedPer(const LoanedPerPageQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	auto jvo = StringJsonVO::createShared();

@@ -10,9 +10,6 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/**
- * 示例分页查询对象
- */
 class ExportEmployeeQuery : public PageQuery
 {
 	DTO_INIT(ExportEmployeeQuery, PageQuery);

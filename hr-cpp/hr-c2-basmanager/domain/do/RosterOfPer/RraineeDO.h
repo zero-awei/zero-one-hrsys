@@ -2,10 +2,10 @@
 #ifndef _RRAINEE_DO_
 #define _RRAINEE_DO_
 #include "../DoInclude.h"
-
 /**
  *  基础管理 —— 人员花名册 —— 见习员工实体类  ——Cpt
  */
+
 class RraineeDO {
 	// 员工编号
 	CC_SYNTHESIZE(string, ygbh, Ygbh);

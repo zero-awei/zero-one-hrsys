@@ -3,7 +3,6 @@
  * 挂职人员信息查询--(人员花名册-挂职人员-分页查询员工列表)--weixiaoman
  */
 
-
 #ifndef _TEMPORARYSTAFFCONTROLLER_H_
 #define _TEMPORARYSTAFFCONTROLLER_H_
 
@@ -19,19 +18,19 @@
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
-// 0 定义API控制器使用宏
+// 定义API控制器使用宏
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 /**
  * 挂职人员功能控制器
  */
 class TempStaffController : public oatpp::web::server::api::ApiController 
 {
-	// 2 定义控制器访问入口
+	// 定义控制器访问入口
 	API_ACCESS_DECLARE(TempStaffController);
 
-	// 3 定义接口
+	// 定义接口
 public:
-	// 3.1 定义查询接口描述
+	// 定义查询接口描述
 	ENDPOINT_INFO(queryTempStaff) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("TempStaff.get.summary");
@@ -49,7 +48,7 @@ public:
 		//info->queryParams["id"].addExample("default", String(""));
 		//info->queryParams["id"].required = false;
 	}
-	// 3.2 定义查询接口处理
+	// 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/query-tempstaff", queryTempStaff, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, TempStaffQuery, queryParams);
@@ -57,7 +56,7 @@ public:
 		API_HANDLER_RESP_VO(execQueryTempstaff(userQuery, authObject->getPayload()));
 	}
 
-	//导出功能
+	// 导出功能
 	ENDPOINT_INFO(queryExportTempStaff) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("TempStaff.export.summary");
@@ -74,7 +73,7 @@ public:
 		info->queryParams.add<String>("idandname").description = ZH_WORDS_GETTER("TempStaff.field.idandname");
 		info->queryParams["idandname"].addExample("default", String(""));
 	}
-	// 3.2 定义查询接口处理
+	// 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/get-tempstaff", queryExportTempStaff, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, TempStaffQuery, queryParams);
@@ -82,12 +81,12 @@ public:
 		API_HANDLER_RESP_VO(execExportTempstaff(userQuery, authObject->getPayload()));
 	}
 private:
-	// 3.3 挂职人员分页查询数据
+	// 挂职人员分页查询数据
 	TemporaryStaffPageJsonVO::Wrapper execQueryTempstaff(const TempStaffQuery::Wrapper& query, const PayloadDTO& payload);
-	// 3.3 导出挂职人员数据
+	// 导出挂职人员数据
 	StringJsonVO::Wrapper execExportTempstaff(const TempStaffQuery::Wrapper& query, const PayloadDTO& payload);
 };
 
-// 0 取消API控制器使用宏
+// 取消API控制器使用宏
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
 #endif // _TEMPORARYSTAFFCONTROLLER_H_

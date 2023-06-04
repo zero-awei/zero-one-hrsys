@@ -1,5 +1,4 @@
 #pragma once
-
 /*
 组织管理 —— 数据设置 —— 法人主体设置  -- cpt
 
@@ -77,9 +76,6 @@ public:
 	}
 };
 
-/**
- * 示例分页传输对象
- */
 class LegalEntitySetPageDTO : public PageDTO<LegalEntitySetDTO::Wrapper> {
 	DTO_INIT(LegalEntitySetPageDTO, PageDTO<LegalEntitySetDTO::Wrapper>);
 };

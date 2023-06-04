@@ -8,9 +8,6 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/**
- * 示例传输对象
- */
 class CheckRetiresListDTO : public oatpp::DTO
 {
 public:
@@ -117,9 +114,6 @@ public:
 	}
 };
 
-/**
- * 示例分页传输对象
- */
 class CheckRetiresListPageDTO : public PageDTO<CheckRetiresListDTO::Wrapper>
 {
 	DTO_INIT(CheckRetiresListPageDTO, PageDTO<CheckRetiresListDTO::Wrapper>);

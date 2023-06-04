@@ -8,9 +8,6 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/**
- * 示例传输对象
- */
 class DeleteLegalEntityDTO : public oatpp::DTO
 {
 public:
@@ -25,9 +22,6 @@ public:
 
 };
 
-/**
- * 示例分页传输对象
- */
 class DeleteLegalEntityPageDTO : public PageDTO<DeleteLegalEntityDTO::Wrapper>
 {
 	DTO_INIT(DeleteLegalEntityPageDTO, PageDTO<DeleteLegalEntityDTO::Wrapper>);

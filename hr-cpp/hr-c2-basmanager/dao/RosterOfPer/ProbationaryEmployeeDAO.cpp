@@ -2,6 +2,9 @@
 #include "ProbationaryEmployeeDAO.h"
 #include "ProbationaryEmployeeMapper.h"
 #include <sstream>
+/**
+ * 人员花名册 - 试用人员 - 楚孟献
+ */
 
 //定义条件解析宏
 #define PROBATIONARY_EMPLOYEE_PARSE(query,sql)\

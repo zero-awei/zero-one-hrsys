@@ -17,4 +17,4 @@ public:
 	// ≤Â»Î ˝æ›
 	uint64_t insert(const CertificateDO& iObj);
 };
-#endif // !_SAMPLE_DAO_
+#endif // !_CREATE_NEW_CER_DAO_

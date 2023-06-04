@@ -5,9 +5,6 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/**
- * 示例传输对象
- */
 class ExportRetireesDTO : public oatpp::DTO
 {
 public:
@@ -39,13 +36,10 @@ public:
 	}
 };
 
-/**
- * 示例分页传输对象
- */
 class ExportRetireesPageDTO : public PageDTO<ExportRetireesDTO::Wrapper>
 {
 	DTO_INIT(ExportRetireesPageDTO, PageDTO<ExportRetireesDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // 
+#endif // !_EXPORT_RETIREES_DTO_

@@ -2,10 +2,10 @@
 #ifndef _TEMPORARYSTAFF_DO_
 #define _TEMPORARYSTAFF_DO_
 #include "../DoInclude.h"
-
 /**
  * 挂职人员信息查询功能数据库实体，搜索框使用--(人员花名册-挂职人员-分页查询员工列表)--weixiaoman
  */
+
 class TemporaryStaffDO {
 	//员工编号
 	CC_SYNTHESIZE(string, ygbh, ygbh);

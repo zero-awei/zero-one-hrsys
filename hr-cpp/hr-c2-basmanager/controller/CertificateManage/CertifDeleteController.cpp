@@ -5,7 +5,6 @@
 #include "CertifDeleteController.h"
 #include "../../service/CertificateManage/DeleteCertifService.h"
 
-
 StringJsonVO::Wrapper CertifDeleteController::execRemoveCertif(const RemoveCertifDTO::Wrapper& dto)
 {
 

@@ -17,17 +17,14 @@
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
-// 0 定义API控制器使用宏
-#include OATPP_CODEGEN_BEGIN(ApiController) //<-
+// 定义API控制器使用宏
+#include OATPP_CODEGEN_BEGIN(ApiController) 
 
-/**
- * 示例控制器，演示基础接口的使用
- */
-class DeleteLegalEntityController : public oatpp::web::server::api::ApiController // 1 继承控制器
+class DeleteLegalEntityController : public oatpp::web::server::api::ApiController // 继承控制器
 {
-	// 2 定义控制器访问入口
+	// 定义控制器访问入口
 	API_ACCESS_DECLARE(DeleteLegalEntityController);
-	// 3 定义接口
+	// 定义接口
 public:
 
 	// 定义删除接口描述
@@ -38,10 +35,10 @@ public:
 		API_HANDLER_RESP_VO(execDeleteLegalEntity(dto));
 	}
 private:
-	// 3.3 演示删除数据
+	// 演示删除数据
 	StringJsonVO::Wrapper execDeleteLegalEntity(const DeleteLegalEntityDTO::Wrapper& dto);
 };
 
-// 0 取消API控制器使用宏
-#include OATPP_CODEGEN_END(ApiController) //
+// 取消API控制器使用宏
+#include OATPP_CODEGEN_END(ApiController) 
 #endif // _CERTIFIDELETE_CONTROLLER_

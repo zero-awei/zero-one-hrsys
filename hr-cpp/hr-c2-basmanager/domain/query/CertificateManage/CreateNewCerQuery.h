@@ -9,8 +9,8 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
-证书管理-证书信息-新建证书--pine
- */
+  证书管理-证书信息-新建证书--pine
+*/
 class CreateNewCerQuery : public PageQuery
 {
 	DTO_INIT(CreateNewCerQuery, PageQuery);
@@ -102,4 +102,4 @@ class CreateNewCerQuery : public PageQuery
 };
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_CreateNewCer_QUERY_
+#endif // !_CREATE_NEW_CER_QUERY_

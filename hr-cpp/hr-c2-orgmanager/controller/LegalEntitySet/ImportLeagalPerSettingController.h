@@ -1,6 +1,6 @@
 #pragma once
 /*
-(法人主体设置-导入法人设置)--洛洛
+ (法人主体设置-导入法人设置)--洛洛
 */
 #ifndef _IMPORTLEAGALPERSETTING_CONTROLLER_
 #define _IMPORTLEAGALPERSETTING_CONTROLLER_

@@ -13,6 +13,7 @@
 
 新增法人设置（支持批量新增）** `LegalEntitySet`
 */ 
+
 Uint64JsonVO::Wrapper LegalEntitySetController::execAddLegalEntitySet(const List<LegalEntitySetAddDTO::Wrapper> & dto, const PayloadDTO& payload) {
 	// 定义返回数据对象
 	auto jvo = Uint64JsonVO::createShared();

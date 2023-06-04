@@ -4,6 +4,7 @@
 #include "ExcelComponent.h"
 #include "FormerEmployeesService.h"
 #include "../../dao/RosterOfPer/FormerEmployeesDAO.h"
+
 FormerEmployeesPageDTO::Wrapper FormerEmployeesService::listAll(const FormerEmployeesQuery::Wrapper& query)
 {
 	// 构建返回对象

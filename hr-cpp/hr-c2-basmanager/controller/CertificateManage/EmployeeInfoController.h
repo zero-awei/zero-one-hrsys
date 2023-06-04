@@ -18,7 +18,7 @@
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
-// 0 定义API控制器使用宏
+// 定义API控制器使用宏
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
 /**
@@ -26,12 +26,12 @@ namespace multipart = oatpp::web::mime::multipart;
  */
 class EmployeeInfoController : public oatpp::web::server::api::ApiController
 {
-	// 2 定义控制器访问入口
+	// 定义控制器访问入口
 	API_ACCESS_DECLARE(EmployeeInfoController);
 
-	// 3 定义接口
+	// 定义接口
 public:
-	// 3.1 定义查询接口描述
+	// 定义查询接口描述
 	ENDPOINT_INFO(queryEmpInfo) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("EmpInfo.get.summary");
@@ -46,7 +46,7 @@ public:
 		info->queryParams["name"].addExample("default", String("li ming"));
 		//info->queryParams["name"].required = false;
 	}
-	// 3.2 定义查询接口处理
+	// 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/query-employeeinfo", queryEmpInfo, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, EmployeeInfoQuery, queryParams);
@@ -54,11 +54,11 @@ public:
 		API_HANDLER_RESP_VO(execQueryEmpInfo(userQuery, authObject->getPayload()));
 	}
 private:
-	// 3.3 人员信息分页查询数据
+	// 人员信息分页查询数据
 	EmployeeInfoPageJsonVO::Wrapper execQueryEmpInfo(const EmployeeInfoQuery::Wrapper& query, const PayloadDTO& payload);
 
 };
 
-// 0 取消API控制器使用宏
+// 取消API控制器使用宏
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
 #endif // !_EMPLOYEEINFO_CONTROLLER_

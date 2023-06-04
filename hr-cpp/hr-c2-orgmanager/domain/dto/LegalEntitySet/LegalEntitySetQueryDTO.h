@@ -46,9 +46,6 @@ public:
 	}
 };
 
-/**
- * 示例分页传输对象
- */
 class LegalEntitySetQueryPageDTO : public PageDTO<LegalEntitySetQueryDTO::Wrapper> {
 	DTO_INIT(LegalEntitySetQueryPageDTO, PageDTO<LegalEntitySetQueryDTO::Wrapper>);
 };

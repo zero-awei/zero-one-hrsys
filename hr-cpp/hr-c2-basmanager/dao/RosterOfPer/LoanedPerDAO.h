@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _LoanedPer_DAO_
-#define _LoanedPer_DAO_
+#ifndef _LOANEDPER_DAO_
+#define _LOANEDPER_DAO_
 #include "BaseDAO.h"
 #include "../../domain/do/RosterOfPer/SecondedPersonnelDO.h"
 #include "../../domain/query/RosterOfPer/LoanedPerPageQuery.h"
@@ -18,4 +18,4 @@ public:
 	// µ¼³ö²éÑ¯
 	list<SecondedPersonnelDO> selectExportDatas(const LoanedPerPageQuery::Wrapper& query);
 };
-#endif // !_LoanedPer_DAO_
+#endif // !_LOANEDPER_DAO_

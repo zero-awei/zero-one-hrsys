@@ -8,9 +8,7 @@
 #include "domain/query/RosterOfPer/LoanedPerPageQuery.h"
 #include "domain/dto/RosterOfPer/LoanedPerPageDTO.h"
 #include "domain/vo/RosterOfPer/LoanedPerPageVO.h"
-/**
- * 示例服务实现，演示基础的示例服务实现
- */
+
 class LoanedPerPageService
 {
 public:

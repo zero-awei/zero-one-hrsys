@@ -1,27 +1,8 @@
 #pragma once
-
 /**
  *  基础管理 —— 人员花名册 —— 离职员工 —— 楚孟献
  */
 
-/*
- Copyright Zero One Star. All rights reserved.
-
- @Author: awei
- @Date: 2022/10/25 0:27:04
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-	  https://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
 #ifndef __FORMER_EMPLOYEES_CONTROLLER_
 #define __FORMER_EMPLOYEES_CONTROLLER_
 
@@ -38,16 +19,16 @@
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
-// 0 定义API控制器使用宏
+// 定义API控制器使用宏
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
-class FormerEmployeesController : public oatpp::web::server::api::ApiController // 1 继承控制器
+class FormerEmployeesController : public oatpp::web::server::api::ApiController // 继承控制器
 {
-	// 2 定义控制器访问入口
+	// 定义控制器访问入口
 	API_ACCESS_DECLARE(FormerEmployeesController);
-	// 3 定义接口
+	// 定义接口
 public:
-	// 3.1 定义查询接口描述 询问所有离职员工数据
+	// 定义查询接口描述 询问所有离职员工数据
 	ENDPOINT_INFO(queryFormerEmployees) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("formeremployees.get.summary");
@@ -62,7 +43,7 @@ public:
 		info->queryParams["id_or_name"].addExample("default", String("1"));
 		info->queryParams["id_or_name"].required = false;
 	}
-	// 3.2 定义查询接口处理
+	// 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/query-all-FormerEmployees", queryFormerEmployees, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, FormerEmployeesQuery, queryParams);
@@ -70,7 +51,7 @@ public:
 		API_HANDLER_RESP_VO(execQueryFormerEmployees(userQuery, authObject->getPayload()));
 	}
 
-	// 3.1 定义导出接口描述
+	// 定义导出接口描述
 	ENDPOINT_INFO(exportFormerEmployees) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("formeremployees.get.out");
@@ -88,7 +69,7 @@ public:
 		//info->queryParams["outall"].addExample("default", String("0"));
 		//info->queryParams["outall"].required = false;
 	}
-	// 3.2 定义查询接口处理
+	// 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/get-FormerEmployees", exportFormerEmployees, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(Query, FormerEmployeesQuery, queryParams);
@@ -96,12 +77,12 @@ public:
 		API_HANDLER_RESP_VO(execExportFormerEmployees(Query, authObject->getPayload()));
 	}
 private:
-	// 3.3 演示分页查询数据
+	// 演示分页查询数据
 	FormerEmployeesPageJsonVO::Wrapper execQueryFormerEmployees(const FormerEmployeesQuery::Wrapper& query, const PayloadDTO& payload);
 	// 返回离职员工Excel表格
 	StringJsonVO::Wrapper execExportFormerEmployees(const FormerEmployeesQuery::Wrapper& query, const PayloadDTO& payload);
 };
 
-// 0 取消API控制器使用宏
+// 取消API控制器使用宏
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
-#endif // _SAMPLE_CONTROLLER_
+#endif // __FORMER_EMPLOYEES_CONTROLLER_

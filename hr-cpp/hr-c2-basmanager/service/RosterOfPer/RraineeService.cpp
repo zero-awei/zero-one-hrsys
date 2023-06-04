@@ -1,9 +1,9 @@
 #include "stdafx.h"
 #include "RraineeService.h"
 #include "dao/RosterOfPer/RraineeDAO.h"
-
-
-// 基础管理 ——人员花名册 ——见习员工 -- cpt
+/*
+  基础管理 ——人员花名册 ——见习员工 -- cpt
+*/
 
 RraineePageDTO::Wrapper RraineeService::listAll(const RraineeQuery::Wrapper& query)
 {

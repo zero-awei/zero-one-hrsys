@@ -8,9 +8,6 @@
 #include "../../domain/do/CertificateManage/CertificateDO.h"
 #include "../../domain/query/CertificateManage/CheckCerListQuery.h"
 
-/**
- * 示例表数据库操作实现（员工编号、员工姓名、证书名称）
- */
 class CheckCerListDAO : public BaseDAO
 {
 public:

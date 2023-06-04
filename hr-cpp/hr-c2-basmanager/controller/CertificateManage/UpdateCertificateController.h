@@ -1,5 +1,4 @@
 #pragma once
-
 /**
  *  证书管理 —— 证书信息 —— 查询、更新指定证书 —— 楚孟献
  */
@@ -19,17 +18,17 @@
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
-// 0 定义API控制器使用宏
+// 定义API控制器使用宏
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
 // 实现查询指定证书详细信息和更新指定证书功能
 class UpdateCertificateController : public oatpp::web::server::api::ApiController // 1 继承控制器
 {
-	// 2 定义控制器访问入口
+	// 定义控制器访问入口
 	API_ACCESS_DECLARE(UpdateCertificateController);
-	// 3 定义接口
+	// 定义接口
 public:
-	// 3.1 定义更新指定证书接口描述
+	// 定义更新指定证书接口描述
 	ENDPOINT_INFO(updateCertificate) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("spercificcertificate.get.update");
@@ -60,13 +59,13 @@ public:
 		info->queryParams["pimVocationalName"].addExample("default", String("安全员"));
 		info->queryParams["zgzsbh"].required = false;*/
 	}
-	// 3.2 定义修改接口处理
+	// 定义修改接口处理
 	ENDPOINT(API_M_PUT, "/bas/update-Certificater", updateCertificate, BODY_DTO(SpercificCertificateDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execUpdateSpercificCertificate(dto));
 	}
 
-	// 3.1 定义查询指定证书信息接口描述
+	// 定义查询指定证书信息接口描述
 	ENDPOINT_INFO(getSpercificCertificate) {
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("spercificcertificate.get.query");
@@ -77,7 +76,7 @@ public:
 	}
 
 
-	// 3.2 定义查询接口处理
+	// 定义查询接口处理
 	ENDPOINT(API_M_GET, "/bas/query-Certificater", getSpercificCertificate, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(Query, SpercificCertificateQuery, queryParams);
@@ -85,12 +84,12 @@ public:
 		API_HANDLER_RESP_VO(execGetSpercificCertificate(Query));
 	}
 private:
-	// 3.3 更新证书信息
+	// 更新证书信息
 	StringJsonVO::Wrapper execUpdateSpercificCertificate(const SpercificCertificateDTO::Wrapper& dto);
 	// 查询证书信息
 	SpercificCertificateJsonVO::Wrapper execGetSpercificCertificate(const SpercificCertificateQuery::Wrapper& query);
 };
 
-// 0 取消API控制器使用宏
+// 取消API控制器使用宏
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
-#endif // _SAMPLE_CONTROLLER_
+#endif // __UPDATECERTIFIDATE_CONTROLLER_

@@ -8,9 +8,6 @@
 #include "Mapper.h"
 #include "../../domain/do/LegalEntitySet/LegalEntitySetDO.h"
 
-/**
- * Ê¾Àı±í×Ö¶ÎÆ¥ÅäÓ³Éä
- */
 class DeleteLegalEntityMapper : public Mapper<LegalEntitySetDO>
 {
 public:

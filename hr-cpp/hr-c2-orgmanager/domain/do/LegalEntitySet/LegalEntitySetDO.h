@@ -15,9 +15,6 @@
 #define _LEGALENTITYSET_DO_
 #include "../DoInclude.h"
 
-/**
- * 示例数据库实体类
- */
 class LegalEntitySetDO {
 	public:
 	// 签约主体单位名称

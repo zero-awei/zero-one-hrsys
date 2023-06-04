@@ -8,9 +8,6 @@
 #include "Mapper.h"
 #include "../../domain/do/RosterOfPer/RetiredEmployeesDO.h"
 
-/**
- * Ê¾Àý±í×Ö¶ÎÆ¥ÅäÓ³Éä
- */
 class CheckRetiresListMapper : public Mapper<RetiredEmployeesDO>
 {
 public:
@@ -40,4 +37,4 @@ public:
 		return data;
 	}
 };
-#endif // !_SAMPLE_MAPPER_
+#endif // !_CHECK_RETIRES_LIST_MAPPER_

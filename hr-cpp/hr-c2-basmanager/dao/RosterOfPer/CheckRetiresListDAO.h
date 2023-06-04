@@ -8,9 +8,6 @@
 #include "../../domain/do/RosterOfPer/RetiredEmployeesDO.h"
 #include "../../domain/query/RosterOfPer/CheckRetiresListQuery.h"
 
-/**
- * 示例表数据库操作实现（员工编号、员工姓名）
- */
 class CheckRetiresListDAO : public BaseDAO
 {
 public:

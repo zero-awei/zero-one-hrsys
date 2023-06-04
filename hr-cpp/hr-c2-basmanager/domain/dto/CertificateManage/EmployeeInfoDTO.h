@@ -23,7 +23,6 @@ class EmployeeInfoDTO : public oatpp::DTO
 
 };
 
-
 /**
  * 人员信息分页传输对象
  */

@@ -8,9 +8,6 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-/**
- * 示例传输对象
- */
 class ExportEmployeeDTO : public oatpp::DTO
 {
 	DTO_INIT(ExportEmployeeDTO, DTO);
@@ -36,9 +33,6 @@ class ExportEmployeeDTO : public oatpp::DTO
 	}
 };
 
-/**
- * 示例分页传输对象
- */
 class ExportEmployeePageDTO : public PageDTO<ExportEmployeeDTO::Wrapper>
 {
 	DTO_INIT(ExportEmployeePageDTO, PageDTO<ExportEmployeeDTO::Wrapper>);
