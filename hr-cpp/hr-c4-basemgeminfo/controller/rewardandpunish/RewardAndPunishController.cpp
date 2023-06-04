@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "RewardAndPunishController.h"
 #include "../../service/rewardandpunish/RewardAndPunishService.h"
+#include <iostream>
 
 RewardAndPunishJsonVO::Wrapper RewardAndPunishController::execQueryRewardAndPunish(const RewardAndPunishDetailQuery::Wrapper& query) {
 	// 响应结果
@@ -10,7 +11,7 @@ RewardAndPunishJsonVO::Wrapper RewardAndPunishController::execQueryRewardAndPuni
 	// 查询数据
 	auto result = service.listDetail(query);
 	if (result->PIMREWARDPUNISHMENTID.getValue("").empty()) {
-		cout << "No details were found" << endl;
+		std::cout << "No details were found" << std::endl;
 		jvo->fail(result);
 	}
 	else {

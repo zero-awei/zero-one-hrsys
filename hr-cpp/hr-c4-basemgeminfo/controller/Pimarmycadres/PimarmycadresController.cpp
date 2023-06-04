@@ -3,7 +3,7 @@
 #include "ExcelComponent.h"
 #include "CharsetConvertHepler.h"
 #include "FastDfsClient.h"
-#include "service/Pimarmycadres/PimarmycadresService.h"
+#include "service/pimarmycadres/PimarmycadresService.h"
 #include "uselib/rocketmq/TestRocket.h"
 
 PimarmycadresFindVO::Wrapper PimarmycadresController::execQueryPimarmycadres(const PimarmycadresPageQuery::Wrapper& query)

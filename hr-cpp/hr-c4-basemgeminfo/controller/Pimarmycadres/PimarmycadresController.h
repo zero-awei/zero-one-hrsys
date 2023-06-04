@@ -38,11 +38,11 @@
 
 #include "ServerInfo.h"
 
-#include "domain/query/Pimarmycadres/PimarmycadresQuery.h"
+#include "domain/query/pimarmycadres/PimarmycadresQuery.h"
 //#include "domain/dto/Pimarmycadres/ModPimarmycadresDTO.h"
 //#include "domain/vo/Pimarmycadres/ModPimarmycadresVO.h"
-#include "domain/vo/Pimarmycadres/PimarmycadresVO.h"
-#include "domain/dto/Pimarmycadres/PimarmycadresIntoDTO.h"
+#include "domain/vo/pimarmycadres/PimarmycadresVO.h"
+#include "domain/dto/pimarmycadres/PimarmycadresIntoDTO.h"
 
 
 using namespace oatpp;
