@@ -18,7 +18,7 @@
 */
 #include "stdafx.h"
 #include "domain/do/projTag/ProjTagDO.h"
-#include "dao/itemLabel/ItemLabelDAO.h"
+#include "dao/projTag/itemLabel/ItemLabelDAO.h"
 #include "domain/dto/itemLabel/ItemLabelDTO.h"
 #include "ItemLabelService.h"
 

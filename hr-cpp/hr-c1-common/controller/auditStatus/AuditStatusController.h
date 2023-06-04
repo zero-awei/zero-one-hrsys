@@ -21,12 +21,12 @@ class AuditStatusController : public oatpp::web::server::api::ApiController
 public:
 	// 定义查询所有用户信息接口端点描述
 	ENDPOINT_INFO(queryAuditStatus) {
-		
 		info->summary = ZH_WORDS_GETTER("common.controller.auditStatus");
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
+		API_DEF_ADD_AUTH();
 	}
 		
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/audit-status"), queryAuditStatus) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/audit-status"), queryAuditStatus, API_HANDLER_AUTH_PARAME) {
 		API_HANDLER_RESP_VO(execQueryAuditStatus());
 	}
 

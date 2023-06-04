@@ -42,8 +42,9 @@ public: // 定义接口
 		info->summary = ZH_WORDS_GETTER("htlx.query-list.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(ContractTypeVO);
+		API_DEF_ADD_AUTH();
 	}
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/contract-type"), queryHtlx) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/contract-type"), queryHtlx, API_HANDLER_AUTH_PARAME) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryContractType());
 	}

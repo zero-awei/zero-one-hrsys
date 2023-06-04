@@ -39,7 +39,7 @@
 #include "projTag/importTagController/ImportTagController.h"
 #include "projTag/addTagController/AddTagController.h"
 #include "projTag/modifyProjTagController/ModifyProjTagController.h"
-#include "itemLabel/ItemLabelController.h"
+#include "projTag/itemLabel/ItemLabelController.h"
 #include "projTag/queryOrgList/QueryOrgListController.h"
 //±‡÷∆≤È—Ø
 #include "orgbz/PageQueryBzController.h"

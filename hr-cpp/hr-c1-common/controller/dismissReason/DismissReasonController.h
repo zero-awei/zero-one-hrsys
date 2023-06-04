@@ -41,9 +41,10 @@ public: // 定义接口
 	ENDPOINT_INFO(queryDismissReason) {
 		info->summary = ZH_WORDS_GETTER("common.controller.dismissReason");
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
+		API_DEF_ADD_AUTH();
 	}
 
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/dismiss-reason"), queryDismissReason) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/dismiss-reason"), queryDismissReason, API_HANDLER_AUTH_PARAME) {
 		API_HANDLER_RESP_VO(execQueryDismissReason());
 	}
 private: // 定义接口执行函数

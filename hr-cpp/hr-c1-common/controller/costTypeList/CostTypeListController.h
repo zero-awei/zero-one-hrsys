@@ -18,9 +18,10 @@ public: // 定义接口
 	ENDPOINT_INFO(queryCostType) {
 		info->summary = ZH_WORDS_GETTER("common.controller.costType");
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
+		API_DEF_ADD_AUTH();
 	}
 
-	ENDPOINT(API_M_GET, "/pull-list/cost-type", queryCostType) {
+	ENDPOINT(API_M_GET, "/pull-list/cost-type", queryCostType, API_HANDLER_AUTH_PARAME) {
 		API_HANDLER_RESP_VO(execQueryCostType());
 	}
 private: // 定义接口执行函数

@@ -18,7 +18,7 @@
 */
 #include "stdafx.h"
 #include "ItemLabelController.h"
-#include "service/itemLabel/ItemLabelService.h"
+#include "service/projTag/itemLabel/ItemLabelService.h"
 
 ItemLabelPageJsonVO::Wrapper ItemLabelController::execQueryItemLabel(const ItemLabelQuery::Wrapper& query)
 {

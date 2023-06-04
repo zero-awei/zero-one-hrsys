@@ -19,8 +19,9 @@ public:
 	ENDPOINT_INFO(queryDeclare) {
 		info -> summary = ZH_WORDS_GETTER("common.controller.declareType");
 		API_DEF_ADD_RSP_JSON_WRAPPER(DeclareListVO);
+		API_DEF_ADD_AUTH();
 	}
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/declare-type"), queryDeclare) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/declare-type"), queryDeclare, API_HANDLER_AUTH_PARAME) {
 		// ÏìÓ¦½á¹û
 		API_HANDLER_RESP_VO(execQueryDeclare());
 	}

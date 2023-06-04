@@ -15,6 +15,10 @@
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
+/**
+ * 导出岗位设置
+ * 负责人：狗皮电耗子
+ */
 class JobOutputController : public oatpp::web::server::api::ApiController
 {
 	API_ACCESS_DECLARE(JobOutputController);
@@ -22,9 +26,10 @@ public:
 	ENDPOINT_INFO(downloadJobinfo) {
 		info->summary = ZH_WORDS_GETTER("job.downloadurl");
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		API_DEF_ADD_AUTH();
 	}
 
-	ENDPOINT(API_M_GET, PATH_TO_PROJTAG("/export-job"), downloadJobinfo, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, PATH_TO_PROJTAG("/export-job"), downloadJobinfo, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
 		// 响应结果
 		API_HANDLER_QUERY_PARAM(query, PostDetailQuery, qps);
 		API_HANDLER_RESP_VO(execDownloadJobinfo(query));

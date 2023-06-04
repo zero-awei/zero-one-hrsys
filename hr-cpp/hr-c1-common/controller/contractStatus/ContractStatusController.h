@@ -40,9 +40,10 @@ public: // 定义接口
 	ENDPOINT_INFO(queryContractStatus) {
 		info->summary = ZH_WORDS_GETTER("common.controller.contractStatus");
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
+		API_DEF_ADD_AUTH();
 	}
 
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/contract-status"), queryContractStatus) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/contract-status"), queryContractStatus, API_HANDLER_AUTH_PARAME) {
 		API_HANDLER_RESP_VO(execQueryContractStatus());
 	}
 private: // 定义接口执行函数

@@ -48,9 +48,10 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(ProfCertsListJsonVO);
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
+		API_DEF_ADD_AUTH();
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/query-prof-certs"), queryProfCertsList, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/query-prof-certs"), queryProfCertsList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(profCertsQuery, ProfCertsQuery, queryParams);
 		// 响应结果

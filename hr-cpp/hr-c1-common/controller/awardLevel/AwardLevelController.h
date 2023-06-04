@@ -38,9 +38,10 @@ public: // 定义接口
 		info->summary = ZH_WORDS_GETTER("common.dto.level");
 		// 定义响应参数类型
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
+		API_DEF_ADD_AUTH();
 	}
 	// 4 定义接口端点
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/award-level"), queryAwardLevel) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/award-level"), queryAwardLevel, API_HANDLER_AUTH_PARAME) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryAwardLevel());
 	}

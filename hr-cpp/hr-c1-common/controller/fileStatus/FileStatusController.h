@@ -42,9 +42,10 @@ public: // 定义接口
 	ENDPOINT_INFO(queryFileStatus) {
 		info->summary = ZH_WORDS_GETTER("common.controller.fileStatus");
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
+		API_DEF_ADD_AUTH();
 	}
 
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/file-status"), queryFileStatus) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/file-status"), queryFileStatus, API_HANDLER_AUTH_PARAME) {
 		API_HANDLER_RESP_VO(execQueryFileStatus());
 	}
 private: // 定义接口执行函数

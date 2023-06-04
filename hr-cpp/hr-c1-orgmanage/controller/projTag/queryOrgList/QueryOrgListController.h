@@ -43,13 +43,14 @@ public: // 定义接口
 		info->summary = ZH_WORDS_GETTER("projTag.orgList.summary");
 		API_DEF_ADD_RSP_JSON_WRAPPER(OrgListVO);
 		API_DEF_ADD_PAGE_PARAMS();
+		API_DEF_ADD_AUTH();
 		API_DEF_ADD_QUERY_PARAMS(String, "order", ZH_WORDS_GETTER("projTag.orgList.order"), "ASC", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "orgCode", ZH_WORDS_GETTER("projTag.orgList.orgCode"), "tag114514", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "orgName", ZH_WORDS_GETTER("projTag.orgList.orgName"), "test tag", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "shortname", ZH_WORDS_GETTER("projTag.orgList.shortname"), "org114514", false);
 	}
 
-	ENDPOINT(API_M_GET, PATH_TO_PROJTAG("/query-org-page"), queryOrgList, QUERIES(QueryParams,qps)) {
+	ENDPOINT(API_M_GET, PATH_TO_PROJTAG("/query-org-page"), queryOrgList, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams,qps)) {
 		API_HANDLER_QUERY_PARAM(query, OrgListQuery, qps);
 		API_HANDLER_RESP_VO(execQueryOrgList(query));
 	}

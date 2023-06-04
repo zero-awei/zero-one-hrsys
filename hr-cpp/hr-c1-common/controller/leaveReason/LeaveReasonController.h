@@ -39,9 +39,10 @@ public: // 定义接口
 	ENDPOINT_INFO(queryLeaveReason) {
 		info->summary = ZH_WORDS_GETTER("common.controller.leaveReason");
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
+		API_DEF_ADD_AUTH();
 	}
 
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/leave-reason"), queryLeaveReason) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/leave-reason"), queryLeaveReason, API_HANDLER_AUTH_PARAME) {
 		API_HANDLER_RESP_VO(execQueryLeaveReason());
 	}
 private: // 定义接口执行函数

@@ -38,11 +38,12 @@ public: // 定义接口
 	ENDPOINT_INFO(pageQueryBz) {
 		info->summary = ZH_WORDS_GETTER("orgbz.pagequery.controller");
 		API_DEF_ADD_RSP_JSON_WRAPPER(PageQueryBzVO);
+		API_DEF_ADD_AUTH();
 		API_DEF_ADD_PAGE_PARAMS();
 		API_DEF_ADD_QUERY_PARAMS(String, "orgName", ZH_WORDS_GETTER("orgbz.pagequery.orgname"), "", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "orgSectorName", ZH_WORDS_GETTER("orgbz.pagequery.orgsectorname"), "", false);
 	}
-	ENDPOINT(API_M_GET, PATH_TO_STAFFING("/query-bz"), pageQueryBz, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, PATH_TO_STAFFING("/query-bz"), pageQueryBz, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(Query, PageQueryBzQuery, qps);
 		// 响应结果

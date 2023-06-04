@@ -61,9 +61,10 @@ public:
 		info->queryParams.add<String>("sortTypeAndMethod").description = u8"排序类别以及升序或降序";
 		info->queryParams["sortTypeAndMethod"].addExample("default", String(u8"xh,ASC"));
 		info->queryParams["sortTypeAndMethod"].required = true;
+		API_DEF_ADD_AUTH();
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, PATH_TO_JOBSET("/query-by-query-sort"), queryByQuerySort, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, PATH_TO_JOBSET("/query-by-query-sort"), queryByQuerySort, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(postDetailQuery, PostDetailQuery, queryParams);
 		// 响应结果

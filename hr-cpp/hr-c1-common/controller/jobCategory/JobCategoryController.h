@@ -37,8 +37,9 @@ public: // 定义接口
 	ENDPOINT_INFO(queryJobCategory) {
 		info->summary = ZH_WORDS_GETTER("common.controller.JobCategory");
 		API_DEF_ADD_RSP_JSON_WRAPPER(PullListVO);
+		API_DEF_ADD_AUTH();
 	}
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/job-category"), queryJobCategory) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/job-category"), queryJobCategory, API_HANDLER_AUTH_PARAME) {
 		API_HANDLER_RESP_VO(execQueryJobCategory());
 	}
 private: // 定义接口执行函数

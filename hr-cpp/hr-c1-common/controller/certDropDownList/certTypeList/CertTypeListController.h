@@ -46,9 +46,10 @@ public:
 		info->summary = ZH_WORDS_GETTER("common.controller.certTypeList");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(CertTypeListJsonVO);
+		API_DEF_ADD_AUTH();
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/cert-type"), queryCertTypeList) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/cert-type"), queryCertTypeList, API_HANDLER_AUTH_PARAME) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryCertTypeList());
 	}

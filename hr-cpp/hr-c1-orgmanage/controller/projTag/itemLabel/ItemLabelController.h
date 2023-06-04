@@ -30,6 +30,10 @@
 #include "CharsetConvertHepler.h"
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
+/**
+ * 查询指定项目标签
+ * 负责人：缘尘
+ */
 class ItemLabelController : public oatpp::web::server::api::ApiController // 1
 {
 	// 2 定义控制器访问入口
@@ -47,10 +51,11 @@ public: // 定义接口
 		info->queryParams.add<String>("itemLabel").description = ZH_WORDS_GETTER("ormanage.dto.itemlabel");
 		info->queryParams["itemLabel"].addExample("default", String(CharsetConvertHepler::ansiToUtf8("哈哈哈")));
 		info->queryParams["itemLabel"].required = false;
+		API_DEF_ADD_AUTH();
 	}
 
 	// 4 定义接口端点
-	ENDPOINT(API_M_GET, PATH_TO_PROJTAG("/specific-project-tag"), queryItemLabel, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, PATH_TO_PROJTAG("/specific-project-tag"), queryItemLabel, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
 		// 解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, ItemLabelQuery, qps);
 		// 响应结果

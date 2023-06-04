@@ -36,8 +36,9 @@ public:
 	ENDPOINT_INFO(queryArchivesLevels) {
 		info->summary = ZH_WORDS_GETTER("common.controller.archivesLevel");
 		API_DEF_ADD_RSP_JSON_WRAPPER(ArchivesListVO);
+		API_DEF_ADD_AUTH();
 	}
-	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/archives-level"), queryArchivesLevels) {
+	ENDPOINT(API_M_GET, PATH_TO_PULLIST("/archives-level"), queryArchivesLevels, API_HANDLER_AUTH_PARAME) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execQueryArchivesLevels());
 	}
