@@ -75,14 +75,12 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(JobTitleInformationController);
 	ROUTER_SIMPLE_BIND(WorkHistoryController);
 
-	// 
 	// 绑定ContractController
 	ROUTER_SIMPLE_BIND(ContractController);
 	// 绑定MilitaryController
 	ROUTER_SIMPLE_BIND(MilitaryController);
 	//绑定RewardAndPunishController
 	ROUTER_SIMPLE_BIND(RewardAndPunishController);
-
 	//绑定TrainingRecordController
 	ROUTER_SIMPLE_BIND(TrainingRecordController);
 
