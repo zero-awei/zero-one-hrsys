@@ -9,9 +9,9 @@
           <TableHead :tableTitle="$store.tableTitle" :tableOperations="$store.tableOperations" :saveData="saveData"
             :addTitle="$store.addTitle" :dataitem="$store.dataitem" />
           <Search :filter="filter" class="search"></Search>
+          <Edit class="edit"></Edit>
           <!-- <div class="filter">
             <Filter></Filter>
-            <Edit></Edit>
                   </div> -->
         </el-header>
         <el-main>
@@ -59,6 +59,8 @@ function getNewXmlData(checkStatus) {
 }
 const newXmlData = ref([])
 newXmlData.value = [...$store.xmlData]
+$store.editInfo()
+provide('userData', $store.userData)
 </script>
 
 <style lang="scss" scoped>
@@ -93,5 +95,8 @@ newXmlData.value = [...$store.xmlData]
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.edit{
+  margin-left: 80%;
 }
 </style>

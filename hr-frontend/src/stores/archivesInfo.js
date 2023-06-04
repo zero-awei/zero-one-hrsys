@@ -86,7 +86,7 @@ export const useInfoStore = defineStore('archivesInfo', {
         //记录表格数据
         tableData: null,
         // //用户信息
-        // userData: null,
+        userData: null,
         // //每页数据条数
         // pageSizes: [],
         // //总数据条数
@@ -227,12 +227,7 @@ export const useInfoStore = defineStore('archivesInfo', {
                 }
             ]
         },
-        // getNewXmlData(checkStatus) {
-        //     this.newXmlData.value = this.xmlData.value.filter((item) => {
-        //         return checkStatus.value.includes(item.name)
-        //     })
-        //     this.xmlData.value= this.newXmlData
-        // },
+
         addData(val) {
             this.tableData.push(val)
         },
@@ -244,7 +239,7 @@ export const useInfoStore = defineStore('archivesInfo', {
             //   null
             // )
             // this.userData = data.data
-            this.userData = {
+            this.userData = reactive({
                 //员工信息
                 basicInfo: {
                     ename: '鸽鸽',
@@ -332,7 +327,7 @@ export const useInfoStore = defineStore('archivesInfo', {
                         unit: '北京市'
                     }
                 ]
-            }
+            })
         },
     }
 })
