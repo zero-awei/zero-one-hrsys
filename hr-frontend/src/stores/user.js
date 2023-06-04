@@ -282,6 +282,41 @@ let testMenus = [
       }
     ]
   },
+  {
+    id: 9,
+    text: '系统管理',
+    icon: 'IconSetting',
+    children: [
+      {
+        id: 0,
+        text: '权限管理',
+        path: '/rightsmanage',
+        icon: 'IconSetting',
+        pid: 9
+      },
+      {
+        id: 1,
+        text: ' 菜单管理',
+        path: '/menumanage',
+        icon: 'IconSetting',
+        pid: 9
+      },
+      {
+        id: 2,
+        text: '角色管理',
+        path: '/rolesmanage',
+        icon: 'IconSetting',
+        pid: 9
+      },
+      {
+        id: 3,
+        text: '用户管理',
+        path: '/usersmanage',
+        icon: 'IconSetting',
+        pid: 9
+      }
+    ]
+  }
 ]
 
 export const userStore = defineStore('user', {
