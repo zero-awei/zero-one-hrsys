@@ -23,7 +23,7 @@ const tableOperations = reactive([
     name:'新增'
   }, 
   {
-    name:'新增'
+    name:'删除'
   }, 
 ])
 //新增表单所需栏目配置
