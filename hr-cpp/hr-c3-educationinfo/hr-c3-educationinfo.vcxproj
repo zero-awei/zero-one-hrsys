@@ -163,42 +163,44 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="controller\Education\EducationController.h" />
+    <ClInclude Include="controller\education\EducationController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
-    <ClInclude Include="dao\Education\EducationDAO.h" />
-    <ClInclude Include="dao\Education\EducationMapper.h" />
+    <ClInclude Include="dao\education\EducationDAO.h" />
+    <ClInclude Include="dao\education\EducationMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\do\Education\EducationDO.h" />
-    <ClInclude Include="domain\dto\AddEmployeeInfoDTO\AddEmployeeInfoDTO.h" />
-    <ClInclude Include="domain\dto\EducationAdd\EducationAddDTO.h" />
-    <ClInclude Include="domain\dto\EducationDelete\EducationDeleteDTO.h" />
-    <ClInclude Include="domain\dto\EducationImport\EducationImportDTO.h" />
-    <ClInclude Include="domain\dto\Education\EducationDTO.h" />
+    <ClInclude Include="domain\do\education\EducationDO.h" />
+    <ClInclude Include="domain\dto\addEmployeeInfoDTO\AddEmployeeInfoDTO.h" />
+    <ClInclude Include="domain\dto\educationAdd\EducationAddDTO.h" />
+    <ClInclude Include="domain\dto\educationDelete\EducationDeleteDTO.h" />
+    <ClInclude Include="domain\dto\educationImport\EducationImportDTO.h" />
+    <ClInclude Include="domain\dto\education\EducationDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
-    <ClInclude Include="domain\query\EducationExport\EducationExportQuery.h" />
-    <ClInclude Include="domain\query\EducationPage\EducationPageQuery.h" />
-    <ClInclude Include="domain\query\EducationSingle\EducationSingleQuery.h" />
-    <ClInclude Include="domain\vo\EducationImport\EducationImportVO.h" />
-    <ClInclude Include="domain\vo\Education\EducationJsonVO.h" />
+    <ClInclude Include="domain\query\educationExport\EducationExportQuery.h" />
+    <ClInclude Include="domain\query\educationPage\EducationPageQuery.h" />
+    <ClInclude Include="domain\query\educationSingle\EducationSingleQuery.h" />
+    <ClInclude Include="domain\vo\educationImport\EducationImportVO.h" />
+    <ClInclude Include="domain\vo\education\EducationJsonVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
-    <ClInclude Include="service\Education\EducationService.h" />
+    <ClInclude Include="service\education\EducationService.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\jwt\TestToken.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="controller\Education\EducationController.cpp" />
+    <ClCompile Include="controller\education\EducationController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
-    <ClCompile Include="dao\Education\EducationDAO.cpp" />
+    <ClCompile Include="dao\education\EducationDAO.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="service\Education\EducationService.cpp" />
+    <ClCompile Include="service\education\EducationService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="uselib\jwt\TestToken.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\lib-common\lib-common.vcxproj">

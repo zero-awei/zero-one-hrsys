@@ -8,7 +8,7 @@
 #define _EDUCATIONJSONVO_H_
 
 #include "../../GlobalInclude.h"
-#include "../../dto/Education/EducationDTO.h"
+#include "../../dto/education/EducationDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
@@ -27,9 +27,9 @@ class EducationPageJsonVO : public JsonVO<EducationPageDTO::Wrapper>
 /**
  * É¾³ý¶à¸ö
  */
-class EducationDeleteNotSingleJsonVO : public JsonVO<EducationDeleteNotSingleDTO::Wrapper> {
-	DTO_INIT(EducationDeleteNotSingleJsonVO, JsonVO<EducationDeleteNotSingleDTO::Wrapper>);
-};
+//class EducationDeleteNotSingleJsonVO : public JsonVO<EducationDeleteNotSingleDTO::Wrapper> {
+//	DTO_INIT(EducationDeleteNotSingleJsonVO, JsonVO<EducationDeleteNotSingleDTO::Wrapper>);
+//};
 
 
 #include OATPP_CODEGEN_END(DTO)

@@ -36,49 +36,52 @@
     <ClInclude Include="controller\Router.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\EducationPage\EducationPageQuery.h">
+    <ClInclude Include="domain\query\educationPage\EducationPageQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\Education\EducationDTO.h">
+    <ClInclude Include="domain\dto\education\EducationDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\Education\EducationController.h">
+    <ClInclude Include="controller\education\EducationController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\EducationSingle\EducationSingleQuery.h">
+    <ClInclude Include="domain\query\educationSingle\EducationSingleQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\Education\EducationJsonVO.h">
+    <ClInclude Include="domain\vo\education\EducationJsonVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\EducationDelete\EducationDeleteDTO.h">
+    <ClInclude Include="domain\dto\educationDelete\EducationDeleteDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\EducationImport\EducationImportDTO.h">
+    <ClInclude Include="domain\dto\educationImport\EducationImportDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\EducationImport\EducationImportVO.h">
+    <ClInclude Include="domain\vo\educationImport\EducationImportVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\EducationExport\EducationExportQuery.h">
+    <ClInclude Include="domain\query\educationExport\EducationExportQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\Education\EducationDO.h">
+    <ClInclude Include="domain\do\education\EducationDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\AddEmployeeInfoDTO\AddEmployeeInfoDTO.h">
+    <ClInclude Include="domain\dto\addEmployeeInfoDTO\AddEmployeeInfoDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="service\Education\EducationService.h">
+    <ClInclude Include="service\education\EducationService.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="dao\Education\EducationDAO.h">
+    <ClInclude Include="dao\education\EducationDAO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="dao\Education\EducationMapper.h">
+    <ClInclude Include="dao\education\EducationMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\EducationAdd\EducationAddDTO.h">
+    <ClInclude Include="domain\dto\educationAdd\EducationAddDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\jwt\TestToken.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -95,13 +98,16 @@
     <ClCompile Include="controller\SystemInterceptor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\Education\EducationController.cpp">
+    <ClCompile Include="controller\education\EducationController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="service\Education\EducationService.cpp">
+    <ClCompile Include="service\education\EducationService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="dao\Education\EducationDAO.cpp">
+    <ClCompile Include="dao\education\EducationDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\jwt\TestToken.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
