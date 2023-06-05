@@ -1,4 +1,5 @@
-﻿# CMakeList.txt: 顶层 CMake 项目文件，在此处执行全局配置
+﻿
+# CMakeList.txt: 顶层 CMake 项目文件，在此处执行全局配置
 # 并包含子项目。
 #
 cmake_minimum_required (VERSION 3.8)
@@ -83,5 +84,4 @@ add_subdirectory ("lib-common")
 # 这是示例模块，后期可以不编译它
 # add_subdirectory ("arch-demo")
 # 在后面添加你的模块
-add_subdirectory("hr-c1-orgmanage")
-add_subdirectory("hr-c1-common")
+add_subdirectory("hr-c3-employeeinfo")
