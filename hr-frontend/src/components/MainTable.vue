@@ -26,12 +26,14 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType, ref } from 'vue'
+import { PropType, ref, getCurrentInstance } from 'vue'
 import { ElTable } from 'element-plus'
 // 表单实体
 const multipleTableRef = ref<InstanceType<typeof ElTable>>()
 //多选获得数据存取变量
 const multipleSelection = ref<User[]>([])
+// 获取到 全局事件总线
+const { $bus } = getCurrentInstance().appContext.config.globalProperties
 
 const props = defineProps({
   xmlData: {
@@ -45,14 +47,28 @@ const props = defineProps({
 // 处理多选事件
 const handleSelectionChange = (val) => {
   multipleSelection.value = val
-  // 拿到数据
-  // console.log(multipleSelection.value)
+  // 将拿到的数据 放入全局事件总线
+  $bus.emit('getRowsData', multipleSelection)
 }
 // 双击事件预留函数
 const handleClick = (val) => {
-  // 双击可以拿到改行的val值
-  // console.log(val)
+  // 将双击拿到的单行数据放入全局事件总线
+  $bus.emit('getSingleRowData', val)
 }
+// 以下为 需要监听表格数据的兄弟组件拿到数据的方法demo
+// import { getCurrentInstance, onMounted } from 'vue'
+// const { $bus } = getCurrentInstance().appContext.config.globalProperties
+// onMounted(() => {
+//     监听多选数据
+//   $bus.on('getRowsData', (data) => {
+//     let ids = data.value.map((item) => item.id)
+//     console.log(ids)
+//   })
+//     监听单行数据
+//   $bus.on('getSingleRowData', (data) => {
+//     console.log(data.id)
+//   })
+// })
 //用户数据类型定义
 interface User {
   //自定义数据
