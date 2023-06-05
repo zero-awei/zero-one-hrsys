@@ -18,7 +18,6 @@
 */
 #include "stdafx.h"
 #include "UseFastDfs.h"
-#include "FastDfsClient.h"
 #include <iostream>
 
 #ifdef LINUX
@@ -26,6 +25,8 @@
 #include "NacosClient.h"
 #include "YamlHelper.h"
 #endif
+
+#include "FastDfsClient.h"
 
 std::string UseFastDfs::upload(std::string fileName)
 {
