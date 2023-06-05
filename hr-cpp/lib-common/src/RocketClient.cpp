@@ -26,6 +26,13 @@
 using namespace std;
 using namespace std::chrono;
 
+// 生成一个实例名称
+#define RCMQ_INSTANCE_NAME_MK(_TAG_) \
+auto now = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count(); \
+stringstream ss; \
+ss << groupname << "@" << _TAG_ << "-" << now; \
+string instanceName = ss.str() 
+
 // 定义一个全局互斥锁
 std::mutex rocket_mq_mtx;
 
@@ -118,16 +125,13 @@ RocketClient::~RocketClient()
 }
 
 void RocketClient::productMsgAsync(const std::string& topic, const std::string& body, SendCallback* cb /*= nullptr*/)
-{	
-	auto now = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
-	stringstream ss;
-	ss << "async_prod_" << groupname << "_" << now;
+{
+	// 生成一个实例名称
+	RCMQ_INSTANCE_NAME_MK("async-producer");
 	// 创建生产者
-	std::string curGroupName = ss.str();
 	auto producer = new DefaultMQProducer(groupname);
 	producer->setNamesrvAddr(namesrv);
-	producer->setGroupName(curGroupName);
-	producer->setInstanceName(curGroupName);
+	producer->setInstanceName(instanceName);
 	// 回调定义
 	SendCallback* delCallBack = nullptr;
 	if (!cb) delCallBack = new RAutoDeleteSendCallback();
@@ -182,11 +186,12 @@ rocketmq::SendStatus RocketClient::productMsgSync(const std::string& topic, cons
 		releaseProducer();
 		// 设置当前消费者
 		this->m_topic = topic;
-		std::string curGroupName = "sync_prod_" + groupname;
+		// 生成一个实例名称
+		RCMQ_INSTANCE_NAME_MK("sync-producer");
+		// 设置生产者属性
 		m_producer = new DefaultMQProducer(groupname);
 		m_producer->setNamesrvAddr(namesrv);
-		m_producer->setGroupName(curGroupName);
-		m_producer->setInstanceName(curGroupName);
+		m_producer->setInstanceName(instanceName);
 		try
 		{
 			m_producer->start();
@@ -219,12 +224,14 @@ bool RocketClient::subscribe(const std::string& topic)
 		std::cerr << "but you can unsubscribe and then subscribe." << std::endl;
 		return true;
 	}
+
+	// 生成一个实例名称
+	RCMQ_INSTANCE_NAME_MK("push-consumer");
 	
 	// 创建消费者
 	m_consumer = new DefaultMQPushConsumer(groupname);
 	m_consumer->setNamesrvAddr(namesrv);
-	m_consumer->setGroupName(groupname);
-	m_consumer->setInstanceName(groupname);
+	m_consumer->setInstanceName(instanceName);
 	m_consumer->setConsumeFromWhere(CONSUME_FROM_LAST_OFFSET);
 	m_consumer->setMessageModel(rocketmq::BROADCASTING);
 	m_consumer->subscribe(topic, "*");
