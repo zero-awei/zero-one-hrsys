@@ -21,6 +21,7 @@ import java.util.List;
 public class RoleMenuServiceImpl implements RoleMenuService {
     @Resource
     private RoleMenuMapper roleMenuMapper;
+
     @Override
     @Transactional
     public Boolean assignMenus(RoleMenuDTO dto) {

@@ -2,6 +2,7 @@ package com.zeroone.star.sysmanager.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
+import cn.hutool.core.lang.Snowflake;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.TableFieldInfo;
@@ -9,18 +10,25 @@ import com.baomidou.mybatisplus.core.metadata.TableInfo;
 import com.baomidou.mybatisplus.core.metadata.TableInfoHelper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-
+import com.zeroone.star.project.components.user.UserHolder;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.menumanager.MenuDTO;
 import com.zeroone.star.project.query.sysmanager.comment.CommentQuery;
 import com.zeroone.star.project.query.sysmanager.menumanager.MenuQuery;
+import com.zeroone.star.project.utils.tree.TreeNode;
+import com.zeroone.star.project.utils.tree.TreeNodeMapper;
+import com.zeroone.star.project.utils.tree.TreeUtils;
 import com.zeroone.star.project.vo.JsonVO;
 import com.zeroone.star.project.vo.ResultStatus;
+import com.zeroone.star.project.vo.login.MenuTreeVO;
 import com.zeroone.star.sysmanager.entity.Menu;
 import com.zeroone.star.sysmanager.mapper.MenuMapper;
 import com.zeroone.star.sysmanager.service.MenuService;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -31,13 +39,38 @@ import java.util.Objects;
  * @see MenuService
  * @see ServiceImpl
  */
+
+class MenuTreeNodMapper implements TreeNodeMapper<Menu> {
+    @Override
+    public TreeNode objectMapper(Menu menu) {
+        MenuTreeVO treeNode = new MenuTreeVO();
+        // 首先设置TreeNode计算层数使用属性
+        treeNode.setTnId(menu.getId().toString());
+        if (menu.getParent_menu_id() == null) {
+            treeNode.setTnPid(null);
+        } else {
+            treeNode.setTnPid(menu.getParent_menu_id().toString());
+        }
+        // 设置扩展属性
+        treeNode.setId(menu.getId());
+        treeNode.setIcon(menu.getIcon());
+        treeNode.setText(menu.getName());
+        treeNode.setHref(menu.getPath());
+        treeNode.setPid(menu.getParent_menu_id());
+        return treeNode;
+    }
+}
+
 @Service
 public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements MenuService {
 
+    @Resource
+    private Snowflake snowflake;
 
+    @Resource
+    private UserHolder userHolder;
 
     private static final String Menu_ROOT_ID = "0";
-
 
     //分页查询
     @Override
@@ -60,15 +93,15 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
             queryWrapper.eq(Menu::getPriority, priority);
         }
         String icon = query.getIcon();
-        if (Objects.nonNull(icon)){
+        if (Objects.nonNull(icon)) {
             queryWrapper.eq(Menu::getIcon, icon);
         }
         String description = query.getDescription();
-        if (Objects.nonNull(description)){
+        if (Objects.nonNull(description)) {
             queryWrapper.eq(Menu::getDescription, description);
         }
         Integer parent_menu_id = query.getParent_menu_id();
-        if (Objects.nonNull(parent_menu_id)){
+        if (Objects.nonNull(parent_menu_id)) {
             queryWrapper.eq(Menu::getParent_menu_id, parent_menu_id);
         }
         Integer isEnable = query.getIsEnable();
@@ -81,7 +114,6 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         }
         // 执行分页查询
         Page<Menu> resultPage = page(page, queryWrapper);
-
         return JsonVO.success(PageDTO.create(resultPage, MenuDTO.class));
     }
 
@@ -89,26 +121,6 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     //新增菜单
     @Override
     public JsonVO<Boolean> addMenu(MenuDTO dto) {
-
-        // 字段 id 为 varchar(64) 类型，不能设置为自增，需要自己指定
-        // 判断 id 是否重复
-        String id = dto.getId();
-        Menu checkMenu = getById(id);
-        if (Objects.nonNull(checkMenu)) {
-            return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "id 重复");
-        }
-        // 判断 priority 是否存在
-        Integer priority = dto.getPriority();
-        boolean priorityNotExist = Objects.isNull(getById(priority));
-        if(priorityNotExist){
-            return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(),"priority 不存在");
-        }
-        // 判断 icon 是否存在
-        String icon = dto.getIcon();
-        boolean iconNotExist = Objects.isNull(getById(icon));
-        if(iconNotExist) {
-            return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "icon 不存在");
-        }
         // 判断 parent_menu_id 是否存在
         String parent_menu_id = dto.getParent_menu_id();
         boolean parent_menu_idNotExist = Objects.isNull(getById(parent_menu_id));
@@ -118,15 +130,21 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         // 将 dto 的非空属性赋值给 menu 权限，然后添加权限
         Menu menu = new Menu();
         BeanUtil.copyProperties(dto, menu, CopyOptions.create().setIgnoreNullValue(true));
+        menu.setId(String.valueOf(snowflake.nextId()));
+        try {
+            menu.setCreator(userHolder.getCurrentUser().getUsername());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        Date date = new Date(System.currentTimeMillis());
+        menu.setCreateTime(date);
+        menu.setUpdateTime(date);
         boolean result = save(menu);
-
         if (result) {
             return JsonVO.success(true);
         }
         return JsonVO.fail(false);
     }
-
-
 
     //修改菜单
     @Override
@@ -136,12 +154,6 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         if (Objects.isNull(menu)) {
             return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "权限不存在");
         }
-        // 判断 icon 是否存在
-        String icon = dto.getIcon();
-        boolean iconNotExist = Objects.isNull(getById(icon));
-        if(iconNotExist) {
-            return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "icon 不存在");
-        }
         // 判断 parent_menu_id 是否存在
         String parent_menu_id = dto.getParent_menu_id();
         boolean parent_menu_idNotExist = Objects.isNull(getById(parent_menu_id));
@@ -150,17 +162,15 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         }
         // 将 dto 的非空属性赋值给 menu 权限，然后更新权限
         BeanUtil.copyProperties(dto, menu, CopyOptions.create().setIgnoreNullValue(true));
+        menu.setUpdateTime(new Date(System.currentTimeMillis()));
         boolean result = updateById(menu);
-
         if (result) {
             return JsonVO.success(true);
         }
         return JsonVO.fail(false);
     }
 
-
     //删除菜单
-
     @Override
     public JsonVO<Boolean> removeMenu(String id) {
         if (Menu_ROOT_ID.equals(id)) {
@@ -179,9 +189,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         return JsonVO.fail(false);
     }
 
-
     //模糊查询
-
     @Override
     public JsonVO<PageDTO<MenuDTO>> queryLike(CommentQuery query) {
         long pageIndex = query.getPageIndex();
@@ -197,7 +205,6 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         }
         // 执行分页查询
         Page<Menu> resultPage = page(page, queryWrapper);
-
         return JsonVO.success(PageDTO.create(resultPage, MenuDTO.class));
     }
 
@@ -226,4 +233,21 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         }
         return JsonVO.fail(false);
     }
+
+    @Override
+    public List<MenuTreeVO> listMenuByRoleName(List<String> roleNames) {
+        //1 定义一个存储数据库查询菜单数据的容器
+        List<Menu> menus = new ArrayList<>();
+        //2 遍历获取角色获取所有的菜单列表
+        roleNames.forEach(roleName -> {
+            //通过角色名获取菜单列表
+            List<Menu> tMenus = baseMapper.selectByRoleName(roleName);
+            if (tMenus != null && !tMenus.isEmpty()) {
+                menus.addAll(tMenus);
+            }
+        });
+        //3 转换树形结构并返回
+        return TreeUtils.listToTree(menus, new MenuTreeNodMapper());
+    }
+
 }

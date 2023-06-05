@@ -26,7 +26,7 @@ public class Menu implements Serializable {
      * 菜单编号
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private String id;
 
     /**
      * 菜单名
@@ -61,7 +61,7 @@ public class Menu implements Serializable {
     /**
      * 父级菜单编号
      */
-    private Integer parentMenuId;
+    private String parentMenuId;
 
     /**
      * 层次级别

@@ -2,9 +2,7 @@ package com.zeroone.star.sysmanager.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zeroone.star.project.dto.sysmanager.rolepowermanager.RolePowerDTO;
-import com.zeroone.star.sysmanager.mapper.RoleMenuMapper;
 import com.zeroone.star.sysmanager.mapper.RolePowerMapper;
-import com.zeroone.star.sysmanager.service.RoleMenuService;
 import com.zeroone.star.sysmanager.service.RolePowerService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

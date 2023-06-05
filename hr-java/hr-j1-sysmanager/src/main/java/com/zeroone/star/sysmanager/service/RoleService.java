@@ -1,10 +1,10 @@
 package com.zeroone.star.sysmanager.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.rolemanager.RoleDTO;
 import com.zeroone.star.project.query.sysmanager.rolemanager.RoleQuery;
 import com.zeroone.star.sysmanager.entity.Role;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
@@ -14,20 +14,20 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author Alan
  * @since 2023-05-28
  */
-public interface IRoleService extends IService<Role> {
+public interface RoleService extends IService<Role> {
     /**
      * 查询一个角色
      * @param id
      * @return role
      */
-    RoleDTO querRoleById(Integer id);
+    RoleDTO querRoleById(String id);
 
     /**
      * 通过id删除一个角色
      * @param id
      * @return boolean
      */
-    Boolean deleRoleById(Integer id);
+    Boolean deleRoleById(String id);
 
     /**
      * 新增一个角色

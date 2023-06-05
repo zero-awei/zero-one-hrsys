@@ -4,6 +4,8 @@ package com.zeroone.star.sysmanager.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * The entity of {@link Menu}
  *
@@ -34,4 +36,10 @@ public class Menu {
      * 1: Enable 0: Not Enable
      */
     private Integer isEnable;
+
+    private String creator;
+
+    private Date createTime;
+
+    private Date updateTime;
 }

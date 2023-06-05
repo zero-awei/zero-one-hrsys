@@ -16,7 +16,7 @@ import java.util.Date;
 @ApiModel("权限修改")
 public class RightDTO {
 
-    @ApiModelProperty(value = "唯一编号",example = "1")
+    @ApiModelProperty(value = "唯一编号",example = "自动生成")
     private String id;
 
     @ApiModelProperty(value = "权限名称",example = "增加权限")
@@ -40,12 +40,13 @@ public class RightDTO {
     @ApiModelProperty(value = "是否启用", example = "1")
     private Integer isEnable;
 
-    @ApiModelProperty(value = "创建人", example = "authoralankay")
+    @ApiModelProperty(value = "创建人", example = "自动生成")
     private String creator;
 
-    @ApiModelProperty(value = "创建时间", example = "yyyy-MM-dd HH:mm:ss")
+    @ApiModelProperty(value = "创建时间", example = "自动生成")
     private Date createTime;
 
-    @ApiModelProperty(value = "更新时间",example = "yyyy-MM-dd HH:mm:ss")
+    @ApiModelProperty(value = "更新时间",example = "自动生成")
     private Date updateTime;
+
 }

@@ -1,6 +1,5 @@
 package com.zeroone.star.sysmanager.controller;
 
-import com.zeroone.star.project.components.user.UserHolder;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.rightmanagement.RightDTO;
 import com.zeroone.star.project.query.sysmanager.comment.CommentQuery;
@@ -12,7 +11,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 /**
  * The controller of {@link RightApis}, base on {@link RightService}
  *
@@ -21,12 +19,9 @@ import javax.annotation.Resource;
  * @see RightService
  */
 @RestController
-@RequestMapping("/right")
+@RequestMapping("/sys-right")
 @Api(tags = "权限管理")
 public class RightController implements RightApis {
-
-    @Resource
-    UserHolder userHolder;
 
     private RightService rightService;
 

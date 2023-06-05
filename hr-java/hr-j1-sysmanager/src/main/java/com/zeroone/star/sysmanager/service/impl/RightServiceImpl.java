@@ -2,6 +2,7 @@ package com.zeroone.star.sysmanager.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
+import cn.hutool.core.lang.Snowflake;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.TableFieldInfo;
@@ -9,17 +10,27 @@ import com.baomidou.mybatisplus.core.metadata.TableInfo;
 import com.baomidou.mybatisplus.core.metadata.TableInfoHelper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.zeroone.star.project.components.user.UserHolder;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.rightmanagement.RightDTO;
 import com.zeroone.star.project.query.sysmanager.comment.CommentQuery;
 import com.zeroone.star.project.query.sysmanager.rightmanager.RightQuery;
+import com.zeroone.star.project.utils.tree.TreeNode;
+import com.zeroone.star.project.utils.tree.TreeNodeMapper;
+import com.zeroone.star.project.utils.tree.TreeUtils;
 import com.zeroone.star.project.vo.JsonVO;
 import com.zeroone.star.project.vo.ResultStatus;
+import com.zeroone.star.project.vo.login.MenuTreeVO;
+import com.zeroone.star.project.vo.sysmanager.RightTreeVO;
+import com.zeroone.star.sysmanager.entity.Menu;
 import com.zeroone.star.sysmanager.entity.Right;
 import com.zeroone.star.sysmanager.mapper.RightMapper;
 import com.zeroone.star.sysmanager.service.RightService;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -30,8 +41,35 @@ import java.util.Objects;
  * @see RightService
  * @see ServiceImpl
  */
+
+class RightTreeNodMapper implements TreeNodeMapper<Right> {
+    @Override
+    public TreeNode objectMapper(Right right) {
+        RightTreeVO treeNode = new RightTreeVO();
+        // 首先设置TreeNode计算层数使用属性
+        treeNode.setTnId(right.getId());
+        if (right.getParentRightId() == null) {
+            treeNode.setTnPid(null);
+        } else {
+            treeNode.setTnPid(right.getParentRightId());
+        }
+        // 设置扩展属性
+        treeNode.setId(right.getId());
+        treeNode.setName(right.getName());
+        treeNode.setLinkUrl(right.getLinkUrl());
+        treeNode.setPid(right.getParentRightId());
+        return treeNode;
+    }
+}
+
 @Service
 public class RightServiceImpl extends ServiceImpl<RightMapper, Right> implements RightService {
+
+    @Resource
+    private Snowflake snowflake;
+
+    @Resource
+    private UserHolder userHolder;
 
     private static final String RIGHT_ROOT_ID = "0";
 
@@ -65,7 +103,6 @@ public class RightServiceImpl extends ServiceImpl<RightMapper, Right> implements
         }
         // 执行分页查询
         Page<Right> resultPage = page(page, queryWrapper);
-
         return JsonVO.success(PageDTO.create(resultPage, RightDTO.class));
     }
 
@@ -85,18 +122,11 @@ public class RightServiceImpl extends ServiceImpl<RightMapper, Right> implements
         }
         // 执行分页查询
         Page<Right> resultPage = page(page, queryWrapper);
-
         return JsonVO.success(PageDTO.create(resultPage, RightDTO.class));
     }
 
     @Override
     public JsonVO<Boolean> addRight(RightDTO dto) {
-        // 判断 id 是否重复
-        String id = dto.getId();
-        Right checkRight = getById(id);
-        if (Objects.nonNull(checkRight)) {
-            return JsonVO.create(false, ResultStatus.PARAMS_INVALID.getCode(), "id 重复");
-        }
         // 判断 parentRightId 是否存在
         String parentRightId = dto.getParentRightId();
         boolean parentRightIdNotExist = Objects.isNull(getById(parentRightId));
@@ -106,8 +136,16 @@ public class RightServiceImpl extends ServiceImpl<RightMapper, Right> implements
         // 将 dto 的非空属性赋值给 right 权限，然后添加权限
         Right right = new Right();
         BeanUtil.copyProperties(dto, right, CopyOptions.create().setIgnoreNullValue(true));
+        right.setId(String.valueOf(snowflake.nextId()));
+        try {
+            right.setCreator(userHolder.getCurrentUser().getUsername());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        Date date = new Date(System.currentTimeMillis());
+        right.setCreateTime(date);
+        right.setUpdateTime(date);
         boolean result = save(right);
-
         if (result) {
             return JsonVO.success(true);
         }
@@ -129,8 +167,8 @@ public class RightServiceImpl extends ServiceImpl<RightMapper, Right> implements
         }
         // 将 dto 的非空属性赋值给 right 权限，然后更新权限
         BeanUtil.copyProperties(dto, right, CopyOptions.create().setIgnoreNullValue(true));
+        right.setUpdateTime(new Date(System.currentTimeMillis()));
         boolean result = updateById(right);
-
         if (result) {
             return JsonVO.success(true);
         }
@@ -177,5 +215,21 @@ public class RightServiceImpl extends ServiceImpl<RightMapper, Right> implements
             return JsonVO.success(true);
         }
         return JsonVO.fail(false);
+    }
+
+    @Override
+    public List<RightTreeVO> listRightByRoleName(List<String> roleNames) {
+        //1 定义一个存储数据库查询菜单数据的容器
+        List<Right> rights = new ArrayList<>();
+        //2 遍历获取角色获取所有的菜单列表
+        roleNames.forEach(roleName -> {
+            //通过角色名获取菜单列表
+            List<Right> tRights = baseMapper.selectByRoleName(roleName);
+            if (tRights != null && !tRights.isEmpty()) {
+                rights.addAll(tRights);
+            }
+        });
+        //3 转换树形结构并返回
+        return TreeUtils.listToTree(rights, new RightTreeNodMapper());
     }
 }

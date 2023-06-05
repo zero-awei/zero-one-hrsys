@@ -1,4 +1,4 @@
-package com.zeroone.star.project.vo.login;
+package com.zeroone.star.project.vo.sysmanager;
 
 import com.zeroone.star.project.utils.tree.TreeNode;
 import io.swagger.annotations.ApiModelProperty;
@@ -18,20 +18,17 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class MenuTreeVO extends TreeNode {
-
+public class RightTreeVO extends TreeNode {
     @ApiModelProperty(value = "序号", example = "1")
     private String id;
-    @ApiModelProperty(value = "菜单名称", example = "主页")
-    private String Text;
-    @ApiModelProperty(value = "图标", example = "dashboard")
-    private String icon;
-    @ApiModelProperty(value = "路由地址", example = "/dashboard")
-    private String href;
-    @ApiModelProperty(value = "父级菜单编号", example = "0")
+    @ApiModelProperty(value = "权限名称", example = "主页")
+    private String name;
+    @ApiModelProperty(value = "链接地址", example = "/add-right")
+    private String linkUrl;
+    @ApiModelProperty(value = "父级权限编号", example = "0")
     private String pid;
     @ApiModelProperty(value = "节点包含的子节点")
-    public List<MenuTreeVO> getChildren() {
+    public List<com.zeroone.star.project.vo.login.MenuTreeVO> getChildren() {
         return childrenElementTrans();
     }
 }

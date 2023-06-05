@@ -1,16 +1,17 @@
 package com.zeroone.star.sysmanager.service.impl;
 
+import cn.hutool.core.lang.Snowflake;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.zeroone.star.project.components.user.UserHolder;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.rolemanager.RoleDTO;
 import com.zeroone.star.project.query.sysmanager.rolemanager.RoleQuery;
 import com.zeroone.star.sysmanager.entity.Role;
 import com.zeroone.star.sysmanager.mapper.RoleMapper;
-import com.zeroone.star.sysmanager.service.IRoleService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.zeroone.star.sysmanager.service.RoleService;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,7 @@ import java.util.Objects;
 interface MsRoleMapper {
     /**
      * sample do 转换 role dto
+     *
      * @param role do对象
      * @return dto对象
      */
@@ -37,12 +39,18 @@ interface MsRoleMapper {
 }
 
 @Service
-public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IRoleService {
+public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements RoleService {
     @Resource
     MsRoleMapper msRoleMapper;
 
+    @Resource
+    private Snowflake snowflake;
+
+    @Resource
+    private UserHolder userHolder;
+
     @Override
-    public RoleDTO querRoleById(Integer id) {
+    public RoleDTO querRoleById(String id) {
         Role role = baseMapper.selectById(id);
         if (role == null) {
             return null;
@@ -52,38 +60,44 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IR
     }
 
     @Override
-    public Boolean deleRoleById(Integer id) {
+    public Boolean deleRoleById(String id) {
         int result = baseMapper.deleteById(id);
         return result == 1;
     }
 
     @Override
     public Boolean addRole(RoleDTO roleDTO) {
-
         Role role = new Role();
-        role.setId(Integer.valueOf(roleDTO.getId()));
+        role.setId(String.valueOf(snowflake.nextId()));
         role.setName(roleDTO.getName());
         role.setKeyword(roleDTO.getKeyword());
         role.setDescription(roleDTO.getDescription());
         role.setIsEnable(roleDTO.getIsEnable());
+        try {
+            role.setCreator(userHolder.getCurrentUser().getUsername());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        Date date = new Date(System.currentTimeMillis());
+        role.setCreateTime(date);
+        role.setUpdateTime(date);
         //角色创建者
         role.setCreator(roleDTO.getCreator());
-
-
         int result = baseMapper.insert(role);
-
-
         return result == 1;
     }
 
     @Override
     public Boolean modifyRole(RoleDTO roleDTO) {
         Role role = new Role();
-        role.setId(Integer.valueOf(roleDTO.getId()));
+        role.setId(roleDTO.getId());
         role.setName(roleDTO.getName());
         role.setKeyword(roleDTO.getKeyword());
         role.setDescription(roleDTO.getDescription());
         role.setIsEnable(roleDTO.getIsEnable());
+        role.setCreator(roleDTO.getCreator());
+        role.setCreateTime(roleDTO.getCreateTime());
+        role.setUpdateTime(new Date(System.currentTimeMillis()));
         UpdateWrapper<Role> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("name", roleDTO.getName());
         int updateNum = baseMapper.update(role, updateWrapper);

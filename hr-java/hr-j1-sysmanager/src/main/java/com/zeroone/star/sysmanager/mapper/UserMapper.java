@@ -1,7 +1,7 @@
 package com.zeroone.star.sysmanager.mapper;
 
-import com.zeroone.star.sysmanager.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zeroone.star.sysmanager.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

@@ -1,11 +1,13 @@
 package com.zeroone.star.project.sysmanager;
 
 import com.zeroone.star.project.dto.PageDTO;
+import com.zeroone.star.project.dto.sysmanager.rolemenumanager.RoleMenuDTO;
 import com.zeroone.star.project.dto.sysmanager.usermanager.UserDTO;
-import com.zeroone.star.project.query.PageQuery;
+import com.zeroone.star.project.dto.sysmanager.userrolemanager.UserRoleDTO;
 import com.zeroone.star.project.query.sysmanager.usermanager.UserConditionalQuery;
 import com.zeroone.star.project.query.sysmanager.usermanager.UserQuery;
 import com.zeroone.star.project.vo.JsonVO;
+import com.zeroone.star.project.vo.sysmanager.UserVO;
 
 import javax.validation.constraints.NotBlank;
 
@@ -19,14 +21,14 @@ public interface UserAPis {
      * @param condition 分页条件
      * @return 查询结果
      */
-    JsonVO<PageDTO<UserDTO>> queryAllUsers(UserQuery condition);
+    JsonVO<PageDTO<UserVO>> queryAllUsers(UserQuery condition);
 
     /**
      * 查询用户
      * @param condition 查询条件
      * @return 模糊查询
      */
-    JsonVO<PageDTO<UserDTO>> queryUser(UserConditionalQuery condition);
+    JsonVO<PageDTO<UserVO>> queryUser(UserConditionalQuery condition);
 
     /**
      * 新增用户
@@ -48,6 +50,14 @@ public interface UserAPis {
      * @return 修改结果
      */
     JsonVO<Boolean> modifyUser(UserDTO dto);
+
+    /**
+     * 用户分配角色
+     *
+     * @param dto 用户角色对象
+     * @return Boolean 是否成功状态
+     */
+    JsonVO<Boolean> assignRole(UserRoleDTO dto);
 
     /**
      * 修改状态

@@ -1,28 +1,16 @@
 package com.zeroone.star.sysmanager.controller;
 
-import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.bean.copier.CopyOptions;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.TableFieldInfo;
-import com.baomidou.mybatisplus.core.metadata.TableInfo;
-import com.baomidou.mybatisplus.core.metadata.TableInfoHelper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.menumanager.MenuDTO;
 import com.zeroone.star.project.query.sysmanager.comment.CommentQuery;
-import com.zeroone.star.project.sysmanager.MenuApis;
 import com.zeroone.star.project.query.sysmanager.menumanager.MenuQuery;
+import com.zeroone.star.project.sysmanager.MenuApis;
 import com.zeroone.star.project.vo.JsonVO;
-import com.zeroone.star.project.vo.ResultStatus;
-import com.zeroone.star.sysmanager.entity.Menu;
 import com.zeroone.star.sysmanager.service.MenuService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Objects;
 
 /**
  * The controller of {@link MenuApis}, base on {@link MenuService}
@@ -33,7 +21,7 @@ import java.util.Objects;
  */
 
 @RestController
-@RequestMapping("/menu")
+@RequestMapping("/sys-menu")
 @Api(tags = "菜单管理")
 public class MenuController implements MenuApis {
     private MenuService menuService;
@@ -50,7 +38,6 @@ public class MenuController implements MenuApis {
      * @param query 查询条件
      * @return 查询结果
      */
-
     @ApiOperation(value = "分页查询列表")
     @GetMapping("/query-list")
     @Override
@@ -76,7 +63,7 @@ public class MenuController implements MenuApis {
     @ApiOperation(value = "删除菜单")
     @DeleteMapping("/remove-menu")
     @Override
-    public JsonVO<Boolean> removeMenu(String id) {
+    public JsonVO<Boolean> removeMenu(@RequestParam String id) {
         return menuService.removeMenu(id);
     }
 
@@ -90,7 +77,7 @@ public class MenuController implements MenuApis {
     @ApiOperation(value = "修改状态")
     @PostMapping("/modify-status")
     @Override
-    public JsonVO<Boolean> modifyStatus(String id) {
+    public JsonVO<Boolean> modifyStatus(@RequestParam String id) {
         return menuService.modifyStatus(id);
     }
 }

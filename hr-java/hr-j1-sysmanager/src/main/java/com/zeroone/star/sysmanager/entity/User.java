@@ -1,10 +1,13 @@
 package com.zeroone.star.sysmanager.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
-
-import lombok.*;
+import java.util.Date;
 
 /**
  * <p>
@@ -66,6 +69,6 @@ public class User implements Serializable {
     /**
      * createtime
      */
-    private LocalDateTime createtime;
+    private LocalDateTime updateTime;
 
 }

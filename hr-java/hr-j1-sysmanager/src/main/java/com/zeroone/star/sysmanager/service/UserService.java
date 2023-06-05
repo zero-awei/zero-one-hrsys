@@ -1,11 +1,13 @@
 package com.zeroone.star.sysmanager.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sysmanager.usermanager.UserDTO;
+import com.zeroone.star.project.dto.sysmanager.userrolemanager.UserRoleDTO;
 import com.zeroone.star.project.query.sysmanager.usermanager.UserConditionalQuery;
 import com.zeroone.star.project.query.sysmanager.usermanager.UserQuery;
+import com.zeroone.star.project.vo.sysmanager.UserVO;
 import com.zeroone.star.sysmanager.entity.User;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
@@ -15,18 +17,19 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author axiao
  * @since 2023-05-25
  */
-public interface IUserService extends IService<User> {
+public interface UserService extends IService<User> {
 
-    PageDTO<UserDTO> listAllUsers(UserQuery query);
+    PageDTO<UserVO> listAllUsers(UserQuery query);
 
-    PageDTO<UserDTO> selectUser(UserConditionalQuery condition);
+    PageDTO<UserVO> selectUser(UserConditionalQuery condition);
 
     Boolean saveUser(UserDTO dto);
 
     Boolean removeUser(String id);
 
-
     Boolean updateUser(UserDTO dto);
+
+    Boolean assignRole(UserRoleDTO dto);
 
     Boolean updateStatus(String id);
 }

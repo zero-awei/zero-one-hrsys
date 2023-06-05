@@ -6,8 +6,12 @@ import com.zeroone.star.project.dto.sysmanager.rightmanagement.RightDTO;
 import com.zeroone.star.project.query.sysmanager.comment.CommentQuery;
 import com.zeroone.star.project.query.sysmanager.rightmanager.RightQuery;
 import com.zeroone.star.project.vo.JsonVO;
+import com.zeroone.star.project.vo.login.MenuTreeVO;
+import com.zeroone.star.project.vo.sysmanager.RightTreeVO;
 import com.zeroone.star.sysmanager.entity.Right;
 import com.zeroone.star.sysmanager.service.impl.RightServiceImpl;
+
+import java.util.List;
 
 /**
  * The service interface for {@link Right}, base on {@link IService}
@@ -65,4 +69,11 @@ public interface RightService extends IService<Right> {
      * @return 修改权限状态结果
      */
     JsonVO<Boolean> modifyStatus(String id);
+
+    /**
+     * 通过qu名称获取，权限资源
+     * @param roleNames 角色名称
+     * @return 返回权限列表
+     */
+    List<RightTreeVO> listRightByRoleName(List<String> roleNames);
 }

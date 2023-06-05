@@ -1,17 +1,16 @@
-package com.zeroone.star.project.dto.sysmanager.usermanager;
+package com.zeroone.star.project.vo.sysmanager;
 
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
 import java.util.Date;
 
 @Data
 @ApiModel("用户传输数据对象")
-public class UserDTO {
+public class UserVO {
 
     @ApiModelProperty(value = "id", example = "自动生成")
     private String id;
@@ -19,11 +18,6 @@ public class UserDTO {
     @NotBlank(message = "Username must not be blank")
     @ApiModelProperty(value = "用户名", example = "张三")
     private String username;
-
-    @NotBlank(message = "Password must not be blank")
-    @Size(min = 6, message = "Password must have at least 8 characters")
-    @ApiModelProperty(value = "密码", example = "password")
-    private String password;
 
     @ApiModelProperty(value = "注册时间", example = "自动生成")
     private Date registTime;

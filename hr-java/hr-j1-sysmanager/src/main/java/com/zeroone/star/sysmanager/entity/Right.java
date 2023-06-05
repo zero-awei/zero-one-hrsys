@@ -41,4 +41,5 @@ public class Right {
     private Date createTime;
 
     private Date updateTime;
+
 }

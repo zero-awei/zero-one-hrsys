@@ -50,6 +50,12 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
+        <!-- snowflakes id
+        <dependency>
+            <groupId>com.github.beyondfengyu</groupId>
+            <artifactId>snowflake-spring-boot-starter</artifactId>
+            <version>1.0.0</version>
+        </dependency>-->
     </dependencies>
     <build>
         <plugins>
