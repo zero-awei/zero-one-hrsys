@@ -189,6 +189,24 @@
     <ClInclude Include="uselib\ws\WSListener.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="uselib\jwt\EmployeeInformationToken.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\org\TreeOrgMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\org\OrgTreeDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\org\OrgTreeDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\orgQuery\OrgTreeQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\org\OrgTreeVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -243,6 +261,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="uselib\ws\WSListener.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\jwt\EmployeeInformationToken.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -179,6 +179,7 @@
     <ClInclude Include="domain\do\jobList\JobListDO.h" />
     <ClInclude Include="domain\do\org\MemberDO.h" />
     <ClInclude Include="domain\do\org\OrgDO.h" />
+    <ClInclude Include="domain\do\org\OrgTreeDO.h" />
     <ClInclude Include="domain\do\Org\RootOrgDO.h" />
     <ClInclude Include="domain\do\Org\SectorDO.h" />
     <ClInclude Include="domain\do\Org\ValidOrgDO.h" />
@@ -188,6 +189,7 @@
     <ClInclude Include="domain\dto\org\ImportDTO.h" />
     <ClInclude Include="domain\dto\org\MemberDTO.h" />
     <ClInclude Include="domain\dto\org\OrgDTO.h" />
+    <ClInclude Include="domain\dto\org\OrgTreeDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\EmployeeInformationPageQuery\EmployeeExportQuery.h" />
     <ClInclude Include="domain\query\EmployeeInformationPageQuery\EmployeeInformationPageQuery.h" />
@@ -195,6 +197,7 @@
     <ClInclude Include="domain\query\jobList\JobListQuery.h" />
     <ClInclude Include="domain\query\orgquery\ImportQuery.h" />
     <ClInclude Include="domain\query\orgquery\MemberQuery.h" />
+    <ClInclude Include="domain\query\orgQuery\OrgTreeQuery.h" />
     <ClInclude Include="domain\query\orgquery\RootOrgQuery.h" />
     <ClInclude Include="domain\query\orgquery\SectorQuery.h" />
     <ClInclude Include="domain\query\orgquery\ValidOrgQuery.h" />
@@ -203,6 +206,7 @@
     <ClInclude Include="domain\vo\jobList\JobListVO.h" />
     <ClInclude Include="domain\vo\org\ImportVO.h" />
     <ClInclude Include="domain\vo\org\MemberVO.h" />
+    <ClInclude Include="domain\vo\org\OrgTreeVO.h" />
     <ClInclude Include="domain\vo\org\OrgVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
@@ -210,6 +214,7 @@
     <ClInclude Include="service\employeeInfo\EmployeeInfoService.h" />
     <ClInclude Include="service\jobList\JobListService.h" />
     <ClInclude Include="service\org\OrgService.h" />
+    <ClInclude Include="service\org\TreeOrgMapper.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="uselib\jwt\EmployeeInformationToken.h" />
     <ClInclude Include="uselib\ws\WSController.h" />
