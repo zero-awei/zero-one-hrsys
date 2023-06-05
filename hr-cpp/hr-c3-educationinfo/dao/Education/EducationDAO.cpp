@@ -28,13 +28,15 @@ if (query->pimpersonid) { \
 std::list<EducationDO> EducationDAO::selectEducationPage(const EducationPageQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT `PIMEDUCATIONID`, `XL`, `QSSJ`, `JSSJ`, `BYYX`, `XKML`, `SXZY`, `XLLX`, `XXXZ`, ";
-	sql << "`SFDYXL`, `SFZGXL`, `BTZ`, `XWZ`, `XLCX`, `FJ` FROM t_pimeducation ";
+	//sql << "SELECT `PIMEDUCATIONID`, `XL`, `QSSJ`, `JSSJ`, `BYYX`, `XKML`, `SXZY`, `XLLX`, `XXXZ`, ";
+	//sql << "`SFDYXL`, `SFZGXL`, `BTZ`, `XWZ`, `XLCX`, `FJ` ";
+	//sql << " FROM t_pimeducation ";
+	sql << "SELECT * FROM `t_pimeducation`";
 	//EDUCATIONPAGE_TERAM_PARSE(query, sql);
 	SqlParams params; 
 	sql << " WHERE 1=1";
 	if (query->PIMPERSONID) {
-		sql << " AND `PIMPERSONID` = ?";
+		sql << " AND `pimpersonid` = ?";
 		SQLPARAMS_PUSH(params, "s", std::string, query->PIMPERSONID.getValue(""));
 	}
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
@@ -51,10 +53,10 @@ uint64_t EducationDAO::count(const EducationPageQuery::Wrapper& query)
 	sql << "SELECT COUNT(*) FROM `t_pimeducation`";
 	SqlParams params; 
 	sql << " WHERE 1=1";
-	if (query->PIMPERSONID) {
+	/*if (query->PIMPERSONID) {
 			sql << " AND `PIMPERSONID` = ?";
 			SQLPARAMS_PUSH(params, "s", std::string, query->PIMPERSONID.getValue(""));
-	} 
+	} */
 	////EDUCATIONPAGE_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
