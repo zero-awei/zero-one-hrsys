@@ -85,6 +85,6 @@ add_subdirectory ("lib-common")
 # 在后面添加你的模块
 #add_subdirectory("hr-c3-assignmentinfo")
 #add_subdirectory("hr-c3-educationinfo")
-add_subdirectory("hr-c3-employeeinfo")
-#add_subdirectory("hr-c3-familysituation")
+#add_subdirectory("hr-c3-employeeinfo")
+add_subdirectory("hr-c3-familysituation")
 #add_subdirectory("hr-c3-languagecompetence")

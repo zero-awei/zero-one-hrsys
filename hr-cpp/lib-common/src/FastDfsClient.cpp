@@ -39,6 +39,7 @@ if (__VAR_SERVER__ == NULL) { \
 #include <atlstr.h>
 
 //超过5M的文件不做处理
+
 BYTE byFileBuff[5 * 1024 * 1024];
 
 #endif

@@ -21,7 +21,7 @@
 #define _FAMILYSITUATIONSERVICE_H_
 
 #include "domain/dto/familysituation/FamilysituationDTO.h"
-#include "domain/query/Familysituation/FamilysituationQuery.h"
+#include "domain/query/familysituation/FamilysituationQuery.h"
 #include "domain/vo/familysituation/FamilysituationVO.h" 
 
 class FamilysituationService
