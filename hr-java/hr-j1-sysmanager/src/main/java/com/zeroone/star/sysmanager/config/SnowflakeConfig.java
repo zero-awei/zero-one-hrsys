@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 雪花算法订单号生成
+ * 雪花算法生成id
  */
 @Configuration
 public class SnowflakeConfig {
