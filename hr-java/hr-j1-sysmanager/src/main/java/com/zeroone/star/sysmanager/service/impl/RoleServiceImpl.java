@@ -11,6 +11,7 @@ import com.zeroone.star.project.dto.sysmanager.rolemanager.RoleDTO;
 import com.zeroone.star.project.query.sysmanager.rolemanager.RoleQuery;
 import com.zeroone.star.sysmanager.entity.Role;
 import com.zeroone.star.sysmanager.mapper.RoleMapper;
+import com.zeroone.star.sysmanager.service.MenuService;
 import com.zeroone.star.sysmanager.service.RoleService;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Service;
@@ -20,12 +21,11 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- * <p>
- * 角色表 服务实现类
- * </p>
+ * The implementation of {@link RoleService}, base on {@link ServiceImpl}
  *
  * @author Alan
- * @since 2023-05-28
+ * @see RoleService
+ * @see ServiceImpl
  */
 @Mapper(componentModel = "spring")
 interface MsRoleMapper {
