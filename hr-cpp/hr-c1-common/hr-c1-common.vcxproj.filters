@@ -25,7 +25,6 @@
     <ClCompile Include="dao\armyLevelType\ArmyLevelTypeDAO.cpp" />
     <ClCompile Include="service\leaveReason\LeaveReasonService.cpp" />
     <ClCompile Include="service\dismissReason\DismissReasonService.cpp" />
-    <ClCompile Include="controller\evaluationTypesController.h\EvaluationTypesController.cpp" />
     <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
     <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
     <ClCompile Include="controller\contractStatus\ContractStatusController.cpp" />
@@ -62,6 +61,7 @@
     <ClCompile Include="dao\contractType\ContractTypeDAO.cpp" />
     <ClCompile Include="controller\auditStatus\AuditStatusController.cpp" />
     <ClCompile Include="uselib\jwt\TestToken.cpp" />
+    <ClCompile Include="controller\evaluationTypes\EvaluationTypesController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
@@ -112,7 +112,6 @@
     <ClInclude Include="dao\armyLevelType\ArmyLevelTypeDAO.h" />
     <ClInclude Include="service\leaveReason\LeaveReasonService.h" />
     <ClInclude Include="service\dismissReason\DismissReasonService.h" />
-    <ClInclude Include="controller\evaluationTypesController.h\EvaluationTypesController.h" />
     <ClInclude Include="dao\leaveReason\LeaveReasonDAO.h" />
     <ClInclude Include="dao\leaveReason\LeaveReasonMapper.h" />
     <ClInclude Include="dao\dismissReason\DismissReasonDAO.h" />
@@ -184,6 +183,7 @@
     <ClInclude Include="domain\vo\contractType\ContractTypeVO.h" />
     <ClInclude Include="controller\auditStatus\AuditStatusController.h" />
     <ClInclude Include="uselib\jwt\TestToken.h" />
+    <ClInclude Include="controller\evaluationTypes\EvaluationTypesController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
