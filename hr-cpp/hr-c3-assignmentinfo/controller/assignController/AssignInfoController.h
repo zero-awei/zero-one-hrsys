@@ -76,7 +76,7 @@ public:
 		info->queryParams["endTime"].addExample("default", String(""));
 		info->queryParams["endTime"].required = false;
 	}
-	ENDPOINT(API_M_GET, "/employee-info/query-assign-info", assignQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/c3-assign-info/query", assignQuery, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, AssignInfoQuery, queryParams);
 		// 响应结果
@@ -92,7 +92,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/employee-info/add-assign-info", addAssignInfo, API_HANDLER_AUTH_PARAME, BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/c3-assign-info/add", addAssignInfo, API_HANDLER_AUTH_PARAME, BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddAssignInfo(dto,authObject->getPayload()));
 	}
@@ -107,7 +107,7 @@ public:
 		//API_DEF_ADD_QUERY_PARAMS(String, "assignId", ZH_WORDS_GETTER("employee.t_pimperson.assignId"), "", true);
 	}
 	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/employee-info/delete-assign-info", deleteAssignInfo, API_HANDLER_AUTH_PARAME, BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/c3-assign-info/delete", deleteAssignInfo, API_HANDLER_AUTH_PARAME, BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execDeleteAssignInfo(dto));
 	}
@@ -121,7 +121,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/employee-info/modify-assign-info", modifyAssignInfo, API_HANDLER_AUTH_PARAME,BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/c3-assign-info/modify", modifyAssignInfo, API_HANDLER_AUTH_PARAME,BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyAssignInfo(dto,authObject->getPayload()));
 	}
@@ -132,7 +132,7 @@ public:
 		API_DEF_ADD_AUTH();
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
-	ENDPOINT(API_M_POST, "/employee-info/upload-assign-info", importAssignInfo, API_HANDLER_AUTH_PARAME, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
+	ENDPOINT(API_M_POST, "/c3-assign-info/upload", importAssignInfo, API_HANDLER_AUTH_PARAME, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
 			/* 创建multipart容器 */
 			auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
 			/* 创建multipart读取器 */
@@ -234,7 +234,7 @@ public:
 		info->queryParams["assignId"].required = true;
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/employee-info/query-assign-info-detail", assignQueryDetail, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/c3-assign-info/query-detail", assignQueryDetail, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(userQuery, AssignInfoQueryDetail, queryParams);
 		// 响应结果
