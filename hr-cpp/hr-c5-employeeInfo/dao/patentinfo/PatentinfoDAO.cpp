@@ -220,12 +220,17 @@ int PatentinfoDAO::update(const PatentinfoDO& uObj)
 		CountMark++;
 	}
 
-	if (uObj.getUPDATEDATE() != "string") {
+	if (uObj.getPIMPATENTID() != "string") {
 		if (CountMark != 0) {
 			sql << ",";
 		}
+		//获取当前时间
+		time_t timep;
+		time(&timep);
+		char tmp[256];
+		strftime(tmp, sizeof(tmp), "%Y-%m-%d %H:%M:%S", localtime(&timep));
 		sql << " UPDATEDATE= ? ";
-		SQLPARAMS_PUSH(params, "s", std::string, uObj.getUPDATEDATE());
+		SQLPARAMS_PUSH(params, "s", std::string, tmp);
 		CountMark++;
 	}
 	if (uObj.getUPDATEMAN() != "string") {

@@ -204,32 +204,6 @@ public:
 		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.fj");
 	}
 
-
-
-
-
-
-
-	//CBSHKWMC:出版社或刊物名称
-	DTO_FIELD(String, cbshkwmc);
-	DTO_FIELD_INFO(cbshkwmc) {
-		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.cbshkwmc");
-	}
-	//CREATEDATE:建立时间
-	DTO_FIELD(String, createdate);
-	DTO_FIELD_INFO(createdate) {
-		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.createdate");
-	}
-	//CREATEMAN:建立人
-	DTO_FIELD(String, createman);
-	DTO_FIELD_INFO(createman) {
-		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.createman");
-	}
-	//ENABLE
-	DTO_FIELD(String, enable);
-	DTO_FIELD_INFO(enable) {
-		info->description = ZH_WORDS_GETTER("paperInformation.pimpaper.enable");
-	}
 	//UPDATEDATE:更新时间
 	DTO_FIELD(String, updatedate);
 	DTO_FIELD_INFO(updatedate) {

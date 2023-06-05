@@ -113,12 +113,17 @@ int PaperinfoDAO::update(const PaperinfoDO& uObj)
 		SQLPARAMS_PUSH(params, "s", std::string, uObj.getFJ());
 		CountMark++;
 	}
-	if (uObj.getUPDATEDATE() != "string") {
+	if (uObj.getPIMPAPERID() != "string") {
 		if (CountMark != 0) {
 			sql << ",";
 		}
+		//获取当前时间
+		time_t timep;
+		time(&timep);
+		char tmp[256];
+		strftime(tmp, sizeof(tmp), "%Y-%m-%d %H:%M:%S", localtime(&timep));
 		sql << " UPDATEDATE= ? ";
-		SQLPARAMS_PUSH(params, "s", std::string, uObj.getUPDATEDATE());
+		SQLPARAMS_PUSH(params, "s", std::string, tmp);
 		CountMark++;
 	}
 	if (uObj.getUPDATEMAN() != "string") {
