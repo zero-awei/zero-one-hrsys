@@ -66,7 +66,7 @@ public: // 接口
 		info->queryParams["sort"].required = false;*/
 	}
 	// 功能1 分页查询指定员工的教育信息：接口处理
-	ENDPOINT(API_M_GET, "/employee-info/guery-education-page", gueryEducationPage, API_HANDLER_AUTH_PARAME,  QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/c3-education-info/guery-education-page", gueryEducationPage, API_HANDLER_AUTH_PARAME,  QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(educationQuery, EducationPageQuery, queryParams);
 		// 响应结果
@@ -90,7 +90,7 @@ public: // 接口
 		//info->queryParams["pimpersonname"].addExample("default", String("ChenJun"));
 	}
 	// 功能2 单独查询指定员工的教育信息：接口处理
-	ENDPOINT(API_M_GET, "/employee-info/query-education-single", queryEducationSingle, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/c3-education-info/query-education-single", queryEducationSingle, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(educationSingle, EducationSingleQuery, queryParams);
 		// 响应结果
@@ -168,7 +168,7 @@ public: // 接口
 		//info->queryParams["FJ"].required = false;
 	}
 	// 功能3 单条新增指定员工的教育信息：接口处理
-	ENDPOINT(API_M_POST, "/employee-info/add-education-single", addEducationSingle, API_HANDLER_AUTH_PARAME, BODY_DTO(EducationAddDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/c3-education-info/add-education-single", addEducationSingle, API_HANDLER_AUTH_PARAME, BODY_DTO(EducationAddDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddEducationSingle(dto, authObject->getPayload()));
 	}
@@ -244,7 +244,7 @@ public: // 接口
 		//info->queryParams["FJ"].required = false;
 	}
 	// 功能4 单条修改指定员工的教育信息：接口处理
-	ENDPOINT(API_M_PUT, "/employee-info/modify-education-single", modifyEducationSingle, API_HANDLER_AUTH_PARAME, BODY_DTO(EducationAddDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/c3-education-info/modify-education-single", modifyEducationSingle, API_HANDLER_AUTH_PARAME, BODY_DTO(EducationAddDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyEducationSingle(dto, authObject->getPayload()));
 	}
@@ -265,7 +265,7 @@ public: // 接口
 	}
 	// 功能5 删除指定员工的教育信息：接口处理
 	//ENDPOINT(API_M_DEL, "/education/remove-Education-Single", removeEducation, API_HANDLER_AUTH_PARAME,PATH(String, deleteId)) {
-	ENDPOINT(API_M_DEL, "/employee-info/remove-education-single", removeEducation, API_HANDLER_AUTH_PARAME,BODY_DTO(EducationDeleteSingleDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/c3-education-info/remove-education-single", removeEducation, API_HANDLER_AUTH_PARAME,BODY_DTO(EducationDeleteSingleDTO::Wrapper, dto)) {
 		//auto dto = EducationDeleteSingleDTO::createShared();
 		//dto->deleteId = deleteId;
 		//// 响应结果
@@ -322,7 +322,7 @@ public: // 接口
 		info->queryParams["file"].required = true;
 	}
 	// 功能7 单个文件上传教育信息：接口处理
-	ENDPOINT(API_M_POST, "/employee-info/upload-education", importEducation, API_HANDLER_AUTH_PARAME,REQUEST(std::shared_ptr<IncomingRequest>, request)) {
+	ENDPOINT(API_M_POST, "/c3-education-info/upload-education", importEducation, API_HANDLER_AUTH_PARAME,REQUEST(std::shared_ptr<IncomingRequest>, request)) {
 		/* 创建multipart容器 */
 		auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
 		/* 创建multipart读取器 */
@@ -392,7 +392,7 @@ public: // 接口
 		info->queryParams["id"].required = true;
 	}
 	//功能8 导出教育信息文件 接口处理
-	ENDPOINT(API_M_GET, "/employee-info/export-eudaction", exportEducation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/c3-education-info/export-eudaction", exportEducation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
 		API_HANDLER_QUERY_PARAM(query, EducationExportQuery, qps);
 		API_HANDLER_RESP_VO(execExportEducation(query));
 	}
