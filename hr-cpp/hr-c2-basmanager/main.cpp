@@ -168,11 +168,13 @@ int main(int argc, char* argv[]) {
 			ServerInfo::getInstance().setDbPort(dbPort);
 		}
 	}
+	/*
 	// 注册服务
 	nacosClient.registerInstance(
 		ServerInfo::getInstance().getRegIp(),
 		atoi(ServerInfo::getInstance().getServerPort().c_str()),
 		ServerInfo::getInstance().getServiceName());
+    */
 #endif
 
 	// 初始数据库连接
@@ -198,11 +200,13 @@ int main(int argc, char* argv[]) {
 	DbInit::releasePool();
 
 #ifdef USE_NACOS
+	/*
 	// 反注册服务
 	nacosClient.deregisterInstance(
 		ServerInfo::getInstance().getRegIp(),
 		atoi(ServerInfo::getInstance().getServerPort().c_str()),
 		ServerInfo::getInstance().getServiceName());
+	*/
 #endif
 	return 0;
 }
