@@ -27,30 +27,30 @@ link_directories (${PROJECT_SOURCE_DIR}/lib-dy/lib64)
 file (GLOB_RECURSE SC_FILES ./*.cpp)
 
 # 排除xlnt案例编译【仅Demo项目需要配置】
-if(USE_XLNT STREQUAL OFF)
-	list (REMOVE_ITEM SC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/./uselib/excel/TestExcel.cpp")
-	message (STATUS "${appName}: not compile xlnt use case.")
-endif()
+#if(USE_XLNT STREQUAL OFF)
+#	list (REMOVE_ITEM SC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/./uselib/excel/TestExcel.cpp")
+#	message (STATUS "${appName}: not compile xlnt use case.")
+#endif()
 # 排除fastdfs案例编译【仅Demo项目需要配置】
-if(USE_DFS STREQUAL OFF)
-	list (REMOVE_ITEM SC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/./uselib/fastdfs/TestFastDfs.cpp")
-	message (STATUS "${appName}: not compile fastdfs use case.")
-endif()
+#if(USE_DFS STREQUAL OFF)
+#	list (REMOVE_ITEM SC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/./uselib/fastdfs/TestFastDfs.cpp")
+#	message (STATUS "${appName}: not compile fastdfs use case.")
+#endif()
 # 排除redis案例编译【仅Demo项目需要配置】
-if(USE_REDIS STREQUAL OFF)
-	list (REMOVE_ITEM SC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/./uselib/redis/TestRedis.cpp")
-	message (STATUS "${appName}: not compile redis use case.")
-endif()
+#if(USE_REDIS STREQUAL OFF)
+#	list (REMOVE_ITEM SC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/./uselib/redis/TestRedis.cpp")
+#	message (STATUS "${appName}: not compile redis use case.")
+#endif()
 # 排除RocketMQ案例编译【仅Demo项目需要配置】
-if(USE_ROCKETMQ STREQUAL OFF)
-	list (REMOVE_ITEM SC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/./uselib/rocketmq/TestRocket.cpp")
-	message (STATUS "${appName}: not compile rocketmq use case.")
-endif()
+#if(USE_ROCKETMQ STREQUAL OFF)
+#	list (REMOVE_ITEM SC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/./uselib/rocketmq/TestRocket.cpp")
+#	message (STATUS "${appName}: not compile rocketmq use case.")
+#endif()
 # 排除MongoDB案例编译【仅Demo项目需要配置】
-if(USE_MONGO STREQUAL OFF)
-	list (REMOVE_ITEM SC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/./uselib/mongo/TestMongo.cpp")
-	message (STATUS "${appName}: not compile mongodb use case.")
-endif()
+#if(USE_MONGO STREQUAL OFF)
+#	list (REMOVE_ITEM SC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/./uselib/mongo/TestMongo.cpp")
+#	message (STATUS "${appName}: not compile mongodb use case.")
+#endif()
 
 # 编译可执行文件
 add_executable (${appName} ${SC_FILES})
@@ -100,8 +100,8 @@ endif()
 
 # 复制配置到调试时可执行文件所在的目录
 # public目录【仅Demo项目需要配置】
-file (GLOB publicDir "public/*")
-file (COPY ${publicDir} DESTINATION "${PROJECT_BINARY_DIR}/${appName}/public")
+#file (GLOB publicDir "public/*")
+#file (COPY ${publicDir} DESTINATION "${PROJECT_BINARY_DIR}/${appName}/public")
 # RSA公钥证书
 file (COPY "public.pem" DESTINATION ${PROJECT_BINARY_DIR}/${appName})
 # FastDFS配置文件
@@ -120,7 +120,7 @@ endif()
 
 # 安装文件
 # public目录【仅Demo项目需要配置】
-install (DIRECTORY "public" DESTINATION ${appName})
+#install (DIRECTORY "public" DESTINATION ${appName})
 # 可执行文件
 install (TARGETS ${appName} RUNTIME DESTINATION ${appName})
 # RSA公钥证书
