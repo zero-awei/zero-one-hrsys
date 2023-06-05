@@ -11,7 +11,6 @@ import com.zeroone.star.project.dto.sysmanager.rolemanager.RoleDTO;
 import com.zeroone.star.project.query.sysmanager.rolemanager.RoleQuery;
 import com.zeroone.star.sysmanager.entity.Role;
 import com.zeroone.star.sysmanager.mapper.RoleMapper;
-import com.zeroone.star.sysmanager.service.MenuService;
 import com.zeroone.star.sysmanager.service.RoleService;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Service;
