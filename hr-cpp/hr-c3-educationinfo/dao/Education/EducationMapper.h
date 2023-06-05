@@ -8,7 +8,7 @@
 #define _EDUCATIONMAPPER_H_
 #include "BaseDAO.h"
 #include "Mapper.h"
-#include "domain/do/Education/EducationDO.h"
+#include "domain/do/education/EducationDO.h"
 
 class EducationMapper : public Mapper<EducationDO>
 {

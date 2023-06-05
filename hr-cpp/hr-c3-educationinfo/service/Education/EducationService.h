@@ -7,11 +7,12 @@
 #ifndef _EDUCATIONSERVICE_H_
 #define _EDUCATIONSERVICE_H_
 
-#include "domain/dto/Education/EducationDTO.h"
-#include "domain/query/EducationPage/EducationPageQuery.h"
-#include "domain/query/EducationSingle/EducationSingleQuery.h"
-#include "domain/dto/EducationDelete/EducationDeleteDTO.h"
-#include "domain/dto/EducationAdd/EducationAddDTO.h"
+#include "domain/dto/education/EducationDTO.h"
+#include "domain/query/educationPage/EducationPageQuery.h"
+#include "domain/query/educationSingle/EducationSingleQuery.h"
+#include "domain/dto/educationDelete/EducationDeleteDTO.h"
+#include "domain/dto/educationAdd/EducationAddDTO.h"
+#include "domain/dto/educationAdd/EducationAddDTO.h"
 class EducationService 
 {
 public:
@@ -44,13 +45,13 @@ public:
 	* 删除多条
 	* 负责人 : Chen jun
 	*/
-	bool removeEducationNotSingle(const EducationDeleteNotSingleDTO::Wrapper& dto);
+	//bool removeEducationNotSingle(const EducationDeleteNotSingleDTO::Wrapper& dto);
 };
 
 
 
 #endif // !_EDUCATIONSERVICE_H_#pragma once
-#include "domain/dto/EducationAdd/EducationAddDTO.h"
+
 
 
 
