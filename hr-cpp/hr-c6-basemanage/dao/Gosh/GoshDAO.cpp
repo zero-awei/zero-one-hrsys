@@ -94,7 +94,6 @@ uint64_t GoshDAO::insert(const ContractDO& iObj)
 	string sql = "INSERT INTO t_pimcontract(`PIMPERSONID`,`PIMCONTRACTID`,`HTLX`,`CONTRACTTYPE`,`QSRQ`,`HTZT`,`ORMORGID`,`SYDQSJ`,`DEMO`) VALUES ( ?,?,?,?,?,?,?,?,?);";
 	a = 3;
 	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%s%s", iObj.getPersonid(),iObj.getId(), iObj.getType(), iObj.getVariety(), iObj.getDate(), iObj.getCondition(), iObj.getDepartment_m(), iObj.getDate_end(), iObj.getTip());
-	a = 3;
 }
 
 int GoshDAO::deleteById(std::string id)

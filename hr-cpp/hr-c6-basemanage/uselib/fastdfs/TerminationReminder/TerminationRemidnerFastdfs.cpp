@@ -2,7 +2,7 @@
 #include <iostream>
 
 #ifdef LINUX
-#include "../../ServerInfo.h"
+#include "ServerInfo.h"
 #include "NacosClient.h"
 #include "YamlHelper.h"
 #endif

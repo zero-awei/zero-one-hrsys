@@ -20,7 +20,8 @@
 #ifndef _USEFASTDFS_H_
 #define _USEFASTDFS_H_
 #include <string>
-
+#include <sstream>
+using std::stringstream;
 class UseFastDfs
 {
 	std::string host; // FastDFS·þÎñÆ÷IP

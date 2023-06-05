@@ -4,7 +4,7 @@
 * 数据库实体类
 */
 #include "stdafx.h"
-#include "../Doinclude.h"
+#include "../DoInclude.h"
 
 #ifndef _JOBTITLE_DO_
 #define _JOBTITLE_DO_

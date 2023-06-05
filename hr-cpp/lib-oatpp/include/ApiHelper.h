@@ -92,6 +92,7 @@ static std::shared_ptr<__CLASS__> createShared(OATPP_COMPONENT(std::shared_ptr<O
 #else
 #define API_PAGE_INDEX_DESC "page index"
 #define API_PAGE_SIZE_DESC "page size"
+#define API_PERSON_defalut_DESC "lisi"
 #endif
 // API描述添加分页参数说明
 #define API_DEF_ADD_PAGE_PARAMS() \

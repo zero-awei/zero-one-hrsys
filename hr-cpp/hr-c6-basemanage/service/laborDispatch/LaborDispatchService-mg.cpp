@@ -17,7 +17,7 @@
  limitations under the License.
 */
 #include "stdafx.h"
-#include "laborDispatchService-mg.h"
+#include "LaborDispatchService-mg.h"
 #include "../../dao/laborDispatch/LaborDispatchDAO-mg.h"
 #include "domain/dto/LaborDispatch/LaborDispatchDTO.h"
 #include "domain/dto/LaborDispatch/LaborDispatchDTO-mg.h"

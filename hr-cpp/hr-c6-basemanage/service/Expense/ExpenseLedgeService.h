@@ -3,7 +3,7 @@
 #define _EXPENSELEDGER_SERVICE_
 #include "domain/dto/ExpenseLedger/ExpenseLedgerDTO.h"
 #include "domain/vo/BaseJsonVO.h"
-#include "domain/do/ExpenseLedger/ExpenseLedgerDO.h"
+#include "domain/do/expenseLedger/ExpenseLedgerDO.h"
 #include "dao/expenseLedger/ExpenseLedgerDAO.h"
 
 class ExpenseLedgerService

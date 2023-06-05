@@ -2,7 +2,7 @@
 #ifndef _JOBTITLE_MAPPER_
 #define _JOBTITLE_MAPPER_
 
-#include "./domain/do/JobTitle/JobTitleDO.h"
+#include "./domain/do/JobTitle/JobTitleDo.h"
 
 class JobTitleMapper :public Mapper<JobTitleDO> {
 public:

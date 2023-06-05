@@ -19,7 +19,10 @@
 */
 #ifndef _EXPORTEXCEL_H_
 #define _EXPORTEXCEL_H_
-
+#include <string>
+#include <vector>
+using std::vector;
+using std::string;
 /**
  * Excel 组件, 用于导出数据
  */

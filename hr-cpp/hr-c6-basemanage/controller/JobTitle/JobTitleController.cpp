@@ -2,6 +2,7 @@
 #include "JobTitleController.h"
 #include "service/JobTitle/JobTitleService.h"
 #include "FastDfsClient.h"
+#include <iostream>
 
 JTQueryPageJsonVO::Wrapper JobTitleController::execQueryPage(const JobTitleQuery::Wrapper& query)
 {

@@ -1,6 +1,6 @@
 ﻿#include "stdafx.h"
 #include "JobTitleService.h"
-#include "./dao/JobTitle/JobTitleDao.h"
+#include "./dao/JobTitle/JobTitleDAO.h"
 #include "Macros.h"
 #include "SnowFlake.h"
 #include "FastDfsClient.h"

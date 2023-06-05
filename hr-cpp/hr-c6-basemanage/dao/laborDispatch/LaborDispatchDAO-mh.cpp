@@ -105,9 +105,9 @@ static std::string attain_curTime() {
 uint64_t LaborDispatchDAO::insert_ld(const LaborDispatchDO& iobj)
 {
 	string curTime = attain_curTime();
-	uint64_t oid = SnowFlake::SnowFlake(1, 6).nextId();
+	uint64_t oid = SnowFlake(1, 6).nextId();
 	string str_oid = to_string(oid);
-	uint64_t pid = SnowFlake::SnowFlake(1, 6).nextId();
+	uint64_t pid = SnowFlake(1, 6).nextId();
 	string str_pid = to_string(pid);
 	string sql1 = "INSERT INTO `t_srforg` (`ORGID`,`ORGNAME`) VALUES (?,?);";
 	string sql2 = " INSERT INTO `t_pimlabourcampany` (`PIMLABOURCAMPANYNAME`,`PIMLABOURCAMPANYID`,`ORMORGID`,`LXDZ`,`LXR`,`LXFS`,`LEGALPEROSN`,`REGCAPITAL`,`GSJJ`,`UPDATEDATE`) VALUES (?,?,?,?,?,?,?,?,?,?)";

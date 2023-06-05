@@ -20,6 +20,8 @@
 #include "stdafx.h"
 #include "ExportExcel.h"
 #include "ExcelComponent.h"
+#include <chrono>
+#include <iomanip>
 using namespace std;
 
 // 注意：为了保证在Linux平台不乱码，需要保证本源码文件的编码为 UTF8 BOM 编码格式
