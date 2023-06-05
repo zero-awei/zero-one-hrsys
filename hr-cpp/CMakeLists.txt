@@ -1,4 +1,5 @@
-﻿# CMakeList.txt: 顶层 CMake 项目文件，在此处执行全局配置
+﻿
+# CMakeList.txt: 顶层 CMake 项目文件，在此处执行全局配置
 # 并包含子项目。
 #
 cmake_minimum_required (VERSION 3.8)
@@ -80,6 +81,7 @@ endif()
 add_subdirectory ("lib-oatpp")
 add_subdirectory ("lib-mysql")
 add_subdirectory ("lib-common")
+add_subdirectory ("nacos-register")
 # 这是示例模块，后期可以不编译它
 # add_subdirectory ("arch-demo")
 # 在后面添加你的模块

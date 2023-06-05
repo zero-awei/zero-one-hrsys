@@ -7,11 +7,11 @@
 #ifndef _EDUCATIONDAO_H_
 #define _EDUCATIONDAO_H_
 #include "BaseDAO.h"
-#include "domain/do/Education/EducationDO.h"
-#include "domain/query/EducationPage/EducationPageQuery.h"
-#include "domain/query/EducationSingle/EducationSingleQuery.h"
-#include "domain/dto/Education/EducationDTO.h"
-#include "domain/dto/EducationAdd/EducationAddDTO.h"
+#include "domain/do/education/EducationDO.h"
+#include "domain/query/educationPage/EducationPageQuery.h"
+#include "domain/query/educationSingle/EducationSingleQuery.h"
+#include "domain/dto/education/EducationDTO.h"
+#include "domain/dto/educationAdd/EducationAddDTO.h"
 
 class EducationDAO : public BaseDAO
 {
@@ -30,7 +30,7 @@ public:
 	bool updateEducaiton(const EducationDO& data);
 
 	//功能5 ：单条删除教育信息DAO实现
-	int deleteEducaiton(EducationDO& data);
+	int deleteEducaiton(std::string id);
 
 	//功能6 ：多条删除教育信息DAO实现
 	//int deleteEducaitonNotSingle(string id);

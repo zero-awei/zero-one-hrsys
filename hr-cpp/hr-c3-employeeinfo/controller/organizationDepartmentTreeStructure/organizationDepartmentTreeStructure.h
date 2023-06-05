@@ -29,14 +29,16 @@
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
 /*
-* 定义查询所有部门结构树信息接口端点处理
-*/
+ * 定义查询所有部门结构树信息接口端点处理
+ */
 class organizationDepartmentTreeStructure : public oatpp::web::server::api::ApiController
 {
 	// 定义控制器访问入口
 	API_ACCESS_DECLARE(organizationDepartmentTreeStructure);
+
 public: // 定义接口
-	ENDPOINT_INFO(orgTreeQuery) {
+	ENDPOINT_INFO(orgTreeQuery)
+	{
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("org.field.summary");
 		// 添加默认授权参数
@@ -46,8 +48,9 @@ public: // 定义接口
 		// 定义其他表单参数描述
 		// 查询Sector的parent是OrmOrg还是OrmOrgsector
 	}
-	//定义查询部门信息接口端点处理
-	ENDPOINT(API_M_GET, "/organization-department-tree-structure/orgtree-query", orgTreeQuery, API_HANDLER_AUTH_PARAME) {
+	// 定义查询部门信息接口端点处理
+	ENDPOINT(API_M_GET, "/c3-employee-info/organization-department-tree-structure/orgtree-query", orgTreeQuery, API_HANDLER_AUTH_PARAME)
+	{
 		// 响应结果
 		API_HANDLER_RESP_VO(execOrgTreeQuery(authObject));
 		// API_HANDLER_RESP_VO(execOrgTreeQuery(nullptr));

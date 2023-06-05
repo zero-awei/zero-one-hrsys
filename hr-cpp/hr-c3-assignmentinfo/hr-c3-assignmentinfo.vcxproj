@@ -189,6 +189,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="uselib\jwt\AssignInfoToken.cpp" />
+    <ClCompile Include="uselib\ws\WSInstanceListener.cpp" />
+    <ClCompile Include="uselib\ws\WSListener.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\assignController\AssignInfoController.h" />
@@ -213,6 +215,9 @@
     <ClInclude Include="service\assignInfo\AssignInfoQueryService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="uselib\jwt\AssignInfoToken.h" />
+    <ClInclude Include="uselib\ws\WSController.h" />
+    <ClInclude Include="uselib\ws\WSInstanceListener.h" />
+    <ClInclude Include="uselib\ws\WSListener.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

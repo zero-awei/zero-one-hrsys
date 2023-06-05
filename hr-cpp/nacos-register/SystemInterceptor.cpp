@@ -16,7 +16,6 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#include "stdafx.h"
 #include <sstream>
 #include <string>
 #include <iostream>
@@ -31,7 +30,7 @@ using namespace oatpp::web::protocol::http::outgoing;
 
 #ifndef CHECK_TOKEN
 // 开启凭证检查，解开下一行注释即可
-#define CHECK_TOKEN
+//#define CHECK_TOKEN
 #endif
 
 // 定义一个临时凭证
@@ -104,7 +103,8 @@ std::shared_ptr<oatpp::web::server::interceptor::RequestInterceptor::OutgoingRes
 	if (path.find("/chat?") == 0 ||
 		path.find("/swagger/") == 0 || 
 		path.find("/api-docs/") == 0 || 
-		path.find("/system-kill/") == 0)
+		path.find("/system-kill/") == 0 ||
+		path.find("/file/") == 0)
 	{
 		return nullptr;
 	}

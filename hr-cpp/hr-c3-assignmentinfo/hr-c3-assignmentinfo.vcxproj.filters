@@ -39,6 +39,12 @@
     <ClCompile Include="uselib\jwt\AssignInfoToken.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="uselib\ws\WSInstanceListener.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\ws\WSListener.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macros.h">
@@ -105,6 +111,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="uselib\jwt\AssignInfoToken.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\ws\WSController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\ws\WSInstanceListener.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\ws\WSListener.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

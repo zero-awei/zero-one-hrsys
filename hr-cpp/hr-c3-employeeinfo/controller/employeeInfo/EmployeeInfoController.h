@@ -76,7 +76,7 @@ public:
 		API_DEF_ADD_QUERY_PARAMS(String, "photo", ZH_WORDS_GETTER("employee.field.photo"), u8"[{\"name\":\"组织管理.png\",\"id\":\"4d3c48ea78cc1d4a04bdb2142f136d28\"}]", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "phone", ZH_WORDS_GETTER("employee.field.phone"), "6666", false);*/
 	}
-	API_HANDLER_ENDPOINT_QUERY(API_M_GET, "/employee-info/employee-query", employeeQuery, EmployeeInfoQuery, execEmployeeQuery(query));
+	API_HANDLER_ENDPOINT_QUERY(API_M_GET, "/c3-employee-info/employee-query", employeeQuery, EmployeeInfoQuery, execEmployeeQuery(query));
 	/* *
 	* 增加指定员工信息
 	* 执行人：Detachment
@@ -92,7 +92,7 @@ public:
 // 		API_DEF_ADD_QUERY_PARAMS(String, "phone", ZH_WORDS_GETTER("employee.field.phone"), "10086", false);
 // 		API_DEF_ADD_QUERY_PARAMS(String, "state", ZH_WORDS_GETTER("employee.field.state"), "on", false);
 	};
-	API_HANDLER_ENDPOINT_AUTH(API_M_POST, "/employee-info/employee-post", employeePost, BODY_DTO(EmployeeInfoAddDTO::Wrapper, dto), execEmployeePut(dto, authObject->getPayload()));
+	API_HANDLER_ENDPOINT_AUTH(API_M_POST, "/c3-employee-info/employee-post", employeePost, BODY_DTO(EmployeeInfoAddDTO::Wrapper, dto), execEmployeePut(dto, authObject->getPayload()));
 	/* *
 	* 修改指定员工员工信息接口
 	* 执行人：Detachment
@@ -132,7 +132,7 @@ public:
 		API_DEF_ADD_QUERY_PARAMS(Int32, "blacklist", ZH_WORDS_GETTER("employee.field.blacklist"), 1, false);
 		API_DEF_ADD_QUERY_PARAMS(String, "photo", ZH_WORDS_GETTER("employee.field.photo"), u8"[{\"name\":\"组织管理.png\",\"id\":\"4d3c48ea78cc1d4a04bdb2142f136d28\"}]", false);*/
 	}
-	API_HANDLER_ENDPOINT_AUTH(API_M_PUT, "/employee-info/employee-put", employeePut,BODY_DTO(EmployeeInfoDTO::Wrapper,dto), execEmployeeModify(dto, authObject->getPayload()));
+	API_HANDLER_ENDPOINT_AUTH(API_M_PUT, "/c3-employee-info/employee-put", employeePut,BODY_DTO(EmployeeInfoDTO::Wrapper,dto), execEmployeeModify(dto, authObject->getPayload()));
 	/* *
 	* 岗位列表接口
 	* 执行人：Detachment
@@ -143,7 +143,7 @@ public:
 		API_DEF_ADD_PAGE_PARAMS();
 		//API_DEF_ADD_QUERY_PARAMS(String, "jobName", ZH_WORDS_GETTER("employee.field.jobList"), u8"炒面岗", true);
 	}
-	API_HANDLER_ENDPOINT_QUERY(API_M_GET, "/employee-info/job-list-query", jobListQuery, JobListQuery, execJobListQuery(query));
+	API_HANDLER_ENDPOINT_QUERY(API_M_GET, "/c3-employee-info/job-list-query", jobListQuery, JobListQuery, execJobListQuery(query));
 private: // 定义接口执行函数
 	/* *
 	* 查询指定员工员工信息执行接口

@@ -78,8 +78,8 @@ private:
 	std::string serverAddr;
 	//服务器端口
 	unsigned int port;
-
-#pragma region 动态库加载相关
+	
+#pragma region Define dynamic library function 
 	HMODULE m_hDll;
 	func_Initialize m_func_Initialize;
 	func_UnInitialize m_func_UnInitialize;
@@ -148,6 +148,18 @@ public:
 	// Parameter: const std::string & fileName 包含路径的上传文件名
 	//************************************
 	std::string uploadFile(const std::string& fileName);
+
+	//************************************
+	// Method:    uploadFile
+	// FullName:  FastDfsClient::uploadFile
+	// Access:    public 
+	// Returns:   std::string 上传成功返回fastdfs存储的文件名，包含：组名+文件名，上传失败返回空字符串
+	// Qualifier: 上传文件
+	// Parameter: const char * buff 文件二进制字节数据
+	// Parameter: size_t size 文件大小
+	// Parameter: const std::string& extName 文件后缀名
+	//************************************
+	std::string uploadFile(const char* buff, size_t size, const std::string& extName = "");
 	
 	//************************************
 	// Method:    downloadFile

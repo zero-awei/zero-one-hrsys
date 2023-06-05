@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "EducationController.h"
-#include "service/Education/EducationService.h"
+#include "service/education/EducationService.h"
 
 EducationPageJsonVO::Wrapper EducationController::execQueryEducationPage(const EducationPageQuery::Wrapper& query, const PayloadDTO& payload)
 {
@@ -93,33 +93,33 @@ Uint64JsonVO::Wrapper EducationController::execRemoveEducation(const EducationDe
 
 }
 
-EducationDeleteNotSingleJsonVO::Wrapper EducationController::execRemoveEducationNotSingle(const EducationDeleteNotSingleDTO::Wrapper& dto, const PayloadDTO& payload)
-{
-	
-
-	// 定义返回数据对象
-	auto jvo = EducationDeleteNotSingleJsonVO::createShared();
-	// 参数校验
-	if (!dto->deleteIds)
-	{
-		jvo->init(dto, RS_PARAMS_INVALID);
-		return jvo;
-	}
-	EducationService Service;
-
-	// 执行数据删除
-	/*if (Service.removeEducationNotSingle(dto)) {
-		jvo->success(dto);
-	}
-	else
-	{
-		jvo->fail(dto);
-	}*/
-	Service.removeEducationNotSingle(dto);
-	jvo->success(dto);
-	return jvo;
-	
-}
+//EducationDeleteNotSingleJsonVO::Wrapper EducationController::execRemoveEducationNotSingle(const EducationDeleteNotSingleDTO::Wrapper& dto, const PayloadDTO& payload)
+//{
+//	
+//
+//	// 定义返回数据对象
+//	auto jvo = EducationDeleteNotSingleJsonVO::createShared();
+//	// 参数校验
+//	if (!dto->deleteIds)
+//	{
+//		jvo->init(dto, RS_PARAMS_INVALID);
+//		return jvo;
+//	}
+//	EducationService Service;
+//
+//	// 执行数据删除
+//	/*if (Service.removeEducationNotSingle(dto)) {
+//		jvo->success(dto);
+//	}
+//	else
+//	{
+//		jvo->fail(dto);
+//	}*/
+//	Service.removeEducationNotSingle(dto);
+//	jvo->success(dto);
+//	return jvo;
+//	
+//}
 
 #define RTN(__VO__, __MSG__) __VO__->setStatus(__MSG__); \
 return __VO__;

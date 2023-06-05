@@ -3,7 +3,7 @@
 #include "EducationMapper.h"
 #include "SqlSession.h"
 #include "SnowFlake.h"
-#include "domain/dto/EducationAdd/EducationAddDTO.h"
+#include "domain/dto/educationAdd/EducationAddDTO.h"
 
 /**
  * 分页查询教育信息条件匹配宏
@@ -28,13 +28,15 @@ if (query->pimpersonid) { \
 std::list<EducationDO> EducationDAO::selectEducationPage(const EducationPageQuery::Wrapper& query)
 {
 	stringstream sql;
-	sql << "SELECT `PIMEDUCATIONID`, `XL`, `QSSJ`, `JSSJ`, `BYYX`, `XKML`, `SXZY`, `XLLX`, `XXXZ`, `SFDYXL`, `SFZGXL`, `BTZ`, `XWZ`, `XLCX`, `FJ` FROM t_pimeducation ";
-	//sql << "SELECT * FROM t_pimeducation";
+	//sql << "SELECT `PIMEDUCATIONID`, `XL`, `QSSJ`, `JSSJ`, `BYYX`, `XKML`, `SXZY`, `XLLX`, `XXXZ`, ";
+	//sql << "`SFDYXL`, `SFZGXL`, `BTZ`, `XWZ`, `XLCX`, `FJ` ";
+	//sql << " FROM t_pimeducation ";
+	sql << "SELECT * FROM `t_pimeducation`";
 	//EDUCATIONPAGE_TERAM_PARSE(query, sql);
 	SqlParams params; 
-	sql << " WHERE 1=1"; 
+	sql << " WHERE 1=1";
 	if (query->PIMPERSONID) {
-		sql << " AND `pimpersonid`=?"; 
+		sql << " AND `pimpersonid` = ?";
 		SQLPARAMS_PUSH(params, "s", std::string, query->PIMPERSONID.getValue(""));
 	}
 	sql << " LIMIT " << ((query->pageIndex - 1) * query->pageSize) << "," << query->pageSize;
@@ -46,11 +48,16 @@ std::list<EducationDO> EducationDAO::selectEducationPage(const EducationPageQuer
 
 uint64_t EducationDAO::count(const EducationPageQuery::Wrapper& query)
 {
+
 	stringstream sql;
 	sql << "SELECT COUNT(*) FROM `t_pimeducation`";
 	SqlParams params; 
 	sql << " WHERE 1=1";
-	//EDUCATIONPAGE_TERAM_PARSE(query, sql);
+	/*if (query->PIMPERSONID) {
+			sql << " AND `PIMPERSONID` = ?";
+			SQLPARAMS_PUSH(params, "s", std::string, query->PIMPERSONID.getValue(""));
+	} */
+	////EDUCATIONPAGE_TERAM_PARSE(query, sql);
 	string sqlStr = sql.str();
 	return sqlSession->executeQueryNumerical(sqlStr, params);
 }
@@ -100,9 +107,11 @@ bool EducationDAO::updateEducaiton(const EducationDO& data)
 		data.getFunBTZ(), data.getFunXWZ(), data.getFunXLCX(), data.getFunFJ(), data.getFunPIMEDUCATIONID());
 }
 
-int EducationDAO::deleteEducaiton(EducationDO& dObj)
+int EducationDAO::deleteEducaiton(std::string id)
 {
-	string sql = "DELETE FROM `t_pimeducation` WHERE `PIMPERSONID`=? AND `PIMEDUCATIONID`=?";
-	return sqlSession->executeUpdate(sql, "%s%s", dObj.getFunPIMPERSONID(), dObj.getFunPIMEDUCATIONID());
+	//数据库删除语句
+	//string sql = "DELETE FROM `t_pimeducation` WHERE `PIMPERSONID`=? AND `PIMEDUCATIONID`=?";
+	string sql = "DELETE FROM `t_pimeducation` WHERE `PIMEDUCATIONID` = ?";
+	return sqlSession->executeUpdate(sql, "%s", id);
 }
 
