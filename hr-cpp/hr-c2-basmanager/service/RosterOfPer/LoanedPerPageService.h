@@ -1,7 +1,4 @@
 #pragma once
-/*
-（人员花名册-借调人员-分页查询员工列表（导出本页在前端完成））--luoluo
-*/
 #ifndef _LOANEDPERPAGE_SERVICE_
 #define _LOANEDPERPAGE_SERVICE_
 #include <list>
@@ -9,6 +6,9 @@
 #include "domain/dto/RosterOfPer/LoanedPerPageDTO.h"
 #include "domain/vo/RosterOfPer/LoanedPerPageVO.h"
 
+/*
+（人员花名册-借调人员-分页查询员工列表（导出本页在前端完成））--luoluo
+*/
 class LoanedPerPageService
 {
 public:

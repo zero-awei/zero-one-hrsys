@@ -1,4 +1,6 @@
 #pragma once
+#ifndef _FORMEREMPLOYEES_DAO_
+#define _FORMEREMPLOYEES_DAO_
 #include "BaseDAO.h"
 #include "../../domain/do/RosterOfPer/FormerEmployeesDO.h"
 #include "../../domain/query/RosterOfPer/FormerEmployeesQuery.h"
@@ -17,3 +19,4 @@ public:
 	// 查询离职员工数据
 	list<FormerEmployeesDO> selectAll(const FormerEmployeesQuery::Wrapper& query);
 };
+#endif // !_FORMEREMPLOYEES_DAO_

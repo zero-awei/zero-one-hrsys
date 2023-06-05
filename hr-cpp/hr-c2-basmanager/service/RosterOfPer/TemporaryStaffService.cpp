@@ -2,16 +2,16 @@
 #include "TemporaryStaffService.h"
 #include "../../dao/RosterOfPer/TemporaryStaffDAO.h"
 
-//#ifdef LINUX
-//#include "../../ServerInfo.h"
-//#include "NacosClient.h"
-//#include "YamlHelper.h"
-//#endif
-
 #include "CharsetConvertHepler.h"
 #include "ExcelComponent.h"
-#include "FastDfsClient.h"
 #include <cstdio>
+#include "FastDfsClient.h"
+
+#ifdef LINUX
+#include "../../ServerInfo.h"
+#include "NacosClient.h"
+#include "YamlHelper.h"
+#endif
 /**
 * 挂职人员service--(人员花名册-挂职人员-分页查询员工列表)--weixiaoman
 */

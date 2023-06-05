@@ -3,8 +3,14 @@
 #include "../../dao/RosterOfPer/LoanedPerDAO.h"
 #include "CharsetConvertHepler.h"
 #include "ExcelComponent.h"
-#include "FastDfsClient.h"
 #include <cstdio>
+#include "FastDfsClient.h"
+
+#ifdef LINUX
+#include "../../ServerInfo.h"
+#include "NacosClient.h"
+#include "YamlHelper.h"
+#endif
 /*
 （人员花名册-借调人员功能)--luoluo
 */

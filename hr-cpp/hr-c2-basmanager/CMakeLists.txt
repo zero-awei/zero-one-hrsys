@@ -3,8 +3,6 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-# 定义Demo项目需要使用的特定宏【仅Demo项目需要配置】
-add_definitions(-DHTTP_SERVER_DEMO)
 
 # 设置文件名称
 set (appName hr-c2-basmanager)
@@ -75,9 +73,7 @@ if(USE_MONGO)
 endif()
 
 # 复制配置到调试时可执行文件所在的目录
-# public目录【仅Demo项目需要配置】
-file (GLOB publicDir "public/*")
-file (COPY ${publicDir} DESTINATION "${PROJECT_BINARY_DIR}/${appName}/public")
+
 # RSA公钥证书
 file (COPY "public.pem" DESTINATION ${PROJECT_BINARY_DIR}/${appName})
 # FastDFS配置文件
@@ -95,8 +91,7 @@ if(IS_UBUNTU)
 endif()
 
 # 安装文件
-# public目录【仅Demo项目需要配置】
-install (DIRECTORY "public" DESTINATION ${appName})
+
 # 可执行文件
 install (TARGETS ${appName} RUNTIME DESTINATION ${appName})
 # RSA公钥证书

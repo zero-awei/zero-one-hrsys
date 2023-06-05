@@ -17,4 +17,4 @@ public:
 	list<RetiredEmployeesDO> selectWithPage(const CheckRetiresListQuery::Wrapper& query);
 
 };
-#endif // !_SAMPLE_DAO_
+#endif // !_CHECH_RETIRES_LIST_DAO_
