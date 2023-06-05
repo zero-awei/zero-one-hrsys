@@ -63,6 +63,9 @@
     <ClInclude Include="dao\Familysituation\FamilysituationMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="uselib\jwt\FamilysituationToken.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -84,6 +87,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="service\familysituation\FamilysituationService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\jwt\FamilysituationToken.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

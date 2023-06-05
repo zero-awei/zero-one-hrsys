@@ -1,4 +1,4 @@
-﻿# CMakeList.txt: arch-demo 的 CMake 项目，在此处包括源代码并定义
+﻿# CMakeList.txt: hr-c3-familysituation 的 CMake 项目，在此处包括源代码并定义
 # 项目特定的逻辑。
 #
 cmake_minimum_required (VERSION 3.8)
@@ -7,7 +7,7 @@ cmake_minimum_required (VERSION 3.8)
 add_definitions(-DHTTP_SERVER_DEMO)
 
 # 设置文件名称
-set (appName arch-demo)
+set (appName hr-c3-familysituation)
 
 # 包含库目录
 include_directories ("./")
@@ -53,7 +53,7 @@ if(USE_MONGO STREQUAL OFF)
 endif()
 
 # 编译可执行文件
-add_executable (${appName} ${SC_FILES})
+add_executable (${appName} ${SC_FILES} "uselib/ws/WSController.h" "uselib/ws/WSController.h" "uselib/ws/WSInstanceListener.cpp" "uselib/ws/WSInstanceListener.h" "uselib/ws/WSListener.cpp" "uselib/ws/WSListener.h")
 
 # 链接库
 target_link_libraries (${appName} "lib-common" "lib-oatpp" "lib-mysql")
