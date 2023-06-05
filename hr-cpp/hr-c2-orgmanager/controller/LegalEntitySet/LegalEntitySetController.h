@@ -123,14 +123,10 @@ public:
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他查询参数描述
-		// 签约主体单位名称
+		// 签约主体单位名称,管理单位标识
 		info->queryParams.add<String>("contractsignorgname").description = ZH_WORDS_GETTER("LegalEntitySet.field.ormsignorgname");
 		info->queryParams["contractsignorgname"].addExample("default", String(ZH_WORDS_GETTER("LegalEntitySet.sample.name1")));
 		info->queryParams["contractsignorgname"].required = false;
-		// 管理单位标识当作管理单位名称
-		info->queryParams.add<String>("ormorgid").description = ZH_WORDS_GETTER("LegalEntitySet.field.ormorgid");
-		info->queryParams["ormorgid"].addExample("default", String("102"));
-		info->queryParams["ormorgid"].required = false;
 	}
 	// 定义查询法人主体信息接口处理
 	ENDPOINT(API_M_GET, "/org/query-LES", queryLES, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {

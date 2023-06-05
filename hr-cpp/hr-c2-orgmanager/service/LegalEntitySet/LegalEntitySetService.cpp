@@ -85,7 +85,7 @@ LegalEntitySetQueryPageDTO::Wrapper LegalEntitySetService::listAll(const LegalEn
 	for (LegalEntitySetDO sub : result)
 	{
 		auto dto = LegalEntitySetQueryDTO::createShared();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, ormsignorgid, ORMSIGNORGID, ormorgid, ORMORGID, signorgid, SIGNORGID, isdefaultsignorg, ISDEFAULTSIGNORG);
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, contractsignorgid, CONTRACTSIGNORGID, contractsignorgname, CONTRACTSIGNORGNAME, ormsignorgid, ORMSIGNORGID, ormorgid, ORMORGID, isdefaultsignorg, ISDEFAULTSIGNORG);
 		pages->addData(dto);
 	}
 	return pages;
