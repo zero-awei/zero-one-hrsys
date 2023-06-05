@@ -1,20 +1,20 @@
 <template>
-  <div class="hr-btn" @click="toB">A组件</div>
+  <div class="hr-btn" @click="toA">B组件</div>
 </template>
 
 <script setup>
 const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
 // 给B发消息
-let val = ref('hello B')
-const toB = () => {
-  mitt.emit('callB', val.value)
+let val = ref('hello A')
+const toA = () => {
+  mitt.emit('callA', val.value)
 }
 
 // 绑定触发函数
 const fn = (val) => {
-  console.log(`output->A`, val)
+  console.log(`output->B`, val)
 }
-mitt.on('callA', fn)
+mitt.on('callB', fn)
 </script>
 
 <style lang="scss" scoped>
