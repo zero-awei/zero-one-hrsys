@@ -21,7 +21,7 @@
 #define _IMPORTLANGUAGEDTO_H_
 
 #include "../../GlobalInclude.h"
-#include "../Language/LanguageDTO.h"
+#include "../language/LanguageDTO.h"
 
 
 #include OATPP_CODEGEN_BEGIN(DTO)

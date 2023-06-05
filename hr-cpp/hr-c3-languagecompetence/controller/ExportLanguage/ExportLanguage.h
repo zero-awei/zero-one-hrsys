@@ -24,8 +24,8 @@
 #include "ApiHelper.h"
 #include "Macros.h"
 #include "ServerInfo.h"
-#include "domain/dto/DownloadLanguage/DownloadLanguageDTO.h"
-#include "domain/query/EmployeeLanguareQuery/EmployeeLanguageExportQuery.h"
+#include "domain/dto/downloadLanguage/DownloadLanguageDTO.h"
+#include "domain/query/employeeLanguareQuery/EmployeeLanguageExportQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 /**
@@ -47,7 +47,7 @@ public: // 定义接口
 		info->queryParams["id"].addExample("default", String("0000001"));
 		info->queryParams["id"].required = true;
 	}
-	ENDPOINT(API_M_GET, "/language/download-language", downloadLanguage, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/c3-language-info/download-language", downloadLanguage, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
 		API_HANDLER_QUERY_PARAM(query, EmployeeLanguageExportQuery, qps);
 		API_HANDLER_RESP_VO(execDownloadLanguage(query));
 	}

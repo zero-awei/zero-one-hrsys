@@ -24,7 +24,7 @@
 #include "ApiHelper.h"
 #include "SimpleDateTimeFormat.h"
 #include "CharsetConvertHepler.h"
-#include "domain/dto/ImportLanguage/ImportLanguageDTO.h"
+#include "domain/dto/importLanguage/ImportLanguageDTO.h"
 
 // 文件上传
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
@@ -64,7 +64,7 @@ public: // 定义接口
 		API_DEF_ADD_QUERY_PARAMS(String, "personID", ZH_WORDS_GETTER("sample.field.id"), "66958E87-91A4-4DA8-8124-060E93B47EBE", false);
 	};
 	//定义一个单文件上传接口处理
-	ENDPOINT(API_M_POST, "/language/upload-language", importLanguage, /*API_HANDLER_AUTH_PARAME,*/ REQUEST(std::shared_ptr<IncomingRequest>, request)) {
+	ENDPOINT(API_M_POST, "/c3-language-info/upload-language", importLanguage, /*API_HANDLER_AUTH_PARAME,*/ REQUEST(std::shared_ptr<IncomingRequest>, request)) {
 		/* 创建multipart容器 */
 		auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
 		/* 创建multipart读取器 */

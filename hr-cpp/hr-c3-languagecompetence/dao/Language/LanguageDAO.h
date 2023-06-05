@@ -3,9 +3,9 @@
 #define _LANGUAGE_DAO_
 
 #include "BaseDAO.h"
-#include "../../domain/do/Language/LanguageDO.h"
-#include "../../domain/query/Language/LanguageQuery.h"
-#include "../../domain/query/LanguagePage/LanguagePageQuery.h"
+#include "../../domain/do/language/LanguageDO.h"
+#include "../../domain/query/language/LanguageQuery.h"
+#include "../../domain/query/languagePage/LanguagePageQuery.h"
 
 /**
  * 关于语言能力模块的数据库操作

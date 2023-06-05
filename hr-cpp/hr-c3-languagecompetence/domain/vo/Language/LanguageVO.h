@@ -21,7 +21,7 @@
 #define _LANGUAGE_VO_
 
 #include "../../GlobalInclude.h"
-#include "../../dto/Language/LanguageDTO.h"
+#include "../../dto/language/LanguageDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
