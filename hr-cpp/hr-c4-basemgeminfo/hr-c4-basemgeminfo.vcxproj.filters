@@ -384,6 +384,57 @@
     <ClInclude Include="dao\trainingrecord\TrainingRecordMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\rewardandpunishmentinformation\RewardAndPunishmentInformationController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\rewardandpunishmentinformation\RewardAndPunishmentInformationDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\rewardandpunishmentinformation\RewardAndPunishmentInformationMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\rewardandpunishmentinformation\RewardAndPunishmentInformationDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\AddRewardAndPunishmentInformationDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\DelRewardAndPunishmentInformationDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\RewardAndPunishmentInformationDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\RewardAndPunishmentInformationFindDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\RewardAndPunishmentInformationIntoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\trainingrecord\TrainingRecordDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\trainingrecord\TrainingRecordDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\rewardandpunishmentinformation\RewardAndPunishmentInformationPageQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\trainingrecord\TrainingRecordQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\rewardandpunishmentinformation\RewardAndPunishmentInformationPageQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\rewardandpunishmentinformation\RewardAndPunishmentInformationVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\trainingrecord\TrainingRecordVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\rewardandpunishmentinformation\RewardAndPunishmentInformationService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -498,6 +549,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="dao\trainingrecord\TrainingRecordDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\rewardandpunishmentinformation\RewardAndPunishmentInformationController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\rewardandpunishmentinformation\RewardAndPunishmentInformationDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\rewardandpunishmentinformation\RewardAndPunishmentInformationService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

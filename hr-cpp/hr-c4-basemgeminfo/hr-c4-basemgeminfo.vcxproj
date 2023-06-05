@@ -177,6 +177,7 @@
     <ClInclude Include="controller\jobtitle-information\JobTitleInformationController.h" />
     <ClInclude Include="controller\military\MilitaryController.h" />
     <ClInclude Include="controller\Pimarmycadres\PimarmycadresController.h" />
+    <ClInclude Include="controller\rewardandpunishmentinformation\RewardAndPunishmentInformationController.h" />
     <ClInclude Include="controller\rewardandpunish\RewardAndPunishController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\scientific\ScientificController.h" />
@@ -195,6 +196,8 @@
     <ClInclude Include="dao\military\MilitaryMapper.h" />
     <ClInclude Include="dao\Pimarmycadres\PimarmycadresDAO.h" />
     <ClInclude Include="dao\Pimarmycadres\PimarmycadresMapper.h" />
+    <ClInclude Include="dao\rewardandpunishmentinformation\RewardAndPunishmentInformationDAO.h" />
+    <ClInclude Include="dao\rewardandpunishmentinformation\RewardAndPunishmentInformationMapper.h" />
     <ClInclude Include="dao\rewardandpunish\RewardAndPunishDAO.h" />
     <ClInclude Include="dao\rewardandpunish\RewardAndPunishMapper.h" />
     <ClInclude Include="dao\scientific\ScientificDAO.h" />
@@ -216,10 +219,12 @@
     <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresDO.h" />
     <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresFindDO.h" />
     <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresIntoDO.h" />
+    <ClInclude Include="domain\do\rewardandpunishmentinformation\RewardAndPunishmentInformationDO.h" />
     <ClInclude Include="domain\do\rewardandpunish\RewardAndPunishDO.h" />
     <ClInclude Include="domain\do\scientific\Scientific.h" />
     <ClInclude Include="domain\do\scientific\ScientificDO.h" />
     <ClInclude Include="domain\do\SciResult\SciResultDO.h" />
+    <ClInclude Include="domain\do\trainingrecord\TrainingRecordDO.h" />
     <ClInclude Include="domain\do\work-history\AddWorkHistoryDO.h" />
     <ClInclude Include="domain\do\work-history\DelWorkHistoryDO.h" />
     <ClInclude Include="domain\do\work-history\ModWorkHistoryDO.h" />
@@ -236,6 +241,11 @@
     <ClInclude Include="domain\dto\pimarmycadres\DelPimarmycadresDTO.h" />
     <ClInclude Include="domain\dto\pimarmycadres\PimarmycadresFindDTO.h" />
     <ClInclude Include="domain\dto\pimarmycadres\PimarmycadresIntoDTO.h" />
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\AddRewardAndPunishmentInformationDTO.h" />
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\DelRewardAndPunishmentInformationDTO.h" />
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\RewardAndPunishmentInformationDTO.h" />
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\RewardAndPunishmentInformationFindDTO.h" />
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\RewardAndPunishmentInformationIntoDTO.h" />
     <ClInclude Include="domain\dto\rewardandpunish\RewardAndPunishDTO.h" />
     <ClInclude Include="domain\dto\scientific\ScientificDTO.h" />
     <ClInclude Include="domain\dto\sciresult\Add2SciResultDTO.h" />
@@ -243,6 +253,7 @@
     <ClInclude Include="domain\dto\sciresult\DelSciResultDTO.h" />
     <ClInclude Include="domain\dto\sciresult\IntoSciResultDTO.h" />
     <ClInclude Include="domain\dto\sciresult\SciResultDTO.h" />
+    <ClInclude Include="domain\dto\trainingrecord\TrainingRecordDTO.h" />
     <ClInclude Include="domain\dto\work-history\AddWorkHistoryDTO.h" />
     <ClInclude Include="domain\dto\work-history\DelWorkHistoryDTO.h" />
     <ClInclude Include="domain\dto\work-history\ModWorkHistoryDTO.h" />
@@ -259,9 +270,11 @@
     <ClInclude Include="domain\query\military\MilitaryQuery.h" />
     <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresPageQuery.h" />
     <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresQuery.h" />
+    <ClInclude Include="domain\query\rewardandpunishmentinformation\RewardAndPunishmentInformationPageQuery.h" />
     <ClInclude Include="domain\query\rewardandpunish\RewardAndPunishQuery.h" />
     <ClInclude Include="domain\query\scientific\ScientificQuery.h" />
     <ClInclude Include="domain\query\SciResult\SciResultQuery.h" />
+    <ClInclude Include="domain\query\trainingrecord\TrainingRecordQuery.h" />
     <ClInclude Include="domain\query\work-history\WorkHistoryExportQuery.h" />
     <ClInclude Include="domain\query\work-history\WorkHistoryIntoQuery.h" />
     <ClInclude Include="domain\query\work-history\WorkHistoryPageQuery.h" />
@@ -272,9 +285,12 @@
     <ClInclude Include="domain\vo\contract\ContractVO.h" />
     <ClInclude Include="domain\vo\military\MilitaryVO.h" />
     <ClInclude Include="domain\vo\Pimarmycadres\PimarmycadresVO.h" />
+    <ClInclude Include="domain\vo\rewardandpunishmentinformation\RewardAndPunishmentInformationPageQuery.h" />
+    <ClInclude Include="domain\vo\rewardandpunishmentinformation\RewardAndPunishmentInformationVO.h" />
     <ClInclude Include="domain\vo\rewardandpunish\RewardAndPunishVO.h" />
     <ClInclude Include="domain\vo\scientific\ScientificVO.h" />
     <ClInclude Include="domain\vo\SciResult\SciResultVO.h" />
+    <ClInclude Include="domain\vo\trainingrecord\TrainingRecordVO.h" />
     <ClInclude Include="domain\vo\work-history\ModWorkHistoryVO.h" />
     <ClInclude Include="domain\vo\work-history\WorkHistoryExportVO.h" />
     <ClInclude Include="domain\vo\work-history\WorkHistoryFindVO.h" />
@@ -287,6 +303,7 @@
     <ClInclude Include="service\contract\ContractService.h" />
     <ClInclude Include="service\military\MilitaryService.h" />
     <ClInclude Include="service\Pimarmycadres\PimarmycadresService.h" />
+    <ClInclude Include="service\rewardandpunishmentinformation\RewardAndPunishmentInformationService.h" />
     <ClInclude Include="service\rewardandpunish\RewardAndPunishService.h" />
     <ClInclude Include="service\scientific\ScientificService.h" />
     <ClInclude Include="service\sciresult\SciResultService.h" />
@@ -302,6 +319,7 @@
     <ClCompile Include="controller\jobtitle-information\JobTitleInformationController.cpp" />
     <ClCompile Include="controller\military\MilitaryController.cpp" />
     <ClCompile Include="controller\Pimarmycadres\PimarmycadresController.cpp" />
+    <ClCompile Include="controller\rewardandpunishmentinformation\RewardAndPunishmentInformationController.cpp" />
     <ClCompile Include="controller\rewardandpunish\RewardAndPunishController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\scientific\ScientificController.cpp" />
@@ -315,6 +333,7 @@
     <ClCompile Include="dao\contract\ContractDAO.cpp" />
     <ClCompile Include="dao\military\MilitaryDAO.cpp" />
     <ClCompile Include="dao\Pimarmycadres\PimarmycadresDAO.cpp" />
+    <ClCompile Include="dao\rewardandpunishmentinformation\RewardAndPunishmentInformationDAO.cpp" />
     <ClCompile Include="dao\rewardandpunish\RewardAndPunishDAO.cpp" />
     <ClCompile Include="dao\scientific\ScientificDAO.cpp" />
     <ClCompile Include="dao\SciResult\SciResultDAO.cpp" />
@@ -327,6 +346,7 @@
     <ClCompile Include="service\contract\ContractService.cpp" />
     <ClCompile Include="service\military\MilitaryService.cpp" />
     <ClCompile Include="service\Pimarmycadres\PimarmycadresService.cpp" />
+    <ClCompile Include="service\rewardandpunishmentinformation\RewardAndPunishmentInformationService.cpp" />
     <ClCompile Include="service\rewardandpunish\RewardAndPunishService.cpp" />
     <ClCompile Include="service\scientific\ScientificService.cpp" />
     <ClCompile Include="service\sciresult\SciResultService.cpp" />
