@@ -15,7 +15,6 @@
     <ClCompile Include="uselib\jwt\TestToken.cpp" />
     <ClCompile Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.cpp" />
     <ClCompile Include="controller\projTag\deleteProjTag\DeleteProjTagController.cpp" />
-    <ClCompile Include="controller\itemLabel\ItemLabelController.cpp" />
     <ClCompile Include="controller\jobSet\jobUpdate\JobUpdateController.cpp" />
     <ClCompile Include="controller\jobSet\jobOutput\JobOutputController.cpp" />
     <ClCompile Include="service\projTag\ProjTagService.cpp" />
@@ -38,8 +37,9 @@
     <ClCompile Include="dao\jobSet\jobExportDAO\JobExportDAO.cpp" />
     <ClCompile Include="dao\orgbz\PageQueryBzDAO.cpp" />
     <ClCompile Include="service\orgbz\PageQueryBzService.cpp" />
-    <ClCompile Include="service\itemLabel\ItemLabelService.cpp" />
-    <ClCompile Include="dao\itemLabel\ItemLabelDAO.cpp" />
+    <ClCompile Include="controller\projTag\itemLabel\ItemLabelController.cpp" />
+    <ClCompile Include="service\projTag\itemLabel\ItemLabelService.cpp" />
+    <ClCompile Include="dao\projTag\itemLabel\ItemLabelDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -73,7 +73,6 @@
     <ClInclude Include="controller\projTag\deleteProjTag\DeleteProjTagController.h" />
     <ClInclude Include="domain\dto\projTag\DeleteProjTagDTO.h" />
     <ClInclude Include="domain\query\projTag\PageProjTagQuery.h" />
-    <ClInclude Include="controller\itemLabel\ItemLabelController.h" />
     <ClInclude Include="domain\dto\itemLabel\ItemLabelDTO.h" />
     <ClInclude Include="domain\query\itemlabel\ItemlabelQuery.h" />
     <ClInclude Include="domain\vo\itemLabel\ItemLabelVO.h" />
@@ -129,10 +128,11 @@
     <ClInclude Include="domain\dto\orgbz\PageQueryBzDTO.h" />
     <ClInclude Include="domain\vo\orgbz\PageQueryBzVO.h" />
     <ClInclude Include="service\orgbz\PageQueryBzService.h" />
-    <ClInclude Include="service\itemLabel\ItemLabelService.h" />
-    <ClInclude Include="dao\itemLabel\ItemLabelDAO.h" />
-    <ClInclude Include="dao\itemLabel\ItemLabelMapper.h" />
     <ClInclude Include="domain\dto\jobSet\jobUpdate\JobUpdateDTO.h" />
     <ClInclude Include="domain\dto\jobSet\jobDownload\JobDownloadDTO.h" />
+    <ClInclude Include="controller\projTag\itemLabel\ItemLabelController.h" />
+    <ClInclude Include="service\projTag\itemLabel\ItemLabelService.h" />
+    <ClInclude Include="dao\projTag\itemLabel\ItemLabelDAO.h" />
+    <ClInclude Include="dao\projTag\itemLabel\ItemLabelMapper.h" />
   </ItemGroup>
 </Project>

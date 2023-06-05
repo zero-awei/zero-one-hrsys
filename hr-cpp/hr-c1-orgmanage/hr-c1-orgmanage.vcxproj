@@ -159,7 +159,6 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="controller\itemLabel\ItemLabelController.cpp" />
     <ClCompile Include="controller\jobSet\addJobController\AddJobController.cpp" />
     <ClCompile Include="controller\jobSet\jobOutput\JobOutputController.cpp" />
     <ClCompile Include="controller\jobSet\jobUpdate\JobUpdateController.cpp" />
@@ -167,6 +166,7 @@
     <ClCompile Include="controller\projTag\addTagController\AddTagController.cpp" />
     <ClCompile Include="controller\projTag\deleteProjTag\DeleteProjTagController.cpp" />
     <ClCompile Include="controller\projTag\importTagController\ImportTagController.cpp" />
+    <ClCompile Include="controller\projTag\itemLabel\ItemLabelController.cpp" />
     <ClCompile Include="controller\projTag\modifyProjTagController\ModifyProjTagController.cpp" />
     <ClCompile Include="controller\jobSet\postDeleteController\PostDeleteController.cpp" />
     <ClCompile Include="controller\jobSet\postQueryController\PostQueryController.cpp" />
@@ -176,7 +176,6 @@
     <ClCompile Include="controller\projTag\queryOrgList\QueryOrgListController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
-    <ClCompile Include="dao\itemLabel\ItemLabelDAO.cpp" />
     <ClCompile Include="dao\jobSet\jobExportDAO\JobExportDAO.cpp" />
     <ClCompile Include="dao\jobSet\JobSetDAO.cpp" />
     <ClCompile Include="dao\jobSet\jobUpdateDAO\JobUpdteDAO.cpp" />
@@ -184,15 +183,16 @@
     <ClCompile Include="dao\jobSet\postQueryDAO\PostQueryDAO.cpp" />
     <ClCompile Include="dao\orgbz\PageQueryBzDAO.cpp" />
     <ClCompile Include="dao\projTag\DeleteProjTagDAO.cpp" />
+    <ClCompile Include="dao\projTag\itemLabel\ItemLabelDAO.cpp" />
     <ClCompile Include="dao\projTag\ProjTagDAO.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="service\itemLabel\ItemLabelService.cpp" />
     <ClCompile Include="service\jobSet\JobSetService.cpp" />
     <ClCompile Include="service\jobSet\jobUpdateService\JobUpdateService.cpp" />
     <ClCompile Include="service\jobSet\postDeleteService\PostDeleteService.cpp" />
     <ClCompile Include="service\jobSet\postQueryService\PostQueryService.cpp" />
     <ClCompile Include="service\orgbz\PageQueryBzService.cpp" />
     <ClCompile Include="service\projTag\deleteProjTagService\DeleteProjTagService.cpp" />
+    <ClCompile Include="service\projTag\itemLabel\ItemLabelService.cpp" />
     <ClCompile Include="service\projTag\ProjTagService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -205,7 +205,6 @@
     <ClCompile Include="uselib\jwt\TestToken.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="controller\itemLabel\ItemLabelController.h" />
     <ClInclude Include="controller\jobSet\addJobController\AddJobController.h" />
     <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
     <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
@@ -218,12 +217,11 @@
     <ClInclude Include="controller\jobSet\importJobController\ImportJobController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\projTag\exportProjTagController\ExportProjTagController.h" />
+    <ClInclude Include="controller\projTag\itemLabel\ItemLabelController.h" />
     <ClInclude Include="controller\projTag\modifyProjTagController\ModifyProjTagController.h" />
     <ClInclude Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.h" />
     <ClInclude Include="controller\projTag\queryOrgList\QueryOrgListController.h" />
     <ClInclude Include="controller\Router.h" />
-    <ClInclude Include="dao\itemLabel\ItemLabelDAO.h" />
-    <ClInclude Include="dao\itemLabel\ItemLabelMapper.h" />
     <ClInclude Include="dao\jobSet\jobExportDAO\JobExportDAO.h" />
     <ClInclude Include="dao\jobSet\jobExportDAO\JobExportMapper.h" />
     <ClInclude Include="dao\jobSet\JobSetDAO.h" />
@@ -234,6 +232,8 @@
     <ClInclude Include="dao\orgbz\PageQueryBzDAO.h" />
     <ClInclude Include="dao\orgbz\PageQueryBzMapper.h" />
     <ClInclude Include="dao\projTag\DeleteProjTagDAO.h" />
+    <ClInclude Include="dao\projTag\itemLabel\ItemLabelDAO.h" />
+    <ClInclude Include="dao\projTag\itemLabel\ItemLabelMapper.h" />
     <ClInclude Include="dao\projTag\OrgListMapper.h" />
     <ClInclude Include="dao\projTag\ProjTagDAO.h" />
     <ClInclude Include="dao\projTag\ProjTagListMapper.h" />
@@ -285,13 +285,13 @@
     <ClInclude Include="domain\vo\projTag\ProjTagVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
-    <ClInclude Include="service\itemLabel\ItemLabelService.h" />
     <ClInclude Include="service\jobSet\JobSetService.h" />
     <ClInclude Include="service\jobSet\jobUpdateService\JobUpdateService.h" />
     <ClInclude Include="service\jobSet\postDeleteService\PostDeleteService.h" />
     <ClInclude Include="service\jobSet\postQueryService\PostQueryService.h" />
     <ClInclude Include="service\orgbz\PageQueryBzService.h" />
     <ClInclude Include="service\projTag\deleteProjTagService\DeleteProjTagService.h" />
+    <ClInclude Include="service\projTag\itemLabel\ItemLabelService.h" />
     <ClInclude Include="service\projTag\ProjTagService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="uselib\excel\ExportExcel.h" />
