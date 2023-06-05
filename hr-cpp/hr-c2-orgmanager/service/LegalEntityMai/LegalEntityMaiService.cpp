@@ -114,8 +114,9 @@ uint64_t LegalEntityMaiService::savaBatchDataWithFile(const std::string fileName
 		data.setUpdatedate(time.format());
 
 		// ≤Â»Î ˝æ›
-		dao.insert(data);
+		if (!dao.insert(data)) return -1;
 	}
+	return 1;
 }
 
 bool LegalEntityMaiService::deleteById(const LegalEntityMaiDelDTO::Wrapper& dto)
