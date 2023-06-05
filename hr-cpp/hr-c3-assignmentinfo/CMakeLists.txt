@@ -4,7 +4,7 @@
 cmake_minimum_required (VERSION 3.8)
 
 # 定义Demo项目需要使用的特定宏【仅Demo项目需要配置】
-add_definitions(-DHTTP_SERVER_DEMO)
+# add_definitions(-DHTTP_SERVER_DEMO)
 
 # 设置文件名称
 set (appName hr-c3-assignmentinfo)
