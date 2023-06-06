@@ -156,7 +156,7 @@ importInfoVO::Wrapper EmployeeInformationServicer::addMultiEmployee(const Import
 	}
 
 	// 生成SnowFlake对象
-	SnowFlake sf(1, 1);//雪花算法
+	SnowFlake sf(1, 3);//雪花算法
 	string name = payload.getId();
 	string day = SimpleDateTimeFormat::format();//获取当前时间格式字符串
 	// 文件数据到DO
