@@ -198,6 +198,10 @@
     <ClCompile Include="src\ResultStatus.cpp" />
     <ClCompile Include="src\ErrorHandler.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib-oatpp\lib64\oatpp.lib" />
+    <Library Include="lib-oatpp\lib\oatpp.lib" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

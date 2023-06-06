@@ -4,8 +4,8 @@
 
 #include "domain/vo/BaseJsonVO.h"
 #include "ApiHelper.h"
-#include "domain/query/ContractCategory/ContractCategoryQuery.h"
-#include "domain/dto/ContractCategory/ContractCategoryDTO.h"
+#include "domain/query/contractcategory/ContractCategoryQuery.h"
+#include "domain/dto/contractcategory/ContractCategoryDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 

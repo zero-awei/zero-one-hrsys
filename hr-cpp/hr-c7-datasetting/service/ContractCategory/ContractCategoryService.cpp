@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "ContractCategoryService.h"
-#include "../../dao/ContractCategory/ContractCategoryDAO.h"
+#include "../../dao/contractcategory/ContractCategoryDAO.h"
 
 #include "../../../lib-common/include/SnowFlake.h"
 

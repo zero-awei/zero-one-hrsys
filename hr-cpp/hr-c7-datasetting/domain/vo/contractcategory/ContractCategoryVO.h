@@ -3,7 +3,7 @@
 #define _CONTRACTCATEGORYVO_H_
 
 #include "../../GlobalInclude.h"
-#include "../../dto/ContractCategory/ContractCategoryDTO.h"
+#include "../../dto/contractcategory/ContractCategoryDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 

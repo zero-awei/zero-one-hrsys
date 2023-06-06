@@ -3,7 +3,7 @@
 #define _CONTRACTCATEGORYMAPPER_H_
 
 #include "Mapper.h"
-#include "../../domain/do/ContractCategory/ContractCategoryDO.h"
+#include "../../domain/do/contractcategory/ContractCategoryDO.h"
 
 /**
  * 

@@ -20,12 +20,8 @@
 #include "Router.h"
 #include "ApiHelper.h"
 
-#ifdef HTTP_SERVER_DEMO
-#include "user/UserController.h"
-#include "sample/SampleController.h"
-#include "uselib/ws/WSController.h"
-#endif
-#include"ContractType/ContractTypeController.h"
+
+#include"contractType/ContractTypeController.h"
 #include"Certificate/CertificateController.h"
 #include "archive/ArchiveController.h"
 #include "Qualification/QualificationController.h"

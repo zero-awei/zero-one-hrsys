@@ -2,8 +2,8 @@
 #ifndef _CONTRACTDAO_H_
 #define _CONTRACTDAO_H_
 #include "BaseDAO.h"
-#include "../../domain/do/contractType/ContractTypeDO.h"
-#include "../../domain/query/contractType/ContractTypeQuery.h"
+#include "../../domain/do/ContractType/ContractTypeDO.h"
+#include "../../domain/query/ContractType/ContractTypeQuery.h"
 
 class ContractTypeDAO : public BaseDAO
 {

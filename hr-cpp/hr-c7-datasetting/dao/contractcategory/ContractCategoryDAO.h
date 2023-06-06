@@ -3,8 +3,8 @@
 #define _CONTRACT_CATEGORY_DAO_H_
 
 #include "BaseDAO.h"
-#include "../../domain/do/ContractCategory/ContractCategoryDO.h"
-#include "../../domain/query/ContractCategory/ContractCategoryQuery.h"
+#include "../../domain/do/contractcategory/ContractCategoryDO.h"
+#include "../../domain/query/contractcategory/ContractCategoryQuery.h"
 
 /**
  * 合同类型表数据库操作实现

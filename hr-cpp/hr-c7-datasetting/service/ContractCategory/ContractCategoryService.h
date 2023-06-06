@@ -2,9 +2,9 @@
 #ifndef _CONTRACTCATEGORY_SERVICE_
 #define _CONTRACTCATEGORY_SERVICE_
 #include <list>
-#include "domain/vo/ContractCategory/ContractCategoryVO.h"
-#include "domain/query/ContractCategory/ContractCategoryQuery.h"
-#include "domain/dto/ContractCategory/ContractCategoryDTO.h"
+#include "domain/vo/contractcategory/ContractCategoryVO.h"
+#include "domain/query/contractcategory/ContractCategoryQuery.h"
+#include "domain/dto/contractcategory/ContractCategoryDTO.h"
 
 /**
  * 合同类别服务实现
