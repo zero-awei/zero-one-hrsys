@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _PAPER_QUERY_
-#define _PAPER_QUERY_
+#ifndef _PAPERINFO_QUERY_
+#define _PAPERINFO_QUERY_
 
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
