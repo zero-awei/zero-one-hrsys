@@ -29,6 +29,10 @@ public:
 		data.setIsTemp(resultSet->getString(12));
 		data.setPostNature(resultSet->getString(13));
 		data.setStartStopSign(resultSet->getString(14));
+		data.setIsTemp(resultSet->getString(15));
+		data.setNx(resultSet->getUInt(16));
+		data.setBxjlnx(resultSet->getUInt(17));
+		data.setXh(resultSet->getUInt(18));
 
 		return data;
 	}

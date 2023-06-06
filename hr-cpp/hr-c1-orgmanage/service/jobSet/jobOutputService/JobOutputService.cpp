@@ -18,13 +18,18 @@ std::string JobOutputService::exportJobInfomation(const PostDetailQuery::Wrapper
 		vector<string> tmp;
 		tmp.push_back(item.getOrmPostId());
 		tmp.push_back(item.getOrmPostName());
+		tmp.push_back(item.getUpdateMan());
+		tmp.push_back(item.getUpdateDate());
 		tmp.push_back(item.getCreateMan());
 		tmp.push_back(item.getCreateDate());
+		tmp.push_back(to_string(item.getXh()));
 		tmp.push_back(item.getOrmOrgId());
 		tmp.push_back(item.getGwType());
 		tmp.push_back(item.getGwfl());
 		tmp.push_back(item.getIsConfidential());
 		tmp.push_back(item.getIsTemp());
+		tmp.push_back(to_string(item.getNx()));
+		tmp.push_back(to_string(item.getBxjlnx()));
 		tmp.push_back(item.getIsKeyPostion());
 		tmp.push_back(item.getPostNature());
 		tmp.push_back(item.getStartStopSign());
@@ -33,7 +38,7 @@ std::string JobOutputService::exportJobInfomation(const PostDetailQuery::Wrapper
 
 	// 生成数据表表头
 	vector<string> head = dao.getJobInfoHead();
-	head.erase(head.begin() + 11);
+	head.erase(head.begin() + 8, head.begin() + 10);
 
 	// 导出到Excel文件
 	data.insert(data.begin(), head);

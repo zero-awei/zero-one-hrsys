@@ -6,7 +6,7 @@ std::list<PostDetailDO> JobExportDAO::exportJobInfo(const PostDetailQuery::Wrapp
 	stringstream sqltmp;
 	sqltmp << "SELECT `ORMPOSTID`, `ORMPOSTNAME`, `ISKEYPOSTION`, `CREATEMAN`, ";
 	sqltmp << "`UPDATEMAN`, `CREATEDATE`, `UPDATEDATE`, `ORMORGID`, `GWTYPE`, `GWFL`, `ISCONFIDENTIAL`, ";
-	sqltmp << "`ISTEMP`, `POSTNATURE`, `STARTSTOPSIGN` FROM `t_ormpost`";
+	sqltmp << "`ISTEMP`, `POSTNATURE`, `STARTSTOPSIGN`, `ISTEMP`, `NX`, `BXJLNX`, `XH`, `LGNX`, `QZLGNX` FROM `t_ormpost`";
 	sqltmp << "ORDER BY `XH` ";
 	string sql = sqltmp.str();
 	if (query->sortTypeAndMethod == "DESC") {
