@@ -8,7 +8,7 @@ if (__DO__.getOrmPostName() != "") { \
 	SQLPARAMS_PUSH(params, "s", std::string, __DO__.getIsKeyPostion()); \
 } \
 if (__DO__.getIsKeyPostion() != "") { \
-	__SQL__ << " `ISKEYPOSITION`=?,"; \
+	__SQL__ << " `ISKEYPOSTION`=?,"; \
 	SQLPARAMS_PUSH(params, "s", std::string, __DO__.getIsKeyPostion()); \
 } \
 if (__DO__.getOrmOrgId() != "") { \
