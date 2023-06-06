@@ -99,6 +99,51 @@ std::list<EmployeeInformationPageDO> EmployeeInformationDAO::selectWithPage(cons
 // 插入数据
 uint64_t EmployeeInformationDAO::insert(const EmployeeInformationPageDO& iObj)
 {
-	string sql= "INSERT INTO `t_pimperson` (`PIMPERSONID`,`CREATEMAN`,`CREATEDATE`,`PIMPERSONNAME`,`NL`,`YGBH`,`ZZ`,`BM`,`ZW`,`GW`,`ZJHM`,`CSRQ`,`LXDH`,`YGZT`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	return sqlSession->executeUpdate(sql,"%s%s%s%s%i%s%s%s%s%s%s%s%s%s",iObj.getPersonId(),iObj.getCreateMan(),iObj.getCreateDate(),iObj.getName(),iObj.getAge(),iObj.getId(),iObj.getOrganize(),iObj.getDepart(),iObj.getJob(), iObj.getPost(),iObj.getIdMum(),iObj.getBirthday(),iObj.getPhone(),iObj.getState());
+	string sql= "INSERT INTO `t_pimperson` (`PIMPERSONID`,`CREATEMAN`,`CREATEDATE`,`PIMPERSONNAME`,\
+    `NL`,`YGBH`,`ZZ`,`BM`,`ZW`,`GW`,`ZJHM`,`CSRQ`,`LXDH`,`YGZT`) \
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	return sqlSession->executeUpdate(sql,"%s%s%s%s%i%s%s%s%s%s%s%s%s%s",\
+		iObj.getPersonId(),iObj.getCreateMan(),iObj.getCreateDate(),iObj.getName(),iObj.getAge(),\
+		iObj.getId(),iObj.getOrganize(),iObj.getDepart(),iObj.getJob(), iObj.getPost(),iObj.getIdMum(),\
+		iObj.getBirthday(),iObj.getPhone(),iObj.getState());
 }
+//导员工信息（批量新增员工信息）
+std::list<std::string> EmployeeInformationDAO::insertMultiEmp(const std::list<EmployeeInformationPageDO>& data) {
+	// 构建返回对象
+	std::list<std::string> res;
+
+	// 开启事务处理
+	sqlSession->beginTransaction();
+
+	// 调用新增岗位设置
+	for (auto item : data)
+	{
+		// 调用单个新增
+		string sql = "INSERT INTO `t_ormpost` (`PIMPERSONID`,`CREATEMAN`,`CREATEDATE`,`PIMPERSONNAME`,\
+    `NL`,`YGBH`,`ZZ`,`BM`,`ZW`,`GW`,`ZJHM`,`CSRQ`,`LXDH`,`YGZT`) \
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+		int row = sqlSession->executeUpdate(sql, "%s%s%s%s%i%s%s%s%s%s%s%s%s%s", \
+			item.getPersonId(), item.getCreateMan(), item.getCreateDate(), item.getName(), item.getAge(), \
+			item.getId(), item.getOrganize(), item.getDepart(), item.getJob(), item.getPost(), item.getIdMum(), \
+			item.getBirthday(), item.getPhone(), item.getState());
+
+		// 新增成功将id加入返回列表中
+		if (row == 1)
+		{
+			res.push_back(item.getPersonId());
+		}
+		// 否则则回滚并返回失败
+		else
+		{
+			sqlSession->rollbackTransaction();
+			res.clear();
+			return res;
+		}
+	}
+
+	// 全部新增成功则提交并返回成功
+	sqlSession->commitTransaction();
+	return res;
+}
+

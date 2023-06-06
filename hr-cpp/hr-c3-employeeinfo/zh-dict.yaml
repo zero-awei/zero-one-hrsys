@@ -166,4 +166,12 @@ orgsector:
     parentkey: 查询parent的id
     page: 页码
     size: 页的记录数
+#员工信息-导入员工信息
+importInfo:
+  import:
+    summary: 导入员工信息
+    fileType: 文件类型(xlx/xlsx/csv)
+    sheetName: 数据表名
+    file: 待导入文件
+    id: 新增id
     

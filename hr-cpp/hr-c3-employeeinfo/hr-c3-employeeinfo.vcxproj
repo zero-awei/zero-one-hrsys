@@ -175,6 +175,7 @@
     <ClInclude Include="domain\dto\EmployeeInformationPageQuery\EmployeeInformationPageQueryDTO.h" />
     <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoAddDTO.h" />
     <ClInclude Include="domain\dto\employeeInfo\EmployeeInfoDTO.h" />
+    <ClInclude Include="domain\dto\importInfo\ImportInfoDTO.h" />
     <ClInclude Include="domain\dto\org\ImportDTO.h" />
     <ClInclude Include="domain\dto\org\MemberDTO.h" />
     <ClInclude Include="domain\dto\org\OrgDTO.h" />
@@ -189,6 +190,7 @@
     <ClInclude Include="domain\query\orgquery\SectorQuery.h" />
     <ClInclude Include="domain\query\orgquery\ValidOrgQuery.h" />
     <ClInclude Include="domain\vo\EmployeeInformation\EmployeeInformationVO.h" />
+    <ClInclude Include="domain\vo\importInfo\importInfoVO.h" />
     <ClInclude Include="domain\vo\org\ImportVO.h" />
     <ClInclude Include="domain\vo\org\MemberVO.h" />
     <ClInclude Include="domain\vo\org\OrgSectorVO.h" />
