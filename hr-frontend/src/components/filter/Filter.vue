@@ -142,16 +142,6 @@ function clearForm() {
   setAttrOfObj(props.data)
 }
 
-const dutyStatusOptions = [
-  {
-    value: 'on',
-    label: '在岗'
-  },
-  {
-    value: 'off',
-    label: '离岗'
-  }
-]
 </script>
 
 <style lang="scss" scoped>
