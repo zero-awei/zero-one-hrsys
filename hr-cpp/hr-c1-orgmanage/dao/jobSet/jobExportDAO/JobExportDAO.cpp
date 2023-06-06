@@ -8,16 +8,25 @@ std::list<PostDetailDO> JobExportDAO::exportJobInfo(const PostDetailQuery::Wrapp
 	sqltmp << "`UPDATEMAN`, `CREATEDATE`, `UPDATEDATE`, `ORMORGID`, `GWTYPE`, `GWFL`, `ISCONFIDENTIAL`, ";
 	sqltmp << "`ISTEMP`, `POSTNATURE`, `STARTSTOPSIGN` FROM `t_ormpost`";
 	sqltmp << "ORDER BY `XH` ";
-	string sql = sqltmp.str() + query->sortTypeAndMethod;
+	string sql = sqltmp.str();
+	if (query->sortTypeAndMethod == "DESC") {
+		string sql = sqltmp.str() + " DESC";
+	}
+	else if(query->sortTypeAndMethod == "ASC"){
+		string sql = sqltmp.str() + " ASC";
+	}
 	//统计岗位信息数量
 	stringstream sqlcount;
 	sqlcount << "SELECT COUNT(`ORMPOSTID`) FROM `t_ormpost`";
 	string count = sqlcount.str();
 	int infoCount=sqlSession->executeQueryNumerical(count);
 	//限制导出数量
-	if (infoCount>5000) {
-		infoCount = 5000;
-		sql + " LIMIT " + to_string(infoCount);
+	if (infoCount) {
+		if (infoCount > 5000) {
+			infoCount = 5000;
+			sql + " LIMIT " + to_string(infoCount);
+		}
+
 	}
 
 	JobExportMapper mapper;
