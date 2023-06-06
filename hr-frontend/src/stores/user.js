@@ -87,7 +87,7 @@ let testMenus = [
 
         text: '挂职员工',
         icon: 'IconSetting',
-        path: '/gzryhmcgridview'
+        path: '/temporyStaff'
       }
     ]
   },
@@ -124,6 +124,41 @@ let testMenus = [
         path: '/termination',
         icon: 'IconUser',
         pid: 2
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: '档案管理',
+    icon: 'Management',
+    children: [
+      {
+        id: 2,
+        text: '档案信息',
+        path: '/archivesinfo',
+        icon: 'Management',
+        pid: 4
+      },
+      {
+        id: 3,
+        text: '非员工在档提醒',
+        path: '/onfilereminder',
+        icon: 'ScaleToOriginal',
+        pid: 4
+      },
+      {
+        id: 4,
+        text: '员工不在档提醒',
+        path: '/outfilereminder',
+        icon: 'Postcard',
+        pid: 4
+      },
+      {
+        id: 5,
+        text: '档案转出记录',
+        path: '/filetransferrecord',
+        icon: 'DocumentRemove',
+        pid: 4
       }
     ]
   },

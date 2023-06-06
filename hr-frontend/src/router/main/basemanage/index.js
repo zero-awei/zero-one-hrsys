@@ -126,9 +126,9 @@ const routes = [
     component: () => import('@/views/baseManage/roster/Jdyg.vue')
   },
   {
-    path: '/gzryhmcgridview',
-    name: 'gzryhmcgridview',
-    component: () => import('@/views/baseManage/roster/Gzyg.vue')
+    path: '/temporyStaff',
+    name: 'temporyStaff',
+    component: () => import('@/views/baseManage/roster/TemporyStaff.vue')
   },
   {
     path: '/dispatch',
