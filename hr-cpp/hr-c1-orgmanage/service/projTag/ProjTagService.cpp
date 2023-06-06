@@ -186,8 +186,8 @@ std::string ProjTagService::exportProjTag(const ExportProjTagQuery::Wrapper& que
 	{
 		vector<string> tmp;
 		tmp.push_back(item.getId());
-		tmp.push_back(item.getTagName());
 		tmp.push_back(item.getCreator());
+		tmp.push_back(item.getTagName());
 		tmp.push_back(item.getUpdater());
 		tmp.push_back(item.getCreateTime());
 		tmp.push_back(item.getUpdateTime());
