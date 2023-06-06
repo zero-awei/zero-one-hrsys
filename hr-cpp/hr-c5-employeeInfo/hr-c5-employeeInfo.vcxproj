@@ -222,6 +222,7 @@
     <ClInclude Include="domain\vo\NotEmployeeInArchive\NotEmployeeInArchiveVO.h" />
     <ClInclude Include="domain\vo\J_paperinfo\J_PaperVO.h" />
     <ClInclude Include="domain\vo\J_patentinfo\J_PatentinfoVO.h" />
+    <ClInclude Include="domain\vo\paptentinfo\PatentinfoVO.h" />
     <ClInclude Include="domain\vo\UpdateArchiveInfo\UpdateArchiveInfoVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />

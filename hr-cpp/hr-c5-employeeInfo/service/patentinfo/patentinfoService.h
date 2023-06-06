@@ -2,7 +2,7 @@
 
 #ifndef PATENTINFO_SERVICE_
 #define PATENTINFO_SERVICE_
-#include "domain/vo/patentinfo/PatentinfoVO.h"
+#include "domain/vo/paptentinfo/PatentinfoVO.h"
 #include "domain/query/patentinfo/PatentinfoQuery.h"
 #include "domain/dto/patentinfo/PatentinfoDTO.h"
 #include "domain/dto/patentinfo/DelPatentDTO.h"

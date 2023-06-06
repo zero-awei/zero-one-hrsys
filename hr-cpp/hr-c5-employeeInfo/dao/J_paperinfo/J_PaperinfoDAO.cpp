@@ -6,7 +6,7 @@
 
 
 // 查看指定员工论文信息（指定论文信息详情）
-std::list<PaperinfoDO> PaperinfoDAO::selectBypimpaperid(const string& st)
+std::list<J_PaperinfoDO> PaperinfoDAO::selectBypimpaperid(const string& st)
 {
 	//string sql = "SELECT \
 	//	GRZLWZZZDPM,\
@@ -45,12 +45,12 @@ std::list<PaperinfoDO> PaperinfoDAO::selectBypimpaperid(const string& st)
 
 
 	PaperinfoMapper mapper;
-	return sqlSession->executeQuery<PaperinfoDO, PaperinfoMapper>(sql, mapper, "%s", st);
+	return sqlSession->executeQuery<J_PaperinfoDO, PaperinfoMapper>(sql, mapper, "%s", st);
 }
 
 
 // 修改数据
-int PaperinfoDAO::update(const PaperinfoDO& uObj)
+int PaperinfoDAO::update(const J_PaperinfoDO& uObj)
 {
 	int CountMark = 0;//标识修改语句使“，”位置正确
 	stringstream sql;

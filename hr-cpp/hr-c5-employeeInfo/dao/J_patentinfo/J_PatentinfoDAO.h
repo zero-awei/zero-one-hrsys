@@ -13,9 +13,9 @@ public:
 
 
 	// 通过专利信息编码查询数据
-	list<PatentinfoDO> selectByPIMPATENTID(const string& pimpatentid);
+	list<J_PatentinfoDO> selectByPIMPATENTID(const string& pimpatentid);
 	// 修改数据
-	int update(const PatentinfoDO& uObj);
+	int update(const J_PatentinfoDO& uObj);
 
 };
 #endif // !_PATENTINFO_DAO_

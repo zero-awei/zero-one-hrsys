@@ -10,14 +10,14 @@
 /**
  * 专利信息传输对象
  */
-class PatentinfoDTO : public oatpp::DTO
+class J_PatentinfoDTO : public oatpp::DTO
 {
 
 public:
-    PatentinfoDTO() {};
-    PatentinfoDTO(String zlh, String pimpatentname) :zlh(zlh), pimpatentname(pimpatentname) {};
+	J_PatentinfoDTO() {};
+	J_PatentinfoDTO(String zlh, String pimpatentname) :zlh(zlh), pimpatentname(pimpatentname) {};
 
-    DTO_INIT(PatentinfoDTO, DTO);
+    DTO_INIT(J_PatentinfoDTO, DTO);
 
 	//CREATEDATE : 建立时间
 	DTO_FIELD(String, createdate);
@@ -199,9 +199,9 @@ public:
 /**
  * 分页传输对象
  */
-class PatentinfoPageDTO : public PageDTO<PatentinfoDTO::Wrapper>
+class J_PatentinfoPageDTO : public PageDTO<J_PatentinfoDTO::Wrapper>
 {
-    DTO_INIT(PatentinfoPageDTO, PageDTO<PatentinfoDTO::Wrapper>);
+    DTO_INIT(J_PatentinfoPageDTO, PageDTO<J_PatentinfoDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

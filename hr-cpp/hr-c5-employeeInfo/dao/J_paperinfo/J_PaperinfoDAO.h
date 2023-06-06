@@ -12,9 +12,9 @@ class PaperinfoDAO : public BaseDAO
 public:
 
 	// 通过论文信息编码查询数据
-	list<PaperinfoDO> selectBypimpaperid(const string& st);
+	list<J_PaperinfoDO> selectBypimpaperid(const string& st);
 	// 修改数据
-	int update(const PaperinfoDO& uObj);
+	int update(const J_PaperinfoDO& uObj);
 
 };
 #endif // !_PAPERINFO_DAO_

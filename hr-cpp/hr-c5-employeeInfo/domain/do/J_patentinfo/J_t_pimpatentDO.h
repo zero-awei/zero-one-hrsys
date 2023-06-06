@@ -6,7 +6,7 @@
 /**
  * 专利数据库实体类
  */
-class PatentinfoDO
+class J_PatentinfoDO
 {
     //ZLH:专利号
     CC_SYNTHESIZE(string, zlh, ZLH);
@@ -60,7 +60,7 @@ class PatentinfoDO
 	CC_SYNTHESIZE(string, ygbh, YGBH);
 
 public:
-    PatentinfoDO() {
+    J_PatentinfoDO() {
 
         zlh = "";
         updatedate = "";

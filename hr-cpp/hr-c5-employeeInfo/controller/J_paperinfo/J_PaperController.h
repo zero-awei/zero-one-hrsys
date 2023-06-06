@@ -28,7 +28,7 @@ public: // 定义接口
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("paperInformation.select.summary");
 		// 定义响应参数类型
-		API_DEF_ADD_RSP_JSON_WRAPPER(PaperinfoJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(J_PaperinfoJsonVO);
 		//专利信息编码
 		info->queryParams.add<String>("pimpaperid").description = ZH_WORDS_GETTER("paperInformation.pimpaper.pimpaperid");
 		info->queryParams["pimpaperid"].addExample("default", String("FB0BE96B-1F65-4190-9AD7-9AD1C60450A5"));
@@ -59,7 +59,7 @@ public: // 定义接口
 private: // 定义接口执行函数
 
 	//查看指定员工论文信息（指定论文信息详情）
-	PaperinfoJsonVO::Wrapper execSelectByPimpaperid(const String& str);
+	J_PaperinfoJsonVO::Wrapper execSelectByPimpaperid(const String& str);
 
 	//修改指定员工论文信息（单条修改）
 	Uint64JsonVO::Wrapper execModifyByPimpaperid(const ModifyPaperinfoDTO::Wrapper& dto);

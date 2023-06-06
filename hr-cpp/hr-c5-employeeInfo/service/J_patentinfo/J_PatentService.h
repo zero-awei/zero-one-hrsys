@@ -15,7 +15,7 @@ class PatentService
 {
 public:
 	// 查询所有数据
-	PatentinfoDTO::Wrapper listAll(const string& pimpatentid);
+	J_PatentinfoDTO::Wrapper listAll(const string& pimpatentid);
 
 	// 修改数据
 	bool updateData(const ModifyPatentinfoDTO::Wrapper& dto);

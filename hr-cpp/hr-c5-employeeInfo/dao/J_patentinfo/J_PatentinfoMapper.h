@@ -8,12 +8,12 @@
 /**
  * 专利信息表字段匹配映射
  */
-class PatentinfoMapper : public Mapper<PatentinfoDO>
+class PatentinfoMapper : public Mapper<J_PatentinfoDO>
 {
 public:
-	PatentinfoDO mapper(ResultSet* resultSet) const override
+	J_PatentinfoDO mapper(ResultSet* resultSet) const override
 	{
-		PatentinfoDO data;
+		J_PatentinfoDO data;
 		//data.setZLH(resultSet->getString(1));
 		//data.setUPDATEDATE(resultSet->getString(2));
 		//data.setPIMPATENTID(resultSet->getString(3));

@@ -8,12 +8,12 @@
 /**
  * 论文信息表字段匹配映射
  */
-class PaperinfoMapper : public Mapper<PaperinfoDO>
+class PaperinfoMapper : public Mapper<J_PaperinfoDO>
 {
 public:
-	PaperinfoDO mapper(ResultSet* resultSet) const override
+	J_PaperinfoDO mapper(ResultSet* resultSet) const override
 	{
-		PaperinfoDO data;
+		J_PaperinfoDO data;
 
 		data.setCBS(resultSet->getString(1));
 		data.setCBSHKWMC(resultSet->getString(2));

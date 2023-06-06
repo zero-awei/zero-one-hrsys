@@ -6,7 +6,7 @@
 /**
  * 专利数据库实体类
  */
-class PaperinfoDO
+class J_PaperinfoDO
 {
     //GRZLWZZZDPM:个人在论文著作中的排名
     CC_SYNTHESIZE(string, grzlwzzzdpm, GRZLWZZZDPM);
@@ -64,7 +64,7 @@ class PaperinfoDO
 
 
 public:
-    PaperinfoDO() {
+	J_PaperinfoDO() {
 
 		grzlwzzzdpm = "";
 		updateman = "";

@@ -6,15 +6,15 @@
 
 
 // 查询指定论文信息详情
-PaperinfoDTO::Wrapper PaperService::listAll(const string& st)
+J_PaperinfoDTO::Wrapper PaperService::listAll(const string& st)
 {
 	// 构建返回对象
 	PaperinfoDAO dao;
 	//查询数据
-	list<PaperinfoDO> result = dao.selectBypimpaperid(st);
+	list<J_PaperinfoDO> result = dao.selectBypimpaperid(st);
 	//将DO转换成DTO
-	auto dto = PaperinfoDTO::createShared();
-	for (PaperinfoDO sub : result)
+	auto dto = J_PaperinfoDTO::createShared();
+	for (J_PaperinfoDO sub : result)
 	{
 		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub,
 			grzlwzzzdpm, GRZLWZZZDPM,
@@ -53,7 +53,7 @@ PaperinfoDTO::Wrapper PaperService::listAll(const string& st)
 bool PaperService::updateData(const ModifyPaperinfoDTO::Wrapper& dto)
 {
 	// 组装DO数据
-	PaperinfoDO data;
+	J_PaperinfoDO data;
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, PIMPAPERNAME, pimpapername, CBS, cbs, KWMC, kwmc, KWQS, kwqs, FBSJ, fbsj, GRZLWZZZDPM, grzlwzzzdpm, FJ, fj, PIMPAPERID, pimpaperid,UPDATEDATE,updatedate,UPDATEMAN,updateman)
 		// 执行数据修改
 		PaperinfoDAO dao;

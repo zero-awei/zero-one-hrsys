@@ -3,15 +3,15 @@
 #include "../../dao/J_patentinfo/J_PatentinfoDAO.h"
 
 //查询所有数据
-PatentinfoDTO::Wrapper PatentService::listAll(const string& pimpatentid)
+J_PatentinfoDTO::Wrapper PatentService::listAll(const string& pimpatentid)
 {
 	// 构建返回对象
 	PatentinfoDAO dao;
 	// 查询数据
-	list<PatentinfoDO> result = dao.selectByPIMPATENTID(pimpatentid);
+	list<J_PatentinfoDO> result = dao.selectByPIMPATENTID(pimpatentid);
 	//将DO转换成DTO
-	auto dto = PatentinfoDTO::createShared();
-	for (PatentinfoDO sub : result)
+	auto dto = J_PatentinfoDTO::createShared();
+	for (J_PatentinfoDO sub : result)
 	{
 		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub,
 			zlh, ZLH,
@@ -49,7 +49,7 @@ PatentinfoDTO::Wrapper PatentService::listAll(const string& pimpatentid)
 bool PatentService::updateData(const ModifyPatentinfoDTO::Wrapper& dto)
 {
 	// 组装DO数据
-	PatentinfoDO data;
+	J_PatentinfoDO data;
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, ZLH, zlh, PIMPATENTNAME, pimpatentname, ZLHQSJ, zlhqsj, ZLPZGB, zlpzgb, ENCLOLURE, enclolure, PIMPATENTID, pimpatentid,UPDATEDATE,updatedate, UPDATEMAN,updateman)
 		// 执行数据修改
 		PatentinfoDAO dao;

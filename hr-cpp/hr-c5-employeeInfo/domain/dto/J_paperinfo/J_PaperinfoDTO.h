@@ -10,13 +10,13 @@
 /**
  * 论文信息传输对象
  */
-class PaperinfoDTO : public oatpp::DTO
+class J_PaperinfoDTO : public oatpp::DTO
 {
 
 public:
-    PaperinfoDTO() {};
+	J_PaperinfoDTO() {};
 
-    DTO_INIT(PaperinfoDTO, DTO);
+    DTO_INIT(J_PaperinfoDTO, DTO);
 
 	//CBS:出版社
 	DTO_FIELD(String, cbs);
@@ -219,9 +219,9 @@ public:
 /**
  * 分页传输对象
  */
-class PaperinfoPageDTO : public PageDTO<PaperinfoDTO::Wrapper>
+class J_PaperinfoPageDTO : public PageDTO<J_PaperinfoDTO::Wrapper>
 {
-    DTO_INIT(PaperinfoPageDTO, PageDTO<PaperinfoDTO::Wrapper>);
+    DTO_INIT(J_PaperinfoPageDTO, PageDTO<J_PaperinfoDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

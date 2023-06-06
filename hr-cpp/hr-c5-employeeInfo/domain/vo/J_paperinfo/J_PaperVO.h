@@ -10,12 +10,12 @@
 /**
  * 论文信息显示JsonVO，用于响应给客户端的Json对象
  */
-class PaperJsonVO : public JsonVO<PaperinfoDTO::Wrapper> {
-	DTO_INIT(PaperJsonVO, JsonVO<PaperinfoDTO::Wrapper>);
+class J_PaperJsonVO : public JsonVO<J_PaperinfoDTO::Wrapper> {
+	DTO_INIT(J_PaperJsonVO, JsonVO<J_PaperinfoDTO::Wrapper>);
 };
 
-class PaperinfoJsonVO : public JsonVO<PaperinfoDTO::Wrapper> {
-	DTO_INIT(PaperinfoJsonVO, JsonVO<PaperinfoDTO::Wrapper>);
+class J_PaperinfoJsonVO : public JsonVO<J_PaperinfoDTO::Wrapper> {
+	DTO_INIT(J_PaperinfoJsonVO, JsonVO<J_PaperinfoDTO::Wrapper>);
 };
 
 
@@ -23,8 +23,8 @@ class PaperinfoJsonVO : public JsonVO<PaperinfoDTO::Wrapper> {
 /**
  * 论文信息分页显示JsonVO，用于响应给客户端的Json对象
  */
-class PaperPageJsonVO : public JsonVO<PaperinfoPageDTO::Wrapper> {
-	DTO_INIT(PaperPageJsonVO, JsonVO<PaperinfoPageDTO::Wrapper>);
+class J_PaperPageJsonVO : public JsonVO<J_PaperinfoPageDTO::Wrapper> {
+	DTO_INIT(J_PaperPageJsonVO, JsonVO<J_PaperinfoPageDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

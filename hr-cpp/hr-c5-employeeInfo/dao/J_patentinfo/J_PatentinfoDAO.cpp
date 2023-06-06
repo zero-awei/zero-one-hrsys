@@ -6,7 +6,7 @@
 
 
 // 查看指定员工专利信息（指定专利信息详情）
-std::list<PatentinfoDO> PatentinfoDAO::selectByPIMPATENTID(const string& pimpatentid)
+std::list<J_PatentinfoDO> PatentinfoDAO::selectByPIMPATENTID(const string& pimpatentid)
 {
 
 	//string sql = "SELECT ZLH,UPDATEDATE,PIMPATENTID,ZLHQSJ,PIMPATENTNAME,\
@@ -32,12 +32,12 @@ std::list<PatentinfoDO> PatentinfoDAO::selectByPIMPATENTID(const string& pimpate
 
 
 	PatentinfoMapper mapper;
-	return sqlSession->executeQuery<PatentinfoDO, PatentinfoMapper>(sql, mapper, "%s", pimpatentid);
+	return sqlSession->executeQuery<J_PatentinfoDO, PatentinfoMapper>(sql, mapper, "%s", pimpatentid);
 }
 
 
 // 修改数据
-int PatentinfoDAO::update(const PatentinfoDO& uObj)
+int PatentinfoDAO::update(const J_PatentinfoDO& uObj)
 {
 	//int CountReturn = 0;//确定是否返回正确
 	//int CountMark = 0;//标识修改语句使“，”位置正确

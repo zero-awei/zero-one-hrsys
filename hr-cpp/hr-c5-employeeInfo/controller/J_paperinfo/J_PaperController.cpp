@@ -3,14 +3,14 @@
 #include "../../service/J_paperinfo/J_PaperService.h"
 
 //查看指定员工论文信息（指定论文信息详情）
-PaperinfoJsonVO::Wrapper J_PaperController::execSelectByPimpaperid(const String& str)
+J_PaperinfoJsonVO::Wrapper J_PaperController::execSelectByPimpaperid(const String& str)
 {
 	// 定义一个Service
 	PaperService service;
 	// 查询数据
 	auto result = service.listAll(str);
 	//创建响应对象
-	auto vo = PaperinfoJsonVO::createShared();
+	auto vo = J_PaperinfoJsonVO::createShared();
 	vo->success(result);
 	return vo;
 }
