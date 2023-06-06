@@ -33,7 +33,7 @@ public:
 	// 插入数据
 	uint64_t insert(const EmployeeInformationPageDO& iObj);
     //导员工信息（批量新增员工信息）
-	std::list<std::string> insertMultiEmp(const std::list<EmployeeInformationPageDO>& data);
+	//std::list<std::string> insertMultiEmp(const std::list<EmployeeInformationPageDO>& data);
 
 };
 
