@@ -2,6 +2,7 @@
 #include "J_PatentinfoController.h"
 #include "../../service/J_patentinfo/J_PatentService.h"
 
+
 PatentinfoJsonVO::Wrapper J_PatentinfoController::execQueryPatentinfo(const String& str)
 {
 	// 定义一个Service
