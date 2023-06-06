@@ -85,7 +85,7 @@ add_subdirectory ("nacos-register")
 # 这是示例模块，后期可以不编译它
 # add_subdirectory ("arch-demo")
 # 在后面添加你的模块
-#add_subdirectory("hr-c3-assignmentinfo")
+add_subdirectory("hr-c3-assignmentinfo")
 #add_subdirectory("hr-c3-educationinfo")
 #add_subdirectory("hr-c3-employeeinfo")
 add_subdirectory("hr-c3-familysituation")

@@ -23,19 +23,19 @@
 
 StringJsonVO::Wrapper AssignInfoController::execAddAssignInfo(const AssignInfoDTO::Wrapper& dto, const PayloadDTO& payload)
 {
-	// ¶¨Òå·µ»ØÊý¾Ý¶ÔÏó
+	// å®šä¹‰è¿”å›žæ•°æ®å¯¹è±¡
 	auto jvo = StringJsonVO::createShared();
-	// ²ÎÊýÐ£Ñé
-	// ·Ç¿ÕÐ£Ñé
+	// å‚æ•°æ ¡éªŒ
+	// éžç©ºæ ¡éªŒ
 	if (!dto->assignId)
 	{
 		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 
-	// ¶¨ÒåÒ»¸öService
+	// å®šä¹‰ä¸€ä¸ªService
 	AssignInfoService service;
-	// Ö´ÐÐÊý¾ÝÐÂÔö
+	// æ‰§è¡Œæ•°æ®æ–°å¢ž
 	auto id = service.saveData(dto,payload);
 	if (id > 0) {
 		jvo->success(String(id));
@@ -44,25 +44,25 @@ StringJsonVO::Wrapper AssignInfoController::execAddAssignInfo(const AssignInfoDT
 	{
 		jvo->fail(String(id));
 	}
-	//ÏìÓ¦½á¹û
+	//å“åº”ç»“æžœ
 	return jvo;
 }
 
 StringJsonVO::Wrapper AssignInfoController::execDeleteAssignInfo(const AssignInfoDTO::Wrapper& dto)
 {
-	// ¶¨Òå·µ»ØÊý¾Ý¶ÔÏó
+	// å®šä¹‰è¿”å›žæ•°æ®å¯¹è±¡
 	auto jvo = StringJsonVO::createShared();
-	//// ²ÎÊýÐ£Ñé
+	//// å‚æ•°æ ¡éªŒ
 	if (!dto->assignId)
 	{
 		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 
-	// ¶¨ÒåÒ»¸öService
+	// å®šä¹‰ä¸€ä¸ªService
 	AssignInfoService service;
 	auto id = service.removeData(dto->assignId.getValue(""));
-	// Ö´ÐÐÊý¾ÝÉ¾³ý
+	// æ‰§è¡Œæ•°æ®åˆ é™¤
 	if (id > 0) {
 		jvo->success(String(id));
 	}
@@ -70,33 +70,26 @@ StringJsonVO::Wrapper AssignInfoController::execDeleteAssignInfo(const AssignInf
 	{
 		jvo->fail(String(id));
 	}
-	// ÏìÓ¦½á¹û
+	// å“åº”ç»“æžœ
 	return jvo;
 }
 
-//µ¼Èë²»ÐèÒªÐ´execº¯Êý
-//ImportAssignInfoJsonVO::Wrapper AssignInfoController::execImportAssignInfo(const ImportAssignInfoDTO::Wrapper& dto)
-//{
-//	// ¶¨Òå·µ»ØÊý¾Ý¶ÔÏó
-//	auto jvo = ImportAssignInfoJsonVO::createShared();
-//	return jvo;     
-//}
 
 StringJsonVO::Wrapper AssignInfoController::execModifyAssignInfo(const AssignInfoDTO::Wrapper& dto, const PayloadDTO& payload)
 {
-	//// ¶¨Òå·µ»ØÊý¾Ý¶ÔÏó
+	//// å®šä¹‰è¿”å›žæ•°æ®å¯¹è±¡
 	auto jvo = StringJsonVO::createShared();
-	//// ²ÎÊýÐ£Ñé
+	//// å‚æ•°æ ¡éªŒ
 	if (!dto->assignId)
 	{
 		jvo->init(String(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
 
-	// ¶¨ÒåÒ»¸öService
+	// å®šä¹‰ä¸€ä¸ªService
 	AssignInfoService service;
 	auto id = service.updateData(dto,payload);
-	// Ö´ÐÐÊý¾ÝÐÞ¸Ä
+	// æ‰§è¡Œæ•°æ®ä¿®æ”¹
 	if (id > 0) {
 		jvo->success(String(id));
 	}
@@ -104,17 +97,17 @@ StringJsonVO::Wrapper AssignInfoController::execModifyAssignInfo(const AssignInf
 	{
 		jvo->fail(String(id));
 	}
-	// ÏìÓ¦½á¹û
+	// å“åº”ç»“æžœ
 	return jvo;
 }
 
 AssignInfoPageJsonVO::Wrapper AssignInfoController::execAssignQuery(const AssignInfoQuery::Wrapper& query, const PayloadDTO& payload)
 {
-	// ¶¨ÒåÒ»¸öService
+	// å®šä¹‰ä¸€ä¸ªService
 	AssignInfoService service;
-	//// ²éÑ¯Êý¾Ý
+	//// æŸ¥è¯¢æ•°æ®
 	auto result = service.listAll(query);
-	// ÏìÓ¦½á¹û
+	// å“åº”ç»“æžœ
 	auto jvo = AssignInfoPageJsonVO::createShared();
 	jvo->success(result);
 	return jvo;
@@ -122,22 +115,57 @@ AssignInfoPageJsonVO::Wrapper AssignInfoController::execAssignQuery(const Assign
 
 AssignInfoJsonVO::Wrapper AssignInfoController::execAssignQueryDetail(const AssignInfoQueryDetail::Wrapper& dto, const PayloadDTO& payload)
 {
-	// ¶¨Òå·µ»ØÊý¾Ý¶ÔÏó
+	// å®šä¹‰è¿”å›žæ•°æ®å¯¹è±¡
 	auto jvo = AssignInfoJsonVO::createShared();
 
-	//// ¶¨ÒåÒ»¸öService
+	//// å®šä¹‰ä¸€ä¸ªService
 	AssignInfoService service;
-	////// ²éÑ¯Êý¾Ý
+	////// æŸ¥è¯¢æ•°æ®
 	auto result = service.QueryDetail(dto);
 	jvo->success(result);
 	return jvo;
 }
 
+//å¯¼å…¥å‘˜å·¥ä¿¡æ¯
+ImportAssignJsonVO::Wrapper AssignInfoController::execImportAssignInfo(const ImportAssignInfoDTO::Wrapper& dto, const PayloadDTO& payload)
+{
+	// æž„å»ºè¿”å›žVO
+	auto vo = ImportAssignJsonVO::createShared();
+	// å‚æ•°æ ¡éªŒ
+	if (dto->filePath->empty()) {
+		vo->init({}, RS_PARAMS_INVALID);
+		return vo;
+	}
+
+	// æž„å»ºè¿”å›žæ ·ä¾‹
+	/*String str1 = "123abc";
+	String str2 = "456def";
+	String str3 = "789ghi";
+	auto ij = ImportJobVO::createShared();
+	ij->newId->push_back("123abc");
+	ij->newId->push_back("456def");
+	ij->newId->push_back("789ghi");
+	vo->init(ij, RS_SUCCESS);*/
+
+	// TODO: è°ƒç”¨service
+	std::list<std::string> result;
+	AssignInfoService service;
+	auto res = service.addMultiAssignInfo(dto, payload);
+
+	if (res->newId->size())
+		vo->init(res, RS_SUCCESS);
+	else
+		vo->init(res, RS_FAIL);
+
+	return vo;
+
+}
+
 StringJsonVO::Wrapper AssignInfoController::execExportAssign(const AssignExportQuery::Wrapper& query) {
 	auto jvo = StringJsonVO::createShared();
-	// ¶¨ÒåÒ»¸öService
+	// å®šä¹‰ä¸€ä¸ªService
 	AssignInfoService service;
-	//// ²éÑ¯Êý¾Ý
+	//// æŸ¥è¯¢æ•°æ®
 	auto result = service.exportData(query);
 	if (!result.empty()) {
 		jvo->success(result);

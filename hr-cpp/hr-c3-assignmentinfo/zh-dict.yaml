@@ -30,3 +30,11 @@ employee:
    createDate: 创建时间
    updateMan: 更新人
    updateDate: 更新时间
+#员工信息-导入员工信息
+importInfo:
+  import:
+    summary: 导入员工分配信息
+    fileType: 文件类型(xlx/xlsx/csv)
+    sheetName: 数据表名
+    file: 待导入文件
+    id: 新增id

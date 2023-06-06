@@ -32,13 +32,16 @@
 #include "domain/query/PageQuery.h"
 #include "domain/query/assignInfo/AssignInfoQueryDetail.h"
 #include "domain/query/assignInfo/AssignExportQuery.h"
+#include "SimpleDateTimeFormat.h"
+#include "CommonMacros.h"
+#include "domain/vo/assignInfo/ImportAssignInfoVO.h"
+#include "CharsetConvertHepler.h"
+#include "domain/dto/assignInfo/ImportAssignInfoDTO.h"
 
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
 
-/*
-	判断string是否为自然数
-*/
+
 
 // 0 定义API控制器使用宏
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
@@ -125,96 +128,98 @@ public:
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyAssignInfo(dto,authObject->getPayload()));
 	}
-	// [其他] 定义一个单文件上传接口
+	//定义导入员工信息接口端点描述	
 	ENDPOINT_INFO(importAssignInfo) {
-		info->summary = ZH_WORDS_GETTER("employee.post.upload");
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("importInfo.import.summary");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(ImportAssignJsonVO);
+		// 定义参数描述
+		info->queryParams.add<String>("fileType").description = ZH_WORDS_GETTER("importInfo.import.fileType");
+		info->queryParams["fileType"].addExample("default", String("xlsx"));
+		info->queryParams["fileType"].required = false;
+		info->queryParams.add<String>("sheetName").description = ZH_WORDS_GETTER("importInfo.import.sheetName");
+		info->queryParams["sheetName"].addExample("default", String("Sheet1"));
+		info->queryParams["sheetName"].required = true;
+		info->queryParams.add<String>("file").description = ZH_WORDS_GETTER("importInfo.import.file");
+		info->queryParams["file"].required = true;
 	}
-	ENDPOINT(API_M_POST, "/c3-assign-info/upload", importAssignInfo, API_HANDLER_AUTH_PARAME, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
-			/* 创建multipart容器 */
-			auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
-			/* 创建multipart读取器 */
-			multipart::Reader multipartReader(multipartContainer.get());
-			/* 配置读取器读取表单字段 */
-			multipartReader.setPartReader("assignId", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			multipartReader.setPartReader("id", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			multipartReader.setPartReader("assign", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			multipartReader.setPartReader("assignState", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			multipartReader.setPartReader("etype", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			multipartReader.setPartReader("organize", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			multipartReader.setPartReader("depart", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			multipartReader.setPartReader("job", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			multipartReader.setPartReader("post", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			multipartReader.setPartReader("startTime", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			multipartReader.setPartReader("endTime", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			multipartReader.setPartReader("createMan", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			multipartReader.setPartReader("createDate", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			multipartReader.setPartReader("updateMan", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			multipartReader.setPartReader("updateDate", multipart::createInMemoryPartReader(-1 /* max-data-size */));
-			/* 配置读取器读取文件到文件 */
-			multipartReader.setPartReader("file", multipart::createFilePartReader("public/static/file/test.png"));
-			/* 读取请求体中的数据 */
-			request->transferBody(&multipartReader);
+	//定义导入员工分配信息接口端点处理
+	ENDPOINT(API_M_POST, "/c3-assign-info/import", importAssignInfo, API_HANDLER_AUTH_PARAME, REQUEST(std::shared_ptr<IncomingRequest>, request)) {
+		/* 创建multipart容器 */
+		auto multipartContainer = std::make_shared<multipart::PartList>(request->getHeaders());
+		/* 创建multipart读取器 */
+		multipart::Reader multipartReader(multipartContainer.get());
+		/* 配置读取器读取表单字段 */
+		multipartReader.setPartReader("fileType", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+		multipartReader.setPartReader("sheetName", multipart::createInMemoryPartReader(-1 /* max-data-size */));
+		/* 配置读取器读取文件到文件 */
+		String filePath = "public/static/file/";
+		filePath->append(SimpleDateTimeFormat::format("%Y-%m-%d_%H-%M-%S_"));
+		filePath->append("JobSet.xlsx");
+		multipartReader.setPartReader("file", multipart::createFilePartReader(filePath));
+
+		//判断目录是否存在，不存在创建目录
+		string fileName = std::string(filePath);
+		auto dir = fileName.substr(0, fileName.find_last_of("/") + 1);
+		const size_t dirLen = dir.length();
+		if (dirLen > MAX_DIR_LEN)
+		{
+			std::cout << "ExcelComponent 135: excel save fail(file path too long)" << std::endl;
+			return createResponse(Status::CODE_401, "");
+		}
+		char tmpDirPath[MAX_DIR_LEN] = { 0 };
+		for (size_t i = 0; i < dirLen; i++)
+		{
+			tmpDirPath[i] = dir[i];
+			if (tmpDirPath[i] == '/')
+			{
+				if (ACCESS(tmpDirPath, 0) != 0)
+				{
+					if (MKDIR(tmpDirPath) != 0)
+					{
+						std::cout << "ExcelComponent 148: excel save fail(create dir " << tmpDirPath << " fail)" << std::endl;
+						return createResponse(Status::CODE_401, "");
+					}
+				}
+			}
+		}
+
+		/* 读取请求体中的数据 */
+		request->transferBody(&multipartReader);
+		if (multipartContainer->count() != 3)
+		{
 			/* 打印part数量 */
 			OATPP_LOGD("Multipart", "parts_count=%d", multipartContainer->count());
-			/* 获取表单数据 */
-			auto assignId = multipartContainer->getNamedPart("assignId");
-			auto id = multipartContainer->getNamedPart("id");
-			auto assign = multipartContainer->getNamedPart("assign");
-			auto assignState = multipartContainer->getNamedPart("assignState");
-			auto etype = multipartContainer->getNamedPart("etype");
-			auto organize = multipartContainer->getNamedPart("organize");
-			auto depart = multipartContainer->getNamedPart("depart");
-			auto job = multipartContainer->getNamedPart("job");
-			auto post = multipartContainer->getNamedPart("post");
-			auto startTime = multipartContainer->getNamedPart("startTime");
-			auto endTime = multipartContainer->getNamedPart("endTime");
-			auto createMan = multipartContainer->getNamedPart("createMan");
-			auto createDate = multipartContainer->getNamedPart("createDate");
-			auto updateMan = multipartContainer->getNamedPart("updateMan");
-			auto updateDate = multipartContainer->getNamedPart("updateDate");
-			/* 断言表单数据是否正确 */
-			OATPP_ASSERT_HTTP(assignId, Status::CODE_400, "assignId is null");
-			OATPP_ASSERT_HTTP(id, Status::CODE_400, "id is null");
-			OATPP_ASSERT_HTTP(assign, Status::CODE_400, "assign is null");
-			OATPP_ASSERT_HTTP(assignState, Status::CODE_400, "assignState is null");
-			OATPP_ASSERT_HTTP(etype, Status::CODE_400, "etype is null");
-			OATPP_ASSERT_HTTP(organize, Status::CODE_400, "organize is null");
-			OATPP_ASSERT_HTTP(depart, Status::CODE_400, "depart is null");
-			OATPP_ASSERT_HTTP(job, Status::CODE_400, "job is null");
-			OATPP_ASSERT_HTTP(post, Status::CODE_400, "post is null");
-			OATPP_ASSERT_HTTP(startTime, Status::CODE_400, "startTime is null");
-			OATPP_ASSERT_HTTP(endTime, Status::CODE_400, "endTime is null");
-			OATPP_ASSERT_HTTP(createMan, Status::CODE_400, "createMan is null");
-			OATPP_ASSERT_HTTP(createDate, Status::CODE_400, "createDate is null");
-			OATPP_ASSERT_HTTP(updateMan, Status::CODE_400, "updateMan is null");
-			OATPP_ASSERT_HTTP(updateDate, Status::CODE_400, "updateDate is null");
-			/* 打印应表单数据 */
-			OATPP_LOGD("Multipart", "assignId='%s'", assignId->getPayload()->getInMemoryData()->c_str());
-			OATPP_LOGD("Multipart", "id='%s'", id->getPayload()->getInMemoryData()->c_str());
-			OATPP_LOGD("Multipart", "assign='%s'", assign->getPayload()->getInMemoryData()->c_str());
-			OATPP_LOGD("Multipart", "assignState='%s'", assignState->getPayload()->getInMemoryData()->c_str());
-			OATPP_LOGD("Multipart", "etype='%s'", etype->getPayload()->getInMemoryData()->c_str());
-			OATPP_LOGD("Multipart", "organize='%s'", organize->getPayload()->getInMemoryData()->c_str());
-			OATPP_LOGD("Multipart", "depart='%s'", depart->getPayload()->getInMemoryData()->c_str());
-			OATPP_LOGD("Multipart", "job='%s'", job->getPayload()->getInMemoryData()->c_str());
-			OATPP_LOGD("Multipart", "post='%s'", post->getPayload()->getInMemoryData()->c_str());
-			OATPP_LOGD("Multipart", "startTime='%s'", startTime->getPayload()->getInMemoryData()->c_str());
-			OATPP_LOGD("Multipart", "endTime='%s'", endTime->getPayload()->getInMemoryData()->c_str());
-			OATPP_LOGD("Multipart", "createMan='%s'", createMan->getPayload()->getInMemoryData()->c_str());
-			OATPP_LOGD("Multipart", "createDate='%s'", createDate->getPayload()->getInMemoryData()->c_str());
-			OATPP_LOGD("Multipart", "updateMan='%s'", updateMan->getPayload()->getInMemoryData()->c_str());
-			OATPP_LOGD("Multipart", "updateDate='%s'", updateDate->getPayload()->getInMemoryData()->c_str());
-			/* 获取文件部分 */
-			auto filePart = multipartContainer->getNamedPart("file");
-			/* 断言文件是否获取到 */
-			OATPP_ASSERT_HTTP(filePart, Status::CODE_400, "file is null");
-			/* 打印文件名称 */
-			OATPP_LOGD("Multipart", "file='%s'", filePart->getFilename()->c_str());
-			/* 响应OK */
-			return createResponse(Status::CODE_200, "OK");
+			return createResponse(Status::CODE_400, "error in params");
+		}
+
+		/* 获取表单数据 */
+		auto type = multipartContainer->getNamedPart("fileType");
+		auto sheet = multipartContainer->getNamedPart("sheetName");
+		/* 断言表单数据是否正确 */
+		OATPP_ASSERT_HTTP(type, Status::CODE_400, "fileType is null");
+		OATPP_ASSERT_HTTP(sheet, Status::CODE_400, "sheetName is null");
+
+		string fileType = CharsetConvertHepler::utf8ToAnsi(type->getPayload()->getInMemoryData()->c_str());
+		string sheetName = CharsetConvertHepler::utf8ToAnsi(sheet->getPayload()->getInMemoryData()->c_str());
+		if (fileType != "csv" && fileType != "xls" && fileType != "xlsx" && sheetName != "")
+		{
+			return createResponse(Status::CODE_400, "error in params");
+		}
+
+		/* 获取文件部分 */
+		auto filePart = multipartContainer->getNamedPart("file");
+		/* 断言文件是否获取到 */
+		OATPP_ASSERT_HTTP(filePart, Status::CODE_400, "file upload error");
+		/* 打印文件名称 */
+		OATPP_LOGD("Multipart", "file='%s'", filePart->getFilename()->c_str());
+
+		auto dto = ImportAssignInfoDTO::createShared(String(fileType), String(sheetName), filePath);
+		// 响应结果
+		API_HANDLER_RESP_VO(execImportAssignInfo(dto, authObject->getPayload()));
 	}
 
 	// 3.1 定义查询接口描述
@@ -258,10 +263,10 @@ public:
 	}
 
 private:
-	// 3.3 演示新增数据
 	StringJsonVO::Wrapper execAddAssignInfo(const AssignInfoDTO::Wrapper& dto, const PayloadDTO& payload);
 	StringJsonVO::Wrapper execDeleteAssignInfo(const AssignInfoDTO::Wrapper& dto);
-	//ImportAssignInfoJsonVO::Wrapper execImportAssignInfo(const ImportAssignInfoDTO::Wrapper& dto);
+	//导入员工信息
+	ImportAssignJsonVO::Wrapper execImportAssignInfo(const ImportAssignInfoDTO::Wrapper& dto, const PayloadDTO& payload);
 	AssignInfoPageJsonVO::Wrapper execAssignQuery(const AssignInfoQuery::Wrapper& query, const PayloadDTO& payload);
 	AssignInfoJsonVO::Wrapper execAssignQueryDetail(const AssignInfoQueryDetail::Wrapper& dto, const PayloadDTO& payload);
 	StringJsonVO::Wrapper execModifyAssignInfo(const AssignInfoDTO::Wrapper& dto, const PayloadDTO& payload);
