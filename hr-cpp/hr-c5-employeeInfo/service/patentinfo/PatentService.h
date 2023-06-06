@@ -12,7 +12,7 @@
 /**
  * 专利服务实现
  */
-class PatentinfoService
+class PatentService
 {
 public:
 	// 查询所有数据

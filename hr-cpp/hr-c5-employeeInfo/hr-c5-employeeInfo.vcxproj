@@ -222,7 +222,7 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\paperinfo\PaperService.h" />
-    <ClInclude Include="service\patentinfo\PatentinfoService.h" />
+    <ClInclude Include="service\patentinfo\PatentService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -240,7 +240,7 @@
     <ClCompile Include="dao\patentinfo\PatentinfoDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\paperinfo\PaperService.cpp" />
-    <ClCompile Include="service\patentinfo\PatentinfoService.cpp" />
+    <ClCompile Include="service\patentinfo\PatentService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

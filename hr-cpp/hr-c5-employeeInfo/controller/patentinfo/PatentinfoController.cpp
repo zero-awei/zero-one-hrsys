@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "PatentinfoController.h"
-#include "../../service/patentinfo/PatentinfoService.h"
+#include "../../service/patentinfo/PatentService.h"
 
 PatentinfoJsonVO::Wrapper PatentinfoController::execQueryPatentinfo(const String& str)
 {
 	// 定义一个Service
-	PatentinfoService service;
+	PatentService service;
 	// 查询数据
 	auto result = service.listAll(str);
 	//创建响应对象
@@ -39,7 +39,7 @@ Uint64JsonVO::Wrapper PatentinfoController::execModifyPatentinfo(const ModifyPat
 		return jvo;
 	}
 	// 定义一个Service
-	PatentinfoService service;
+	PatentService service;
 	// 执行数据修改
 	if (service.updateData(dto)) {
 		jvo->success({});

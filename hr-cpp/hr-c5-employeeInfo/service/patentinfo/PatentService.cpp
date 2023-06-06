@@ -1,9 +1,9 @@
 #include "stdafx.h"
-#include "PatentinfoService.h"
+#include "PatentService.h"
 #include "../../dao/patentinfo/PatentinfoDAO.h"
 
 //查询所有数据
-PatentinfoDTO::Wrapper PatentinfoService::listAll(const string& pimpatentid)
+PatentinfoDTO::Wrapper PatentService::listAll(const string& pimpatentid)
 {
 	// 构建返回对象
 	PatentinfoDAO dao;
@@ -46,7 +46,7 @@ PatentinfoDTO::Wrapper PatentinfoService::listAll(const string& pimpatentid)
 
 
 // 修改数据
-bool PatentinfoService::updateData(const ModifyPatentinfoDTO::Wrapper& dto)
+bool PatentService::updateData(const ModifyPatentinfoDTO::Wrapper& dto)
 {
 	// 组装DO数据
 	PatentinfoDO data;

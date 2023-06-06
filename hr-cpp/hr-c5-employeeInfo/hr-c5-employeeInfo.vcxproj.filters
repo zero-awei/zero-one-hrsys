@@ -147,7 +147,7 @@
     <ClInclude Include="domain\do\patentinfo\t_pimpatentDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="service\patentinfo\PatentinfoService.h">
+    <ClInclude Include="service\patentinfo\PatentService.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="dao\patentinfo\PatentinfoDAO.h">
@@ -212,7 +212,7 @@
     <ClCompile Include="controller\pimpaper\pimpaperController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="service\patentinfo\PatentinfoService.cpp">
+    <ClCompile Include="service\patentinfo\PatentService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="dao\patentinfo\PatentinfoDAO.cpp">
