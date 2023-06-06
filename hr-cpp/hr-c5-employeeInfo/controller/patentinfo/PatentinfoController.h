@@ -105,18 +105,6 @@ public: // 定义接口
 		API_HANDLER_RESP_VO(execRemovePatent(dto));
 	}
 
-	// 3.1 定义修改接口描述
-	ENDPOINT_INFO(modifySample) {
-		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("patentInformation.put.summary");
-		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-	}
-	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/employee-info/modify-patentinfo", modifySample, BODY_DTO(PatentinfoDTO::Wrapper, dto)) {
-		// 响应结果
-		API_HANDLER_RESP_VO(execModifyPatentinfo(dto));
-	}
 
 
 private: // 定义接口执行函数
@@ -130,11 +118,6 @@ private: // 定义接口执行函数
 	Uint64JsonVO::Wrapper execRemovePatent(const List<String>& dto);
 
 
-	// 5 定义接口的执行函数
-	PatentinfoJsonVO::Wrapper execQueryPatentinfo(const PatentinfoQuery::Wrapper& query);
-
-	//修改指定员工专利信息（单条修改）
-	Uint64JsonVO::Wrapper execModifyPatentinfo(const PatentinfoDTO::Wrapper& dto);
 
 };
 

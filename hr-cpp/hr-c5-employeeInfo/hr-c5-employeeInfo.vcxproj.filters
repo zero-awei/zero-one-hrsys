@@ -5,7 +5,6 @@
     <ClCompile Include="controller\archives\ArchivesController.cpp" />
     <ClCompile Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.cpp" />
     <ClCompile Include="controller\paperinfoController\PaperinfoController.cpp" />
-    <ClCompile Include="controller\patentinfo\PatentinfoController.cpp" />
     <ClCompile Include="controller\J_paperinfo\J_PaperController.cpp" />
     <ClCompile Include="controller\J_patentinfo\J_PatentinfoController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
@@ -21,6 +20,7 @@
     <ClCompile Include="service\J_paperinfo\J_PaperService.cpp" />
     <ClCompile Include="service\J_patentinfo\J_PatentService.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="controller\patentinfo\PatentinfoController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\archivesCenter\ArchivesCenterController.h" />
@@ -28,7 +28,6 @@
     <ClInclude Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\paperinfoController\PaperinfoController.h" />
-    <ClInclude Include="controller\patentinfo\PatentinfoController.h" />
     <ClInclude Include="controller\J_paperinfo\J_PaperController.h" />
     <ClInclude Include="controller\J_patentinfo\J_PatentinfoController.h" />
     <ClInclude Include="controller\Router.h" />
@@ -83,6 +82,7 @@
     <ClInclude Include="service\J_patentinfo\J_PatentService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="domain\vo\paptentinfo\PatentinfoVO.h" />
+    <ClInclude Include="controller\patentinfo\PatentinfoController.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
