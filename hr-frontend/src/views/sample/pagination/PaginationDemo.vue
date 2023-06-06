@@ -8,7 +8,11 @@
   <div class="footer">
     <ColumnFilter :xmlData="xmlData" :parentMethod="getNewXmlData">
     </ColumnFilter>
-    <Pagination></Pagination>
+    <Pagination
+      :current-page="currentPage"
+      :page-size="pageSize"
+      :total="tableData.length"
+    ></Pagination>
   </div>
 </template>
 
@@ -57,18 +61,6 @@ const newXmlData = ref([])
 newXmlData.value = [...xmlData.value]
 // 注入表格数据
 const tableData: User[] = [
-  {
-    id: 10001,
-    name: '彭于晏',
-    age: 26,
-    organization: '集团总部',
-    department: '企业部门',
-    position: '总规划师',
-    job: '培训管理',
-    certificateId: 140821199103011618,
-    phoneNumber: 15035052120,
-    state: '在职'
-  },
   {
     id: 10002,
     name: '甄子丹',
@@ -658,10 +650,16 @@ const tableData: User[] = [
     state: '在职'
   }
 ]
+const pageSize=ref()
+const currentPage=ref(1)
+function handleSizeChange(size: number) {
+  pageSize.value = size;
+  console.log(pageSize.value)
+  }
 </script>
 
 <style lang="scss" scoped>
-.footer{
+.footer {
   display: flex;
   justify-content: space-between;
   align-items: center;

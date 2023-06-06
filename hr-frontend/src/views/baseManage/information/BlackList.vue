@@ -5,7 +5,8 @@
         :tableTitle="tableTitle"
         :addTitle="addTitle"
         :tableOperations="tableOperations"
-        :addData="addData"
+        :dataitem="dataitem"
+        :saveData="saveData"
       >
         <Search :filter="filter" class="search"></Search>
       </TableHead>
@@ -670,14 +671,17 @@ const addTitle = ref('人员列表编辑')
 //功能按键需求配置
 const tableOperations = reactive([
   {
+    name: '搜索'
+  },
+  {
     name: '新增'
   },
   {
-    name: '导入'
+    name: '删除'
   }
 ])
 //新增表单所需栏目配置
-const addData = reactive([
+const dataitem = reactive([
   {
     label: '员工姓名',
     name: 'name',
@@ -705,6 +709,9 @@ const addData = reactive([
     type: 'Text'
   }
 ])
+const saveData = (val) => {
+  //写保存数据的逻辑
+}
 </script>
 
 <style scoped lang="scss">

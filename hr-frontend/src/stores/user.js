@@ -159,7 +159,7 @@ let testMenus = [
         path: '/filetransferrecord',
         icon: 'DocumentRemove',
         pid: 4
-      }
+      },
     ]
   },
   {
@@ -313,6 +313,20 @@ let testMenus = [
         text: '用户管理',
         path: '/usersmanage',
         icon: 'IconSetting',
+        pid: 9
+      }
+    ]
+  },
+  {
+    id: 10,
+    text: '组织管理',
+    icon: 'IconUser',
+    children: [
+      {
+        id: 0,
+        text: '组织信息',
+        path: '/orginfo',
+        icon: 'IconUser',
         pid: 9
       }
     ]
