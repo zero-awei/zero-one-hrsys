@@ -181,16 +181,21 @@
     <ClInclude Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.h" />
     <ClInclude Include="dao\paperinfo\t_pimpaperDAO.h" />
     <ClInclude Include="dao\paperinfo\t_pimpaperMapper.h" />
+    <ClInclude Include="dao\patentinfo\t_pimpatentDAO.h" />
+    <ClInclude Include="dao\patentinfo\t_pimpatentMapper.h" />
     <ClInclude Include="domain\do\archives\t_pimarchivesDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\NotEmployeeInArchive\NotEmployeeInArchiveDO.h" />
     <ClInclude Include="domain\do\paperinfo\t_pimpaperDO.h" />
+    <ClInclude Include="domain\do\patentinfo\t_pimpatentDO.h" />
     <ClInclude Include="domain\do\UpdateArchiveInfo\UpdateArchiveInfoDO.h" />
     <ClInclude Include="domain\dto\archivesCenter\ArchivesCenterDTO.h" />
     <ClInclude Include="domain\dto\archives\ArchivesDTO.h" />
     <ClInclude Include="domain\dto\Blacklist\BlacklistDTO.h" />
     <ClInclude Include="domain\dto\NotEmployeeInArchive\NotEmployeeInArchiveDTO.h" />
     <ClInclude Include="domain\dto\paperinfo\PaperDTO.h" />
+    <ClInclude Include="domain\dto\patentinfo\AddPatentDTO.h" />
+    <ClInclude Include="domain\dto\patentinfo\DelPatentDTO.h" />
     <ClInclude Include="domain\dto\patentinfo\PatentinfoDTO.h" />
     <ClInclude Include="domain\dto\UpdateArchiveInfo\UpdateArchiveInfoDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
@@ -212,6 +217,7 @@
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\paperinfo\PaperinfoService.h" />
+    <ClInclude Include="service\patentinfo\patentinfoService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -224,8 +230,10 @@
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.cpp" />
     <ClCompile Include="dao\paperinfo\t_pimpaperDAO.cpp" />
+    <ClCompile Include="dao\patentinfo\t_pimpatentDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\paperinfo\PaperinfoService.cpp" />
+    <ClCompile Include="service\patentinfo\patentinfoService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

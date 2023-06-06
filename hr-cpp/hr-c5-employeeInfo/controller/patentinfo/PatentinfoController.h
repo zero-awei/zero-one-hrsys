@@ -8,6 +8,8 @@
 #include "domain/query/patentinfo/PatentinfoQuery.h"
 #include "domain/vo/patentinfo/PatentinfoVO.h"
 #include "domain/dto/patentinfo/PatentinfoDTO.h"
+#include "domain/dto/patentinfo/DelPatentDTO.h"
+#include "domain/dto/patentinfo/AddPatentDTO.h"
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
 #include "oatpp/web/mime/multipart/FileProvider.hpp"
 #include "oatpp/web/mime/multipart/Reader.hpp"
@@ -108,7 +110,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/employee-info/add-patentinfo", addPatent, BODY_DTO(PatentinfoDTO::Wrapper, dto)) {
+ 	ENDPOINT(API_M_POST, "/employee-info/add-patentinfo", addPatent, BODY_DTO(AddPatentDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddPatent(dto));
 	}
@@ -121,7 +123,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/employee-info/remove-patentinfo", removePatent, BODY_DTO(PatentinfoDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/employee-info/remove-patentinfo", removePatent, BODY_DTO(List<String>, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemovePatent(dto));
 	}
@@ -145,10 +147,10 @@ private: // 定义接口执行函数
 	PatentinfoPageJsonVO::Wrapper execQueryPagePatent(const PatentinfoQuery::Wrapper& query);
 
 	//新增指定员工专利信息（单条新增）
-	Uint64JsonVO::Wrapper execAddPatent(const PatentinfoDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execAddPatent(const AddPatentDTO::Wrapper& dto);
 
 	//删除指定员工专利信息（支持批量删除）
-	Uint64JsonVO::Wrapper execRemovePatent(const PatentinfoDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execRemovePatent(const List<String>& dto);
 
 	//查看指定员工专利信息（指定专利信息详情）
 	PatentinfoPageJsonVO::Wrapper execQueryPagePatentinfo(const PatentinfoQuery::Wrapper& query);

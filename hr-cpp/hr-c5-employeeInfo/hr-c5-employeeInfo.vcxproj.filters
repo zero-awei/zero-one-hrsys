@@ -147,6 +147,24 @@
     <ClInclude Include="dao\paperinfo\t_pimpaperMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="service\patentinfo\patentinfoService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\patentinfo\t_pimpatentMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\patentinfo\t_pimpatentDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\patentinfo\t_pimpatentDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\patentinfo\AddPatentDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\patentinfo\DelPatentDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -183,6 +201,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="dao\paperinfo\t_pimpaperDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\patentinfo\patentinfoService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\patentinfo\t_pimpatentDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

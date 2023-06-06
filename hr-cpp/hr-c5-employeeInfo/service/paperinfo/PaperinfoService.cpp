@@ -5,7 +5,7 @@
 #include "SnowFlake.h"
 
 PaperPageDTO::Wrapper PaperinfoService::listAll(const PaperQuery::Wrapper& query)
-{
+{ 
 	// 构建返回对象
 	auto pages = PaperPageDTO::createShared(); 
 	pages->pageIndex = query->pageIndex;
