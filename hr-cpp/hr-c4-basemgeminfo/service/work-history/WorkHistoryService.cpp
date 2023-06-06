@@ -150,7 +150,7 @@ uint64_t WorkHistoryService::saveManyData(const std::string fileName, const Stri
 	FastDfsClient client(config, false);
 #else
 	//定义客户端对象
-	FastDfsClient client("192.168.80.129");
+	FastDfsClient client("8.130.87.15");
 #endif
 	string name;	
 	if (!fileName.empty())
@@ -299,9 +299,9 @@ std::string WorkHistoryService::exportData(const WorkHistoryExportQuery::Wrapper
 	// 定义客户端对象
 	FastDfsClient client(config, false);
 #else
-	urlPrefix = "http://192.168.80.129:8888/";
+	urlPrefix = "http://8.130.87.15:8888/";
 	//定义客户端对象
-	FastDfsClient client("192.168.80.129");
+	FastDfsClient client("8.130.87.15");
 #endif
 	std::string fieldName = client.uploadFile(fileName);
 	std::cout << "upload fieldname is : " << fieldName << std::endl;

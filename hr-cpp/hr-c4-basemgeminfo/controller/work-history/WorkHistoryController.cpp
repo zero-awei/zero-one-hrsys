@@ -134,13 +134,13 @@ StringJsonVO::Wrapper WorkHistoryController::execIntoWorkHistory(const String& b
 	FastDfsClient client("conf/client.conf", 3);
 #else
 	//定义客户端对象
-	FastDfsClient client("192.168.80.129");
+	FastDfsClient client("8.130.87.15");
 #endif
 	std::string fieldName = client.uploadFile(fileName);
 	std::cout << "upload fieldname is : " << fieldName << std::endl;
 	ss.str("");
 	ss.clear();
-	ss << "http://192.168.80.129:8888/" << fieldName;
+	ss << "http://8.130.87.15:8888/" << fieldName;
 
 
 	cout << ss.str() << endl;

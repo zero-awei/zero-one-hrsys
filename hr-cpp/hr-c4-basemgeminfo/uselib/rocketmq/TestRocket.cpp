@@ -46,7 +46,7 @@ TestRocket::~TestRocket()
 void TestRocket::testRocket(const String& fileName, const String& pimpersonid, const PayloadDTO& payload)
 {
 	// 创建客户端
-	client = make_shared<RocketClient>("192.168.80.129:9876");
+	client = make_shared<RocketClient>("8.130.122.117:9876");
 	// 创建发送消息回调
 	cb = make_shared<RocketClient::RSendCallback>([](SendStatus staus)
 		{
