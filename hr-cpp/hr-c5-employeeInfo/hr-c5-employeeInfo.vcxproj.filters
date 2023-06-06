@@ -123,9 +123,6 @@
     <ClInclude Include="domain\do\DoInclude.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\paperinfoController\PaperinfoController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\dto\Blacklist\BlacklistDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -162,6 +159,27 @@
     <ClInclude Include="domain\do\paperinfo\t_pimpaperDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="controller\paperinfoController\PaperinfoController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\paperinfo\PaperController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\paperinfo\PaperService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\paperinfo\paperinfoDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\paperinfo\PaperinfoDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\paperinfo\PaperinfoMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\paperinfo\PaperinfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -194,13 +212,22 @@
     <ClCompile Include="controller\pimpaper\pimpaperController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\paperinfoController\PaperinfoController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="service\patentinfo\PatentinfoService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="dao\patentinfo\PatentinfoDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\paperinfoController\PaperinfoController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\paperinfo\PaperController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\paperinfo\PaperService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\paperinfo\PaperinfoDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

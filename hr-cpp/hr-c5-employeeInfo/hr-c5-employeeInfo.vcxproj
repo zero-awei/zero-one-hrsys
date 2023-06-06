@@ -176,15 +176,19 @@
     <ClInclude Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.h" />
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\paperinfoController\PaperinfoController.h" />
+    <ClInclude Include="controller\paperinfo\PaperController.h" />
     <ClInclude Include="controller\patentinfo\PatentinfoController.h" />
     <ClInclude Include="controller\pimpaper\pimpaperController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.h" />
+    <ClInclude Include="dao\paperinfo\PaperinfoDAO.h" />
+    <ClInclude Include="dao\paperinfo\PaperinfoMapper.h" />
     <ClInclude Include="dao\patentinfo\PatentinfoDAO.h" />
     <ClInclude Include="dao\patentinfo\PatentinfoMapper.h" />
     <ClInclude Include="domain\do\archives\t_pimarchivesDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\NotEmployeeInArchive\NotEmployeeInArchiveDO.h" />
+    <ClInclude Include="domain\do\paperinfo\paperinfoDO.h" />
     <ClInclude Include="domain\do\paperinfo\t_pimpaperDO.h" />
     <ClInclude Include="domain\do\patentinfo\t_pimpatentDO.h" />
     <ClInclude Include="domain\do\pimpaper\pimpaperDO.h" />
@@ -194,6 +198,7 @@
     <ClInclude Include="domain\dto\Blacklist\BlacklistDTO.h" />
     <ClInclude Include="domain\dto\NotEmployeeInArchive\NotEmployeeInArchiveDTO.h" />
     <ClInclude Include="domain\dto\paperinfo\PaperDTO.h" />
+    <ClInclude Include="domain\dto\paperinfo\PaperinfoDTO.h" />
     <ClInclude Include="domain\dto\patentinfo\PatentinfoDTO.h" />
     <ClInclude Include="domain\dto\pimpaper\pimpaperDTO.h" />
     <ClInclude Include="domain\dto\UpdateArchiveInfo\UpdateArchiveInfoDTO.h" />
@@ -216,6 +221,7 @@
     <ClInclude Include="domain\vo\UpdateArchiveInfo\UpdateArchiveInfoVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\paperinfo\PaperService.h" />
     <ClInclude Include="service\patentinfo\PatentinfoService.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
@@ -224,13 +230,16 @@
     <ClCompile Include="controller\archives\ArchivesController.cpp" />
     <ClCompile Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.cpp" />
     <ClCompile Include="controller\paperinfoController\PaperinfoController.cpp" />
+    <ClCompile Include="controller\paperinfo\PaperController.cpp" />
     <ClCompile Include="controller\patentinfo\PatentinfoController.cpp" />
     <ClCompile Include="controller\pimpaper\pimpaperController.cpp" />
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.cpp" />
+    <ClCompile Include="dao\paperinfo\PaperinfoDAO.cpp" />
     <ClCompile Include="dao\patentinfo\PatentinfoDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\paperinfo\PaperService.cpp" />
     <ClCompile Include="service\patentinfo\PatentinfoService.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
