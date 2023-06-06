@@ -84,3 +84,4 @@ add_subdirectory ("lib-common")
 # 在后面添加你的模块
 add_subdirectory ("hr-c2-basmanager")
 add_subdirectory ("hr-c2-orgmanager")
+add_subdirectory ("nacos-register")
