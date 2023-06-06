@@ -87,19 +87,10 @@
     <ClInclude Include="domain\vo\UpdateArchiveInfo\UpdateArchiveInfoVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\patentinfo\PatentinfoController.h">
+    <ClInclude Include="controller\J_patentinfo\J_PatentinfoController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\pimpaper\pimpaperController.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\do\pimpaper\pimpaperDO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\patentinfo\PatentinfoDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\pimpaper\pimpaperDTO.h">
+    <ClInclude Include="domain\dto\J_patentinfo\J_PatentinfoDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\patentinfo\PatentinfoQuery.h">
@@ -108,10 +99,7 @@
     <ClInclude Include="domain\query\pimpaper\pimpaperQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\patentinfo\PatentinfoVO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\vo\pimpaper\pimpaperVO.h">
+    <ClInclude Include="domain\vo\J_patentinfo\J_PatentinfoVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\archives\ArchivesQuery.h">
@@ -126,9 +114,6 @@
     <ClInclude Include="domain\dto\Blacklist\BlacklistDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\paperinfo\PaperDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\query\Blacklist\BlacklistQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -141,43 +126,37 @@
     <ClInclude Include="domain\vo\BlacklistEmployee\BlacklistEmployeeVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\paperinfo\PaperVO.h">
+    <ClInclude Include="domain\vo\J_paperinfo\J_PaperVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\patentinfo\t_pimpatentDO.h">
+    <ClInclude Include="domain\do\J_patentinfo\J_t_pimpatentDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="service\patentinfo\PatentService.h">
+    <ClInclude Include="service\J_patentinfo\J_PatentService.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="dao\patentinfo\PatentinfoDAO.h">
+    <ClInclude Include="dao\J_patentinfo\J_PatentinfoDAO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="dao\patentinfo\PatentinfoMapper.h">
+    <ClInclude Include="dao\J_patentinfo\J_PatentinfoMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\paperinfo\t_pimpaperDO.h">
+    <ClInclude Include="controller\J_paperinfo\J_PaperController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\paperinfoController\PaperinfoController.h">
+    <ClInclude Include="service\J_paperinfo\J_PaperService.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\paperinfo\PaperController.h">
+    <ClInclude Include="domain\do\J_paperinfo\J_paperinfoDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="service\paperinfo\PaperService.h">
+    <ClInclude Include="dao\J_paperinfo\J_PaperinfoDAO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\paperinfo\paperinfoDO.h">
+    <ClInclude Include="dao\J_paperinfo\J_PaperinfoMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="dao\paperinfo\PaperinfoDAO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="dao\paperinfo\PaperinfoMapper.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\paperinfo\PaperinfoDTO.h">
+    <ClInclude Include="domain\dto\J_paperinfo\J_PaperinfoDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -206,28 +185,22 @@
     <ClCompile Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\patentinfo\PatentinfoController.cpp">
+    <ClCompile Include="controller\J_patentinfo\J_PatentinfoController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\pimpaper\pimpaperController.cpp">
+    <ClCompile Include="service\J_patentinfo\J_PatentService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="service\patentinfo\PatentService.cpp">
+    <ClCompile Include="dao\J_patentinfo\J_PatentinfoDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="dao\patentinfo\PatentinfoDAO.cpp">
+    <ClCompile Include="controller\J_paperinfo\J_PaperController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\paperinfoController\PaperinfoController.cpp">
+    <ClCompile Include="service\J_paperinfo\J_PaperService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\paperinfo\PaperController.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="service\paperinfo\PaperService.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="dao\paperinfo\PaperinfoDAO.cpp">
+    <ClCompile Include="dao\J_paperinfo\J_PaperinfoDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
