@@ -5,13 +5,10 @@ import com.zeroone.star.common.service.ITPimlanguageabilityService;
 import com.zeroone.star.common.service.ITSrfcodeitemService;
 import com.zeroone.star.common.service.ITSrforgsectorService;
 import com.zeroone.star.common.service.impl.TOrmpostServiceImpl;
-import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.common.CommonApis;
 import com.zeroone.star.project.j3.dto.DropdownListDTO;
 import com.zeroone.star.project.j3.dto.DropdownListOptionDTO;
-import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
 import com.zeroone.star.project.j3.query.common.*;
-import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -90,9 +87,9 @@ public class CommonController implements CommonApis {
     @GetMapping("query-distribution-form")
     @ApiOperation("分配形式下拉列表")
     @Override
-    public JsonVO<List<DropdownListOptionDTO>> queryDistributionForm(String codeitem) {
+    public JsonVO<List<DropdownListOptionDTO>> queryDistributionForm() {
 
-        return null;
+        return JsonVO.success(TSrfcodeitemService.listDistributionStatus("分配形式"));
     }
 
     @Autowired

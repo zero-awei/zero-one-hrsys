@@ -1,5 +1,5 @@
 server:
-  port: ${sp.sample}
+  port: ${sp.j3common}
 spring:
   application:
-    name: ${sn.sample}
+    name: ${sn.j3common}

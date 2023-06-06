@@ -7,6 +7,8 @@ import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
 import com.zeroone.star.project.j3.query.common.*;
 import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -25,6 +27,7 @@ public interface CommonApis {
 
     /**
      * 获取分配信息中的职务名称下拉列表数据
+     *
      * @param
      * @return 查询结果
      */
@@ -32,6 +35,7 @@ public interface CommonApis {
 
     /**
      * 获取分配信息中的岗位名称下拉列表数据
+     *
      * @param
      * @return 查询结果
      */
@@ -59,10 +63,13 @@ public interface CommonApis {
      *
      * @return {@link JsonVO< List< DropdownListOptionDTO>>}
      * @Author H_lzu
-     * @Date 20:45 2023/5/19
+     * @Date 20:01 2023/6/4
      */
-    JsonVO<List<DropdownListOptionDTO>> queryDistributionForm(String codeitem);
 
+
+    @GetMapping("query-distribution-form")
+    @ApiOperation("分配形式下拉列表")
+    JsonVO<List<DropdownListOptionDTO>> queryDistributionForm();
 
     /**
      * 分配状态下拉列表
@@ -134,32 +141,38 @@ public interface CommonApis {
      * @Date 21:27 2023/5/19
      */
     JsonVO<List<String>> queryRelationship();
-/**
- *  入职渠道下拉列表
- * @return {@link JsonVO< List< DropdownListOptionDTO>>}
- * @Author H_lzu
- * @Date 17:27 2023/5/24
- */
+
+    /**
+     * 入职渠道下拉列表
+     *
+     * @return {@link JsonVO< List< DropdownListOptionDTO>>}
+     * @Author H_lzu
+     * @Date 17:27 2023/5/24
+     */
     JsonVO<List<DropdownListOptionDTO>> queryEntryChannel();
-/**
- *  分配方式下拉列表
- * @return {@link JsonVO< List< DropdownListOptionDTO>>}
- * @Author H_lzu
- * @Date 17:28 2023/5/24
- */
+
+    /**
+     * 分配方式下拉列表
+     *
+     * @return {@link JsonVO< List< DropdownListOptionDTO>>}
+     * @Author H_lzu
+     * @Date 17:28 2023/5/24
+     */
     JsonVO<List<DropdownListOptionDTO>> queryAllocation();
 
-/**
- *  语种类型下拉列表
- * @return {@link JsonVO< List< String>>}
- * @Author H_lzu
- * @Date 22:09 2023/5/24
- * @Date 2023/5/29 /loop
- */
+    /**
+     * 语种类型下拉列表
+     *
+     * @return {@link JsonVO< List< String>>}
+     * @Author H_lzu
+     * @Date 22:09 2023/5/24
+     * @Date 2023/5/29 /loop
+     */
     JsonVO<List<String>> queryLanguageType();
 
     /**
      * 外语等级下拉列表
+     *
      * @return
      */
     public JsonVO<List<String>> queryLanguageLevel();

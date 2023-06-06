@@ -1,5 +1,5 @@
 server:
-  port: ${sp.orgmanager}
+  port: ${sp.j3orgmanager}
 spring:
   application:
-    name: ${sn.orgmanager}
+    name: ${sn.j3orgmanager}
