@@ -61,17 +61,19 @@ const routes = [
   {
     path: '/postcertificateview',
     name: 'postcertificateview',
-    component: () => import('@/views/baseManage/standardSetting/PostCertificate.vue')   
+    component: () =>
+      import('@/views/baseManage/standardSetting/PostCertificate.vue')
   },
   {
     path: '/jobtitlecatalog',
     name: 'jobtitlecatalog',
-    component: () => import('@/views/baseManage/standardSetting/JobTitleCataloge.vue')   
+    component: () =>
+      import('@/views/baseManage/standardSetting/JobTitleCataloge.vue')
   },
   {
     path: '/archives',
     name: 'archives',
-    component: () => import('@/views/baseManage/standardSetting/Archives.vue')   
+    component: () => import('@/views/baseManage/standardSetting/Archives.vue')
   },
   {
     path: '/syqyggridview',
@@ -153,12 +155,14 @@ const routes = [
   {
     path: '/certificateinfo',
     name: 'CertificateInfo',
-    component: () => import('@/views/baseManage/certificateManage/CertificateInfo.vue')
+    component: () =>
+      import('@/views/baseManage/certificateManage/CertificateInfo.vue')
   },
   {
     path: '/jobtitleinfo',
     name: 'JobTitleInfo',
-    component: () => import('@/views/baseManage/jobTitleManage/JobTitleInfo.vue')
+    component: () =>
+      import('@/views/baseManage/jobTitleManage/JobTitleInfo.vue')
   },
   {
     path: '/businessabroad',
@@ -170,6 +174,11 @@ const routes = [
     name: 'PrivateAbroad',
     component: () => import('@/views/baseManage/goAbroad/PrivateAbroad.vue')
   },
+  {
+    path: '/orginfo',
+    name: 'OrgInfo',
+    component: () => import('@/views/baseManage/orginfo/OrgInfo.vue')
+  }
 ]
 
 export default routes

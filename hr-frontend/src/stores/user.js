@@ -281,6 +281,20 @@ let testMenus = [
         pid: 9
       }
     ]
+  },
+  {
+    id: 10,
+    text: '组织管理',
+    icon: 'IconUser',
+    children: [
+      {
+        id: 0,
+        text: '组织信息',
+        path: '/orginfo',
+        icon: 'IconUser',
+        pid: 9
+      }
+    ]
   }
 ]
 
