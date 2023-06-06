@@ -32,7 +32,7 @@ class importInfoVO : public oatpp::DTO
 	DTO_INIT(importInfoVO, DTO);
 	DTO_FIELD(List<String>, newId) = {};
 	DTO_FIELD_INFO(newId) {
-		info->description = ZH_WORDS_GETTER("jobSet.export.id");
+		info->description = ZH_WORDS_GETTER("importInfo.export.id");
 	}
 };
 
