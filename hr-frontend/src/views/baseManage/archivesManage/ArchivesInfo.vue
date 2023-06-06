@@ -1,8 +1,10 @@
 <template>
   <div class="common-layout">
     <el-container>
-      <el-aside width="200px">
-        <Aside :menus="$store.menus" style="height: 95vh"></Aside>
+      <el-aside width="241px">
+        <Search :filter="filter" class="search"></Search>
+        <Aside :menus="$store.menus" style="height: 95vh">
+        </Aside>
       </el-aside>
       <el-container>
         <el-header>
@@ -16,7 +18,9 @@
         </el-header>
         <el-main>
           <div class="table">
-            <MainTable :tableData="$store.tableData" :xmlData="newXmlData"></MainTable>
+            <MainTable :tableData="$store.tableData" :xmlData="newXmlData" @cell-click="$store.changeMessage"></MainTable>
+            <MessageBox v-show="false"></MessageBox>
+            <Notification v-show="false"></Notification>
           </div>
         </el-main>
         <el-footer>
@@ -40,6 +44,8 @@ import MainTable from '@/components/MainTable.vue'
 import ColumnFilter from '@/components/columnFilter/ColumnFilter.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
 import Filter from '@/components/filter/Filter.vue'
+import MessageBox from '@/components/feedback/MessageBox.vue'
+import Notification from '@/components/feedback/Notification.vue'
 import { useInfoStore } from '@/stores/archivesInfo'
 
 const $store = useInfoStore()
@@ -47,6 +53,8 @@ const $store = useInfoStore()
 $store.asideData()
 //表格数据
 $store.initTableData()
+//新增档案
+$store.addConfig()
 // 将新增的数据保存
 const saveData = (val) => {
   $store.addData(val)
@@ -59,8 +67,16 @@ function getNewXmlData(checkStatus) {
 }
 const newXmlData = ref([])
 newXmlData.value = [...$store.xmlData]
+//编辑表单数据
 $store.editInfo()
 provide('userData', $store.userData)
+//消息弹出框
+$store.changeMessage(row,column)
+
+//消息提示
+$store.changeSaveValue()
+$store.changeWarnValue()
+$store.changeImportValue()
 </script>
 
 <style lang="scss" scoped>
@@ -96,7 +112,8 @@ provide('userData', $store.userData)
   justify-content: space-between;
   align-items: center;
 }
-.edit{
-  margin-left: 80%;
-}
+
+// .edit{
+//   margin-left: 80%;
+// }
 </style>

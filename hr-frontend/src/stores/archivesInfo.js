@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 // import Request from '@/apis/request'
 
+const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
 export const useInfoStore = defineStore('archivesInfo', {
     state: () => ({
         //记录侧边栏菜单
@@ -10,7 +11,7 @@ export const useInfoStore = defineStore('archivesInfo', {
             {
                 name: '新增'
             },
-             // {
+            // {
             //     name: '编辑'
             // }, 
             // {          
@@ -22,53 +23,7 @@ export const useInfoStore = defineStore('archivesInfo', {
         //新增按钮表单表名
         addTitle: '档案信息',
         //新增表单所需栏目
-        dataitem:reactive( [
-            {
-                label: '借阅人',
-                name: 'borrower',
-                type: String,
-            },
-            {
-                label: '借阅时间',
-                name: 'borrowingTime',
-                type: Date,
-            },
-            {
-                label: '归还时间',
-                name: 'returnTime',
-                type: Date,
-            },
-            {
-                label: '审批人',
-                name: 'approver',
-                type: String,
-            },
-            {
-                label: '审批时间',
-                name: 'approverTime',
-                type: Date,
-            },
-            {
-                label: '借阅原因',
-                name: 'borrowReason',
-                type: String,
-            },
-            {
-                label: '状态',
-                name: 'catalogeType',
-                type: Array,
-                options: [
-                    {
-                        id: 1,
-                        optionData: "借阅中"
-                    },
-                    {
-                        id: 2,
-                        optionData: "已归还"
-                    },
-                ]
-            },
-        ]),
+        dataitem: null,
         //记录表单数据
         xmlData: [
             { id: 1, name: '档案编号', prop: 'id' },
@@ -85,24 +40,33 @@ export const useInfoStore = defineStore('archivesInfo', {
         ],
         //记录表格数据
         tableData: null,
-        // //用户信息
+        // 用户信息
         userData: null,
-        // //每页数据条数
-        // pageSizes: [],
-        // //总数据条数
-        // total: null,
+        // 每页数据条数
+        pageSizes: [],
+        //总数据条数
+        total: null,
+        // baseUrl :import.meta.env.VITE_HR_C1_4 //proj-tag
+        messageInfo: ref('确定删除吗？'),
+        messageSuccess: ref('删除成功'),
+        messageError: ref('取消'),
+        success: ref('成功'),
+        warn: ref('请配置数据导入项'),
+        error: ref('值规则校验异常')
     }),
     actions: {
-        //加载侧边栏菜单
+        //加载侧边栏菜单--查询组织结构树
         asideData() {
             //发送请求获取表单所需栏目
             // let data = await Request.requestForm(
             //   Request.GET,
-            //   '/archives/archivesInfo/',
-            //   null
+            //    baseUrl + 'query-org-page',
+            //    data,
+            //    null
             // )
-            // this.menus = data.data
-            this.menus = [
+            //const rows=data.data.rows 
+            //接口可用后，将测试数据注释掉即可
+            const rows = [
                 {
                     path: '/sample',
                     text: '员工信息',
@@ -178,27 +142,25 @@ export const useInfoStore = defineStore('archivesInfo', {
                     text: '学术成果',
                     icon: 'user'
                 },
-                {
-                    path: '/sample/pagination',
-                    text: '分页',
-                    icon: 'user'
-                }
             ]
+            this.menus = rows
         },
 
         //根据搜索内容筛选数据
         // filter(val) {
         //     //未完
         // },
-        initTableData() {
+
+        //初始化表格
+        async initTableData() {
             // 发送请求获取表格数据
             // let data = await Request.requestForm(
             //   Request.GET,
             //   '/archives/archivesInfo/',
-            //   null
+            //   data
             // )
-            // this.tableData = data.data
-            this.tableData = [
+            // const rows= data.data.rows
+            const rows = [
                 {
                     id: '001',
                     name: '某大型集团公司',
@@ -210,7 +172,7 @@ export const useInfoStore = defineStore('archivesInfo', {
                     state: '有效',
                     unit: '培训管理',
                     months: 5,
-                    loanStatus: ''
+                    loanStatus: '借阅中'
                 },
                 {
                     id: '002',
@@ -223,24 +185,114 @@ export const useInfoStore = defineStore('archivesInfo', {
                     state: '有效',
                     unit: '培训管理',
                     months: 11,
-                    loanStatus: ''
+                    loanStatus: '已归还'
                 }
             ]
+            this.tableData = rows
         },
 
-        addData(val) {
-            this.tableData.push(val)
-        },
-        editInfo() {
-            // 发送请求获取表格数据
+        //新增档案
+        addConfig() {
+            // 发送请求获取新增配置项数据
             // let data = await Request.requestForm(
             //   Request.GET,
             //   '/archives/archivesInfo/',
-            //   null
+            //   data
             // )
-            // this.userData = data.data
-            this.userData = reactive({
-                //员工信息
+            // const rows= data.data.rows
+            const rows = reactive([
+                //档案信息
+                //借阅信息
+                {
+                    label: '借阅人',
+                    name: 'borrower',
+                    type: String,
+                },
+                {
+                    label: '借阅时间',
+                    name: 'borrowingTime',
+                    type: Date,
+                },
+                {
+                    label: '归还时间',
+                    name: 'returnTime',
+                    type: Date,
+                },
+                {
+                    label: '审批人',
+                    name: 'approver',
+                    type: String,
+                },
+                {
+                    label: '审批时间',
+                    name: 'approverTime',
+                    type: Date,
+                },
+                {
+                    label: '借阅原因',
+                    name: 'borrowReason',
+                    type: String,
+                },
+                {
+                    label: '状态',
+                    name: 'catalogeType',
+                    type: Array,
+                    options: [
+                        {
+                            id: 1,
+                            optionData: "借阅中"
+                        },
+                        {
+                            id: 2,
+                            optionData: "已归还"
+                        },
+                    ]
+                },
+                //调档记录
+                {
+                    label: '调档记录类型',
+                    name: 'recordType',
+                    type: String,
+                },
+                {
+                    label: '调出单位',
+                    name: 'outUnit',
+                    type: String,
+                },
+                {
+                    label: '调入单位',
+                    name: 'transferUnit',
+                    type: String,
+                },
+                {
+                    label: '调动时间',
+                    name: 'transferTime',
+                    type: String,
+                },
+                {
+                    label: '备注',
+                    name: 'remark',
+                    type: Text,
+                },
+            ])
+            this.dataitem = rows
+        },
+
+        //请求待定
+        addData(val) {
+            this.tableData.push(val)
+        },
+
+        editInfo() {
+            // 发送请求获取档案数据-新建档案接口
+            // let data = await Request.requestForm(
+            //   Request.GET,
+            //   '/archives/archivesInfo/',
+            //   data
+            // )
+            // const rows= data.data.rows
+            const rows = reactive({
+                //档案信息
                 basicInfo: {
                     ename: '鸽鸽',
                     IDType: '居民身份证',
@@ -253,47 +305,8 @@ export const useInfoStore = defineStore('archivesInfo', {
                     nation: '赛博坦',
                     marriage: '未婚',
                     politicalLandscape: '群众',
-                    unitTime: '2022-01-18',
-                    technicalTitle: '高级技工',
-                    practisingCertificate: '高级技工证',
-                    grade: '组长',
-                    mobileNumber: '15000244488',
-                    cjgzsj: '2022-01-18',
-                    eMail: '1111158@193.com',
-                    highestDegree: '硕士研究生',
-                    firstDegree: '硕士研究生',
-                    url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
                 },
-                //教育信息
-                educationInfo: [
-                    {
-                        degree: '硕士',
-                        date: '2016-05-03',
-                        admission: '2018-05-03',
-                        graduation: '2021-05-03',
-                        school: '北京大学',
-                        firstDiscipline: '土木工程',
-                        major: '土木工程',
-                        studyMode: '正规高等院校（统招）',
-                        category: '公办院校',
-                        ifFirstDegree: '是',
-                        ifHighestDegree: '是'
-                    },
-                    {
-                        degree: '博士',
-                        date: '2016-05-03',
-                        admission: '2018-05-03',
-                        graduation: '2021-05-03',
-                        school: '北京大学',
-                        firstDiscipline: '土木工程',
-                        major: '土木工程',
-                        studyMode: '正规高等院校（统招）',
-                        category: '公办院校',
-                        ifFirstDegree: '是',
-                        ifHighestDegree: '是'
-                    }
-                ],
-                //工作履历
+                //借阅信息
                 workRecord: [
                     {
                         employmentDate: '2018-05-03',
@@ -304,7 +317,7 @@ export const useInfoStore = defineStore('archivesInfo', {
                         grade: '组长'
                     }
                 ],
-                //补充信息
+                //调档记录
                 additionalInfo: {
                     householdRegistrationType: '非农业户口',
                     domicile: '北京市',
@@ -318,16 +331,80 @@ export const useInfoStore = defineStore('archivesInfo', {
                     employeeStatus: '见习',
                     blacklisted: ''
                 },
-                //奖惩信息
-                reandpuInfo: [
-                    {
-                        rewardsAndPunishmentsTime: '2021-05-03',
-                        name: '3355',
-                        classification: '奖励',
-                        unit: '北京市'
-                    }
-                ]
             })
+            this.userData = rows
         },
+
+        //消息弹框
+        changeMessage(row, column) {
+            //发送请求获取提示信息数据
+            // let data = await Request.requestForm(
+            //   Request.GET,
+            //    baseUrl + 'query-org-page',
+            //    data,
+            // )
+            //const message=data.message 
+            const message = reactive({ messageInfo, messageSuccess, messageError })
+            //修改数据后点击遮罩层，会显示关闭提醒的弹出框
+            //点击某一列执行，利用column中的label属性，例如点击Action这一列
+            if (column.label === 'Action') {
+                //执行逻辑
+                mitt.emit('changeInfo', message)
+            }
+        },
+
+        //成功提示-保存成功
+        changeSaveValue() {
+            //发送请求获取提示信息数据
+            // let data = await Request.requestForm(
+            //   Request.GET,
+            //    baseUrl + 'query-org-page',
+            //    data,
+            // )
+            //const message=data.message 
+            const message = reactive({
+                success,
+                error,
+                warn
+            })
+            //可修改提示内容
+            // message.success=''
+            mitt.emit('showSuccess', message.success)
+        },
+
+        //警告提示-导入配置项
+        changeImportValue() {
+            //发送请求获取提示信息数据
+            // let data = await Request.requestForm(
+            //   Request.GET,
+            //    baseUrl + 'query-org-page',
+            //    data,
+            // )
+            //const message=data.message 
+            const message = reactive({
+                success,
+                error,
+                warn
+            })
+            mitt.emit('showError', message.error)
+        },
+
+        //出错提示-输入项为空
+        changeWarnValue() {
+            //发送请求获取提示信息数据
+            // let data = await Request.requestForm(
+            //   Request.GET,
+            //    baseUrl + 'query-org-page',
+            //    data,
+            // )
+            //const message=data.message 
+            const message = reactive({
+                success,
+                error,
+                warn
+            })
+            mitt.emit('showWarn', message.warn)
+        }
+
     }
 })
