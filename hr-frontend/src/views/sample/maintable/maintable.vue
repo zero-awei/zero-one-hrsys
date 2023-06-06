@@ -29,7 +29,7 @@ const xmlData = [
   { id: 5, name: '职务', prop: 'position' },
   { id: 6, name: '岗位', prop: 'job' },
   { id: 7, name: '证件号码', prop: 'certificateId' },
-  { id: 8, name: '出生日期', prop: 'certificateId' },
+  { id: 8, name: '出生日期', prop: 'dateOfbrith' },
   { id: 9, name: '年龄', prop: 'age' },
   { id: 10, name: '手机号码', prop: 'phoneNumber' },
   { id: 11, name: '员工状态', prop: 'state' }
