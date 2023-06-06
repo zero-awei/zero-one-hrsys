@@ -86,6 +86,38 @@ const routes = [
     component: () => import('@/views/baseManage/roster/Ltxyg.vue')
   },
   {
+    path: '/pimportalview',
+    name: 'pimportalview',
+    component: () => import('@/views/baseManage/roster/Portal.vue')
+  },
+  {
+    path: '/blacklist',
+    name: 'BlackList',
+    component: () => import('@/views/baseManage/information/BlackList.vue')
+  },
+  {
+    path: '/review',
+    name: 'InformationReview',
+    component: () =>
+      import('@/views/baseManage/information/InformationReview.vue')
+  },
+  {
+    path: '/employee',
+    name: 'EmployInformation',
+    component: () =>
+      import('@/views/baseManage/information/EmployeeInformation.vue')
+  },
+  {
+    path: '/roster',
+    name: 'StaffRoster',
+    component: () => import('@/views/baseManage/roster/roster.vue')
+  },
+  {
+    path: '/trainee',
+    name: 'TraineeEmployee',
+    component: () => import('@/views/baseManage/roster/trainee.vue')
+  },
+  {
     path: '/lzyghmcgridview',
     name: 'lzyghmcgridview',
     component: () => import('@/views/baseManage/roster/Lzyg.vue')
@@ -96,9 +128,9 @@ const routes = [
     component: () => import('@/views/baseManage/roster/Jdyg.vue')
   },
   {
-    path: '/gzryhmcgridview',
-    name: 'gzryhmcgridview',
-    component: () => import('@/views/baseManage/roster/Gzyg.vue')
+    path: '/temporyStaff',
+    name: 'temporyStaff',
+    component: () => import('@/views/baseManage/roster/TemporyStaff.vue')
   },
   {
     path: '/dispatch',

@@ -74,7 +74,7 @@ let testMenus = [
         id: 2,
         text: '离职人员',
         icon: 'IconSetting',
-        path: '/lzyghmcgridview'
+        path: '/leaveStaff'
       },
       {
         id: 3,
@@ -87,7 +87,7 @@ let testMenus = [
 
         text: '挂职员工',
         icon: 'IconSetting',
-        path: '/gzryhmcgridview'
+        path: '/temporyStaff'
       }
     ]
   },
