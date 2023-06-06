@@ -175,6 +175,26 @@ const routes = [
     component: () => import('@/views/baseManage/goAbroad/PrivateAbroad.vue')
   },
   {
+    path:'/archivesinfo',
+    name:'ArchivesInfo',
+    component:()=>import('@/views/baseManage/archivesManage/ArchivesInfo.vue')
+  },
+  {
+    path:'/onfilereminder',
+    name:'OnFileReminder',
+    component:()=>import('@/views/baseManage/archivesManage/OnFileReminder.vue')
+  },
+  {
+    path:'/outfilereminder',
+    name:'OutFileReminder',
+    component:()=>import('@/views/baseManage/archivesManage/OutFileReminder.vue')
+  },
+  {
+    path:'/filetransferrecord',
+    name:'FileTransferRecord',
+    component:()=>import('@/views/baseManage/archivesManage/FileTransferRecord.vue')
+  },
+  {
     path: '/orginfo',
     name: 'OrgInfo',
     component: () => import('@/views/baseManage/orginfo/OrgInfo.vue')
