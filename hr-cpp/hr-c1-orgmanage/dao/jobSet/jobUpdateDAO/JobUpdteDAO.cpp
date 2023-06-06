@@ -5,7 +5,7 @@
 SqlParams params; \
 if (__DO__.getOrmPostName() != "") { \
 	__SQL__ << " `ORMPOSTNAME`=?,"; \
-	SQLPARAMS_PUSH(params, "s", std::string, __DO__.getIsKeyPostion()); \
+	SQLPARAMS_PUSH(params, "s", std::string, __DO__.getOrmPostName()); \
 } \
 if (__DO__.getIsKeyPostion() != "") { \
 	__SQL__ << " `ISKEYPOSTION`=?,"; \
