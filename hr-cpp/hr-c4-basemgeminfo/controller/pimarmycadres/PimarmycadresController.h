@@ -66,12 +66,12 @@ public: // 定义接口
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("pimid").description = ZH_WORDS_GETTER("Pimarmycadres.field.pimid");
+		info->queryParams.add<String>("pimid").description = ZH_WORDS_GETTER("pimarmycadres.field.pimid");
 		info->queryParams["pimid"].addExample("default", String("6611212223"));
 		info->queryParams["pimid"].required = false;
 	}
 	// 定义查询接口处理
-	ENDPOINT(API_M_GET, "/Pimarmycadres/select", queryPimarmycadres, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, "/pimarmycadres/select", queryPimarmycadres, QUERIES(QueryParams, qps)) {
 		//解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, PimarmycadresPageQuery, qps);
 		// 响应结果
@@ -90,7 +90,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 定义新增接口处理
-	ENDPOINT(API_M_POST, "/Pimarmycadres/add", addPimarmycadres, API_HANDLER_AUTH_PARAME, BODY_DTO(AddPimarmycadresDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/pimarmycadres/add", addPimarmycadres, API_HANDLER_AUTH_PARAME, BODY_DTO(AddPimarmycadresDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddPimarmycadres(dto, authObject->getPayload()));
 	}
@@ -103,7 +103,7 @@ public: // 定义接口
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 定义批量删除接口处理
-	ENDPOINT(API_M_POST, "/Pimarmycadres/delete", delPimarmycadres, BODY_DTO(DelPimarmycadresDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/pimarmycadres/delete", delPimarmycadres, BODY_DTO(DelPimarmycadresDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execDelPimarmycadres(dto));
 	}
