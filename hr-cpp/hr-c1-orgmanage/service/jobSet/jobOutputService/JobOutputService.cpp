@@ -18,9 +18,9 @@ std::string JobOutputService::exportJobInfomation(const PostDetailQuery::Wrapper
 		vector<string> tmp;
 		tmp.push_back(item.getOrmPostId());
 		tmp.push_back(item.getOrmPostName());
-		tmp.push_back(item.getUpdateMan());
-		tmp.push_back(item.getUpdateDate());
 		tmp.push_back(item.getCreateMan());
+		tmp.push_back(item.getUpdateDate());
+		tmp.push_back(item.getUpdateMan());
 		tmp.push_back(item.getCreateDate());
 		tmp.push_back(to_string(item.getXh()));
 		tmp.push_back(item.getOrmOrgId());
