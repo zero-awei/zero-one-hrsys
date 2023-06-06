@@ -31,7 +31,7 @@
   </el-container>
 </template>
 
-<script  setup>
+<script setup>
 import Aside from '@/components/aside/Aside.vue'
 import TableHead from '@/components/table/head/TableHead.vue'
 import MainTable from '@/components/MainTable.vue'
@@ -137,7 +137,7 @@ const xmlData = [
   { id: 11, name: '结束时间', prop: 'endTime' },
   { id: 12, name: '合同状态', prop: 'contractState' },
   { id: 13, name: '合同剩余天数', prop: 'remainingDays' },
-  { id: 14, name: '试用到期天数', prop: 'expirationTime' },
+  { id: 14, name: '试用到期天数', prop: 'expirationTime' }
 ]
 
 function getNewXmlData(checkStatus) {
@@ -196,7 +196,7 @@ const addData = reactive([
 ])
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .search {
   flex: 0 0 auto; /* 不伸缩、不收缩，固定高度 */
   float: right;
