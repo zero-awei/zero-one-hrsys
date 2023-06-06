@@ -20,13 +20,13 @@ export default ({ mode }) =>
       proxy: {
         '/api': {
           changeOrigin: true,
-          // target: 'http://localhost:10100',
-          // rewrite: (path) => path.replace(/^\/api/, '')
+          target: 'http://47.113.202.134:10001',
+          rewrite: (path) => path.replace(/^\/api/, '')
 
           //TODO[TEST_CODE]:使用ApiPost云MOCK
-          target:
-            'https://console-mock.apipost.cn/mock/99738a62-8857-4bb2-8010-c92424b03584',
-          rewrite: (path) => path.replace(/^\/api/, '')
+          // target:
+          //   'https://console-mock.apipost.cn/mock/99738a62-8857-4bb2-8010-c92424b03584',
+          // rewrite: (path) => path.replace(/^\/api/, '')
         },
         '/captcha': {
           changeOrigin: true,
