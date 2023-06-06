@@ -40,6 +40,7 @@
     <ClCompile Include="controller\projTag\itemLabel\ItemLabelController.cpp" />
     <ClCompile Include="service\projTag\itemLabel\ItemLabelService.cpp" />
     <ClCompile Include="dao\projTag\itemLabel\ItemLabelDAO.cpp" />
+    <ClCompile Include="service\jobSet\jobOutputService\JobOutputService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
@@ -134,5 +135,6 @@
     <ClInclude Include="service\projTag\itemLabel\ItemLabelService.h" />
     <ClInclude Include="dao\projTag\itemLabel\ItemLabelDAO.h" />
     <ClInclude Include="dao\projTag\itemLabel\ItemLabelMapper.h" />
+    <ClInclude Include="service\jobSet\jobOutputService\JobOutputService.h" />
   </ItemGroup>
 </Project>

@@ -68,6 +68,8 @@ jobSet:
   sheetName: 数据表名
   file: 待导入文件
   id: 新增id
+ export:
+  downloadurl: 导出岗位信息
  add:
   controller: 新增岗位
   postName: 岗位集名称

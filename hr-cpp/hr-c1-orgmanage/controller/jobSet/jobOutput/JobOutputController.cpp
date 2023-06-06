@@ -3,7 +3,13 @@
 
 StringJsonVO::Wrapper JobOutputController::execDownloadJobinfo(const PostDetailQuery::Wrapper& query) {
 	auto vo = StringJsonVO::createShared();
-	//µ¼³öµÄservice
-	vo->success("url/download");
+	
+	JobOutputService service;
+	string url = service.exportJobInfomation(query);
+
+	if (url.empty())
+		vo->fail(url);
+	else
+		vo->success(url);
 	return vo;
 }

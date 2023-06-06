@@ -12,6 +12,7 @@
 #include "domain/dto/jobDownload/JobDownloadDTO.h"
 #include "domain/vo/jobDownload/JobDownloadVO.h"
 #include "domain/query/postSet/PostDetailQuery.h"
+#include "service/jobSet/jobOutputService/JobOutputService.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
@@ -24,7 +25,7 @@ class JobOutputController : public oatpp::web::server::api::ApiController
 	API_ACCESS_DECLARE(JobOutputController);
 public:
 	ENDPOINT_INFO(downloadJobinfo) {
-		info->summary = ZH_WORDS_GETTER("job.downloadurl");
+		info->summary = ZH_WORDS_GETTER("jobSet.export.downloadurl");
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		API_DEF_ADD_AUTH();
 	}

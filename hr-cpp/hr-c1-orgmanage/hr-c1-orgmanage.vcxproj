@@ -185,6 +185,7 @@
     <ClCompile Include="dao\projTag\DeleteProjTagDAO.cpp" />
     <ClCompile Include="dao\projTag\itemLabel\ItemLabelDAO.cpp" />
     <ClCompile Include="dao\projTag\ProjTagDAO.cpp" />
+    <ClCompile Include="service\jobSet\jobOutputService\JobOutputService.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\jobSet\JobSetService.cpp" />
     <ClCompile Include="service\jobSet\jobUpdateService\JobUpdateService.cpp" />
@@ -285,6 +286,7 @@
     <ClInclude Include="domain\vo\projTag\ProjTagVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\jobSet\jobOutputService\JobOutputService.h" />
     <ClInclude Include="service\jobSet\JobSetService.h" />
     <ClInclude Include="service\jobSet\jobUpdateService\JobUpdateService.h" />
     <ClInclude Include="service\jobSet\postDeleteService\PostDeleteService.h" />

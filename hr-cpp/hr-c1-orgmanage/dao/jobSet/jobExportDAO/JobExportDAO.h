@@ -14,6 +14,8 @@ class JobExportDAO : public BaseDAO
 {
 public:
 	std::list<PostDetailDO> exportJobInfo(const PostDetailQuery::Wrapper& query);
+
+	vector<std::string> getJobInfoHead();
 };
 
 
