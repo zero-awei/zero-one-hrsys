@@ -141,7 +141,7 @@ const routes = [
     path: '/privateabroad',
     name: 'PrivateAbroad',
     component: () => import('@/views/baseManage/goAbroad/PrivateAbroad.vue')
-  }
+  },
   {
     path:'/archivesinfo',
     name:'ArchivesInfo',
