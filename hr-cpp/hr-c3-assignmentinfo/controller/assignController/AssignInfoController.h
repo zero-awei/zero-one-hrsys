@@ -37,6 +37,7 @@
 #include "domain/vo/assignInfo/ImportAssignInfoVO.h"
 #include "CharsetConvertHepler.h"
 #include "domain/dto/assignInfo/ImportAssignInfoDTO.h"
+#include <iostream>
 
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
