@@ -17,19 +17,19 @@ let testMenus = [
         id: 2,
         text: '员工信息',
         path: '/employee',
-        icon: 'User',
+        icon: 'User'
       },
       {
         id: 3,
         text: '自助信息审核',
         path: '/review',
-        icon: 'Tickets',
+        icon: 'Tickets'
       },
       {
         id: 4,
         text: '黑名单',
         path: '/blacklist',
-        icon: 'Postcard',
+        icon: 'Postcard'
       }
     ]
   },
@@ -42,13 +42,13 @@ let testMenus = [
         id: 6,
         text: '人员花名册',
         path: '/roster',
-        icon: 'Notebook',
+        icon: 'Notebook'
       },
       {
         id: 7,
         text: '见习员工',
         path: '/trainee',
-        icon: 'User',
+        icon: 'User'
       },
       {
         id: 8,
@@ -60,7 +60,7 @@ let testMenus = [
         id: 9,
         text: '离(退)休人员',
         icon: 'User',
-        path: '/ltxyggridview'
+        path: '/retireStaff'
       },
       {
         id: 10,
@@ -92,25 +92,25 @@ let testMenus = [
         id: 14,
         text: '劳务派遣公司',
         path: '/dispatch',
-        icon: 'SetUp',
+        icon: 'SetUp'
       },
       {
         id: 15,
         text: '合同信息',
         path: '/contract',
-        icon: 'Files',
+        icon: 'Files'
       },
       {
         id: 16,
         text: '初签(续签)提醒',
         path: '/initsigning',
-        icon: 'Bell',
+        icon: 'Bell'
       },
       {
         id: 17,
         text: '终止提醒',
         path: '/termination',
-        icon: 'Bell',
+        icon: 'Bell'
       }
     ]
   },
@@ -123,25 +123,25 @@ let testMenus = [
         id: 19,
         text: '档案信息',
         path: '/archivesinfo',
-        icon: 'Document',
+        icon: 'Document'
       },
       {
         id: 20,
         text: '非员工在档提醒',
         path: '/onfilereminder',
-        icon: 'Bell',
+        icon: 'Bell'
       },
       {
         id: 21,
         text: '员工不在档提醒',
         path: '/outfilereminder',
-        icon: 'Bell',
+        icon: 'Bell'
       },
       {
         id: 22,
         text: '档案转出记录',
         path: '/filetransferrecord',
-        icon: 'DocumentRemove',
+        icon: 'DocumentRemove'
       }
     ]
   },
@@ -154,7 +154,7 @@ let testMenus = [
         id: 24,
         text: '证书信息',
         path: '/certificateinfo',
-        icon: 'Tickets',
+        icon: 'Tickets'
       }
     ]
   },
@@ -167,7 +167,7 @@ let testMenus = [
         id: 26,
         text: '职称信息',
         path: '/jobtitleinfo',
-        icon: 'GoldMedal',
+        icon: 'GoldMedal'
       }
     ]
   },
@@ -180,13 +180,13 @@ let testMenus = [
         id: 28,
         text: '因公出(国)境',
         path: '/businessabroad',
-        icon: 'Van',
+        icon: 'Van'
       },
       {
         id: 29,
         text: '因私出(国)境',
         path: '/privateabroad',
-        icon: 'Bicycle',
+        icon: 'Bicycle'
       }
     ]
   },
@@ -199,13 +199,13 @@ let testMenus = [
         id: 31,
         text: '离(退)休人员',
         path: '/retiree',
-        icon: 'IconUser',
+        icon: 'IconUser'
       },
       {
         id: 32,
         text: '费用台账',
         path: '/expense',
-        icon: 'Tickets',
+        icon: 'Tickets'
       }
     ]
   },
@@ -218,37 +218,37 @@ let testMenus = [
         id: 34,
         text: '岗位(技能)证书',
         path: '/postcertificateview',
-        icon: 'IconTickets',
+        icon: 'IconTickets'
       },
       {
         id: 35,
         text: '职称目录',
         path: '/jobtitlecatalog',
-        icon: 'IconTickets',
+        icon: 'IconTickets'
       },
       {
         id: 36,
         text: '档案室',
         path: '/archives',
-        icon: 'IconTickets',
+        icon: 'IconTickets'
       },
       {
         id: 37,
         text: '合同类别',
         path: '/contractCatrgory',
-        icon: 'IconTickets',
+        icon: 'IconTickets'
       },
       {
         id: 38,
         text: '合同类型',
         path: '/contractType',
-        icon: 'IconTickets',
+        icon: 'IconTickets'
       },
       {
         id: 39,
         text: '执业资格证书',
         path: '/practiceCertificate',
-        icon: 'IconTickets',
+        icon: 'IconTickets'
       }
     ]
   },
@@ -261,25 +261,25 @@ let testMenus = [
         id: 41,
         text: '权限管理',
         path: '/rightsmanage',
-        icon: 'IconSetting',
+        icon: 'IconSetting'
       },
       {
         id: 42,
         text: ' 菜单管理',
         path: '/menumanage',
-        icon: 'IconSetting',
+        icon: 'IconSetting'
       },
       {
         id: 43,
         text: '角色管理',
         path: '/rolesmanage',
-        icon: 'IconSetting',
+        icon: 'IconSetting'
       },
       {
         id: 44,
         text: '用户管理',
         path: '/usersmanage',
-        icon: 'IconSetting',
+        icon: 'IconSetting'
       }
     ]
   },
@@ -292,7 +292,7 @@ let testMenus = [
         id: 46,
         text: '组织信息',
         path: '/orginfo',
-        icon: 'CreditCard',
+        icon: 'CreditCard'
       }
     ]
   }
