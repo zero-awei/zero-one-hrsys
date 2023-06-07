@@ -27,10 +27,10 @@
 import TableHead from '@/components/table/head/TableHead.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
 import MainTable from '@/components/MainTable.vue'
-import { TemporaryStaffStore } from '@/stores/temporyStaff'
 import { onBeforeMount, ref } from 'vue'
+import { RetireStaffStore } from '@/stores/retirement'
 
-const $store = TemporaryStaffStore()
+const $store = RetireStaffStore()
 
 onBeforeMount(() => {
   $store.initTableData()

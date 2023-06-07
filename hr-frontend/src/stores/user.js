@@ -68,7 +68,7 @@ let testMenus = [
         id: 1,
         text: '离(退)休人员',
         icon: 'IconSetting',
-        path: '/ltxyggridview'
+        path: '/retireStaff'
       },
       {
         id: 2,
@@ -159,7 +159,7 @@ let testMenus = [
         path: '/filetransferrecord',
         icon: 'DocumentRemove',
         pid: 4
-      },
+      }
     ]
   },
   {
