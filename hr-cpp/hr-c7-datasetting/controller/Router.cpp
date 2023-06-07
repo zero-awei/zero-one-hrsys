@@ -62,15 +62,3 @@ ROUTER_SIMPLE_BIND(TitleController);
 
 }
 
-#ifdef HTTP_SERVER_DEMO
-void Router::createSampleRouter()
-{
-	// 绑定示例控制器
-	ROUTER_SIMPLE_BIND(SampleController);
-	// 绑定用户控制器
-	ROUTER_SIMPLE_BIND(UserController);
-	
-	// 绑定WebSocket控制器
-	router->addController(WSContorller::createShared());
-}
-#endif

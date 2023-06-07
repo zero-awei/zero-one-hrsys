@@ -21,10 +21,6 @@
 #define _OTHERCOMMPONENT_H_
 #include "AbstractComponentReg.h"
 
-#ifdef HTTP_SERVER_DEMO
-#include "oatpp-websocket/ConnectionHandler.hpp"
-#include "uselib/ws/WSInstanceListener.h"
-#endif
 
 /**
  * 其它Oatpp组件注册附件，后续如果需要附加其它组件可以在这里进行外部定义

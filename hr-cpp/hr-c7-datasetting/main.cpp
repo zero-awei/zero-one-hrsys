@@ -23,9 +23,7 @@
 #include "controller/Router.h"
 #include "controller/OtherComponent.hpp"
 #include "DbInit.h"
-#ifdef HTTP_SERVER_DEMO
-#include "uselib/jwt/TestToken.h"
-#endif
+
 
 #ifdef USE_NACOS
 #include "NacosClient.h"
