@@ -11,323 +11,288 @@ let testMenus = [
   {
     id: 1,
     text: '人员信息',
-    icon: 'IconSetting',
+    icon: 'User',
     children: [
       {
         id: 2,
-
         text: '员工信息',
         path: '/employee',
-        icon: 'IconSetting',
-        pid: 1
+        icon: 'User',
       },
       {
         id: 3,
-
         text: '自助信息审核',
         path: '/review',
-        icon: 'IconSetting',
-        pid: 1
+        icon: 'Tickets',
       },
       {
         id: 4,
-
         text: '黑名单',
         path: '/blacklist',
-        icon: 'IconSetting',
-        pid: 1
+        icon: 'Postcard',
       }
     ]
   },
   {
-    id: 0,
+    id: 5,
     text: '人员花名册',
-    icon: 'IconSetting',
+    icon: 'Notebook',
     children: [
       {
-        id: 5,
+        id: 6,
         text: '人员花名册',
         path: '/roster',
-        icon: 'IconSetting',
-        pid: 1
+        icon: 'Notebook',
       },
       {
-        id: 6,
+        id: 7,
         text: '见习员工',
         path: '/trainee',
-        icon: 'IconSetting',
-        pid: 1
+        icon: 'User',
       },
       {
-        id: 0,
+        id: 8,
         text: '试用员工',
-        icon: 'IconSetting',
+        icon: 'User',
         path: '/syqyggridview'
       },
       {
-        id: 1,
+        id: 9,
         text: '离(退)休人员',
-        icon: 'IconSetting',
+        icon: 'User',
         path: '/ltxyggridview'
       },
       {
-        id: 2,
+        id: 10,
         text: '离职人员',
-        icon: 'IconSetting',
+        icon: 'User',
         path: '/leaveStaff'
       },
       {
-        id: 3,
+        id: 11,
         text: '借调员工',
-        icon: 'IconSetting',
+        icon: 'User',
         path: '/jdryhmcgridview'
       },
       {
-        id: 4,
-
+        id: 12,
         text: '挂职员工',
-        icon: 'IconSetting',
+        icon: 'User',
         path: '/temporyStaff'
       }
     ]
   },
 
   {
-    id: 2,
+    id: 13,
     text: '合同管理',
-    icon: 'IconUser',
+    icon: 'DocumentCopy',
     children: [
       {
-        id: 2,
+        id: 14,
         text: '劳务派遣公司',
         path: '/dispatch',
-        icon: 'IconUser',
-        pid: 2
+        icon: 'SetUp',
       },
       {
-        id: 3,
+        id: 15,
         text: '合同信息',
         path: '/contract',
-        icon: 'IconUser',
-        pid: 2
+        icon: 'Files',
       },
       {
-        id: 4,
+        id: 16,
         text: '初签(续签)提醒',
         path: '/initsigning',
-        icon: 'IconUser',
-        pid: 2
+        icon: 'Bell',
       },
       {
-        id: 5,
+        id: 17,
         text: '终止提醒',
         path: '/termination',
-        icon: 'IconUser',
-        pid: 2
+        icon: 'Bell',
       }
     ]
   },
   {
-    id: 4,
+    id: 18,
     text: '档案管理',
-    icon: 'Management',
+    icon: 'CopyDocument',
     children: [
       {
-        id: 2,
+        id: 19,
         text: '档案信息',
         path: '/archivesinfo',
-        icon: 'Management',
-        pid: 4
+        icon: 'Document',
       },
       {
-        id: 3,
+        id: 20,
         text: '非员工在档提醒',
         path: '/onfilereminder',
-        icon: 'ScaleToOriginal',
-        pid: 4
+        icon: 'Bell',
       },
       {
-        id: 4,
+        id: 21,
         text: '员工不在档提醒',
         path: '/outfilereminder',
-        icon: 'Postcard',
-        pid: 4
+        icon: 'Bell',
       },
       {
-        id: 5,
+        id: 22,
         text: '档案转出记录',
         path: '/filetransferrecord',
         icon: 'DocumentRemove',
-        pid: 4
-      },
+      }
     ]
   },
   {
-    id: 5,
+    id: 23,
     text: '证书管理',
-    icon: 'IconUser',
+    icon: 'Files',
     children: [
       {
-        id: 2,
+        id: 24,
         text: '证书信息',
         path: '/certificateinfo',
-        icon: 'IconUser',
-        pid: 2
+        icon: 'Tickets',
       }
     ]
   },
   {
-    id: 6,
+    id: 25,
     text: '职称管理',
-    icon: 'IconUser',
+    icon: 'Medal',
     children: [
       {
-        id: 2,
+        id: 26,
         text: '职称信息',
         path: '/jobtitleinfo',
-        icon: 'IconUser',
-        pid: 2
+        icon: 'GoldMedal',
       }
     ]
   },
   {
-    id: 7,
+    id: 27,
     text: '出(国)境管理',
-    icon: 'IconUser',
+    icon: 'Guide',
     children: [
       {
-        id: 2,
+        id: 28,
         text: '因公出(国)境',
         path: '/businessabroad',
-        icon: 'IconUser',
-        pid: 2
+        icon: 'Van',
       },
       {
-        id: 3,
+        id: 29,
         text: '因私出(国)境',
         path: '/privateabroad',
-        icon: 'IconUser',
-        pid: 2
+        icon: 'Bicycle',
       }
     ]
   },
   {
-    id: 8,
+    id: 30,
     text: '离(退)休管理',
-    icon: 'IconUser',
+    icon: 'Postcard',
     children: [
       {
-        id: 2,
+        id: 31,
         text: '离(退)休人员',
         path: '/retiree',
         icon: 'IconUser',
-        pid: 2
       },
       {
-        id: 3,
+        id: 32,
         text: '费用台账',
         path: '/expense',
-        icon: 'IconUser',
-        pid: 2
+        icon: 'Tickets',
       }
     ]
   },
   {
+    id: 33,
     text: '标准化数据设置',
-    icon: 'IconTickets',
+    icon: 'SetUp',
     children: [
       {
-        id: 4,
+        id: 34,
         text: '岗位(技能)证书',
         path: '/postcertificateview',
         icon: 'IconTickets',
-        pid: 4
       },
       {
-        id: 5,
+        id: 35,
         text: '职称目录',
         path: '/jobtitlecatalog',
         icon: 'IconTickets',
-
-        pid: 4
       },
       {
-        id: 6,
-
+        id: 36,
         text: '档案室',
         path: '/archives',
         icon: 'IconTickets',
-        pid: 4
       },
       {
-        id: 2,
+        id: 37,
         text: '合同类别',
         path: '/contractCatrgory',
         icon: 'IconTickets',
-        pid: 3
       },
       {
-        id: 3,
+        id: 38,
         text: '合同类型',
         path: '/contractType',
         icon: 'IconTickets',
-        pid: 3
       },
       {
-        id: 4,
+        id: 39,
         text: '执业资格证书',
         path: '/practiceCertificate',
         icon: 'IconTickets',
-        pid: 3
       }
     ]
   },
   {
-    id: 9,
+    id: 40,
     text: '系统管理',
-    icon: 'IconSetting',
+    icon: 'Orange',
     children: [
       {
-        id: 0,
+        id: 41,
         text: '权限管理',
         path: '/rightsmanage',
         icon: 'IconSetting',
-        pid: 9
       },
       {
-        id: 1,
+        id: 42,
         text: ' 菜单管理',
         path: '/menumanage',
         icon: 'IconSetting',
-        pid: 9
       },
       {
-        id: 2,
+        id: 43,
         text: '角色管理',
         path: '/rolesmanage',
         icon: 'IconSetting',
-        pid: 9
       },
       {
-        id: 3,
+        id: 44,
         text: '用户管理',
         path: '/usersmanage',
         icon: 'IconSetting',
-        pid: 9
       }
     ]
   },
   {
-    id: 10,
+    id: 45,
     text: '组织管理',
-    icon: 'IconUser',
+    icon: 'TakeawayBox',
     children: [
       {
-        id: 0,
+        id: 46,
         text: '组织信息',
         path: '/orginfo',
-        icon: 'IconUser',
-        pid: 9
+        icon: 'CreditCard',
       }
     ]
   }
