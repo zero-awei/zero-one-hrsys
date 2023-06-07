@@ -6,9 +6,6 @@
 #include "FastDfsClient.h"
 #include "SnowFlake.h"
 #include "SimpleDateTimeFormat.h"
-#include "domain/vo/assignInfo/ImportAssignInfoVO.h"
-#include "domain/dto/assignInfo/ImportAssignInfoDTO.h"
-#include "domain/do/assignInfoDO/AssignInfoDO.h"
 
 // 文件到DO宏
 #define FILE_TO_DO(target, src, f1, f2) target.set##f1(src.f2);
@@ -208,6 +205,24 @@ ImportInfoJsonVO::Wrapper AssignInfoService::addMultiAssignInfo(const ImportAssi
 	//}
 
 	return vo;
+}
+
+bool AssignInfoService::removeMulData(const MulDeleteAssignInfoDTO::Wrapper& dto)
+{
+	AssignInfoDAO dao;
+	auto sqlSession = dao.getSqlSession();
+	sqlSession->beginTransaction();
+	bool isSuccess = true;
+	for (const auto& item : *dto->assignIds) {
+		if (dao.deleteById(item->c_str()) != 1)
+		{
+			sqlSession->rollbackTransaction();
+			isSuccess = false;
+			return isSuccess;
+		}
+	}
+	sqlSession->commitTransaction();
+	return isSuccess;
 }
 
 string AssignInfoService::exportData(const AssignExportQuery::Wrapper& query) {

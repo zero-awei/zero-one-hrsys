@@ -38,6 +38,8 @@
 #include "CharsetConvertHepler.h"
 #include "domain/dto/assignInfo/ImportAssignInfoDTO.h"
 #include <iostream>
+#include "domain/dto/assignInfo/MulDeleteAssignInfoDTO.h"
+#include "domain/vo/assignInfo/MulDeleteAssignInfoVO.h"
 
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
@@ -246,6 +248,18 @@ public:
 		// 响应结果
 		API_HANDLER_RESP_VO(execAssignQueryDetail(userQuery, authObject->getPayload()));
 	}
+	// 删除多条数据
+	ENDPOINT_INFO(deleteMultipleByAssignId) {
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("employee.delete.multiple");
+		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
+		API_DEF_ADD_AUTH();
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(MulDeleteAssignInfoVO);
+	}
+	ENDPOINT(API_M_DEL, "/c3-assign-info/multiple-delete", deleteMultipleByAssignId, API_HANDLER_AUTH_PARAME, BODY_DTO(MulDeleteAssignInfoDTO::Wrapper, dto)) {
+		API_HANDLER_RESP_VO(execMulDeleteAssignInfoById(dto, authObject->getPayload()));
+	}
 
 	ENDPOINT_INFO(exportAssignInfo) {
 		info->summary = ZH_WORDS_GETTER("export.summary");
@@ -271,6 +285,7 @@ private:
 	AssignInfoPageJsonVO::Wrapper execAssignQuery(const AssignInfoQuery::Wrapper& query, const PayloadDTO& payload);
 	AssignInfoJsonVO::Wrapper execAssignQueryDetail(const AssignInfoQueryDetail::Wrapper& dto, const PayloadDTO& payload);
 	StringJsonVO::Wrapper execModifyAssignInfo(const AssignInfoDTO::Wrapper& dto, const PayloadDTO& payload);
+	MulDeleteAssignInfoVO::Wrapper execMulDeleteAssignInfoById(const MulDeleteAssignInfoDTO::Wrapper& dto, const PayloadDTO& payload);
 	StringJsonVO::Wrapper execExportAssign(const AssignExportQuery::Wrapper& query);
 };
 

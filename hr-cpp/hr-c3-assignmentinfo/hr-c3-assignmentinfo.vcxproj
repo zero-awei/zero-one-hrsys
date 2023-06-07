@@ -202,6 +202,7 @@
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\dto\assignInfo\AssignInfoDTO.h" />
     <ClInclude Include="domain\dto\assignInfo\ImportAssignInfoDTO.h" />
+    <ClInclude Include="domain\dto\assignInfo\MulDeleteAssignInfoDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\assignInfo\AssignInfoQuery.h" />
     <ClInclude Include="domain\query\assignInfo\AssignInfoQueryDetail.h" />
@@ -210,6 +211,7 @@
     <ClInclude Include="domain\vo\assignInfo\AssignInfoQueryVO.h" />
     <ClInclude Include="domain\vo\assignInfo\ImportAssignInfoVO.h" />
     <ClInclude Include="domain\vo\assignInfo\ModifyAssignInfoVO.h" />
+    <ClInclude Include="domain\vo\assignInfo\MulDeleteAssignInfoVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="service\assignInfo\AssignInfoQueryService.h" />

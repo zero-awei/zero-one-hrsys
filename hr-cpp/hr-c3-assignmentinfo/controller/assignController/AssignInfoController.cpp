@@ -161,6 +161,29 @@ ImportAssignJsonVO::Wrapper AssignInfoController::execImportAssignInfo(const Imp
 
 }
 
+MulDeleteAssignInfoVO::Wrapper  AssignInfoController::execMulDeleteAssignInfoById(const MulDeleteAssignInfoDTO::Wrapper& dto, const PayloadDTO& payload)
+{
+	// 定义返回数据对象
+	auto vo = MulDeleteAssignInfoVO::createShared();
+	// 参数校验
+	if (!dto->assignIds)
+	{
+		vo->init(dto, RS_PARAMS_INVALID);
+		return vo;
+	}
+	AssignInfoService service;
+	auto result = service.removeMulData(dto);
+	// 执行数据删除
+	if (result > 0) {
+		vo->success(dto);
+	}
+	else
+	{
+		vo->fail(dto);
+	}
+	return vo;
+}
+
 StringJsonVO::Wrapper AssignInfoController::execExportAssign(const AssignExportQuery::Wrapper& query) {
 	auto jvo = StringJsonVO::createShared();
 	// 定义一个Service

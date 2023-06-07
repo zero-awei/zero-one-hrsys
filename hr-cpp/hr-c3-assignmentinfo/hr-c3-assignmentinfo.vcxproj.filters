@@ -128,5 +128,11 @@
     <ClInclude Include="service\assignInfo\AssignInfoService.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\dto\assignInfo\MulDeleteAssignInfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\assignInfo\MulDeleteAssignInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
