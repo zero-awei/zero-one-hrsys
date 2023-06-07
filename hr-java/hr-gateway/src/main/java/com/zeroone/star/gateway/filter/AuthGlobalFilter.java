@@ -51,7 +51,7 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
             String userTokenKey = RedisConstant.USER_TOKEN + ":" + realToken;
             if (!redisUtils.isExist(userTokenKey)) {
                 //token不存在，拦截请求
-                return CommonSender.sender(exchange, ResultStatus.UNAUTHORIZED, null);
+                return CommonSender.sender(exchange, ResultStatus.UNAUTHORIZED, "token不存在");
             }
             JWSObject jwsObject = JWSObject.parse(realToken);
             String userStr = jwsObject.getPayload().toString();

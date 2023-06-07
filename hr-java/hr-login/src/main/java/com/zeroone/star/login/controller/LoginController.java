@@ -1,6 +1,8 @@
 package com.zeroone.star.login.controller;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.anji.captcha.model.common.ResponseModel;
+import com.anji.captcha.model.vo.CaptchaVO;
 import com.anji.captcha.service.CaptchaService;
 import com.zeroone.star.login.entity.Role;
 import com.zeroone.star.login.entity.User;
@@ -65,11 +67,9 @@ public class LoginController implements LoginApis {
     @Resource
     RedisUtils redisUtils;
     @Resource
-    CaptchaService captchaService;
-    @Resource
     IRoleService roleService;
-
-
+    @Resource
+    CaptchaService captchaService;
     @ApiOperation(value = "授权登录")
     @PostMapping("auth-login")
     @Override

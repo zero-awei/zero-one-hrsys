@@ -10,9 +10,6 @@ import javax.validation.constraints.NotBlank;
 
 
 /**
- * <p>
- * 描述：TODO
- * </p>
  * <p>版权：&copy;01星球</p>
  * <p>地址：01星球总部</p>
  * @version 1.0.0

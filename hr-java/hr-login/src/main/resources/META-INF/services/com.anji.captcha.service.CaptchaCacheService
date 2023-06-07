@@ -1,1 +1,1 @@
-com.zeroone.star.captcha.service.CaptchaCacheServiceRedisImpl
+com.zeroone.star.login.service.impl.CaptchaCacheServiceRedisImpl

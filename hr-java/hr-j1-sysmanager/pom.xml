@@ -74,11 +74,11 @@
                     <!-- 确认2375端口打开，并且对应的docker 的远程访问打开-->
                     <dockerHost>https://8.134.9.155:2375</dockerHost>
                     <!--CA证书位置-->
-                    <certPath>C:\Dockerspace</certPath>
+                    <certPath>C:\file\docker-ca\sys</certPath>
                     <images>
                         <image>
                             <!--Docker镜像名称定义-->
-                            <name>01star/${project.artifactId}:${project.version]</name>
+                            <name>01star/${project.artifactId}:${project.version}</name>
                             <!--指定Dockerfile所在目录-->
                             <build>
                                 <contextDir>${project.basedir}</contextDir>
