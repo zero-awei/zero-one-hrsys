@@ -24,6 +24,8 @@
 #include "domain/query/EmployeeInformationPageQuery/EmployeeInformationPageQuery.h"
 #include "domain/vo/EmployeeInformation/EmployeeInformationVO.h"
 #include "domain/do/EmployeeInformationPage/EmployeeInformationPageDO.h"
+#include "domain/dto/importInfo/ImportInfoDTO.h"
+#include "domain/vo/importInfo/importInfoVO.h"
 #include "domain/query/EmployeeInformationPageQuery/EmployeeExportQuery.h"
 
 
@@ -34,6 +36,8 @@ public:
 	EmployeeInformationPageDTO::Wrapper listAll(const EmployeeInformationPageQuery::Wrapper& query);
 	//新增员工信息
 	uint64_t saveData(const EmployeeInformationDTO::Wrapper& dto, const PayloadDTO& payload);
+	//导入员工信息(批量新增)
+	importInfoVO::Wrapper addMultiEmployee(const ImportInfoDTO::Wrapper& dto, const PayloadDTO& payload);
 
 	string exportData(const EmployeeExportQuery::Wrapper &query);
 };

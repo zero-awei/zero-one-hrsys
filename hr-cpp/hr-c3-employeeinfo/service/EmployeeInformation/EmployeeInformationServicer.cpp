@@ -22,6 +22,14 @@
 #include "SnowFlake.h"
 #include "SimpleDateTimeFormat.h"
 #include "CustomerAuthorizeHandler.h"
+#include "ExcelComponent.h"
+#include "domain/do/EmployeeInformationPage/EmployeeInformationPageDO.h"
+
+// 文件到DO宏
+#define FILE_TO_DO(target, src, f1, f2) target.set##f1(src.f2);
+#define INDEX(x, y) at(x).at(y)
+#define ZO_STAR_FILE_TO_DO(target, src, ...) \
+ZO_STAR_EXPAND(ZO_STAR_PASTE(target, src, FILE_TO_DO, __VA_ARGS__))
 
 // 分页查询所有数据
 EmployeeInformationPageDTO::Wrapper EmployeeInformationServicer::listAll(const EmployeeInformationPageQuery::Wrapper& query)
@@ -132,4 +140,87 @@ uint64_t EmployeeInformationServicer::saveData(const EmployeeInformationDTO::Wra
 	EmployeeInformationDAO dao;
 	return dao.insert(data);
 }
+//导入员工信息(批量新增)
+importInfoVO::Wrapper EmployeeInformationServicer::addMultiEmployee(const ImportInfoDTO::Wrapper& dto, const PayloadDTO& payload) {
 
+	// 构建Excel对象
+	ExcelComponent excel;
+	// 将文件数据读取出来
+	auto data = excel.readIntoVector(std::string(dto->filePath), std::string(dto->sheetName));
+
+	// 构建字段坐标映射
+	unordered_map<string, int> hash;
+	for (int i = 0; i < data[0].size(); i++)
+	{
+		hash[data[0][i]] = i;
+	}
+
+	// 生成SnowFlake对象
+	SnowFlake sf(1, 3);//雪花算法
+	string name = payload.getId();
+	string day = SimpleDateTimeFormat::format();//获取当前时间格式字符串
+	// 文件数据到DO
+	list<EmployeeInformationPageDO> all;
+	for (int i = 1; i < data.size(); i++)
+	{
+		EmployeeInformationPageDO tmp;
+		ZO_STAR_FILE_TO_DO(tmp, data,
+			Name,INDEX(i,hash["NAME"]),
+			Id,INDEX(i,hash["ID"]),
+			Organize,INDEX(i,hash["ORGANIZE"]),
+			Depart,INDEX(i,hash["DEPART"]),
+			Job,INDEX(i,hash["JOB"]),
+			Post,INDEX(i,hash["POST"]),
+			IdMum,INDEX(i,hash["IDMUN"]),
+			Birthday,INDEX(i,hash["BIRTHDAY"]),
+			Phone,INDEX(i,hash["PHONE"]),
+			State,INDEX(i,hash["STATE"])
+		);
+		//年龄
+		tmp.setAge(atoi(data[i][hash["AGE"]].c_str()));
+		//生成主键
+		tmp.setPersonId(to_string(sf.nextId()));
+		//建立人
+		tmp.setCreateMan(name);
+		//建立时间
+		tmp.setCreateDate(day);
+		all.push_back(tmp);
+	}
+
+	// 调用DAO操作数据库
+	EmployeeInformationDAO dao;
+	SqlSession* ss = dao.getSqlSession();
+	// 开启事务处理
+	ss->beginTransaction();
+
+	std::list<std::string> res;
+	for (auto item : all)
+	{
+		int line = dao.insert(item);
+		// 新增成功则加入一个新的id
+		if (line == 1)
+		{
+			res.push_back(item.getPersonId());
+		}
+		// 否则清空新增id返回列表并回滚
+		else
+		{
+			ss->rollbackTransaction();
+			res.clear();
+			break;
+		}
+	}
+
+	// 提交事务
+	ss->commitTransaction();
+
+	// 构建返回对象
+	auto vo = importInfoVO::createShared();
+	if (res.size())
+	{
+		for (auto item : res)
+			vo->newId->push_back(item);
+	}
+
+	return vo;
+}
