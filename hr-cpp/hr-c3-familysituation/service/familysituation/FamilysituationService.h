@@ -36,7 +36,7 @@ public:
 	// 修改数据
 	bool updateData(const FamilysituationDTO::Wrapper& dto, const std::string authId);
 	// 通过ID删除数据
-	bool removeData(const FamilysituationDTO::Wrapper& dto);
+	int removeData(const FamilyBatchDeleteDTO::Wrapper& dto);
 };
 
-#endif // !_FAMILYSITUATIONSERVICE_H_
+#endif // !_FAMILYSITUATIONSERVICE__
