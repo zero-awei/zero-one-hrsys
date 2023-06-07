@@ -79,7 +79,7 @@ private:
 	//服务器端口
 	unsigned int port;
 
-#pragma region 
+#pragma region 动态库加载相关
 	HMODULE m_hDll;
 	func_Initialize m_func_Initialize;
 	func_UnInitialize m_func_UnInitialize;

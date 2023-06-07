@@ -99,8 +99,4 @@
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <Library Include="lib-oatpp\lib\oatpp.lib" />
-    <Library Include="lib-oatpp\lib64\oatpp.lib" />
-  </ItemGroup>
 </Project>

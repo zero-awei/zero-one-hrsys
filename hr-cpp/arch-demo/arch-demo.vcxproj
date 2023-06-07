@@ -211,9 +211,9 @@
     <ClInclude Include="controller\OtherComponent.hpp" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\sample\SampleController.h" />
-    <ClInclude Include="controller\user\UserController.h" />
     <ClInclude Include="domain\dto\user\MenuDTO.h" />
     <ClInclude Include="service\user\TreeMenuMapper.h" />
+    <ClInclude Include="controller\user\UserController.h" />
     <ClInclude Include="dao\sample\SampleDAO.h" />
     <ClInclude Include="dao\sample\SampleMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
@@ -253,9 +253,6 @@
     <ProjectReference Include="..\lib-oatpp\lib-oatpp.vcxproj">
       <Project>{3fc26f19-d665-40bd-92f1-fc4be22a38ba}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="zh-dict.yaml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
