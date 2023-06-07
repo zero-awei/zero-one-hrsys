@@ -1,3 +1,4 @@
+import { getJdygData } from '@/apis/roster-qianmeng/jdyginfo'
 import { defineStore } from 'pinia'
 
 export const RentStaffStore = defineStore('jdyg', {
@@ -30,6 +31,7 @@ export const RentStaffStore = defineStore('jdyg', {
   }),
   actions: {
     initTableData() {
+      // getJdygData()
       this.tableData = [
         {
           id: 10001,

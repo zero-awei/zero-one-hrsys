@@ -14,7 +14,11 @@
     </div>
     <div class="footer">
       <ColumnFilter :xmlData="$store.xmlData" :parentMethod="getNewXmlData" />
-      <Pagination :currentPage="$store.pageIndex" :pageSize="$store.pageSize" />
+      <Pagination
+        :currentPage="$store.pageIndex"
+        :pageSize="$store.pageSize"
+        :total="$store.total"
+      />
     </div>
   </div>
 </template>
