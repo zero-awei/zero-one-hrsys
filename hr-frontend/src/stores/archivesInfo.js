@@ -1,12 +1,12 @@
 import { defineStore } from 'pinia'
 // import Request from '@/apis/request'
 
-const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
 export const useInfoStore = defineStore('archivesInfo', {
     state: () => ({
         //记录侧边栏菜单
         menus: null,
         //配置功能按键
+        show:false,
         tableOperations: [
             {
                 name: '新增'
@@ -46,13 +46,10 @@ export const useInfoStore = defineStore('archivesInfo', {
         pageSizes: [],
         //总数据条数
         total: null,
-        // baseUrl :import.meta.env.VITE_HR_C1_4 //proj-tag
         messageInfo: ref('确定删除吗？'),
         messageSuccess: ref('删除成功'),
-        messageError: ref('取消'),
-        success: ref('成功'),
-        warn: ref('请配置数据导入项'),
-        error: ref('值规则校验异常')
+        messageError: ref('取消')
+        // baseUrl :import.meta.env.VITE_HR_C1_4 //proj-tag
     }),
     actions: {
         //加载侧边栏菜单--查询组织结构树
@@ -344,6 +341,10 @@ export const useInfoStore = defineStore('archivesInfo', {
             //    data,
             // )
             //const message=data.message 
+            const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
+            const messageInfo = this.messageInfo
+            const messageError=this.messageError
+            const messageSuccess=this.messageSuccess
             const message = reactive({ messageInfo, messageSuccess, messageError })
             //修改数据后点击遮罩层，会显示关闭提醒的弹出框
             //点击某一列执行，利用column中的label属性，例如点击Action这一列
@@ -362,14 +363,19 @@ export const useInfoStore = defineStore('archivesInfo', {
             //    data,
             // )
             //const message=data.message 
+            const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
+            const success = ref('成功')
+            const warn = ref('请配置数据导入项')
+            const error = ref('值规则校验异常')
             const message = reactive({
                 success,
                 error,
                 warn
             })
+            const messageInfo = message
             //可修改提示内容
             // message.success=''
-            mitt.emit('showSuccess', message.success)
+            mitt.emit('showSuccess', messageInfo.success)
         },
 
         //警告提示-导入配置项
@@ -381,12 +387,17 @@ export const useInfoStore = defineStore('archivesInfo', {
             //    data,
             // )
             //const message=data.message 
+            const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
+            const success = ref('成功')
+            const warn = ref('请配置数据导入项')
+            const error = ref('值规则校验异常')
             const message = reactive({
                 success,
                 error,
                 warn
             })
-            mitt.emit('showError', message.error)
+            const messageInfo = message
+            mitt.emit('showError', messageInfo.error)
         },
 
         //出错提示-输入项为空
@@ -398,12 +409,17 @@ export const useInfoStore = defineStore('archivesInfo', {
             //    data,
             // )
             //const message=data.message 
+            const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
+            const success = ref('成功')
+            const warn = ref('请配置数据导入项')
+            const error = ref('值规则校验异常')
             const message = reactive({
                 success,
                 error,
                 warn
             })
-            mitt.emit('showWarn', message.warn)
+            const messageInfo = message
+            mitt.emit('showWarn', messageInfo.warn)
         }
 
     }

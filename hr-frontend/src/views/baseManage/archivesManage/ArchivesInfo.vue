@@ -7,18 +7,21 @@
         </Aside>
       </el-aside>
       <el-container>
-        <el-header>
+        <el-header class="hr-header">
           <TableHead :tableTitle="$store.tableTitle" :tableOperations="$store.tableOperations" :saveData="saveData"
             :addTitle="$store.addTitle" :dataitem="$store.dataitem" />
           <Search :filter="filter" class="search"></Search>
           <Edit class="edit"></Edit>
-          <!-- <div class="filter">
-            <Filter></Filter>
-                  </div> -->
+          <el-button @click="controlShow">
+            过滤
+            <Filter v-show="$store.show" class="filter">
+            </Filter>
+          </el-button>
         </el-header>
         <el-main>
           <div class="table">
-            <MainTable :tableData="$store.tableData" :xmlData="newXmlData" @cell-click="$store.changeMessage"></MainTable>
+            <MainTable :tableData="$store.tableData" :xmlData="newXmlData" @cell-click="changeInfo">
+            </MainTable>
             <MessageBox v-show="false"></MessageBox>
             <Notification v-show="false"></Notification>
           </div>
@@ -51,6 +54,10 @@ import { useInfoStore } from '@/stores/archivesInfo'
 const $store = useInfoStore()
 //侧边栏
 $store.asideData()
+//过滤器
+const controlShow = () => {
+  $store.show = !$store.show
+}
 //表格数据
 $store.initTableData()
 //新增档案
@@ -71,7 +78,9 @@ newXmlData.value = [...$store.xmlData]
 $store.editInfo()
 provide('userData', $store.userData)
 //消息弹出框
-$store.changeMessage(row,column)
+const changeInfo = (row, column) => {
+  $store.changeMessage(row, column)
+}
 
 //消息提示
 $store.changeSaveValue()
@@ -86,6 +95,10 @@ $store.changeImportValue()
   float: right;
 }
 
+.filter {
+  color: purple;
+  height:150px;
+}
 .form {
   flex: 1 0 auto;
   /* 可以伸缩、不收缩 */
@@ -113,7 +126,7 @@ $store.changeImportValue()
   align-items: center;
 }
 
-// .edit{
-//   margin-left: 80%;
-// }
+.hr-header .edit{
+ display: flex;
+}
 </style>
