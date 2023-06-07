@@ -30,7 +30,7 @@ public:
 		API_DEF_ADD_AUTH();
 	}
 
-	ENDPOINT(API_M_GET, PATH_TO_PROJTAG("/export-job"), downloadJobinfo, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
+	ENDPOINT(API_M_GET, PATH_TO_JOBSET("/export-job"), downloadJobinfo, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, qps)) {
 		// ÏìÓ¦½á¹û
 		API_HANDLER_QUERY_PARAM(query, PostDetailQuery, qps);
 		API_HANDLER_RESP_VO(execDownloadJobinfo(query));
