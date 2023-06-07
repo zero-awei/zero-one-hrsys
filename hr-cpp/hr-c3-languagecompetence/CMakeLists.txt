@@ -4,10 +4,10 @@
 cmake_minimum_required (VERSION 3.8)
 
 # 定义Demo项目需要使用的特定宏【仅Demo项目需要配置】
-add_definitions(-DHTTP_SERVER_DEMO)
+# add_definitions(-DHTTP_SERVER_DEMO)
 
 # 设置文件名称
-set (appName hr-c3)
+set (appName hr-c3-languagecompetence)
 
 # 包含库目录
 include_directories ("./")
@@ -53,7 +53,7 @@ if(USE_MONGO STREQUAL OFF)
 endif()
 
 # 编译可执行文件
-add_executable (${appName} ${SC_FILES})
+add_executable (${appName} ${SC_FILES} "uselib/ws/WSController.h" "uselib/ws/WSInstanceListener.cpp" "uselib/ws/WSInstanceListener.h" "uselib/ws/WSListener.cpp" "uselib/ws/WSListener.h")
 
 # 链接库
 target_link_libraries (${appName} "lib-common" "lib-oatpp" "lib-mysql")

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "LanguageCompetenceController.h"
-#include "../../service/Language/LanguageService.h"
+#include "../../service/language/LanguageService.h"
 
 /**
  * 实现语言能力增删查改模块

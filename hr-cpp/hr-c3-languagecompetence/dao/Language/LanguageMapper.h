@@ -3,7 +3,7 @@
 #define _LANGUAGE_MAPPER_
 
 #include "Mapper.h"
-#include "../../domain/do/Language/LanguageDO.h"
+#include "../../domain/do/language/LanguageDO.h"
 
 /**
  * ÓïÑÔÄÜÁ¦×Ö¶ÎÆ¥ÅäÓ³Éä

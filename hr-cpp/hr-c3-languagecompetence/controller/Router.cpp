@@ -19,11 +19,11 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-#include "controller/LanguageCompetence/LanguageCompetenceController.h"
+#include "controller/languageCompetence/LanguageCompetenceController.h"
 
 #ifdef HTTP_SERVER_DEMO
-#include "user/UserController.h"
-#include "sample/SampleController.h"
+//#include "user/UserController.h"
+//#include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
 
@@ -57,10 +57,10 @@ void Router::initRouter()
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
-	// 绑定示例控制器
-	ROUTER_SIMPLE_BIND(SampleController);
-	// 绑定用户控制器
-	ROUTER_SIMPLE_BIND(UserController);
+	//// 绑定示例控制器
+	//ROUTER_SIMPLE_BIND(SampleController);
+	//// 绑定用户控制器
+	//ROUTER_SIMPLE_BIND(UserController);
 	
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());

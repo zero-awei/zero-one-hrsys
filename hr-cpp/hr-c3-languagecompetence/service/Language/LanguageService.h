@@ -20,11 +20,11 @@
 #ifndef _LANGUAGE_SERVICE_
 #define _LANGUAGE_SERVICE_
 #include <list>
-#include "domain/query/Language/LanguageQuery.h"
-#include "domain/dto/Language/LanguageDTO.h"
-#include "domain/query/LanguagePage/LanguagePageQuery.h"
-#include "domain/dto/ImportLanguage/ImportLanguageDTO.h"
-#include "domain/dto/DeleteLanguage/DeleteLanguageDTO.h"
+#include "domain/query/language/LanguageQuery.h"
+#include "domain/dto/language/LanguageDTO.h"
+#include "domain/query/languagePage/LanguagePageQuery.h"
+#include "domain/dto/importLanguage/ImportLanguageDTO.h"
+#include "domain/dto/deleteLanguage/DeleteLanguageDTO.h"
 
 /**
  * 语言能力相关服务实现

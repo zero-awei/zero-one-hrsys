@@ -1,10 +1,11 @@
 #include "stdafx.h"
 #include "LanguageService.h"
-#include "../../domain/do/Language/LanguageDO.h"
-#include "../../dao/Language/LanguageDAO.h"
+#include "../../domain/do/language/LanguageDO.h"
+#include "../../dao/language/LanguageDAO.h"
 #include "SnowFlake.h"
 #include "SimpleDateTimeFormat.h"
 #include "bsoncxx/third_party/mnmlstc/core/range.hpp"
+#include <uselib/fastdfs/UseFastDFS.h>
 
 /**
  * 语言能力service层实现
@@ -74,6 +75,12 @@ int LanguageService::saveData(const LanguageDTO::Wrapper& dto)
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, GainTime, gainTime, Attachment, attachment, LanguageType, languageType,
 		CreateMan, createMan, LanguageLevel, languageLevel, PersonID, personID);
 
+	//初始化FastDFS服务器
+	UseFastDFS fastDFS("192.168.31.128");
+	//上传文件
+	string url = fastDFS.upload(dto->attachment);
+	data.setAttachment(url);
+
 	//使用SimpleDateTimeFormat工具生成当前时间的字符串
 	string currentTime = SimpleDateTimeFormat::format();
 	data.setCreateDate(currentTime);
@@ -94,6 +101,12 @@ bool LanguageService::updateData(const LanguageDTO::Wrapper& dto)
 	LanguageDO data;
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, LanguageAbilityID, languageAbilityID, Permission, permission, GainTime, gainTime, Attachment, attachment,
 		LanguageType, languageType, UpdateMan, updateMan, LanguageLevel, languageLevel);
+
+	//初始化FastDFS服务器
+	UseFastDFS fastDFS("192.168.31.128");
+	//上传文件
+	string url = fastDFS.upload(dto->attachment);
+	data.setAttachment(url);
 
 	//使用SimpleDateTimeFormat工具生成当前时间的字符串
 	string currentTime = SimpleDateTimeFormat::format();
