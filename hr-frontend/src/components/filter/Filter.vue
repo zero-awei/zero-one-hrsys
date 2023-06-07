@@ -3,61 +3,39 @@
     <el-row>
       <el-col :span="20">
         <div class="filter-form">
-          <el-form :model="formFilter" label-width="120px">
-            <el-row>
-              <el-col :span="6">
-                <el-form-item label="员工姓名">
-                  <el-input v-model="formFilter.employeeName" />
-                </el-form-item>
-              </el-col>
-              <el-col :span="6">
-                <el-form-item label="员工编号">
-                  <el-input v-model="formFilter.employeeNum" />
-                </el-form-item>
-              </el-col>
-              <el-col :span="6">
-                <el-form-item label="证件号码">
-                  <el-input v-model="formFilter.Id" />
-                </el-form-item>
-              </el-col>
-              <el-col :span="6">
-                <el-form-item label="组织">
-                  <el-input v-model="formFilter.organization" />
-                </el-form-item>
-              </el-col>
-            </el-row>
+          <el-form :model="res" label-width="120px">
+            <el-row v-for="row in ceilRows - 1" :key="row">
+              <el-col :span="6" v-for="curIdx in 4" :key="curIdx">
+                <el-form-item
+                  :label="
+                    Object.values(props.data)[(row - 1) * 4 + curIdx - 1].name
+                  "
+                >
+                  <el-input
+                    v-if="
+                      Object.values(props.data)[(row - 1) * 4 + curIdx - 1]
+                        .type === 'input'
+                    "
+                    v-model="
+                      res[Object.keys(props.data)[(row - 1) * 4 + curIdx - 1]]
+                    "
+                  />
 
-            <el-row>
-              <el-col :span="6">
-                <el-form-item label="部门">
-                  <el-input v-model="formFilter.department" />
-                </el-form-item>
-              </el-col>
-              <el-col :span="6">
-                <el-form-item label="员工状态">
                   <el-select
-                    v-model="formFilter.employeeStatus"
+                    v-if="
+                      Object.values(props.data)[(row - 1) * 4 + curIdx - 1]
+                        .type === 'select'
+                    "
+                    v-model="
+                      res[Object.keys(props.data)[(row - 1) * 4 + curIdx - 1]]
+                    "
                     placeholder="请选择..."
                     style="width: 100%"
                   >
                     <el-option
-                      v-for="item in employeeStatusOptions"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value"
-                    ></el-option>
-                  </el-select>
-                </el-form-item>
-              </el-col>
-              <el-col :span="6">
-                <el-form-item label="在岗状态">
-                  <el-select
-                    v-model="formFilter.dutyStatus"
-                    placeholder="请选择..."
-                    style="width: 100%"
-                  >
-                    <el-option
-                      v-for="item in dutyStatusOptions"
+                      v-for="item in props.data[
+                        Object.keys(props.data)[(row - 1) * 4 + curIdx - 1]
+                      ].options"
                       :key="item.value"
                       :label="item.label"
                       :value="item.value"
@@ -66,6 +44,46 @@
                 </el-form-item>
               </el-col>
             </el-row>
+            <template v-if="ceilRows !== realRows">
+              <el-row>
+                <el-col :span="6" v-for="curIdx in lastAttr" :key="curIdx">
+                  <el-form-item
+                    :label="Object.values(data)[realRows * 4 + curIdx - 1].name"
+                  >
+                    <el-input
+                      v-if="
+                        Object.values(data)[realRows * 4 + curIdx - 1].type ===
+                        'input'
+                      "
+                      v-model="
+                        res[Object.keys(props.data)[realRows * 4 + curIdx - 1]]
+                      "
+                    />
+
+                    <el-select
+                      v-if="
+                        Object.values(props.data)[realRows * 4 + curIdx - 1]
+                          .type === 'select'
+                      "
+                      v-model="
+                        res[Object.keys(props.data)[realRows * 4 + curIdx - 1]]
+                      "
+                      placeholder="请选择..."
+                      style="width: 100%"
+                    >
+                      <el-option
+                        v-for="item in props.data[
+                          Object.keys(props.data)[realRows * 4 + curIdx - 1]
+                        ].options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      ></el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+              </el-row>
+            </template>
           </el-form>
         </div>
       </el-col>
@@ -73,110 +91,57 @@
         <div class="filter-btn">
           <el-button type="primary" @click="search">搜索</el-button>
           <el-button @click="clearForm">重置</el-button>
-        </div></el-col
-      >
+        </div>
+      </el-col>
     </el-row>
   </div>
 </template>
 
-<script setup lang="ts">
-import { reactive } from 'vue'
-
-let formFilter = reactive({
-  employeeName: '',
-  employeeNum: '',
-  Id: '',
-  organization: '',
-  department: '',
-  employeeStatus: '',
-  dutyStatus: ''
+<script setup>
+const props = defineProps({
+  data: {
+    type: Object,
+    default: () => {}
+  }
 })
 
+let res = reactive({})
+// 添加对象属性（置空）
+function setAttrOfObj(obj) {
+  for (let item in obj) {
+    res[item] = ''
+  }
+}
+
+setAttrOfObj(props.data)
+
+// 实际行数，向下取整
+let realRows = computed(() => {
+  return Math.floor(Object.values(props.data).length / 4)
+})
+
+// 向上取整后的行数
+let ceilRows = computed(() => {
+  return Math.ceil(Object.values(props.data).length / 4)
+})
+
+// 模4剩余的属性个数
+let lastAttr = computed(() => {
+  return Object.values(props.data).slice(-Object.values(props.data).length % 4)
+    .length
+})
+
+// 全局事件总线
+const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
 async function search() {
   // 发送网络请求
+  mitt.emit('search', res)
 }
+// 重置
 function clearForm() {
-  const formInit = {
-    employeeName: '',
-    employeeNum: '',
-    Id: '',
-    organization: '',
-    department: '',
-    employeeStatus: '',
-    dutyStatus: ''
-  }
-  formFilter = Object.assign(formFilter, formInit)
+  setAttrOfObj(props.data)
 }
 
-const employeeStatusOptions = [
-  {
-    value: 'on',
-    label: '在职'
-  },
-  {
-    value: 'apprenticeship',
-    label: '见习'
-  },
-  {
-    value: 'probation',
-    label: '试用'
-  },
-  {
-    value: 're-employ',
-    label: '返聘'
-  },
-  {
-    value: 'unemployed',
-    label: '待岗'
-  },
-  {
-    value: 'dismiss',
-    label: '解聘'
-  },
-  {
-    value: 'off',
-    label: '离职'
-  },
-  {
-    value: 'retire',
-    label: '退休'
-  },
-  {
-    value: 'discharge',
-    label: '离休'
-  },
-  {
-    value: 'retreat',
-    label: '内退'
-  },
-  {
-    value: 'sick',
-    label: '病休'
-  },
-  {
-    value: 'adjusted',
-    label: '可调配'
-  },
-  {
-    value: 'died',
-    label: '身故'
-  },
-  {
-    value: 'co-management',
-    label: '共同管理'
-  }
-]
-
-const dutyStatusOptions = [
-  {
-    value: 'on',
-    label: '在岗'
-  },
-  {
-    value: 'off',
-    label: '离岗'
-  }
-]
 </script>
 
 <style lang="scss" scoped>

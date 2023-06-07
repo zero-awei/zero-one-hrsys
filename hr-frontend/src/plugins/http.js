@@ -2,7 +2,7 @@ import http from 'axios'
 import qs from 'qs'
 import { ElMessage } from 'element-plus'
 import { userStore } from '../stores/user'
-
+import NProgress from 'nprogress'
 // 配置axios基本属性
 http.defaults.baseURL = import.meta.env.VITE_API_URL
 http.defaults.timeout = 10000
@@ -55,6 +55,7 @@ export default (router) => {
   // 请求拦截处理
   http.interceptors.request.use(
     (config) => {
+      NProgress.start()
       //提交的时候携带登录凭证
       let store = userStore()
       let token = store.getToken
@@ -84,6 +85,7 @@ export default (router) => {
   http.interceptors.response.use(
     async (response) => {
       // HTTP响应状态码正常
+      // NProgress.done()
       if (response.status === 200) {
         if ('code' in response.data) {
           let store = userStore()

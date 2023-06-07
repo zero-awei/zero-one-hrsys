@@ -11,6 +11,8 @@ import './assets/main.css'
 import ECharts from './components/echarts/ECharts.vue'
 // import ECharts from './components/echarts/echart-with-color.vue'
 
+import 'nprogress/nprogress.css'
+
 const app = createApp(App)
 app.use(createPinia())
 app.use(router)

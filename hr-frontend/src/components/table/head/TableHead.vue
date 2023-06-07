@@ -16,7 +16,11 @@
               :saveData="saveData"
               v-if="tableOperation.name === '新增'"
             />
-            <el-button plain v-if="tableOperation.name === '删除'">
+            <el-button
+              plain
+              v-if="tableOperation.name === '删除'"
+              @click="handleDeleteData(deleteData)"
+            >
               <span class="hr-button">
                 <IconDocument class="hr-button__icon" />
                 <p class="hr-button__p">删除</p>
@@ -32,14 +36,29 @@
 <script setup>
 import AddButton from './AddButton.vue'
 import SearchBox from '@/components/SearchBox.vue'
+import { getCurrentInstance, onMounted } from 'vue'
+const { $bus } = getCurrentInstance().appContext.config.globalProperties
 
-defineProps([
-  'tableTitle',
-  'addTitle',
-  'tableOperations',
-  'dataitem',
-  'saveData'
-])
+defineProps({
+  tableTitle: String,
+  addTitle: String,
+  tableOperations:Array,
+  dataitem: Array,
+  saveData: Function,
+  deleteData: Function
+})
+
+//监听需要删除的数据，并将数据集传给回调函数
+let ids = []
+onMounted(() => {
+  //监听多选数据
+  $bus.on('getRowsData', (data) => {
+    ids = data.value.map((item) => item)
+  })
+})
+const handleDeleteData = (deleteData) => {
+  deleteData(ids)
+}
 </script>
 
 <style lang="scss" scoped>
@@ -54,24 +73,20 @@ defineProps([
     font-size: 16px;
     font-weight: 600;
   }
-  // @include element(menus){
-  //     float: right;
-  //     height: 100%;
-  // }
 }
-.hr-button{
-  display:flex;
-  @include element(icon){
+.hr-button {
+  display: flex;
+  @include element(icon) {
     width: 14px;
     height: 16px;
     margin-right: 6px;
   }
-  @include element(p){
+  @include element(p) {
     font-size: 14px;
     margin-top: 1.5px;
   }
 }
-.el-button{
+.el-button {
   width: 60px;
   height: 32px;
   padding: 0 6px;
