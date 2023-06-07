@@ -96,9 +96,9 @@ const routes = [
     component: () => import('@/views/baseManage/roster/Jdyg.vue')
   },
   {
-    path: '/gzryhmcgridview',
-    name: 'gzryhmcgridview',
-    component: () => import('@/views/baseManage/roster/Gzyg.vue')
+    path: '/temporyStaff',
+    name: 'temporyStaff',
+    component: () => import('@/views/baseManage/roster/TemporyStaff.vue')
   },
   {
     path: '/dispatch',
@@ -162,6 +162,11 @@ const routes = [
     name:'FileTransferRecord',
     component:()=>import('@/views/baseManage/archivesManage/FileTransferRecord.vue')
   },
+  {
+    path: '/orginfo',
+    name: 'OrgInfo',
+    component: () => import('@/views/baseManage/orginfo/OrgInfo.vue')
+  }
 ]
 
 export default routes

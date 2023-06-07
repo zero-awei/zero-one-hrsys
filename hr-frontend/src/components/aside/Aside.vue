@@ -12,7 +12,7 @@
         >
           <template v-for="(menu, index) in menus" :key="index">
             <!-- 有二级目录的层级 -->
-            <el-sub-menu v-if="menu.children" :index="menu.id">
+            <el-sub-menu v-if="menu.children" :index="menu.id + ''">
               <template #title>
                 <el-icon>
                   <component :is="menu.icon"></component>

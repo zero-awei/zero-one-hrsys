@@ -1,28 +1,32 @@
 <template>
-   <el-container>
+  <el-container>
     <el-aside width="200px">
-        <Aside :menus="menus" style="height: calc(100%-60px)"></Aside>
+      <Aside :menus="menus" style="height: calc(100%-60px)"></Aside>
     </el-aside>
     <el-container>
       <el-header>
         <TableHead
-        :tableTitle="tableTitle"
-        :addTitle="addTitle"
-        :tableOperations="tableOperations"
-        :addData="addData"
-      >
-        <Search :filter="filter" class="search"></Search>
-      </TableHead>
+          :tableTitle="tableTitle"
+          :addTitle="addTitle"
+          :tableOperations="tableOperations"
+          :dataitem="dataitem"
+          :saveData="saveData"
+        >
+          <Search :filter="filter" class="search"></Search>
+        </TableHead>
       </el-header>
       <el-main>
         <MainTable
-        :tableData="tableData"
-        :xmlData="xmlData"
-        class="maintable"
-      ></MainTable>
+          :tableData="tableData"
+          :xmlData="xmlData"
+          class="maintable"
+        ></MainTable>
       </el-main>
       <el-footer>
-        <Pagination :pageSizes="pageSizes" :total="tableData.length"></Pagination>
+        <Pagination
+          :pageSizes="pageSizes"
+          :total="tableData.length"
+        ></Pagination>
       </el-footer>
     </el-container>
   </el-container>
@@ -758,14 +762,17 @@ const addTitle = ref('人员列表编辑')
 //功能按键需求配置
 const tableOperations = reactive([
   {
+    name: '搜索'
+  },
+  {
     name: '新增'
   },
   {
-    name: '导入'
+    name: '删除'
   }
 ])
 //新增表单所需栏目配置
-const addData = reactive([
+const dataitem = reactive([
   {
     label: '员工姓名',
     name: 'name',
@@ -793,10 +800,12 @@ const addData = reactive([
     type: 'Text'
   }
 ])
+const saveData = (val) => {
+  //写保存数据的逻辑
+}
 </script>
 
 <style lang='scss' scoped>
-
 .search {
   flex: 0 0 auto; /* 不伸缩、不收缩，固定高度 */
   float: right;
@@ -815,5 +824,4 @@ const addData = reactive([
 .pagination {
   flex: 0 0 auto; /* 不伸缩、不收缩，固定高度 */
 }
-
 </style>

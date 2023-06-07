@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-header>
-      <TableHead    
+      <TableHead
         :tableTitle="$store.tableTitle"
         :tableOperations="$store.tableOperations"
         :saveData="saveData"
@@ -10,9 +10,7 @@
       />
     </el-header>
     <el-main>
-      <MainTable 
-        :xmlData="newXmlData" 
-        :tableData="$store.tableData" />
+      <MainTable :xmlData="newXmlData" :tableData="$store.tableData" />
     </el-main>
     <el-footer>
       <div class="footer">

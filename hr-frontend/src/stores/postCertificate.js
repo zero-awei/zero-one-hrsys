@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import Request from '@/apis/request'
 
 export const usePostCertificateStore = defineStore('postCertificate', {
     state: () => ({
@@ -9,23 +10,26 @@ export const usePostCertificateStore = defineStore('postCertificate', {
             },
             {
                 name: '新增'
+            },
+            {
+                name: '删除'
             }
         ],
         xmlData: [
-            { id: 1, name: '排序号', prop: 'id' },
-            { id: 2, name: '岗位(技能)证书', prop: 'name' },
+            { id: 1, name: '排序号', prop: 'seialno' },
+            { id: 2, name: '岗位(技能)证书', prop: 'pimqualtypename' },
         ],
         tableData: null,
         addTitle: '岗位(技能)证书',
         dataitem: [
             {
                 label: '排序号',
-                name: 'id',
+                name: 'seialno',
                 type: Number,
             },
             {
                 label: '岗位(技能)证书',
-                name: 'name',
+                name: 'pimqualtypename',
                 type: String,
             }
         ],
@@ -33,17 +37,29 @@ export const usePostCertificateStore = defineStore('postCertificate', {
         total: 1000
     }),
     actions: {
-        initTableData() {
-            this.tableData = [
+        async loadTableData() {
+            // //发送获取当前表格数据的请求
+            // let data = await Request.requestForm(
+            //   Request.GET,
+            //   '/certificate/query-certificate',
+            //   {
+            //     "pageIndex": 1,
+            //     "pageSize": 10,
+            //   },
+            //   null
+            // )
+            // const rows = data.data.rows
+            const rows = [
                 {
-                    id: 1,
-                    name: '施工员'
+                    seialno: 1,
+                    pimqualtypename: '施工员'
                 },
                 {
-                    id: 2,
-                    name: '安全员'
+                    seialno: 2,
+                    pimqualtypename: '安全员'
                 }
             ]
+            this.tableData = rows
         },
         addData(val) {
             this.tableData.push(val)

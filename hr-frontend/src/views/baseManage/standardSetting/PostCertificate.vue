@@ -6,6 +6,7 @@
                 :saveData="saveData" 
                 :addTitle= "$store.addTitle" 
                 :dataitem="$store.dataitem"
+                :deleteData="deleteData"
       />
     </div>
     <div class="table">
@@ -24,13 +25,21 @@ import MainTable from '@/components/MainTable.vue'
 import ColumnFilter from '@/components/columnFilter/ColumnFilter.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
 import {usePostCertificateStore} from '@/stores/postCertificate'
+import { onBeforeMount } from 'vue'
 
 const $store = usePostCertificateStore()
-$store.initTableData()
+//页面挂载前请求数据
+onBeforeMount(()=>{
+  $store.loadTableData()
+})
 
 //将新增的数据保存
 const saveData = (val)=>{
   $store.addData(val)
+}
+//书写数据删除逻辑
+const deleteData = (val)=>{
+  console.log(val)
 }
 
 function getNewXmlData(checkStatus) {

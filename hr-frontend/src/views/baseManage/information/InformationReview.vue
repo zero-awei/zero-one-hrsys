@@ -5,7 +5,8 @@
         :tableTitle="tableTitle"
         :addTitle="addTitle"
         :tableOperations="tableOperations"
-        :addData="addData"
+        :dataitem="dataitem"
+        :saveData="saveData"
       >
         <Search :filter="filter" class="search"></Search> </TableHead
     ></el-header>
@@ -37,20 +38,23 @@ interface User {
   state: string
 }
 //表格表名
-const tableTitle = ref('信息审核')
+const tableTitle = ref('员工信息审核')
 //新增表单的表名
 const addTitle = ref('人员列表编辑')
 //功能按键需求配置
 const tableOperations = reactive([
   {
+    name: '搜索'
+  },
+  {
     name: '新增'
   },
   {
-    name: '导入'
+    name: '删除'
   }
 ])
 //新增表单所需栏目配置
-const addData = reactive([
+const dataitem = reactive([
   {
     label: '员工姓名',
     name: 'name',
@@ -78,6 +82,10 @@ const addData = reactive([
     type: 'Text'
   }
 ])
+
+const saveData = (val) => {
+  //写保存数据的逻辑
+}
 // 定义表单数据
 const xmlData = [
   { id: 1, name: '员工编号', prop: 'id' },

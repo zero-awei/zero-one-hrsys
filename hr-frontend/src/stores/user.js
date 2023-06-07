@@ -74,7 +74,7 @@ let testMenus = [
         id: 2,
         text: '离职人员',
         icon: 'IconSetting',
-        path: '/lzyghmcgridview'
+        path: '/leaveStaff'
       },
       {
         id: 3,
@@ -87,7 +87,7 @@ let testMenus = [
 
         text: '挂职员工',
         icon: 'IconSetting',
-        path: '/gzryhmcgridview'
+        path: '/temporyStaff'
       }
     ]
   },
@@ -313,6 +313,20 @@ let testMenus = [
         text: '用户管理',
         path: '/usersmanage',
         icon: 'IconSetting',
+        pid: 9
+      }
+    ]
+  },
+  {
+    id: 10,
+    text: '组织管理',
+    icon: 'IconUser',
+    children: [
+      {
+        id: 0,
+        text: '组织信息',
+        path: '/orginfo',
+        icon: 'IconUser',
         pid: 9
       }
     ]
