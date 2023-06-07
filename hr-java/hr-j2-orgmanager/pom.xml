@@ -90,7 +90,7 @@
                                 <namingStrategy>alias</namingStrategy>
                                 <!-- 端口映射 -->
                                 <ports>
-                                    <port>9999:9999</port>
+                                    <port>10012:10012</port>
                                 </ports>
                                 <!-- 数据卷 -->
                                 <volumes>
