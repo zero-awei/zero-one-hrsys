@@ -14,7 +14,7 @@
           <Edit class="edit"></Edit>
           <el-button @click="controlShow">
             过滤
-            <Filter v-show="$store.show" class="filter">
+            <Filter :data="$store.data" v-show="$store.show" class="filter">
             </Filter>
           </el-button>
         </el-header>
@@ -30,7 +30,8 @@
           <div class="footer">
             <ColumnFilter :xmlData="$store.xmlData" :parentMethod="getNewXmlData">
             </ColumnFilter>
-            <Pagination></Pagination>
+            <Pagination :current-page="$store.currentPage" :page-size="$store.pageSize" :total="$store.tableData.length">
+            </Pagination>
           </div>
         </el-footer>
       </el-container>
@@ -52,20 +53,29 @@ import Notification from '@/components/feedback/Notification.vue'
 import { useInfoStore } from '@/stores/archivesInfo'
 
 const $store = useInfoStore()
+// 全局事件总线
+const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
 //侧边栏
 $store.asideData()
+
 //过滤器
 const controlShow = () => {
   $store.show = !$store.show
 }
+const res = $store.requestRes($store.data)
+mitt.on('search', res)
+
 //表格数据
 $store.initTableData()
+
 //新增档案
 $store.addConfig()
+
 // 将新增的数据保存
 const saveData = (val) => {
   $store.addData(val)
 }
+
 //获取新表单数据
 function getNewXmlData(checkStatus) {
   newXmlData.value = $store.xmlData.filter((item) => {
@@ -74,9 +84,11 @@ function getNewXmlData(checkStatus) {
 }
 const newXmlData = ref([])
 newXmlData.value = [...$store.xmlData]
+
 //编辑表单数据
 $store.editInfo()
 provide('userData', $store.userData)
+
 //消息弹出框
 const changeInfo = (row, column) => {
   $store.changeMessage(row, column)
@@ -99,6 +111,7 @@ $store.changeImportValue()
   color: purple;
   height:150px;
 }
+
 .form {
   flex: 1 0 auto;
   /* 可以伸缩、不收缩 */
@@ -126,7 +139,7 @@ $store.changeImportValue()
   align-items: center;
 }
 
-.hr-header .edit{
- display: flex;
+.hr-header .edit {
+  display: flex;
 }
 </style>
