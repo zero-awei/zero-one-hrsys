@@ -3,7 +3,7 @@
 #include "../../dao/ArchivesManagement/t_pimarchivesDAO.h"
 #include "domain/do/t_pimarchives/t_pimarchivesDO.h"
 
-EmployeeNotInArchivePageDTO::Wrapper ArchivesService::listAll(const EmployeeNotInArchiveQuery::Wrapper& query){
+EmployeeNotInArchivePageDTO::Wrapper ArchivesService_JIUMENG::listAll(const EmployeeNotInArchiveQuery::Wrapper& query){
 	// 构建返回对象
 	auto pages = EmployeeNotInArchivePageDTO::createShared();
 	pages->pageIndex = query->pageIndex;
@@ -32,7 +32,7 @@ EmployeeNotInArchivePageDTO::Wrapper ArchivesService::listAll(const EmployeeNotI
 	return pages;
 }
 
-bool ArchivesService::updateArchive(const EmployeeNotInArchiveDto::Wrapper& dto)
+bool ArchivesService_JIUMENG::updateArchive(const EmployeeNotInArchiveDto::Wrapper& dto)
 {
     // 组装DO数据
 	t_pimarchivesDO data;
