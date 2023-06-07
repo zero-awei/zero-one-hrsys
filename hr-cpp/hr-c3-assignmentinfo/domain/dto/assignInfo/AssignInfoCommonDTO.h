@@ -17,61 +17,46 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _ASSIGN_INFO_DTO_
-#define _ASSIGN_INFO_DTO_
+#ifndef _ASSIGN_INFO_COMMON_DTO_
+#define _ASSIGN_INFO_COMMON_DTO_
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * ĞÂÔöÖ¸¶¨Ô±¹¤·ÖÅäĞÅÏ¢
+ * æ–°å¢æŒ‡å®šå‘˜å·¥åˆ†é…ä¿¡æ¯
  */
-class AssignInfoDTO : public oatpp::DTO
+class AssignInfoCommonDTO : public oatpp::DTO
 {
-	DTO_INIT(AssignInfoDTO, DTO);
-	//·ÖÅäĞÅÏ¢±êÊ¶
+	DTO_INIT(AssignInfoCommonDTO, DTO);
+	//åˆ†é…ä¿¡æ¯æ ‡è¯†
 	API_DTO_FIELD_DEFAULT(String, assignId, ZH_WORDS_GETTER("employee.t_pimperson.assignId"));
-	//±àºÅ
+	//ç¼–å·
 	API_DTO_FIELD_DEFAULT(String, id, ZH_WORDS_GETTER("employee.t_pimperson.id"));
 	//DTO_FIELD(String, id);
 	//DTO_FIELD_INFO(id) {
 	//	info->description = ZH_WORDS_GETTER("employee.field.id");
 	//}
-	// ·ÖÅä(Ö÷·ÖÅä»ò´Î·ÖÅä)
+	// åˆ†é…(ä¸»åˆ†é…æˆ–æ¬¡åˆ†é…)
 	API_DTO_FIELD_DEFAULT(String, assign, ZH_WORDS_GETTER("employee.t_pimperson.assign"));
-	//·ÖÅä×´Ì¬
+	//åˆ†é…çŠ¶æ€
 	API_DTO_FIELD_DEFAULT(String, assignState, ZH_WORDS_GETTER("employee.t_pimperson.assignState"));
-	// ÀàĞÍ
+	// ç±»å‹
 	API_DTO_FIELD_DEFAULT(String, etype, ZH_WORDS_GETTER("employee.t_pimperson.etype"));
-	// ×éÖ¯
+	// ç»„ç»‡
 	API_DTO_FIELD_DEFAULT(String, organize, ZH_WORDS_GETTER("employee.t_pimperson.organize"));
-	// ²¿ÃÅ
+	// éƒ¨é—¨
 	API_DTO_FIELD_DEFAULT(String, depart, ZH_WORDS_GETTER("employee.t_pimperson.depart"));
-	// Ö°Îñ
+	// èŒåŠ¡
 	API_DTO_FIELD_DEFAULT(String, job, ZH_WORDS_GETTER("employee.t_pimperson.job"));
-	// ¸ÚÎ»
+	// å²—ä½
 	API_DTO_FIELD_DEFAULT(String, post, ZH_WORDS_GETTER("employee.t_pimperson.post"));
-	// ÈÎÖ°¿ªÊ¼Ê±¼ä
+	// ä»»èŒå¼€å§‹æ—¶é—´
 	API_DTO_FIELD_DEFAULT(String, startTime, ZH_WORDS_GETTER("employee.t_pimperson.startTime"));
-	// ÈÎÖ°½áÊøÊ±¼ä
+	// ä»»èŒç»“æŸæ—¶é—´
 	API_DTO_FIELD_DEFAULT(String, endTime, ZH_WORDS_GETTER("employee.t_pimperson.endTime"));
-	//´´½¨ÈË
-	API_DTO_FIELD_DEFAULT(String, createMan, ZH_WORDS_GETTER("employee.t_pimperson.createMan"));
-	//´´½¨Ê±¼ä
-	API_DTO_FIELD_DEFAULT(String, createDate, ZH_WORDS_GETTER("employee.t_pimperson.createDate"));
-	//¸üĞÂÈË
-	API_DTO_FIELD_DEFAULT(String, updateMan, ZH_WORDS_GETTER("employee.t_pimperson.updateMan"));
-	//¸üĞÂÊ±¼ä
-	API_DTO_FIELD_DEFAULT(String, updateDate, ZH_WORDS_GETTER("employee.t_pimperson.updateDate"));
 };
 
-/**
- * Ê¾Àı·ÖÒ³´«Êä¶ÔÏó
- */
-class AssignInfoPageDTO : public PageDTO<AssignInfoDTO::Wrapper>
-{
-	DTO_INIT(AssignInfoPageDTO, PageDTO<AssignInfoDTO::Wrapper>);
-};
 
 #include OATPP_CODEGEN_END(DTO)
-#endif // !_ASSIGN_INFO_DTO_
+#endif // !_ASSIGN_INFO_COMMON_DTO_

@@ -18,12 +18,14 @@
  limitations under the License.
 */
 #ifndef _ASSIGN_CONTROLLER_
-#define _ASSiGN_CONTROLLER_
+#define _ASSIGN_CONTROLLER_
 
 #include "domain/vo/BaseJsonVO.h"
 #include "ApiHelper.h"
-#include "domain/dto/assignInfo/AssignInfoDTO.h"
-#include "domain/vo/assignInfo/AssignInfoVO.h"
+#include "domain/dto/assignInfo/AssignInfoQueryDTO.h"
+#include "domain/vo/assignInfo/AssignInfoQueryVO.h"
+#include "domain/dto/assignInfo/AssignInfoCommonDTO.h"
+#include "domain/dto/assignInfo/AssignInfoDeleteDTO.h"
 #include "oatpp/web/mime/multipart/InMemoryDataProvider.hpp"
 #include "oatpp/web/mime/multipart/FileProvider.hpp"
 #include "oatpp/web/mime/multipart/Reader.hpp"
@@ -98,7 +100,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义新增接口处理
-	ENDPOINT(API_M_POST, "/c3-assign-info/add", addAssignInfo, API_HANDLER_AUTH_PARAME, BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_POST, "/c3-assign-info/add", addAssignInfo, API_HANDLER_AUTH_PARAME, BODY_DTO(AssignInfoCommonDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddAssignInfo(dto,authObject->getPayload()));
 	}
@@ -113,7 +115,7 @@ public:
 		//API_DEF_ADD_QUERY_PARAMS(String, "assignId", ZH_WORDS_GETTER("employee.t_pimperson.assignId"), "", true);
 	}
 	// 3.2 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/c3-assign-info/delete", deleteAssignInfo, API_HANDLER_AUTH_PARAME, BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_DEL, "/c3-assign-info/delete", deleteAssignInfo, API_HANDLER_AUTH_PARAME, BODY_DTO(AssignInfoDeleteDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execDeleteAssignInfo(dto));
 	}
@@ -127,7 +129,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 3.2 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/c3-assign-info/modify", modifyAssignInfo, API_HANDLER_AUTH_PARAME,BODY_DTO(AssignInfoDTO::Wrapper, dto)) {
+	ENDPOINT(API_M_PUT, "/c3-assign-info/modify", modifyAssignInfo, API_HANDLER_AUTH_PARAME,BODY_DTO(AssignInfoCommonDTO::Wrapper, dto)) {
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyAssignInfo(dto,authObject->getPayload()));
 	}
@@ -232,7 +234,7 @@ public:
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(AssignInfoJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(AssignInfoQueryJsonVO);
 		//详细查询分配信息不需要分页
 		// 定义分页参数描述
 		//API_DEF_ADD_PAGE_PARAMS();
@@ -278,13 +280,13 @@ public:
 	}
 
 private:
-	StringJsonVO::Wrapper execAddAssignInfo(const AssignInfoDTO::Wrapper& dto, const PayloadDTO& payload);
-	StringJsonVO::Wrapper execDeleteAssignInfo(const AssignInfoDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execAddAssignInfo(const AssignInfoCommonDTO::Wrapper& dto, const PayloadDTO& payload);
+	StringJsonVO::Wrapper execDeleteAssignInfo(const AssignInfoDeleteDTO::Wrapper& dto);
 	//导入员工信息
 	ImportAssignJsonVO::Wrapper execImportAssignInfo(const ImportAssignInfoDTO::Wrapper& dto, const PayloadDTO& payload);
 	AssignInfoPageJsonVO::Wrapper execAssignQuery(const AssignInfoQuery::Wrapper& query, const PayloadDTO& payload);
-	AssignInfoJsonVO::Wrapper execAssignQueryDetail(const AssignInfoQueryDetail::Wrapper& dto, const PayloadDTO& payload);
-	StringJsonVO::Wrapper execModifyAssignInfo(const AssignInfoDTO::Wrapper& dto, const PayloadDTO& payload);
+	AssignInfoQueryJsonVO::Wrapper execAssignQueryDetail(const AssignInfoQueryDetail::Wrapper& dto, const PayloadDTO& payload);
+	StringJsonVO::Wrapper execModifyAssignInfo(const AssignInfoCommonDTO::Wrapper& dto, const PayloadDTO& payload);
 	MulDeleteAssignInfoVO::Wrapper execMulDeleteAssignInfoById(const MulDeleteAssignInfoDTO::Wrapper& dto, const PayloadDTO& payload);
 	StringJsonVO::Wrapper execExportAssign(const AssignExportQuery::Wrapper& query);
 };

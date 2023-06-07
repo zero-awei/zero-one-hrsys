@@ -35,7 +35,7 @@ AssignInfoPageDTO::Wrapper AssignInfoService::listAll(const AssignInfoQuery::Wra
 	//// 将DO转换成DTO
 	for (AssignInfoDO sub : result)
 	{
-		auto dto = AssignInfoDTO::createShared();
+		auto dto = AssignInfoQueryDTO::createShared();
 		//	dto->id = sub.getId();
 		//	dto->assign = sub.getAssign();
 		//	dto->etype = sub.getEtype();
@@ -51,7 +51,7 @@ AssignInfoPageDTO::Wrapper AssignInfoService::listAll(const AssignInfoQuery::Wra
 	return pages;
 }
 
-uint64_t AssignInfoService::saveData(const AssignInfoDTO::Wrapper& dto, const PayloadDTO& payload)
+uint64_t AssignInfoService::saveData(const AssignInfoCommonDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	//雪花算法
 	SnowFlake c3_assign(1, 3);
@@ -68,23 +68,19 @@ uint64_t AssignInfoService::saveData(const AssignInfoDTO::Wrapper& dto, const Pa
 	   //data.setStartTime(dto->startTime.getValue(""));
 	   //data.setEndTime(dto->endTime.getValue(""));
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Id, id, Assign, assign, AssignState, assignState, Etype, etype, Organize, organize, Depart, depart, Job, job, Post, post, StartTime, startTime, EndTime, endTime)
-		data.setCreateMan(payload.getId());
+	data.setCreateMan(payload.getId());
 	SimpleDateTimeFormat time;
 	data.setCreateDate(time.format());
-	data.setUpdateMan(dto->updateMan.getValue(""));
-	data.setUpdateDate(dto->updateDate.getValue(""));
 	// 执行数据添加
 	AssignInfoDAO dao;
 	return dao.insert(data);
 }
 
-bool AssignInfoService::updateData(const AssignInfoDTO::Wrapper& dto, const PayloadDTO& payload)
+bool AssignInfoService::updateData(const AssignInfoCommonDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	// 组装DO数据
 	AssignInfoDO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Id, id, Assign, assign, AssignState, assignState, Etype, etype, Organize, organize, Depart, depart, Job, job, Post, post, StartTime, startTime, EndTime, endTime, CreateMan, createMan, CreateDate, createDate, UpdateMan, updateMan, UpdateDate, updateDate)
-		data.setCreateMan(dto->createMan.getValue(""));
-	data.setCreateDate(dto->createDate.getValue(""));
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Id, id, Assign, assign, AssignState, assignState, Etype, etype, Organize, organize, Depart, depart, Job, job, Post, post, StartTime, startTime, EndTime, endTime)
 	SimpleDateTimeFormat time;
 	data.setUpdateMan(payload.getId());
 	data.setUpdateDate(time.format());
@@ -100,7 +96,7 @@ bool AssignInfoService::removeData(string assignId)
 	return dao.deleteById(assignId) == 1;
 }
 
-AssignInfoDTO::Wrapper AssignInfoService::QueryDetail(const AssignInfoDTO::Wrapper& dto)
+AssignInfoQueryDTO::Wrapper AssignInfoService::QueryDetail(const AssignInfoQueryDTO::Wrapper& dto)
 {
 	//// 构建返回对象
 	//auto page = AssignInfoDTO::createShared();

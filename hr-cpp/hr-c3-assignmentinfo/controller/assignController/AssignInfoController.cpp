@@ -21,7 +21,7 @@
 #include "../../service/assignInfo/AssignInfoService.h"
 
 
-StringJsonVO::Wrapper AssignInfoController::execAddAssignInfo(const AssignInfoDTO::Wrapper& dto, const PayloadDTO& payload)
+StringJsonVO::Wrapper AssignInfoController::execAddAssignInfo(const AssignInfoCommonDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	// 定义返回数据对象
 	auto jvo = StringJsonVO::createShared();
@@ -48,7 +48,7 @@ StringJsonVO::Wrapper AssignInfoController::execAddAssignInfo(const AssignInfoDT
 	return jvo;
 }
 
-StringJsonVO::Wrapper AssignInfoController::execDeleteAssignInfo(const AssignInfoDTO::Wrapper& dto)
+StringJsonVO::Wrapper AssignInfoController::execDeleteAssignInfo(const AssignInfoDeleteDTO::Wrapper& dto)
 {
 	// 定义返回数据对象
 	auto jvo = StringJsonVO::createShared();
@@ -75,7 +75,7 @@ StringJsonVO::Wrapper AssignInfoController::execDeleteAssignInfo(const AssignInf
 }
 
 
-StringJsonVO::Wrapper AssignInfoController::execModifyAssignInfo(const AssignInfoDTO::Wrapper& dto, const PayloadDTO& payload)
+StringJsonVO::Wrapper AssignInfoController::execModifyAssignInfo(const AssignInfoCommonDTO::Wrapper& dto, const PayloadDTO& payload)
 {
 	//// 定义返回数据对象
 	auto jvo = StringJsonVO::createShared();
@@ -113,10 +113,10 @@ AssignInfoPageJsonVO::Wrapper AssignInfoController::execAssignQuery(const Assign
 	return jvo;
 }
 
-AssignInfoJsonVO::Wrapper AssignInfoController::execAssignQueryDetail(const AssignInfoQueryDetail::Wrapper& dto, const PayloadDTO& payload)
+AssignInfoQueryJsonVO::Wrapper AssignInfoController::execAssignQueryDetail(const AssignInfoQueryDetail::Wrapper& dto, const PayloadDTO& payload)
 {
 	// 定义返回数据对象
-	auto jvo = AssignInfoJsonVO::createShared();
+	auto jvo = AssignInfoQueryJsonVO::createShared();
 
 	//// 定义一个Service
 	AssignInfoService service;

@@ -200,13 +200,15 @@
     <ClInclude Include="dao\assignInfoDAO\AssignInfoMapper.h" />
     <ClInclude Include="domain\do\assignInfoDO\AssignInfoDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
-    <ClInclude Include="domain\dto\assignInfo\AssignInfoDTO.h" />
+    <ClInclude Include="domain\dto\assignInfo\AssignInfoCommonDTO.h" />
+    <ClInclude Include="domain\dto\assignInfo\AssignInfoDeleteDTO.h" />
+    <ClInclude Include="domain\dto\assignInfo\AssignInfoQueryDTO.h" />
     <ClInclude Include="domain\dto\assignInfo\ImportAssignInfoDTO.h" />
     <ClInclude Include="domain\dto\assignInfo\MulDeleteAssignInfoDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\assignInfo\AssignInfoQuery.h" />
     <ClInclude Include="domain\query\assignInfo\AssignInfoQueryDetail.h" />
-    <ClInclude Include="domain\vo\assignInfo\AssignInfoVO.h" />
+    <ClInclude Include="domain\vo\assignInfo\AssignInfoQueryVO.h" />
     <ClInclude Include="domain\vo\assignInfo\AssignInfoQueryDetailVO.h" />
     <ClInclude Include="domain\vo\assignInfo\AssignInfoQueryVO.h" />
     <ClInclude Include="domain\vo\assignInfo\ImportAssignInfoVO.h" />

@@ -17,18 +17,18 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _Assign_Info_Query_Detail_DTO_
-#define _Assign_Info_Query_Detail_DTO_
-#include "domain/dto/assignInfo/AssignInfoDTO.h"
+#ifndef _ASSIGN_INFO_QUERY_DETAIL_DTO_
+#define _ASSIGN_INFO_QUERY_DETAIL_DTO_
+#include "domain/dto/assignInfo/AssignInfoQueryDTO.h"
 
 
 /**
- * 查询指定员工详细分配信息
+ * 鏌ヨ鎸囧畾鍛樺伐璇︾粏鍒嗛厤淇℃伅
  */
-class AssignInfoQueryDetail : public  AssignInfoDTO
+class AssignInfoQueryDetail : public  AssignInfoQueryDTO
 {
 
 };
 
 
-#endif // !_Query_Assign_Info_Detail_DTO_
+#endif // !_ASSIGN_INFO_QUERY_DETAIL_DTO_

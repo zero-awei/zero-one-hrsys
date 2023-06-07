@@ -68,13 +68,10 @@
     <ClInclude Include="controller\Router.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\assignInfo\AssignInfoVO.h">
+    <ClInclude Include="domain\vo\assignInfo\AssignInfoQueryVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\assignInfo\AssignInfoQuery.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\assignInfo\AssignInfoDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\assignInfo\AssignInfoQueryDetail.h">
@@ -132,6 +129,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\vo\assignInfo\MulDeleteAssignInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\assignInfo\AssignInfoQueryDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\assignInfo\AssignInfoCommonDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\assignInfo\AssignInfoDeleteDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
