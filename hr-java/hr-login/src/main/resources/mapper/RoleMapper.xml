@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.login.mapper.RoleMapper">
+    <resultMap id="BaseResultMap" type="com.zeroone.star.login.entity.Role">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="keyword" jdbcType="VARCHAR" property="keyword"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+        <result column="is_enable" jdbcType="INTEGER" property="isEnable"/>
+
+    </resultMap>
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        select id, `name`, keyword, description
+        from zo_role
+        where id in (select role_id from zo_user_role where user_id = #{userId})
+    </select>
+    <select id="selectByMenuPath" resultMap="BaseResultMap">
+        select id, keyword
+        from role
+        where id in (select role_id from zo_role_menu where menu_id = (select id from zo_menu where link_url = #{path}))
+    </select>
+</mapper>

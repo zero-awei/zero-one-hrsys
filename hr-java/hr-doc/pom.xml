@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>hr-parent</artifactId>
+        <groupId>com.zeroone.star</groupId>
+        <version>${revision}</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <artifactId>hr-doc</artifactId>
+    <dependencies>
+        <!-- spring mvc -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- 内置系统模块 -->
+        <!-- zo common -->
+        <dependency>
+            <groupId>com.zeroone.star</groupId>
+            <artifactId>hr-common</artifactId>
+        </dependency>
+
+        <!-- nacos config -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <!-- knife4j-aggregation -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-aggregation-spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>
+                        com.zeroone.star.doc.DocApplication
+                    </mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <configuration>
+                    <!-- Docker 远程管理地址-->
+                    <dockerHost>https://192.168.220.128:2375</dockerHost>
+                    <!-- CA 证书位置 -->
+                    <certPath>/home/docker-ca</certPath>
+                    <!-- 镜像设置 -->
+                    <images>
+                        <image>
+                            <!-- Docker 镜像名称定义 -->
+                            <name>01star/${project.artifactId}:${project.version}</name>
+                            <!-- 指定Dockerfile所在目录 -->
+                            <build>
+                                <contextDir>${project.basedir}</contextDir>
+                            </build>
+                            <!-- 别名用于容器命名 -->
+                            <alias>${project.artifactId}</alias>
+                            <!-- 容器run相关配置 -->
+                            <run>
+                                <!-- 配置运行时容器命名策略为:别名,如果不指定则默认为none,即使用随机分配名称 -->
+                                <namingStrategy>alias</namingStrategy>
+                                <!-- 端口映射 -->
+                                <ports>
+                                    <port>9999:9999</port>
+                                </ports>
+                                <!-- 数据卷 -->
+                                <volumes>
+                                    <bind>
+                                        <volume>/etc/localtime:/etc/localtime</volume>
+                                        <volume>/home/app/${project.artifactId}/logs:/tmp/logs</volume>
+                                    </bind>
+                                </volumes>
+                                <!-- 设置环境变量 -->
+                                <env>
+                                    <!-- JVM参数 -->
+                                    <JAVA_OPTS>-Xms256m -Xmx256m</JAVA_OPTS>
+                                    <!-- 启动替换参数 -->
+                                    <SPRING_ARGS>
+                                        --spring.profiles.active=test --spring.cloud.nacos.discovery.ip=192.168.220.128
+                                    </SPRING_ARGS>
+                                </env>
+                            </run>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

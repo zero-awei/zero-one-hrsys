@@ -1,0 +1,30 @@
+# 应用版本描述
+application:
+  title: 人力资源管理系统
+  version: 1.0.0-SNAPSHOT
+  company: 01星球
+
+spring:
+  # 全局jackson配置
+  jackson:
+    default-property-inclusion: non_null
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+  servlet:
+    multipart:
+      # 上传文件总的最大值
+      max-request-size: 20MB
+      # 单个文件的最大值
+      max-file-size: 10MB
+management:
+  # 端点检查
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  # 健康检查
+  endpoint:
+    health:
+      show-details: always

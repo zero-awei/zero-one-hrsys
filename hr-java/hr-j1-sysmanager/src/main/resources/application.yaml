@@ -1,0 +1,11 @@
+server:
+  port: ${sp.sys}
+spring:
+  application:
+    name: ${sn.sys}
+
+# id
+application:
+  datacenterId: 2
+  workerId: 1
+

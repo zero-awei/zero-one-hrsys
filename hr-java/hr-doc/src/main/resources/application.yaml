@@ -1,0 +1,5 @@
+server:
+  port: ${sp.doc}
+spring:
+  application:
+    name: ${sn.doc}
