@@ -8,7 +8,7 @@ const baseUrl = import.meta.env.VITE_HR_C1_1 // /pull-list
 export const getPrefix = async (data, success, fail) => {
   // 获得前缀之后，将其拼接到接口中就行了
   // 该接口仅供环境变量演示示例，请求路径可能有误
-  const { data } = await Request.requestForm(
+  const { datas } = await Request.requestForm(
     Request.POST,
     baseUrl + 'auth-login',
     data

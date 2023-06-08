@@ -24,7 +24,7 @@
                 <el-menu-item
                   v-for="(child, idx) in menu.children"
                   :key="idx"
-                  :index="child.path"
+                  :index="child.href"
                 >
                   <el-icon>
                     <component :is="child.icon"></component>
@@ -34,7 +34,7 @@
               </el-menu-item-group>
             </el-sub-menu>
             <!-- 没有二级目录的层级 -->
-            <el-menu-item v-else :index="menu.path">
+            <el-menu-item v-else :index="menu.href">
               <el-icon>
                 <component :is="menu.icon"></component>
               </el-icon>
