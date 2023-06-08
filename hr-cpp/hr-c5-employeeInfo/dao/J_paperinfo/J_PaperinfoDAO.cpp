@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "J_PaperinfoDAO.h"
-#include "J_PaperinfoMapper.h"
+#include "J_paperinfoDAO.h"
+#include "J_paperinfoMapper.h"
 #include <sstream>
 
 

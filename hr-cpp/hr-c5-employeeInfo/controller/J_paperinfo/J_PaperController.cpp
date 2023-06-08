@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "J_PaperController.h"
-#include "../../service/J_paperinfo/J_PaperService.h"
+#include "../../service/J_paperinfo/J_paperService.h"
 
 //查看指定员工论文信息（指定论文信息详情）
 J_PaperinfoJsonVO::Wrapper J_PaperController::execSelectByPimpaperid(const String& str)
