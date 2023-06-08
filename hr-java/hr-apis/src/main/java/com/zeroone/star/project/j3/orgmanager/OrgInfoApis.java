@@ -97,4 +97,11 @@ public interface OrgInfoApis {
      */
     JsonVO<ExportDTO> exportOrg() throws Exception;
 
+    /**
+     * 删除组织（支持批量删除）
+     * @param orgIds
+     * @return
+     */
+    JsonVO<Boolean> deleteOrg(List<String> orgIds);
+
 }
