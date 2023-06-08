@@ -5,6 +5,7 @@
 
 #include "../../GlobalInclude.h"
 #include "../../dto/archives/ArchivesDTO.h"
+#include "../../dto/archives/ArchivesDelDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
