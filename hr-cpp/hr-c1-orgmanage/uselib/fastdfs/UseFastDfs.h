@@ -25,21 +25,8 @@
 
 class UseFastDfs
 {
-	std::string host; // FastDFS服务器IP
-	std::string url_prefix;
 public:
-	// 构造函数
-	UseFastDfs(std::string host_ = "") 
-		: host(host_)
-	{
-		std::stringstream ss;
-		ss << "http://" << host << ":8888/";
-		url_prefix = ss.str();
-	}
-
-	// 上传到FastDFS服务器, 返回FastDFS服务器文件保存路径
-	std::string upload(std::string fileName);
-	// Nacos 上传
+	// 上传到FastDFS服务器, 返回FastDFS服务器文件保存路径, 通过nacos读取配置文件
 	std::string uploadWithNacos(std::string fileName);
 };
 
