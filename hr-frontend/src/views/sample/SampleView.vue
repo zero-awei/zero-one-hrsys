@@ -140,6 +140,10 @@ const menus = reactive([
   {
     path: '/sample/filter',
     text: '过滤器'
+  },
+  {
+    path: '/sample/selection',
+    text: '上级组织选择示例页面'
   }
 ])
 </script>

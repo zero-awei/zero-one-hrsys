@@ -69,6 +69,10 @@ const routes = [
       {
         path: '/sample/filter',
         component: () => import('@/views/sample/filter/FilterDemo.vue')
+      },
+      {
+        path: '/sample/selection',
+        component: () => import('@/views/sample/selection/orgSelection.vue')
       }
     ]
   }

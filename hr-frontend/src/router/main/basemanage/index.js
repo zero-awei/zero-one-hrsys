@@ -37,7 +37,7 @@ const routes = [
     component: () => import('@/views/baseManage/retirement/expense.vue')
   },
   {
-    path: '/contractCatrgory',
+    path: '/ ',
     name: 'contractCatrgory',
     component: () =>
       import('@/views/baseManage/datesetting/ContractCategory.vue')
@@ -84,38 +84,6 @@ const routes = [
     path: '/retireStaff',
     name: 'retireStaff',
     component: () => import('@/views/baseManage/roster/RetireStaff.vue')
-  },
-  {
-    path: '/pimportalview',
-    name: 'pimportalview',
-    component: () => import('@/views/baseManage/roster/Portal.vue')
-  },
-  {
-    path: '/blacklist',
-    name: 'BlackList',
-    component: () => import('@/views/baseManage/information/BlackList.vue')
-  },
-  {
-    path: '/review',
-    name: 'InformationReview',
-    component: () =>
-      import('@/views/baseManage/information/InformationReview.vue')
-  },
-  {
-    path: '/employee',
-    name: 'EmployInformation',
-    component: () =>
-      import('@/views/baseManage/information/EmployeeInformation.vue')
-  },
-  {
-    path: '/roster',
-    name: 'StaffRoster',
-    component: () => import('@/views/baseManage/roster/roster.vue')
-  },
-  {
-    path: '/trainee',
-    name: 'TraineeEmployee',
-    component: () => import('@/views/baseManage/roster/trainee.vue')
   },
   {
     path: '/Leavestaff',
@@ -173,6 +141,11 @@ const routes = [
     path: '/privateabroad',
     name: 'PrivateAbroad',
     component: () => import('@/views/baseManage/goAbroad/PrivateAbroad.vue')
+  },
+  {
+    path: '/orginfo',
+    name: 'OrgInfo',
+    component: () => import('@/views/baseManage/orginfo/OrgInfo.vue')
   },
   {
     path: '/archivesinfo',
