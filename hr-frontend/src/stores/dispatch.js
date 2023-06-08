@@ -1,7 +1,9 @@
 import { defineStore } from 'pinia'
+import Request from '@/apis/request'
 
 export const useDispatchStore = defineStore('dispatch', {
   state: () => ({
+    baseUrl: import.meta.env.VITE_HR_C6_1 + '/contract-management',
     tableTitle: '劳务派遣公司',
     tableOperations: [
       {
@@ -9,17 +11,20 @@ export const useDispatchStore = defineStore('dispatch', {
       },
       {
         name: '新增'
+      },
+      {
+        name: '删除'
       }
     ],
     xmlData: [
       { id: 1, name: '公司名称', prop: 'name' },
-      { id: 2, name: '所属单位', prop: 'belong' },
-      { id: 3, name: '联系地址', prop: 'address' },
+      { id: 2, name: '所属单位', prop: 'unit' },
+      { id: 3, name: '联系地址', prop: 'lxdz' },
       { id: 4, name: '联系人', prop: 'lxr' },
-      { id: 5, name: '联系电话', prop: 'phone' },
-      { id: 6, name: '注册资本', prop: 'zczb' },
-      { id: 7, name: '法人', prop: 'legalman' },
-      { id: 8, name: '更新时间', prop: 'updatetime' }
+      { id: 5, name: '联系电话', prop: 'lxfs' },
+      { id: 6, name: '法人', prop: 'legalperson' },
+      { id: 7, name: '注册资本', prop: 'regcapital' },
+      { id: 8, name: '更新时间', prop: 'updatedate' }
     ],
     tableData: null,
     addTitle: '劳务派遣公司',
@@ -31,12 +36,12 @@ export const useDispatchStore = defineStore('dispatch', {
       },
       {
         label: '所属单位',
-        name: 'belong',
+        name: 'unit',
         type: String
       },
       {
         label: '联系地址',
-        name: 'address',
+        name: 'lxdz',
         type: String
       },
       {
@@ -46,40 +51,40 @@ export const useDispatchStore = defineStore('dispatch', {
       },
       {
         label: '联系电话',
-        name: 'phone',
-        type: String
-      },
-      {
-        label: '注册资本',
-        name: 'zczb',
+        name: 'lxfs',
         type: String
       },
       {
         label: '法人',
-        name: 'legalman',
+        name: 'legalperson',
         type: String
       },
       {
-        label: '更新时间',
-        name: 'updatetime',
+        label: '注册资本',
+        name: 'regcapital',
         type: String
+      },
+      {
+        label: '公司简介',
+        name: 'gsjj',
+        type: 'Text'
       }
     ],
-    pageSizes: ['10', '20'],
     total: 1000
   }),
   actions: {
-    initTableData() {
-      this.tableData = [
+    async initTableData(pageSize,pageIndex) {
+      let data = await Request.requestForm(
+        Request.GET,
+        this.baseUrl+'/queryPages-laborDispatch-Information',
         {
-          id: 1,
-          name: '施工员'
+          "pageIndex": pageIndex,
+          "pageSize": pageSize,
         },
-        {
-          id: 2,
-          name: '安全员'
-        }
-      ]
+        null
+      )
+      const rows = data.data.rows
+      this.tableData = rows
     },
     addData(val) {
       this.tableData.push(val)

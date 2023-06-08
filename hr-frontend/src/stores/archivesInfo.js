@@ -1,12 +1,14 @@
 import { defineStore } from 'pinia'
 // import Request from '@/apis/request'
 
-const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
 export const useInfoStore = defineStore('archivesInfo', {
     state: () => ({
         //记录侧边栏菜单
         menus: null,
+        //消息弹出框初始设为不显示
+        show: false,
         //配置功能按键
+        show:false,
         tableOperations: [
             {
                 name: '新增'
@@ -40,19 +42,20 @@ export const useInfoStore = defineStore('archivesInfo', {
         ],
         //记录表格数据
         tableData: null,
+        //按表单类型设置的数据
+        data: null,
         // 用户信息
         userData: null,
         // 每页数据条数
-        pageSizes: [],
+        pageSize: [],
         //总数据条数
         total: null,
-        // baseUrl :import.meta.env.VITE_HR_C1_4 //proj-tag
+        //当前页
+        currentPage: null,
         messageInfo: ref('确定删除吗？'),
         messageSuccess: ref('删除成功'),
-        messageError: ref('取消'),
-        success: ref('成功'),
-        warn: ref('请配置数据导入项'),
-        error: ref('值规则校验异常')
+        messageError: ref('取消')
+        // baseUrl :import.meta.env.VITE_HR_C1_4 //proj-tag
     }),
     actions: {
         //加载侧边栏菜单--查询组织结构树
@@ -146,11 +149,104 @@ export const useInfoStore = defineStore('archivesInfo', {
             this.menus = rows
         },
 
-        //根据搜索内容筛选数据
-        // filter(val) {
-        //     //未完
-        // },
+        // 根据过滤器结果，发送请求
+        requestRes(data) {
+            //发送请求获取过滤后的表格
+            // let data = await Request.requestForm(
+            //   Request.GET,
+            //    baseUrl + 'query-org-page',
+            //    data,
+            //    null
+            // )
+            //const filterData=data.data
+            const filterData = reactive({
+                employeeName: {
+                    name: '员工姓名',
+                    type: 'input'
+                },
+                employeeNum: {
+                    name: '员工编号',
+                    type: 'input'
+                },
+                employeeStatus: {
+                    name: '员工状态',
+                    type: 'select',
+                    options: [
+                        {
+                            value: 'on',
+                            label: '在职'
+                        },
+                        {
+                            value: 'apprenticeship',
+                            label: '见习'
+                        },
+                        {
+                            value: 'probation',
+                            label: '试用'
+                        },
+                        {
+                            value: 're-employ',
+                            label: '返聘'
+                        },
+                        {
+                            value: 'unemployed',
+                            label: '待岗'
+                        },
+                        {
+                            value: 'dismiss',
+                            label: '解聘'
+                        },
+                        {
+                            value: 'off',
+                            label: '离职'
+                        },
+                        {
+                            value: 'retire',
+                            label: '退休'
+                        },
+                        {
+                            value: 'discharge',
+                            label: '离休'
+                        },
+                        {
+                            value: 'retreat',
+                            label: '内退'
+                        },
+                        {
+                            value: 'sick',
+                            label: '病休'
+                        },
+                        {
+                            value: 'adjusted',
+                            label: '可调配'
+                        },
+                        {
+                            value: 'died',
+                            label: '身故'
+                        },
+                        {
+                            value: 'co-management',
+                            label: '共同管理'
+                        }
+                    ]
+                },
+                Id: {
+                    name: '证件号码',
+                    type: 'input'
+                },
+                organization: {
+                    name: '组织',
+                    type: 'input'
+                },
+                department: {
+                    name: '部门',
+                    type: 'input'
+                }
+            })
+            this.data = filterData
+        },
 
+        
         //初始化表格
         async initTableData() {
             // 发送请求获取表格数据
@@ -278,6 +374,24 @@ export const useInfoStore = defineStore('archivesInfo', {
             this.dataitem = rows
         },
 
+        // //分页函数
+        // handleSizeChange(size) {
+        //     //发送请求获取过滤后的表格
+        //     // let data = await Request.requestForm(
+        //     //   Request.GET,
+        //     //    baseUrl + 'query-org-page',
+        //     //    data,
+        //     //    null
+        //     // )
+        //     //const pageRows=data.data.rows
+        //     //const pageSize=data.data.rows.pageSize
+        //     //const  currentPage=pageRows.pageIndex
+        //     const pageSize = ref()
+        //     const currentPage = ref(1)
+        //     // this.currentPage=currentPage
+        //     this.pageSize.value = size;
+        // },
+
         //请求待定
         addData(val) {
             this.tableData.push(val)
@@ -344,6 +458,10 @@ export const useInfoStore = defineStore('archivesInfo', {
             //    data,
             // )
             //const message=data.message 
+            const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
+            const messageInfo = this.messageInfo
+            const messageError = this.messageError
+            const messageSuccess = this.messageSuccess
             const message = reactive({ messageInfo, messageSuccess, messageError })
             //修改数据后点击遮罩层，会显示关闭提醒的弹出框
             //点击某一列执行，利用column中的label属性，例如点击Action这一列
@@ -362,14 +480,19 @@ export const useInfoStore = defineStore('archivesInfo', {
             //    data,
             // )
             //const message=data.message 
+            const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
+            const success = ref('成功')
+            const warn = ref('请配置数据导入项')
+            const error = ref('值规则校验异常')
             const message = reactive({
                 success,
                 error,
                 warn
             })
+            const messageInfo = message
             //可修改提示内容
             // message.success=''
-            mitt.emit('showSuccess', message.success)
+            mitt.emit('showSuccess', messageInfo.success)
         },
 
         //警告提示-导入配置项
@@ -381,12 +504,17 @@ export const useInfoStore = defineStore('archivesInfo', {
             //    data,
             // )
             //const message=data.message 
+            const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
+            const success = ref('成功')
+            const warn = ref('请配置数据导入项')
+            const error = ref('值规则校验异常')
             const message = reactive({
                 success,
                 error,
                 warn
             })
-            mitt.emit('showError', message.error)
+            const messageInfo = message
+            mitt.emit('showError', messageInfo.error)
         },
 
         //出错提示-输入项为空
@@ -398,12 +526,17 @@ export const useInfoStore = defineStore('archivesInfo', {
             //    data,
             // )
             //const message=data.message 
+            const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
+            const success = ref('成功')
+            const warn = ref('请配置数据导入项')
+            const error = ref('值规则校验异常')
             const message = reactive({
                 success,
                 error,
                 warn
             })
-            mitt.emit('showWarn', message.warn)
+            const messageInfo = message
+            mitt.emit('showWarn', messageInfo.warn)
         }
 
     }

@@ -94,14 +94,14 @@ export const orgInfoStore = defineStore('orginfo', {
       }
     ],
     xmlData: [
-      { id: 1, name: '排序', prop: 'ouId' },
-      { id: 2, name: '组织名称', prop: 'orgInfoName' },
-      { id: 3, name: '组织简称', prop: 'shortName' },
-      { id: 4, name: '组织编号', prop: 'orgCode' },
-      { id: 5, name: '所属区域', prop: 'belongRegion' },
-      { id: 6, name: '补贴标准', prop: 'subStandard' },
-      { id: 7, name: '组织启用时间', prop: 'createDate' },
-      { id: 8, name: '启停标识', prop: 'startStopSign' }
+      { id: 1, name: '排序', prop: 'px' },
+      { id: 2, name: '组织名称', prop: 'orgname' },
+      { id: 3, name: '组织简称', prop: 'shortname' },
+      { id: 4, name: '组织编号', prop: 'orgcode' },
+      { id: 5, name: '所属区域', prop: 'gsss' },
+      { id: 6, name: '补贴标准', prop: 'btqy' },
+      { id: 7, name: '组织启用时间', prop: 'zzcjsj' },
+      { id: 8, name: '启停标识', prop: 'startstopsign' }
     ],
     tableData: null,
     pageSizes: ['10', '20'],
@@ -110,42 +110,52 @@ export const orgInfoStore = defineStore('orginfo', {
     dataitem: [
       {
         label: '组织名称',
-        name: 'orgInfoName',
+        name: 'orgname',
         type: String
       },
       {
         label: '组织编号',
-        name: 'orgCode',
+        name: 'orgcode',
         type: String
       },
       {
         label: '组织简称',
-        name: 'shortName',
+        name: 'shortname',
         type: String
       },
       {
         label: '排序',
-        name: 'ouId',
-        type: Number
+        name: 'px',
+        type: String
       },
       {
         label: '所属区域',
-        name: 'belongRegion',
+        name: 'gsss',
         type: String
       },
       {
         label: '补贴标准',
-        name: 'subStandard',
+        name: 'btqy',
         type: String
       },
       {
         label: '组织启用时间',
-        name: 'createDate',
+        name: 'zzcjsj',
         type: String
       },
       {
         label: '启停标识',
-        name: 'startStopSign',
+        name: 'startstopsign',
+        type: String
+      },
+      {
+        label: '组织ID',
+        name: 'orgid',
+        type: String
+      },
+      {
+        label: '上级组织ID',
+        name: 'porgid',
         type: String
       }
     ]
@@ -154,24 +164,24 @@ export const orgInfoStore = defineStore('orginfo', {
     initTableData() {
       this.tableData = [
         {
-          ouId: 1,
-          orgInfoName: '薇欧拉',
-          shortName: '薇欧拉',
-          orgCode: '1000',
-          belongRegion: '其他',
-          subStandard: 'A类地区',
-          createDate: '2023-05-02',
-          startStopSign: '启用'
+          px: 1,
+          orgname: '薇欧拉',
+          shortname: '薇欧拉',
+          orgcode: '1000',
+          gsss: '其他',
+          btqy: 'A类地区',
+          zzcjsj: '2023-05-02',
+          startstopsign: '启用'
         },
         {
-          ouId: 1,
-          orgInfoName: '上海分公司',
+          px: 1,
+          orgname: '上海分公司',
           shortName: '上海分公司',
-          orgCode: '000001',
-          belongRegion: '华东地区',
-          subStandard: 'A类地区',
-          createDate: '2023-01-02',
-          startStopSign: '启用'
+          orgcode: '000001',
+          gsss: '华东地区',
+          btqy: 'A类地区',
+          zzcjsj: '2023-01-02',
+          startstopsign: '启用'
         }
       ]
     },

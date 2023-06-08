@@ -16,7 +16,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref ,defineProps, defineExpose,} from 'vue'
+import { ref ,defineProps, defineExpose,getCurrentInstance} from 'vue'
+// 获取到全局事件总线
+const { $bus } = getCurrentInstance().appContext.config.globalProperties
 // const handleSizeChange = (val: number) => {
 //   console.log(`${val} items per page`)
 // }
@@ -48,10 +50,12 @@ const total = ref(props.total);
 function handleSizeChange(size: number) {
   // 处理每页显示数量变化事件
   pageSize.value = size;
+  $bus.emit('getPageSize', pageSize)
 }
 function handleCurrentChange(page: number) {
   // 处理当前页码变化事件
   currentPage.value = page;
+  $bus.emit('getCurrentPage', currentPage)
 }
 </script>
 

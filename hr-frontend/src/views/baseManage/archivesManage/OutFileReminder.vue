@@ -22,7 +22,7 @@
           <div class="footer">
             <ColumnFilter :xmlData="$store.xmlData" :parentMethod="getNewXmlData">
             </ColumnFilter>
-            <Pagination></Pagination>
+            <Pagination :current-page="$store.currentPage" :page-size="$store.pageSize" :total="$store.tableData.length"></Pagination>
           </div>
         </el-footer>
       </el-container>

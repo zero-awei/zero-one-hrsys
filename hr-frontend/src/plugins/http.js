@@ -85,7 +85,7 @@ export default (router) => {
   http.interceptors.response.use(
     async (response) => {
       // HTTP响应状态码正常
-      // NProgress.done()
+      NProgress.done()
       if (response.status === 200) {
         if ('code' in response.data) {
           let store = userStore()

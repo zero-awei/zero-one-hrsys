@@ -37,7 +37,7 @@ const routes = [
     component: () => import('@/views/baseManage/retirement/expense.vue')
   },
   {
-    path: '/contractCatrgory',
+    path: '/ ',
     name: 'contractCatrgory',
     component: () =>
       import('@/views/baseManage/datesetting/ContractCategory.vue')
@@ -118,9 +118,9 @@ const routes = [
     component: () => import('@/views/baseManage/roster/trainee.vue')
   },
   {
-    path: '/Leavestaff',
-    name: 'leaveStaff',
-    component: () => import('@/views/baseManage/roster/LeaveStaff.vue')
+    path: '/lzyghmcgridview',
+    name: 'lzyghmcgridview',
+    component: () => import('@/views/baseManage/roster/Lzyg.vue')
   },
   {
     path: '/jdryhmcgridview',
@@ -175,10 +175,9 @@ const routes = [
     component: () => import('@/views/baseManage/goAbroad/PrivateAbroad.vue')
   },
   {
-    path: '/archivesinfo',
-    name: 'ArchivesInfo',
-    component: () =>
-      import('@/views/baseManage/archivesManage/ArchivesInfo.vue')
+    path:'/archivesinfo',
+    name:'ArchivesInfo',
+    component:()=>import('@/views/baseManage/archivesManage/ArchivesInfo.vue')
   },
   {
     path: '/onfilereminder',

@@ -1,24 +1,20 @@
-import Request from '../request'
-import { userStore } from '@/stores/user'
+import Request from '@/apis/request'
+import { orgInfoStore } from '@/stores/orgInfo'
 
 // 定义一个功能模块基础url，方便替换
-const currBaseUrl = '/login/'
-
+const currBaseUrl = import.meta.env.VITE_HR_J3_2
 /**
- * 登录接口
+ * 通用接口
  * @param data 登录数据
  * @param success 登录成功回调
  * @param fail 登录失败回调
  */
-export const login = (data, success, fail) => {
-  const $store = userStore()
-  Request.requestForm(Request.POST, currBaseUrl + 'auth-login', data)
+export const addOrgInfo = (data, success, fail) => {
+  Request.requestJson(Request.POST, currBaseUrl + '/add-org-info', data)
     .then((data) => {
+      console.log(data)
       // 记录Token到本地
       if (data.data) {
-        $store.setToken(data.data)
-        $store.loadUser()
-        $store.loadMenus()
         // 执行成功回调
         success()
         return

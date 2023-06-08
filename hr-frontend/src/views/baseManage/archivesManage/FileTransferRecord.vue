@@ -4,8 +4,14 @@
     <el-container>
       <el-container>
         <el-header>
-          <TableHead :tableTitle="$store.tableTitle" :tableOperations="$store.tableOperations"/>
+          <TableHead :tableTitle="$store.tableTitle" :tableOperations="$store.tableOperations" />
           <Search :filter="filter" class="search"></Search>
+          <el-button @click="controlShow">
+            过滤
+            <Filter :data="$store.data" v-show="$store.show" class="filter">
+            </Filter>
+          </el-button>
+          <el-button type="primary" @click="exportFile">导出</el-button>
         </el-header>
         <el-main>
           <div class="table">
@@ -16,7 +22,8 @@
           <div class="footer">
             <ColumnFilter :xmlData="$store.xmlData" :parentMethod="getNewXmlData">
             </ColumnFilter>
-            <Pagination></Pagination>
+            <Pagination :current-page="$store.currentPage" :page-size="$store.pageSize" :total="$store.tableData.length">
+            </Pagination>
           </div>
         </el-footer>
       </el-container>
@@ -35,6 +42,9 @@ import Pagination from '@/components/pagination/Pagination.vue'
 import { useRecordStore } from '@/stores/fileTransferRecord'
 
 const $store = useRecordStore()
+// 全局事件总线
+const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
+
 //表格数据
 $store.initTableData()
 //获取新表单数据
@@ -45,6 +55,13 @@ function getNewXmlData(checkStatus) {
 }
 const newXmlData = ref([])
 newXmlData.value = [...$store.xmlData]
+
+//过滤器
+const controlShow = () => {
+  $store.show = !$store.show
+}
+const res = $store.requestRes($store.data)
+mitt.on('search', res)
 </script>
 
 <style lang="scss" scoped>

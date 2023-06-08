@@ -34,15 +34,41 @@ import TableHead from '@/components/table/head/TableHead.vue'
 import MainTable from '@/components/MainTable.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
 import ColumnFilter from '@/components/columnFilter/ColumnFilter.vue'
+import {addOrgInfo} from '@/apis/orgManger/orgInfo/index'
 import { orgInfoStore } from '@/stores/orgInfo'
+import { getCurrentInstance, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { ElMessage } from 'element-plus'
 const $store = orgInfoStore()
+const $router = useRouter()
 $store.initTableData()
 
 
 const saveData = (val)=>{
-  $store.addData(val)
+  console.log(val);
+  $store.addData(val);
+  addOrgInfo(val,
+  ()=>{
+    ElMessage.success('增加成功')
+  },
+  ()=>{
+    ElMessage.success('增加失败，请重试')
+  });
 }
 
+const { $bus } = getCurrentInstance().appContext.config.globalProperties
+onMounted(() => {
+    // 监听多选数据
+  $bus.on('getRowsData', (data) => {
+    let ids = data.value.map((item) => item.id)
+    console.log(ids)
+  })
+    // 监听单行数据
+  $bus.on('getSingleRowData', (data) => {
+    console.log(data)
+    // $router.push('/sample/employees')
+  })
+})
 function getNewXmlData(checkStatus) {
   newXmlData.value = $store.xmlData.filter((item) => {
     return checkStatus.value.includes(item.name)

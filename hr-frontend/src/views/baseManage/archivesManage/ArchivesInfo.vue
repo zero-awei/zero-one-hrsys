@@ -7,18 +7,21 @@
         </Aside>
       </el-aside>
       <el-container>
-        <el-header>
+        <el-header class="hr-header">
           <TableHead :tableTitle="$store.tableTitle" :tableOperations="$store.tableOperations" :saveData="saveData"
             :addTitle="$store.addTitle" :dataitem="$store.dataitem" />
           <Search :filter="filter" class="search"></Search>
           <Edit class="edit"></Edit>
-          <!-- <div class="filter">
-            <Filter></Filter>
-                  </div> -->
+          <el-button @click="controlShow">
+            过滤
+            <Filter :data="$store.data" v-show="$store.show" class="filter">
+            </Filter>
+          </el-button>
         </el-header>
         <el-main>
           <div class="table">
-            <MainTable :tableData="$store.tableData" :xmlData="newXmlData" @cell-click="$store.changeMessage"></MainTable>
+            <MainTable :tableData="$store.tableData" :xmlData="newXmlData" @cell-click="changeInfo">
+            </MainTable>
             <MessageBox v-show="false"></MessageBox>
             <Notification v-show="false"></Notification>
           </div>
@@ -27,7 +30,8 @@
           <div class="footer">
             <ColumnFilter :xmlData="$store.xmlData" :parentMethod="getNewXmlData">
             </ColumnFilter>
-            <Pagination></Pagination>
+            <Pagination :current-page="$store.currentPage" :page-size="$store.pageSize" :total="$store.tableData.length">
+            </Pagination>
           </div>
         </el-footer>
       </el-container>
@@ -49,16 +53,29 @@ import Notification from '@/components/feedback/Notification.vue'
 import { useInfoStore } from '@/stores/archivesInfo'
 
 const $store = useInfoStore()
+// 全局事件总线
+const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
 //侧边栏
 $store.asideData()
+
+//过滤器
+const controlShow = () => {
+  $store.show = !$store.show
+}
+const res = $store.requestRes($store.data)
+mitt.on('search', res)
+
 //表格数据
 $store.initTableData()
+
 //新增档案
 $store.addConfig()
+
 // 将新增的数据保存
 const saveData = (val) => {
   $store.addData(val)
 }
+
 //获取新表单数据
 function getNewXmlData(checkStatus) {
   newXmlData.value = $store.xmlData.filter((item) => {
@@ -67,11 +84,15 @@ function getNewXmlData(checkStatus) {
 }
 const newXmlData = ref([])
 newXmlData.value = [...$store.xmlData]
+
 //编辑表单数据
 $store.editInfo()
 provide('userData', $store.userData)
+
 //消息弹出框
-$store.changeMessage(row,column)
+const changeInfo = (row, column) => {
+  $store.changeMessage(row, column)
+}
 
 //消息提示
 $store.changeSaveValue()
@@ -84,6 +105,11 @@ $store.changeImportValue()
   flex: 0 0 auto;
   /* 不伸缩、不收缩，固定高度 */
   float: right;
+}
+
+.filter {
+  color: purple;
+  height:150px;
 }
 
 .form {
@@ -113,7 +139,7 @@ $store.changeImportValue()
   align-items: center;
 }
 
-// .edit{
-//   margin-left: 80%;
-// }
+.hr-header .edit {
+  display: flex;
+}
 </style>
