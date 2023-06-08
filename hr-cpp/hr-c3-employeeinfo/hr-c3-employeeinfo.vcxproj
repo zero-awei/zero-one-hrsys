@@ -172,7 +172,6 @@
     <ClInclude Include="dao\jobList\JobListMapper.h" />
     <ClInclude Include="dao\org\OrgDAO.h" />
     <ClInclude Include="dao\org\OrgMapper.h" />
-    <ClInclude Include="dao\org\OrgSectorDAO.h" />
     <ClInclude Include="dao\org\OrgSectorMapper.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\EmployeeInformationPage\EmployeeInformationPageDO.h" />
@@ -228,7 +227,6 @@
     <ClCompile Include="dao\employeeInfo\EmployeeInfoDAO.cpp" />
     <ClCompile Include="dao\jobList\JobListDAO.cpp" />
     <ClCompile Include="dao\org\OrgDAO.cpp" />
-    <ClCompile Include="dao\org\OrgSectorDAO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="service\EmployeeInformation\EmployeeInformationServicer.cpp" />
     <ClCompile Include="service\employeeInfo\EmployeeInfoService.cpp" />
