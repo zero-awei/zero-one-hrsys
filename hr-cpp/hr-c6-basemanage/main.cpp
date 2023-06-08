@@ -1,22 +1,4 @@
-﻿/*
- Copyright Zero One Star. All rights reserved.
-
- @Author: awei
- @Date: 2022/10/24 23:02:34
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-	  https://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "StringUtil.h"
 #include "ServerInfo.h"
 #include "HttpServer.h"
@@ -24,7 +6,7 @@
 #include "controller/OtherComponent.hpp"
 #include "DbInit.h"
 #ifdef HTTP_SERVER_DEMO
-#include "uselib/jwt/AssignInfoToken.h"
+#include "uselib/jwt/TestToken.h"
 #endif
 
 #ifdef USE_NACOS
@@ -40,20 +22,19 @@
  */
 bool getStartArg(int argc, char* argv[]) {
 	// 服务器端口
-	std::string serverPort = "8091";
+	std::string serverPort = "8090";
 	// 数据库连接信息
 	std::string dbUsername = "root";
-	std::string dbPassword = "114514mysql";
-	std::string dbName = "zohr_sys";
-	std::string dbHost = "8.130.89.148";
-
-	int dbPort = 3965;
+	std::string dbPassword = "123";
+	std::string dbName = "01xinqiu";
+	std::string dbHost = "127.0.0.1";
+	int dbPort = 3306;
 	int dbMax = 25;
 #ifdef USE_NACOS
 	// Nacos配置参数
-	std::string nacosAddr = "39.99.114.126:8848";
-	std::string nacosNs = "1653f775-4782-46ad-9cd2-b60155a574c6";
-	std::string serviceName = "hr-dev";
+	std::string nacosAddr = "192.168.220.128:8848";
+	std::string nacosNs = "4833404f-4b82-462e-889a-3c508160c6b4";
+	std::string serviceName = "feign-cpp-sample";
 	std::string regIp = "192.168.220.128";
 #endif
 
@@ -131,7 +112,7 @@ bool getStartArg(int argc, char* argv[]) {
 int main(int argc, char* argv[]) {
 #ifdef HTTP_SERVER_DEMO
 	// 测试生成 JWT Token
-	AssignInfoToken::generateToken();
+	TestToken::generateToken();
 #endif
 
 	// 服务器参数初始化
@@ -146,9 +127,9 @@ int main(int argc, char* argv[]) {
 	if (!isSetDb)
 	{
 #ifdef LINUX
-		YAML::Node node = nacosClient.getConfig("demo-nacos-cli.yaml");
+		YAML::Node node = nacosClient.getConfig("data-source.yaml");
 #else
-		YAML::Node node = nacosClient.getConfig("./conf/demo-nacos-cli.yaml");
+		YAML::Node node = nacosClient.getConfig("./conf/data-source.yaml");
 #endif
 		YamlHelper yaml;
 		std::string dbUrl = yaml.getString(&node, "spring.datasource.url");
@@ -170,10 +151,10 @@ int main(int argc, char* argv[]) {
 		}
 	}
 	// 注册服务
-	//nacosClient.registerInstance(
-	//	ServerInfo::getInstance().getRegIp(),
-	//	atoi(ServerInfo::getInstance().getServerPort().c_str()),
-	//	ServerInfo::getInstance().getServiceName());
+	nacosClient.registerInstance(
+		ServerInfo::getInstance().getRegIp(),
+		atoi(ServerInfo::getInstance().getServerPort().c_str()),
+		ServerInfo::getInstance().getServiceName());
 #endif
 
 	// 初始数据库连接
@@ -200,10 +181,10 @@ int main(int argc, char* argv[]) {
 
 #ifdef USE_NACOS
 	// 反注册服务
-	//nacosClient.deregisterInstance(
-	//	ServerInfo::getInstance().getRegIp(),
-	//	atoi(ServerInfo::getInstance().getServerPort().c_str()),
-	//	ServerInfo::getInstance().getServiceName());
+	nacosClient.deregisterInstance(
+		ServerInfo::getInstance().getRegIp(),
+		atoi(ServerInfo::getInstance().getServerPort().c_str()),
+		ServerInfo::getInstance().getServiceName());
 #endif
 	return 0;
 }

@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="controller\GoshController\TestController.cpp" />
+    <ClCompile Include="controller\LaborDispatch\LaborDispatchConstroller.cpp" />
+    <ClCompile Include="controller\Router.cpp" />
+    <ClCompile Include="controller\retirementController\retirement.cpp" />
+    <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="dao\Sample\ContractDao.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="controller\ContractController\ContractController.cpp" />
+    <ClCompile Include="controller\JobTitle\JobTitleController.cpp" />
+    <ClCompile Include="controller\ExpenseLedge\ExpenseLedgeController.cpp" />
+    <ClCompile Include="controller\JobTitleInfo\JobTitleInfoController.cpp" />
+    <ClCompile Include="controller\TerminationReminder\terminationReminder.cpp" />
+    <ClCompile Include="controller\ContractManagement\Contractmanagement.cpp" />
+    <ClCompile Include="service\laborDispatch\LaborDispatchService-mh.cpp" />
+    <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mh.cpp" />
+    <ClCompile Include="controller\muggle\ExpenseLedgerController.cpp" />
+    <ClCompile Include="controller\LaborDispatch\LaborDispatchController-mg.cpp" />
+    <ClCompile Include="service\Gosh\GoshService.cpp" />
+    <ClCompile Include="dao\Gosh\GoshDAO.cpp" />
+    <ClCompile Include="service\laborDispatch\LaborDispatchService-mg.cpp" />
+    <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mg.cpp" />
+    <ClCompile Include="dao\expenseLedger\ExpenseLedgerDAO.cpp" />
+    <ClCompile Include="service\expenseLedger\ExpenseLedgerService.cpp" />
+    <ClCompile Include="dao\ContractInfo\ContractInfoDAO.cpp" />
+    <ClCompile Include="service\akieService\ContractInfoService.cpp" />
+    <ClCompile Include="dao\TerminationReminder\TerminationReminderDAO.cpp" />
+    <ClCompile Include="service\TerminationReminder\TerminationReminderServicecpp.cpp" />
+    <ClCompile Include="uselib\excel\TerminationRemidner\ChangeToExcel.cpp" />
+    <ClCompile Include="uselib\fastdfs\TerminationReminder\TerminationRemidnerFastdfs.cpp" />
+    <ClCompile Include="dao\JobTitle\JobTitleDAO.cpp" />
+    <ClCompile Include="service\JobTitle\JobTitleService.cpp" />
+    <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
+    <ClCompile Include="service\reitirement\retirementService.cpp" />
+    <ClCompile Include="dao\retirementDAO\retirementDAO.cpp" />
+    <ClCompile Include="dao\JobTitleInfo\JobTitleInfoDAO.cpp" />
+    <ClCompile Include="service\JobTitleInfo\JobTitleInfo.cpp" />
+    <ClCompile Include="uselib\excel\ExportExcel.cpp" />
+    <ClCompile Include="uselib\fastdfs\UseFastDfs.cpp" />
+    <ClCompile Include="service\reitirement\contractManagerService.cpp" />
+    <ClCompile Include="dao\retirementDAO\contractManagerDAO.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\Router.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\SystemInterceptor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\GoshController\TestController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\Gosh\GoshService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="domain\vo\muggle\LaborDispatchJsonVO.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="controller\TerminationReminder\terminationReminder.h" />
+    <ClInclude Include="service\Gosh\GoshService.h" />
+    <ClInclude Include="domain\vo\RetirementVo\RetirementVo.h" />
+    <ClInclude Include="controller\ContractManagement\Contractmanagement.h" />
+    <ClInclude Include="domain\query\RetirementQuery\RetirementQuery.h" />
+    <ClInclude Include="service\laborDispatch\LaborDispatchService-mh.h" />
+    <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mh.h" />
+    <ClInclude Include="domain\do\laborDispatch\LaborDispatchDO.h" />
+    <ClInclude Include="dao\laborDispatch\LaborDispatchMapper-mh.h" />
+    <ClInclude Include="controller\muggle\ExpenseLedgerController.h" />
+    <ClInclude Include="controller\LaborDispatch\LaborDispatchController-mg.h" />
+    <ClInclude Include="dao\Gosh\GoshDAO.h" />
+    <ClInclude Include="dao\Gosh\GoshMapper.h" />
+    <ClInclude Include="domain\do\Gosh\ContractDO.h" />
+    <ClInclude Include="domain\do\ExpenseLedge\ExpenseLedge.h" />
+    <ClInclude Include="service\laborDispatch\LaborDispatchService-mg.h" />
+    <ClInclude Include="domain\query\LaborDispatch\LaborDispatchQuery-mg.h" />
+    <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mg.h" />
+    <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO-mg.h" />
+    <ClInclude Include="dao\expenseLedger\ExpenseLedgerDAO.h" />
+    <ClInclude Include="dao\expenseLedger\ExpenseLedgerMapper.h" />
+    <ClInclude Include="service\expenseLedger\ExpenseLedgerService.h" />
+    <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgerVO.h" />
+    <ClInclude Include="domain\vo\LaborDispatch\LaborDispatchJsonVO-mg.h" />
+    <ClInclude Include="domain\do\expenseLedger\ExpenseLedgerDO.h" />
+    <ClInclude Include="domain\dto\ExpenseLedger\ExpenseLedgerDTO.h" />
+    <ClInclude Include="domain\query\ExpenseLedger\ExpenseLedgerQuery.h" />
+    <ClInclude Include="dao\ContractInfo\ContractInfoDAO.h" />
+    <ClInclude Include="service\akieService\ContractInfoService.h" />
+    <ClInclude Include="dao\TerminationReminder\TerminationReminderDAO.h" />
+    <ClInclude Include="dao\TerminationReminder\TerminationReminderMapper.h" />
+    <ClInclude Include="domain\do\TerminationReminder\TerminationReminderDO.h" />
+    <ClInclude Include="domain\dto\TerminationReminderDTO\TerminationReminderDTO.h" />
+    <ClInclude Include="domain\query\TerminationReminder\TerminationReminderQuery.h" />
+    <ClInclude Include="domain\vo\TerminationReminderVO\TerminationReminderVO.h" />
+    <ClInclude Include="service\TerminationReminder\TerminationReminderService.h" />
+    <ClInclude Include="uselib\excel\TerminationRemidner\ChangeToExcel.h" />
+    <ClInclude Include="uselib\fastdfs\TerminationReminder\TerminationRemidnerFastdfs.h" />
+    <ClInclude Include="dao\JobTitle\JobTitleDAO.h" />
+    <ClInclude Include="dao\JobTitle\JobTitleMapper.h" />
+    <ClInclude Include="service\JobTitle\JobTitleService.h" />
+    <ClInclude Include="dao\ContractInfo\ContractInfoMapper.h" />
+    <ClInclude Include="domain\do\contractInfoakie\ContractInfoDO.h" />
+    <ClInclude Include="domain\dto\ContractDTO\ContractDTO_.h" />
+    <ClInclude Include="service\reitirement\retirementService.h" />
+    <ClInclude Include="dao\retirementDAO\retirementDAO.h" />
+    <ClInclude Include="dao\retirementDAO\retirementMapper.h" />
+    <ClInclude Include="dao\dao-sql-macro\macro.h" />
+    <ClInclude Include="dao\JobTitleInfo\JobTitleInfoDAO.h" />
+    <ClInclude Include="dao\JobTitleInfo\JobTitleInfoMapper.h" />
+    <ClInclude Include="service\JobTitleInfo\JobTitleInfo.h" />
+    <ClInclude Include="domain\do\retirement\retirementDO.h" />
+    <ClInclude Include="uselib\excel\ExportExcel.h" />
+    <ClInclude Include="uselib\fastdfs\UseFastDfs.h" />
+    <ClInclude Include="domain\query\RetirementQuery\contractManagerQuery.h" />
+    <ClInclude Include="domain\dto\retirement\contractManagerDto.h" />
+    <ClInclude Include="domain\do\retirement\contractManagerDO.h" />
+    <ClInclude Include="domain\vo\RetirementVo\contractManagerVo.h" />
+    <ClInclude Include="service\reitirement\contractManagerService.h" />
+    <ClInclude Include="dao\retirementDAO\contractManagerDAO.h" />
+    <ClInclude Include="dao\retirementDAO\contractManagerMapper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="controller\ContractController\ContractController.h" />
+    <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\dto\ContractDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\ContractQuery.h" />
+    <ClInclude Include="domain\query\ContractQuery\ContractQuery_.h" />
+    <ClInclude Include="domain\vo\ContractVO.h" />
+    <ClInclude Include="domain\vo\ContractVO\ContractVO_.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="domain\query\Gosh\ContractQuery.h" />
+    <ClInclude Include="controller\GoshController\TestController.h" />
+    <ClInclude Include="controller\JobTitle\JobTitleController.h" />
+    <ClInclude Include="domain\do\JobTitle\JobTitleDO.h" />
+    <ClInclude Include="domain\dto\ContractDTO\ContractDTO.h" />
+    <ClInclude Include="domain\dto\Gosh\ContractDTO.h" />
+    <ClInclude Include="domain\dto\JobTitle\JobTitleDTO.h" />
+    <ClInclude Include="domain\query\ContractQuery\ContractQuery.h" />
+    <ClInclude Include="domain\query\JobTitle\JobTitleQuery.h" />
+    <ClInclude Include="domain\vo\ContractVO\ContractVO.h" />
+    <ClInclude Include="domain\vo\Gosh\ContractVO.h" />
+    <ClInclude Include="domain\vo\JobTitle\JobTitleJsonVO.h" />
+    <ClInclude Include="controller\ExpenseLedge\ExpenseLedgeController.h" />
+    <ClInclude Include="controller\JobTitleInfo\JobTitleInfoController.h" />
+    <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
+    <ClInclude Include="domain\dto\JobTitleInfo\JobTitleInfoDTO.h" />
+    <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h" />
+    <ClInclude Include="domain\vo\JobTitleInfo\JobTitleInfoVO.h" />
+    <ClInclude Include="domain\vo\Gosh\ContractVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\GoshController\TestController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\Gosh\GoshService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="controller\LaborDispatch\LaborDispatchConstroller.h" />
+    <ClInclude Include="controller\GoshController\TestController.h" />
+    <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="controller\retirementController\retirement.h" />
+    <ClInclude Include="dao\Sample\ContractDao.h" />
+    <ClInclude Include="dao\Sample\ContractMapper.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\dto\Gosh\ContractDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\vo\Muggle\laborDispatchJsonVO.h" />
+    <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO.h" />
+    <ClInclude Include="domain\dto\retirement\RetiremetDto.h" />
+    <ClInclude Include="domain\query\LaborDispatch\LaborDispatchQuery.h" />
+    <ClInclude Include="domain\vo\LaborDispatch\LaborDispatchVO.h" />
+    <ClInclude Include="domain\query\Gosh\ContractQuery.h" />
+    <ClInclude Include="domain\vo\Gosh\ContractVO.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\sample\ContractService.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="domain\query\Gosh\PersonQuery.h" />
+    <ClInclude Include="controller\JobTitle\JobTitleController.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="domain\dto\.keep" />
+    <None Include="conf\data-source.yaml" />
+  </ItemGroup>
+</Project>

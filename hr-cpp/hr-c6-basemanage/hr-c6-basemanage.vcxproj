@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{42dd258b-5bbe-4fb0-b3b1-d902f3c1feba}</ProjectGuid>
+    <RootNamespace>hrc6basemanage</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\include;D:\vs studio\VC\Tools\MSVC\14.35.32215\atlmfc\include</IncludePath>
+    <LibraryPath>D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\lib\x86;D:\vs studio\VC\Tools\MSVC\14.35.32215\atlmfc\include;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\vs2022\Download_cache\VC\Tools\MSVC\14.32.31326\atlmfc\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib\debug;..\lib-common\lib\debug;..\lib-mysql\lib\vs14\debug;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\atlmfc\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib;..\lib-common\lib;..\lib-mysql\lib\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cpp.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)lib-dy/lib/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64\debug;..\lib-common\lib64\debug;..\lib-mysql\lib64\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cpp.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64;..\lib-common\lib64;..\lib-mysql\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)lib-dy/lib64/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="controller\ContractManagement\Contractmanagement.cpp" />
+    <ClCompile Include="controller\ExpenseLedge\ExpenseLedgeController.cpp" />
+    <ClCompile Include="controller\JobTitleInfo\JobTitleInfoController.cpp" />
+    <ClCompile Include="controller\ContractController\ContractController.cpp" />
+    <ClCompile Include="controller\JobTitle\JobTitleController.cpp" />
+    <ClCompile Include="controller\GoshController\TestController.cpp" />
+    <ClCompile Include="controller\LaborDispatch\LaborDispatchConstroller.cpp" />
+    <ClCompile Include="controller\LaborDispatch\LaborDispatchController-mg.cpp" />
+    <ClCompile Include="controller\muggle\ExpenseLedgerController.cpp" />
+    <ClCompile Include="controller\Router.cpp" />
+    <ClCompile Include="controller\retirementController\retirement.cpp" />
+    <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\ContractInfo\ContractInfoDAO.cpp" />
+    <ClCompile Include="dao\expenseLedger\ExpenseLedgerDAO.cpp" />
+    <ClCompile Include="dao\Gosh\GoshDAO.cpp" />
+    <ClCompile Include="controller\TerminationReminder\terminationReminder.cpp" />
+    <ClCompile Include="dao\JobTitleInfo\JobTitleInfoDAO.cpp" />
+    <ClCompile Include="dao\JobTitle\JobTitleDAO.cpp" />
+    <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mg.cpp" />
+    <ClCompile Include="dao\laborDispatch\LaborDispatchDAO-mh.cpp" />
+    <ClCompile Include="dao\retirementDAO\contractManagerDAO.cpp" />
+    <ClCompile Include="dao\retirementDAO\retirementDAO.cpp" />
+    <ClCompile Include="dao\TerminationReminder\TerminationReminderDAO.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="dao\Sample\ContractDao.cpp" />
+    <ClCompile Include="service\akieService\ContractInfoService.cpp" />
+    <ClCompile Include="service\expenseLedger\ExpenseLedgerService.cpp" />
+    <ClCompile Include="service\Expense\ExpenseLedgeService.cpp" />
+    <ClCompile Include="service\JobTitleInfo\JobTitleInfo.cpp" />
+    <ClCompile Include="service\JobTitle\JobTitleService.cpp" />
+    <ClCompile Include="service\laborDispatch\LaborDispatchService-mg.cpp" />
+    <ClCompile Include="service\laborDispatch\LaborDispatchService-mh.cpp" />
+    <ClCompile Include="service\Gosh\GoshService.cpp" />
+    <ClCompile Include="service\muggle\LaborDispatchService.cpp" />
+    <ClCompile Include="service\reitirement\contractManagerService.cpp" />
+    <ClCompile Include="service\reitirement\retirementService.cpp" />
+    <ClCompile Include="service\TerminationReminder\TerminationReminderServicecpp.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="uselib\excel\ExportExcel.cpp" />
+    <ClCompile Include="uselib\excel\TerminationRemidner\ChangeToExcel.cpp" />
+    <ClCompile Include="uselib\fastdfs\TerminationReminder\TerminationRemidnerFastdfs.cpp" />
+    <ClCompile Include="uselib\fastdfs\UseFastDfs.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="controller\ContractManagement\Contractmanagement.h" />
+    <ClInclude Include="controller\ExpenseLedge\ExpenseLedgeController.h" />
+    <ClInclude Include="controller\JobTitleInfo\JobTitleInfoController.h" />
+    <ClInclude Include="controller\ContractController\ContractController.h" />
+    <ClInclude Include="controller\GoshController\TestController.h" />
+    <ClInclude Include="controller\JobTitle\JobTitleController.h" />
+    <ClInclude Include="controller\LaborDispatch\LaborDispatchConstroller.h" />
+    <ClInclude Include="controller\LaborDispatch\LaborDispatchController-mg.h" />
+    <ClInclude Include="controller\muggle\ExpenseLedgerController.h" />
+    <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\ContractInfo\ContractInfoDAO.h" />
+    <ClInclude Include="dao\ContractInfo\ContractInfoMapper.h" />
+    <ClInclude Include="dao\dao-sql-macro\macro.h" />
+    <ClInclude Include="dao\expenseLedger\ExpenseLedgerDAO.h" />
+    <ClInclude Include="dao\expenseLedger\ExpenseLedgerMapper.h" />
+    <ClInclude Include="dao\expenseLedger\ExportExpenseMapper.h" />
+    <ClInclude Include="dao\Gosh\GoshDAO.h" />
+    <ClInclude Include="dao\Gosh\GoshMapper.h" />
+    <ClInclude Include="controller\TerminationReminder\terminationReminder.h" />
+    <ClInclude Include="dao\JobTitleInfo\JobTitleInfoDAO.h" />
+    <ClInclude Include="dao\JobTitleInfo\JobTitleInfoMapper.h" />
+    <ClInclude Include="dao\JobTitle\JobTitleDAO.h" />
+    <ClInclude Include="dao\JobTitle\JobTitleMapper.h" />
+    <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mg.h" />
+    <ClInclude Include="dao\laborDispatch\LaborDispatchDAO-mh.h" />
+    <ClInclude Include="dao\laborDispatch\LaborDispatchMapper-mh.h" />
+    <ClInclude Include="dao\retirementDAO\contractManagerDAO.h" />
+    <ClInclude Include="dao\retirementDAO\contractManagerMapper.h" />
+    <ClInclude Include="dao\retirementDAO\retirementDAO.h" />
+    <ClInclude Include="dao\retirementDAO\retirementMapper.h" />
+    <ClInclude Include="dao\TerminationReminder\TerminationReminderDAO.h" />
+    <ClInclude Include="dao\TerminationReminder\TerminationReminderMapper.h" />
+    <ClInclude Include="domain\do\contractInfoakie\ContractInfoDO.h" />
+    <ClInclude Include="domain\do\expenseLedger\ExpenseLedgerDO.h" />
+    <ClInclude Include="domain\do\ExpenseLedge\ExpenseLedge.h" />
+    <ClInclude Include="domain\do\laborDispatch\LaborDispatchDO.h" />
+    <ClInclude Include="domain\do\retirement\contractManagerDO.h" />
+    <ClInclude Include="domain\do\retirement\retirementDO.h" />
+    <ClInclude Include="domain\do\TerminationReminder\TerminationReminderDO.h" />
+    <ClInclude Include="domain\dto\ContractDTO\ContractDTO_.h" />
+    <ClInclude Include="domain\dto\ExpenseLedger\ExpenseLedgerDTO.h" />
+    <ClInclude Include="domain\dto\ExpenseLedge\ExpenseLedgeDTO.h" />
+    <ClInclude Include="domain\dto\JobTitleInfo\JobTitleInfoDTO.h" />
+    <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO-mg.h" />
+    <ClInclude Include="domain\dto\retirement\contractManagerDto.h" />
+    <ClInclude Include="domain\dto\TerminationReminderDTO\TerminationReminderDTO.h" />
+    <ClInclude Include="domain\query\ExpenseLedger\ExpenseLedgerQuery.h" />
+    <ClInclude Include="domain\query\LaborDispatch\LaborDispatchQuery-mg.h" />
+    <ClInclude Include="domain\query\RetirementQuery\contractManagerQuery.h" />
+    <ClInclude Include="domain\query\RetirementQuery\RetirementQuery.h" />
+    <ClInclude Include="domain\query\TerminationReminder\TerminationReminderQuery.h" />
+    <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgeVO.h" />
+    <ClInclude Include="domain\vo\ExpenseLedge\ExpenseLedgerVO.h" />
+    <ClInclude Include="domain\vo\JobTitleInfo\JobTitleInfoVO.h" />
+    <ClInclude Include="controller\retirementController\retirement.h" />
+    <ClInclude Include="dao\Sample\ContractDao.h" />
+    <ClInclude Include="dao\Sample\ContractMapper.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\Gosh\ContractDO.h" />
+    <ClInclude Include="domain\do\JobTitle\JobTitleDo.h" />
+    <ClInclude Include="domain\dto\ContractDTO.h" />
+    <ClInclude Include="domain\dto\ContractDTO\ContractDTO.h" />
+    <ClInclude Include="domain\dto\JobTitle\JobTitleDTO.h" />
+    <ClInclude Include="domain\dto\Gosh\ContractDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\ContractQuery.h" />
+    <ClInclude Include="domain\query\ContractQuery\ContractQuery.h" />
+    <ClInclude Include="domain\query\ContractQuery\ContractQuery_.h" />
+    <ClInclude Include="domain\query\JobTitle\JobTitleQuery.h" />
+    <ClInclude Include="domain\vo\ContractVO.h" />
+    <ClInclude Include="domain\vo\ContractVO\ContractVO.h" />
+    <ClInclude Include="domain\vo\ContractVO\ContractVO_.h" />
+    <ClInclude Include="domain\vo\JobTitle\JobTitleJsonVO.h" />
+    <ClInclude Include="domain\dto\LaborDispatch\LaborDispatchDTO.h" />
+    <ClInclude Include="domain\dto\retirement\RetiremetDto.h" />
+    <ClInclude Include="domain\query\LaborDispatch\LaborDispatchQuery.h" />
+    <ClInclude Include="domain\vo\LaborDispatch\LaborDispatchJsonVO-mg.h" />
+    <ClInclude Include="domain\vo\LaborDispatch\LaborDispatchVO.h" />
+    <ClInclude Include="domain\query\Gosh\ContractQuery.h" />
+    <ClInclude Include="domain\vo\Gosh\ContractVO.h" />
+    <ClInclude Include="domain\vo\RetirementVo\contractManagerVo.h" />
+    <ClInclude Include="domain\vo\RetirementVo\RetirementVo.h" />
+    <ClInclude Include="domain\vo\TerminationReminderVO\TerminationReminderVO.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\akieService\ContractInfoService.h" />
+    <ClInclude Include="service\expenseLedger\ExpenseLedgerService.h" />
+    <ClInclude Include="service\Expense\ExpenseLedgeService.h" />
+    <ClInclude Include="service\JobTitleInfo\JobTitleInfo.h" />
+    <ClInclude Include="service\JobTitle\JobTitleService.h" />
+    <ClInclude Include="service\laborDispatch\LaborDispatchService-mg.h" />
+    <ClInclude Include="service\laborDispatch\LaborDispatchService-mh.h" />
+    <ClInclude Include="service\Gosh\GoshService.h" />
+    <ClInclude Include="service\reitirement\contractManagerService.h" />
+    <ClInclude Include="service\reitirement\retirementService.h" />
+    <ClInclude Include="service\sample\ContractService.h" />
+    <ClInclude Include="domain\vo\muggle\LaborDispatchJsonVO.h" />
+    <ClInclude Include="service\TerminationReminder\TerminationReminderService.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\excel\ExportExcel.h" />
+    <ClInclude Include="uselib\excel\TerminationRemidner\ChangeToExcel.h" />
+    <ClInclude Include="uselib\fastdfs\TerminationReminder\TerminationRemidnerFastdfs.h" />
+    <ClInclude Include="uselib\fastdfs\UseFastDfs.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lib-common\lib-common.vcxproj">
+      <Project>{213f58ad-9943-4155-8a45-1b2dab0bb8f9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\lib-mysql\lib-mysql.vcxproj">
+      <Project>{8293b741-b019-444f-80bc-70321a47868e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\lib-oatpp\lib-oatpp.vcxproj">
+      <Project>{3fc26f19-d665-40bd-92f1-fc4be22a38ba}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="conf\data-source.yaml" />
+    <None Include="domain\dto\.keep" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

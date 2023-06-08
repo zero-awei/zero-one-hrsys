@@ -1,0 +1,311 @@
+user:
+ query-all: 
+  summary: 查询所有用户
+  nickname: 昵称
+ file:
+  summary: 文件上传
+  suffix: 文件后缀
+ query-menu:
+  summary: 查询所有菜单
+ field:
+  age: 年龄
+  nickname: 昵称
+  idCard: 身份证号码
+  menuname: 菜单名称
+  menuicon: 图标名称
+  menuhref: 路由地址
+  menusub: 子菜单
+sample:
+ get:
+  summary: 分页查询示例数据
+ post:
+  summary: 新增一条示例数据
+ put:
+  summary: 修改一条示例数据
+ delete:
+  summary: 删除多条合同数据
+ filed:   
+  name: 员工姓名
+  id: 合同编号
+  type: 合同类别
+  variety: 合同类型
+  date: 起始日期
+  condition: 合同状态
+  department_m: 合同管理单位
+  department_c: 合同签订单位
+  date_end: 合同到期时间
+  tip: 备注
+
+ldcompany:
+ get:
+  summary: 分页查询劳务公司列表
+ post:
+  summary: 新增劳务派切公司信息
+ put:
+  summary: 修改劳务派遣公司信息
+ delete:
+  summary: 删除劳务派遣公司信息
+ export:
+  summary: 导出劳务遣派公司信息
+ field:
+  PIMLABOURCAMPANYNAME: 公司名称
+  ORGNAME: 所属单位
+  PIMLABOURCAMPANYID: 公司标识
+  CREATEDATE: 建立时间
+  CREATEMAN: 建立人
+  UPDATEMAN: 更新人
+  JYFW: 经营范围 
+  LXDZ: 联系地址
+  LXR: 联系人
+  LXFS: 联系方式
+  GSJJ: 公司简介
+  PIMPERSONID: 人员信息标识
+  ORMORGID: 组织标识
+  LEGALPEROSN: 法人
+  REGCAPITAL: 注册本金
+  UPDATEDATE: 更新时间
+  ZIDUAN: 字段
+
+
+contract_gosh:
+ get:
+  summary: 分页查询合同信息
+ post:
+  summary: 新增一条合同信息
+ put:
+  summary: 修改一条合同数据
+ delete:
+  summary: 删除多条合同数据
+ field:
+  personid: 员工编号
+  id: 合同编号
+  name: 员工姓名
+  type: 合同类别
+  variety: 合同类型
+  date: 起始日期
+  condition: 合同状态
+  department_c: 合同签订单位
+  date_end: 试用到期时间
+  person_department: 员工所属单位
+  person_condition: 员工状态
+  date_arrive: 到本单位时间
+  date_over: 结束日期
+  rest: 合同剩余天数
+  row_show: 选择展示列
+
+title:
+ query:
+  summary: "分页查询职称列表"
+  search-box: "分页查询职称列表(用于输入框搜索使用)"
+  param: "模糊查询参数-编号或名称"
+ delete:
+  summary: "删除职称信息"
+  list_jobtitle_id: "职称信息id--唯一标识"
+ add:
+  summary: "新增职称信息"
+ file:
+  postfile: "上传附件--用于新增职称信息的附件的上传"
+  suffix: "文件名后缀"
+ field:
+  id: 表id-主键
+  employee_id: 员工编号
+  employee_state: 员工状态
+  certificate_id: 证书编号
+  employee_name: 员工姓名
+  org_name: 组织名称
+  jobtitle_name: 职称名称
+  get_time: 获取日期
+  professional_cate: 专业类别
+  professional_name: 专业名称
+  jobtitle_grades: 职称等级
+  issuing_authority: 签发机构
+  judging_unit: 评审单位
+  employment_time: 职称聘用时间
+  employment_month: 职称聘用月数
+  title_employee_time: 职称获取时间
+  b_highest_professional_title: 是否最高职称
+  attachment: 上传附件
+
+labordispatch_mug:
+ get:
+  summary: 查看指定公司信息
+ modify:
+  summary: 修改指定公司信息
+ field:
+  PIMLABOURCAMPANYNAME: 公司名称
+  PIMLABOURCAMPANYID: 公司标识
+  CREATEDATE: 建立时间
+  CREATEMAN: 建立人
+  UPDATEMAN: 更新人
+  JYFW: 经营范围 
+  LXDZ: 联系地址
+  LXR: 联系人
+  LXFS: 联系方式
+  GSJJ: 公司简介
+  PIMPERSONID: 人员信息标识
+  ORMORGID: 组织标识
+  ORGNAME: 组织名称
+  LEGALPEROSN: 法人
+  REGCAPITAL: 注册本金
+  UPDATEDATE: 更新时间
+
+expenseledger_mug:
+ get:
+  summary: 分页查询费别列表
+ post:
+  summary: 新增费别
+ delete:
+  summary: 删除费别
+ field:
+  expenseCategory: 费用类别
+  PIMLABOURCAMPANYNAME: 公司名称
+  PIMLABOURCAMPANYID: 所属单位
+  LXDZ: 联系地址
+  LXR: 联系人
+  LXFS: 联系方式
+  REGCAPITAL: 注册本金
+  LEGALPERSON: 法人
+  UPDATEDATE: 更新时间
+ filed:   
+  name: 员工姓名
+  id: 合同编号
+  type: 合同类别
+  variety: 合同类型
+  date: 起始日期
+  condition: 合同状态
+  department_m: 合同管理单位
+  department_c: 合同签订单位
+  date_end: 合同到期时间
+  tip: 备注
+
+expenseledger:
+ field:
+  PIMEXPACCOUNTNAME: 费用台账名称
+  PIMEXPACCOUNTID: 费用台账标识
+  UPDATEMAN: 更新人
+  CREATEDATE: 建立时间
+  CREATEMAN: 建立人
+  UPDATEDATE: 更新时间
+  FYLB: 费用类别
+  FYJE: 费用金额
+  FFRS: 发放人数
+  FFSJ: 发放时间
+  FFYBZ: 费用标准
+  BZ: 备注
+  ORMORGID: 组织标识 
+  IDS: 费用台账标识集合
+
+
+person_gosh:
+ get:
+  summary: 分页查询个人信息
+ post:
+  summary: 新增一条个人数据
+ put:
+  summary: 修改一条个人数据
+ delete:
+  summary: 删除一条个人数据
+
+retirement_gan:
+ get:
+  summary: 分页查询离退休列表
+  summary1: 分页查询合同管理列表
+ query:
+  id: 员工编号
+  name: 员工姓名
+  sex: 员工性别
+  age: 员工年龄
+  mailing_address: 员工通讯地址
+  retire_address: 员工退休地
+  idcard: 证件号码
+  employee_state: 员工状态
+  work_state: 在岗状态
+  department: 部门
+  organization: 组织
+  contract_type: 合同类型
+  contract_id: 合同编号
+  start_date: 开始日期
+  stop_date: 结束日期
+
+
+
+contract:
+  upload: 导入合同
+  download: 导出合同
+  check: 查看指定合同
+  update: 修改指定合同
+  uploadpath: 导入合同的路径
+  filed:   
+    name: 员工姓名
+    id: 员工编号
+    type: 合同类别
+    variety: 合同类型
+    date: 起始日期
+    date(>=): 起始日期(>=)
+    condition: 合同状态
+    department_m: 合同管理单位
+    department_c: 合同签订单位
+    try_end: 试用到期时间
+    tip: 备注
+    infoid: 合同信息标识
+    date_end: 合同到期时间
+    date_end(<=): 合同到期时间(<=)
+    contract_num: 合同编号
+    emp_condition: 员工状态
+    name_example: 韩**
+  export:
+    rows: 导出数据条数(最大5000条)
+    sequence: 导出数据顺序
+
+jobtitle:
+ field:
+  employee_id: 员工编号
+  certificate_id: 证书编号
+  employee_name: 员工姓名
+  org_name: 组织名称
+  jobtitle_name: 职称名称
+  get_time: 获取日期
+  professional_cate: 专业类别
+  professional_name: 专业名称
+  professor_grades: 职称等级
+  issuing_authority: 签发机构
+  judging_unit: 评审单位
+  b_highest_professional_title: 是否最高职称
+ get: 
+  summary: 查询指定职称详情
+ export:
+  summary: 导出职称
+  line: 行数
+  rows: 所有记录
+ update:
+  summary: 更新职称
+
+expense:
+ field:
+  expense_id: 费别ID
+  expense_name: 费别类型
+  expense_num: 费用金额
+  people_num: 发放人数
+  get_time: 发放时间
+  expense_std: 费用标准
+ get: 
+  summary: 查询指定费别详情
+ export:
+  summary: 导出费别
+ update:
+  summary: 更新费别
+
+reminder:
+ name:
+  contract_termination_reminder: 合同终止提醒
+  export_all: 导出全部
+ condition:
+  employee_id: 员工编号
+  employee_name: 员工姓名
+  employee_status: 员工状态
+  contract_id: 合同编号
+  contract_lb: 合同类别
+  contract_status: 合同状态
+  begin_time: 起始日期（>=）
+  deadline: 结束日期（<=）
+  contract_lx: 合同类型
