@@ -66,7 +66,7 @@ public: // 定义接口
 		info->queryParams["personid"].addExample("default", String("0002CC75-F8EB-45B3-A359-0310EC7F6D5B"));
  	}
  	// 定义查询接口处理
- 	ENDPOINT(API_M_GET, "/query-by-family-situation", queryFamilysituation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams))
+ 	ENDPOINT(API_M_GET, "/c3-family-info/family-query", queryFamilysituation, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams))
  	{
  		// 解析查询参数
  		API_HANDLER_QUERY_PARAM(familysituationQuery, FamilysituationQuery, queryParams);
@@ -84,7 +84,7 @@ public: // 定义接口
 		info->queryParams["id"].addExample("default", String("12239214873271218176"));
  	}
  	// 定义查询指定家庭情况接口处理
- 	ENDPOINT(API_M_GET, "/queryOne-by-family-situation", queryOneFamilysituation, QUERIES(QueryParams, queryParams))
+ 	ENDPOINT(API_M_GET, "/c3-family-info/family-query-one", queryOneFamilysituation, QUERIES(QueryParams, queryParams))
  	{
  		// 解析查询参数
  		API_HANDLER_QUERY_PARAM(oneQuery, FamilysituationQuery, queryParams);
@@ -99,10 +99,10 @@ public: // 定义接口
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 定义添加接口处理
-	ENDPOINT(API_M_POST, "/add-by-family-situation", addFamilysituation, API_HANDLER_AUTH_PARAME, BODY_DTO(FamilysituationDTO::Wrapper, dto))
+	ENDPOINT(API_M_POST, "/c3-family-info/family-add", addFamilysituation, API_HANDLER_AUTH_PARAME, BODY_DTO(FamilysituationDTO::Wrapper, dto))
 	{
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddFamilysituation(dto, authObject->getPayload()));
@@ -115,10 +115,10 @@ public: // 定义接口
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 定义修改接口处理
-	ENDPOINT(API_M_PUT, "/modify-by-family-situation", modifyFamilysituation, API_HANDLER_AUTH_PARAME, BODY_DTO(FamilysituationDTO::Wrapper, dto))
+	ENDPOINT(API_M_PUT, "/c3-family-info/family-modify", modifyFamilysituation, API_HANDLER_AUTH_PARAME, BODY_DTO(FamilysituationDTO::Wrapper, dto))
 	{
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifyFamilysituation(dto, authObject->getPayload()));
@@ -129,10 +129,10 @@ public: // 定义接口
 		// 定义接口标题
 		info->summary = ZH_WORDS_GETTER("familysituation.del.summary");
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
 	}
 	// 定义删除接口处理
-	ENDPOINT(API_M_DEL, "/remove-by-family-situation", removeFamilysituation, BODY_DTO(FamilysituationDTO::Wrapper, dto))
+	ENDPOINT(API_M_DEL, "/c3-family-info/family-remove", removeFamilysituation, BODY_DTO(FamilyBatchDeleteDTO::Wrapper, dto))
 	{
 		// 响应结果
 		API_HANDLER_RESP_VO(execRemoveFamilysituation(dto));
@@ -146,7 +146,7 @@ public: // 定义接口
 		info->queryParams["suffix"].addExample("xlsx", String(".xlsx"));
 	}
 	// 定义导入接口处理
-	ENDPOINT(API_M_POST, "/import-by-family-situation", importFile, BODY_STRING(String, body), QUERY(String, suffix))
+	ENDPOINT(API_M_POST, "/c3-family-info/family-import", importFile, BODY_STRING(String, body), QUERY(String, suffix))
 	{
 		// 执行文件保存和解析逻辑
 		API_HANDLER_RESP_VO(executeImportFamilysituation(body, suffix));
@@ -163,7 +163,7 @@ public: // 定义接口
 		info->queryParams["id"].required = true;
 	}
 	// 定义导出接口处理
-	ENDPOINT(API_M_GET, "/export-by-family-situation", exportFamilysituation, QUERIES(QueryParams, qps))
+	ENDPOINT(API_M_GET, "/c3-family-info/family-export", exportFamilysituation, QUERIES(QueryParams, qps))
 	{
 		// 响应结果
 		API_HANDLER_QUERY_PARAM(query, FamilysituationQuery, qps);
@@ -180,7 +180,7 @@ private: // 定义接口执行函数
 	// 修改数据响应
 	Uint64JsonVO::Wrapper execModifyFamilysituation(const FamilysituationDTO::Wrapper& dto, const PayloadDTO& payload);
 	// 删除数据响应
-	Uint64JsonVO::Wrapper execRemoveFamilysituation(const FamilysituationDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execRemoveFamilysituation(const FamilyBatchDeleteDTO::Wrapper& dto);
 	// 导入数据响应
 	StringJsonVO::Wrapper executeImportFamilysituation(const String& fileBody, const String& suffix);
 	// 导出数据响应

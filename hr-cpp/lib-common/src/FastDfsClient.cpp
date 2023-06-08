@@ -39,6 +39,7 @@ if (__VAR_SERVER__ == NULL) { \
 #include <atlstr.h>
 
 //超过5M的文件不做处理
+
 BYTE byFileBuff[5 * 1024 * 1024];
 
 #endif
@@ -268,6 +269,90 @@ std::string FastDfsClient::uploadFile(const std::string& fileName)
 	if (nRet != enumSuccess_FDFS)
 	{
 		std::cout << "File upload fail: " << fileName << std::endl;
+	}
+	else
+	{
+		std::stringstream ss;
+		ss << byGroupName << "/" << byRemoteFileName;
+		remoteFileld = ss.str();
+	}
+	return remoteFileld;
+#endif
+}
+
+std::string FastDfsClient::uploadFile(const char* buff, size_t size, const std::string& extName /*= ""*/)
+{
+	// 连接是否初始化成功
+	if (!this->isInit)
+	{
+		std::cerr << "Not initialize succeed" << std::endl;
+		return "";
+	}
+#ifdef LINUX
+	// 获取连接
+	DFS_GET_CONN(result, pTrackerServer, "");
+
+	// 设置上传参数
+	char group_name[FDFS_GROUP_NAME_MAX_LEN + 1];
+	char remote_filename[256];
+	int store_path_index;
+
+	// 查询存储服务器
+	ConnectionInfo storageServer;
+	ConnectionInfo* pStorageServer;
+	if ((result = tracker_query_storage_store(pTrackerServer, \
+		& storageServer, group_name, &store_path_index)) != 0)
+	{
+		tracker_close_connection_ex(pTrackerServer, true);
+		logErrorEx(&g_log_context, "tracker_query_storage fail, " \
+			"error no: %d, error info: %s\n", \
+			result, STRERROR(result));
+		return "";
+	}
+
+	// 执行上传
+	result = storage_upload_by_filebuff1(pTrackerServer, \
+		& storageServer, store_path_index, \
+		buff, size, extName.c_str(), \
+		NULL, 0, group_name, remote_filename);
+
+	// 关闭连接
+	tracker_close_connection_ex(pTrackerServer, true);
+
+	// 判断结果
+	if (result == 0)
+	{
+		string fieldName = remote_filename;
+		return fieldName;
+	}
+	else
+	{
+		logErrorEx(&g_log_context, "upload file fail, " \
+			"error no: %d, error info: %s\n", \
+			result, STRERROR(result));
+		return "";
+	}
+#else
+	//定义上传参数
+	BYTE byGroupName[FDFS_GROUP_NAME_MAX_LEN + 1];
+	BYTE byRemoteFileName[FDFS_REMOTE_FILE_NAME_MAX_LEN + 1];
+	BYTE byFileExtName[10];
+	memcpy(byFileExtName, extName.c_str(), extName.length() + 1);
+
+	//组装上传文件数据
+	BYTE* byFile = new BYTE[size];
+	for (size_t i = 0; i < size; i++)
+	{
+		byFile[i] = buff[i];
+	}
+
+	//执行文件上传
+	std::string remoteFileld = "";
+	UINT32 nRet = m_func_UploadFile(byFile, size, byFileExtName, byGroupName, byRemoteFileName);
+	delete[] byFile;
+	if (nRet != enumSuccess_FDFS)
+	{
+		std::cout << "File upload fail with byte buff" << std::endl;
 	}
 	else
 	{

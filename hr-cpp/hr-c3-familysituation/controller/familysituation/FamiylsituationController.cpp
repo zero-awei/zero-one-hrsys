@@ -86,17 +86,12 @@ Uint64JsonVO::Wrapper FamilysituationController::execModifyFamilysituation(const
 }
 
 // 删除响应
-Uint64JsonVO::Wrapper FamilysituationController::execRemoveFamilysituation(const FamilysituationDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper FamilysituationController::execRemoveFamilysituation(const FamilyBatchDeleteDTO::Wrapper& dto)
 {
 	auto vo = Uint64JsonVO::createShared();
-	// 非空校验
-	if (!dto->id)
-	{
-		vo->init(UInt64(-1), RS_PARAMS_INVALID);
-		return vo;
-	}
-	// 有效值校验
-	if (dto->id->empty())
+	// 有效值校验 集合不能小于0
+	int familySize = dto->batchFamilyId->size();
+	if (familySize <= 0)
 	{
 		vo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return vo;
@@ -105,7 +100,7 @@ Uint64JsonVO::Wrapper FamilysituationController::execRemoveFamilysituation(const
 	FamilysituationService service;
 	// 执行数据删除
 	auto result = service.removeData(dto);
-	if (result) {
+	if (result > 0) {
 		vo->success(UInt64(result));
 	}
 	else

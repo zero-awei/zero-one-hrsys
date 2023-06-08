@@ -17,9 +17,10 @@
  limitations under the License.
 */
 #include "pch.h"
-#include "../include/NacosClient.h"
 #include <iostream>
 #include <fstream>
+#include "../include/NacosClient.h"
+#include "../include/SnowFlake.h"
 
 #ifdef LINUX
 
@@ -40,7 +41,7 @@ __VAR_NAME__.port = port; \
 __VAR_NAME__.serviceName = serviceName; \
 __VAR_NAME__.groupName = groupName; \
 __VAR_NAME__.clusterName = clusterName; \
-__VAR_NAME__.instanceId = "1"; \
+__VAR_NAME__.instanceId = instanceId; \
 __VAR_NAME__.ephemeral = true; \
 __VAR_NAME__.metadata.insert(make_pair("preserved.register.source", "CPP"));
 
@@ -53,6 +54,7 @@ NacosClient::NacosClient(const string& address, const string& namespaceId)
 
 #ifdef LINUX
 	this->namingSvc = nullptr;
+	this->instanceId = std::to_string(SnowFlake(0, 0).nextId());
 #endif
 }
 

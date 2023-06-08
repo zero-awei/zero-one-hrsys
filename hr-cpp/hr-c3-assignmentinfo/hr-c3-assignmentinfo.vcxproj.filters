@@ -33,10 +33,16 @@
     <ClCompile Include="dao\assignInfoDAO\AssignInfoDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="service\assignInfo\AssignInfoService.cpp">
+    <ClCompile Include="uselib\jwt\AssignInfoToken.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="uselib\jwt\AssignInfoToken.cpp">
+    <ClCompile Include="uselib\ws\WSInstanceListener.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\ws\WSListener.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\assignInfo\AssignInfoService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,16 +68,10 @@
     <ClInclude Include="controller\Router.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\assignInfo\AssignInfoVO.h">
+    <ClInclude Include="domain\vo\assignInfo\AssignInfoQueryVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\assignInfo\AssignInfoQuery.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\assignInfo\AssignInfoDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="service\assignInfo\AssignInfoService.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\query\assignInfo\AssignInfoQueryDetail.h">
@@ -95,9 +95,6 @@
     <ClInclude Include="domain\vo\assignInfo\AssignInfoQueryVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\assignInfo\ImportAssignInfoVO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\vo\assignInfo\ModifyAssignInfoVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -105,6 +102,42 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="uselib\jwt\AssignInfoToken.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\ws\WSController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\ws\WSInstanceListener.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\ws\WSListener.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\assignInfo\ImportAssignInfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\assignInfo\ImportAssignInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\assignInfo\ImportAssignInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\assignInfo\AssignInfoService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\assignInfo\MulDeleteAssignInfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\assignInfo\MulDeleteAssignInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\assignInfo\AssignInfoQueryDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\assignInfo\AssignInfoCommonDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\assignInfo\AssignInfoDeleteDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

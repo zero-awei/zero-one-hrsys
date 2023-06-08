@@ -23,44 +23,44 @@
 
 #include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
-#include "domain/dto/assignInfo/AssignInfoDTO.h"
+#include "domain/dto/assignInfo/AssignInfoQueryDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 /**
- * ²éÕÒÖ¸¶¨Ô±¹¤·ÖÅäĞÅÏ¢
+ * æŸ¥æ‰¾æŒ‡å®šå‘˜å·¥åˆ†é…ä¿¡æ¯
  */
 class AssignInfoQuery : public PageQuery
 {
 	DTO_INIT(AssignInfoQuery, PageQuery);
-	//·ÖÅäĞÅÏ¢±êÊ¶
+	//åˆ†é…ä¿¡æ¯æ ‡è¯†
 	API_DTO_FIELD_DEFAULT(String, assignId, ZH_WORDS_GETTER("employee.t_pimperson.assignId"));
-	//±àºÅ
+	//ç¼–å·
 	API_DTO_FIELD_DEFAULT(String, id, ZH_WORDS_GETTER("employee.field.id"));
-	// ·ÖÅä(Ö÷·ÖÅä»ò´Î·ÖÅä)
+	// åˆ†é…(ä¸»åˆ†é…æˆ–æ¬¡åˆ†é…)
 	API_DTO_FIELD_DEFAULT(String, assign, ZH_WORDS_GETTER("employee.field.assign"));
-	//·ÖÅä×´Ì¬
+	//åˆ†é…çŠ¶æ€
 	API_DTO_FIELD_DEFAULT(String, assignState, ZH_WORDS_GETTER("employee.t_pimperson.assignState"));
-	// ÀàĞÍ
+	// ç±»å‹
 	API_DTO_FIELD_DEFAULT(String, etype, ZH_WORDS_GETTER("employee.field.etype"));
-	// ×éÖ¯
+	// ç»„ç»‡
 	API_DTO_FIELD_DEFAULT(String, organize, ZH_WORDS_GETTER("employee.field.organize"));
-	// ²¿ÃÅ
+	// éƒ¨é—¨
 	API_DTO_FIELD_DEFAULT(String, depart, ZH_WORDS_GETTER("employee.field.depart"));
-	// Ö°Îñ
+	// èŒåŠ¡
 	API_DTO_FIELD_DEFAULT(String, job, ZH_WORDS_GETTER("employee.field.job"));
-	// ¸ÚÎ»
+	// å²—ä½
 	API_DTO_FIELD_DEFAULT(String, post, ZH_WORDS_GETTER("employee.field.post"));
-	// ÈÎÖ°¿ªÊ¼Ê±¼ä
+	// ä»»èŒå¼€å§‹æ—¶é—´
 	API_DTO_FIELD_DEFAULT(String, startTime, ZH_WORDS_GETTER("employee.field.startTime"));
-	// ÈÎÖ°½áÊøÊ±¼ä
+	// ä»»èŒç»“æŸæ—¶é—´
 	API_DTO_FIELD_DEFAULT(String, endTime, ZH_WORDS_GETTER("employee.field.endTime"));
-	//´´½¨ÈË
+	//åˆ›å»ºäºº
 	API_DTO_FIELD_DEFAULT(String, createMan, ZH_WORDS_GETTER("employee.t_pimperson.createMan"));
-	//´´½¨Ê±¼ä
+	//åˆ›å»ºæ—¶é—´
 	API_DTO_FIELD_DEFAULT(String, createDate, ZH_WORDS_GETTER("employee.t_pimperson.createDate"));
-	//¸üĞÂÈË
+	//æ›´æ–°äºº
 	API_DTO_FIELD_DEFAULT(String, updateMan, ZH_WORDS_GETTER("employee.t_pimperson.updateMan"));
-	//¸üĞÂÊ±¼ä
+	//æ›´æ–°æ—¶é—´
 	API_DTO_FIELD_DEFAULT(String, updateDate, ZH_WORDS_GETTER("employee.t_pimperson.updateDate"));
 };
 

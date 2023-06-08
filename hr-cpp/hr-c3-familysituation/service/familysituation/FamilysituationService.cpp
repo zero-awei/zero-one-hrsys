@@ -90,11 +90,16 @@ bool FamilysituationService::updateData(const FamilysituationDTO::Wrapper& dto, 
 	return dao.update(data) == 1;
 }
 
-bool FamilysituationService::removeData(const FamilysituationDTO::Wrapper& dto)
+int FamilysituationService::removeData(const FamilyBatchDeleteDTO::Wrapper& dto)
 {
-	// 组装DO数据
-	FamilysituationDO data;
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Id, id);
 	FamilysituationDAO dao;
-	return dao.deleteById(data) == 1;
+	int count = 0;
+	for (auto it = dto->batchFamilyId->begin(); it != dto->batchFamilyId->end(); it++)
+	{
+		// 组装DO数据
+		FamilysituationDO data;
+		data.setId(it->getValue({}));
+		count += dao.deleteById(data);
+	}
+	return count;
 }

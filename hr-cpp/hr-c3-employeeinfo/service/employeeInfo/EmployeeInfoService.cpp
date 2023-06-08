@@ -38,19 +38,20 @@ EmployeeInfoQuery::Wrapper EmployeeInfoService::listEmployee(const EmployeeInfoQ
 	return dto;
 }
 
-bool EmployeeInfoService::insertEmployee(const EmployeeInfoAddDTO::Wrapper& edto)
+bool EmployeeInfoService::insertEmployee(const EmployeeInfoAddDTO::Wrapper& edto, const PayloadDTO& payLoad)
 {
 	/*EmployeeInfoDO data;
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, edto, Id, empid, Name, name, IdType, idType, IdNum, idNum, Phone, phoneNum, eState, state);
 	*/
 	SimpleDateTimeFormat sdtf;
 	string dt = sdtf.format();
+	string pl = payLoad.getId();
 	EmployeeInfoDAO dao;
 	SnowFlake sf(1, 3);
-	return dao.insertEmployee(edto, to_string(sf.nextId()),dt);
+	return dao.insertEmployee(edto, to_string(sf.nextId()),dt, pl);
 }
 
-bool EmployeeInfoService::updateEmployee(const EmployeeInfoDTO::Wrapper& edto)
+bool EmployeeInfoService::updateEmployee(const EmployeeInfoDTO::Wrapper& edto, const PayloadDTO& payLoad)
 {
 	/*EmployeeInfoDO data;
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, edto, Id, empid, Name, name, IdType, idtype, IdNum, idnum, Birthday,
@@ -58,6 +59,7 @@ bool EmployeeInfoService::updateEmployee(const EmployeeInfoDTO::Wrapper& edto)
 		Nation, nation, ResidentType, residentType, Native, native, ResidentPlace, residentPlace,
 		ResidentLocate, residentLocate, BirthPlace, birthPlace, ComePlace, comPlace, OnlyCredit, onlyCredit,
 		Hobby, hobby, Health, health, Politic, politic, WorkTime, workTime, InTime, inTime, Photo, photo);*/
-	EmployeeInfoDAO dao;
-	return dao.updateEmployee(edto);
+	EmployeeInfoDAO dao;\
+	string pl = payLoad.getId();
+	return dao.updateEmployee(edto,pl);
 }

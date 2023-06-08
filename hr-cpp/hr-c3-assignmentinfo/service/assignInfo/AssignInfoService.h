@@ -2,27 +2,35 @@
 #ifndef _Assign_Info_Query_SERVICE_
 #define _Assign_Info_Query_SERVICE_
 #include <list>
-#include "domain/vo/assignInfo/AssignInfoVO.h"
+#include "domain/vo/assignInfo/AssignInfoQueryVO.h"
 #include "domain/query/assignInfo/AssignInfoQuery.h"
+#include "domain/dto/assignInfo/AssignInfoCommonDTO.h"
 #include "domain/query/assignInfo/AssignExportQuery.h"
+#include "domain/vo/assignInfo/ImportAssignInfoVO.h"
+#include "domain/dto/assignInfo/ImportAssignInfoDTO.h"
+#include "domain/dto/assignInfo/MulDeleteAssignInfoDTO.h"
 
 /**
- * Ê¾Àı·şÎñÊµÏÖ£¬ÑİÊ¾»ù´¡µÄÊ¾Àı·şÎñÊµÏÖ
+ * ç¤ºä¾‹æœåŠ¡å®ç°ï¼Œæ¼”ç¤ºåŸºç¡€çš„ç¤ºä¾‹æœåŠ¡å®ç°
  */
 class AssignInfoService
 {
 public:
-	// ·ÖÒ³²éÑ¯ËùÓĞÊı¾İ
+	// åˆ†é¡µæŸ¥è¯¢æ‰€æœ‰æ•°æ®
 	AssignInfoPageDTO::Wrapper listAll(const AssignInfoQuery::Wrapper& query);
-	// ±£´æÊı¾İ
-	uint64_t saveData(const AssignInfoDTO::Wrapper& dto,const PayloadDTO& payload);
-	// ĞŞ¸ÄÊı¾İ
-	bool updateData(const AssignInfoDTO::Wrapper& dto,const PayloadDTO& payload);
-	// Í¨¹ıIDÉ¾³ıÊı¾İ
+	// ä¿å­˜æ•°æ®
+	uint64_t saveData(const AssignInfoCommonDTO::Wrapper& dto, const PayloadDTO& payload);
+	// ä¿®æ”¹æ•°æ®
+	bool updateData(const AssignInfoCommonDTO::Wrapper& dto, const PayloadDTO& payload);
+	// é€šè¿‡IDåˆ é™¤æ•°æ®
 	bool removeData(string id);
-	// ²éÑ¯ÏêÏ¸Êı¾İ
-	AssignInfoDTO::Wrapper QueryDetail(const AssignInfoDTO::Wrapper& dto);
-	string exportData(const AssignExportQuery::Wrapper &query);
+	// æŸ¥è¯¢è¯¦ç»†æ•°æ®
+	AssignInfoQueryDTO::Wrapper QueryDetail(const AssignInfoQueryDTO::Wrapper& dto);
+	//å¯¼å…¥å‘˜å·¥ä¿¡æ¯(æ‰¹é‡æ–°å¢)
+	ImportInfoJsonVO::Wrapper addMultiAssignInfo(const ImportAssignInfoDTO::Wrapper& dto, const PayloadDTO& payload);
+	//æ‰¹é‡åˆ é™¤
+	bool removeMulData(const MulDeleteAssignInfoDTO::Wrapper& dto);
+	string exportData(const AssignExportQuery::Wrapper& query);
 };
 
 #endif //!_Assign_Info_Query_SERVICE_

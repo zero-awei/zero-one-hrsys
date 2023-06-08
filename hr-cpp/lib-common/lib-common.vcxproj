@@ -74,7 +74,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>F:\Microsoft\Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\atlmfc\include;$(IncludePath)</IncludePath>
+    <IncludePath>E:\Visual Studio\2022\VC\Tools\MSVC\14.35.32215\atlmfc\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>

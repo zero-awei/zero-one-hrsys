@@ -21,7 +21,7 @@
 #include "AssignInfoMapper.h"
 #include <sstream>
 
-//定义条件解析宏，减少重复代码
+//瀹氫箟鏉′欢瑙ｆ瀽瀹忥紝鍑忓皯閲嶅浠ｇ爜
 #define ASSIGNINFO_TERAM_PARSE(query, sql) \
 SqlParams params; \
 sql<<" WHERE 1=1"; \
@@ -108,7 +108,7 @@ std::list<AssignInfoDO> AssignInfoDAO::selectWithPage(const AssignInfoQuery::Wra
 
 std::list<AssignInfoDO> AssignInfoDAO::selectById(const string& assignId)
 {
-	string sql = "SELECT * FROM t_pimdistirbution WHERE PIMDISTIRBUTIONID LIKE CONCAT('%',?,'%')";
+	string sql = "SELECT * FROM t_pimdistirbution WHERE PIMDISTIRBUTIONID=? ";//LIKE CONCAT('%',?,'%')
 	AssignInfoMapper mapper;
 	return sqlSession->executeQuery<AssignInfoDO, AssignInfoMapper>(sql, mapper, "%s", assignId);
 }

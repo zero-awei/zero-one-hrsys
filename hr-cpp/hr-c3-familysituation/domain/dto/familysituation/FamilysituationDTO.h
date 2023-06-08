@@ -100,6 +100,15 @@ class FamilysituationPageDTO : public PageDTO<FamilysituationDTO::Wrapper>
 	DTO_INIT(FamilysituationPageDTO, PageDTO<FamilysituationDTO::Wrapper>);
 };
 
+/**
+ * 批量删除使用的家庭id LIST
+ */
+class FamilyBatchDeleteDTO : public oatpp::DTO
+{
+	DTO_INIT(FamilyBatchDeleteDTO, DTO);
+	// 批量删除
+	API_DTO_FIELD_DEFAULT(List<String>, batchFamilyId, ZH_WORDS_GETTER("familysituation.field.familylist"));
+};
 
 #include OATPP_CODEGEN_END(DTO)
 

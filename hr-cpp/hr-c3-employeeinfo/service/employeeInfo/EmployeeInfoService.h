@@ -34,9 +34,9 @@ public:
 	//查询指定员工员工信息
 	EmployeeInfoQuery::Wrapper listEmployee(const EmployeeInfoQuery::Wrapper& query);
 	//新增员工信息
-	bool insertEmployee(const EmployeeInfoAddDTO::Wrapper& edto);
+	bool insertEmployee(const EmployeeInfoAddDTO::Wrapper& edto, const PayloadDTO& payLoad);
 	//修改指定员工员工信息
-	bool updateEmployee(const EmployeeInfoDTO::Wrapper& edto);
+	bool updateEmployee(const EmployeeInfoDTO::Wrapper& edto, const PayloadDTO& payLoad);
 };
 
 #endif // !_EMPLOYEEINFOSERVICE_H_

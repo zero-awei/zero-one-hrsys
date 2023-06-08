@@ -60,9 +60,6 @@
     <ClInclude Include="domain\dto\org\OrgDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\org\OrgSectorDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="controller\EmployeeInformation\EmployeeInformationController.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -96,9 +93,6 @@
     <ClInclude Include="domain\vo\org\MemberVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\org\OrgSectorVO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\vo\org\OrgVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -109,9 +103,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\dto\org\MemberDTO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="domain\dto\org\OrgSectorDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\do\employeeInfo\EmployeeInfoDO.h">
@@ -168,9 +159,6 @@
     <ClInclude Include="domain\do\org\OrgDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\org\OrgSectorDO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="domain\query\EmployeeInformationPageQuery\EmployeeExportQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -180,19 +168,49 @@
     <ClInclude Include="dao\org\OrgMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="dao\org\OrgSectorMapper.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="service\org\OrgService.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\vo\jobList\JobListVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="uselib\jwt\TestToken.h">
+    <ClInclude Include="uselib\jwt\EmployeeInformationToken.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\org\OrgTreeMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\ws\WSController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\ws\WSInstanceListener.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\ws\WSListener.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="uselib\jwt\EmployeeInformationToken.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\org\TreeOrgMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\org\OrgTreeDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\org\OrgTreeDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\orgQuery\OrgTreeQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\org\OrgTreeVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\importInfo\ImportInfoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\importInfo\importInfoVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -242,7 +260,13 @@
     <ClCompile Include="service\org\OrgService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="uselib\jwt\TestToken.cpp">
+    <ClCompile Include="uselib\jwt\EmployeeInformationToken.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\ws\WSInstanceListener.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\ws\WSListener.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="uselib\jwt\EmployeeInformationToken.cpp">

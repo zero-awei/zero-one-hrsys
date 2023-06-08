@@ -58,6 +58,7 @@ familysituation:
   testament: 是否遗嘱 (1.是 2.否)
   ice: 紧急联系人 (1.是 2.否)
   relationship: 与本人关系
+  familylist: 家庭id集合
  description:
   dadson: 父子
  import-file:

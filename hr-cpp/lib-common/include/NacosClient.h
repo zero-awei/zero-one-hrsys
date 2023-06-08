@@ -45,6 +45,8 @@ private:
 #ifdef LINUX
 	//当前命名服务
 	NamingService* namingSvc;
+	//注册实例ID
+	std::string instanceId;
 #endif
 public:
 	//************************************

@@ -36,46 +36,46 @@
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\Language\LanguageQuery.h">
+    <ClInclude Include="domain\query\language\LanguageQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\Language\LanguageDTO.h">
+    <ClInclude Include="domain\dto\language\LanguageDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\ImportLanguage\ImportLanguageDTO.h">
+    <ClInclude Include="domain\dto\importLanguage\ImportLanguageDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\LanguageCompetence\LanguageCompetenceController.h">
+    <ClInclude Include="controller\languageCompetence\LanguageCompetenceController.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="service\Language\LanguageService.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\vo\Language\LanguageVO.h">
+    <ClInclude Include="domain\vo\language\LanguageVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\LanguagePage\LanguagePageQuery.h">
+    <ClInclude Include="domain\query\languagePage\LanguagePageQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\query\EmployeeLanguareQuery\EmployeeLanguareQuery.h">
+    <ClInclude Include="domain\query\employeeLanguareQuery\EmployeeLanguareQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\ImportLanguage\ImportLanguageController.h">
+    <ClInclude Include="controller\importLanguage\ImportLanguageController.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\DownloadLanguage\DownloadLanguageDTO.h">
+    <ClInclude Include="domain\dto\downloadLanguage\DownloadLanguageDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="controller\ExportLanguage\ExportLanguage.h">
+    <ClInclude Include="controller\exportLanguage\ExportLanguage.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\do\Language\LanguageDO.h">
+    <ClInclude Include="domain\do\language\LanguageDO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="dao\Language\LanguageDAO.h">
+    <ClInclude Include="dao\language\LanguageDAO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="dao\Language\LanguageMapper.h">
+    <ClInclude Include="dao\language\LanguageMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="uselib\jwt\TestToken.h">
@@ -84,7 +84,7 @@
     <ClInclude Include="uselib\fastdfs\UseFastDFS.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="domain\dto\DeleteLanguage\DeleteLanguageDTO.h">
+    <ClInclude Include="domain\dto\deleteLanguage\DeleteLanguageDTO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -101,19 +101,19 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\LanguageCompetence\LanguageCompetenceController.cpp">
+    <ClCompile Include="controller\languageCompetence\LanguageCompetenceController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="service\Language\LanguageService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\ImportLanguage\ImportLanguageController.cpp">
+    <ClCompile Include="controller\importLanguage\ImportLanguageController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="controller\ExportLanguage\ExportLanguage.cpp">
+    <ClCompile Include="controller\exportLanguage\ExportLanguage.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="dao\Language\LanguageDAO.cpp">
+    <ClCompile Include="dao\language\LanguageDAO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="uselib\jwt\TestToken.cpp">

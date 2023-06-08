@@ -16,37 +16,37 @@ EmployeeInformationPageJsonVO::Wrapper EmployeeInformationController::execEmploy
 
 }
 //导入员工信息
-Uint64JsonVO::Wrapper EmployeeInformationController::execImportEmployeeInfo(const EmployeeInformationDTO::Wrapper& importInfo, const PayloadDTO& payload)
+ImportJobJsonVO::Wrapper EmployeeInformationController::execImportEmployeeInfo(const ImportInfoDTO::Wrapper& dto, const PayloadDTO& payload)
 {
-	// 定义返回数据对象
-	auto jvo = Uint64JsonVO::createShared();
+	// 构建返回VO
+	auto vo = ImportJobJsonVO::createShared();
 	// 参数校验
-	// 非空校验
-	if (!importInfo->name || !importInfo->age)
-	{
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-		return jvo;
-	}
-	// 有效值校验
-	if (importInfo->name->empty() || importInfo->age < 0)
-	{
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-		return jvo;
+	if (dto->filePath->empty()) {
+		vo->init({}, RS_PARAMS_INVALID);
+		return vo;
 	}
 
-	// 定义一个Service
+	// 构建返回样例
+	/*String str1 = "123abc";
+	String str2 = "456def";
+	String str3 = "789ghi";
+	auto ij = ImportJobVO::createShared();
+	ij->newId->push_back("123abc");
+	ij->newId->push_back("456def");
+	ij->newId->push_back("789ghi");
+	vo->init(ij, RS_SUCCESS);*/
+
+	// TODO: 调用service
+	std::list<std::string> result;
 	EmployeeInformationServicer service;
-	// 执行数据新增
-	uint64_t id = service.saveData(importInfo, payload);
-	if (id >= 0) {
-		jvo->success(UInt64(id));
-	}
+	auto res = service.addMultiEmployee(dto, payload);
+
+	if (res->newId->size())
+		vo->init(res, RS_SUCCESS);
 	else
-	{
-		jvo->fail(UInt64(id));
-	}
-	//响应结果
-	return jvo;
+		vo->init(res, RS_FAIL);
+
+	return vo;
 
 }
 //导出员工信息(导出本页在前端完成)

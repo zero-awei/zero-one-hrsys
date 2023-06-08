@@ -23,6 +23,7 @@
 #include "controller/Router.h"
 #include "controller/OtherComponent.hpp"
 #include "DbInit.h"
+#include "uselib/jwt/TestToken.h"
 #ifdef HTTP_SERVER_DEMO
 #include "uselib/jwt/TestToken.h"
 #endif
@@ -32,6 +33,7 @@
 #include "YamlHelper.h"
 #endif
 
+
 /**
  * 解析启动参数
  * 注意：
@@ -40,7 +42,7 @@
  */
 bool getStartArg(int argc, char* argv[]) {
 	// 服务器端口
-	std::string serverPort = "8090";
+	std::string serverPort = "8093";
 	// 数据库连接信息
 	std::string dbUsername = "root";
 	std::string dbPassword = "114514mysql";
@@ -51,9 +53,9 @@ bool getStartArg(int argc, char* argv[]) {
 	int dbMax = 25;
 #ifdef USE_NACOS
 	// Nacos配置参数
-	std::string nacosAddr = "192.168.220.128:8848";
-	std::string nacosNs = "4833404f-4b82-462e-889a-3c508160c6b4";
-	std::string serviceName = "feign-cpp-sample";
+	std::string nacosAddr = "39.99.114.126:8848";
+	std::string nacosNs = "1653f775-4782-46ad-9cd2-b60155a574c6";
+	std::string serviceName = "hr-dev";
 	std::string regIp = "192.168.220.128";
 #endif
 
@@ -133,9 +135,13 @@ int main(int argc, char* argv[]) {
 	// 测试生成 JWT Token
 	TestToken::generateToken();
 #endif
+	// 测试生成 JWT Token
+	TestToken::generateToken();
 
 	// 服务器参数初始化
 	bool isSetDb = getStartArg(argc, argv);
+
+	
 
 #ifdef USE_NACOS
 	// 创建Nacos客户端对象
@@ -146,9 +152,9 @@ int main(int argc, char* argv[]) {
 	if (!isSetDb)
 	{
 #ifdef LINUX
-		YAML::Node node = nacosClient.getConfig("data-source.yaml");
+		YAML::Node node = nacosClient.getConfig("demo-nacos-cli.yaml");
 #else
-		YAML::Node node = nacosClient.getConfig("./conf/data-source.yaml");
+		YAML::Node node = nacosClient.getConfig("./conf/demo-nacos-cli.yaml");
 #endif
 		YamlHelper yaml;
 		std::string dbUrl = yaml.getString(&node, "spring.datasource.url");
@@ -170,10 +176,10 @@ int main(int argc, char* argv[]) {
 		}
 	}
 	// 注册服务
-	nacosClient.registerInstance(
-		ServerInfo::getInstance().getRegIp(),
-		atoi(ServerInfo::getInstance().getServerPort().c_str()),
-		ServerInfo::getInstance().getServiceName());
+	//nacosClient.registerInstance(
+	//	ServerInfo::getInstance().getRegIp(),
+	//	atoi(ServerInfo::getInstance().getServerPort().c_str()),
+	//	ServerInfo::getInstance().getServiceName());
 #endif
 
 	// 初始数据库连接
@@ -200,10 +206,10 @@ int main(int argc, char* argv[]) {
 
 #ifdef USE_NACOS
 	// 反注册服务
-	nacosClient.deregisterInstance(
-		ServerInfo::getInstance().getRegIp(),
-		atoi(ServerInfo::getInstance().getServerPort().c_str()),
-		ServerInfo::getInstance().getServiceName());
+	//nacosClient.deregisterInstance(
+	//	ServerInfo::getInstance().getRegIp(),
+	//	atoi(ServerInfo::getInstance().getServerPort().c_str()),
+	//	ServerInfo::getInstance().getServiceName());
 #endif
 	return 0;
 }
