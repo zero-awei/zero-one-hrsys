@@ -1,0 +1,77 @@
+user:
+ query-all: 
+  summary: 查询所有用户
+  nickname: 昵称
+ file:
+  summary: 文件上传
+  suffix: 文件后缀
+  url: 文件路径
+ query-menu:
+  summary: 查询所有菜单
+ field:
+  age: 年龄
+  nickname: 昵称
+  idCard: 身份证号码
+  menuname: 菜单名称
+  menuicon: 图标名称
+  menuhref: 路由地址
+  menusub: 子菜单
+ language:
+  type: 语种
+  level: 语言等级
+language:
+ field:
+  id: 语言唯一标识ID
+ get:
+  summarys: 分页查询语言数据
+  summary: 查询一条语言数据
+  downloadurl: 下载路径
+ post:
+  summary: 新增一条语言数据
+  file: 上传文件
+  fileType: 文件类型
+  sheetName: 文件名
+  path: 文件路径
+ put:
+  summary: 修改一条语言数据
+ delete:
+  summary: 删除语言数据(支持批量删除)
+sample:
+ get:
+  summary: 分页查询示例数据
+ post:
+  summary: 新增一条示例数据
+ put:
+  summary: 修改一条示例数据
+ delete:
+  summary: 删除一条示例数据
+ field:
+  id: 编号
+  age: 年龄
+  name: 姓名
+  sex: 性别，如：男
+employee:
+ language:
+  summary: 语言能力
+  foreignLanguageLevel: 外语等级
+  time: 外语等级获取时间
+  peoject: 附件
+ field:
+  age: 年龄
+  nickname: 昵称
+  idCard: 身份证号码
+  menuname: 菜单名称
+  menuicon: 图标名称
+  menuhref: 路由地址
+  menusub: 子菜单
+ education:
+  degree: 学历
+  enrollmentDate: 入学时间
+  graduationDate: 毕业时间
+  graduatedInstitution: 毕业院校
+  primaryDiscipline: 一级学科
+  major: 所学专业
+  studyFormat: 学习形式
+  schoolNature: 学校性质
+  firstDegree: 是否第一学历
+  highestEducationDegree: 最高学历

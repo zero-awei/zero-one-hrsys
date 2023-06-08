@@ -1,0 +1,42 @@
+employee:
+ get:
+  summary: 分页查询指定员工分配信息
+  detail: 查询指定员工详细分配信息
+ post:
+  summary: 新增指定员工分配信息
+  upload: 导入指定员工分配信息
+ put:
+  summary: 修改指定员工分配信息
+ delete:
+  summary: 删除单条指定员工分配信息
+  multiple: 删除多条指定员工分配信息
+ field:
+  age: 年龄
+  name: 姓名
+  sex: 性别，如：男
+ t_pimperson: 
+   assignId: 分配信息标识
+   assignIds: 多条分配信息标识
+   pimpersonname: 员工姓名
+   id: 员工编号
+   assign: 分配
+   assignState: 分配状态
+   etype: 类型
+   organize: 组织
+   depart: 部门
+   job: 职务
+   post: 岗位
+   startTime: 任职开始时间
+   endTime: 任职结束时间
+   createMan: 创建人
+   createDate: 创建时间
+   updateMan: 更新人
+   updateDate: 更新时间
+#员工信息-导入员工信息
+importInfo:
+  import:
+    summary: 导入员工分配信息
+    fileType: 文件类型(xlx/xlsx/csv)
+    sheetName: 数据表名
+    file: 待导入文件
+    id: 新增id

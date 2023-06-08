@@ -1,4 +1,4 @@
-﻿# CMakeList.txt: 顶层 CMake 项目文件，在此处执行全局配置
+# CMakeList.txt: 顶层 CMake 项目文件，在此处执行全局配置
 # 并包含子项目。
 #
 cmake_minimum_required (VERSION 3.8)
@@ -88,3 +88,8 @@ add_subdirectory ("hr-c1-orgmanage")
 add_subdirectory ("hr-c1-common")
 add_subdirectory ("hr-c2-basmanager")
 add_subdirectory ("hr-c2-orgmanager")
+add_subdirectory ("hr-c3-assignmentinfo")
+add_subdirectory ("hr-c3-educationinfo")
+add_subdirectory ("hr-c3-employeeinfo")
+add_subdirectory ("hr-c3-familysituation")
+add_subdirectory ("hr-c3-languagecompetence")
