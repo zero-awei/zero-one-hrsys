@@ -39,7 +39,7 @@ PullListDTO::Wrapper ArmyLevelTypeService::listAll()
 		auto res = dao.selectAll();
 		
 		// 组装成DTO返回
-		for (auto item : res)
+		for (const auto& item : res)
 		{
 			string code = item.getCode();
 			dto->pullList->push_back(ItemDTO::createShared(atoi(code.c_str()), item.getArmyLevelType()));
@@ -52,7 +52,7 @@ PullListDTO::Wrapper ArmyLevelTypeService::listAll()
 	// 否则组装缓存数据到DTO
 	else
 	{
-		for (auto item : hash)
+		for (const auto& item : hash)
 		{
 			int code = atoi(item.first.c_str());
 			dto->pullList->push_back(ItemDTO::createShared(code, item.second));
