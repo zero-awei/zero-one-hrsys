@@ -57,17 +57,17 @@ export const useInfoStore = defineStore('archivesInfo', {
         // baseUrl :import.meta.env.VITE_HR_C1_4 //proj-tag
     }),
     actions: {
-        //加载侧边栏菜单--查询组织结构树
+        //加载侧边栏菜单-查询组织结构树/分页查询组织列表
         asideData() {
-            //发送请求获取表单所需栏目
+            //发送请求获取侧边栏数据
             // let data = await Request.requestForm(
             //   Request.GET,
-            //    baseUrl + 'query-org-page',
-            //    data,
+            //   '/login/current-user',
             //    null
             // )
             //const rows=data.data.rows 
-            //接口可用后，将测试数据注释掉即可
+            //console.log(data)
+            //测试数据
             const rows = [
                 {
                     path: '/sample',
@@ -153,10 +153,10 @@ export const useInfoStore = defineStore('archivesInfo', {
             //发送请求获取过滤后的表格
             // let data = await Request.requestForm(
             //   Request.GET,
-            //    baseUrl + 'query-org-page',
-            //    data,
+            //   '/login/current-user',
             //    null
             // )
+            //console.log(data)
             //const filterData=data.data
             const filterData = reactive({
                 employeeName: {
@@ -245,10 +245,10 @@ export const useInfoStore = defineStore('archivesInfo', {
             this.data = filterData
         },
 
-        
+
         //初始化表格
         async initTableData() {
-            // 发送请求获取表格数据
+            // 发送请求获取表格数据 -分页查询档案列表
             // let data = await Request.requestForm(
             //   Request.GET,
             //   '/archives/archivesInfo/',
@@ -288,7 +288,7 @@ export const useInfoStore = defineStore('archivesInfo', {
 
         //新增档案
         addConfig() {
-            // 发送请求获取新增配置项数据
+            // 发送请求获取新增配置项数据-新建档案
             // let data = await Request.requestForm(
             //   Request.GET,
             //   '/archives/archivesInfo/',
@@ -373,6 +373,9 @@ export const useInfoStore = defineStore('archivesInfo', {
             this.dataitem = rows
         },
 
+        //查询指定档案详情-搜索框
+
+
         // //分页函数
         // handleSizeChange(size) {
         //     //发送请求获取过滤后的表格
@@ -397,7 +400,7 @@ export const useInfoStore = defineStore('archivesInfo', {
         },
 
         editInfo() {
-            // 发送请求获取档案数据-新建档案接口
+            // 发送请求获取档案数据-新建档案
             // let data = await Request.requestForm(
             //   Request.GET,
             //   '/archives/archivesInfo/',
@@ -447,7 +450,7 @@ export const useInfoStore = defineStore('archivesInfo', {
             })
             this.userData = rows
         },
-
+        
         //消息弹框
         changeMessage(row, column) {
             //发送请求获取提示信息数据
