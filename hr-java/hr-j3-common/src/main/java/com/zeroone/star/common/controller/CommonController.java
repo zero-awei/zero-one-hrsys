@@ -116,13 +116,6 @@ public class CommonController implements CommonApis {
         return JsonVO.success(itSrforgsectorService.listSectorName(sectorNameQuery));
     }
 
-//    @GetMapping("query-languageAbility-list")
-//    @ApiOperation("分页查询某人的语言能力")
-//    @Override
-//    public JsonVO<PageDTO<List<LanguageAbilityDTO>>> queryLanguageAbilityList(LanguageAbilityQuery personId) {
-//        return null;
-//    }
-
     @GetMapping("query-learning-forms")
     @ApiOperation("学习形式下拉列表")
     @Override

@@ -24,7 +24,6 @@ import org.springframework.web.multipart.MultipartFile;
 public interface JobSetApis {
     /**
      * 导出所有职务
-     *
      * @return
      * @return {@link JsonVO< SampleDTO>}
      * @Author H_lzu
@@ -34,7 +33,6 @@ public interface JobSetApis {
 
     /**
      * 导入职务
-     *
      * @param file files
      * @return
      * @return {@link int}
@@ -46,14 +44,16 @@ public interface JobSetApis {
 
     /**
      * 分页查询职务列表
-     *
-     * @return
+     * @param pageQuery pageQuery
+     * @return {@link JsonVO< PageDTO< JobTitleDTO>>}
+     * @Author H_lzu
+     * @Date 16:31 2023/6/8
      */
+
     JsonVO<PageDTO<JobTitleDTO>> queryJobTitleList(PageQuery pageQuery);
 
     /**
      * 修改所选若干个职务
-     *
      * @param ormdutyid   职务标识id
      * @param jobTitleDTO 修改职务信息传输对象
      * @return
@@ -64,20 +64,33 @@ public interface JobSetApis {
     /**
      * 通过名称查询指定职务详情
      * 表 t_ormduty
-     *
      * @param condition 搜索框关键字＋页面分页信息
      * @return 搜索出的 PageDTO<JobDTO>
      */
     JsonVO<PageDTO<JobDTO>> queryJobByName(JobByNameQuery condition);
 
 
+    /**
+     * 删除职务信息
+     * @param deletePositionDTO deletePositionDTO
+     * @return {@link JsonVO< Boolean>}
+     * @Author H_lzu
+     * @Date 16:32 2023/6/8
+     */
     JsonVO<Boolean> DeletePosition(DeletePositionDTO deletePositionDTO);
 
+
+    /**
+     * 增加职务组织信息
+     * @param jobTitleDTO jobTitleDTO
+     * @return {@link JsonVO< Boolean>}
+     * @Author H_lzu
+     * @Date 16:33 2023/6/8
+     */
     JsonVO<Boolean> AddPosition(JobTitleDTO jobTitleDTO);
 
     /**
      * 导出组织（导出本页在前端完成）
-     *
      * @return {@link com.zeroone.star.project.vo.JsonVO<com.zeroone.star.project.j3.dto.ExportDTO>}
      * @Author H_lzu
      * @Date 16:27 2023/5/24

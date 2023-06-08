@@ -7,8 +7,6 @@ import com.zeroone.star.project.j3.dto.languageability.LanguageAbilityDTO;
 import com.zeroone.star.project.j3.query.common.*;
 import com.zeroone.star.project.j3.query.languageability.LanguageAbilityQuery;
 import com.zeroone.star.project.vo.JsonVO;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -65,10 +63,6 @@ public interface CommonApis {
      * @Author H_lzu
      * @Date 20:01 2023/6/4
      */
-
-
-    @GetMapping("query-distribution-form")
-    @ApiOperation("分配形式下拉列表")
     JsonVO<List<DropdownListOptionDTO>> queryDistributionForm();
 
     /**
