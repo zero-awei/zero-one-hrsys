@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { getCurrentInstance,onMounted, ref } from 'vue'
 import MainTable from '../../../components/MainTable.vue'
 import ColumnFilter from '@/components/columnFilter/ColumnFilter.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
@@ -652,9 +652,22 @@ const tableData: User[] = [
 ]
 const pageSize=ref()
 const currentPage=ref(1)
+const { $bus } = getCurrentInstance().appContext.config.globalProperties
+let newPageSize = 10
+let newCurrentPage = 1
+//console.log(newPageSize) 
+onMounted(()=>{
+  $bus.on('getPageSize',(data)=>{
+    newPageSize = data.value
+    //console.log(newPageSize)
+  })
+  $bus.on('getCurrentPage',(data)=>{
+    newCurrentPage = data.value
+    //console.log(newCurrentPage)
+  })
+})
 function handleSizeChange(size: number) {
   pageSize.value = size;
-  console.log(pageSize.value)
   }
 </script>
 
