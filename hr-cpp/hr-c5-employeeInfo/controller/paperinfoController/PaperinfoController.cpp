@@ -14,12 +14,12 @@ PaperPageJsonVO::Wrapper PaperinfoController::execQueryPaperinfo(const PaperQuer
 	return jvo;
 }
 
-//Uint64JsonVO::Wrapper PaperinfoController::execModifyPaperinfo(const PaperDTO::Wrapper& dto)
-//{
-//	// 定义返回数据对象
-//	auto jvo = Uint64JsonVO::createShared();
-//	return jvo;
-//}
+Uint64JsonVO::Wrapper PaperinfoController::execModifyPaperinfo(const PaperDTO::Wrapper& dto)
+{
+	// 定义返回数据对象
+	auto jvo = Uint64JsonVO::createShared();
+	return jvo;
+}
 
 
 Uint64JsonVO::Wrapper PaperinfoController::execAddPaperinfo(const PaperDTO::Wrapper& dto)
