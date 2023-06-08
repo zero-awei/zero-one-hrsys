@@ -27,11 +27,11 @@ class MenuTreeNodMapper implements TreeNodeMapper<Menu> {
     public TreeNode objectMapper(Menu menu) {
         MenuTreeVO treeNode = new MenuTreeVO();
         // 首先设置TreeNode计算层数使用属性
-        treeNode.setTnId(menu.getId().toString());
+        treeNode.setTnId(menu.getId());
         if (menu.getParentMenuId() == null) {
             treeNode.setTnPid(null);
         } else {
-            treeNode.setTnPid(menu.getParentMenuId().toString());
+            treeNode.setTnPid(menu.getParentMenuId());
         }
         // 设置扩展属性
         treeNode.setId(menu.getId());

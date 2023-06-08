@@ -114,6 +114,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         }
         // 执行分页查询
         Page<Menu> resultPage = page(page, queryWrapper);
+        System.out.println(JsonVO.success(PageDTO.create(resultPage, MenuDTO.class)));
         return JsonVO.success(PageDTO.create(resultPage, MenuDTO.class));
     }
 
@@ -250,4 +251,18 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         return TreeUtils.listToTree(menus, new MenuTreeNodMapper());
     }
 
+    @Override
+    public String addMenuByTest(MenuDTO dto) {
+        // 将 dto 的非空属性赋值给 menu 权限，然后添加权限
+        Menu menu = new Menu();
+        BeanUtil.copyProperties(dto, menu, CopyOptions.create().setIgnoreNullValue(true));
+        String id = String.valueOf(snowflake.nextId());
+        menu.setId(id);
+        menu.setCreator("admin");
+        Date date = new Date(System.currentTimeMillis());
+        menu.setCreateTime(date);
+        menu.setUpdateTime(date);
+        boolean result = save(menu);
+        return id;
+    }
 }

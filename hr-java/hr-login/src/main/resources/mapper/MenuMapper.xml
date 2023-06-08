@@ -14,7 +14,11 @@
         <result column="is_enable" jdbcType="TINYINT" property="isEnable" />
     </resultMap>
 
-    <select id="selectByRoleName" resultMap="BaseResultMap">
+    <!--<select id="selectByRoleName" resultMap="BaseResultMap">
       SELECT id,`name`,path,icon,parent_menu_id FROM zo_menu WHERE path IS NOT NULL AND id IN (SELECT menu_id FROM zo_role_menu WHERE role_id=(SELECT id FROM zo_role WHERE keyword=#{roleName})) ORDER BY priority
+    </select>-->
+
+    <select id="selectByRoleName" resultMap="BaseResultMap">
+        SELECT id,`name`,path,icon,parent_menu_id FROM zo_menu WHERE id IN (SELECT menu_id FROM zo_role_menu WHERE role_id=(SELECT id FROM zo_role WHERE keyword=#{roleName})) ORDER BY priority
     </select>
 </mapper>

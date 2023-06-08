@@ -48,7 +48,7 @@ public class UserHolder {
         }
         JSONObject userJsonObject = new JSONObject(userStr);
         return UserDTO.builder()
-                .id(Convert.toInt(userJsonObject.get("id")))
+                .id(Convert.toStr(userJsonObject.get("id")))
                 .username(userJsonObject.getStr("user_name"))
                 .isEnabled(Convert.toByte(1))
                 .roles(Convert.toList(String.class, userJsonObject.get("authorities")))

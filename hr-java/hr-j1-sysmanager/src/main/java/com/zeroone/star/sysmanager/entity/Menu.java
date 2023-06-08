@@ -35,7 +35,7 @@ public class Menu {
     /**
      * 1: Enable 0: Not Enable
      */
-    private Integer isEnable;
+    private Integer isEnable = 1;
 
     private String creator;
 

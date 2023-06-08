@@ -92,7 +92,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         try {
             BeanUtil.copyProperties(dto, user);
             user.setId(snowflake.nextIdStr());
-            user.setRegistTime(LocalDateTime.now());
+            LocalDateTime now = LocalDateTime.now();
+            user.setRegistTime(now);
+            user.setUpdateTime(now);
             return baseMapper.insert(user) >= 1;
         } catch (Exception e) {
             return false;
@@ -111,7 +113,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         User user = new User();
         BeanUtil.copyProperties(dto, user);
         LocalDateTime now = LocalDateTime.now();
-        user.setUpdateTime(now);
         user.setUpdateTime(now);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         user.setPassword(passwordEncoder.encode(dto.getPassword()));

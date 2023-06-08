@@ -27,6 +27,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,6 +54,7 @@ import static com.zeroone.star.project.vo.JsonVO.fail;
  * @author 阿伟学长
  * @version 1.0.0
  */
+@RefreshScope
 @RestController
 @RequestMapping("login")
 @Api(tags = "login")
@@ -68,6 +71,9 @@ public class LoginController implements LoginApis {
     RedisUtils redisUtils;
     @Resource
     IRoleService roleService;
+
+    @Value("${secure.opencaptcha}")
+    private Boolean openCaptcha;
     @Resource
     CaptchaService captchaService;
     @ApiOperation(value = "授权登录")
@@ -75,21 +81,23 @@ public class LoginController implements LoginApis {
     @Override
     public JsonVO<Oauth2TokenDTO> authLogin(LoginDTO loginDTO) {
         //1.验证码验证
-//        CaptchaVO captchaVO = new CaptchaVO();
-//        captchaVO.setCaptchaVerification(loginDTO.getCode());
-//        ResponseModel response = captchaService.verification(captchaVO);
-//        if (!response.isSuccess()) {
-//            JsonVO<Oauth2TokenDTO> fail = fail(null);
-//            fail.setMessage(response.getRepCode() + response.getRepMsg());
-//            //验证码校验失败，返回信息告诉前端
-//            //repCode  0000  无异常，代表成功
-//            //repCode  9999  服务器内部异常
-//            //repCode  0011  参数不能为空
-//            //repCode  6110  验证码已失效，请重新获取
-//            //repCode  6111  验证失败
-//            //repCode  6112  获取验证码失败,请联系管理员
-//            return fail;
-//        }
+        if (openCaptcha) {
+            CaptchaVO captchaVO = new CaptchaVO();
+            captchaVO.setCaptchaVerification(loginDTO.getCode());
+            ResponseModel response = captchaService.verification(captchaVO);
+            if (!response.isSuccess()) {
+                JsonVO<Oauth2TokenDTO> fail = fail(null);
+                fail.setMessage(response.getRepCode() + response.getRepMsg());
+                //验证码校验失败，返回信息告诉前端
+                //repCode  0000  无异常，代表成功
+                //repCode  9999  服务器内部异常
+                //repCode  0011  参数不能为空
+                //repCode  6110  验证码已失效，请重新获取
+                //repCode  6111  验证失败
+                //repCode  6112  获取验证码失败,请联系管理员
+                return fail;
+            }
+        }
         //2.账号密码认证
         Map<String, String> params = new HashMap<>(5);
         params.put("grant_type", "password");
@@ -157,6 +165,13 @@ public class LoginController implements LoginApis {
     @GetMapping("current-user")
     @Override
     public JsonVO<LoginVO> getCurrUser() {
+        //1.判断缓存中是否存在对应token
+        String tokenKeyInRedis = RedisConstant.USER_TOKEN + ":" + userHolder.getCurrentUserToken();
+        if (!redisUtils.isExist(tokenKeyInRedis)) {
+            //不存在
+            return fail(null, ResultStatus.UNAUTHORIZED);
+        }
+        //存在
         //UserDTO 用户id，用户名称，是否启用，用户拥有角色列表
         UserDTO currentUser;
         try {
@@ -193,6 +208,13 @@ public class LoginController implements LoginApis {
     @GetMapping("logout")
     @Override
     public JsonVO<String> logout() throws Exception {
+        //1.判断缓存中是否存在对应token
+        String tokenKeyInRedis = RedisConstant.USER_TOKEN + ":" + userHolder.getCurrentUserToken();
+        if (!redisUtils.isExist(tokenKeyInRedis)) {
+            //不存在
+            return fail(null, ResultStatus.UNAUTHORIZED);
+        }
+        //存在
         //登出逻辑，需要配合登录逻辑实现
         //1.获取当前用户token
         String currentUserToken = userHolder.getCurrentUserToken();
@@ -213,6 +235,13 @@ public class LoginController implements LoginApis {
     @GetMapping("get-menus")
     @Override
     public JsonVO<List<MenuTreeVO>> getMenus() throws Exception {
+        //1.判断缓存中是否存在对应token
+        String tokenKeyInRedis = RedisConstant.USER_TOKEN + ":" + userHolder.getCurrentUserToken();
+        if (!redisUtils.isExist(tokenKeyInRedis)) {
+            //不存在
+            return fail(null, ResultStatus.UNAUTHORIZED);
+        }
+        //存在
         //TODO:未实现根据实际数据库设计业务逻辑，下面逻辑属于示例逻辑
         //1 获取当前用户
         UserDTO currentUser = userHolder.getCurrentUser();
@@ -227,6 +256,13 @@ public class LoginController implements LoginApis {
     @PostMapping("update-password")
     @Override
     public JsonVO<String> updatePassword(LoginDTO loginDTO) {
+        //1.判断缓存中是否存在对应token
+        String tokenKeyInRedis = RedisConstant.USER_TOKEN + ":" + userHolder.getCurrentUserToken();
+        if (!redisUtils.isExist(tokenKeyInRedis)) {
+            //不存在
+            return fail(null, ResultStatus.UNAUTHORIZED);
+        }
+        //存在
         //1.获取新密码 newPassword
         String newPassword = loginDTO.getPassword();
         //2.获取用户名 userName
