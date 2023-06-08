@@ -19,12 +19,12 @@ std::list<PostDetailDO> JobExportDAO::exportJobInfo(const PostDetailQuery::Wrapp
 	stringstream sqlcount;
 	sqlcount << "SELECT COUNT(`ORMPOSTID`) FROM `t_ormpost`";
 	string count = sqlcount.str();
-	int infoCount=sqlSession->executeQueryNumerical(count);
+	uint64_t infoCount=sqlSession->executeQueryNumerical(count);
 	//限制导出数量
 	if (infoCount) {
 		if (infoCount > 5000) {
 			infoCount = 5000;
-			sql + " LIMIT " + to_string(infoCount);
+			sql += " LIMIT " + to_string(infoCount);
 		}
 
 	}

@@ -109,7 +109,7 @@ ImportTagVO::Wrapper ProjTagService::addMultiTag(const ImportTagDTO::Wrapper& dt
 
 	// 构建字段坐标映射
 	unordered_map<string, int> hash;
-	for (int i = 0; i < data[0].size(); i++)
+	for (size_t i = 0; i < data[0].size(); i++)
 	{
 		hash[data[0][i]] = i;
 	}
@@ -129,7 +129,7 @@ ImportTagVO::Wrapper ProjTagService::addMultiTag(const ImportTagDTO::Wrapper& dt
 	// 开启事务
 	sqlsession->beginTransaction();
 	// 设置好插入数据后，多次执行单条数据插入
-	for (int i = 1; i < data.size() && i <= 5000; i++)
+	for (size_t i = 1; i < data.size() && i <= 5000; i++)
 	{
 		ProjTagDO tmp;
 		ZO_STAR_FILE_TO_DO(tmp, data, 
@@ -165,7 +165,7 @@ ImportTagVO::Wrapper ProjTagService::addMultiTag(const ImportTagDTO::Wrapper& dt
 
 	if (res.size())
 	{
-		for (auto item : res)
+		for (const auto& item : res)
 			vo->newId->push_back(item);
 	}
 	return vo;
@@ -182,7 +182,7 @@ std::string ProjTagService::exportProjTag(const ExportProjTagQuery::Wrapper& que
 
 	// 读取数据到二维数组
 	vector<vector<string>> data;
-	for (auto item : res)
+	for (const auto& item : res)
 	{
 		vector<string> tmp;
 		tmp.push_back(item.getId());

@@ -26,7 +26,7 @@ StringJsonVO::Wrapper ExportProjTagController::execExportProjTag(const ExportPro
 	auto vo = StringJsonVO::createShared();
 
 	// 参数校验
-	if (query->order->empty() || query->order != "DESC" && query->order != "ASC")
+	if (query->order->empty() || (query->order != "DESC" && query->order != "ASC"))
 	{
 		vo->init("", RS_PARAMS_INVALID);
 		return vo;
