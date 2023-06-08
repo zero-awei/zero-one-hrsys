@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Macros.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\DoInclude.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\GlobalInclude.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\Router.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\work-history\WorkHistoryPageQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\work-history\WorkHistoryFindDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\work-history\WorkHistoryFindVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\work-history\WorkHistoryController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\work-history\AddWorkHistoryDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\work-history\DelWorkHistoryDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\work-history\WorkHistoryIntoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\work-history\WorkHistoryExportQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\work-history\WorkHistoryExportDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\work-history\WorkHistoryExportVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\work-history\WorkHistoryService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\work-history\WorkHistoryFindPageDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\work-history\WorkHistoryDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\work-history\WorkHistoryMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\SciResult\SciResultController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\sciresult\AddSciResultDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\sciresult\DelSciResultDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\sciresult\IntoSciResultDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\sciresult\SciResultDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\SciResult\SciResultQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\SciResult\SciResultVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\contract\ContractController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\military\MilitaryController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\contract\ContractDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\military\MilitaryDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\contract\ContractDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\military\MilitaryDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\contract\ContractQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\military\MilitaryQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\contract\ContractVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\military\MilitaryVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\contract\ContractService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\military\MilitaryService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\contract\ContractDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\contract\ContractMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\military\MilitaryDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\military\MilitaryMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\certificate-information\CertificateInformationController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\jobtitle-information\JobTitleInformationController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\work-history\WorkHistoryDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\work-history\WorkHistoryDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\work-history\ModWorkHistoryDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\certificate-information\CertificateInformationDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\certificate-information\JobTitleInformationDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\certificate-information\certificate-information\CertificateInformationDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\certificate-information\certificate-information\CertificateInformationMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\certificate-information\jobtitle-information\JobTitleInformationDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\certificate-information\jobtitle-information\JobTitleInformationMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\certificate-information\CertificateInformationDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\certificate-information\JobTitleInformationDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\certificate-information\CertificateInformationPageQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\certificate-information\JobTitleInformationPageQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\work-history\WorkHistoryQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\certificate-information\CertificateInformationVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\certificate-information\JobTitleInformationVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\work-history\ModWorkHistoryVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\work-history\WorkHistoryVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\certificate-information\certificate-information\CertificateInformationService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\certificate-information\jobtitle-information\JobTitleInformationService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\archives\ArchivesController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\scientific\ScientificController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\archives\ArchivesDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\archives\ArchivesMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\archives\ArchivesDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\archives\ArchivesDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\archives\ArchivesQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\archives\ArchivesVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\Archives\ArchivesService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\scientific\ScientificQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\scientific\ScientificVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\scientific\ScientificDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\Pimarmycadres\PimarmycadresController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\scientific\Scientific.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\pimarmycadres\AddPimarmycadresDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\pimarmycadres\DelPimarmycadresDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\pimarmycadres\PimarmycadresFindDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\pimarmycadres\PimarmycadresIntoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\PimarmycadresDTO\PimarmycadresDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresPageQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\work-history\AddWorkHistoryDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\work-history\DelWorkHistoryDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\work-history\WorkHistoryIntoDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\work-history\WorkHistoryIntoQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\rocketmq\TestRocket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\work-history\WorkHistoryMqDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\Pimarmycadres\PimarmycadresDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\Pimarmycadres\PimarmycadresMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\SciResult\SciResultDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\SciResult\SciResultMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Pimarmycadres\AddPimarmycadresDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Pimarmycadres\DelPimarmycadresDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresFindDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresIntoDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\SciResult\SciResultDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\sciresult\Add2SciResultDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\Pimarmycadres\PimarmycadresVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\rewardandpunish\RewardAndPunishController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\rewardandpunish\RewardAndPunishDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\rewardandpunish\RewardAndPunishMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\rewardandpunish\RewardAndPunishDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\rewardandpunish\RewardAndPunishDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\rewardandpunish\RewardAndPunishQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\rewardandpunish\RewardAndPunishVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\Pimarmycadres\PimarmycadresService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\sciresult\SciResultService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\trainingrecord\TrainingRecordController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\scientific\ScientificDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\scientific\ScientificMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\scientific\ScientificDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\scientific\ScientificService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\work-history\ModWorkHistoryDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\rewardandpunish\RewardAndPunishService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\trainingrecord\TrainingRecordService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\trainingrecord\TrainingRecordDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\trainingrecord\TrainingRecordMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="controller\rewardandpunishmentinformation\RewardAndPunishmentInformationController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\rewardandpunishmentinformation\RewardAndPunishmentInformationDAO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\rewardandpunishmentinformation\RewardAndPunishmentInformationMapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\rewardandpunishmentinformation\RewardAndPunishmentInformationDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\AddRewardAndPunishmentInformationDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\DelRewardAndPunishmentInformationDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\RewardAndPunishmentInformationDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\RewardAndPunishmentInformationFindDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\RewardAndPunishmentInformationIntoDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\trainingrecord\TrainingRecordDO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\trainingrecord\TrainingRecordDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\rewardandpunishmentinformation\RewardAndPunishmentInformationPageQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\trainingrecord\TrainingRecordQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\rewardandpunishmentinformation\RewardAndPunishmentInformationPageQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\rewardandpunishmentinformation\RewardAndPunishmentInformationVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\trainingrecord\TrainingRecordVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\rewardandpunishmentinformation\RewardAndPunishmentInformationService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\Router.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\SystemInterceptor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\work-history\WorkHistoryController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\work-history\WorkHistoryDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\work-history\WorkHistoryService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\SciResult\SciResultController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\contract\ContractController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\military\MilitaryController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\contract\ContractService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\military\MilitaryService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\contract\ContractDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\military\MilitaryDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\certificate-information\CertificateInformationController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\jobtitle-information\JobTitleInformationController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\certificate-information\certificate-information\CertificateInformationDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\certificate-information\jobtitle-information\JobTitleInformationDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\certificate-information\certificate-information\CertificateInformationService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\certificate-information\jobtitle-information\JobTitleInformationService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\archives\ArchivesController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\archives\ArchivesDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\Archives\ArchivesService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\Pimarmycadres\PimarmycadresController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\rocketmq\TestRocket.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\Pimarmycadres\PimarmycadresDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\SciResult\SciResultDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\rewardandpunish\RewardAndPunishController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\rewardandpunish\RewardAndPunishDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\Pimarmycadres\PimarmycadresService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\sciresult\SciResultService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\trainingrecord\TrainingRecordController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\scientific\ScientificController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\scientific\ScientificDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\scientific\ScientificService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\rewardandpunish\RewardAndPunishService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\trainingrecord\TrainingRecordService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\trainingrecord\TrainingRecordDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\rewardandpunishmentinformation\RewardAndPunishmentInformationController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\rewardandpunishmentinformation\RewardAndPunishmentInformationDAO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\rewardandpunishmentinformation\RewardAndPunishmentInformationService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

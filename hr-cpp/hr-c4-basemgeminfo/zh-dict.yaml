@@ -1,0 +1,327 @@
+user:
+ query-all: 
+  summary: 查询所有用户
+  nickname: 昵称
+ file:
+  summary: 文件上传
+  suffix: 文件后缀
+ query-menu:
+  summary: 查询所有菜单
+ field:
+  age: 年龄
+  nickname: 昵称
+  idCard: 身份证号码
+  menuname: 菜单名称
+  menuicon: 图标名称
+  menuhref: 路由地址
+  menusub: 子菜单
+sample:
+ get:
+  summary: 分页查询科研成果数据
+ post:
+  summary: 新增一条科研成果数据
+ put:
+  summary: 修改一条科研成果数据
+ delete:
+  summary: 删除多条科研成果数据
+ field:
+  id: 编号
+  age: 年龄
+  name: 姓名
+  sex: 性别，如：男
+workhistory:
+ file:
+  summary: 文件上传
+  suffix: 文件后缀
+ field:
+  list<pimworkhistoryid>: 履历的独有信息，用来批量删除的
+  pimworkhistoryid: 履历的独有信息
+  listworkhistory: 履历的独有信息，用来批量增加的
+  pimpersionid: 人员信息id
+  rzkssj: 任职开始时间
+  rzjssj: 任职结束时间
+  ormorgname: 工作单位
+  bm: 部门
+  ormdutyname: 职务
+  ormpostname: 岗位
+  cfplx: 兼职主要类型
+  experience: 是否主要经历
+  enable: 是否主要经历
+ put:
+  summary: 单条修改工作履历数据
+ export:
+  summary: 导出数据
+ upload:
+  summary: 导入数据即插入多条数据
+ get:
+  summary: 分页查询数据
+ post:
+  summary: 新增一条数据
+ delete:
+  summary: 删除数据(支持批量删除)  
+ select:
+  summary: 查询数据
+  
+sciresult:
+ field:
+  UPDATEMAN: 更新人
+  PIMRESEARCHFINDINGSNAME: 科研成果名称
+  FJ: 附件
+  ENABLE: ENABLE
+  CREATEDATE: 建立时间
+  UPDATEDATE: 更新时间
+  CREATEMAN: 建立人
+  PIMRESEARCHFINDINGSID: 科研成果标识
+  PIMPERSONID: 人员信息标识
+  HQSJ: 获取时间
+  JLSS: 记录所属
+  JLSPZT: 审批状态
+  JLGLBH: 记录管理编号
+  JLCZZ: 记录操作者
+  REASON: 拒绝原因
+  list<delSciResult>: 用来批量删除的
+  listsciresult: 导入
+Into: 
+ fileinto: 导入科研成果
+contract:
+ get:
+  summary: 分页查询合同数据
+ id: 合同编号
+ unit: 员工所属单位
+ state: 员工状态
+ unitTime: 员工到本单位时间
+ contractID: 合同编号
+ contractUnit: 合同签订单位
+ contractCategory: 合同类别
+ contractType: 合同类型
+ startDate: 合同起始日期
+ endDate: 合同结束日期
+ contractStatus: 合同状态
+ remaining: 合同剩余天数
+ trialExpiration: 合同试用到期时间
+military:
+ get: 
+  summary: 查看指定员工军转干部(指定军转干部详情)
+ put:
+  summary: 修改指定员工军转干部(单条修改)
+ download:
+  summary: 导出指定员工军转干部(导出本页在前端完成)
+ UPDATEDATE: 更新时间
+ PIMARMYCADRESNAME: 军转干部名称
+ FJ: 附件
+ CREATEDATE: 建立时间
+ UPDATEMAN: 更新人
+ ENABLE: ENABLE
+ PIMARMYCADRESID: 军转干部标识
+ CREATEMAN: 建立人
+ PIMPERSONID: 人员信息标识
+ FSSJ: 发生时间
+ JLSS: 记录所属
+ JLSPZT: 审批状态
+ JLGLBH: 记录管理编号
+ JLCZZ: 记录操作者
+ TROOPTYPE: 类型
+ LEVELTYPE: 级别
+ REASON: 拒绝原因
+ user:
+ query-all: 
+  summary: 查询所有用户
+  nickname: 昵称
+ file:
+  summary: 文件上传
+  suffix: 文件后缀
+ query-menu:
+  summary: 查询所有菜单
+ field:
+  age: 年龄
+  nickname: 昵称
+  idCard: 身份证号码
+  menuname: 菜单名称
+  menuicon: 图标名称
+  menuhref: 路由地址
+  menusub: 子菜单
+jobtitleinformation:
+ get:
+  summary: 分页查询职称信息
+ field:
+  state: 员工状态
+  ormorgname: 组织
+  professoranalysis_name: 职称名称 
+  credentials_num: 证书编号 
+  professor_grades: 职称等级 
+  major: 专业类别 
+  zchqrq: 职称获取日期 datetime
+  reviewbody: 评审单位 
+  lssuingagency: 签发机构 
+  employtime: 职称聘用时间 datetime
+  enable: 是否最高职称
+certificateinformation:
+ get:
+  summary: 分页查询证书信息
+ field:
+  state: 员工状态
+  ormorgname: 组织
+  zgzsbh: 证书编号
+  pimvocationalname: 证书名称
+  zslx: 证书类型
+  zghqrq: 签发日期
+  zgsydw: 签发机构
+  fzyxq: 发证有效期
+archives:
+ get:
+  summary: 分页查询员工档案数据
+ name: 员工姓名
+ dabh: 档案编号
+ ormorgid3: 管理单位
+ dabgd: 档案保管地
+ archivescenterid: 档案室
+ education: 档案学历
+ dateofbirth: 档案出生日期
+ joinpartydate: 档案入党时间
+ startworkdatae: 档案参加工作时间
+ dazt: 档案状态
+scientific:
+ get: 
+  summary: 查看指定员工科研成果(指定科研成果详情)
+ put:
+  summary: 修改指定员工科研成果
+ download:
+  summary: 导出指定员工科研成果
+ updateman: 更新人
+ pimresearchfindingsname: 科研成果名称
+ fj: 附件
+ createdate: 建立时间
+ updatedate: 更新时间
+ createman: 建立人
+ pimresearchfindingsid: 科研成果标识
+ pimpersonid: 人员信息标识
+ hqsj: 获取时间 
+ jlss: 记录所属
+ jlglbh: 记录管理编号
+ jlczz: 记录操作者
+ reason: 拒绝原因
+ query-all: 
+  summary: 查询所有用户
+  nickname: 昵称
+ file:
+  summary: 文件上传
+  suffix: 文件后缀
+ query-menu:
+  summary: 查询所有菜单
+ field:
+  age: 年龄
+  nickname: 昵称
+  idCard: 身份证号码
+  menuname: 菜单名称
+  menuicon: 图标名称
+  menuhref: 路由地址
+  menusub: 子菜单
+pimarmycadres:
+ get:
+  summary: 分页查询军转干部数据
+ field:
+  list<pimarmycardesid>: 批量删除
+  pimarmycadresid: 军转干部信息
+  pimid: 员工编号
+  type: 类型
+  level: 级别
+  occurtime: 发生时间
+  summary: 文件上传
+  suffix: 文件后缀
+ post:
+  summary: 新增一条数据
+rewardandpunish:
+ get:
+  summary: 查看指定员工奖惩记录（指定奖惩信息详情）
+ put:
+  summary: 修改指定员工奖惩信息
+ download:
+  summary: 导出指定员工奖惩信息
+ createdate: 建立时间
+ updatedate: 更新时间
+ pimrewardpunishmentname: 奖惩名称
+ updateman: 更新人
+ createman: 建立人
+ fj: 附件
+ lx: 奖惩分类
+ csrq: 产生日期
+ pimrewardpunishmentid: 奖励惩罚标识
+ pimpersonid: 人员信息标识
+ jcjb: 奖惩级别
+ jclx: 奖励级别
+ jlsj: 奖惩时间
+ cfsj: 惩罚时间
+ jcje: 奖惩金额
+ jcsj: 奖惩事件
+ bz: 备注
+ cflx: 惩罚类型
+ jlss: 记录所属
+ jlglbh: 记录管理编号
+ jlspzt: 记录审批状态
+ jlczz: 记录操作者
+ yxqjsrq: 影响期结束日期
+ department: 授予单位
+ reason: 拒绝原因
+trainingrecord:
+ get:
+  summary: 分页查询员工培训记录
+ trmtrianpersonid: 培训人员标识
+ trmtrianpersonname: 参培人员
+ createman: 建立人
+ createdate: 建立时间
+ updateman: 更新人
+ updatedate: 更新时间
+ enable: 可行
+ trmtrainplantermid: 培训计划项标识
+ pimpersonid: 人员信息标识
+ gw: 岗位
+ fjh: 房间号
+ jsfs: 接送方式
+ zw: 职务
+ fs: 分数
+ nj: 年龄
+ ygbh: 员工编号
+ zz: 单位
+ bm: 部门
+ xb: 性别
+ lxdh: 联系电话
+ trainres: 培训结果
+ pxkssj: 培训开始时间
+ trmtrainplantermname: 培训计划项名称
+ pimpersonname: 员工姓名
+ trmtraingencyname: 培训机构
+ trmtraincoursename: 培训课程
+ pxjssj: 培训结束时间
+ pxbj: 培训班级
+ trainbegin: 培训开始时间
+ trainend: 培训结束时间
+ pxkc: 培训课程
+ pxjg: 培训机构
+rewardandpunishmentinformation:
+ file:
+  summary: 文件上传
+  suffix: 文件后缀
+ get:
+  summary: 分页查询奖惩信息
+ post:
+  summary: 新增一条奖惩信息
+ put:
+  summary: 修改一条奖惩信息
+ delete:
+  summary: 删除一条奖惩信息
+ field:
+  lx: 奖惩分类
+  pimrewardpunishmentname: 奖惩名称
+  jcjb: 奖惩级别
+  jlsj: 奖惩时间
+  jcsj: 奖惩事件
+  bz: 备注
+  fj: 附件
+  pimpersionid: 人员信息id
+  pimrewardpunishmentid: 奖惩的独有信息id
+  updateman: 更新人
+  createman: 建立人
+  createdate: 建立日期
+  updatedate: 更新日期
+  suffix: 导入文件后缀名
+  body: 导入文件主体

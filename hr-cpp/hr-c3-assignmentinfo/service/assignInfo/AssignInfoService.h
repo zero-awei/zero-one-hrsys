@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #ifndef _Assign_Info_Query_SERVICE_
 #define _Assign_Info_Query_SERVICE_
 #include <list>

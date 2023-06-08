@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{a107fb7d-458c-4207-82c6-39c5b772e5b7}</ProjectGuid>
+    <RootNamespace>hrc4basemgeminfo</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib\debug;..\lib-common\lib\debug;..\lib-mysql\lib\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib;..\lib-common\lib;..\lib-mysql\lib\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cpp.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)lib-dy/lib/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64\debug;..\lib-common\lib64\debug;..\lib-mysql\lib64\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64;..\lib-common\lib64;..\lib-mysql\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cpp.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)lib-dy/lib64/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="controller\archives\ArchivesController.h" />
+    <ClInclude Include="controller\certificate-information\CertificateInformationController.h" />
+    <ClInclude Include="controller\contract\ContractController.h" />
+    <ClInclude Include="controller\jobtitle-information\JobTitleInformationController.h" />
+    <ClInclude Include="controller\military\MilitaryController.h" />
+    <ClInclude Include="controller\Pimarmycadres\PimarmycadresController.h" />
+    <ClInclude Include="controller\rewardandpunishmentinformation\RewardAndPunishmentInformationController.h" />
+    <ClInclude Include="controller\rewardandpunish\RewardAndPunishController.h" />
+    <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="controller\scientific\ScientificController.h" />
+    <ClInclude Include="controller\SciResult\SciResultController.h" />
+    <ClInclude Include="controller\trainingrecord\TrainingRecordController.h" />
+    <ClInclude Include="controller\work-history\WorkHistoryController.h" />
+    <ClInclude Include="dao\archives\ArchivesDAO.h" />
+    <ClInclude Include="dao\archives\ArchivesMapper.h" />
+    <ClInclude Include="dao\certificate-information\certificate-information\CertificateInformationDAO.h" />
+    <ClInclude Include="dao\certificate-information\certificate-information\CertificateInformationMapper.h" />
+    <ClInclude Include="dao\certificate-information\jobtitle-information\JobTitleInformationDAO.h" />
+    <ClInclude Include="dao\certificate-information\jobtitle-information\JobTitleInformationMapper.h" />
+    <ClInclude Include="dao\contract\ContractDAO.h" />
+    <ClInclude Include="dao\contract\ContractMapper.h" />
+    <ClInclude Include="dao\military\MilitaryDAO.h" />
+    <ClInclude Include="dao\military\MilitaryMapper.h" />
+    <ClInclude Include="dao\Pimarmycadres\PimarmycadresDAO.h" />
+    <ClInclude Include="dao\Pimarmycadres\PimarmycadresMapper.h" />
+    <ClInclude Include="dao\rewardandpunishmentinformation\RewardAndPunishmentInformationDAO.h" />
+    <ClInclude Include="dao\rewardandpunishmentinformation\RewardAndPunishmentInformationMapper.h" />
+    <ClInclude Include="dao\rewardandpunish\RewardAndPunishDAO.h" />
+    <ClInclude Include="dao\rewardandpunish\RewardAndPunishMapper.h" />
+    <ClInclude Include="dao\scientific\ScientificDAO.h" />
+    <ClInclude Include="dao\scientific\ScientificMapper.h" />
+    <ClInclude Include="dao\SciResult\SciResultDAO.h" />
+    <ClInclude Include="dao\SciResult\SciResultMapper.h" />
+    <ClInclude Include="dao\trainingrecord\TrainingRecordDAO.h" />
+    <ClInclude Include="dao\trainingrecord\TrainingRecordMapper.h" />
+    <ClInclude Include="dao\work-history\WorkHistoryDAO.h" />
+    <ClInclude Include="dao\work-history\WorkHistoryMapper.h" />
+    <ClInclude Include="domain\do\archives\ArchivesDO.h" />
+    <ClInclude Include="domain\do\certificate-information\CertificateInformationDO.h" />
+    <ClInclude Include="domain\do\certificate-information\JobTitleInformationDO.h" />
+    <ClInclude Include="domain\do\contract\ContractDO.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\military\MilitaryDO.h" />
+    <ClInclude Include="domain\do\Pimarmycadres\AddPimarmycadresDO.h" />
+    <ClInclude Include="domain\do\Pimarmycadres\DelPimarmycadresDO.h" />
+    <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresDO.h" />
+    <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresFindDO.h" />
+    <ClInclude Include="domain\do\Pimarmycadres\PimarmycadresIntoDO.h" />
+    <ClInclude Include="domain\do\rewardandpunishmentinformation\RewardAndPunishmentInformationDO.h" />
+    <ClInclude Include="domain\do\rewardandpunish\RewardAndPunishDO.h" />
+    <ClInclude Include="domain\do\scientific\Scientific.h" />
+    <ClInclude Include="domain\do\scientific\ScientificDO.h" />
+    <ClInclude Include="domain\do\SciResult\SciResultDO.h" />
+    <ClInclude Include="domain\do\trainingrecord\TrainingRecordDO.h" />
+    <ClInclude Include="domain\do\work-history\AddWorkHistoryDO.h" />
+    <ClInclude Include="domain\do\work-history\DelWorkHistoryDO.h" />
+    <ClInclude Include="domain\do\work-history\ModWorkHistoryDO.h" />
+    <ClInclude Include="domain\do\work-history\WorkHistoryDO.h" />
+    <ClInclude Include="domain\do\work-history\WorkHistoryFindPageDO.h" />
+    <ClInclude Include="domain\do\work-history\WorkHistoryIntoDO.h" />
+    <ClInclude Include="domain\dto\archives\ArchivesDTO.h" />
+    <ClInclude Include="domain\dto\certificate-information\CertificateInformationDTO.h" />
+    <ClInclude Include="domain\dto\certificate-information\JobTitleInformationDTO.h" />
+    <ClInclude Include="domain\dto\contract\ContractDTO.h" />
+    <ClInclude Include="domain\dto\military\MilitaryDTO.h" />
+    <ClInclude Include="domain\dto\PimarmycadresDTO\PimarmycadresDTO.h" />
+    <ClInclude Include="domain\dto\pimarmycadres\AddPimarmycadresDTO.h" />
+    <ClInclude Include="domain\dto\pimarmycadres\DelPimarmycadresDTO.h" />
+    <ClInclude Include="domain\dto\pimarmycadres\PimarmycadresFindDTO.h" />
+    <ClInclude Include="domain\dto\pimarmycadres\PimarmycadresIntoDTO.h" />
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\AddRewardAndPunishmentInformationDTO.h" />
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\DelRewardAndPunishmentInformationDTO.h" />
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\RewardAndPunishmentInformationDTO.h" />
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\RewardAndPunishmentInformationFindDTO.h" />
+    <ClInclude Include="domain\dto\rewardandpunishmentinformation\RewardAndPunishmentInformationIntoDTO.h" />
+    <ClInclude Include="domain\dto\rewardandpunish\RewardAndPunishDTO.h" />
+    <ClInclude Include="domain\dto\scientific\ScientificDTO.h" />
+    <ClInclude Include="domain\dto\sciresult\Add2SciResultDTO.h" />
+    <ClInclude Include="domain\dto\sciresult\AddSciResultDTO.h" />
+    <ClInclude Include="domain\dto\sciresult\DelSciResultDTO.h" />
+    <ClInclude Include="domain\dto\sciresult\IntoSciResultDTO.h" />
+    <ClInclude Include="domain\dto\sciresult\SciResultDTO.h" />
+    <ClInclude Include="domain\dto\trainingrecord\TrainingRecordDTO.h" />
+    <ClInclude Include="domain\dto\work-history\AddWorkHistoryDTO.h" />
+    <ClInclude Include="domain\dto\work-history\DelWorkHistoryDTO.h" />
+    <ClInclude Include="domain\dto\work-history\ModWorkHistoryDTO.h" />
+    <ClInclude Include="domain\dto\work-history\WorkHistoryDTO.h" />
+    <ClInclude Include="domain\dto\work-history\WorkHistoryExportDTO.h" />
+    <ClInclude Include="domain\dto\work-history\WorkHistoryFindDTO.h" />
+    <ClInclude Include="domain\dto\work-history\WorkHistoryIntoDTO.h" />
+    <ClInclude Include="domain\dto\work-history\WorkHistoryMqDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\archives\ArchivesQuery.h" />
+    <ClInclude Include="domain\query\certificate-information\CertificateInformationPageQuery.h" />
+    <ClInclude Include="domain\query\certificate-information\JobTitleInformationPageQuery.h" />
+    <ClInclude Include="domain\query\contract\ContractQuery.h" />
+    <ClInclude Include="domain\query\military\MilitaryQuery.h" />
+    <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresPageQuery.h" />
+    <ClInclude Include="domain\query\Pimarmycadres\PimarmycadresQuery.h" />
+    <ClInclude Include="domain\query\rewardandpunishmentinformation\RewardAndPunishmentInformationPageQuery.h" />
+    <ClInclude Include="domain\query\rewardandpunish\RewardAndPunishQuery.h" />
+    <ClInclude Include="domain\query\scientific\ScientificQuery.h" />
+    <ClInclude Include="domain\query\SciResult\SciResultQuery.h" />
+    <ClInclude Include="domain\query\trainingrecord\TrainingRecordQuery.h" />
+    <ClInclude Include="domain\query\work-history\WorkHistoryExportQuery.h" />
+    <ClInclude Include="domain\query\work-history\WorkHistoryIntoQuery.h" />
+    <ClInclude Include="domain\query\work-history\WorkHistoryPageQuery.h" />
+    <ClInclude Include="domain\query\work-history\WorkHistoryQuery.h" />
+    <ClInclude Include="domain\vo\archives\ArchivesVO.h" />
+    <ClInclude Include="domain\vo\certificate-information\CertificateInformationVO.h" />
+    <ClInclude Include="domain\vo\certificate-information\JobTitleInformationVO.h" />
+    <ClInclude Include="domain\vo\contract\ContractVO.h" />
+    <ClInclude Include="domain\vo\military\MilitaryVO.h" />
+    <ClInclude Include="domain\vo\Pimarmycadres\PimarmycadresVO.h" />
+    <ClInclude Include="domain\vo\rewardandpunishmentinformation\RewardAndPunishmentInformationPageQuery.h" />
+    <ClInclude Include="domain\vo\rewardandpunishmentinformation\RewardAndPunishmentInformationVO.h" />
+    <ClInclude Include="domain\vo\rewardandpunish\RewardAndPunishVO.h" />
+    <ClInclude Include="domain\vo\scientific\ScientificVO.h" />
+    <ClInclude Include="domain\vo\SciResult\SciResultVO.h" />
+    <ClInclude Include="domain\vo\trainingrecord\TrainingRecordVO.h" />
+    <ClInclude Include="domain\vo\work-history\ModWorkHistoryVO.h" />
+    <ClInclude Include="domain\vo\work-history\WorkHistoryExportVO.h" />
+    <ClInclude Include="domain\vo\work-history\WorkHistoryFindVO.h" />
+    <ClInclude Include="domain\vo\work-history\WorkHistoryVO.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\Archives\ArchivesService.h" />
+    <ClInclude Include="service\certificate-information\certificate-information\CertificateInformationService.h" />
+    <ClInclude Include="service\certificate-information\jobtitle-information\JobTitleInformationService.h" />
+    <ClInclude Include="service\contract\ContractService.h" />
+    <ClInclude Include="service\military\MilitaryService.h" />
+    <ClInclude Include="service\Pimarmycadres\PimarmycadresService.h" />
+    <ClInclude Include="service\rewardandpunishmentinformation\RewardAndPunishmentInformationService.h" />
+    <ClInclude Include="service\rewardandpunish\RewardAndPunishService.h" />
+    <ClInclude Include="service\scientific\ScientificService.h" />
+    <ClInclude Include="service\sciresult\SciResultService.h" />
+    <ClInclude Include="service\trainingrecord\TrainingRecordService.h" />
+    <ClInclude Include="service\work-history\WorkHistoryService.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\rocketmq\TestRocket.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="controller\archives\ArchivesController.cpp" />
+    <ClCompile Include="controller\certificate-information\CertificateInformationController.cpp" />
+    <ClCompile Include="controller\contract\ContractController.cpp" />
+    <ClCompile Include="controller\jobtitle-information\JobTitleInformationController.cpp" />
+    <ClCompile Include="controller\military\MilitaryController.cpp" />
+    <ClCompile Include="controller\Pimarmycadres\PimarmycadresController.cpp" />
+    <ClCompile Include="controller\rewardandpunishmentinformation\RewardAndPunishmentInformationController.cpp" />
+    <ClCompile Include="controller\rewardandpunish\RewardAndPunishController.cpp" />
+    <ClCompile Include="controller\Router.cpp" />
+    <ClCompile Include="controller\scientific\ScientificController.cpp" />
+    <ClCompile Include="controller\SciResult\SciResultController.cpp" />
+    <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="controller\trainingrecord\TrainingRecordController.cpp" />
+    <ClCompile Include="controller\work-history\WorkHistoryController.cpp" />
+    <ClCompile Include="dao\archives\ArchivesDAO.cpp" />
+    <ClCompile Include="dao\certificate-information\certificate-information\CertificateInformationDAO.cpp" />
+    <ClCompile Include="dao\certificate-information\jobtitle-information\JobTitleInformationDAO.cpp" />
+    <ClCompile Include="dao\contract\ContractDAO.cpp" />
+    <ClCompile Include="dao\military\MilitaryDAO.cpp" />
+    <ClCompile Include="dao\Pimarmycadres\PimarmycadresDAO.cpp" />
+    <ClCompile Include="dao\rewardandpunishmentinformation\RewardAndPunishmentInformationDAO.cpp" />
+    <ClCompile Include="dao\rewardandpunish\RewardAndPunishDAO.cpp" />
+    <ClCompile Include="dao\scientific\ScientificDAO.cpp" />
+    <ClCompile Include="dao\SciResult\SciResultDAO.cpp" />
+    <ClCompile Include="dao\trainingrecord\TrainingRecordDAO.cpp" />
+    <ClCompile Include="dao\work-history\WorkHistoryDAO.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\Archives\ArchivesService.cpp" />
+    <ClCompile Include="service\certificate-information\certificate-information\CertificateInformationService.cpp" />
+    <ClCompile Include="service\certificate-information\jobtitle-information\JobTitleInformationService.cpp" />
+    <ClCompile Include="service\contract\ContractService.cpp" />
+    <ClCompile Include="service\military\MilitaryService.cpp" />
+    <ClCompile Include="service\Pimarmycadres\PimarmycadresService.cpp" />
+    <ClCompile Include="service\rewardandpunishmentinformation\RewardAndPunishmentInformationService.cpp" />
+    <ClCompile Include="service\rewardandpunish\RewardAndPunishService.cpp" />
+    <ClCompile Include="service\scientific\ScientificService.cpp" />
+    <ClCompile Include="service\sciresult\SciResultService.cpp" />
+    <ClCompile Include="service\trainingrecord\TrainingRecordService.cpp" />
+    <ClCompile Include="service\work-history\WorkHistoryService.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="uselib\rocketmq\TestRocket.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lib-common\lib-common.vcxproj">
+      <Project>{213f58ad-9943-4155-8a45-1b2dab0bb8f9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\lib-mysql\lib-mysql.vcxproj">
+      <Project>{8293b741-b019-444f-80bc-70321a47868e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\lib-oatpp\lib-oatpp.vcxproj">
+      <Project>{3fc26f19-d665-40bd-92f1-fc4be22a38ba}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
