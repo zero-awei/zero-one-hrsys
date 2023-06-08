@@ -8,6 +8,7 @@ export const useInfoStore = defineStore('archivesInfo', {
         //消息弹出框初始设为不显示
         show: false,
         //配置功能按键
+        show:false,
         tableOperations: [
             {
                 name: '新增'

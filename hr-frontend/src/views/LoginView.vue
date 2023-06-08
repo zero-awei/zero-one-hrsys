@@ -94,10 +94,10 @@ function submitForm() {
   // $router.push('/home')
 
   // 弹出验证码框
-  //useVerify('clickWord')
+  useVerify('clickWord')
 
   //TODO[TEST_CODE]:测试登录
-  doLogin('dddd')
+  // doLogin('dddd')
 }
 
 // 验证码组件引用
@@ -121,33 +121,33 @@ function useVerify(type) {
  */
 function handleSuccess(res) {
   //TODO[TEST_CODE]:测试调用二次验证
-  Request.requestForm(
-    Request.POST,
-    '/login',
-    { captchaVerification: res.captchaVerification },
-    { baseURL: import.meta.env.VITE_CAPTCHA_URL }
-  )
-    .then((res) => {
-      console.log(res)
-      if (res.data.repCode === '0000') {
-        // 跳转到首页
-        $router.push('/home')
-        // 登录成功提示
-        ElMessage.success('登录成功，前往首页')
-        return
-      }
-      ElMessage.error('账号或密码错误')
-    })
-    .catch((res) => {
-      console.log(res)
-      ElMessage.error('账号或密码错误')
-    })
+  // Request.requestForm(
+  //   Request.POST,
+  //   '/login',
+  //   { captchaVerification: res.captchaVerification },
+  //   { baseURL: import.meta.env.VITE_CAPTCHA_URL }
+  // )
+  //   .then((res) => {
+  //     console.log(res)
+  //     if (res.data.repCode === '0000') {
+  //       // 跳转到首页
+  //       $router.push('/home')
+  //       // 登录成功提示
+  //       ElMessage.success('登录成功，前往首页')
+  //       return
+  //     }
+  //     ElMessage.error('账号或密码错误')
+  //   })
+  //   .catch((res) => {
+  //     console.log(res)
+  //     ElMessage.error('账号或密码错误')
+  //   })
 
-  // doLogin(res.captchaVerification)
+  doLogin(res.captchaVerification)
 }
 </script>
 
-<style scoped>
+<style>
 .box {
   width: 100vw;
   height: 100vh;
@@ -156,7 +156,7 @@ function handleSuccess(res) {
 .container {
   display: flex;
   background-image: url('../../images/login_two.jpg');
-  background-size: 160vb 90vh;
+  background-size: 77vw 90vh;
   background-position: center;
   background-repeat: no-repeat;
   justify-content: center;
@@ -165,13 +165,18 @@ function handleSuccess(res) {
 }
 
 .login-box {
-  width: 350px;
+  display: block;
+  width: 25vw;
   position: absolute;
-  right: 20%;
+  right: 17%;
   top: 50%;
   transform: translateY(-50%);
   margin: 0;
   padding: 0;
+}
+.input-container {
+  display: block;
+  width: 25vw;
 }
 
 .login-title {

@@ -19,7 +19,9 @@ export const TemporaryStaffStore = defineStore('temporyStaff', {
 
     //分页器
     pageIndex: 1,
-    pageSize: 100
+    pageSize: 100,
+    total: 100
+    // pageSizes:[]
   }),
   actions: {
     initTableData() {

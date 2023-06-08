@@ -3,7 +3,7 @@
     <el-table
       class-name="hr-maintable__form"
       ref="multipleTableRef"
-      max-height="calc(95vh - 130px)"
+      :max-height="maxHeight ? maxHeight : 'calc(95vh - 150px)'"
       :data="tableData"
       style="width: 100%; text-align: center"
       @selection-change="handleSelectionChange"
@@ -11,7 +11,7 @@
       :default-sort="{ prop: 'id', order: 'ascending' }"
       :stripe="true"
     >
-      <el-table-column type="selection" />
+      <el-table-column v-if="isSelection" type="selection" />
       <el-table-column
         class-name="hr-maintable__form--cell"
         v-for="item in xmlData"
@@ -42,6 +42,12 @@ const props = defineProps({
   },
   tableData: {
     type: Array as PropType<User[]>
+  },
+  maxHeight: {
+    type: String || undefined
+  },
+  isSelection: {
+    type: Boolean
   }
 })
 // 处理多选事件
@@ -72,7 +78,7 @@ const handleClick = (val) => {
 //用户数据类型定义
 interface User {
   //自定义数据
-  id: number
+  id?: number
   name?: string
   age?: number
   organization?: string
@@ -82,7 +88,6 @@ interface User {
   certificateId?: number
   phoneNumber?: number
   state?: string
-  //类型不一样报错了，我瞎改一点
   sex?: string
   address?: string
   retirePlace?: string

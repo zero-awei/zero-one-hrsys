@@ -81,14 +81,14 @@ const routes = [
     component: () => import('@/views/baseManage/roster/Syqyg.vue')
   },
   {
-    path: '/ltxyggridview',
-    name: 'ltxyggridview',
-    component: () => import('@/views/baseManage/roster/Ltxyg.vue')
+    path: '/retireStaff',
+    name: 'retireStaff',
+    component: () => import('@/views/baseManage/roster/RetireStaff.vue')
   },
   {
-    path: '/lzyghmcgridview',
-    name: 'lzyghmcgridview',
-    component: () => import('@/views/baseManage/roster/Lzyg.vue')
+    path: '/Leavestaff',
+    name: 'leaveStaff',
+    component: () => import('@/views/baseManage/roster/LeaveStaff.vue')
   },
   {
     path: '/jdryhmcgridview',
@@ -143,24 +143,33 @@ const routes = [
     component: () => import('@/views/baseManage/goAbroad/PrivateAbroad.vue')
   },
   {
-    path:'/archivesinfo',
-    name:'ArchivesInfo',
-    component:()=>import('@/views/baseManage/archivesManage/ArchivesInfo.vue')
+    path: '/orginfo',
+    name: 'OrgInfo',
+    component: () => import('@/views/baseManage/orginfo/OrgInfo.vue')
   },
   {
-    path:'/onfilereminder',
-    name:'OnFileReminder',
-    component:()=>import('@/views/baseManage/archivesManage/OnFileReminder.vue')
+    path: '/archivesinfo',
+    name: 'ArchivesInfo',
+    component: () =>
+      import('@/views/baseManage/archivesManage/ArchivesInfo.vue')
   },
   {
-    path:'/outfilereminder',
-    name:'OutFileReminder',
-    component:()=>import('@/views/baseManage/archivesManage/OutFileReminder.vue')
+    path: '/onfilereminder',
+    name: 'OnFileReminder',
+    component: () =>
+      import('@/views/baseManage/archivesManage/OnFileReminder.vue')
   },
   {
-    path:'/filetransferrecord',
-    name:'FileTransferRecord',
-    component:()=>import('@/views/baseManage/archivesManage/FileTransferRecord.vue')
+    path: '/outfilereminder',
+    name: 'OutFileReminder',
+    component: () =>
+      import('@/views/baseManage/archivesManage/OutFileReminder.vue')
+  },
+  {
+    path: '/filetransferrecord',
+    name: 'FileTransferRecord',
+    component: () =>
+      import('@/views/baseManage/archivesManage/FileTransferRecord.vue')
   },
   {
     path: '/orginfo',

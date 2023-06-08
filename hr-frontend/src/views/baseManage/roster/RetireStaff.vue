@@ -28,9 +28,9 @@ import TableHead from '@/components/table/head/TableHead.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
 import MainTable from '@/components/MainTable.vue'
 import { onBeforeMount, ref } from 'vue'
-import { LeaveStaffStore } from '@/stores/leaveStaff'
+import { RetireStaffStore } from '@/stores/retirement'
 
-const $store = LeaveStaffStore()
+const $store = RetireStaffStore()
 
 onBeforeMount(() => {
   $store.initTableData()
