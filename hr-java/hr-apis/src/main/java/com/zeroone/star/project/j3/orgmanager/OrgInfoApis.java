@@ -97,4 +97,6 @@ public interface OrgInfoApis {
      */
     JsonVO<ExportDTO> exportOrg() throws Exception;
 
+    JsonVO<Boolean> deleteOrg(List<String> orgIds);
+
 }

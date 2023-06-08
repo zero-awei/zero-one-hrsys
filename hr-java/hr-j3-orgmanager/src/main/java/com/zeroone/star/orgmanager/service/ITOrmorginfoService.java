@@ -3,6 +3,8 @@ package com.zeroone.star.orgmanager.service;
 import com.zeroone.star.orgmanager.entity.TOrmorginfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  * 组织信息 服务类
@@ -12,5 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2023-05-30
  */
 public interface ITOrmorginfoService extends IService<TOrmorginfo> {
-
+    Boolean deleteOrg(List<String> orgIds);
 }
