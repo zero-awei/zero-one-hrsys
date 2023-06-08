@@ -203,7 +203,7 @@ std::string ProjTagService::exportProjTag(const ExportProjTagQuery::Wrapper& que
 	string fileName = excel.exportExcel(data);
 
 	// TODO: 上传到FastDFS文件服务器, 返回下载链接
-	UseFastDfs dfs("8.130.87.15");
+	UseFastDfs dfs;
 	string url = dfs.uploadWithNacos(fileName);
 
 	return url;
