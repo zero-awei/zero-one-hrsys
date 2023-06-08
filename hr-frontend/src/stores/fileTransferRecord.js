@@ -26,6 +26,8 @@ export const useRecordStore = defineStore('fileTransferRecord', {
         ],
         //记录表格数据
         tableData: null,
+        //按表单类型设置的数据
+        data: null,
         //用户信息
         userData: null,
         //每页数据条数
@@ -34,10 +36,125 @@ export const useRecordStore = defineStore('fileTransferRecord', {
         total: null,
     }),
     actions: {
-        //根据搜索内容筛选数据
-        filter(val) {
-            //未完
+        // 根据过滤器结果，发送请求
+        requestRes(data) {
+            //发送请求获取过滤后的表格
+            //分页查询档案列表
+            // let data = await Request.requestForm(
+            //   Request.GET,
+            //    baseUrl + 'query-org-page',
+            //    data,
+            //    null
+            // )
+            //const filterData=data.data
+            const filterData = reactive({
+                employeeNum: {
+                    name: '员工编号',
+                    type: 'input'
+                },
+                employeeName: {
+                    name: '员工姓名',
+                    type: 'input'
+                },
+                achievesNum: {
+                    name: '员工姓名',
+                    type: 'input'
+                },
+                employeeStatus: {
+                    name: '员工状态',
+                    type: 'select',
+                    options: [
+                        {
+                            value: 'on',
+                            label: '在职'
+                        },
+                        {
+                            value: 'apprenticeship',
+                            label: '见习'
+                        },
+                        {
+                            value: 'probation',
+                            label: '试用'
+                        },
+                        {
+                            value: 're-employ',
+                            label: '返聘'
+                        },
+                        {
+                            value: 'unemployed',
+                            label: '待岗'
+                        },
+                        {
+                            value: 'dismiss',
+                            label: '解聘'
+                        },
+                        {
+                            value: 'off',
+                            label: '离职'
+                        },
+                        {
+                            value: 'retire',
+                            label: '退休'
+                        },
+                        {
+                            value: 'discharge',
+                            label: '离休'
+                        },
+                        {
+                            value: 'retreat',
+                            label: '内退'
+                        },
+                        {
+                            value: 'sick',
+                            label: '病休'
+                        },
+                        {
+                            value: 'adjusted',
+                            label: '可调配'
+                        },
+                        {
+                            value: 'died',
+                            label: '身故'
+                        },
+                        {
+                            value: 'co-management',
+                            label: '共同管理'
+                        }
+                    ]
+                },
+                achievesStatus: {
+                    name: '档案状态',
+                    type: 'select',
+                    options: [
+                        {
+                            value: 'effect',
+                            label: '有效'
+                        },
+                        {
+                            value: 'noEffect',
+                            label: '无效'
+                        }]
+                },
+                borrowStatus: {
+                    name: '档案借阅状态',
+                    type: 'select',
+                    options: [
+                        {
+                            value: 'borrowing',
+                            label: '借阅中'
+                        },
+                        {
+                            value: 'returned',
+                            label: '已归还'
+                        }]
+                },
+
+            })
+            this.data = filterData
+             //将筛选的数据复制给表格数据
+            // this.tableData=this.data 
         },
+
         initTableData() {
             // 发送请求获取表格数据
             // let data = await Request.requestForm(
@@ -63,12 +180,6 @@ export const useRecordStore = defineStore('fileTransferRecord', {
                 },
             ]
         },
-        // getNewXmlData(checkStatus) {
-        //     this.newXmlData.value = this.xmlData.value.filter((item) => {
-        //         return checkStatus.value.includes(item.name)
-        //     })
-        //     this.xmlData.value= this.newXmlData
-        // },
         addData(val) {
             this.tableData.push(val)
         },

@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 // import Request from '@/apis/request'
 
-export const useOutReminderStore = defineStore('onFileReminder', {
+export const useOutReminderStore = defineStore('outFileReminder', {
     state: () => ({
         //记录侧边栏菜单
         menus: [
