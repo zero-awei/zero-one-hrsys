@@ -65,10 +65,6 @@ public interface CommonApis {
      * @Author H_lzu
      * @Date 20:01 2023/6/4
      */
-
-
-    @GetMapping("query-distribution-form")
-    @ApiOperation("分配形式下拉列表")
     JsonVO<List<DropdownListOptionDTO>> queryDistributionForm();
 
     /**
