@@ -40,7 +40,7 @@
 #include "SimpleDateTimeFormat.h"
 #include "CommonMacros.h"
 #include "CharsetConvertHepler.h"
-#include "domain/query/EmployeeInformationPageQuery/EmployeeInformationPageQuery.h"
+#include "domain/query/postSet/PostDetailQuery.h"
 
 using namespace oatpp;
 namespace multipart = oatpp::web::mime::multipart;
@@ -218,22 +218,16 @@ public: // 定义接口
 	//定义导出员工信息(导出本页在前端完成)接口端点描述	
 	ENDPOINT_INFO(exportEmployeeInfo) {
 		// 定义接口标题
-		info->summary = ZH_WORDS_GETTER("user.query-all.export");
-		// 添加默认授权参数
-		API_DEF_ADD_AUTH();
+		info->summary = ZH_WORDS_GETTER("importInfo.export.summary");
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-		// 定义分页参数描述
-		API_DEF_ADD_PAGE_PARAMS();
-		// 定义其他表单参数描述
-		//编号
-		info->queryParams.add<String>("id").description = ZH_WORDS_GETTER("employee.field.id");
-		info->queryParams["id"].addExample("default", String("10001"));
+		// 添加默认授权参数
+		API_DEF_ADD_AUTH();
 	}
 	//定义导出员工信息(导出本页在前端完成)接口端点处理
-	ENDPOINT(API_M_GET, "/c3-employee-info/export-info", exportEmployeeInfo, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams,queryParams)) {
+	ENDPOINT(API_M_GET, PATH_TO_STAFFING("/c3-employee-info/export-info"), exportEmployeeInfo, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams,queryParams)) {
 		// 解析查询参数
-		API_HANDLER_QUERY_PARAM(query, EmployeeExportQuery,queryParams);
+		API_HANDLER_QUERY_PARAM(query, PostDetailQuery, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execExportEmployeeInfo(query));
 	}
@@ -259,7 +253,7 @@ private:// 定义接口执行函数
 	//导入员工信息
 	ImportJobJsonVO::Wrapper execImportEmployeeInfo(const ImportInfoDTO::Wrapper& dto, const PayloadDTO& payload);
 	//导出员工信息(导出本页在前端完成)
-	StringJsonVO::Wrapper execExportEmployeeInfo(const EmployeeExportQuery::Wrapper& exportInfo);
+	StringJsonVO::Wrapper execExportEmployeeInfo(const PostDetailQuery::Wrapper& query);
 	//新增员工信息
 	Uint64JsonVO::Wrapper execAddEmployee(const EmployeeInformationDTO::Wrapper& dto, const PayloadDTO& payload);
 };

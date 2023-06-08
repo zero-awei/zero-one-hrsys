@@ -24,6 +24,8 @@
 #include "CustomerAuthorizeHandler.h"
 #include "ExcelComponent.h"
 #include "domain/do/EmployeeInformationPage/EmployeeInformationPageDO.h"
+#include "uselib/excel/ExportExcel.h"
+#include <uselib/fastdfs/UseFastDfs.h>
 
 // 文件到DO宏
 #define FILE_TO_DO(target, src, f1, f2) target.set##f1(src.f2);
@@ -223,4 +225,44 @@ importInfoVO::Wrapper EmployeeInformationServicer::addMultiEmployee(const Import
 	}
 
 	return vo;
+}
+//导出员工信息(导出本页在前端完成)
+std::string EmployeeInformationServicer::exportEmpInfomation(const PostDetailQuery::Wrapper& query)
+{
+	EmployeeInformationDAO dao;
+	auto res = dao.exportEmpInfo(query);
+
+	ExportExcel excel;
+
+	vector<vector<string>> data;
+	for (auto item : res)
+	{
+		vector<string> tmp;
+		tmp.push_back(item.getName());
+		tmp.push_back(to_string(item.getAge()));
+		tmp.push_back(item.getId());
+		tmp.push_back(item.getOrganize());
+		tmp.push_back(item.getDepart());
+		tmp.push_back(item.getJob());
+		tmp.push_back(item.getPost());
+		tmp.push_back(item.getIdMum());
+		tmp.push_back(item.getBirthday());
+		tmp.push_back(item.getPhone());
+		tmp.push_back(item.getState());
+		data.push_back(tmp);
+	}
+
+	// 生成数据表表头
+	vector<string> head = dao.getEmpInfoHead();
+	head.erase(head.begin() + 8, head.begin() + 10);
+
+	// 导出到Excel文件
+	data.insert(data.begin(), head);
+	string fileName = excel.exportExcel(data);
+
+	// TODO: 上传到FastDFS文件服务器, 返回下载链接
+	UseFastDfs dfs("8.130.87.15");
+	string url = dfs.uploadWithNacos(fileName);
+
+	return url;
 }

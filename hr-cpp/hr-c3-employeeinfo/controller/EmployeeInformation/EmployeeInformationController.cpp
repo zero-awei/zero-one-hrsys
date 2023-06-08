@@ -50,21 +50,53 @@ ImportJobJsonVO::Wrapper EmployeeInformationController::execImportEmployeeInfo(c
 
 }
 //导出员工信息(导出本页在前端完成)
-StringJsonVO::Wrapper EmployeeInformationController::execExportEmployeeInfo(const EmployeeExportQuery::Wrapper& query)
-{
-	auto jvo = StringJsonVO::createShared();
+StringJsonVO::Wrapper EmployeeInformationController::execExportEmployeeInfo(const PostDetailQuery::Wrapper& query) {
+	auto vo = StringJsonVO::createShared();
+
+	//// 定义一个分页对象
+	string url = service.exportEmpInfomation(query);
+	//int64_t start = (page->pageIndex.getValue(1) - 1) * page->pageSize.getValue(1);
+	if (url.empty())
+		vo->fail(url);
+	else
+		vo->success(url);
+	return vo;
+}
+	//// 边界值值处理
+	//if (start >= page->total.getValue(0) || start < 0) {
+	//	vo->fail(page);
+	//	return vo;
+	//}
+	//if (end > page->total.getValue(0)) end = page->total.getValue(0);
+	//// 循环生成测试数据
+	//for (int64_t i = start; i < end; i++)
+	//{
+	//	auto user = EmployeeInformationDTO::createShared();
+	//	user->name = exportInfo->name;
+	//	user->age = exportInfo->age;
+	//	user->id = exportInfo->id;
+	//	user->organize = exportInfo->organize;
+	//	user->depart = exportInfo->depart;
+	//	user->job = exportInfo->job;
+	//	user->post = exportInfo->post;
+	//	user->idMum = exportInfo->idMum;
+	//	user->birthday = exportInfo->birthday;
+	//	user->phone = exportInfo->phone;
+	//	user->state = exportInfo->state;
+	//	page->addData(user);
+	//}
+	//vo->success(page);
+	//return vo;
 	// 定义一个Service
 	EmployeeInformationServicer service;
-	//// 查询数据
-	// auto result = service.exportData(query);
-	// if (!result.empty()) {
-	// 	jvo->success(result);
-	// } else {
-	// 	jvo->fail("export fail");
-	// }
+	// 查询数据
+	auto result = service.listAll(exportInfo);
+	// 响应结果
+	auto jvo = EmployeeInformationPageJsonVO::createShared();
+	jvo->success(result);
 	return jvo;
-}
 
+}
 //新增员工信息 
 Uint64JsonVO::Wrapper EmployeeInformationController::execAddEmployee(const EmployeeInformationDTO::Wrapper& dto, const PayloadDTO& payload)
 {
