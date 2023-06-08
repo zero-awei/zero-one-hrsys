@@ -39,14 +39,14 @@ public:
 		data.setUpdateDate(resultSet->getString(4));
 		data.setUpdateMan(resultSet->getString(5));
 		data.setCreateDate(resultSet->getString(6));
-		data.setXh(resultSet->getUInt64(7));
+		data.setXh(resultSet->getUInt(7));
 		data.setOrmOrgId(resultSet->getString(8));
 		data.setGwType(resultSet->getString(11));
 		data.setGwfl(resultSet->getString(12));
 		data.setIsConfidential(resultSet->getString(13));
 		data.setIsTemp(resultSet->getString(14));
-		data.setNx(resultSet->getUInt64(15));
-		data.setBxjlnx(resultSet->getUInt64(16));
+		data.setNx(resultSet->getUInt(15));
+		data.setBxjlnx(resultSet->getUInt(16));
 		data.setIsKeyPostion(resultSet->getString(17));
 		data.setPostNature(resultSet->getString(18));
 		data.setStartStopSign(resultSet->getString(18));

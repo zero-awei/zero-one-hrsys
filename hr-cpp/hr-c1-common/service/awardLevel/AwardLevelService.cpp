@@ -27,7 +27,7 @@ PullListDTO::Wrapper AwardLevelService::listAll()
 	auto dto = PullListDTO::createShared();
 
 	// TODO: 从缓存中查询下拉列表
-	auto hash = UseLibRedis::queryRedis("type-contract");
+	auto hash = UseLibRedis::queryRedis("award-level");
 
 	// 如果缓存中没有数据
 	if (hash.empty())
@@ -37,7 +37,7 @@ PullListDTO::Wrapper AwardLevelService::listAll()
 		auto res = dao.selectAll();
 
 		// 将DO转换为DTO，组装哈希表
-		for (auto item : res)
+		for (const auto& item : res)
 		{
 			string code = item.getPcmawardswonsid();
 			dto->pullList->push_back(ItemDTO::createShared(atoi(code.c_str()), item.getAwardlevel()));
@@ -50,7 +50,7 @@ PullListDTO::Wrapper AwardLevelService::listAll()
 	// 否则组装缓存数据到DTO
 	else
 	{
-		for (auto item : hash)
+		for (const auto& item : hash)
 		{
 			int code = atoi(item.first.c_str());
 			dto->pullList->push_back(ItemDTO::createShared(code, item.second));

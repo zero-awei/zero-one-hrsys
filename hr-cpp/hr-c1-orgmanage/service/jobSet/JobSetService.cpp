@@ -39,7 +39,7 @@ ImportJobVO::Wrapper JobSetService::addMultiJob(const ImportJobDTO::Wrapper& dto
 
 	// 构建字段坐标映射
 	unordered_map<string, int> hash;
-	for (int i = 0; i < data[0].size(); i++)
+	for (size_t i = 0; i < data[0].size(); i++)
 	{
 		hash[data[0][i]] = i;
 	}
@@ -51,7 +51,7 @@ ImportJobVO::Wrapper JobSetService::addMultiJob(const ImportJobDTO::Wrapper& dto
 	string day = SimpleDateTimeFormat::format();
 	// 文件数据到DO
 	list<PostDetailDO> all;
-	for (int i = 1; i < data.size(); i++)
+	for (size_t i = 1; i < data.size(); i++)
 	{
 		PostDetailDO tmp;
 		ZO_STAR_FILE_TO_DO(tmp, data,
@@ -83,7 +83,7 @@ ImportJobVO::Wrapper JobSetService::addMultiJob(const ImportJobDTO::Wrapper& dto
 	ss->beginTransaction();
 
 	std::list<std::string> res;
-	for (auto item : all)
+	for (const auto& item : all)
 	{
 		int line = dao.insertJob(item);
 		// 新增成功则加入一个新的id
@@ -107,7 +107,7 @@ ImportJobVO::Wrapper JobSetService::addMultiJob(const ImportJobDTO::Wrapper& dto
 	auto vo = ImportJobVO::createShared();
 	if (res.size())
 	{ 
-		for (auto item : res)
+		for (const auto& item : res)
 			vo->newId->push_back(item);
 	}
 
