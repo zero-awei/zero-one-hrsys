@@ -1,0 +1,96 @@
+user:
+ query-all: 
+  summary: 查询所有用户
+  nickname: 昵称
+ file:
+  summary: 文件上传
+  suffix: 文件后缀
+ query-menu:
+  summary: 查询所有菜单
+ field:
+  age: 年龄
+  nickname: 昵称
+  idCard: 身份证号码
+  menuname: 菜单名称
+  menuicon: 图标名称
+  menuhref: 路由地址
+  menusub: 子菜单
+sample:
+ get:
+  summary: 分页查询示例数据
+ post:
+  summary: 新增一条示例数据
+ put:
+  summary: 修改一条示例数据
+ delete:
+  summary: 删除一条示例数据
+ field:
+  id: 编号
+  age: 年龄
+  name: 姓名
+  sex: 性别，如：男
+LegalEntityMai:
+ query:
+  summary: （法人主体维护-分页查询法人主体列表）--TripleGold
+ put:
+  summary: （法人主体维护-更新指定法人主体信息）--TripleGold
+ post:
+  summary: （法人主体维护-新增法人主体（支持批量新增））--TripleGold
+  info: 新增数据数组
+ delete:
+  summary: （法人主体维护-删除法人主体（支持批量删除））--TripleGold
+  cnt: 删除数据ID数组
+ import:
+  summary: （法人主体维护-导入法人主体）--TripleGold
+  suffix: 文件后缀
+ export:
+  summary: （法人主体维护-导出法人主体）--TripleGold
+ sample:
+  name: 东北公司
+ field:
+  id: 法人主体标识
+  updateman: 更新人
+  createman: 建立人
+  createdate: 建立时间
+  name: 法人主体名称
+  updatedate: 更新时间
+  orgcode: 组织编号
+  short: 简称
+
+
+LegalEntitySet:
+ query:
+  summary1: 分页查询组织列表 
+  summary2: 分页查询法人主体列表 
+  summary3: (数据设置——法人主体设置——法人主体名称下拉列表) -- cpt
+  summary: （法人主体设置-分页查询法人设置列表）--TripleGold
+ put:
+  summary: （数据设置——法人主体设置——更新指定法人设置信息) --cpt
+ post:
+  summary: （数据设置——法人主体设置——新增法人主体设置（支持批量新增））--cpt
+ delete:
+  summary: 法人主体设置--删除法人设置(支持批量删除)--pine
+ import:
+  summary: （数据设置——法人主体设置——导入法人主体设置)--洛洛  
+ export:
+  summary: （数据设置——法人主体设置——导出法人主体设置 (导出页面在前端完成) ）--cpt
+ sample:
+  name1: 东北1
+ field:
+  contractsignorgname: 签约主体单位名称
+  contractsignorgid: 签约主体单位标识
+  updateman: 更新人
+  createman: 建立人
+  createdate: 建立时间
+  updatedate: 更新时间
+  orgcode: 组织编号
+  short: 简称
+  contractsignorgname: 签约主体单位名称
+  isdefaultsignorg: 默认签约主体
+  ormsignorgid: 法人主体标识
+  ormorgid: 管理单位标识
+  signorgid: 法人主体标识
+  isdefaultsignorg: 默认签约主体 
+  ormsignorgid: 法人主体标识
+ dto:
+  legalEntitySetPullDownList: 法人主体名称下拉列表

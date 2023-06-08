@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{e9d549d1-9b61-42c8-9623-09fce661df40}</ProjectGuid>
+    <RootNamespace>hrc2basmanager</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib\debug;..\lib-common\lib\debug;..\lib-mysql\lib\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib;..\lib-common\lib;..\lib-mysql\lib\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cpp.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)lib-dy/lib/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64\debug;..\lib-common\lib64\debug;..\lib-mysql\lib64\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64;..\lib-common\lib64;..\lib-mysql\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cpp.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;oatpp-websocket.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)lib-dy/lib64/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lib-common\lib-common.vcxproj">
+      <Project>{213f58ad-9943-4155-8a45-1b2dab0bb8f9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\lib-mysql\lib-mysql.vcxproj">
+      <Project>{8293b741-b019-444f-80bc-70321a47868e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\lib-oatpp\lib-oatpp.vcxproj">
+      <Project>{3fc26f19-d665-40bd-92f1-fc4be22a38ba}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="controller\CertificateManage\CertifDeleteController.h" />
+    <ClInclude Include="controller\CertificateManage\CertificateTypeController.h" />
+    <ClInclude Include="controller\CertificateManage\CheckCerListController.h" />
+    <ClInclude Include="controller\CertificateManage\CreateNewCerController.h" />
+    <ClInclude Include="controller\CertificateManage\EmployeeInfoController.h" />
+    <ClInclude Include="controller\CertificateManage\ExportCertifController.h" />
+    <ClInclude Include="controller\CertificateManage\UpdateCertificateController.h" />
+    <ClInclude Include="controller\RosterOfPer\CheckRetiresListController.h" />
+    <ClInclude Include="controller\RosterOfPer\EmployeePageController.h" />
+    <ClInclude Include="controller\RosterOfPer\ExportEmployeeController.h" />
+    <ClInclude Include="controller\RosterOfPer\ExportRetireesController.h" />
+    <ClInclude Include="controller\RosterOfPer\FormerEmployeesController.h" />
+    <ClInclude Include="controller\RosterOfPer\LoanedPerPageController.h" />
+    <ClInclude Include="controller\RosterOfPer\ProbationaryEmployeeController.h" />
+    <ClInclude Include="controller\RosterOfPer\RraineeController.h" />
+    <ClInclude Include="controller\RosterOfPer\TemporaryStaffController.h" />
+    <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\CertificateManage\CertificateTypeDAO.h" />
+    <ClInclude Include="dao\CertificateManage\CertificateTypeMapper.h" />
+    <ClInclude Include="dao\CertificateManage\CheckCerListDAO.h" />
+    <ClInclude Include="dao\CertificateManage\CheckCerListMapper.h" />
+    <ClInclude Include="dao\CertificateManage\CreateNewCerDAO.h" />
+    <ClInclude Include="dao\CertificateManage\CreateNewCerMapper.h" />
+    <ClInclude Include="dao\CertificateManage\DeleteCertifDAO.h" />
+    <ClInclude Include="dao\CertificateManage\EmployeeInfoDAO.h" />
+    <ClInclude Include="dao\CertificateManage\EmployeeInfoMapper.h" />
+    <ClInclude Include="dao\CertificateManage\ExportCertifDAO.h" />
+    <ClInclude Include="dao\CertificateManage\ExportCertifMapper.h" />
+    <ClInclude Include="dao\CertificateManage\SpercificCertificateDAO.h" />
+    <ClInclude Include="dao\CertificateManage\SpercificCertificateMapper.h" />
+    <ClInclude Include="dao\RosterOfPer\CheckRetiresListDAO.h" />
+    <ClInclude Include="dao\RosterOfPer\CheckRetiresListMapper.h" />
+    <ClInclude Include="dao\RosterOfPer\EmployeePageDAO.h" />
+    <ClInclude Include="dao\RosterOfPer\EmployeePageMapper.h" />
+    <ClInclude Include="dao\RosterOfPer\ExportEmployeeDAO.h" />
+    <ClInclude Include="dao\RosterOfPer\ExportEmployeeMapper.h" />
+    <ClInclude Include="dao\RosterOfPer\FormerEmployeesDAO.h" />
+    <ClInclude Include="dao\RosterOfPer\FormerEmployeesMapper.h" />
+    <ClInclude Include="dao\RosterOfPer\LoanedPerDAO.h" />
+    <ClInclude Include="dao\RosterOfPer\LoanedPerMapper.h" />
+    <ClInclude Include="dao\RosterOfPer\ProbationaryEmployeeDAO.h" />
+    <ClInclude Include="dao\RosterOfPer\ProbationaryEmployeeMapper.h" />
+    <ClInclude Include="dao\RosterOfPer\RraineeDAO.h" />
+    <ClInclude Include="dao\RosterOfPer\RraineeMapper.h" />
+    <ClInclude Include="dao\RosterOfPer\TemporaryStaffDAO.h" />
+    <ClInclude Include="dao\RosterOfPer\TemporaryStaffMapper.h" />
+    <ClInclude Include="domain\do\CertificateManage\CertificateDO.h" />
+    <ClInclude Include="domain\do\CertificateManage\CertificateTypeDO.h" />
+    <ClInclude Include="domain\do\CertificateManage\EmployeeInfoDO.h" />
+    <ClInclude Include="domain\do\CertificateManage\SpercificCertificateDO.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\RosterOfPer\CommonRosterOfPerDO.h" />
+    <ClInclude Include="domain\do\RosterOfPer\RraineeDO.h" />
+    <ClInclude Include="domain\do\RosterOfPer\ProbationaryEmployeeDO.h" />
+    <ClInclude Include="domain\do\RosterOfPer\ExportEmployeeDO.h" />
+    <ClInclude Include="domain\do\RosterOfPer\FormerEmployeesDO.h" />
+    <ClInclude Include="domain\do\RosterOfPer\RetiredEmployeesDO.h" />
+    <ClInclude Include="domain\do\RosterOfPer\SecondedPersonnelDO.h" />
+    <ClInclude Include="domain\do\RosterOfPer\RosterPersonDO.h" />
+    <ClInclude Include="domain\do\RosterOfPer\Secondment.h" />
+    <ClInclude Include="domain\do\RosterOfPer\TemporaryStaffDO.h" />
+    <ClInclude Include="domain\dto\CertificateManage\CertificateInfoDTO.h" />
+    <ClInclude Include="domain\dto\CertificateManage\CertificateTypeDTO.h" />
+    <ClInclude Include="domain\dto\CertificateManage\CheckCerListDTO.h" />
+    <ClInclude Include="domain\dto\CertificateManage\CreateNewCerDTO.h" />
+    <ClInclude Include="domain\dto\CertificateManage\EmployeeInfoDTO.h" />
+    <ClInclude Include="domain\dto\CertificateManage\ExportCertifDTO.h" />
+    <ClInclude Include="domain\dto\CertificateManage\RemoveCertifDTO.h" />
+    <ClInclude Include="domain\dto\CertificateManage\SpercificCertificateDTO.h" />
+    <ClInclude Include="domain\dto\RosterOfPer\CheckRetiresListDTO.h" />
+    <ClInclude Include="domain\dto\RosterOfPer\EmployeePageDTO.h" />
+    <ClInclude Include="domain\dto\RosterOfPer\ExportEmployeeDTO.h" />
+    <ClInclude Include="domain\dto\RosterOfPer\ExportRetireesDTO.h" />
+    <ClInclude Include="domain\dto\RosterOfPer\FormerEmployeesDTO.h" />
+    <ClInclude Include="domain\dto\RosterOfPer\LoanedPerPageDTO.h" />
+    <ClInclude Include="domain\dto\RosterOfPer\ProbationaryEmployeeDTO.h" />
+    <ClInclude Include="domain\dto\RosterOfPer\RraineeDTO.h" />
+    <ClInclude Include="domain\dto\RosterOfPer\TemporaryStaffDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\CertificateManage\CertificateTypeQuery.h" />
+    <ClInclude Include="domain\query\CertificateManage\CheckCerListQuery.h" />
+    <ClInclude Include="domain\query\CertificateManage\CreateNewCerQuery.h" />
+    <ClInclude Include="domain\query\CertificateManage\EmployeeInfoQuery.h" />
+    <ClInclude Include="domain\query\CertificateManage\ExportCertifQuery.h" />
+    <ClInclude Include="domain\query\CertificateManage\SpercificCertificateQuery.h" />
+    <ClInclude Include="domain\query\CertificateManage\updateCertificateQuery.h" />
+    <ClInclude Include="domain\query\RosterOfPer\CheckRetiresListQuery.h" />
+    <ClInclude Include="domain\query\RosterOfPer\EmployeePageQuery.h" />
+    <ClInclude Include="domain\query\RosterOfPer\ExportEmployeeQuery.h" />
+    <ClInclude Include="domain\query\RosterOfPer\ExportRetireesQuery.h" />
+    <ClInclude Include="domain\query\RosterOfPer\FormerEmployeesQuery.h" />
+    <ClInclude Include="domain\query\RosterOfPer\LoanedPerPageQuery.h" />
+    <ClInclude Include="domain\query\RosterOfPer\ProbationaryEmployeeQuery.h" />
+    <ClInclude Include="domain\query\RosterOfPer\RraineeQuery.h" />
+    <ClInclude Include="domain\query\RosterOfPer\TemporaryStaffQuery.h" />
+    <ClInclude Include="domain\vo\CertificateManage\CertificateInfoVO.h" />
+    <ClInclude Include="domain\vo\CertificateManage\CertificateTypeVO.h" />
+    <ClInclude Include="domain\vo\CertificateManage\CheckCerListVO.h" />
+    <ClInclude Include="domain\vo\CertificateManage\CreateNewCerVO.h" />
+    <ClInclude Include="domain\vo\CertificateManage\EmployeeInfoVO.h" />
+    <ClInclude Include="domain\vo\CertificateManage\ExportCertifJsonVO.h" />
+    <ClInclude Include="domain\vo\CertificateManage\SpercificCertificateVO.h" />
+    <ClInclude Include="domain\vo\RosterOfPer\CheckRetiresListVO.h" />
+    <ClInclude Include="domain\vo\RosterOfPer\EmployeePageVO.h" />
+    <ClInclude Include="domain\vo\RosterOfPer\ExportEmployeeJsonVO.h" />
+    <ClInclude Include="domain\vo\RosterOfPer\ExportRetireesVO.h" />
+    <ClInclude Include="domain\vo\RosterOfPer\FormerEmployeesVO.h" />
+    <ClInclude Include="domain\vo\RosterOfPer\LoanedPerPageVO.h" />
+    <ClInclude Include="domain\vo\RosterOfPer\ProbationaryEmployeeVO.h" />
+    <ClInclude Include="domain\vo\RosterOfPer\RraineeVO.h" />
+    <ClInclude Include="domain\vo\RosterOfPer\TemporaryStaffVO.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\CertificateManage\CertificateTypeService.h" />
+    <ClInclude Include="service\CertificateManage\CheckCerListService.h" />
+    <ClInclude Include="service\CertificateManage\CreateNewCerService.h" />
+    <ClInclude Include="service\CertificateManage\DeleteCertifService.h" />
+    <ClInclude Include="service\CertificateManage\EmployeeInfoService.h" />
+    <ClInclude Include="service\CertificateManage\ExportCertifService.h" />
+    <ClInclude Include="service\CertificateManage\SpercificCertificateService.h" />
+    <ClInclude Include="service\RosterOfPer\CheckRetiresListService.h" />
+    <ClInclude Include="service\RosterOfPer\EmployeePageService.h" />
+    <ClInclude Include="service\RosterOfPer\ExportEmployeeService.h" />
+    <ClInclude Include="service\RosterOfPer\FormerEmployeesService.h" />
+    <ClInclude Include="service\RosterOfPer\LoanedPerPageService.h" />
+    <ClInclude Include="service\RosterOfPer\ProbationaryEmployeeService.h" />
+    <ClInclude Include="service\RosterOfPer\RraineeService.h" />
+    <ClInclude Include="service\RosterOfPer\TemporaryStaffService.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="controller\CertificateManage\CertifDeleteController.cpp" />
+    <ClCompile Include="controller\CertificateManage\CertificateTypeController.cpp" />
+    <ClCompile Include="controller\CertificateManage\CheckCerListController.cpp" />
+    <ClCompile Include="controller\CertificateManage\CreateNewCerController.cpp" />
+    <ClCompile Include="controller\CertificateManage\EmployeeInfoController.cpp" />
+    <ClCompile Include="controller\CertificateManage\ExportCertifController.cpp" />
+    <ClCompile Include="controller\CertificateManage\UpdateCertificateController.cpp" />
+    <ClCompile Include="controller\RosterOfPer\CheckRetiresListController.cpp" />
+    <ClCompile Include="controller\RosterOfPer\EmployeePageController.cpp" />
+    <ClCompile Include="controller\RosterOfPer\ExportEmployeeController.cpp" />
+    <ClCompile Include="controller\RosterOfPer\ExportRetireesController.cpp" />
+    <ClCompile Include="controller\RosterOfPer\FormerEmployeesController.cpp" />
+    <ClCompile Include="controller\RosterOfPer\LoanedPerPageController.cpp" />
+    <ClCompile Include="controller\RosterOfPer\ProbationaryEmployeeController.cpp" />
+    <ClCompile Include="controller\RosterOfPer\RraineeController.cpp" />
+    <ClCompile Include="controller\RosterOfPer\TemporaryStaffController.cpp" />
+    <ClCompile Include="controller\Router.cpp" />
+    <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\CertificateManage\CertificateTypeDAO.cpp" />
+    <ClCompile Include="dao\CertificateManage\CheckCerListDAO.cpp" />
+    <ClCompile Include="dao\CertificateManage\CreateNewCerDAO.cpp" />
+    <ClCompile Include="dao\CertificateManage\DeleteCertifDAO.cpp" />
+    <ClCompile Include="dao\CertificateManage\EmployeeInfoDAO.cpp" />
+    <ClCompile Include="dao\CertificateManage\ExportCertifDAO.cpp" />
+    <ClCompile Include="dao\CertificateManage\SpercificCertificateDAO.cpp" />
+    <ClCompile Include="dao\RosterOfPer\CheckRetiresListDAO.cpp" />
+    <ClCompile Include="dao\RosterOfPer\EmployeePageDAO.cpp" />
+    <ClCompile Include="dao\RosterOfPer\ExportEmployeeDAO.cpp" />
+    <ClCompile Include="dao\RosterOfPer\FormerEmployeesDAO.cpp" />
+    <ClCompile Include="dao\RosterOfPer\LoanedPerDAO.cpp" />
+    <ClCompile Include="dao\RosterOfPer\ProbationaryEmployeeDAO.cpp" />
+    <ClCompile Include="dao\RosterOfPer\RraineeDAO.cpp" />
+    <ClCompile Include="dao\RosterOfPer\TemporaryStaffDAO.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\CertificateManage\CertificateTypeService.cpp" />
+    <ClCompile Include="service\CertificateManage\CheckCerListService.cpp" />
+    <ClCompile Include="service\CertificateManage\CreateNewCerService.cpp" />
+    <ClCompile Include="service\CertificateManage\DeleteCertifService.cpp" />
+    <ClCompile Include="service\CertificateManage\EmployeeInfoService.cpp" />
+    <ClCompile Include="service\CertificateManage\SpercificCertificateService.cpp" />
+    <ClCompile Include="service\RosterOfPer\CheckRetiresListService.cpp" />
+    <ClCompile Include="service\RosterOfPer\EmployeePageService.cpp" />
+    <ClCompile Include="service\RosterOfPer\ExportEmployeeService.cpp" />
+    <ClCompile Include="service\RosterOfPer\FormerEmployeesService.cpp" />
+    <ClCompile Include="service\RosterOfPer\LoanedPerPageService.cpp" />
+    <ClCompile Include="service\RosterOfPer\ProbationaryEmployeeService.cpp" />
+    <ClCompile Include="service\RosterOfPer\RraineeService.cpp" />
+    <ClCompile Include="service\RosterOfPer\TemporaryStaffService.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

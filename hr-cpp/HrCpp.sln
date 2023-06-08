@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.5.33627.172
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33529.622
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lib-mysql", "lib-mysql\lib-mysql.vcxproj", "{8293B741-B019-444F-80BC-70321A47868E}"
 EndProject
@@ -24,6 +24,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hr-c1-orgmanage", "hr-c1-or
 		{3FC26F19-D665-40BD-92F1-FC4BE22A38BA} = {3FC26F19-D665-40BD-92F1-FC4BE22A38BA}
 		{8293B741-B019-444F-80BC-70321A47868E} = {8293B741-B019-444F-80BC-70321A47868E}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hr-c2-basmanager", "hr-c2-basmanager\hr-c2-basmanager.vcxproj", "{E9D549D1-9B61-42C8-9623-09FCE661DF40}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hr-c2-orgmanager", "hr-c2-orgmanager\hr-c2-orgmanager.vcxproj", "{B779BE94-21B0-475F-91A7-98180E496229}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +85,22 @@ Global
 		{43A1A97D-9281-40E0-A570-A4DEC28D5A41}.Release|x64.Build.0 = Release|x64
 		{43A1A97D-9281-40E0-A570-A4DEC28D5A41}.Release|x86.ActiveCfg = Release|Win32
 		{43A1A97D-9281-40E0-A570-A4DEC28D5A41}.Release|x86.Build.0 = Release|Win32
+		{E9D549D1-9B61-42C8-9623-09FCE661DF40}.Debug|x64.ActiveCfg = Debug|x64
+		{E9D549D1-9B61-42C8-9623-09FCE661DF40}.Debug|x64.Build.0 = Debug|x64
+		{E9D549D1-9B61-42C8-9623-09FCE661DF40}.Debug|x86.ActiveCfg = Debug|Win32
+		{E9D549D1-9B61-42C8-9623-09FCE661DF40}.Debug|x86.Build.0 = Debug|Win32
+		{E9D549D1-9B61-42C8-9623-09FCE661DF40}.Release|x64.ActiveCfg = Release|x64
+		{E9D549D1-9B61-42C8-9623-09FCE661DF40}.Release|x64.Build.0 = Release|x64
+		{E9D549D1-9B61-42C8-9623-09FCE661DF40}.Release|x86.ActiveCfg = Release|Win32
+		{E9D549D1-9B61-42C8-9623-09FCE661DF40}.Release|x86.Build.0 = Release|Win32
+		{B779BE94-21B0-475F-91A7-98180E496229}.Debug|x64.ActiveCfg = Debug|x64
+		{B779BE94-21B0-475F-91A7-98180E496229}.Debug|x64.Build.0 = Debug|x64
+		{B779BE94-21B0-475F-91A7-98180E496229}.Debug|x86.ActiveCfg = Debug|Win32
+		{B779BE94-21B0-475F-91A7-98180E496229}.Debug|x86.Build.0 = Debug|Win32
+		{B779BE94-21B0-475F-91A7-98180E496229}.Release|x64.ActiveCfg = Release|x64
+		{B779BE94-21B0-475F-91A7-98180E496229}.Release|x64.Build.0 = Release|x64
+		{B779BE94-21B0-475F-91A7-98180E496229}.Release|x86.ActiveCfg = Release|Win32
+		{B779BE94-21B0-475F-91A7-98180E496229}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

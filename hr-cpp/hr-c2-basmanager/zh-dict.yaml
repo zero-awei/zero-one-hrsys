@@ -1,0 +1,333 @@
+user:
+ query-all: 
+  summary: 查询所有用户
+  nickname: 昵称
+ file:
+  summary: 文件上传
+  suffix: 文件后缀
+ query-menu:
+  summary: 查询所有菜单
+ field:
+  age: 年龄
+  nickname: 昵称
+  idCard: 身份证号码
+  menuname: 菜单名称
+  menuicon: 图标名称
+  menuhref: 路由地址
+  menusub: 子菜单
+sample:
+ get:
+  summary: 分页查询示例数据
+ post:
+  summary: 新增一条示例数据
+ put:
+  summary: 修改一条示例数据
+ delete:
+  summary: 删除一条示例数据
+ field:
+  id: 编号
+  age: 年龄
+  name: 姓名
+  sex: 性别，如：男
+TempStaff:
+ export:
+  summary: (人员花名册-挂职人员-导出挂职人员数据)-weixiaoman
+ field:
+  id: 编号
+  name: 姓名
+  empStatus: 员工状态
+  tempStatus: 挂职状态
+  tempOrg: 挂职组织
+  tempDept: 挂职部门
+  tempStartTime: 挂职开始时间
+  tempEndTime: 挂职结束时间
+  pimpersonId: 挂职人员唯一标识
+  idandname: 姓名或编号
+ get: 
+  summary: (人员花名册-挂职员工-分页查询挂职员工信息)-weixiaoman
+EmpInfo:
+ get:
+  summary: (证书管理-分页查询员工信息)-weixiaoman
+  summary1: (证书管理-查询证书类型)-weixiaoman
+ field:
+  id: 证书类型唯一标识
+  name: 姓名
+  certype: 证书类型
+  pimpersonId: 唯一标识
+
+formeremployees: 
+ get:
+  summary: (人员花名册-离职员工-分页查询离职员工数据)-chumengxian
+  out: (人员花名册-离职员工-导出离职员工数据)-chumengxian
+ field:
+  PIMPERSONID: 人员信息唯一标识
+  id_or_name: 员工编号或员工姓名(用于搜索框查询)
+  id: 编号
+  age: 年龄
+  name: 姓名
+  sex: 性别，如：男
+  organization: 组织
+  department: 部门
+  rank: 职级
+  family_contact: 家庭联系人
+  family_contact_number: 家庭联系人电话
+  mail_address: 通讯地址
+  outbenye: 导出本页离职员工数据
+  outall: 导出全部离职员工数据
+  phonenumber: 手机号码
+  dateofbirth: 出生日期
+certificate: 
+ update: (证书管理-证书信息-更新指定证书)-chumengxian
+ get: (证书管理-证书信息-查询指定证书详情)-chumengxian
+probationaryemployee: 
+ field: 
+  zz: 组织名称 
+  zw: 职务
+  gw: 岗位
+  rzsj: 任职时间
+  time: 试用到期时间
+  bm: 部门
+  zjhm: 证件号码
+  zzmc: 组织名称
+  ygzt: 员工状态
+  zgzt: 在岗状态
+ get:
+  summary: (人员花名册-试用员工-分页查询试用员工数据)-chumengxian
+  out: (人员花名册-试用员工-导出试用员工数据)-chumengxian
+spercificcertificate: 
+ get:
+  query: (证书管理-证书信息-查询指定证书详情)-chumengxian
+  update: (证书管理-证书信息-更新指定证书)-chumengxian
+ field: 
+  pimperSonName: 员工姓名
+  zgzsbh: 证书编号
+  zslx: 证书类型
+  pimVocationalName: 证书名称
+  zgsydw: 签发机构
+  REGISNUMBER: 注册编号
+  zcdw: 注册单位
+  SOCSECPAYUNIT: 社保缴纳单位
+  bcardNumber: 一建配套B证编号
+  zghqrq: 签发日期
+  CSZCSJ: 初始注册时间
+  XZCSJ: 续注册时间
+  sxrq: 失效日期
+  NSQK: 年审情况
+  SYQK: 使用情况 
+  ALTERATION: 变更情况
+  PIMVOCATIONALID: 执（职）业资格信息标识
+
+
+
+
+
+RosterOfPer:
+ query:
+  summary: (人员花名册——见习员工——分页查询员工列表) --cpt
+ export:
+  summary: (人员花名册——见习员工——导出见习员工）--cpt
+ field:
+
+cermanage:
+ get:
+  summary: 分页查询示例数据
+  checklist: （证书管理-证书信息-分页查询证书列表）--pine
+ post:
+  summary: 新增一条示例数据
+  addcer: （证书管理-证书信息-新建证书）--pine
+ put:
+  summary: 修改一条示例数据
+ delete:
+  summary: 删除一条示例数据
+ field:
+  ygbh: 员工编号
+  pcmjxszzkhjgjlname: 员工姓名
+  zz: 组织
+  bm: 部门
+  zw: 职务
+  gw: 岗位
+  duration: 见习期限（月）
+  ksrq: 到本单位时间
+  jsrq: 见习到期时间
+
+  ygbh : 员工编号
+  nameOfPAndV: 人员姓名、证书名称
+  pimperSonName : 员工姓名 
+  pimpersonid: 员工唯一标识
+  pimVocationalName : 证书名称
+  pimvocationalid: 证书唯一标识
+  bcardNumber: 一建配套B证编号
+  zslx: 证书类型
+  zghqrq: 签发日期
+  zgsydw: 签发机构
+  zcdw: 注册单位
+  fzyxq: 发证有效期
+  sxrq: 失效日期
+  nsqk: 年审情况
+  syqk: 使用情况
+  alteration: 变更情况
+  regisnumber: 证书注册编号
+  zgzsbh: 证书编号
+  socsecpayunit: 社保缴纳单位
+  cszcsj: 初始注册时间
+  xzcsj: 续注册时间
+
+rosterofper:
+ get:
+  summary: 分页查询示例数据
+  checklist: （人员花名册-离退休人员-分页查询员工列表）--pine
+  outinfo: （人员花名册-离退休人员-导出员工）--pine
+ post:
+  summary: 新增一条示例数据
+  addcer: 新增一条证书信息
+ put:
+  summary: 修改一条示例数据
+ delete:
+  summary: 删除一条示例数据
+ field:
+  id: 编号
+  age: 年龄
+  sex: 性别，如：男
+  idAndName: 员工姓名、员工编号
+  ygbh: 员工编号
+  pimpersonname: 员工姓名
+  xb: 性别
+  nj: 年龄
+  postaladdress: 通讯地址
+  retiPlace: 退休地
+  jtlxr: 家庭联系人
+  jtlxrdh: 家庭联系人电话
+  zz: 组织
+  bm: 部门
+  rank: 职级
+  yzw: 退休前职务
+  ygw: 退休前岗位
+  txdq: 退休时间
+  sjtxrq: 实际退休时间
+  lxdh: 手机号码
+  spdylje: 审批的养老金额
+
+
+
+employee:
+ get:
+  summary: （人员花名册-人员花名册-分页查询员工数据）--洛洛
+ field:
+  idAndName: 员工编号和员工姓名，模糊查询
+ export:
+  summary: （人员花名册-人员花名册-导出员工（导出本页在前端完成））--洛洛
+certif:
+ delete:
+  summary: （证书管理-证书信息-删除证书）--洛洛
+ field:
+  id: 证书编号 （PIMVOCATIONALID）
+  idByBatch: 批量删除证书编号 （PIMVOCATIONALID）
+ export:
+  summary: （证书管理-证书信息-导出证书）--洛洛
+loanedperpage:
+ get:
+  summary: （人员花名册-借调人员-分页查询员工数据）--洛洛
+ field:
+  PIMDISTIRBUTIONID: 借调人员标识
+  idAndName: 员工编号和姓名（模糊查询）
+  employeeid: 员工编号
+  employeename: 员工姓名
+  ygbh: 员工编号
+  pimPersonName: 员工姓名
+  zz: 原组织
+  bm: 原部门
+  yzw: 原职务
+  ygw: 原岗位
+  ormName: 新组织
+  ormOrgSectorName: 新部门
+  ormDutyName: 新职务
+  ormPostName: 新岗位
+  pcmydjdmxId: 借调状态
+  jdksrq: 借调开始时间
+  jdjsrq: 借调结束时间
+  zz1: 组织
+  bm1: 部门
+  zw1: 职务
+  gw1: 岗位
+  fp: 分配
+  lx: 类型
+  fpzt: 分配状态
+ export:
+  summary: （人员花名册-借调人员-导出员工（导出本页在前端完成））--未小满
+
+
+employeeDTO:
+ field:
+  querysample: 张**
+  ormOrgName: 工作单位
+  orgsetorName: 部门名称 t_srforgsector
+  ygbh: 员工编号
+  pimpersonName: 员工姓名
+  xb: 性别
+  mz: 民族
+  csrq: 出生日期
+  nl: 年龄
+  hyzk: 婚姻状况
+  jg: 籍贯
+  zzmm: 政治面貌
+  rdsj: 入党时间
+  zjhm: 证件号码
+  hkxz: 户口性质
+  hjdz: 户籍地址
+  sbcjd: 社保参缴地
+  dyxl: 第一学历
+  xxlb: 第一学历学校类别
+  xxlx: 第一学历学习形式
+  dyxlsxzy: 第一学历所学专业
+  dyxlbysj: 第一学历毕业时间
+  dyxlbyyx: 第一学历毕业院校
+  zgxlbyyx: 最高学历毕业院校
+  zgxl: 最高学历
+  zgxxlb: 最高学历学校类别
+  zgxllx: 最高学历学习形式
+  zgxljssj: 最高学历毕业时间
+  zgxlsxzy: 最高学历所学专业
+  cjgzsj: 参加工作时间
+  gznx: 工作年限
+  tozjdate: 建筑系统工作时间
+  zjxtgznx: 建筑系统工作年限
+  dzjbjsj: 局工作时间
+  bjgznx: 局工作年限
+  dbdwsj: 本单位工作时间
+  bdwgznx: 本单位工作年限
+  pimMajorseTypeName: 所属业务系统
+  rank: 职级
+  zw: 职务
+  gw: 岗位
+  gwType: 岗位类别
+  jxkhcj: 绩效考核成绩（近两年）
+  pimQualTypeName: 岗位证书
+  careerName: 专业技术资格（职称）
+  zcbh: 职称编号
+  sfzckjs: 是否注册会计师
+  zgzsbh: 注册会计师证书编号
+  pimVocationalCatalogName: 执（职）业资格证书 
+  rzqd: 入职渠道
+  htlb: 合同类别
+  contractType: 劳动合同性质
+  qsrq: 签订日期
+  jsrq: 结束日期
+  htsyq: 合同试用期
+  htqx: 合同期限
+  lxdh: 联系方式
+  yglx: 员工类型
+  PCMDETAILID: 人员明细表标识
+  PCMDETAILNAME: 人员明细表名称
+  CREATEMAN: 建立人
+  ENABLE: ENABLE
+  CREATEDATE: 建立时间
+  UPDATEMAN: 更新人
+  UPDATEDATE: 更新时间
+  ORMORGID: 组织标识
+  ORMORGSECTORID: 部门标识
+  FIRSTEDUCATION: FIRSTEDUCATION
+  SFZGXL: SFZGXL
+  BZ: 备注
+  KSTGKMS: 注册会计师专业阶段考试已通过科目数
+  PX: 培训
+  FIELD: 属性
