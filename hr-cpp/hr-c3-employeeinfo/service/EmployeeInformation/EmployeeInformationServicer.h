@@ -26,7 +26,7 @@
 #include "domain/do/EmployeeInformationPage/EmployeeInformationPageDO.h"
 #include "domain/dto/importInfo/ImportInfoDTO.h"
 #include "domain/vo/importInfo/importInfoVO.h"
-#include "domain/query/EmployeeInformationPageQuery/EmployeeExportQuery.h"
+#include "domain/query/postSet/PostDetailQuery.h"
 
 
 class EmployeeInformationServicer
@@ -38,8 +38,8 @@ public:
 	uint64_t saveData(const EmployeeInformationDTO::Wrapper& dto, const PayloadDTO& payload);
 	//导入员工信息(批量新增)
 	importInfoVO::Wrapper addMultiEmployee(const ImportInfoDTO::Wrapper& dto, const PayloadDTO& payload);
-
-	string exportData(const EmployeeExportQuery::Wrapper &query);
+	//导出员工信息(导出本页在前端完成)
+	std::string exportEmpInfomation(const PostDetailQuery::Wrapper& query);
 };
 
 #endif // !_EMPLOYEE_INFORMATION_SERVICER_

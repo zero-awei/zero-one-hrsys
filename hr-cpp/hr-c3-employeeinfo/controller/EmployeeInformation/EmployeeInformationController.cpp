@@ -50,21 +50,19 @@ ImportJobJsonVO::Wrapper EmployeeInformationController::execImportEmployeeInfo(c
 
 }
 //导出员工信息(导出本页在前端完成)
-StringJsonVO::Wrapper EmployeeInformationController::execExportEmployeeInfo(const EmployeeExportQuery::Wrapper& query)
-{
-	auto jvo = StringJsonVO::createShared();
-	// 定义一个Service
-	//EmployeeInformationServicer service;
-	//// 查询数据
-	// auto result = service.exportData(query);
-	// if (!result.empty()) {
-	// 	jvo->success(result);
-	// } else {
-	// 	jvo->fail("export fail");
-	// }
-	return jvo;
-}
+StringJsonVO::Wrapper EmployeeInformationController::execExportEmployeeInfo(const PostDetailQuery::Wrapper& query) {
+	auto vo = StringJsonVO::createShared();
 
+	EmployeeInformationServicer service;
+	string url = service.exportEmpInfomation(query);
+
+	if (url.empty())
+		vo->fail(url);
+	else
+		vo->success(url);
+	return vo;
+
+}
 //新增员工信息 
 Uint64JsonVO::Wrapper EmployeeInformationController::execAddEmployee(const EmployeeInformationDTO::Wrapper& dto, const PayloadDTO& payload)
 {

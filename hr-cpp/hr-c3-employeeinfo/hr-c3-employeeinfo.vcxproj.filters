@@ -177,9 +177,6 @@
     <ClInclude Include="dao\org\OrgTreeMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="uselib\jwt\EmployeeInformationToken.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="service\org\TreeOrgMapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -199,6 +196,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="domain\vo\importInfo\importInfoVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\excel\ExportExcel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\fastdfs\UseFastDfs.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -248,7 +251,10 @@
     <ClCompile Include="service\org\OrgService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="uselib\jwt\EmployeeInformationToken.cpp">
+    <ClCompile Include="uselib\excel\ExportExcel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\fastdfs\UseFastDfs.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
