@@ -5,7 +5,7 @@
       <el-container>
         <!-- 导航栏 -->
         <el-header>
-          <div class="header-nav">{{ userInfo }}</div>
+          <div class="header-nav">{{ userInfo.username }}</div>
         </el-header>
         <el-main>
           <!-- 布局路由 -->
@@ -49,13 +49,14 @@
 import { ref } from 'vue'
 import { userStore } from '../stores/user'
 import Aside from '@/components/aside/Aside.vue'
+import { storeToRefs } from 'pinia'
 const store = userStore()
 
-// 用户信息提示
-const userInfo = ref(
-  '欢迎用户：' + (store.getUser === null ? '游客' : store.getUser.username)
-)
-
 // 菜单数据
-const menus = store.getMenus
+let { menus, getUser } = storeToRefs(store)
+// 用户信息提示
+// const userInfo = computed(
+//   () => getUser.username)
+// )
+let userInfo = getUser
 </script>
