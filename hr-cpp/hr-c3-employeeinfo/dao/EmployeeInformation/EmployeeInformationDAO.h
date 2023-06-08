@@ -22,6 +22,7 @@
 #include "BaseDAO.h"
 #include "domain/do/EmployeeInformationPage/EmployeeInformationPageDO.h"
 #include "domain/query/EmployeeInformationPageQuery/EmployeeInformationPageQuery.h"
+#include "domain/query/postSet/PostDetailQuery.h"
 
 class EmployeeInformationDAO:public BaseDAO
 {
@@ -34,7 +35,10 @@ public:
 	uint64_t insert(const EmployeeInformationPageDO& iObj);
     //导员工信息（批量新增员工信息）
 	//std::list<std::string> insertMultiEmp(const std::list<EmployeeInformationPageDO>& data);
-
+	//导出员工信息(导出本页在前端完成)
+	std::list<EmployeeInformationPageDO> exportEmpInfo(const PostDetailQuery::Wrapper& query);
+	//生成表头
+	vector<std::string> getEmpInfoHead();
 };
 
 #endif // !_EMPLOYEE_INFORMATION_DAO_

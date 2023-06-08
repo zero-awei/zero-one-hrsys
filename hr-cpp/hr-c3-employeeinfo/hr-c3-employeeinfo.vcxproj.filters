@@ -147,6 +147,15 @@
     <ClInclude Include="domain\vo\importInfo\importInfoVO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="domain\query\postSet\PostDetailQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\excel\ExportExcel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uselib\fastdfs\UseFastDfs.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller\Router.cpp">
@@ -177,6 +186,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="uselib\jwt\EmployeeInformationToken.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\excel\ExportExcel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uselib\fastdfs\UseFastDfs.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

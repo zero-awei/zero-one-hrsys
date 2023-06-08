@@ -79,6 +79,8 @@ employee:
   post: 岗位
   start-time: 任职开始时间
   end-time: 任职结束时间
+ query:
+  sortTypeAndMethod: 排序类别:排序方式,(asc/desc)
 sample:
  get:
   summary: 分页查询示例数据
@@ -174,4 +176,6 @@ importInfo:
     sheetName: 数据表名
     file: 待导入文件
     id: 新增id
+  export:
+    summary: 导出员工信息
     
