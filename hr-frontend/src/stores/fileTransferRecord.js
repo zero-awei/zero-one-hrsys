@@ -1,21 +1,11 @@
 import { defineStore } from 'pinia'
 // import Request from '@/apis/request'
 
-//编辑信息
-const userData = reactive()
-
 export const useRecordStore = defineStore('fileTransferRecord', {
     state: () => ({
         //记录表格表名
-        tableTitle: '档案调出记录',
-        tableOperations:[
-            {
-                name: '导出'
-            },
-            {
-                name: '过滤'
-            }
-        ],
+        tableTitle: null,
+        tableOperations: null,
         //记录表单数据
         xmlData: [
             { id: 1, name: '员工编号', prop: 'employeeNumber' },
@@ -24,16 +14,22 @@ export const useRecordStore = defineStore('fileTransferRecord', {
             { id: 4, name: '调入单位', prop: 'transferUnit' },
             { id: 5, name: '调动时间', prop: 'transferTime' },
         ],
+        //消息弹出框初始设为不显示
+        show: false,
         //记录表格数据
         tableData: null,
         //按表单类型设置的数据
         data: null,
         //用户信息
         userData: null,
-        //每页数据条数
-        pageSizes: [],
+        // 每页数据条数
+        pageSize: [],
         //总数据条数
         total: null,
+        //当前页
+        currentPage: null,
+        //导出表格的数据
+        rows: null
     }),
     actions: {
         // 根据过滤器结果，发送请求
@@ -44,7 +40,6 @@ export const useRecordStore = defineStore('fileTransferRecord', {
             //   Request.GET,
             //    baseUrl + 'query-org-page',
             //    data,
-            //    null
             // )
             //const filterData=data.data
             const filterData = reactive({
@@ -151,7 +146,7 @@ export const useRecordStore = defineStore('fileTransferRecord', {
 
             })
             this.data = filterData
-             //将筛选的数据复制给表格数据
+            //将筛选的数据复制给表格数据
             // this.tableData=this.data 
         },
 
@@ -160,10 +155,10 @@ export const useRecordStore = defineStore('fileTransferRecord', {
             // let data = await Request.requestForm(
             //   Request.GET,
             //   '/archives/archivesInfo/',
-            //   null
+            //   data
             // )
-            // this.tableData = data.data
-            this.tableData = [
+            // const rows = data.data.rows
+            const rows = [
                 {
                     employeeNumber: 1921,
                     employeeName: 'sxj',
@@ -179,6 +174,13 @@ export const useRecordStore = defineStore('fileTransferRecord', {
                     transferTime: '2019-11-01'
                 },
             ]
+            this.tableTitle = '档案调出记录'
+            this.tableOperations = [
+                {
+                    name: '新增'
+                }
+            ]
+            this.tableData = rows
         },
         addData(val) {
             this.tableData.push(val)
