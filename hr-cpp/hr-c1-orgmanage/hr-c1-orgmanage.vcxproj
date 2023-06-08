@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{43a1a97d-9281-40e0-a570-a4dec28d5a41}</ProjectGuid>
+    <RootNamespace>hrc1orgmanage</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-common\include;..\lib-oatpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib\debug;..\lib-common\lib\debug;..\lib-mysql\lib\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-common\include;..\lib-oatpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib;..\lib-common\lib;..\lib-mysql\lib\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cpp.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)lib-dy/lib/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-common\include;..\lib-oatpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64\debug;..\lib-common\lib64\debug;..\lib-mysql\lib64\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-common\include;..\lib-oatpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64;..\lib-common\lib64;..\lib-mysql\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cpp.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)lib-dy/lib64/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="controller\jobSet\addJobController\AddJobController.cpp" />
+    <ClCompile Include="controller\jobSet\jobOutput\JobOutputController.cpp" />
+    <ClCompile Include="controller\jobSet\jobUpdate\JobUpdateController.cpp" />
+    <ClCompile Include="controller\orgbz\PageQueryBzController.cpp" />
+    <ClCompile Include="controller\projTag\addTagController\AddTagController.cpp" />
+    <ClCompile Include="controller\projTag\deleteProjTag\DeleteProjTagController.cpp" />
+    <ClCompile Include="controller\projTag\importTagController\ImportTagController.cpp" />
+    <ClCompile Include="controller\projTag\itemLabel\ItemLabelController.cpp" />
+    <ClCompile Include="controller\projTag\modifyProjTagController\ModifyProjTagController.cpp" />
+    <ClCompile Include="controller\jobSet\postDeleteController\PostDeleteController.cpp" />
+    <ClCompile Include="controller\jobSet\postQueryController\PostQueryController.cpp" />
+    <ClCompile Include="controller\jobSet\importJobController\ImportJobController.cpp" />
+    <ClCompile Include="controller\projTag\exportProjTagController\ExportProjTagController.cpp" />
+    <ClCompile Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.cpp" />
+    <ClCompile Include="controller\projTag\queryOrgList\QueryOrgListController.cpp" />
+    <ClCompile Include="controller\Router.cpp" />
+    <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="dao\jobSet\jobExportDAO\JobExportDAO.cpp" />
+    <ClCompile Include="dao\jobSet\JobSetDAO.cpp" />
+    <ClCompile Include="dao\jobSet\jobUpdateDAO\JobUpdteDAO.cpp" />
+    <ClCompile Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.cpp" />
+    <ClCompile Include="dao\jobSet\postQueryDAO\PostQueryDAO.cpp" />
+    <ClCompile Include="dao\orgbz\PageQueryBzDAO.cpp" />
+    <ClCompile Include="dao\projTag\DeleteProjTagDAO.cpp" />
+    <ClCompile Include="dao\projTag\itemLabel\ItemLabelDAO.cpp" />
+    <ClCompile Include="dao\projTag\ProjTagDAO.cpp" />
+    <ClCompile Include="service\jobSet\jobOutputService\JobOutputService.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\jobSet\JobSetService.cpp" />
+    <ClCompile Include="service\jobSet\jobUpdateService\JobUpdateService.cpp" />
+    <ClCompile Include="service\jobSet\postDeleteService\PostDeleteService.cpp" />
+    <ClCompile Include="service\jobSet\postQueryService\PostQueryService.cpp" />
+    <ClCompile Include="service\orgbz\PageQueryBzService.cpp" />
+    <ClCompile Include="service\projTag\deleteProjTagService\DeleteProjTagService.cpp" />
+    <ClCompile Include="service\projTag\itemLabel\ItemLabelService.cpp" />
+    <ClCompile Include="service\projTag\ProjTagService.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="uselib\excel\ExportExcel.cpp" />
+    <ClCompile Include="uselib\fastdfs\UseFastDfs.cpp" />
+    <ClCompile Include="uselib\jwt\TestToken.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="controller\jobSet\addJobController\AddJobController.h" />
+    <ClInclude Include="controller\jobSet\jobOutput\JobOutputController.h" />
+    <ClInclude Include="controller\jobSet\jobUpdate\JobUpdateController.h" />
+    <ClInclude Include="controller\orgbz\PageQueryBzController.h" />
+    <ClInclude Include="controller\projTag\addTagController\AddTagController.h" />
+    <ClInclude Include="controller\projTag\deleteProjTag\DeleteProjTagController.h" />
+    <ClInclude Include="controller\projTag\importTagController\ImportTagController.h" />
+    <ClInclude Include="controller\jobSet\postDeleteController\PostDeleteController.h" />
+    <ClInclude Include="controller\jobSet\postQueryController\PostQueryController.h" />
+    <ClInclude Include="controller\jobSet\importJobController\ImportJobController.h" />
+    <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\projTag\exportProjTagController\ExportProjTagController.h" />
+    <ClInclude Include="controller\projTag\itemLabel\ItemLabelController.h" />
+    <ClInclude Include="controller\projTag\modifyProjTagController\ModifyProjTagController.h" />
+    <ClInclude Include="controller\projTag\pageQueryProjTagList\PageQueryProjTagListController.h" />
+    <ClInclude Include="controller\projTag\queryOrgList\QueryOrgListController.h" />
+    <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="dao\jobSet\jobExportDAO\JobExportDAO.h" />
+    <ClInclude Include="dao\jobSet\jobExportDAO\JobExportMapper.h" />
+    <ClInclude Include="dao\jobSet\JobSetDAO.h" />
+    <ClInclude Include="dao\jobSet\jobUpdateDAO\JobUpdteDAO.h" />
+    <ClInclude Include="dao\jobSet\postDeleteDAO\PostDeleteDAO.h" />
+    <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryDAO.h" />
+    <ClInclude Include="dao\jobSet\postQueryDAO\PostQueryMapper.h" />
+    <ClInclude Include="dao\orgbz\PageQueryBzDAO.h" />
+    <ClInclude Include="dao\orgbz\PageQueryBzMapper.h" />
+    <ClInclude Include="dao\projTag\DeleteProjTagDAO.h" />
+    <ClInclude Include="dao\projTag\itemLabel\ItemLabelDAO.h" />
+    <ClInclude Include="dao\projTag\itemLabel\ItemLabelMapper.h" />
+    <ClInclude Include="dao\projTag\OrgListMapper.h" />
+    <ClInclude Include="dao\projTag\ProjTagDAO.h" />
+    <ClInclude Include="dao\projTag\ProjTagListMapper.h" />
+    <ClInclude Include="dao\projTag\ProjTagMapper.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\orgbz\PageQueryBzDO.h" />
+    <ClInclude Include="domain\do\postSet\PostDetailDO.h" />
+    <ClInclude Include="domain\do\projTag\OrgListDO.h" />
+    <ClInclude Include="domain\do\sector\SectorDO.h" />
+    <ClInclude Include="domain\do\projTag\ProjTagDO.h" />
+    <ClInclude Include="domain\dto\addJob\AddJobDTO.h" />
+    <ClInclude Include="domain\dto\itemLabel\ItemLabelDTO.h" />
+    <ClInclude Include="domain\dto\jobDownload\JobDownloadDTO.h" />
+    <ClInclude Include="domain\dto\jobSet\ImportJobDTO.h" />
+    <ClInclude Include="domain\dto\jobSet\jobDownloadDto\JobDownloadDTO.h" />
+    <ClInclude Include="domain\dto\jobSet\jobDownload\JobDownloadDTO.h" />
+    <ClInclude Include="domain\dto\jobSet\jobUpdateDto\JobUpdateDTO.h" />
+    <ClInclude Include="domain\dto\jobSet\jobUpdate\JobUpdateDTO.h" />
+    <ClInclude Include="domain\dto\jobUpdate\JobUpdateDTO.h" />
+    <ClInclude Include="domain\dto\orgbz\PageQueryBzDTO.h" />
+    <ClInclude Include="domain\dto\postSet\PostDeleteDTO.h" />
+    <ClInclude Include="domain\dto\postSet\PostDetailDTO.h" />
+    <ClInclude Include="domain\dto\projTag\AddProjTagDTO.h" />
+    <ClInclude Include="domain\dto\projTag\DeleteProjTagDTO.h" />
+    <ClInclude Include="domain\dto\projTag\ImportTagDTO.h" />
+    <ClInclude Include="domain\dto\projTag\ModifyTagDTO.h" />
+    <ClInclude Include="domain\dto\projTag\OrgListDTO.h" />
+    <ClInclude Include="domain\dto\projTag\ProjTagDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\itemlabel\ItemlabelQuery.h" />
+    <ClInclude Include="domain\query\orgbz\PageBzQuery.h" />
+    <ClInclude Include="domain\query\postSet\PostDetailQuery.h" />
+    <ClInclude Include="domain\query\projTag\OrgListQuery.h" />
+    <ClInclude Include="domain\query\projTag\PageProjTagQuery.h" />
+    <ClInclude Include="domain\vo\itemLabel\ItemLabelVO.h" />
+    <ClInclude Include="domain\vo\jobDownload\JobDownloadVO.h" />
+    <ClInclude Include="domain\vo\jobSet\JobDownloadVO\JobDownloadVO.h" />
+    <ClInclude Include="domain\vo\jobSet\JobUpdateVO\JobUpdateVO.h" />
+    <ClInclude Include="domain\vo\jobUpdate\JobUpdateVO.h" />
+    <ClInclude Include="domain\vo\orgbz\PageQueryBzVO.h" />
+    <ClInclude Include="domain\vo\postSet\PostDeleteBatchVO.h" />
+    <ClInclude Include="domain\vo\postSet\PostDetailVO.h" />
+    <ClInclude Include="domain\query\projTag\ExportProjTagQuery.h" />
+    <ClInclude Include="domain\vo\jobSet\ImportJobVO.h" />
+    <ClInclude Include="domain\vo\projTag\DeleteProjTagBatchVO.h" />
+    <ClInclude Include="domain\vo\projTag\ImportTagVO.h" />
+    <ClInclude Include="domain\vo\projTag\OrgListVO.h" />
+    <ClInclude Include="domain\vo\projTag\PageQueryProjTagVO.h" />
+    <ClInclude Include="domain\vo\projTag\ProjTagVO.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\jobSet\jobOutputService\JobOutputService.h" />
+    <ClInclude Include="service\jobSet\JobSetService.h" />
+    <ClInclude Include="service\jobSet\jobUpdateService\JobUpdateService.h" />
+    <ClInclude Include="service\jobSet\postDeleteService\PostDeleteService.h" />
+    <ClInclude Include="service\jobSet\postQueryService\PostQueryService.h" />
+    <ClInclude Include="service\orgbz\PageQueryBzService.h" />
+    <ClInclude Include="service\projTag\deleteProjTagService\DeleteProjTagService.h" />
+    <ClInclude Include="service\projTag\itemLabel\ItemLabelService.h" />
+    <ClInclude Include="service\projTag\ProjTagService.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\excel\ExportExcel.h" />
+    <ClInclude Include="uselib\fastdfs\UseFastDfs.h" />
+    <ClInclude Include="uselib\jwt\TestToken.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lib-common\lib-common.vcxproj">
+      <Project>{213f58ad-9943-4155-8a45-1b2dab0bb8f9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\lib-mysql\lib-mysql.vcxproj">
+      <Project>{8293b741-b019-444f-80bc-70321a47868e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\lib-oatpp\lib-oatpp.vcxproj">
+      <Project>{3fc26f19-d665-40bd-92f1-fc4be22a38ba}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

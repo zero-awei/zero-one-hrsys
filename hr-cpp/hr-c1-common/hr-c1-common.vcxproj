@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{fbfe450a-b25f-497b-aa54-60cb751b722a}</ProjectGuid>
+    <RootNamespace>hrc1common</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-common\include;..\lib-mysql\include;..\lib-oatpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib\debug;..\lib-common\lib\debug;..\lib-mysql\lib\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-common\include;..\lib-mysql\include;..\lib-oatpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib;..\lib-common\lib;..\lib-mysql\lib\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cpp.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)lib-dy/lib/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-common\include;..\lib-mysql\include;..\lib-oatpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64\debug;..\lib-common\lib64\debug;..\lib-mysql\lib64\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-common\include;..\lib-mysql\include;..\lib-oatpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64;..\lib-common\lib64;..\lib-mysql\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cpp.lib;hiredis.lib;redis++.lib;rocketmq-client-cpp.lib;mongocxx.lib;bsoncxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)lib-dy/lib64/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="controller\archivesLevel\ArchivesLevelsController.h" />
+    <ClInclude Include="controller\armyLevelType\ArmyLevelTypeController.h" />
+    <ClInclude Include="controller\auditStatus\AuditStatusController.h" />
+    <ClInclude Include="controller\awardLevel\AwardLevelController.h" />
+    <ClInclude Include="controller\certDropDownList\certTypeList\CertTypeListController.h" />
+    <ClInclude Include="controller\certDropDownList\profCertsList\ProfCertsListController.h" />
+    <ClInclude Include="controller\contractStatus\ContractStatusController.h" />
+    <ClInclude Include="controller\contractType\ContractTypeController.h" />
+    <ClInclude Include="controller\costTypeList\CostTypeListController.h" />
+    <ClInclude Include="controller\declareType\DeclareController.h" />
+    <ClInclude Include="controller\dismissReason\DismissReasonController.h" />
+    <ClInclude Include="controller\evaluationTypes\EvaluationTypesController.h" />
+    <ClInclude Include="controller\fileReservation\FileReservationController.h" />
+    <ClInclude Include="controller\fileStatus\FileStatusController.h" />
+    <ClInclude Include="controller\jobCategory\JobCategoryController.h" />
+    <ClInclude Include="controller\jobLevelTypeList\JobLevelTypeListController.h" />
+    <ClInclude Include="controller\leaveReason\LeaveReasonController.h" />
+    <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="controller\typeContract\TypeContractListController.h" />
+    <ClInclude Include="dao\archivesLevel\ArchivesLevelMapper.h" />
+    <ClInclude Include="dao\archivesLevel\ArchivesLevelsDAO.h" />
+    <ClInclude Include="dao\armyLevelType\ArmyLevelMapper.h" />
+    <ClInclude Include="dao\armyLevelType\ArmyLevelTypeDAO.h" />
+    <ClInclude Include="dao\auditStatus\AuditStatusDAO.h" />
+    <ClInclude Include="dao\auditStatus\AuditStatusMapper.h" />
+    <ClInclude Include="dao\awardLevel\AwardLevelDAO.h" />
+    <ClInclude Include="dao\awardLevel\AwardLevelMapper.h" />
+    <ClInclude Include="dao\certs\certTypeDAO\CertTypeDAO.h" />
+    <ClInclude Include="dao\certs\certTypeDAO\CertTypeMapper.h" />
+    <ClInclude Include="dao\certs\profCertsDAO\ProfCertsDAO.h" />
+    <ClInclude Include="dao\certs\profCertsDAO\ProfCertsMapper.h" />
+    <ClInclude Include="dao\contractType\ContractTypeDAO.h" />
+    <ClInclude Include="dao\contractType\ContractTypeMapper.h" />
+    <ClInclude Include="dao\costTypeList\CostTypeListDAO.h" />
+    <ClInclude Include="dao\costTypeList\CostTypeMapper.h" />
+    <ClInclude Include="dao\DeclareType\DeclareTypeListDAO.h" />
+    <ClInclude Include="dao\DeclareType\DeclareTypeMapper.h" />
+    <ClInclude Include="dao\dismissReason\DismissReasonDAO.h" />
+    <ClInclude Include="dao\dismissReason\DismissReasonMapper.h" />
+    <ClInclude Include="dao\EvaluationType\EvaluationTypeDAO.h" />
+    <ClInclude Include="dao\fileReservation\FileReservationDAO.h" />
+    <ClInclude Include="dao\fileStatus\FileStatusDAO.h" />
+    <ClInclude Include="dao\jobCategory\JobCategoryDAO.h" />
+    <ClInclude Include="dao\jobLevelTypeList\JobLevelMapper.h" />
+    <ClInclude Include="dao\jobLevelTypeList\JobLevelTypeListDAO.h" />
+    <ClInclude Include="dao\leaveAndDismissReason\LeaveAndDismissReasonDAO.h" />
+    <ClInclude Include="dao\leaveAndDismissReason\LeaveAndDismissReasonMapper.h" />
+    <ClInclude Include="dao\leaveReason\LeaveReasonDAO.h" />
+    <ClInclude Include="dao\leaveReason\LeaveReasonMapper.h" />
+    <ClInclude Include="dao\statusContract\StatusContractDAO.h" />
+    <ClInclude Include="dao\typeContract\TypeContractDAO.h" />
+    <ClInclude Include="dao\typeContract\TypeContractMapper.h" />
+    <ClInclude Include="domain\do\archivesLevel\ArchivesLevelDO.h" />
+    <ClInclude Include="domain\do\armyLevelType\ArmyLevelTypeDO.h" />
+    <ClInclude Include="domain\do\auditStatus\AuditStatusDO.h" />
+    <ClInclude Include="domain\do\awardLevels\ArchivesLevelsDO.h" />
+    <ClInclude Include="domain\do\certs\CertTypeDO.h" />
+    <ClInclude Include="domain\do\certs\ProCertsDO.h" />
+    <ClInclude Include="domain\do\certs\ProfCertsDO.h" />
+    <ClInclude Include="domain\do\constractStatus\ConstractStatusDO.h" />
+    <ClInclude Include="domain\do\contractType\ContractTypeDO.h" />
+    <ClInclude Include="domain\do\costTypeList\CostType.h" />
+    <ClInclude Include="domain\do\declareType\DeclareTypeDO.h" />
+    <ClInclude Include="domain\do\dismissReason\DismissReasonDO.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\fileReservation\FileReservationDO.h" />
+    <ClInclude Include="domain\do\fileStatus\FileStatusDO.h" />
+    <ClInclude Include="domain\do\jobCategory\JobCategoryDO.h" />
+    <ClInclude Include="domain\do\jobLevelTypeList\JobLevelTypeDO.h" />
+    <ClInclude Include="domain\do\leaveAndDismissReason\LeaveAndDismissReasonDO.h" />
+    <ClInclude Include="domain\do\pimArchives\PimArchivesDO.h" />
+    <ClInclude Include="domain\do\pimType\PimTypeDO.h" />
+    <ClInclude Include="domain\do\typeContract\TypeContractDO.h" />
+    <ClInclude Include="domain\do\leaveReson\LeaveReasonDO.h" />
+    <ClInclude Include="domain\dto\archivesLevels\ArchivesLevelsDTO.h" />
+    <ClInclude Include="domain\dto\awardLevel\AwardLevelDTO.h" />
+    <ClInclude Include="domain\dto\contractType\ContractTypeDTO.h" />
+    <ClInclude Include="domain\dto\contractType\TypeContractDTO.h" />
+    <ClInclude Include="domain\dto\declareType\DeclareTypeDTO.h" />
+    <ClInclude Include="domain\dto\typeContract\TypeContractDTO.h" />
+    <ClInclude Include="domain\dto\pullList\PullListDTO.h" />
+    <ClInclude Include="domain\dto\certs\CertTypeDTO.h" />
+    <ClInclude Include="domain\dto\certs\ProfCertsDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\certs\ProfCertsQuery.h" />
+    <ClInclude Include="domain\vo\archivesList\ArchivesListVO.h" />
+    <ClInclude Include="domain\vo\awardLevel\AwardLevelVO.h" />
+    <ClInclude Include="domain\vo\certs\ProfCertsVO.h" />
+    <ClInclude Include="domain\vo\certs\CertTypeVO.h" />
+    <ClInclude Include="domain\vo\contractType\ContractTypeVO.h" />
+    <ClInclude Include="domain\vo\declareList\DeclareListVO.h" />
+    <ClInclude Include="domain\vo\JobDownloadVO\JobDownloadVO.h" />
+    <ClInclude Include="domain\vo\JobUpdateVO\JobUpdateVO.h" />
+    <ClInclude Include="domain\vo\pullList\PullListVO.h" />
+    <ClInclude Include="domain\vo\typeContract\TypeContractVO.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\auditStatus\AuditStatusService.h" />
+    <ClInclude Include="service\awardLevel\AwardLevelService.h" />
+    <ClInclude Include="service\certs\certTypeService\CertTypeService.h" />
+    <ClInclude Include="service\certs\profCertsService\ProfCertsService.h" />
+    <ClInclude Include="service\armyLevelType\ArmyLevelTypeService.h" />
+    <ClInclude Include="service\contractType\ContractTypeService.h" />
+    <ClInclude Include="service\costTypeList\CostTypeListService.h" />
+    <ClInclude Include="service\declareType\DeclareTypeService.h" />
+    <ClInclude Include="service\dismissReason\DismissReasonService.h" />
+    <ClInclude Include="service\evaluationTypes\EvaluationTypeService.h" />
+    <ClInclude Include="service\fileReservation\FileReservationService.h" />
+    <ClInclude Include="service\fileStatus\FileStatusService.h" />
+    <ClInclude Include="service\jobCategory\JobCategoryService.h" />
+    <ClInclude Include="service\jobLevelTypeList\JobLevelTypeListService.h" />
+    <ClInclude Include="service\leaveAndDismissReason\LeaveAndDismissReasonService.h" />
+    <ClInclude Include="service\leaveReason\LeaveReasonService.h" />
+    <ClInclude Include="service\statusContract\StatusContractService.h" />
+    <ClInclude Include="service\typeContractList\TypeContractService.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="uselib\jwt\TestToken.h" />
+    <ClInclude Include="uselib\pullListRedis\UseLibRedis.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="controller\archivesLevel\ArchivesLevelsController.cpp" />
+    <ClCompile Include="controller\auditStatus\AuditStatusController.cpp" />
+    <ClCompile Include="controller\awardLevel\AwardLevelController.cpp" />
+    <ClCompile Include="controller\certDropDownList\certTypeList\CertTypeListController.cpp" />
+    <ClCompile Include="controller\certDropDownList\profCertsList\ProfCertsListController.cpp" />
+    <ClCompile Include="controller\armyLevelType\ArmyLevelTypeController.cpp" />
+    <ClCompile Include="controller\contractStatus\ContractStatusController.cpp" />
+    <ClCompile Include="controller\contractType\ContractTypeController.cpp" />
+    <ClCompile Include="controller\costTypeList\CostTypeListController.cpp" />
+    <ClCompile Include="controller\declareType\DeclareController.cpp" />
+    <ClCompile Include="controller\dismissReason\DismissReasonController.cpp" />
+    <ClCompile Include="controller\evaluationTypes\EvaluationTypesController.cpp" />
+    <ClCompile Include="controller\fileReservation\FileReservationController.cpp" />
+    <ClCompile Include="controller\fileStatus\FileStatusController.cpp" />
+    <ClCompile Include="controller\jobCategory\JobCategoryController.cpp" />
+    <ClCompile Include="controller\jobLevelTypeList\JobLevelTypeListController.cpp" />
+    <ClCompile Include="controller\leaveReason\LeaveReasonController.cpp" />
+    <ClCompile Include="controller\Router.cpp" />
+    <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="controller\typeContract\TypeContractListController.cpp" />
+    <ClCompile Include="dao\archivesLevel\ArchivesLevelsDAO.cpp" />
+    <ClCompile Include="dao\armyLevelType\ArmyLevelTypeDAO.cpp" />
+    <ClCompile Include="dao\auditStatus\AuditStatusDAO.cpp" />
+    <ClCompile Include="dao\awardLevel\AwardLevelDAO.cpp" />
+    <ClCompile Include="dao\certs\certTypeDAO\CertTypeDAO.cpp" />
+    <ClCompile Include="dao\certs\profCertsDAO\ProfCertsDAO.cpp" />
+    <ClCompile Include="dao\contractType\ContractTypeDAO.cpp" />
+    <ClCompile Include="dao\costTypeList\CostTypeListDAO.cpp" />
+    <ClCompile Include="dao\DeclareType\DeclareTypeListDAO.cpp" />
+    <ClCompile Include="dao\dismissReason\DismissReasonDAO.cpp" />
+    <ClCompile Include="dao\EvaluationType\EvaluationTypeDAO.cpp" />
+    <ClCompile Include="dao\fileReservation\FileReservationDAO.cpp" />
+    <ClCompile Include="dao\fileStatus\FileStatusDAO.cpp" />
+    <ClCompile Include="dao\jobCategory\JobCategoryDAO.cpp" />
+    <ClCompile Include="dao\jobLevelTypeList\JobLevelTypeListDAO.cpp" />
+    <ClCompile Include="dao\leaveAndDismissReason\LeaveAndDismissReasonDAO.cpp" />
+    <ClCompile Include="dao\leaveReason\LeaveReasonDAO.cpp" />
+    <ClCompile Include="dao\statusContract\StatusContractDAO.cpp" />
+    <ClCompile Include="dao\typeContract\TypeContractDAO.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\auditStatus\AuditStatusService.cpp" />
+    <ClCompile Include="service\awardLevel\AwardLevelService.cpp" />
+    <ClCompile Include="service\certs\certTypeService\CertTypeService.cpp" />
+    <ClCompile Include="service\certs\profCertsService\ProfCertsService.cpp" />
+    <ClCompile Include="service\armyLevelType\ArmyLevelTypeService.cpp" />
+    <ClCompile Include="service\contractType\ContractTypeService.cpp" />
+    <ClCompile Include="service\costTypeList\CostTypeListService.cpp" />
+    <ClCompile Include="service\declareType\DeclareTypeService.cpp" />
+    <ClCompile Include="service\dismissReason\DismissReasonService.cpp" />
+    <ClCompile Include="service\evaluationTypes\EvaluationTypeService.cpp" />
+    <ClCompile Include="service\fileReservation\FileReservationService.cpp" />
+    <ClCompile Include="service\fileStatus\FileStatusService.cpp" />
+    <ClCompile Include="service\jobCategory\jobCategoryService.cpp" />
+    <ClCompile Include="service\jobLevelTypeList\JobLevelTypeListService.cpp" />
+    <ClCompile Include="service\leaveAndDismissReason\LeaveAndDismissReasonService.cpp" />
+    <ClCompile Include="service\leaveReason\LeaveReasonService.cpp" />
+    <ClCompile Include="service\statusContract\StatusContractService.cpp" />
+    <ClCompile Include="service\typeContractList\TypeContractService.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="uselib\jwt\TestToken.cpp" />
+    <ClCompile Include="uselib\pullListRedis\UseLibRedis.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lib-common\lib-common.vcxproj">
+      <Project>{213f58ad-9943-4155-8a45-1b2dab0bb8f9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\lib-mysql\lib-mysql.vcxproj">
+      <Project>{8293b741-b019-444f-80bc-70321a47868e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\lib-oatpp\lib-oatpp.vcxproj">
+      <Project>{3fc26f19-d665-40bd-92f1-fc4be22a38ba}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
