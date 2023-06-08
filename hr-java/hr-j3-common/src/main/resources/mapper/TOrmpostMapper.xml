@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.common.mapper.TOrmpostMapper">
+    <select id="selectOrmpostByOrgName" resultType="com.zeroone.star.common.entity.TOrmpost">
+        SELECT ORMPOSTNAME FROM t_ormpost
+        <where>
+            <if test="orgName != null and orgName != ''">
+                ORMORGID = (
+                SELECT ORGID FROM t_srforg WHERE ORGNAME = #{orgName}
+                )
+            </if>
+        </where>
+    </select>
+</mapper>

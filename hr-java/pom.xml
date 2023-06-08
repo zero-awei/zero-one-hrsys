@@ -44,6 +44,8 @@
         <module>hr-j2-common</module>
         <module>hr-j2-dashboard</module>
         <module>hr-j2-orgmanager</module>
+        <module>hr-j3-common</module>
+        <module>hr-j3-orgmanager</module>
     </modules>
     <properties>
         <!-- 打包的时候忽略测试案例调用 -->

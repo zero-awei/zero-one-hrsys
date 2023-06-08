@@ -1,0 +1,5 @@
+server:
+  port: ${sp.j3orgmanager}
+spring:
+  application:
+    name: ${sn.j3orgmanager}

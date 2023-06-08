@@ -1,0 +1,5 @@
+server:
+  port: ${sp.j3common}
+spring:
+  application:
+    name: ${sn.j3common}
