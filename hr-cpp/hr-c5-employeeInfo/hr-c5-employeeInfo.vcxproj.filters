@@ -21,6 +21,8 @@
     <ClCompile Include="service\J_patentinfo\J_PatentService.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="controller\patentinfo\PatentinfoController.cpp" />
+    <ClCompile Include="dao\archives\ArchivesDAO.cpp" />
+    <ClCompile Include="service\archives\ArchivesService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller\archivesCenter\ArchivesCenterController.h" />
@@ -83,6 +85,12 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="domain\vo\paptentinfo\PatentinfoVO.h" />
     <ClInclude Include="controller\patentinfo\PatentinfoController.h" />
+    <ClInclude Include="dao\archives\ArchivesDAO.h" />
+    <ClInclude Include="dao\archives\ArchivesMapper.h" />
+    <ClInclude Include="domain\do\archives\t_pimarchivesDelDO.h" />
+    <ClInclude Include="domain\dto\archives\ArchivesDelDto.h" />
+    <ClInclude Include="domain\vo\archives\ArchivesDelVO.h" />
+    <ClInclude Include="service\archives\ArchivesService.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

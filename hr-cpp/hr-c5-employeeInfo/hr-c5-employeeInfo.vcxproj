@@ -181,6 +181,8 @@
     <ClInclude Include="controller\patentinfo\PatentinfoController.h" />
     <ClInclude Include="controller\Router.h" />
     <ClInclude Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.h" />
+    <ClInclude Include="dao\archives\ArchivesDAO.h" />
+    <ClInclude Include="dao\archives\ArchivesMapper.h" />
     <ClInclude Include="dao\paperinfo\t_pimpaperDAO.h" />
     <ClInclude Include="dao\paperinfo\t_pimpaperMapper.h" />
     <ClInclude Include="dao\patentinfo\t_pimpatentDAO.h" />
@@ -189,6 +191,7 @@
     <ClInclude Include="dao\J_paperinfo\J_PaperinfoMapper.h" />
     <ClInclude Include="dao\J_patentinfo\J_PatentinfoDAO.h" />
     <ClInclude Include="dao\J_patentinfo\J_PatentinfoMapper.h" />
+    <ClInclude Include="domain\do\archives\t_pimarchivesDelDO.h" />
     <ClInclude Include="domain\do\archives\t_pimarchivesDO.h" />
     <ClInclude Include="domain\do\DoInclude.h" />
     <ClInclude Include="domain\do\NotEmployeeInArchive\NotEmployeeInArchiveDO.h" />
@@ -198,6 +201,7 @@
     <ClInclude Include="domain\do\J_patentinfo\J_t_pimpatentDO.h" />
     <ClInclude Include="domain\do\UpdateArchiveInfo\UpdateArchiveInfoDO.h" />
     <ClInclude Include="domain\dto\archivesCenter\ArchivesCenterDTO.h" />
+    <ClInclude Include="domain\dto\archives\ArchivesDelDto.h" />
     <ClInclude Include="domain\dto\archives\ArchivesDTO.h" />
     <ClInclude Include="domain\dto\Blacklist\BlacklistDTO.h" />
     <ClInclude Include="domain\dto\NotEmployeeInArchive\NotEmployeeInArchiveDTO.h" />
@@ -216,6 +220,7 @@
     <ClInclude Include="domain\query\paperinfo\PaperQuery.h" />
     <ClInclude Include="domain\query\patentinfo\PatentinfoQuery.h" />
     <ClInclude Include="domain\vo\archivesCenter\ArchivesCenterVO.h" />
+    <ClInclude Include="domain\vo\archives\ArchivesDelVO.h" />
     <ClInclude Include="domain\vo\archives\ArchivesVO.h" />
     <ClInclude Include="domain\vo\BlacklistEmployee\BlacklistEmployeeVO.h" />
     <ClInclude Include="domain\vo\Blacklist\BlacklistVO.h" />
@@ -226,6 +231,7 @@
     <ClInclude Include="domain\vo\UpdateArchiveInfo\UpdateArchiveInfoVO.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\archives\ArchivesService.h" />
     <ClInclude Include="service\paperinfo\PaperinfoService.h" />
     <ClInclude Include="service\patentinfo\patentinfoService.h" />
     <ClInclude Include="service\J_paperinfo\J_PaperService.h" />
@@ -243,11 +249,13 @@
     <ClCompile Include="controller\Router.cpp" />
     <ClCompile Include="controller\SystemInterceptor.cpp" />
     <ClCompile Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.cpp" />
+    <ClCompile Include="dao\archives\ArchivesDAO.cpp" />
     <ClCompile Include="dao\paperinfo\t_pimpaperDAO.cpp" />
     <ClCompile Include="dao\patentinfo\t_pimpatentDAO.cpp" />
     <ClCompile Include="dao\J_paperinfo\J_PaperinfoDAO.cpp" />
     <ClCompile Include="dao\J_patentinfo\J_PatentinfoDAO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\archives\ArchivesService.cpp" />
     <ClCompile Include="service\paperinfo\PaperinfoService.cpp" />
     <ClCompile Include="service\patentinfo\patentinfoService.cpp" />
     <ClCompile Include="service\J_paperinfo\J_PaperService.cpp" />
