@@ -208,7 +208,6 @@
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\assignInfo\AssignInfoQuery.h" />
     <ClInclude Include="domain\query\assignInfo\AssignInfoQueryDetail.h" />
-    <ClInclude Include="domain\vo\assignInfo\AssignInfoQueryVO.h" />
     <ClInclude Include="domain\vo\assignInfo\AssignInfoQueryDetailVO.h" />
     <ClInclude Include="domain\vo\assignInfo\AssignInfoQueryVO.h" />
     <ClInclude Include="domain\vo\assignInfo\ImportAssignInfoVO.h" />
