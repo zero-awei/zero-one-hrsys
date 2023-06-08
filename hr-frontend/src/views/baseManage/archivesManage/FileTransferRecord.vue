@@ -11,12 +11,6 @@
             </Filter>
           </el-button>
           <el-button type="primary" @click="exportFile">导出</el-button>
-          <el-button @click="controlShow">
-            过滤
-            <Filter :data="$store.data" v-show="$store.show" class="filter">
-            </Filter>
-          </el-button>
-          <el-button type="primary" @click="exportFile">导出</el-button>
         </el-header>
         <el-main>
           <div class="table">

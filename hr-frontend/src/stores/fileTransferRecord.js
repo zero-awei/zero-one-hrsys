@@ -175,11 +175,7 @@ export const useRecordStore = defineStore('fileTransferRecord', {
                 },
             ]
             this.tableTitle = '档案调出记录'
-            this.tableOperations = [
-                {
-                    name: '新增'
-                }
-            ]
+            this.tableOperations = []
             this.tableData = rows
         },
         addData(val) {

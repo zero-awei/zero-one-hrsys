@@ -7,11 +7,7 @@ export const useOnReminderStore = defineStore('onFileReminder', {
         menus: null,
         //记录表格表名
         tableTitle: null,
-        tableOperations: [
-            {
-                name: '新增'
-            }
-        ],
+        tableOperations: [],
         //记录表单数据
         xmlData: [
             { id: 1, name: '档案编号', prop: 'id' },
@@ -37,109 +33,107 @@ export const useOnReminderStore = defineStore('onFileReminder', {
         currentPage: null,
     }),
     actions: {
-        //加载侧边栏菜单
-        asideData() {
-            //发送请求获取表单所需栏目
-            // let data = await Request.requestForm(
-            //   Request.GET,
-            //   '/archives/archivesInfo/',
-            //   null
-            // )
-            // this.dataitem = data.data
-            this.menus = [
-                {
-                    path: '/sample',
-                    text: '员工信息',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/excel',
-                    text: '分配信息',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/print',
-                    text: '教育信息',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/edit',
-                    text: '语言能力',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/sass',
-                    text: '家庭情况',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/communication',
-                    text: '工作履历',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/pagination',
-                    text: '档案信息',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/sass',
-                    text: '绩效信息',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/communication',
-                    text: '考勤信息',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/pagination',
-                    text: '合同信息',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/sass',
-                    text: '证书信息',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/communication',
-                    text: '奖励惩罚',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/pagination',
-                    text: '培训记录',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/sass',
-                    text: '军转干部',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/communication',
-                    text: '学术成果',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/pagination',
-                    text: '分页',
-                    icon: 'user'
-                }
-            ]
+     //加载侧边栏菜单-查询组织结构树/分页查询组织列表
+     asideData() {
+        //发送请求获取侧边栏数据
+        // let data = await Request.requestForm(
+        //   Request.GET,
+        //   '/login/current-user',
+        //    null
+        // )
+        //const rows=data.data.rows 
+        //console.log(data)
+        //测试数据
+        const rows = [
+            {
+                path: '/sample',
+                text: '员工信息',
+                icon: 'user'
+            },
+            {
+                path: '/sample/excel',
+                text: '分配信息',
+                icon: 'user'
+            },
+            {
+                path: '/sample/print',
+                text: '教育信息',
+                icon: 'user'
+            },
+            {
+                path: '/sample/edit',
+                text: '语言能力',
+                icon: 'user'
+            },
+            {
+                path: '/sample/sass',
+                text: '家庭情况',
+                icon: 'user'
+            },
+            {
+                path: '/sample/communication',
+                text: '工作履历',
+                icon: 'user'
+            },
+            {
+                path: '/sample/pagination',
+                text: '档案信息',
+                icon: 'user'
+            },
+            {
+                path: '/sample/sass',
+                text: '绩效信息',
+                icon: 'user'
+            },
+            {
+                path: '/sample/communication',
+                text: '考勤信息',
+                icon: 'user'
+            },
+            {
+                path: '/sample/pagination',
+                text: '合同信息',
+                icon: 'user'
+            },
+            {
+                path: '/sample/sass',
+                text: '证书信息',
+                icon: 'user'
+            },
+            {
+                path: '/sample/communication',
+                text: '奖励惩罚',
+                icon: 'user'
+            },
+            {
+                path: '/sample/pagination',
+                text: '培训记录',
+                icon: 'user'
+            },
+            {
+                path: '/sample/sass',
+                text: '军转干部',
+                icon: 'user'
+            },
+            {
+                path: '/sample/communication',
+                text: '学术成果',
+                icon: 'user'
+            },
+        ]
+        this.menus = rows
+    },
         },
 
-        // 根据过滤器结果，发送请求
+        // 根据过滤器结果，发送请求-    //分页查询档案列表
         requestRes(data) {
             //发送请求获取过滤后的表格
-            //分页查询档案列表
             // let data = await Request.requestForm(
             //   Request.GET,
-            //    baseUrl + 'query-org-page',
-            //    data,
+            //   '/login/current-user',
             //    null
             // )
+            //console.log(data)
             //const filterData=data.data
             const filterData = reactive({
                 employeeNum: {

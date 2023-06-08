@@ -252,8 +252,6 @@ export const useOutReminderStore = defineStore('outFileReminder', {
             //   data
             // )
             //const rows = data.data.rows
-            //this.tableTitle=data.data.tableTitle
-            //this.tableTitle=data.data.tableOperations
             //测试数据：
             const rows = [
                 {
@@ -282,12 +280,8 @@ export const useOutReminderStore = defineStore('outFileReminder', {
                 },
             ]
             this.tableTitle = '员工不在档提醒'
-            this.tableOperations = [
-                {
-                    name: '新增'
-                },
-            ]
-            this.tableData =rows 
+            this.tableOperations = []
+            this.tableData = rows
         },
         addData(val) {
             this.tableData.push(val)
