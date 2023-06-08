@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 // import Request from '@/apis/request'
 
-export const useOutReminderStore = defineStore('onFileReminder', {
+export const useOutReminderStore = defineStore('outFileReminder', {
     state: () => ({
         //记录侧边栏菜单
         menus: [
@@ -87,18 +87,8 @@ export const useOutReminderStore = defineStore('onFileReminder', {
             }
         ],
         //记录表格表名
-        tableTitle: '员工不在档提醒',
-        tableOperations: [
-            {
-                name: '新增'
-            },
-            {
-                name: '导出'
-            },
-            {
-                name: '过滤'
-            }
-        ],
+        tableTitle: null,
+        tableOperations: null,
         //记录表单数据
         xmlData: [
             { id: 1, name: '档案编号', prop: 'id' },
@@ -116,10 +106,12 @@ export const useOutReminderStore = defineStore('onFileReminder', {
         tableData: null,
         //用户信息
         userData: null,
-        //每页数据条数
-        pageSizes: [],
+        // 每页数据条数
+        pageSize: [],
         //总数据条数
         total: null,
+        //当前页
+        currentPage: null,
     }),
     actions: {
         //加载侧边栏菜单
@@ -134,19 +126,136 @@ export const useOutReminderStore = defineStore('onFileReminder', {
             // this.menus = menus
         },
 
-        //根据搜索内容筛选数据
-        filter(val) {
-            //未完
+        // 根据过滤器结果，发送请求
+        requestRes(data) {
+            //发送请求获取过滤后的表格
+            //分页查询档案列表
+            // let data = await Request.requestForm(
+            //   Request.GET,
+            //    baseUrl + 'query-org-page',
+            //    data,
+            //    null
+            // )
+            //const filterData=data.data
+            const filterData = reactive({
+                employeeNum: {
+                    name: '员工编号',
+                    type: 'input'
+                },
+                employeeName: {
+                    name: '员工姓名',
+                    type: 'input'
+                },
+                achievesNum: {
+                    name: '员工姓名',
+                    type: 'input'
+                },
+                employeeStatus: {
+                    name: '员工状态',
+                    type: 'select',
+                    options: [
+                        {
+                            value: 'on',
+                            label: '在职'
+                        },
+                        {
+                            value: 'apprenticeship',
+                            label: '见习'
+                        },
+                        {
+                            value: 'probation',
+                            label: '试用'
+                        },
+                        {
+                            value: 're-employ',
+                            label: '返聘'
+                        },
+                        {
+                            value: 'unemployed',
+                            label: '待岗'
+                        },
+                        {
+                            value: 'dismiss',
+                            label: '解聘'
+                        },
+                        {
+                            value: 'off',
+                            label: '离职'
+                        },
+                        {
+                            value: 'retire',
+                            label: '退休'
+                        },
+                        {
+                            value: 'discharge',
+                            label: '离休'
+                        },
+                        {
+                            value: 'retreat',
+                            label: '内退'
+                        },
+                        {
+                            value: 'sick',
+                            label: '病休'
+                        },
+                        {
+                            value: 'adjusted',
+                            label: '可调配'
+                        },
+                        {
+                            value: 'died',
+                            label: '身故'
+                        },
+                        {
+                            value: 'co-management',
+                            label: '共同管理'
+                        }
+                    ]
+                },
+                achievesStatus: {
+                    name: '档案状态',
+                    type: 'select',
+                    options: [
+                        {
+                            value: 'effect',
+                            label: '有效'
+                        },
+                        {
+                            value: 'noEffect',
+                            label: '无效'
+                        }]
+                },
+                borrowStatus: {
+                    name: '档案借阅状态',
+                    type: 'select',
+                    options: [
+                        {
+                            value: 'borrowing',
+                            label: '借阅中'
+                        },
+                        {
+                            value: 'returned',
+                            label: '已归还'
+                        }]
+                },
+
+            })
+            this.data = filterData
+            //将筛选的数据复制给表格数据
+            // this.tableData=this.data 
         },
         initTableData() {
             // 发送请求获取表格数据
             // let data = await Request.requestForm(
             //   Request.GET,
             //   '/archives/archivesInfo/',
-            //   null
+            //   data
             // )
-            // this.tableData = data.data
-            this.tableData = [
+            //const rows = data.data.rows
+            //this.tableTitle=data.data.tableTitle
+            //this.tableTitle=data.data.tableOperations
+            //测试数据：
+            const rows = [
                 {
                     id: '001',
                     name: '某大型集团公司',
@@ -172,13 +281,14 @@ export const useOutReminderStore = defineStore('onFileReminder', {
                     action: '调出档案'
                 },
             ]
+            this.tableTitle = '员工不在档提醒'
+            this.tableOperations = [
+                {
+                    name: '新增'
+                },
+            ]
+            this.tableData =rows 
         },
-        // getNewXmlData(checkStatus) {
-        //     this.newXmlData.value = this.xmlData.value.filter((item) => {
-        //         return checkStatus.value.includes(item.name)
-        //     })
-        //     this.xmlData.value= this.newXmlData
-        // },
         addData(val) {
             this.tableData.push(val)
         },
