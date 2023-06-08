@@ -22,7 +22,7 @@
 
 #include "domain/vo/BaseJsonVO.h"
 #include "ApiHelper.h"
-#include "domain/query/EmployeeInformationPageQuery/EmployeeExportQuery.h"
+#include "domain/query/EmployeeInformationPageQuery/EmployeeInformationPageQuery.h"
 #include "domain/vo/EmployeeInformation/EmployeeInformationVO.h"
 //#include "domain/dto/AddEmployeeAssignInfo/AddEmployeeAssignInfo.h"
 #include "domain/dto/EmployeeInformationPageQuery/EmployeeInformationPageQueryDTO.h"
@@ -59,7 +59,7 @@ public: // 定义接口
 	//定义分页查询员工列表接口端点描述
 	ENDPOINT_INFO(PageQueryInfo) {
 		//定义接口标题
-		info->summary = ZH_WORDS_GETTER("member.field.summary");
+		info->summary = ZH_WORDS_GETTER("member.field.summarypage");
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		//定义响应参数类型
@@ -111,15 +111,15 @@ public: // 定义接口
 		info->queryParams.add<String>("state").description = ZH_WORDS_GETTER("employee.field.state");
 		info->queryParams["state"].addExample("default", String("50"));
 		info->queryParams["state"].required = false;
-		
+
 	}
 	//定义分页查询员工列表接口端点处理
-	ENDPOINT(API_M_GET, "/c3-employee-info/page-query", PageQueryInfo, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams, queryParams)) {
+	ENDPOINT(API_M_GET, "/c3-employee-info/page-query", PageQueryInfo, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		//解析查询参数（解析成领域模型对象）
 		API_HANDLER_QUERY_PARAM(query, EmployeeInformationPageQuery, queryParams);
 		//响应结果
 		API_HANDLER_RESP_VO(execEmployeeInformation(query, authObject->getPayload()));
-	}	
+	}
 
 	//定义导入员工信息接口端点描述	
 	ENDPOINT_INFO(importEmployeeInfo) {
@@ -225,13 +225,13 @@ public: // 定义接口
 		API_DEF_ADD_AUTH();
 	}
 	//定义导出员工信息(导出本页在前端完成)接口端点处理
-	ENDPOINT(API_M_GET, PATH_TO_STAFFING("/c3-employee-info/export-info"), exportEmployeeInfo, API_HANDLER_AUTH_PARAME,QUERIES(QueryParams,queryParams)) {
+	ENDPOINT(API_M_GET, PATH_TO_STAFFING("/c3-employee-info/export-info"), exportEmployeeInfo, API_HANDLER_AUTH_PARAME, QUERIES(QueryParams, queryParams)) {
 		// 解析查询参数
 		API_HANDLER_QUERY_PARAM(query, PostDetailQuery, queryParams);
 		// 响应结果
 		API_HANDLER_RESP_VO(execExportEmployeeInfo(query));
 	}
-	
+
 	//定义新增员工信息接口端点描述
 	ENDPOINT_INFO(addEmployee) {
 		// 定义接口标题
@@ -247,7 +247,7 @@ public: // 定义接口
 		API_HANDLER_RESP_VO(execAddEmployee(dto, authObject->getPayload()));
 	}
 private:// 定义接口执行函数
-	
+
 	//分页查询员工列表
 	EmployeeInformationPageJsonVO::Wrapper execEmployeeInformation(const EmployeeInformationPageQuery::Wrapper& query, const PayloadDTO& payload);
 	//导入员工信息

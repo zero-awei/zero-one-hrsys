@@ -122,11 +122,10 @@ sector:
   size: 页的记录数
   sort: 排序方式
   parentdename: 查询parent类型
-  parentkey: 查询parent的id
 member:
   field:
     summary: 新增员工信息
-    summary: 分页查询员工列表
+    summarypage: 分页查询员工列表
   query:
     parentdename: 查询parent类型
     parentkey: 查询parent的id
