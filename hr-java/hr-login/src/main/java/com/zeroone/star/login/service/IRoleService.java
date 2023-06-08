@@ -18,7 +18,7 @@ public interface IRoleService extends IService<Role> {
      * @param userId 用户编号
      * @return 角色列表
      */
-    List<Role> listRoleByUserId(int userId);
+    List<Role> listRoleByUserId(String userId);
 
     /**
      * 获取指定菜单路径有访问权限的角色

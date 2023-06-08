@@ -26,7 +26,7 @@ public class Role implements Serializable {
      * 唯一ID
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private String id;
 
     /**
      * 角色名

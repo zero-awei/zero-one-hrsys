@@ -9,6 +9,7 @@ import com.zeroone.star.project.vo.JsonVO;
 import com.zeroone.star.sysmanager.service.MenuService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/sys-menu")
 @Api(tags = "菜单管理")
+@Validated
 public class MenuController implements MenuApis {
     private MenuService menuService;
 
@@ -41,7 +43,7 @@ public class MenuController implements MenuApis {
     @ApiOperation(value = "分页查询列表")
     @GetMapping("/query-list")
     @Override
-    public JsonVO<PageDTO<MenuDTO>> queryAll(MenuQuery query) {
+    public JsonVO<PageDTO<MenuDTO>> queryAll(@Validated MenuQuery query) {
         return menuService.queryAll(query);
     }
 

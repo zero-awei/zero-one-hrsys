@@ -20,7 +20,7 @@ public interface RoleMapper extends BaseMapper<Role> {
      * @param userId 用户编号
      * @return 角色列表
      */
-    List<Role> selectByUserId(int userId);
+    List<Role> selectByUserId(String userId);
 
     /**
      * 通过菜单路径获取对应的角色

@@ -40,4 +40,5 @@ public interface MenuService extends IService<Menu> {
      */
     List<MenuTreeVO> listMenuByRoleName(List<String> roleNames);
 
+    String addMenuByTest(MenuDTO menuDTO);
 }

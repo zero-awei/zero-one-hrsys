@@ -12,6 +12,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  * <p>版权：&copy;01星球</p>
  * <p>地址：01星球总部</p>
+ *
  * @author
  * @version 1.0.0
  */
@@ -21,6 +22,6 @@ import lombok.EqualsAndHashCode;
 @ApiModel("权限分页查询")
 public class CommentQuery extends PageQuery {
 
-    @ApiModelProperty(value = "查询",example = "名称")
+    @ApiModelProperty(value = "模糊查询", example = "名称", required = true)
     private String query;
 }
