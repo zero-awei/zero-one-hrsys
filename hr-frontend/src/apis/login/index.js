@@ -17,6 +17,8 @@ export const login = (data, success, fail) => {
       // 记录Token到本地
       if (data.data) {
         $store.setToken(data.data)
+        $store.loadUser()
+        $store.loadMenus()
         // 执行成功回调
         success()
         return
