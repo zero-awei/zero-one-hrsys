@@ -1,5 +1,5 @@
+import Request from '@/apis/request'
 import { RentStaffStore } from '@/stores/jdyg'
-import Request from '../request'
 
 const baseUrl = import.meta.env.VITE_HR_C2_2
 /**
