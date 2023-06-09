@@ -38,11 +38,11 @@ StringJsonVO::Wrapper AssignInfoController::execAddAssignInfo(const AssignInfoCo
 	// 执行数据新增
 	auto id = service.saveData(dto,payload);
 	if (id > 0) {
-		jvo->success(String(id));
+		jvo->success(to_string(id));
 	}
 	else
 	{
-		jvo->fail(String(id));
+		jvo->fail(to_string(id));
 	}
 	//响应结果
 	return jvo;
@@ -63,7 +63,7 @@ StringJsonVO::Wrapper AssignInfoController::execDeleteAssignInfo(const AssignInf
 	AssignInfoService service;
 	auto id = service.removeData(dto->assignId.getValue(""));
 	// 执行数据删除
-	if (id > 0) {
+	if (id) {
 		jvo->success(String(id));
 	}
 	else
@@ -90,7 +90,7 @@ StringJsonVO::Wrapper AssignInfoController::execModifyAssignInfo(const AssignInf
 	AssignInfoService service;
 	auto id = service.updateData(dto,payload);
 	// 执行数据修改
-	if (id > 0) {
+	if (id) {
 		jvo->success(String(id));
 	}
 	else
@@ -174,7 +174,7 @@ MulDeleteAssignInfoVO::Wrapper  AssignInfoController::execMulDeleteAssignInfoByI
 	AssignInfoService service;
 	auto result = service.removeMulData(dto);
 	// 执行数据删除
-	if (result > 0) {
+	if (result) {
 		vo->success(dto);
 	}
 	else

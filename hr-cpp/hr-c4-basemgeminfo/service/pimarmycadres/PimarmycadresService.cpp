@@ -93,7 +93,7 @@ uint64_t PimarmycadresService::saveManyData(const oatpp::String& fileBody, const
 	{
 
 		//判断文件中是否有数据
-		for (int j = 0; j < row.size(); ++j)
+		for (size_t j = 0; j < row.size(); ++j)
 		{
 			if (row[j].empty())
 			{
@@ -115,7 +115,6 @@ uint64_t PimarmycadresService::saveManyData(const oatpp::String& fileBody, const
 		data.setpIMID(pimpersonid);
 
 		//更新时间
-		SimpleDateTimeFormat times;
 		data.setuPDATEDATE(SimpleDateTimeFormat::format());
 		data.setcREATEDATE(data.getcREATEMAN());
 		// 从负载数据中获取创建人

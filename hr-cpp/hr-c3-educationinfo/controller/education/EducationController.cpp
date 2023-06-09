@@ -58,7 +58,7 @@ Uint64JsonVO::Wrapper EducationController::execModifyEducationSingle(const Educa
 	EducationService service;
 	// 执行数据修改
 	bool id = service.updateEducation(dto);
-	if (id > 0) {
+	if (id) {
 		vo->success(id);
 	}else{
 		vo->fail(id);

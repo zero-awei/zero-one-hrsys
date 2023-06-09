@@ -50,7 +50,7 @@ std::string TemporaryStaffService::exportData(const TempStaffQuery::Wrapper& que
 {
 	//查询数据并设置page的大小等
 	TemporaryStaffDAO dao;
-	int count = dao.count(query);
+	auto count = dao.count(query);
 	//if (count > 5000) query->pageSize = 5000;
 	//else query->pageSize = count ;
 	//query->pageIndex = 1;

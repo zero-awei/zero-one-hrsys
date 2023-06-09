@@ -132,7 +132,6 @@ uint64_t RewardAndPunishmentInformationService::saveManyData(const String& fileB
 		data.setPimpersonid(pimpersonid);
 
 		//更新时间
-		SimpleDateTimeFormat times;
 		data.setUpdatedate(SimpleDateTimeFormat::format());
 		data.setCreatedate(data.getUpdatedate());
 		// 从负载数据中获取创建人

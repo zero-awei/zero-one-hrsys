@@ -176,7 +176,7 @@ uint64_t WorkHistoryService::saveManyData(const std::string fileName, const Stri
 	{
 
 		//判断文件中是否有数据
-		for (int j = 0; j < row.size(); ++j)
+		for (size_t j = 0; j < row.size(); ++j)
 		{
 			if (row[j].empty())
 			{

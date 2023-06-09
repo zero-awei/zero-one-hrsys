@@ -8,7 +8,7 @@
 ExportCertifJsonVO::Wrapper ExportCertifController::execExportCertif(const ExportCertifQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	// 定义一个Service
-	ExportCertifService service;
+	// ExportCertifService service;
 	// 查询数据
 	//auto result = service.listAll(query);
 	// 响应结果

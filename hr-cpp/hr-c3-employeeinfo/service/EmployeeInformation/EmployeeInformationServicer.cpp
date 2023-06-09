@@ -152,7 +152,7 @@ importInfoVO::Wrapper EmployeeInformationServicer::addMultiEmployee(const Import
 
 	// 构建字段坐标映射
 	unordered_map<string, int> hash;
-	for (int i = 0; i < data[0].size(); i++)
+	for (size_t i = 0; i < data[0].size(); i++)
 	{
 		hash[data[0][i]] = i;
 	}
@@ -163,7 +163,7 @@ importInfoVO::Wrapper EmployeeInformationServicer::addMultiEmployee(const Import
 	string day = SimpleDateTimeFormat::format();//获取当前时间格式字符串
 	// 文件数据到DO
 	list<EmployeeInformationPageDO> all;
-	for (int i = 1; i < data.size(); i++)
+	for (size_t i = 1; i < data.size(); i++)
 	{
 		EmployeeInformationPageDO tmp;
 		ZO_STAR_FILE_TO_DO(tmp, data,
@@ -198,7 +198,7 @@ importInfoVO::Wrapper EmployeeInformationServicer::addMultiEmployee(const Import
 	std::list<std::string> res;
 	for (auto item : all)
 	{
-		int line = dao.insert(item);
+		auto line = dao.insert(item);
 		// 新增成功则加入一个新的id
 		if (line == 1)
 		{

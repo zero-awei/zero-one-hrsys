@@ -92,7 +92,7 @@ uint64_t LegalEntityMaiService::savaBatchDataWithFile(const std::string fileName
 	for (auto row : readData)
 	{
 		// 判断文件中是否有数据
-		for (int j = 0; j < row.size(); ++j)
+		for (size_t j = 0; j < row.size(); ++j)
 		{
 			if (row[j].empty()) return -1;
 			std::cout << CharsetConvertHepler::utf8ToAnsi(row[j]) << " ";

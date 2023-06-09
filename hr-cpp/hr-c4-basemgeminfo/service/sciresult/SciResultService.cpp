@@ -116,7 +116,7 @@ uint64_t SciResultService::saveManyData(const String& fileBody, const oatpp::dat
 	{
 
 		//判断文件中是否有数据
-		for (int j = 0; j < row.size(); ++j)
+		for (size_t j = 0; j < row.size(); ++j)
 		{
 			if (row[j].empty())
 			{
@@ -139,7 +139,6 @@ uint64_t SciResultService::saveManyData(const String& fileBody, const oatpp::dat
 		data.set_PIMPERSONID(pimpersonid);
 
 		//更新时间
-		SimpleDateTimeFormat times;
 		data.set_UPDATEDATE(SimpleDateTimeFormat::format());
 		data.set_CREATEDATE(data.get_UPDATEDATE());
 		// 从负载数据中获取创建人
