@@ -5,8 +5,7 @@
       <el-container>
         <!-- 导航栏 -->
         <el-header>
-          <div class="header-nav">{{ userInfo}}</div>
-        </el-header>
+          <div class="header-nav">{{ userInfo.username }}</div>        </el-header>
         <el-main>
           <!-- 布局路由 -->
           <router-view />
