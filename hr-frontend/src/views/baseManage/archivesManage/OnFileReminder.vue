@@ -6,8 +6,8 @@
       </el-aside> -->
       <el-container>
         <el-header>
-          <TableHead :tableTitle="$store.tableTitle" :addTitle="$store.addTitle"
-            :tableOperations="$store.tableOperations" :saveData="saveData" />
+          <TableHead :tableTitle="$store.tableTitle" :addTitle="$store.addTitle" :tableOperations="$store.tableOperations"
+            :dataitem="$store.dataitem" :saveData="saveData" />
           <Search :filter="filter" class="search"></Search>
           <el-button @click="controlShow">
             过滤
@@ -25,7 +25,8 @@
           <div class="footer">
             <ColumnFilter :xmlData="$store.xmlData" :parentMethod="getNewXmlData">
             </ColumnFilter>
-            <Pagination :current-page="$store.currentPage" :page-size="$store.pageSize" :total="$store.tableData.length"></Pagination>
+            <Pagination :current-page="$store.currentPage" :page-size="$store.pageSize" :total="$store.tableData.length">
+            </Pagination>
           </div>
         </el-footer>
       </el-container>
@@ -37,14 +38,14 @@
 import TableHead from '@/components/table/head/TableHead.vue'
 import Search from '@/components/SearchBox.vue'
 import Aside from '@/components/aside/Aside.vue'
-import MainTable from '@/components/MainTable.vue'
+import MainTable from '../../../components/MainTable.vue'
 import ColumnFilter from '@/components/columnFilter/ColumnFilter.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
 import Filter from '@/components/filter/Filter.vue'
-import {useOnReminderStore} from '@/stores/onFileReminder'
+import { useOutReminderStore } from '@/stores/outFileReminder'
 import { read, utils, writeFileXLSX } from 'xlsx'
 
-const $store = useOnReminderStore()
+const $store = useOutReminderStore()
 // 全局事件总线
 const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
 const rows=ref()
@@ -53,6 +54,7 @@ const rows=ref()
 // $store.asideData()
 //表格数据
 $store.initTableData()
+
 //获取新表单数据
 function getNewXmlData(checkStatus) {
   newXmlData.value = $store.xmlData.filter((item) => {
@@ -74,7 +76,6 @@ const res = $store.requestRes($store.data)
 mitt.on('search', res)
 
 //导出
-// 挂载的时候加载数据
 onMounted(async () => {
   /* Download from https://sheetjs.com/pres.numbers */
   const f = await fetch('https://sheetjs.com/pres.numbers')
@@ -84,7 +85,6 @@ onMounted(async () => {
   /* update data */
   rows.value = utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])
 })
-
 /* get state data and export to XLSX */
 function exportFile() {
   const ws = utils.json_to_sheet(rows.value)
@@ -120,4 +120,5 @@ function exportFile() {
 
 .filter {
   color: purple;
-}</style>
+}
+</style>
