@@ -1,12 +1,12 @@
 import Request from '@/apis/request'
 import { defineStore } from 'pinia'
-const baseUrl = import.meta.env.VITE_HR_C2_2
 export const RentStaffStore = defineStore('jdyg', {
   state: () => ({
     title: '借调人员花名册',
     options: [{ name: '搜索' }, { name: '导出' }, { name: '过滤' }],
     tableData: null,
     dataitem: null,
+    baseUrl: import.meta.env.VITE_HR_C2_2,
     xmlData: [
       { id: 1, name: '员工编号', prop: 'ygbh' },
       { id: 2, name: '员工姓名', prop: 'pimPersonName' },
@@ -24,20 +24,24 @@ export const RentStaffStore = defineStore('jdyg', {
     ],
 
     //分页器
-    pageIndex: 1,
-    pageSize: 100,
-    total: 100
+    total: 1000
     // pageSizes:[]
   }),
+  getters: {},
   actions: {
-    async initTableData() {
+    async initTableData(pageSize, pageIndex) {
       let data = await Request.requestForm(
         Request.GET,
-        baseUrl + '/query-LoanedPerPage',
+        this.baseUrl + '/query-LoanedPerPage',
+        {
+          pageIndex: pageIndex,
+          pageSize: pageSize
+        },
         null
       )
       const rows = data.data.rows
       this.tableData = rows
+      this.total = data.data.total
     },
     initDataItem() {
       this.dataitem = [
