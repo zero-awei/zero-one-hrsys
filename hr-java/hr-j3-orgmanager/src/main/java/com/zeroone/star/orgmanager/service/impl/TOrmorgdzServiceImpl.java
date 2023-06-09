@@ -1,5 +1,6 @@
 package com.zeroone.star.orgmanager.service.impl;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zeroone.star.orgmanager.entity.TOrmorgdz;
 import com.zeroone.star.orgmanager.mapper.TOrmorgdzMapper;
 import com.zeroone.star.orgmanager.service.ITOrmorgdzService;
@@ -7,9 +8,15 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zeroone.star.project.components.easyexcel.EasyExcelComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsClientComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
+import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.ExportOrgAddressDto;
+import com.zeroone.star.project.j3.dto.orgmanager.JobTitleDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.ModifyOrgAddressDTO;
+import com.zeroone.star.project.j3.dto.orgmanager.OrgAddressDTO;
+import com.zeroone.star.project.j3.query.OrgQuery;
+import com.zeroone.star.project.vo.JsonVO;
+import com.zeroone.star.project.vo.ResultStatus;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.io.ByteArrayOutputStream;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -93,5 +101,24 @@ public class TOrmorgdzServiceImpl extends ServiceImpl<TOrmorgdzMapper, TOrmorgdz
 		exportOrgAddressDto.setUrl(fastDfsClientComponent.fetchUrl(fastDfsFileInfo, "http://", true));
 
 		return exportOrgAddressDto;
+	}
+
+	/**
+	 * @Title: listOrgAddress
+	 * @Description: 分页查询指定组织地址列表
+	 * @Author: wh
+	 * @DateTime: 2023/6/9 20:49
+	 * @param query
+	 * @return com.zeroone.star.project.vo.JsonVO<com.zeroone.star.project.dto.PageDTO<com.zeroone.star.project.j3.dto.orgmanager.OrgAddressDTO>>
+	 */
+	@Override
+	public JsonVO<PageDTO<OrgAddressDTO>> listOrgAddress(OrgQuery query) {
+		Page<OrgAddressDTO> page = new Page<>(query.getPageIndex(), query.getPageSize());
+		List<OrgAddressDTO> orgAddressDTOS = mapper.selectOrgAddress(query);
+
+		// 将查询结果封装为Page对象
+		page.setRecords(orgAddressDTOS);
+		page.setTotal(orgAddressDTOS.size());
+		return JsonVO.create(PageDTO.create(page, OrgAddressDTO.class), ResultStatus.SUCCESS);
 	}
 }

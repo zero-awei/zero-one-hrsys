@@ -8,6 +8,7 @@ import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.j3.dto.ExportDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.ExportOrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.ModifyOrgAddressDTO;
+import com.zeroone.star.project.j3.dto.orgmanager.OrgAddressDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
 import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.j3.query.OrgQuery;
@@ -87,7 +88,7 @@ public interface OrgInfoApis {
      * @Author H_lzu
      * @Date 17:16 2023/5/24
      */
-    JsonVO<PageDTO<SampleDTO>> queryAllOrg(OrgQuery condition);
+    JsonVO<PageDTO<OrgAddressDTO>> queryAllOrgAddress(OrgQuery condition);
 
     /**
      * 导出组织（本页在前端完成）
@@ -96,5 +97,4 @@ public interface OrgInfoApis {
      * @Date 23:38 2023/5/30
      */
     JsonVO<ExportDTO> exportOrg() throws Exception;
-
 }

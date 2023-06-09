@@ -9,4 +9,12 @@
             updatedate=#{updatedate}
         WHERE ormorgid = #{ormorgid}
     </update>
+
+    <select id="selectOrgAddress" parameterType="com.zeroone.star.project.query.PageQuery" resultType="com.zeroone.star.project.j3.dto.orgmanager.OrgAddressDTO">
+        SELECT a.XH,b.ORGNAME, a.ORMORGDZNAME
+        FROM t_ormorgdz a
+                 JOIN t_srforg b ON a.ORMORGID = b.ORGID
+        WHERE b.ORGNAME LIKE CONCAT('%', IFNULL(#{orgname}, ''), '%')
+        ORDER BY a.XH ASC;
+    </select>
 </mapper>

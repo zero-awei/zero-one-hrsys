@@ -17,6 +17,7 @@ import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.j3.dto.ExportDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.ExportOrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.ModifyOrgAddressDTO;
+import com.zeroone.star.project.j3.dto.orgmanager.OrgAddressDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
 import com.zeroone.star.project.j3.orgmanager.OrgInfoApis;
 import com.zeroone.star.project.j3.query.OrgQuery;
@@ -129,9 +130,19 @@ public class OrgInfoController implements OrgInfoApis {
     }
 
 
+    /**
+     * @Title: queryAllOrgAddress
+     * @Description: 分页查询指定组织地址列表
+     * @Author: wh
+     * @DateTime: 2023/6/9 21:06
+     * @param condition
+     * @return com.zeroone.star.project.vo.JsonVO<com.zeroone.star.project.dto.PageDTO<com.zeroone.star.project.j3.dto.orgmanager.OrgAddressDTO>>
+     */
+    @GetMapping("query-org-address")
+    @ApiOperation("分页查询指定组织地址列表")
     @Override
-    public JsonVO<PageDTO<SampleDTO>> queryAllOrg(OrgQuery condition) {
-        return null;
+    public JsonVO<PageDTO<OrgAddressDTO>> queryAllOrgAddress(OrgQuery condition) {
+        return ormorgdzService.listOrgAddress(condition);
     }
     @Resource
     private FastDfsClientComponent fastDfsClientComponent;

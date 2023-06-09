@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 /**
@@ -21,7 +22,15 @@ import javax.validation.constraints.NotBlank;
 @Data
 @ApiModel("分页组织查询对象")
 public class OrgQuery extends PageQuery {
-    @NotBlank(message = "用户名不能为空")
+    @NotBlank(message = "组织名称不能为空")
     @ApiModelProperty(value = "组织名称", example = "明日科技")
-    private String name;
+    private String orgname;
+
+    @Min(value = 1, message = "页码最小值为1")
+    @ApiModelProperty(value = "查询页码", example = "1")
+    private long pageIndex;
+
+    @Min(value = 1, message = "条数最小值为1")
+    @ApiModelProperty(value = "查询条数", example = "10")
+    private long pageSize;
 }
