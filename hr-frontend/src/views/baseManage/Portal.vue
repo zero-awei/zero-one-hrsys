@@ -3,28 +3,24 @@
     <el-col :span="24">
       <el-row :gutter="20" style="margin: 0">
         <el-col :span="8">
-          <el-card>
-            <echarts :options="$store.pieChart" />
+          <!-- <el-card>
+            <echarts :options="pieChart" />
           </el-card>
           <el-card>
-            <echarts :options="$store.funnelChart" />
-          </el-card>
+            <echarts :options="funnelChart" />
+          </el-card> -->
         </el-col>
-        <el-col :span="8">
+        <!-- <el-col :span="8">
           <el-card>
             <echarts :options="$store.lineChart" />
           </el-card>
           <el-card>
             <echarts :options="$store.circularChart" />
           </el-card>
-        </el-col>
+        </el-col> -->
         <el-col :span="8">
           <el-card>
-            <Qualification
-              class="qua"
-              :title="$store.qualification.title"
-              :data="$store.qualification.tableData"
-            ></Qualification>
+            <Qualification class="qua" :data="qualification"></Qualification>
           </el-card>
         </el-col>
       </el-row>
@@ -35,14 +31,20 @@
 <script setup>
 import Qualification from '@/components/CareerQualifications.vue'
 import { portalStore } from '@/stores/portal'
+import { storeToRefs } from 'pinia'
+
 const $store = portalStore()
-// 测试写法
+// pieChart, funnelChart, lineChart, circularChart,
+const { qualification, pieChart } = storeToRefs($store)
+
+let pieChartData = computed(() => $store.pieChart)
+
 onBeforeMount(() => {
+  $store.initQualification()
   $store.initPieChart()
   $store.initFunnelChart()
   $store.initLineChart()
   $store.initCircularChart()
-  $store.initQualification()
 })
 </script>
 

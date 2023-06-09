@@ -34,23 +34,23 @@ import {
   deleteDispatch
 } from '@/apis/contractManage/dispatch/index'
 import { useDispatchStore } from '@/stores/dispatch'
-import { getCurrentInstance,onMounted,onBeforeMount } from 'vue'
+import { getCurrentInstance, onMounted, onBeforeMount } from 'vue'
 
 const $store = useDispatchStore()
 const { $bus } = getCurrentInstance().appContext.config.globalProperties
 let pageSize = 10
 let currentPage = 1
 onBeforeMount(() => {
-  $store.initTableData(pageSize,currentPage)
+  $store.initTableData(pageSize, currentPage)
 })
-onMounted(()=>{
-  $bus.on('getPageSize',(data)=>{
+onMounted(() => {
+  $bus.on('getPageSize', (data) => {
     pageSize = data.value
-    $store.initTableData(pageSize,currentPage)
+    $store.initTableData(pageSize, currentPage)
   })
-  $bus.on('getCurrentPage',(data)=>{
+  $bus.on('getCurrentPage', (data) => {
     currentPage = data.value
-    $store.initTableData(pageSize,currentPage)
+    $store.initTableData(pageSize, currentPage)
   })
 })
 
@@ -76,7 +76,7 @@ const deleteData = (val) => {
   }
   deleteDispatch(
     {
-      'id':data
+      id: data
     },
     () => {
       $store.initTableData()
@@ -86,7 +86,6 @@ const deleteData = (val) => {
       ElMessage.error('删除失败')
     }
   )
-  console.log(data)
 }
 
 function getNewXmlData(checkStatus) {

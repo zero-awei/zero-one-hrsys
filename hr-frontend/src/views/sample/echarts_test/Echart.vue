@@ -1,9 +1,7 @@
 <template>
-
   <el-row>
     <el-col :span="18">
       <el-row>
-
         <el-col :span="12">
           <echarts :options="pieChartOptions" />
           <echarts :options="funnelChartOption" />
@@ -13,16 +11,13 @@
           <echarts :options="circularChartOptions" />
         </el-col>
       </el-row>
-
     </el-col>
   </el-row>
-
 </template>
 
 <script>
 export default {
-
-  data () {
+  data() {
     return {
       pieChartOptions: {
         title: {
@@ -32,21 +27,23 @@ export default {
         legend: {
           data: ['博士', '硕士', '本科', '大专', '中专及以下']
         },
-        series: [{
-          name: '学历分布',
-          type: 'pie',
-          data: [
-            { value: 48, name: '博士' },
-            { value: 12, name: '硕士' },
-            { value: 28, name: '本科' },
-            { value: 8, name: '大专' },
-            { value: 4, name: '中专及以下' },
-          ],
-        }]
+        series: [
+          {
+            name: '学历分布',
+            type: 'pie',
+            data: [
+              { value: 48, name: '博士' },
+              { value: 12, name: '硕士' },
+              { value: 28, name: '本科' },
+              { value: 8, name: '大专' },
+              { value: 4, name: '中专及以下' }
+            ]
+          }
+        ]
       },
       circularChartOptions: {
         title: {
-          text: '机关与项目人员',
+          text: '机关与项目人员'
         },
         series: [
           {
@@ -78,13 +75,13 @@ export default {
           text: '职称分布'
         },
         xAxis: {
-          data: ['正高级', '高级', '中级', '初级',]
+          data: ['正高级', '高级', '中级', '初级']
         },
         yAxis: {},
         series: [
           {
             type: 'bar',
-            data: [1, 18, 7, 0,]
+            data: [1, 18, 7, 0]
           }
         ]
       },
@@ -94,7 +91,7 @@ export default {
         },
         tooltip: {
           trigger: 'item',
-          formatter: "{a} <br/>{b} : {c}%"
+          formatter: '{a} <br/>{b} : {c}%'
         },
         legend: {
           data: ['流失率']
@@ -128,9 +125,8 @@ export default {
       }
     }
   }
-};
+}
 </script>
-
 
 <style lang="scss">
 .el-row {
