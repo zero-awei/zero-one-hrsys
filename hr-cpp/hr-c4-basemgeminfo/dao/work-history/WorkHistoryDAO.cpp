@@ -39,7 +39,7 @@ if (query->cfplx) { \
 }\
 if (query->experience) { \
 		sql << " AND EXPERIENCE=?"; \
-		SQLPARAMS_PUSH(params, "i", int, query->experience.getValue(0)); \
+		SQLPARAMS_PUSH(params, "i", uint64_t, query->experience.getValue(0)); \
 }\
 if (query->pimpersonid) { \
 		sql << " AND PIMPERSONID=?"; \
