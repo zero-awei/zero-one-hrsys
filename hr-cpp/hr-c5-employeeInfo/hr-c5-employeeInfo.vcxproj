@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -187,8 +187,8 @@
     <ClInclude Include="dao\paperinfo\t_pimpaperMapper.h" />
     <ClInclude Include="dao\patentinfo\t_pimpatentDAO.h" />
     <ClInclude Include="dao\patentinfo\t_pimpatentMapper.h" />
-    <ClInclude Include="dao\J_paperinfo\J_PaperinfoDAO.h" />
-    <ClInclude Include="dao\J_paperinfo\J_PaperinfoMapper.h" />
+    <ClInclude Include="dao\J_paperinfo\J_paperinfoDAO.h" />
+    <ClInclude Include="dao\J_paperinfo\J_paperinfoMapper.h" />
     <ClInclude Include="dao\J_patentinfo\J_PatentinfoDAO.h" />
     <ClInclude Include="dao\J_patentinfo\J_PatentinfoMapper.h" />
     <ClInclude Include="domain\do\archives\t_pimarchivesDelDO.h" />
@@ -209,8 +209,8 @@
     <ClInclude Include="domain\dto\patentinfo\AddPatentDTO.h" />
     <ClInclude Include="domain\dto\patentinfo\DelPatentDTO.h" />
     <ClInclude Include="domain\dto\patentinfo\PatentinfoDTO.h" />
-    <ClInclude Include="domain\dto\J_paperinfo\J_PaperinfoDTO.h" />
-    <ClInclude Include="domain\dto\J_patentinfo\J_PatentinfoDTO.h" />
+    <ClInclude Include="domain\dto\J_paperinfo\J_paperinfoDTO.h" />
+    <ClInclude Include="domain\dto\J_patentinfo\J_patentinfoDTO.h" />
     <ClInclude Include="domain\dto\UpdateArchiveInfo\UpdateArchiveInfoDTO.h" />
     <ClInclude Include="domain\GlobalInclude.h" />
     <ClInclude Include="domain\query\archivesCenter\ArchivesCenterQuery.h" />
@@ -225,8 +225,8 @@
     <ClInclude Include="domain\vo\BlacklistEmployee\BlacklistEmployeeVO.h" />
     <ClInclude Include="domain\vo\Blacklist\BlacklistVO.h" />
     <ClInclude Include="domain\vo\NotEmployeeInArchive\NotEmployeeInArchiveVO.h" />
-    <ClInclude Include="domain\vo\J_paperinfo\J_PaperVO.h" />
-    <ClInclude Include="domain\vo\J_patentinfo\J_PatentinfoVO.h" />
+    <ClInclude Include="domain\vo\J_paperinfo\J_paperVO.h" />
+    <ClInclude Include="domain\vo\J_patentinfo\J_patentinfoVO.h" />
     <ClInclude Include="domain\vo\paptentinfo\PatentinfoVO.h" />
     <ClInclude Include="domain\vo\UpdateArchiveInfo\UpdateArchiveInfoVO.h" />
     <ClInclude Include="Macros.h" />
