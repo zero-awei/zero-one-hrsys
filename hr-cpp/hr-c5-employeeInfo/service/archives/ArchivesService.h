@@ -6,8 +6,8 @@
 #include "domain/vo/archives/ArchivesVO.h"
 #include "domain/query/archives/ArchivesQuery.h"
 #include "domain/dto/archives/ArchivesDTO.h"
-//#include "domain/dto/archives/ArchivesDelDTO.h"
-//#include "domain/vo/archives/ArchivesDelVO.h"
+#include "domain/dto/archives/ArchivesDelDTO.h"
+#include "domain/vo/archives/ArchivesDelVO.h"
 
 /**
  * 服务实现
@@ -22,7 +22,7 @@ public:
 	// 保存数据
 	uint64_t saveData(const ArchivesDTO::Wrapper& dto);
 	// 通过ID删除数据
-	//bool removeData(const ArchivesDelDTO::Wrapper& dto);
+	bool removeData(const ArchivesDelDTO::Wrapper& dto);
 };
 
 #endif // !_ARCHIVES_SERVICE_

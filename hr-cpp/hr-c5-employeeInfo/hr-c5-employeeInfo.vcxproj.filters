@@ -21,6 +21,7 @@
     <ClCompile Include="service\J_patentinfo\J_PatentService.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="controller\patentinfo\PatentinfoController.cpp" />
+    <ClCompile Include="dao\archives\ArchivesDAO.cpp" />
     <ClCompile Include="service\archives\ArchivesService.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -90,5 +91,6 @@
     <ClInclude Include="domain\dto\archives\ArchivesDelDto.h" />
     <ClInclude Include="domain\vo\archives\ArchivesDelVO.h" />
     <ClInclude Include="service\archives\ArchivesService.h" />
+    <ClInclude Include="domain\vo\paperinfo\PaperVO.h" />
   </ItemGroup>
 </Project>

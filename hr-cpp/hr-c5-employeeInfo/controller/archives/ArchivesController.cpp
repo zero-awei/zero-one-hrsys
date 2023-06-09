@@ -51,27 +51,27 @@ Uint64JsonVO::Wrapper ArchivesController::execAddArchivesInfo(const ArchivesDTO:
 	return jvo;
 }
 
-//Uint64JsonVO::Wrapper ArchivesController::execRemoveArchivesInfo(const ArchivesDelDTO::Wrapper& dto)
-//{
-//	// 定义返回数据对象
-//	auto jvo = Uint64JsonVO::createShared();
-//	// 参数校验
-//	for (auto id = dto->deleteById->begin(); id != dto->deleteById->end(); ++id)
-//	{
-//		if (!*id) {
-//			jvo->init(UInt64(-1), RS_PARAMS_INVALID);
-//			return jvo;
-//		}
-//	}
-//	// 定义一个Service
-//	ArchivesService service;
-//	// 执行数据删除
-//	if (service.removeData(dto)) {
-//		jvo->success(1);
-//	}
-//	else
-//	{
-//		jvo->fail(-1);
-//	}
-//	return jvo;
-//}
+Uint64JsonVO::Wrapper ArchivesController::execRemoveArchivesInfo(const ArchivesDelDTO::Wrapper& dto)
+{
+	// 定义返回数据对象
+	auto jvo = Uint64JsonVO::createShared();
+	// 参数校验
+	for (auto id = dto->deleteById->begin(); id != dto->deleteById->end(); ++id)
+	{
+		if (!*id) {
+			jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+			return jvo;
+		}
+	}
+	// 定义一个Service
+	ArchivesService service;
+	// 执行数据删除
+	if (service.removeData(dto)) {
+		jvo->success(1);
+	}
+	else
+	{
+		jvo->fail(-1);
+	}
+	return jvo;
+}

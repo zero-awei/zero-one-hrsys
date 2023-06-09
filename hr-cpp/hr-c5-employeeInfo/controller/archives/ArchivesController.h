@@ -94,16 +94,16 @@ public:
 	}
 
 	// 删除档案接口描述+处理
-// 	ENDPOINT_INFO(removeArchivesInfo) {
-// 		// 定义接口标题
-// 		info->summary = ZH_WORDS_GETTER("archives.delete.summary");
-// 		// 定义响应参数格式
-// 		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
-// 	}
-// 	ENDPOINT(API_M_DEL, "/archives/remove-archivesinfo", removeArchivesInfo, BODY_DTO(ArchivesDelDTO::Wrapper, dto)) {
-// 		// 响应结果
-// 		API_HANDLER_RESP_VO(execRemoveArchivesInfo(dto));
-// 	}
+	ENDPOINT_INFO(removeArchivesInfo) {
+		// 定义接口标题
+		info->summary = ZH_WORDS_GETTER("archives.delete.summary");
+		// 定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+	}
+	ENDPOINT(API_M_DEL, "/archives/remove-archivesinfo", removeArchivesInfo, BODY_DTO(ArchivesDelDTO::Wrapper, dto)) {
+		// 响应结果
+		API_HANDLER_RESP_VO(execRemoveArchivesInfo(dto));
+	}
 
 private:
 	// 查询指定档案的详细数据
@@ -113,7 +113,7 @@ private:
 	// 新增档案
 	Uint64JsonVO::Wrapper execAddArchivesInfo(const ArchivesDTO::Wrapper& dto);
 	// 删除档案
-	//Uint64JsonVO::Wrapper execRemoveArchivesInfo(const ArchivesDelDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execRemoveArchivesInfo(const ArchivesDelDTO::Wrapper& dto);
 };
 
 // 0 取消API控制器使用宏
