@@ -171,7 +171,7 @@ std::list<EmployeeInformationPageDO> EmployeeInformationDAO::exportEmpInfo(const
 	if (infoCount) {
 		if (infoCount > 5000) {
 			infoCount = 5000;
-			sql + " LIMIT " + to_string(infoCount);
+			sql +=" LIMIT " + to_string(infoCount);
 		}
 
 	}
