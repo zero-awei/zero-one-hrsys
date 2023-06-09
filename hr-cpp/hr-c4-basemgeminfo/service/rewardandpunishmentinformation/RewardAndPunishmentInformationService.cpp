@@ -105,6 +105,7 @@ uint64_t RewardAndPunishmentInformationService::saveManyData(const String& fileB
 	RewardAndPunishmentInformationDAO dao;
 	SnowFlake sf(1, 4);
 	bool tem = true;
+	int len = 0;
 	for (auto row : readData)
 	{
 
@@ -132,7 +133,7 @@ uint64_t RewardAndPunishmentInformationService::saveManyData(const String& fileB
 		data.setPimpersonid(pimpersonid);
 
 		//更新时间
-		SimpleDateTimeFormat times;
+		//SimpleDateTimeFormat times;
 		data.setUpdatedate(SimpleDateTimeFormat::format());
 		data.setCreatedate(data.getUpdatedate());
 		// 从负载数据中获取创建人
@@ -140,7 +141,8 @@ uint64_t RewardAndPunishmentInformationService::saveManyData(const String& fileB
 		data.setUpdateman(payload.getUsername());
 
 		//插入数据
-		dao.insert(data);
+		len = dao.insert(data);
 
 	}
+	return uint64_t(len);
 }
