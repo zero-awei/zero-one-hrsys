@@ -27,7 +27,6 @@ export const RentStaffStore = defineStore('jdyg', {
     total: 1000
     // pageSizes:[]
   }),
-  getters: {},
   actions: {
     async initTableData(pageSize, pageIndex) {
       let data = await Request.requestForm(

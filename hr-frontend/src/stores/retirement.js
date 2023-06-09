@@ -1,12 +1,12 @@
 import Request from '@/apis/request'
 import { defineStore } from 'pinia'
-const baseUrl = import.meta.env.VITE_HR_C2_2
 export const RetireStaffStore = defineStore('retirement', {
   state: () => ({
     title: '离(退)休人员',
     options: [{ name: '搜索' }, { name: '导出' }, { name: '过滤' }],
     tableData: null,
     dataitem: null,
+    baseUrl: import.meta.env.VITE_HR_C2_2,
     xmlData: [
       { id: 1, name: '员工编号', prop: 'ygbh' },
       { id: 2, name: '员工姓名', prop: 'pimpersonname' },
@@ -28,21 +28,23 @@ export const RetireStaffStore = defineStore('retirement', {
     ],
 
     //分页器
-    pageIndex: 1,
-    pageSize: 100,
-    total: 100
+    total: 1000
     // pageSizes:[]
   }),
   actions: {
-    async initTableData() {
+    async initTableData(pageSize, pageIndex) {
       let data = await Request.requestForm(
         Request.GET,
-        baseUrl + '/query-CheckRetiresList',
+        this.baseUrl + '/query-CheckRetiresList',
+        {
+          pageIndex: pageIndex,
+          pageSize: pageSize
+        },
         null
       )
       const rows = data.data.rows
       this.tableData = rows
-      console.log(this.tableData)
+      this.total = data.data.total
     },
     initDataItem() {
       this.dataitem = [
