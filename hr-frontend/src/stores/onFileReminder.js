@@ -7,17 +7,7 @@ export const useOnReminderStore = defineStore('onFileReminder', {
         menus: null,
         //记录表格表名
         tableTitle: null,
-        tableOperations: [
-            {
-                name: '新增'
-            },
-            // {
-            //     name: '导出'
-            // },
-            // {
-            //     name: '过滤'
-            // }
-        ],
+        tableOperations: [],
         //记录表单数据
         xmlData: [
             { id: 1, name: '档案编号', prop: 'id' },
@@ -35,130 +25,233 @@ export const useOnReminderStore = defineStore('onFileReminder', {
         tableData: null,
         //用户信息
         userData: null,
-        //每页数据条数
-        pageSizes: [],
+        // 每页数据条数
+        pageSize: [],
         //总数据条数
         total: null,
+        //当前页
+        currentPage: null,
     }),
     actions: {
-        //加载侧边栏菜单
-        asideData() {
-            //发送请求获取表单所需栏目
-            // let data = await Request.requestForm(
-            //   Request.GET,
-            //   '/archives/archivesInfo/',
-            //   null
-            // )
-            // this.dataitem = data.data
-            this.menus = [
-                {
-                    path: '/sample',
-                    text: '员工信息',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/excel',
-                    text: '分配信息',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/print',
-                    text: '教育信息',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/edit',
-                    text: '语言能力',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/sass',
-                    text: '家庭情况',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/communication',
-                    text: '工作履历',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/pagination',
-                    text: '档案信息',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/sass',
-                    text: '绩效信息',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/communication',
-                    text: '考勤信息',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/pagination',
-                    text: '合同信息',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/sass',
-                    text: '证书信息',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/communication',
-                    text: '奖励惩罚',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/pagination',
-                    text: '培训记录',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/sass',
-                    text: '军转干部',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/communication',
-                    text: '学术成果',
-                    icon: 'user'
-                },
-                {
-                    path: '/sample/pagination',
-                    text: '分页',
-                    icon: 'user'
-                }
-            ]
+     //加载侧边栏菜单-查询组织结构树/分页查询组织列表
+     asideData() {
+        //发送请求获取侧边栏数据
+        // let data = await Request.requestForm(
+        //   Request.GET,
+        //   '/login/current-user',
+        //    null
+        // )
+        //const rows=data.data.rows 
+        //console.log(data)
+        //测试数据
+        const rows = [
+            {
+                path: '/sample',
+                text: '员工信息',
+                icon: 'user'
+            },
+            {
+                path: '/sample/excel',
+                text: '分配信息',
+                icon: 'user'
+            },
+            {
+                path: '/sample/print',
+                text: '教育信息',
+                icon: 'user'
+            },
+            {
+                path: '/sample/edit',
+                text: '语言能力',
+                icon: 'user'
+            },
+            {
+                path: '/sample/sass',
+                text: '家庭情况',
+                icon: 'user'
+            },
+            {
+                path: '/sample/communication',
+                text: '工作履历',
+                icon: 'user'
+            },
+            {
+                path: '/sample/pagination',
+                text: '档案信息',
+                icon: 'user'
+            },
+            {
+                path: '/sample/sass',
+                text: '绩效信息',
+                icon: 'user'
+            },
+            {
+                path: '/sample/communication',
+                text: '考勤信息',
+                icon: 'user'
+            },
+            {
+                path: '/sample/pagination',
+                text: '合同信息',
+                icon: 'user'
+            },
+            {
+                path: '/sample/sass',
+                text: '证书信息',
+                icon: 'user'
+            },
+            {
+                path: '/sample/communication',
+                text: '奖励惩罚',
+                icon: 'user'
+            },
+            {
+                path: '/sample/pagination',
+                text: '培训记录',
+                icon: 'user'
+            },
+            {
+                path: '/sample/sass',
+                text: '军转干部',
+                icon: 'user'
+            },
+            {
+                path: '/sample/communication',
+                text: '学术成果',
+                icon: 'user'
+            },
+        ]
+        this.menus = rows
+    },
         },
 
-        //根据搜索内容筛选数据
-        filter(val) {
-            //未完
+        // 根据过滤器结果，发送请求-    //分页查询档案列表
+        requestRes(data) {
+            //发送请求获取过滤后的表格
+            // let data = await Request.requestForm(
+            //   Request.GET,
+            //   '/login/current-user',
+            //    null
+            // )
+            //console.log(data)
+            //const filterData=data.data
+            const filterData = reactive({
+                employeeNum: {
+                    name: '员工编号',
+                    type: 'input'
+                },
+                employeeName: {
+                    name: '员工姓名',
+                    type: 'input'
+                },
+                achievesNum: {
+                    name: '员工姓名',
+                    type: 'input'
+                },
+                employeeStatus: {
+                    name: '员工状态',
+                    type: 'select',
+                    options: [
+                        {
+                            value: 'on',
+                            label: '在职'
+                        },
+                        {
+                            value: 'apprenticeship',
+                            label: '见习'
+                        },
+                        {
+                            value: 'probation',
+                            label: '试用'
+                        },
+                        {
+                            value: 're-employ',
+                            label: '返聘'
+                        },
+                        {
+                            value: 'unemployed',
+                            label: '待岗'
+                        },
+                        {
+                            value: 'dismiss',
+                            label: '解聘'
+                        },
+                        {
+                            value: 'off',
+                            label: '离职'
+                        },
+                        {
+                            value: 'retire',
+                            label: '退休'
+                        },
+                        {
+                            value: 'discharge',
+                            label: '离休'
+                        },
+                        {
+                            value: 'retreat',
+                            label: '内退'
+                        },
+                        {
+                            value: 'sick',
+                            label: '病休'
+                        },
+                        {
+                            value: 'adjusted',
+                            label: '可调配'
+                        },
+                        {
+                            value: 'died',
+                            label: '身故'
+                        },
+                        {
+                            value: 'co-management',
+                            label: '共同管理'
+                        }
+                    ]
+                },
+                achievesStatus: {
+                    name: '档案状态',
+                    type: 'select',
+                    options: [
+                        {
+                            value: 'effect',
+                            label: '有效'
+                        },
+                        {
+                            value: 'noEffect',
+                            label: '无效'
+                        }]
+                },
+                borrowStatus: {
+                    name: '档案借阅状态',
+                    type: 'select',
+                    options: [
+                        {
+                            value: 'borrowing',
+                            label: '借阅中'
+                        },
+                        {
+                            value: 'returned',
+                            label: '已归还'
+                        }]
+                },
+
+            })
+            this.data = filterData
+            //将筛选的数据复制给表格数据
+            // this.tableData=this.data 
         },
+
         initTableData() {
             // 发送请求获取表格数据
             // let data = await Request.requestForm(
             //   Request.GET,
-            //   '/archives/archivesInfo/',
-            //   null
+            //   '/archives/onFileReminder/',
+            //   data
             // )
-            // this.tableData = data.data
-            this.tableTitle = '非员工在档提醒'
-            this.tableOperations = [
-                {
-                    name: '新增'
-                },
-                // {
-                //     name: '导出'
-                // },
-                // {
-                //     name: '过滤'
-                // }
-            ]
-            this.tableData = [
+            // const rows= data.data.rows
+            const rows = [
                 {
                     id: '001',
                     name: '某大型集团公司',
@@ -184,6 +277,13 @@ export const useOnReminderStore = defineStore('onFileReminder', {
                     action: '调出档案'
                 },
             ]
+            this.tableTitle = '非员工在档提醒'
+            this.tableOperations = [
+                {
+                    name: '新增'
+                },
+            ]
+            this.tableData = rows
         },
         addData(val) {
             this.tableData.push(val)
@@ -286,5 +386,4 @@ export const useOnReminderStore = defineStore('onFileReminder', {
                 ]
             }
         },
-    }
-})
+    })
