@@ -48,30 +48,26 @@ const addData = (val) => {
   )
 }
 
-const { $bus } = getCurrentInstance().appContext.config.globalProperties
-
-// let val
-// onMounted(() => {
-//   $bus.on('getRowsData', (data) => {
-//     let item = data.value
-//     val = item[0]
-//   })
-// })
-
 const deleteData = (val) => {
-  deleteRights(
-    val,
-    //success
-    () => {
-      $store.initTableData()
-      ElMessage.success('删除成功')
-    },
-    //fail
-    () => {
-      console.log(val)
-      ElMessage.error('删除失败')
-    }
-  )
+  const dataArr = []
+  for (let index of val.keys()) {
+    dataArr.push(val[index].id)
+  }
+  // console.log(data)
+  for (let i = 0; i < dataArr.length; i++) {
+    deleteRights(
+      {
+        id: dataArr[i]
+      },
+      () => {
+        $store.initTableData()
+        ElMessage.success('删除成功')
+      },
+      () => {
+        ElMessage.error('删除失败')
+      }
+    )
+  }
 }
 </script>
 

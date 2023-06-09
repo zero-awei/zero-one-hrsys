@@ -22,7 +22,7 @@ export const addRights = (data, success, fail) => {
 }
 
 export const deleteRights = (data, success, fail) => {
-  Request.requestJson(Request.DELETE, baseUrl + '/remove-right', data)
+  Request.requestForm(Request.DELETE, baseUrl + '/remove-right', data)
     .then((data) => {
       if (data.data) {
         // 执行成功回调
@@ -35,7 +35,7 @@ export const deleteRights = (data, success, fail) => {
     .catch((err) => {
       // 打印错误信息
       console.warn(err)
-      // 执行失败回调
+      // 执行失败回调1
       fail()
     })
 }
