@@ -3,9 +3,10 @@ import { defineStore } from 'pinia'
 export const menuManageStore = defineStore('menuManage', {
   state: () => ({
     title: '菜单管理',
-    options: [{ name: '搜索' }, { name: '新增' }, { name: '过滤' }],
+    options: [{ name: '搜索' }, { name: '新增' }, { name: '删除' }],
     tableData: null,
     dataitem: null,
+    baseUrl: import.meta.env.VITE_HR_J1_3 + '/sys-menu',
     xmlData: [
       { id: 1, name: '菜单ID', prop: 'id' },
       { id: 2, name: '菜单名称', prop: 'name' },
@@ -20,33 +21,18 @@ export const menuManageStore = defineStore('menuManage', {
     ]
   }),
   actions: {
-    initTableData() {
-      this.tableData = [
+    async initTableData() {
+      let data = await Request.requestForm(
+        Request.GET,
+        this.baseUrl + '/query-list',
         {
-          id: 1,
-          name: '修改',
-          url: 'xxx',
-          level: 'qwe',
-          icon: '',
-          fatherName: '编辑',
-          cengci: 1,
-          description: 'sayoriqwq',
-          isUse: '启用',
-          operation: []
+          pageIndex: 1,
+          pageSize: 10
         },
-        {
-          id: 2,
-          name: 'qweft',
-          url: 'xxx',
-          level: 'qwe',
-          icon: '',
-          fatherName: '编辑',
-          cengci: 1,
-          description: 'sayoriqwq',
-          isUse: '禁用',
-          operation: []
-        }
-      ]
+        null
+      )
+      const rows = data.data.rows
+      this.tableData = rows
     },
     initDataItem() {
       this.dataitem = [
