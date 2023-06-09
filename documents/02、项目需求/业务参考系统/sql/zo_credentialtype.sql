@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : Docker容器中的MySQL
+ Source Server         : 01项目
  Source Server Type    : MySQL
- Source Server Version : 80020
- Source Host           : 192.168.164.128:3306
- Source Schema         : test
+ Source Server Version : 80020 (8.0.20)
+ Source Host           : 8.130.89.148:3965
+ Source Schema         : zohr_sys
 
  Target Server Type    : MySQL
- Target Server Version : 80020
+ Target Server Version : 80020 (8.0.20)
  File Encoding         : 65001
 
- Date: 24/05/2023 19:18:48
+ Date: 09/06/2023 17:53:22
 */
 
 SET NAMES utf8mb4;
@@ -32,9 +32,7 @@ CREATE TABLE `zo_credentialtype`  (
 -- ----------------------------
 -- Records of zo_credentialtype
 -- ----------------------------
-INSERT INTO `zo_credentialtype` VALUES ('1', '中级软件设计师', '3', 1);
-INSERT INTO `zo_credentialtype` VALUES ('2', '会计从业资格证', '4', 1);
-INSERT INTO `zo_credentialtype` VALUES ('3', '一级建造师建筑工程专业', '6', 1);
-INSERT INTO `zo_credentialtype` VALUES ('4', '资产评估师', '7', 1);
+INSERT INTO `zo_credentialtype` VALUES ('1', '执(职)业资格证书', '10', 1);
+INSERT INTO `zo_credentialtype` VALUES ('2', '(岗位)技能证书', '5', 1);
 
 SET FOREIGN_KEY_CHECKS = 1;
