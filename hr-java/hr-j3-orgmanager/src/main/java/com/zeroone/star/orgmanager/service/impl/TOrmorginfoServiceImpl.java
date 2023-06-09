@@ -19,8 +19,9 @@ import java.util.List;
 @Service
 public class TOrmorginfoServiceImpl extends ServiceImpl<TOrmorginfoMapper, TOrmorginfo> implements ITOrmorginfoService {
 
+
     @Override
-    public boolean deleteOrg(List<String> orgIds) {
-        return baseMapper.deleteBatchIds(orgIds)!=0?true:false;
+    public Boolean deleteOrg(List<String> orgIds) {
+        return baseMapper.deleteBatchIds(orgIds)!=0?false:true;
     }
 }
