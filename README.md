@@ -213,6 +213,20 @@ https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#requirem
 
 同时也感谢其他没有明确写出来的开源组件提供给与维护者。
 
+## 运行效果截图
+
+![pic-1](./documents/00、preview-pic/pic-1.png)
+
+![pic-2](./documents/00、preview-pic/pic-2.png)
+
+![pic-3](./documents/00、preview-pic/pic-3.png)
+
+![pic-4](./documents/00、preview-pic/pic-4.png)
+
+![pic-5](./documents/00、preview-pic/pic-5.png)
+
+![pic-6](./documents/00、preview-pic/pic-6.png)
+
 ## 支持一下
 
 如果觉得框架和项目还不错，点个⭐Star，这将是对**01星球**极大的鼓励与支持。
