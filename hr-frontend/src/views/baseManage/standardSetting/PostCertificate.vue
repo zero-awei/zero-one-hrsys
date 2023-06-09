@@ -33,7 +33,7 @@ import { onBeforeMount } from 'vue'
 const $store = usePostCertificateStore()
 //页面挂载前请求数据
 onBeforeMount(() => {
-  $store.loadTableData()
+  $store.initTableData()
 })
 
 //将新增的数据保存

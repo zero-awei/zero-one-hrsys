@@ -7,7 +7,7 @@
           v-for="tableOperation in tableOperations"
           :key="tableOperation.name"
         >
-          <SearchBox v-if="tableOperation.name === '搜索'" />
+          <SearchBox v-if="tableOperation.name === '搜索'" :filter="filter" />
           <div style="postion: relative; top: 4px">
             <AddButton
               :tableTitle="tableTitle"
@@ -45,7 +45,11 @@ defineProps({
   tableOperations:Array,
   dataitem: Array,
   saveData: Function,
-  deleteData: Function
+  deleteData: Function,
+  filter:{
+    type: Function,
+    default: () => {}
+  }
 })
 
 //监听需要删除的数据，并将数据集传给回调函数

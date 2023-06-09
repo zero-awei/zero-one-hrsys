@@ -2,6 +2,7 @@
   <div>
     <div class="header">
       <TableHead
+        :filter="filter"
         :tableTitle="$store.tableTitle"
         :tableOperations="$store.tableOperations"
         :saveData="saveData"
@@ -11,7 +12,10 @@
       />
     </div>
     <div class="table">
-      <MainTable :xmlData="newXmlData" :tableData="$store.tableData" />
+      <MainTable :xmlData="newXmlData" 
+                 :tableData="$store.tableData" 
+                 :isSelection="true"
+      />
     </div>
     <div class="footer">
       <ColumnFilter :xmlData="$store.xmlData" :parentMethod="getNewXmlData" />
@@ -55,7 +59,7 @@ const saveData = (val) => {
   addDispatch(
     val,
     () => {
-      $store.initTableData()
+      $store.initTableData(pageSize,currentPage)
       ElMessage.success('添加成功')
     },
     () => {
@@ -92,6 +96,10 @@ function getNewXmlData(checkStatus) {
 }
 const newXmlData = ref([])
 newXmlData.value = [...$store.xmlData]
+
+const filter = (val) => {
+  console.log(`output->`, val)
+}
 </script>
 
 <style lang="scss" scoped>
