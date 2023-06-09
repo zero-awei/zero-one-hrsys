@@ -115,6 +115,7 @@ uint64_t PimarmycadresService::saveManyData(const oatpp::String& fileBody, const
 		data.setpIMID(pimpersonid);
 
 		//更新时间
+		//SimpleDateTimeFormat times;
 		data.setuPDATEDATE(SimpleDateTimeFormat::format());
 		data.setcREATEDATE(data.getcREATEMAN());
 		// 从负载数据中获取创建人
