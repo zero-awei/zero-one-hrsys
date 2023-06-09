@@ -45,6 +45,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hr-c6-basemanage", "hr-c6-b
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hr-c7-datasetting", "hr-c7-datasetting\hr-c7-datasetting.vcxproj", "{BBD54760-15B4-404F-8FF0-A3D9A0052B76}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hr-c5-employeeInfo", "hr-c5-employeeInfo\hr-c5-employeeInfo.vcxproj", "{45F81F4E-0D1B-4671-880E-C89B9FACB1E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -181,6 +183,14 @@ Global
 		{BBD54760-15B4-404F-8FF0-A3D9A0052B76}.Release|x64.Build.0 = Release|x64
 		{BBD54760-15B4-404F-8FF0-A3D9A0052B76}.Release|x86.ActiveCfg = Release|Win32
 		{BBD54760-15B4-404F-8FF0-A3D9A0052B76}.Release|x86.Build.0 = Release|Win32
+		{45F81F4E-0D1B-4671-880E-C89B9FACB1E5}.Debug|x64.ActiveCfg = Debug|x64
+		{45F81F4E-0D1B-4671-880E-C89B9FACB1E5}.Debug|x64.Build.0 = Debug|x64
+		{45F81F4E-0D1B-4671-880E-C89B9FACB1E5}.Debug|x86.ActiveCfg = Debug|Win32
+		{45F81F4E-0D1B-4671-880E-C89B9FACB1E5}.Debug|x86.Build.0 = Debug|Win32
+		{45F81F4E-0D1B-4671-880E-C89B9FACB1E5}.Release|x64.ActiveCfg = Release|x64
+		{45F81F4E-0D1B-4671-880E-C89B9FACB1E5}.Release|x64.Build.0 = Release|x64
+		{45F81F4E-0D1B-4671-880E-C89B9FACB1E5}.Release|x86.ActiveCfg = Release|Win32
+		{45F81F4E-0D1B-4671-880E-C89B9FACB1E5}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

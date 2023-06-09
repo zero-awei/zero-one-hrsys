@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{45f81f4e-0d1b-4671-880e-c89b9facb1e5}</ProjectGuid>
+    <RootNamespace>hrc5employeeInfo</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib\debug;..\lib-common\lib\debug;..\lib-mysql\lib\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;yaml-cppd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib\openssl;..\lib-oatpp\lib;..\lib-common\lib;..\lib-mysql\lib\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;yaml-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)lib-dy/lib/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64\debug;..\lib-common\lib64\debug;..\lib-mysql\lib64\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;yaml-cppd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\lib-mysql\include;..\lib-oatpp\include;..\lib-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib-oatpp\lib64\openssl;..\lib-oatpp\lib64;..\lib-common\lib64;..\lib-mysql\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oatpp.lib;oatpp-swagger.lib;ws2_32.lib;mysqlcppconn.lib;libcrypto.lib;libssl.lib;yaml-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)lib-dy/lib64/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="controller\archivesCenter\ArchivesCenterController.h" />
+    <ClInclude Include="controller\archives\ArchivesController.h" />
+    <ClInclude Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.h" />
+    <ClInclude Include="controller\OtherComponent.hpp" />
+    <ClInclude Include="controller\paperinfoController\PaperinfoController.h" />
+    <ClInclude Include="controller\J_paperinfo\J_PaperController.h" />
+    <ClInclude Include="controller\J_patentinfo\J_PatentinfoController.h" />
+    <ClInclude Include="controller\patentinfo\PatentinfoController.h" />
+    <ClInclude Include="controller\Router.h" />
+    <ClInclude Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.h" />
+    <ClInclude Include="dao\archives\ArchivesDAO.h" />
+    <ClInclude Include="dao\archives\ArchivesMapper.h" />
+    <ClInclude Include="dao\paperinfo\t_pimpaperDAO.h" />
+    <ClInclude Include="dao\paperinfo\t_pimpaperMapper.h" />
+    <ClInclude Include="dao\patentinfo\t_pimpatentDAO.h" />
+    <ClInclude Include="dao\patentinfo\t_pimpatentMapper.h" />
+    <ClInclude Include="dao\J_paperinfo\J_PaperinfoDAO.h" />
+    <ClInclude Include="dao\J_paperinfo\J_PaperinfoMapper.h" />
+    <ClInclude Include="dao\J_patentinfo\J_PatentinfoDAO.h" />
+    <ClInclude Include="dao\J_patentinfo\J_PatentinfoMapper.h" />
+    <ClInclude Include="domain\do\archives\t_pimarchivesDelDO.h" />
+    <ClInclude Include="domain\do\archives\t_pimarchivesDO.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\NotEmployeeInArchive\NotEmployeeInArchiveDO.h" />
+    <ClInclude Include="domain\do\paperinfo\t_pimpaperDO.h" />
+    <ClInclude Include="domain\do\patentinfo\t_pimpatentDO.h" />
+    <ClInclude Include="domain\do\J_paperinfo\J_paperinfoDO.h" />
+    <ClInclude Include="domain\do\J_patentinfo\J_t_pimpatentDO.h" />
+    <ClInclude Include="domain\do\UpdateArchiveInfo\UpdateArchiveInfoDO.h" />
+    <ClInclude Include="domain\dto\archivesCenter\ArchivesCenterDTO.h" />
+    <ClInclude Include="domain\dto\archives\ArchivesDelDto.h" />
+    <ClInclude Include="domain\dto\archives\ArchivesDTO.h" />
+    <ClInclude Include="domain\dto\Blacklist\BlacklistDTO.h" />
+    <ClInclude Include="domain\dto\NotEmployeeInArchive\NotEmployeeInArchiveDTO.h" />
+    <ClInclude Include="domain\dto\paperinfo\PaperDTO.h" />
+    <ClInclude Include="domain\dto\patentinfo\AddPatentDTO.h" />
+    <ClInclude Include="domain\dto\patentinfo\DelPatentDTO.h" />
+    <ClInclude Include="domain\dto\patentinfo\PatentinfoDTO.h" />
+    <ClInclude Include="domain\dto\J_paperinfo\J_PaperinfoDTO.h" />
+    <ClInclude Include="domain\dto\J_patentinfo\J_PatentinfoDTO.h" />
+    <ClInclude Include="domain\dto\UpdateArchiveInfo\UpdateArchiveInfoDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\archivesCenter\ArchivesCenterQuery.h" />
+    <ClInclude Include="domain\query\archives\ArchivesQuery.h" />
+    <ClInclude Include="domain\query\Blacklist\BlacklistQuery.h" />
+    <ClInclude Include="domain\query\NotEmployeeInArchive\NotEmployeeInArchiveQuery.h" />
+    <ClInclude Include="domain\query\paperinfo\PaperQuery.h" />
+    <ClInclude Include="domain\query\patentinfo\PatentinfoQuery.h" />
+    <ClInclude Include="domain\vo\archivesCenter\ArchivesCenterVO.h" />
+    <ClInclude Include="domain\vo\archives\ArchivesDelVO.h" />
+    <ClInclude Include="domain\vo\archives\ArchivesVO.h" />
+    <ClInclude Include="domain\vo\BlacklistEmployee\BlacklistEmployeeVO.h" />
+    <ClInclude Include="domain\vo\Blacklist\BlacklistVO.h" />
+    <ClInclude Include="domain\vo\NotEmployeeInArchive\NotEmployeeInArchiveVO.h" />
+    <ClInclude Include="domain\vo\J_paperinfo\J_PaperVO.h" />
+    <ClInclude Include="domain\vo\J_patentinfo\J_PatentinfoVO.h" />
+    <ClInclude Include="domain\vo\paptentinfo\PatentinfoVO.h" />
+    <ClInclude Include="domain\vo\UpdateArchiveInfo\UpdateArchiveInfoVO.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\archives\ArchivesService.h" />
+    <ClInclude Include="service\paperinfo\PaperinfoService.h" />
+    <ClInclude Include="service\patentinfo\patentinfoService.h" />
+    <ClInclude Include="service\J_paperinfo\J_PaperService.h" />
+    <ClInclude Include="service\J_patentinfo\J_PatentService.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="controller\archivesCenter\ArchivesCenterController.cpp" />
+    <ClCompile Include="controller\archives\ArchivesController.cpp" />
+    <ClCompile Include="controller\NotEmployeeInArchive\NotEmployeeInArchiveController.cpp" />
+    <ClCompile Include="controller\paperinfoController\PaperinfoController.cpp" />
+    <ClCompile Include="controller\J_paperinfo\J_PaperController.cpp" />
+    <ClCompile Include="controller\J_patentinfo\J_PatentinfoController.cpp" />
+    <ClCompile Include="controller\patentinfo\PatentinfoController.cpp" />
+    <ClCompile Include="controller\Router.cpp" />
+    <ClCompile Include="controller\SystemInterceptor.cpp" />
+    <ClCompile Include="controller\UpdateArchiveInfo\UpdateArchiveInfoController.cpp" />
+    <ClCompile Include="dao\paperinfo\t_pimpaperDAO.cpp" />
+    <ClCompile Include="dao\patentinfo\t_pimpatentDAO.cpp" />
+    <ClCompile Include="dao\J_paperinfo\J_PaperinfoDAO.cpp" />
+    <ClCompile Include="dao\J_patentinfo\J_PatentinfoDAO.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\archives\ArchivesService.cpp" />
+    <ClCompile Include="service\paperinfo\PaperinfoService.cpp" />
+    <ClCompile Include="service\patentinfo\patentinfoService.cpp" />
+    <ClCompile Include="service\J_paperinfo\J_PaperService.cpp" />
+    <ClCompile Include="service\J_patentinfo\J_PatentService.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lib-common\lib-common.vcxproj">
+      <Project>{213f58ad-9943-4155-8a45-1b2dab0bb8f9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\lib-mysql\lib-mysql.vcxproj">
+      <Project>{8293b741-b019-444f-80bc-70321a47868e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\lib-oatpp\lib-oatpp.vcxproj">
+      <Project>{3fc26f19-d665-40bd-92f1-fc4be22a38ba}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
