@@ -1,0 +1,46 @@
+{
+  "name": "project-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite --open",
+    "build": "vite build",
+    "preview": "vite preview --port 4173",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.0.9",
+    "@types/node": "^20.2.0",
+    "axios": "^0.27.2",
+    "babel-eslint": "^10.1.0",
+    "crypto-js": "^4.1.1",
+    "echarts": "^5.4.2",
+    "element-plus": "^2.2.17",
+    "less": "^4.1.3",
+    "mitt": "^3.0.0",
+    "nprogress": "^0.2.0",
+    "pinia": "^2.0.21",
+    "qs": "^6.11.0",
+    "v-charts": "^1.19.0",
+    "vue": "^3.2.38",
+    "vue-plugin-hiprint": "^0.0.48",
+    "vue-router": "^4.1.5",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.19.2/xlsx-0.19.2.tgz"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.1.4",
+    "@vitejs/plugin-vue": "^3.0.3",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "eslint": "8.22.0",
+    "eslint-plugin-vue": "^9.3.0",
+    "prettier": "^2.7.1",
+    "sass": "^1.54.9",
+    "unplugin-auto-import": "^0.11.2",
+    "unplugin-vue-components": "^0.22.7",
+    "vite": "^3.0.9",
+    "vite-plugin-html": "^3.2.0"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "parser": "babel-eslint"
+  }
+}

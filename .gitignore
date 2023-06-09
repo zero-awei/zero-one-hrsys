@@ -36,6 +36,7 @@ hs_err_pid*
 target
 .DS_Store
 
+
 # temp ignore
 *.cache
 *.diff
@@ -57,3 +58,7 @@ target
 
 # Visual Studio 2017 auto generated files
 Generated\ Files/
+
+*.vscode
+
+*/node_modules

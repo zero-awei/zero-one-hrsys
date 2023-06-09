@@ -1,0 +1,37 @@
+// 定义变量
+$block-sel: '-' !default;
+$element-sel: '__' !default;
+$modify-sel: '--' !default;
+// 前缀
+$_namespace: 'hr' !default; // 没有赋值过，它就会赋值
+
+// 块层
+@mixin block($block) {
+  $B: $_namespace + $block-sel + $block;
+  .#{$B} {
+    @content; // 插槽
+  }
+}
+
+// 元素层
+@mixin element($ele) {
+  $selector: &;
+  // 在父级层次，省去多余的父级的类名
+  @at-root {
+    $E: $selector + $element-sel + $ele;
+    #{$E} {
+      @content;
+    }
+  }
+}
+
+// 修饰层
+@mixin modifier($modifier) {
+  $selector: &;
+  @at-root {
+    $M: $selector + $modify-sel + $modifier;
+    #{$M} {
+      @content;
+    }
+  }
+}
