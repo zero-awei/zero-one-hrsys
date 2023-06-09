@@ -61,9 +61,9 @@ import java.util.stream.Collectors;
 @RequestMapping("jobset")
 @Api(tags = "职务设置")
 public class JobSetController implements JobSetApis {
-    @Autowired
+    @Resource
     ITOrmdutyService itOrmdutyService;
-    @Autowired
+    @Resource
     TOrmdutyMapper tOrmdutyMapper;
     @Resource
     private FastDfsClientComponent fastDfsClientComponent;
@@ -75,7 +75,7 @@ public class JobSetController implements JobSetApis {
 
     @Resource
     EasyExcelComponent component;
-    @Autowired
+    @Resource
     private ITOrmdutyService service;
 
     @GetMapping("expor-all-jobs")
@@ -117,9 +117,7 @@ public class JobSetController implements JobSetApis {
         if (fastDfsFileInfo == null) {
             return JsonVO.fail(null);
         }
-
         //调用service执行逻辑
-
         service.importExcelData(fastDfsFileInfo);
 
 

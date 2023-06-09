@@ -52,6 +52,8 @@ public class OrgInfoController implements OrgInfoApis {
     ITSrforgService itSrforgService;
     @Resource
     ITOrmorgdzService ormorgdzService;
+    @Resource
+    ITOrmorginfoService itOrmorginfoService;
 
 
 
@@ -166,5 +168,10 @@ public class OrgInfoController implements OrgInfoApis {
 
         return JsonVO.success(exportDTO);
 
+    }
+
+    @Override
+    public JsonVO<Boolean> deleteOrg(List<String> orgIds) {
+        return JsonVO.success(itOrmorginfoService.deleteOrg(orgIds));
     }
 }
