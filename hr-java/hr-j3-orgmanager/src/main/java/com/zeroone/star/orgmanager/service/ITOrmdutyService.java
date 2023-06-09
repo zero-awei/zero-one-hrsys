@@ -21,8 +21,14 @@ import java.util.List;
  * @since 2023-05-25
  */
 public interface ITOrmdutyService extends IService<TOrmduty> {
-
+    /**
+     * 通过Excel文件导入职务
+     * @param fastDfsFileInfo fastDfsFileInfo
+     * @Author H_lzu
+     * @Date 22:38 2023/6/8
+     */
     void importExcelData(FastDfsFileInfo fastDfsFileInfo) throws Exception;
+
     /**
      * 更新职务信息
      * @param tOrmduty
@@ -36,6 +42,7 @@ public interface ITOrmdutyService extends IService<TOrmduty> {
      * @return
      */
     boolean deleteByOrmdutyIds(List<String> ids);
+
     /**
      * 通过名称查找职位详情
      * @param condition 关键字和页面信息

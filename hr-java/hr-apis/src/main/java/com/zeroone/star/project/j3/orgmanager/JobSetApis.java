@@ -2,21 +2,13 @@ package com.zeroone.star.project.j3.orgmanager;
 
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.j3.dto.*;
-
 import com.zeroone.star.project.dto.sample.SampleDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.JobTitleDTO;
 import com.zeroone.star.project.j3.query.JobByNameQuery;
 import com.zeroone.star.project.query.PageQuery;
 import com.zeroone.star.project.vo.JsonVO;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.util.List;
 
 /**
  * <p>
@@ -85,7 +77,7 @@ public interface JobSetApis {
      * @Author H_lzu
      * @Date 16:32 2023/6/8
      */
-    JsonVO<Boolean> DeletePosition(@RequestBody DeletePositionDTO deletePositionDTO);
+    JsonVO<Boolean> DeletePosition(DeletePositionDTO deletePositionDTO);
 
 
     /**
@@ -95,7 +87,7 @@ public interface JobSetApis {
      * @Author H_lzu
      * @Date 16:33 2023/6/8
      */
-    JsonVO<Boolean> AddPosition(@RequestBody JobTitleDTO jobTitleDTO);
+    JsonVO<Boolean> AddPosition(JobTitleDTO jobTitleDTO);
 
     /**
      * 导出组织（导出本页在前端完成）
