@@ -1,25 +1,28 @@
 <template>
   <div class="chart-container">
-    <h1>{{ title }}</h1>
-
-    <el-table :data="data" :show-header="false" border style="width: 100%">
-      <el-table-column prop="name" align="center" width="" />
-      <el-table-column prop="color" align="center" width="">
+    <h1>{{ data?.title }}</h1>
+    <el-table
+      :data="data?.tableData"
+      :show-header="false"
+      border
+      style="width: 100%"
+    >
+      <el-table-column prop="qualificationName" align="center" />
+      <el-table-column prop="color" align="center">
         <template #default="scope">
           <div
             class="bar"
             :style="{
               backgroundColor: scope.row.color,
-              width: (scope.row.val / total) * 100 + '%'
+              width: (scope.row.countNum / total) * 200 + '%'
             }"
           >
-            {{}}
           </div>
         </template>
       </el-table-column>
-      <el-table-column prop="val" align="center" width="">
+      <el-table-column prop="countNum" align="center">
         <template #default="scope">
-          {{ scope.row.val + '人' }}
+          {{ scope.row.countNum + '人' }}
         </template>
       </el-table-column>
     </el-table>
@@ -27,19 +30,14 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  title: String,
-  data: {
-    type: Array,
-    default: () => []
-  }
-})
-
+const props = defineProps(['data'])
 // 计算总和
 let total = ref(0)
-total = props.data.reduce((all, cur) => {
-  return all + cur.val
-}, 0)
+total = computed(() => {
+  return props.data?.tableData.reduce((all, cur) => {
+    return all + cur.countNum
+  }, 0)
+})
 </script>
 
 <style lang="scss" scoped>

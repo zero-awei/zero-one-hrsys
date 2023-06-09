@@ -46,7 +46,7 @@ const props = defineProps({
 });
 const currentPage = ref(props.currentPage);
 const pageSize = ref(props.pageSize);
-const total = ref(props.total);
+//const total = ref(props.total);
 function handleSizeChange(size: number) {
   // 处理每页显示数量变化事件
   pageSize.value = size;

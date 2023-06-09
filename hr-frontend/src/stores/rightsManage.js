@@ -1,49 +1,38 @@
+import Request from '@/apis/request'
 import { defineStore } from 'pinia'
 
 export const rightsManageStore = defineStore('rightsManage', {
   state: () => ({
     title: '权限管理',
-    options: [{ name: '搜索' }, { name: '新增' }, { name: '过滤' }],
+    options: [{ name: '搜索' }, { name: '新增' }, { name: '删除' }],
     tableData: null,
     dataitem: null,
+    baseUrl: import.meta.env.VITE_HR_J1_3 + '/sys-right',
     xmlData: [
       { id: 1, name: '权限ID', prop: 'id' },
       { id: 2, name: '权限名称', prop: 'name' },
-      { id: 3, name: '链接地址', prop: 'url' },
+      { id: 3, name: '链接地址', prop: 'linkUrl' },
       { id: 4, name: '显示级别', prop: 'level' },
-      { id: 5, name: '父权限名称', prop: 'fatherName' },
-      { id: 6, name: '层次', prop: 'cengci' },
+      { id: 5, name: '父权限名称', prop: 'parentRightId' },
+      { id: 6, name: '层次', prop: 'priority' },
       { id: 7, name: '描述', prop: 'description' },
-      { id: 8, name: '是否启用', prop: 'isUse' },
+      { id: 8, name: '是否启用', prop: 'isEnable' },
       { id: 9, name: '操作', prop: 'operation' }
     ]
   }),
   actions: {
-    initTableData() {
-      this.tableData = [
+    async initTableData() {
+      let data = await Request.requestForm(
+        Request.GET,
+        this.baseUrl + '/query-list',
         {
-          id: 1,
-          name: '修改',
-          url: 'xxx',
-          level: 'qwe',
-          fatherName: '编辑',
-          cengci: 1,
-          description: 'sayoriqwq',
-          isUse: '启用',
-          operation: []
+          pageIndex: 1,
+          pageSize: 10
         },
-        {
-          id: 2,
-          name: 'qweft',
-          url: 'xxx',
-          level: 'qwe',
-          fatherName: '编辑',
-          cengci: 1,
-          description: 'sayoriqwq',
-          isUse: '禁用',
-          operation: []
-        }
-      ]
+        null
+      )
+      const rows = data.data.rows
+      this.tableData = rows
     },
     initDataItem() {
       this.dataitem = [
@@ -59,7 +48,7 @@ export const rightsManageStore = defineStore('rightsManage', {
         },
         {
           label: '链接地址',
-          name: 'url',
+          name: 'linkUrl',
           type: String
         },
         {
@@ -69,12 +58,12 @@ export const rightsManageStore = defineStore('rightsManage', {
         },
         {
           label: '父权限名称',
-          name: 'fatherName',
+          name: 'parentRightId',
           type: String
         },
         {
           label: '层次',
-          name: 'cengci',
+          name: 'priority',
           type: Number
         },
         {
@@ -84,7 +73,7 @@ export const rightsManageStore = defineStore('rightsManage', {
         },
         {
           label: '是否启用',
-          name: 'isUse',
+          name: 'isEnable',
           type: String
         },
         {
