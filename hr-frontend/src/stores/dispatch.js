@@ -70,7 +70,7 @@ export const useDispatchStore = defineStore('dispatch', {
         type: 'Text'
       }
     ],
-    total: 1000
+    total:null
   }),
   actions: {
     async initTableData(pageSize,pageIndex) {
@@ -84,6 +84,8 @@ export const useDispatchStore = defineStore('dispatch', {
         null
       )
       const rows = data.data.rows
+      const totals=data.data.total
+      this.total = totals
       this.tableData = rows
     },
     addData(val) {
