@@ -1,5 +1,6 @@
+import Request from '@/apis/request'
 import { defineStore } from 'pinia'
-
+const baseUrl = import.meta.env.VITE_HR_C2_2
 export const TemporaryStaffStore = defineStore('temporyStaff', {
   state: () => ({
     title: '挂职人员花名册',
@@ -24,29 +25,15 @@ export const TemporaryStaffStore = defineStore('temporyStaff', {
     // pageSizes:[]
   }),
   actions: {
-    initTableData() {
-      this.tableData = [
-        {
-          id: 10001,
-          name: '彭三',
-          tempStatus: 'qwq',
-          empStatus: '挂职进',
-          tempOrg: '上海小组',
-          tempDept: '项目部',
-          tempStartTime: '2019-4-17',
-          tempEndTime: '2020-4-17'
-        },
-        {
-          id: 10002,
-          name: '彭四',
-          empStatus: 'qwq',
-          tempStatus: '挂职进',
-          tempOrg: '海小组',
-          tempDept: '项目部',
-          tempStartTime: '2019-4-17',
-          tempEndTime: '2020-4-17'
-        }
-      ]
+    async initTableData() {
+      let data = await Request.requestForm(
+        Request.GET,
+        baseUrl + '/query-tempstaff',
+        null
+      )
+      const rows = data.data.rows
+      this.tableData = rows
+      console.log(this.tableData)
     },
     initDataItem() {
       this.dataitem = [
