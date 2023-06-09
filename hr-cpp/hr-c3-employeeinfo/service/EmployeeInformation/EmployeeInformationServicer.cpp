@@ -58,29 +58,9 @@ EmployeeInformationPageDTO::Wrapper EmployeeInformationServicer::listAll(const E
 	for (EmployeeInformationPageDO sub : result)
 	{
 		auto dto = EmployeeInformationDTO::createShared();
-		//// 姓名
-		//dto->name = sub.getName();
-		//// 年龄
-		//dto->age = sub.getAge();
-		////编号
-		//dto->id = sub.getId();
-		////组织
-		//dto->organize = sub.getOrganize();
-		////部门
-		//dto->depart = sub.getDepart();
-		////职务
-		//dto->job = sub.getJob();
-		////岗位
-		//dto->post = sub.getPost();
-		////证件号
-		//dto->idMum = sub.getIdMum();
-		////出生日期
-		//dto->birthday = sub.getBirthday();
-		////手机号码
-		//dto->phone = sub.getPhone();
-		////员工状态
-		//dto->state = sub.getState();
-		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, name, Name, age, Age, id, Id, organize, Organize, depart, Depart, job, Job, post, Post, idMum, IdMum, birthday, Birthday, phone, Phone, state, State);
+		ZO_STAR_DOMAIN_DO_TO_DTO(dto, sub, name, Name, age, Age, id, Id, \
+	    organize, Organize, depart, Depart, job, Job, post, Post, idMum, IdMum,\
+		birthday, Birthday, phone, Phone, state, State);
 		pages->addData(dto);
 
 	}
@@ -91,31 +71,11 @@ uint64_t EmployeeInformationServicer::saveData(const EmployeeInformationDTO::Wra
 {
 	// 组装DO数据
 	EmployeeInformationPageDO data;
-	//// 姓名
-	//data.setName(dto->name.getValue(""));
-	//// 年龄
-	//data.setAge(dto->age.getValue(1));
-	////编号
-	//data.setId(dto->id.getValue(""));
-	////组织
-	//data.setOrganize(dto->organize.getValue(""));
-	////部门
-	//data.setDepart(dto->depart.getValue(""));
-	////职务
-	//data.setJob(dto->job.getValue(""));
-	////岗位
-	//data.setPost(dto->post.getValue(""));
-	////证件号
-	//data.setIdMum(dto->idMum.getValue(""));
-	////出生日期
-	//data.setBirthday(dto->birthday.getValue(""));
-	////手机号码
-	//data.setPhone(dto->phone.getValue(""));
-	////员工状态
-	//data.setState(dto->state.getValue(""));
 
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, PersonId, personId, CreateMan, createMan, CreateDate, createDate,\
-	Name, name, Age, age, Id, id, Organize, organize, Depart, depart, Job, job, Post, post, IdMum, idMum, Birthday, birthday, Phone, phone, State, state);
+	Name, name, Age, age, Id, id, Organize, organize, Depart, depart,\
+		Job, job, Post, post, IdMum, idMum, Birthday, birthday, Phone, phone,\
+		State, state);
 
 	// 生成主键
 	SnowFlake sf(1, 3);//雪花算法
@@ -254,7 +214,6 @@ std::string EmployeeInformationServicer::exportEmpInfomation(const PostDetailQue
 
 	// 生成数据表表头
 	vector<string> head = dao.getEmpInfoHead();
-	head.erase(head.begin() + 8, head.begin() + 10);
 
 	// 导出到Excel文件
 	data.insert(data.begin(), head);
