@@ -386,5 +386,4 @@ export const useOnReminderStore = defineStore('onFileReminder', {
                 ]
             }
         },
-    }
-})
+    })

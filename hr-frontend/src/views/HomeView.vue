@@ -5,7 +5,7 @@
       <el-container>
         <!-- 导航栏 -->
         <el-header>
-          <div class="header-nav">{{ userInfo.username }}</div>
+          <div class="header-nav">{{ userInfo}}</div>
         </el-header>
         <el-main>
           <!-- 布局路由 -->
@@ -58,5 +58,5 @@ let { menus, getUser } = storeToRefs(store)
 // const userInfo = computed(
 //   () => getUser.username)
 // )
-let userInfo = getUser
+let userInfo = getUser.username
 </script>
