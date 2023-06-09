@@ -14,10 +14,9 @@
             class="bar"
             :style="{
               backgroundColor: scope.row.color,
-              width: (scope.row.countNum / total) * 100 + '%'
+              width: (scope.row.countNum / total) * 200 + '%'
             }"
           >
-            {{}}
           </div>
         </template>
       </el-table-column>

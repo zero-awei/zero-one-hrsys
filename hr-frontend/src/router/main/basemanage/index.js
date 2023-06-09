@@ -37,7 +37,7 @@ const routes = [
     component: () => import('@/views/baseManage/retirement/expense.vue')
   },
   {
-    path: '/ ',
+    path: '/contractCatrgory',
     name: 'contractCatrgory',
     component: () =>
       import('@/views/baseManage/datesetting/ContractCategory.vue')
