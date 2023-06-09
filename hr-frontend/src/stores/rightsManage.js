@@ -4,7 +4,7 @@ import { defineStore } from 'pinia'
 export const rightsManageStore = defineStore('rightsManage', {
   state: () => ({
     title: '权限管理',
-    options: [{ name: '搜索' }, { name: '新增' }, { name: '过滤' }],
+    options: [{ name: '搜索' }, { name: '新增' }, { name: '删除' }],
     tableData: null,
     dataitem: null,
     baseUrl: import.meta.env.VITE_HR_J1_3 + '/sys-right',

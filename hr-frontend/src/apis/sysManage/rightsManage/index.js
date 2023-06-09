@@ -20,3 +20,22 @@ export const addRights = (data, success, fail) => {
       fail()
     })
 }
+
+export const deleteRights = (data, success, fail) => {
+  Request.requestJson(Request.DELETE, baseUrl + '/remove-right', data)
+    .then((data) => {
+      if (data.data) {
+        // 执行成功回调
+        success()
+        return
+      }
+      // 执行失败回调
+      fail()
+    })
+    .catch((err) => {
+      // 打印错误信息
+      console.warn(err)
+      // 执行失败回调
+      fail()
+    })
+}
