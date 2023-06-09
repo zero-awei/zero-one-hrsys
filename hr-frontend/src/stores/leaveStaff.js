@@ -1,5 +1,6 @@
+import Request from '@/apis/request'
 import { defineStore } from 'pinia'
-
+const baseUrl = import.meta.env.VITE_HR_C2_2
 export const LeaveStaffStore = defineStore('leaveStaff', {
   state: () => ({
     title: '离职员工',
@@ -14,9 +15,9 @@ export const LeaveStaffStore = defineStore('leaveStaff', {
       { id: 5, name: '职级', prop: 'rank' },
       { id: 6, name: '手机号码', prop: 'phoneNumber' },
       { id: 7, name: '性别', prop: 'sex' },
-      { id: 8, name: '通讯地址', prop: 'address' },
-      { id: 9, name: '家庭联系人', prop: 'familyContact' },
-      { id: 10, name: '家庭联系人电话', prop: 'familyContactNumber' }
+      { id: 8, name: '通讯地址', prop: 'mail_address' },
+      { id: 9, name: '家庭联系人', prop: 'family_contact' },
+      { id: 10, name: '家庭联系人电话', prop: 'family_contact_number' }
     ],
 
     //分页器
@@ -26,45 +27,15 @@ export const LeaveStaffStore = defineStore('leaveStaff', {
     // pageSizes:[]
   }),
   actions: {
-    initTableData() {
-      this.tableData = [
-        {
-          id: 10001,
-          name: '彭于晏',
-          organization: '集团总部',
-          department: '企业部门',
-          level: 'E3',
-          phoneNumber: '123454',
-          sex: '男',
-          address: 'xxxx',
-          familyContact: '张三',
-          familyContactNumber: '123455'
-        },
-        {
-          id: 10002,
-          name: '彭于',
-          organization: '集团总部',
-          department: '企业部门',
-          rank: 'E3',
-          phoneNumber: '123454',
-          sex: '男',
-          address: 'xxxx',
-          familyContact: '张三',
-          familyContactNumber: '123455'
-        },
-        {
-          id: 10004,
-          name: '彭三',
-          organization: '集团总部',
-          department: '企业部门',
-          rank: 'E3',
-          phoneNumber: '123454',
-          sex: '男',
-          address: 'xxxx',
-          familyContact: '张三',
-          familyContactNumber: '123455'
-        }
-      ]
+    async initTableData() {
+      let data = await Request.requestForm(
+        Request.GET,
+        baseUrl + '/query-all-FormerEmployees',
+        null
+      )
+      const rows = data.data.rows
+      this.tableData = rows
+      console.log(this.tableData)
     },
     initDataItem() {
       this.dataitem = [

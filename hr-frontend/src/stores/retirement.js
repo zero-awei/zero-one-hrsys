@@ -1,5 +1,6 @@
+import Request from '@/apis/request'
 import { defineStore } from 'pinia'
-
+const baseUrl = import.meta.env.VITE_HR_C2_2
 export const RetireStaffStore = defineStore('retirement', {
   state: () => ({
     title: '离(退)休人员',
@@ -33,66 +34,15 @@ export const RetireStaffStore = defineStore('retirement', {
     // pageSizes:[]
   }),
   actions: {
-    initTableData() {
-      this.tableData = [
-        {
-          id: 12345,
-          name: '张三',
-          sex: '男',
-          age: 30,
-          address: 'xx区xx路xx号xx室',
-          retirePlace: 'xxx',
-          familyContact: '李四',
-          familyContactNumber: '1231456',
-          organization: '集团总部',
-          department: '财务资金部',
-          level: 'E3',
-          preRetirePosition: '党支部书记',
-          preRetireJob: '干部管理',
-          retireTime: '2020-04-30',
-          realRetireTime: '2020-04-30',
-          phoneNumber: '12345',
-          money: 12345
-        },
-        {
-          id: 12346,
-          name: '三张',
-          sex: '男',
-          age: 30,
-          address: 'xx区xx路xx号xx室',
-          retirePlace: 'xxx',
-          familyContact: '李四',
-          familyContactNumber: '1231456',
-          organization: '集团总部',
-          department: '财务资金部',
-          level: 'E3',
-          preRetirePosition: '党支部书记',
-          preRetireJob: '干部管理',
-          retireTime: '2020-04-30',
-          realRetireTime: '2020-04-30',
-          phoneNumber: '12345',
-          money: 12345
-        },
-        {
-          id: 12347,
-          name: '里斯',
-          sex: '男',
-          age: 30,
-          address: 'xx区xx路xx号xx室',
-          retirePlace: 'xxx',
-          familyContact: '李四',
-          familyContactNumber: '1231456',
-          organization: '集团总部',
-          department: '财务资金部',
-          level: 'E3',
-          preRetirePosition: '党支部书记',
-          preRetireJob: '干部管理',
-          retireTime: '2020-04-30',
-          realRetireTime: '2020-04-30',
-          phoneNumber: '12345',
-          money: 12345
-        }
-      ]
+    async initTableData() {
+      let data = await Request.requestForm(
+        Request.GET,
+        baseUrl + '/query-CheckRetiresList',
+        null
+      )
+      const rows = data.data.rows
+      this.tableData = rows
+      console.log(this.tableData)
     },
     initDataItem() {
       this.dataitem = [

@@ -1,13 +1,7 @@
 <template>
   <div>
     <div class="header">
-      <TableHead
-        :tableTitle="$store.title"
-        :tableOperations="$store.options"
-        :saveData="$store.addData"
-        :addTitle="$store.title"
-        :dataitem="$store.dataitem"
-      />
+      <TableHead :tableTitle="$store.title" :tableOperations="$store.options" />
     </div>
     <div class="table">
       <MainTable :xmlData="newXmlData" :tableData="$store.tableData" />
@@ -34,7 +28,7 @@ const $store = ProbationaryStaffStore()
 
 onBeforeMount(() => {
   $store.initTableData()
-  $store.initDataItem()
+  // $store.initDataItem()
 })
 function getNewXmlData(checkStatus) {
   newXmlData.value = $store.xmlData.filter((item) => {
