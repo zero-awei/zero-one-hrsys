@@ -166,7 +166,7 @@ std::list<EmployeeInformationPageDO> EmployeeInformationDAO::exportEmpInfo(const
 	stringstream sqlcount;
 	sqlcount << "SELECT COUNT(`YGBH`) FROM `t_pimperson`";
 	string count = sqlcount.str();
-	int infoCount = sqlSession->executeQueryNumerical(count);
+	long long infoCount = sqlSession->executeQueryNumerical(count);
 	//限制导出数量
 	if (infoCount) {
 		if (infoCount > 5000) {
