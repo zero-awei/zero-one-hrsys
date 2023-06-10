@@ -21,7 +21,7 @@ public class TOrmorginfoServiceImpl extends ServiceImpl<TOrmorginfoMapper, TOrmo
 
 
     @Override
-    public Boolean deleteOrg(List<String> orgIds) {
+    public boolean deleteOrg(List<String> orgIds) {
         return baseMapper.deleteBatchIds(orgIds)!=0?false:true;
     }
 }
