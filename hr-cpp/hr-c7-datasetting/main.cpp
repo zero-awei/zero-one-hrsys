@@ -23,11 +23,18 @@
 #include "controller/Router.h"
 #include "controller/OtherComponent.hpp"
 #include "DbInit.h"
-
+#ifdef HTTP_SERVER_DEMO
+#include "uselib/jwt/TestToken.h"
+#endif
 
 #ifdef USE_NACOS
 #include "NacosClient.h"
-#include "YamlHelper.h"
+#endif
+
+// 是否是发布Swagger文档包
+#ifndef _RELEASE_DOC_
+// 查看Swagger文档的时候不需要连接数据库，解开下面的注释关闭启动连接数据库
+//#define _RELEASE_DOC_
 #endif
 
 /**
@@ -38,14 +45,14 @@
  */
 bool getStartArg(int argc, char* argv[]) {
 	// 服务器端口
-	std::string serverPort = "8090";
+	std::string serverPort = "8091";
 	// 数据库连接信息
 	std::string dbUsername = "root";
 	std::string dbPassword = "123456";
 	std::string dbName = "test";
-	std::string dbHost = "192.168.220.128";
+	std::string dbHost = "192.168.56.97";
 	int dbPort = 3306;
-	int dbMax = 25;
+	int dbMax = 5;
 #ifdef USE_NACOS
 	// Nacos配置参数
 	std::string nacosAddr = "192.168.220.128:8848";
@@ -126,7 +133,6 @@ bool getStartArg(int argc, char* argv[]) {
 }
 
 int main(int argc, char* argv[]) {
-
 #ifdef HTTP_SERVER_DEMO
 	// 测试生成 JWT Token
 	TestToken::generateToken();
@@ -167,13 +173,15 @@ int main(int argc, char* argv[]) {
 			ServerInfo::getInstance().setDbPort(dbPort);
 		}
 	}
+
 	// 注册服务
-	nacosClient.registerInstance(
-		ServerInfo::getInstance().getRegIp(),
-		atoi(ServerInfo::getInstance().getServerPort().c_str()),
-		ServerInfo::getInstance().getServiceName());
+// 	nacosClient.registerInstance(
+// 		ServerInfo::getInstance().getRegIp(),
+// 		atoi(ServerInfo::getInstance().getServerPort().c_str()),
+// 		ServerInfo::getInstance().getServiceName());
 #endif
 
+#ifndef _RELEASE_DOC_
 	// 初始数据库连接
 	bool initConnPool = DbInit::initDbPool(DBConfig(
 		ServerInfo::getInstance().getDbUsername(),
@@ -183,6 +191,7 @@ int main(int argc, char* argv[]) {
 		ServerInfo::getInstance().getDbPort(),
 		ServerInfo::getInstance().getDbMax()));
 	if (!initConnPool) return -1;
+#endif
 
 	// 启动HTTP服务器
 	HttpServer::startServer(ServerInfo::getInstance().getServerPort(),
@@ -193,15 +202,17 @@ int main(int argc, char* argv[]) {
 			*o = std::make_shared<OtherComponent>();
 		});
 
+#ifndef _RELEASE_DOC_
 	// 释放数据库连接
 	DbInit::releasePool();
+#endif
 
 #ifdef USE_NACOS
 	// 反注册服务
-	nacosClient.deregisterInstance(
-		ServerInfo::getInstance().getRegIp(),
-		atoi(ServerInfo::getInstance().getServerPort().c_str()),
-		ServerInfo::getInstance().getServiceName());
+// 	nacosClient.deregisterInstance(
+// 		ServerInfo::getInstance().getRegIp(),
+// 		atoi(ServerInfo::getInstance().getServerPort().c_str()),
+// 		ServerInfo::getInstance().getServiceName());
 #endif
 	return 0;
 }
