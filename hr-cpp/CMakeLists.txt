@@ -30,7 +30,7 @@ message (STATUS "Binary dir is ${PROJECT_BINARY_DIR}")
 message (STATUS "Source dir is ${PROJECT_SOURCE_DIR}")
 
 # 判断是否是Ubuntu系统
-option (IS_UBUNTU "is ubuntu" OFF)
+#option (IS_UBUNTU "is ubuntu" OFF)
 cmake_host_system_information(RESULT PRETTY_NAME QUERY OS_VERSION)
 if (${PRETTY_NAME} MATCHES "Ubuntu")
 	option (IS_UBUNTU "is ubuntu" ON)
