@@ -24,7 +24,7 @@ link_directories (${PROJECT_SOURCE_DIR}/lib-dy/lib64)
 file (GLOB_RECURSE SC_FILES ./*.cpp)
 
 # 编译可执行文件
-add_executable (${appName} ${SC_FILES}）
+add_executable (${appName} ${SC_FILES})
 # 链接库
 target_link_libraries (${appName} "lib-common" "lib-oatpp" "lib-mysql")
 
