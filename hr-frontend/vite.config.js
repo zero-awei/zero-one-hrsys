@@ -30,7 +30,7 @@ export default ({ mode }) =>
         },
         '/captcha': {
           changeOrigin: true,
-          target: 'http://localhost:10680',
+          target: 'http://47.113.202.134:10001',
           rewrite: (path) => path.replace(/^\/captcha/, '')
         }
       }

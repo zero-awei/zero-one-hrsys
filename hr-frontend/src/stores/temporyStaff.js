@@ -1,11 +1,12 @@
+import Request from '@/apis/request'
 import { defineStore } from 'pinia'
-
 export const TemporaryStaffStore = defineStore('temporyStaff', {
   state: () => ({
     title: '挂职人员花名册',
     options: [{ name: '搜索' }, { name: '导出' }, { name: '过滤' }],
     tableData: null,
     dataitem: null,
+    baseUrl: import.meta.env.VITE_HR_C2_2,
     xmlData: [
       { id: 1, name: '员工编号', prop: 'id' },
       { id: 2, name: '员工姓名', prop: 'name' },
@@ -18,35 +19,23 @@ export const TemporaryStaffStore = defineStore('temporyStaff', {
     ],
 
     //分页器
-    pageIndex: 1,
-    pageSize: 100,
-    total: 100
+    total: 1000
     // pageSizes:[]
   }),
   actions: {
-    initTableData() {
-      this.tableData = [
+    async initTableData(pageSize, pageIndex) {
+      let data = await Request.requestForm(
+        Request.GET,
+        this.baseUrl + '/query-tempstaff',
         {
-          id: 10001,
-          name: '彭三',
-          tempStatus: 'qwq',
-          empStatus: '挂职进',
-          tempOrg: '上海小组',
-          tempDept: '项目部',
-          tempStartTime: '2019-4-17',
-          tempEndTime: '2020-4-17'
+          pageIndex: pageIndex,
+          pageSize: pageSize
         },
-        {
-          id: 10002,
-          name: '彭四',
-          empStatus: 'qwq',
-          tempStatus: '挂职进',
-          tempOrg: '海小组',
-          tempDept: '项目部',
-          tempStartTime: '2019-4-17',
-          tempEndTime: '2020-4-17'
-        }
-      ]
+        null
+      )
+      const rows = data.data.rows
+      this.tableData = rows
+      this.total = data.data.total
     },
     initDataItem() {
       this.dataitem = [

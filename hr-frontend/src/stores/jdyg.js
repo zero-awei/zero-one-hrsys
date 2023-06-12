@@ -1,150 +1,112 @@
-import { getJdygData } from '@/apis/roster-qianmeng/jdyginfo'
+import Request from '@/apis/request'
 import { defineStore } from 'pinia'
-
 export const RentStaffStore = defineStore('jdyg', {
   state: () => ({
     title: '借调人员花名册',
     options: [{ name: '搜索' }, { name: '导出' }, { name: '过滤' }],
     tableData: null,
     dataitem: null,
+    baseUrl: import.meta.env.VITE_HR_C2_2,
     xmlData: [
-      { id: 1, name: '员工编号', prop: 'id' },
-      { id: 2, name: '员工姓名', prop: 'name' },
-      { id: 3, name: '原组织', prop: 'originalOrganization' },
-      { id: 4, name: '原部门', prop: 'originalDepartment' },
-      { id: 5, name: '原职务', prop: 'originalPosition' },
-      { id: 6, name: '原岗位', prop: 'originalJob' },
-      { id: 7, name: '新组织', prop: 'newOrganization' },
-      { id: 8, name: '新部门', prop: 'newDepartment' },
-      { id: 9, name: '新职务', prop: 'newPosition' },
-      { id: 10, name: '新岗位', prop: 'newJob' },
-      { id: 11, name: '借调状态', prop: 'rentState' },
-      { id: 12, name: '借调开始时间', prop: 'rentStartTime' },
-      { id: 13, name: '借调结束时间', prop: 'rentEndTime' }
+      { id: 1, name: '员工编号', prop: 'ygbh' },
+      { id: 2, name: '员工姓名', prop: 'pimPersonName' },
+      { id: 3, name: '原组织', prop: 'zz' },
+      { id: 4, name: '原部门', prop: 'bm' },
+      { id: 5, name: '原职务', prop: 'yzw' },
+      { id: 6, name: '原岗位', prop: 'ygw' },
+      { id: 7, name: '新组织', prop: 'ormName' },
+      { id: 8, name: '新部门', prop: 'ormOrgSectorName' },
+      { id: 9, name: '新职务', prop: 'ormDutyName' },
+      { id: 10, name: '新岗位', prop: 'ormPostName' },
+      { id: 11, name: '借调状态', prop: 'pcmydjdmxId' },
+      { id: 12, name: '借调开始时间', prop: 'jdksrq' },
+      { id: 13, name: '借调结束时间', prop: 'jdjsrq' }
     ],
 
     //分页器
-    pageIndex: 1,
-    pageSize: 100,
-    total: 100
+    total: 1000
     // pageSizes:[]
   }),
   actions: {
-    initTableData() {
-      // getJdygData()
-      this.tableData = [
+    async initTableData(pageSize, pageIndex) {
+      let data = await Request.requestForm(
+        Request.GET,
+        this.baseUrl + '/query-LoanedPerPage',
         {
-          id: 10001,
-          name: '彭于晏',
-          originalOrganization: '山东公司',
-          originalDepartment: '人力资源部',
-          originalPosition: '助理总经理',
-          originalJob: '工会主席',
-          newOrganization: 'xxx',
-          newDepartment: '市场部',
-          newPosition: '部门经理',
-          newJob: '薪资专员',
-          rentState: '借调中',
-          rentStartTime: '2023-05-24',
-          rentEndTime: '2023-05-26'
+          pageIndex: pageIndex,
+          pageSize: pageSize
         },
-        {
-          id: 10002,
-          name: '彭于',
-          originalOrganization: '山东公司',
-          originalDepartment: '人力资源部',
-          originalPosition: '助理总经理',
-          originalJob: '工会主席',
-          newOrganization: 'xxx',
-          newDepartment: '市场部',
-          newPosition: '部门经理',
-          newJob: '薪资专员',
-          rentState: '借调中',
-          rentStartTime: '2023-05-24',
-          rentEndTime: '2023-05-26'
-        },
-        {
-          id: 10004,
-          name: '彭啥的',
-          originalOrganization: '山东公司',
-          originalDepartment: '人力资源部',
-          originalPosition: '助理总经理',
-          originalJob: '工会主席',
-          newOrganization: 'xxx',
-          newDepartment: '市场部',
-          newPosition: '部门经理',
-          newJob: '薪资专员',
-          rentState: '借调中',
-          rentStartTime: '2023-05-24',
-          rentEndTime: '2023-05-26'
-        }
-      ]
+        null
+      )
+      const rows = data.data.rows
+      this.tableData = rows
+      this.total = data.data.total
     },
     initDataItem() {
       this.dataitem = [
         {
           label: '员工编号',
-          name: 'id',
+          name: 'ygbh',
           type: Number
         },
         {
           label: '员工姓名',
-          name: 'name',
+          name: 'pimPersonName',
           type: String
         },
         {
           label: '原组织',
-          name: 'originalOrganization',
+          name: 'zz',
           type: String
         },
         {
           label: '原部门',
-          name: 'originalDepartment',
+          name: 'bm',
           type: String
         },
         {
           label: '原职务',
-          name: 'originalPosition',
+          name: 'yzw',
           type: String
         },
         {
           label: '原岗位',
-          name: 'originalJob',
+          name: 'ygw',
           type: String
         },
         {
           label: '新组织',
-          name: 'newOrganization',
+          name: 'ormName',
           type: String
         },
         {
           label: '新部门',
-          name: 'newDepartment',
+          name: 'ormOrgSectorName',
           type: String
         },
         {
           label: '新职务',
-          name: 'newPosition',
+          name: 'ormDutyName',
           type: String
         },
         {
           label: '新岗位',
-          name: 'newJob',
+          name: 'ormPostName',
           type: String
         },
         {
           label: '借调状态',
-          name: 'rentState',
+          name: 'pcmydjdmxId',
           type: String
         },
         {
           label: '借调开始时间',
-          name: 'rentStartTime',
+          name: 'jdksrq',
           type: String
         },
         {
           label: '借调结束时间',
-          name: 'rentEndTime',
+          name: 'jdjsrq',
           type: String
         }
       ]
