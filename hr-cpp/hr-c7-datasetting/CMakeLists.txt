@@ -87,7 +87,6 @@ message (STATUS "${IS_UBUNTU}")
 # 如果是Ubuntu系统,需要复制一下动态库
 if(IS_UBUNTU)
 	file (GLOB dylibdir "${PROJECT_SOURCE_DIR}/lib-dy/lib64/*")
-	message (STATUS "1111111")
     file (COPY ${dylibdir} DESTINATION "${PROJECT_BINARY_DIR}/${appName}")
 endif()
 
