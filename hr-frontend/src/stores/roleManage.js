@@ -1,47 +1,40 @@
+import Request from '@/apis/request'
 import { defineStore } from 'pinia'
 
 export const roleManageStore = defineStore('roleManage', {
   state: () => ({
-    title: '菜单管理',
+    title: '角色管理',
     options: [{ name: '搜索' }, { name: '新增' }, { name: '过滤' }],
     tableData: null,
     dataitem: null,
+    baseUrl: import.meta.env.VITE_HR_J1_3 + '/sys-role',
     xmlData: [
       { id: 1, name: '角色ID', prop: 'id' },
       { id: 2, name: '角色名称', prop: 'name' },
       { id: 3, name: '关键词', prop: 'keyword' },
       { id: 4, name: '角色描述', prop: 'description' },
-      { id: 5, name: '状态', prop: 'state' },
-      { id: 6, name: '操作', prop: 'operation' }
+      { id: 5, name: '状态', prop: 'isEnable' }
     ]
   }),
   actions: {
-    initTableData() {
-      this.tableData = [
+    async initTableData() {
+      let data = await Request.requestForm(
+        Request.GET,
+        this.baseUrl + '/query-one',
         {
-          id: 1,
-          name: '管理员',
-          keyword: 'ADMIN',
-          description: '管理员',
-          state: true,
-          operation: []
+          id: '1'
         },
-        {
-          id: 2,
-          name: '管理',
-          keyword: 'ADMN',
-          description: '管理',
-          state: true,
-          operation: []
-        }
-      ]
+        null
+      )
+      const rows = data.data.rows
+      this.tableData = rows
     },
     initDataItem() {
       this.dataitem = [
         {
           label: '角色ID',
           name: 'id',
-          type: Number
+          type: String
         },
         {
           label: '角色名称',
@@ -60,13 +53,8 @@ export const roleManageStore = defineStore('roleManage', {
         },
         {
           label: '状态',
-          name: 'state',
-          type: Boolean
-        },
-        {
-          label: '操作',
-          name: 'operation',
-          type: Array
+          name: 'isEnable',
+          type: Number
         }
       ]
     },

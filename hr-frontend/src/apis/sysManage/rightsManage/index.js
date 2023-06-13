@@ -35,7 +35,7 @@ export const deleteRights = (data, success, fail) => {
     .catch((err) => {
       // 打印错误信息
       console.warn(err)
-      // 执行失败回调1
+      // 执行失败回调
       fail()
     })
 }

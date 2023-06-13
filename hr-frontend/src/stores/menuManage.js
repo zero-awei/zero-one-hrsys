@@ -1,3 +1,4 @@
+import Request from '@/apis/request'
 import { defineStore } from 'pinia'
 
 export const menuManageStore = defineStore('menuManage', {
@@ -10,14 +11,14 @@ export const menuManageStore = defineStore('menuManage', {
     xmlData: [
       { id: 1, name: '菜单ID', prop: 'id' },
       { id: 2, name: '菜单名称', prop: 'name' },
-      { id: 3, name: '路由地址', prop: 'url' },
+      { id: 3, name: '路由地址', prop: 'path' },
       { id: 4, name: '显示级别', prop: 'level' },
       { id: 5, name: '菜单图标', prop: 'icon' },
-      { id: 6, name: '父菜单名称', prop: 'fatherName' },
-      { id: 7, name: '菜单层次', prop: 'cengci' },
+      { id: 6, name: '父菜单名称', prop: 'parent_menu_id' },
+      { id: 7, name: '菜单层次', prop: 'priority' },
       { id: 8, name: '菜单描述', prop: 'description' },
-      { id: 9, name: '是否启用', prop: 'isUse' },
-      { id: 10, name: '操作', prop: 'operation' }
+      { id: 9, name: '是否启用', prop: 'isEnable' }
+      // { id: 10, name: 'creator', prop: 'creator' }
     ]
   }),
   actions: {
@@ -34,6 +35,7 @@ export const menuManageStore = defineStore('menuManage', {
       const rows = data.data.rows
       this.tableData = rows
     },
+    //
     initDataItem() {
       this.dataitem = [
         {
@@ -48,7 +50,7 @@ export const menuManageStore = defineStore('menuManage', {
         },
         {
           label: '路由地址',
-          name: 'url',
+          name: 'path',
           type: String
         },
         {
@@ -58,12 +60,12 @@ export const menuManageStore = defineStore('menuManage', {
         },
         {
           label: '父菜单名称',
-          name: 'fatherName',
+          name: 'parent_menu_id',
           type: String
         },
         {
           label: '菜单层次',
-          name: 'cengci',
+          name: 'priority',
           type: Number
         },
         {
@@ -73,14 +75,14 @@ export const menuManageStore = defineStore('menuManage', {
         },
         {
           label: '是否启用',
-          name: 'isUse',
+          name: 'isEnable',
           type: String
-        },
-        {
-          label: '操作',
-          name: 'operation',
-          type: Array
         }
+        // {
+        //   label: 'creator',
+        //   name: 'creator',
+        //   type: String
+        // }
       ]
     },
     addData(val) {
