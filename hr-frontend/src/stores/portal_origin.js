@@ -12,11 +12,13 @@ export const portalStore = defineStore('portal', {
   }),
   actions: {
     // 获取表单数据
-    initPieChart() {
-      //let data = await Request.request(Request.GET, '/portal', null)
-      // TODO:对接接口
-      // this.pieChart = data.data
-      // 测试数据
+    async initPieChart() {
+      let { data } = await Request.request(
+        Request.GET,
+        baseUrl + '/query-education-distribution',
+        null
+      )
+      const legendName = data.map((item) => item.educationname)
       this.pieChart = {
         //标题
         title: {
@@ -25,7 +27,7 @@ export const portalStore = defineStore('portal', {
         tooltip: {},
         //图例数据
         legend: {
-          data: ['博士', '硕士', '本科', '大专', '中专及以下']
+          data: legendName
         },
         color: [
           '#3880ff',
@@ -40,30 +42,24 @@ export const portalStore = defineStore('portal', {
           {
             name: '学历分布',
             type: 'pie',
-            data: [
-              { value: 48, name: '博士' },
-              { value: 12, name: '硕士' },
-              { value: 28, name: '本科' },
-              { value: 8, name: '大专' },
-              { value: 4, name: '中专及以下' }
-            ]
+            data: data
           }
         ]
       }
     },
-    initFunnelChart() {
-      // let data = await Request.request(Request.GET, '/portal', null)
-      //this.pieChart = data.data
+    async initFunnelChart() {
+      let { data } = await Request.request(
+        Request.GET,
+        baseUrl + '/query-age-distribution',
+        null
+      )
       this.funnelChart = {
         title: {
-          text: '漏斗图'
+          text: '年龄分布'
         },
         tooltip: {
           trigger: 'item',
           formatter: '{a} <br/>{b} : {c}%'
-        },
-        legend: {
-          data: ['流失率']
         },
         color: [
           '#3880ff',
@@ -77,7 +73,6 @@ export const portalStore = defineStore('portal', {
         calculable: true,
         series: [
           {
-            name: '流失率',
             type: 'funnel',
             left: '10%',
             top: 60,
@@ -92,12 +87,7 @@ export const portalStore = defineStore('portal', {
               position: 'inside'
             },
             // 每一层数据的描述
-            data: [
-              { value: 80, name: '访问' },
-              { value: 50, name: '咨询' },
-              { value: 30, name: '订单' },
-              { value: 10, name: '退货' }
-            ]
+            data: data
           }
         ]
       }

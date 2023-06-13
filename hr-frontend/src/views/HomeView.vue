@@ -5,7 +5,7 @@
       <el-container>
         <!-- 导航栏 -->
         <el-header>
-          <div class="header-nav">{{ userInfo}}</div>
+          <div class="header-nav">{{ userInfo }}</div>
         </el-header>
         <el-main>
           <!-- 布局路由 -->
@@ -55,8 +55,5 @@ const store = userStore()
 // 菜单数据
 let { menus, getUser } = storeToRefs(store)
 // 用户信息提示
-// const userInfo = computed(
-//   () => getUser.username)
-// )
-let userInfo = getUser.username
+const userInfo = ref('欢迎您：' + getUser.username)
 </script>

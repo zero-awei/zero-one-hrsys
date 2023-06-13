@@ -30,10 +30,8 @@
           </el-form-item>
         </el-form>
         <!-- TODO[TEST_CODE]: 测试代码后期发布需要删除 -->
-        <hr />
-        <router-link to="/sample" class="sample-link"
-          >进入示例演示页面</router-link
-        >
+        <!-- <hr/>
+        <router-link to="/sample" class="sample-link">进入示例演示页面</router-link> -->
       </div>
     </div>
   </div>
