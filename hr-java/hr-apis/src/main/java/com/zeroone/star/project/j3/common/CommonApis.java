@@ -123,7 +123,7 @@ public interface CommonApis {
     /**
      * 学历类型下拉列表
      *
-     * @param education
+     * @param  education
      * @return 集合
      */
     JsonVO<List<String>> listEducationType(EducationTypeQuery education);
