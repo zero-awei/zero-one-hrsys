@@ -38,8 +38,8 @@ public class CommonController implements CommonApis {
     TOrmpostServiceImpl tOrmpostService;
     @Resource
     ITOrmdutyService tOrmdutyService;
-    //@Resource
-    //ITPimlanguageabilityService languageabilityService;
+    @Resource
+    ITPimlanguageabilityService languageabilityService;
     @Resource
     private ITSrforgsectorService itSrforgsectorService;
     @Resource
@@ -150,8 +150,7 @@ public class CommonController implements CommonApis {
     @Override
     public JsonVO<List<String>> queryRelationship() {
         String id = "4E74D429-DE85-41BB-B900-6009A23895D6";
-        //return JsonVO.success(languageabilityService.queryRelationship(id));
-        return null;
+        return JsonVO.success(languageabilityService.queryRelationship(id));
     }
 
     @GetMapping("query-entry-channel")
@@ -172,16 +171,14 @@ public class CommonController implements CommonApis {
     @ApiOperation("语种类型下拉列表")
     public JsonVO<List<String>> queryLanguageType() {
         String id = "4AD0B58B-E3E7-44B2-8F67-302C8F95C7E9"; //语种类型id
-        //return JsonVO.success(languageabilityService.queryLanguageType(id));
-        return null;
+        return JsonVO.success(languageabilityService.queryLanguageType(id));
     }
 
     @GetMapping("query-language-level")
     @ApiOperation("外语等级下拉列表")
     public JsonVO<List<String>> queryLanguageLevel() {
         String id = "F1990A43-1ED9-4001-BA4A-1F3B221653A4";
-        //return JsonVO.success(languageabilityService.queryLanguageLevel(id));//外语等级id
-        return null;
+        return JsonVO.success(languageabilityService.queryLanguageLevel(id));//外语等级id
     }
 
     @GetMapping("query-organization-name")
