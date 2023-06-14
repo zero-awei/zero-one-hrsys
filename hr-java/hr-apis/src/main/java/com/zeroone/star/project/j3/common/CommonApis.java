@@ -170,4 +170,13 @@ public interface CommonApis {
      * @return
      */
     public JsonVO<List<String>> queryLanguageLevel();
+
+
+
+    /**
+     * 组织名称下拉菜单
+     * @param
+     * @return
+     */
+    public JsonVO<List<String>> queryOrganizationName(String id);
 }
