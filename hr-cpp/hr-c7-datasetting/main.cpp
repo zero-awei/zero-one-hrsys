@@ -55,10 +55,10 @@ bool getStartArg(int argc, char* argv[]) {
 	int dbMax = 5;
 #ifdef USE_NACOS
 	// Nacos配置参数
-	std::string nacosAddr = "192.168.220.128:8848";
-	std::string nacosNs = "4833404f-4b82-462e-889a-3c508160c6b4";
-	std::string serviceName = "feign-cpp-sample";
-	std::string regIp = "192.168.220.128";
+	std::string nacosAddr = "47.120.11.10:8848";
+	std::string nacosNs = "hr-dev";
+	std::string serviceName = "hr-c7-datasetting";
+	std::string regIp = "47.120.8.90";
 #endif
 
 	// 开始解析
@@ -175,10 +175,10 @@ int main(int argc, char* argv[]) {
 	}
 
 	// 注册服务
-// 	nacosClient.registerInstance(
-// 		ServerInfo::getInstance().getRegIp(),
-// 		atoi(ServerInfo::getInstance().getServerPort().c_str()),
-// 		ServerInfo::getInstance().getServiceName());
+  	    nacosClient.registerInstance(
+        ServerInfo::getInstance().getRegIp(),
+		atoi(ServerInfo::getInstance().getServerPort().c_str()),
+ 		ServerInfo::getInstance().getServiceName());
 #endif
 
 #ifndef _RELEASE_DOC_
@@ -209,10 +209,10 @@ int main(int argc, char* argv[]) {
 
 #ifdef USE_NACOS
 	// 反注册服务
-// 	nacosClient.deregisterInstance(
-// 		ServerInfo::getInstance().getRegIp(),
-// 		atoi(ServerInfo::getInstance().getServerPort().c_str()),
-// 		ServerInfo::getInstance().getServiceName());
+  	nacosClient.deregisterInstance(
+  		ServerInfo::getInstance().getRegIp(),
+  		atoi(ServerInfo::getInstance().getServerPort().c_str()),
+  		ServerInfo::getInstance().getServiceName());
 #endif
 	return 0;
 }

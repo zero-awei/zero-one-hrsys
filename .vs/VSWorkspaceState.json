@@ -1,6 +1,7 @@
 {
   "ActiveTargetSystem": "本地计算机",
-  "ExpandedNodes": [],
-  "SelectedNode": "\\HrCpp.sln",
+  "ExpandedNodes": [
+    ""
+  ],
   "PreviewInSolutionExplorer": false
 }
