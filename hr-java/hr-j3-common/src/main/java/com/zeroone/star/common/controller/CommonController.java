@@ -1,9 +1,6 @@
 package com.zeroone.star.common.controller;
 
-import com.zeroone.star.common.service.ITOrmdutyService;
-import com.zeroone.star.common.service.ITPimlanguageabilityService;
-import com.zeroone.star.common.service.ITSrfcodeitemService;
-import com.zeroone.star.common.service.ITSrforgsectorService;
+import com.zeroone.star.common.service.*;
 import com.zeroone.star.common.service.impl.TOrmpostServiceImpl;
 import com.zeroone.star.project.j3.common.CommonApis;
 import com.zeroone.star.project.j3.dto.DropdownListDTO;
@@ -14,6 +11,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -46,6 +44,8 @@ public class CommonController implements CommonApis {
     private ITSrforgsectorService itSrforgsectorService;
     @Resource
     private ITSrfcodeitemService itSrfcodeitemService;
+    @Resource
+    private ITSrforgService itSrforgService;
 
     @GetMapping("query-start-position-title")
     @ApiOperation("职务名称下拉列表")
@@ -179,5 +179,12 @@ public class CommonController implements CommonApis {
     public JsonVO<List<String>> queryLanguageLevel() {
         String id = "F1990A43-1ED9-4001-BA4A-1F3B221653A4";
         return JsonVO.success(languageabilityService.queryLanguageLevel(id));//外语等级id
+    }
+
+    @GetMapping("query-organization-name")
+    @ApiOperation("组织名称下拉列表")
+    @Override
+    public JsonVO<List<String>> queryOrganizationName(String id) {
+        return JsonVO.success(itSrforgService.queryOrganizationName(id));
     }
 }
