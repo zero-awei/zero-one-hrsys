@@ -233,6 +233,27 @@ archives:
   ORMORGName: 所属单位
   DAZT: 档案状态
   dajyzt: 档案借阅状态
+ #新的档案field词典(原field部分字段有误，所以添加了一个新field)
+ newField:
+  pimArchivesId: 档案信息标识
+  dabh: 档案编号
+  orgName: 管理单位
+  dabgd: 档案保管地
+  archivesCenterName: 档案室
+  dazt: 档案状态
+  ygbh: 员工编号
+  pimPersonName: 员工姓名
+  ygzt: 员工状态
+  ormOrgName: 所属单位
+  zt: 档案借阅状态
+  education: 档案学历
+  dateOfBirth: 档案出生时间
+  joinPartyDate: 档案入党时间
+  startWorkDatae: 添加工作时间
+  deleteById: 批量删除的唯一标识id
+ sample:
+  ygzt: 在职
+  dazt: 有效
 specifiedArchives:
  get:
   summary: 查询指定档案数据
