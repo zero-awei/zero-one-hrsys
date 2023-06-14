@@ -1,22 +1,20 @@
 package com.zeroone.star.orgmanager.controller;
 
-import com.zeroone.star.orgmanager.service.ITSrforgService;
-import com.zeroone.star.orgmanager.entity.TOrmduty;
 import com.zeroone.star.orgmanager.entity.TOrmorginfo;
+import com.zeroone.star.orgmanager.service.ITOrmorgdzService;
 import com.zeroone.star.orgmanager.service.ITOrmorginfoService;
+import com.zeroone.star.orgmanager.service.ITSrforgService;
 import com.zeroone.star.project.components.easyexcel.EasyExcelComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsClientComponent;
 import com.zeroone.star.project.components.fastdfs.FastDfsFileInfo;
-import com.zeroone.star.orgmanager.service.ITOrmorgdzService;
-import com.zeroone.star.orgmanager.service.ITSrforgService;
 import com.zeroone.star.project.dto.PageDTO;
 import com.zeroone.star.project.dto.sample.SampleDTO;
 import com.zeroone.star.project.j3.dto.AddOrgInfoDTO;
 import com.zeroone.star.project.j3.dto.DeleteDTO;
-import com.zeroone.star.project.j3.dto.orgmager.OrgAddressDto;
 import com.zeroone.star.project.j3.dto.ExportDTO;
 import com.zeroone.star.project.j3.dto.orgmanager.ExportOrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.ModifyOrgAddressDTO;
+import com.zeroone.star.project.j3.dto.orgmanager.OrgAddressDto;
 import com.zeroone.star.project.j3.dto.orgmanager.OrgInfoDTO;
 import com.zeroone.star.project.j3.orgmanager.OrgInfoApis;
 import com.zeroone.star.project.j3.query.OrgQuery;
@@ -28,9 +26,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.annotation.Resource;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -39,7 +35,6 @@ import java.util.List;
  * </p>
  * <p>版权：&copy;01星球</p>
  * <p>地址：01星球总部</p>
- *
  * @author H
  * @version 1.0.0
  * @date 2023/5/20 10:21
@@ -56,7 +51,6 @@ public class OrgInfoController implements OrgInfoApis {
     ITOrmorginfoService itOrmorginfoService;
 
 
-
     @DeleteMapping("remove-org-address")
     @ApiOperation("删除组织地址")
     @Override
@@ -71,7 +65,7 @@ public class OrgInfoController implements OrgInfoApis {
         boolean isSuccess = itSrforgService.updateOrgInfo(orgInfoDTO);
         if (isSuccess) {
             return JsonVO.success("修改成功");
-        }else {
+        } else {
             return JsonVO.fail("修改失败");
         }
     }
@@ -84,11 +78,11 @@ public class OrgInfoController implements OrgInfoApis {
         int successRow = ormorgdzService.updateOrgAddress(modifyOrgAddressDTOs);
         //需要修改的数据条数
         int size = modifyOrgAddressDTOs.size();
-        int fail = size -successRow;
-        if (fail == 0){
+        int fail = size - successRow;
+        if (fail == 0) {
             return JsonVO.success("全部修改成功！");
-        } else if (fail < size && fail >0) {
-            return JsonVO.success("修改成功"+successRow+"条,"+fail+"条失败！");
+        } else if (fail < size && fail > 0) {
+            return JsonVO.success("修改成功" + successRow + "条," + fail + "条失败！");
         } else if (fail == size) {
             return JsonVO.fail("全部修改失败！");
         }
@@ -120,11 +114,11 @@ public class OrgInfoController implements OrgInfoApis {
     @PostMapping("add-org-info")
     @ApiOperation("添加组织")
     @Override
-    public JsonVO<String> addOryData(@RequestBody AddOrgInfoDTO addOrgInfoDTO){
+    public JsonVO<String> addOryData(@RequestBody AddOrgInfoDTO addOrgInfoDTO) {
         try {
             itSrforgService.saveOryData(addOrgInfoDTO);
             return JsonVO.success("添加成功");
-        }catch (Exception e){
+        } catch (Exception e) {
             return JsonVO.fail("添加失败");
         }
 
@@ -135,6 +129,7 @@ public class OrgInfoController implements OrgInfoApis {
     public JsonVO<PageDTO<SampleDTO>> queryAllOrg(OrgQuery condition) {
         return null;
     }
+
     @Resource
     private FastDfsClientComponent fastDfsClientComponent;
 
@@ -144,6 +139,7 @@ public class OrgInfoController implements OrgInfoApis {
     private ITOrmorginfoService service;
     @Resource
     EasyExcelComponent component;
+
     @GetMapping("expor-all-org")
     @ApiOperation("导出所有组织")
     @Override
@@ -151,7 +147,7 @@ public class OrgInfoController implements OrgInfoApis {
         //查询数据
         List<TOrmorginfo> tormorginfos = service.getBaseMapper().selectList(null);
         // 创建输出流
-         ByteArrayOutputStream out = new ByteArrayOutputStream();
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
         // 导出数据到输出流
         component.export("测试", out, TOrmorginfo.class, tormorginfos);
         //上传FastDfs
