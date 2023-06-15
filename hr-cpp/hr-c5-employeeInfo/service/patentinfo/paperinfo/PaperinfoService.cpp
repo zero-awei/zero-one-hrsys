@@ -1,7 +1,7 @@
 
 #include "stdafx.h"
 #include "PaperinfoService.h"
-#include "../../dao/paperinfo/t_pimpaperDAO.h"
+#include "../../../dao/paperinfo/t_pimpaperDAO.h"
 #include "SnowFlake.h"
 
 PaperPageDTO::Wrapper PaperinfoService::listAll(const PaperQuery::Wrapper& query)

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "J_PatentService.h"
-#include "../../dao/J_patentinfo/J_patentinfoDAO.h"
+#include "../../dao/J_patentinfo/J_PatentinfoDAO.h"
 
 //查询所有数据
 J_PatentinfoDTO::Wrapper PatentService::listAll(const string& pimpatentid)

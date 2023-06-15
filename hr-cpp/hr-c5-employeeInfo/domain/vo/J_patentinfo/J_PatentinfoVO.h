@@ -2,7 +2,7 @@
 #define _J_PATENT_VO_
 
 #include "../../GlobalInclude.h"
-#include "../../dto/J_patentinfo/J_patentinfoDTO.h"
+#include "../../dto/J_patentinfo/J_PatentinfoDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
