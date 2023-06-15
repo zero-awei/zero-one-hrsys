@@ -4,7 +4,7 @@
 #define _T_PIMPATENT_DAO_
 #include "BaseDAO.h"
 #include "../../domain/do/patentinfo/t_pimpatentDO.h"
-#include "../../domain/query/patentinfo/patentinfoQuery.h"
+#include "../../domain/query/patentinfo/PatentinfoQuery.h"
 
 /**
  * 专利信息表数据库操作实现

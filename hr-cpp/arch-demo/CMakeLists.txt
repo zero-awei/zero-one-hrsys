@@ -4,10 +4,11 @@
 cmake_minimum_required (VERSION 3.8)
 
 # 定义Demo项目需要使用的特定宏【仅Demo项目需要配置】
-add_definitions(-DHTTP_SERVER_DEMO)
+# add_definitions(-DHTTP_SERVER_DEMO)
 
 # 设置文件名称
-set (appName arch-demo)
+#set (appName arch-demo)
+set (appName, hr-c5-employeeInfo)
 
 # 包含库目录
 include_directories ("./")
@@ -26,6 +27,7 @@ link_directories (${PROJECT_SOURCE_DIR}/lib-dy/lib64)
 # 将源代码添加到此项目的可执行文件
 file (GLOB_RECURSE SC_FILES ./*.cpp)
 
+#[[
 # 排除xlnt案例编译【仅Demo项目需要配置】
 if(USE_XLNT STREQUAL OFF)
 	list (REMOVE_ITEM SC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/./uselib/excel/TestExcel.cpp")
@@ -51,6 +53,7 @@ if(USE_MONGO STREQUAL OFF)
 	list (REMOVE_ITEM SC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/./uselib/mongo/TestMongo.cpp")
 	message (STATUS "${appName}: not compile mongodb use case.")
 endif()
+]]
 
 # 编译可执行文件
 add_executable (${appName} ${SC_FILES})
@@ -99,9 +102,13 @@ if(USE_MONGO)
 endif()
 
 # 复制配置到调试时可执行文件所在的目录
+
+#[[
 # public目录【仅Demo项目需要配置】
 file (GLOB publicDir "public/*")
 file (COPY ${publicDir} DESTINATION "${PROJECT_BINARY_DIR}/${appName}/public")
+]]
+
 # RSA公钥证书
 file (COPY "public.pem" DESTINATION ${PROJECT_BINARY_DIR}/${appName})
 # FastDFS配置文件
@@ -119,8 +126,12 @@ if(IS_UBUNTU)
 endif()
 
 # 安装文件
+
+#[[
 # public目录【仅Demo项目需要配置】
 install (DIRECTORY "public" DESTINATION ${appName})
+]]
+
 # 可执行文件
 install (TARGETS ${appName} RUNTIME DESTINATION ${appName})
 # RSA公钥证书
