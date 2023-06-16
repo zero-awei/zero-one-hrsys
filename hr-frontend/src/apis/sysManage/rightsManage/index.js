@@ -39,3 +39,4 @@ export const deleteRights = (data, success, fail) => {
       fail()
     })
 }
+

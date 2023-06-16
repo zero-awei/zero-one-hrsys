@@ -8,7 +8,9 @@
         :addTitle="$store.title"
         :dataitem="$store.dataitem"
         :deleteData="deleteData"
+        :filter-data="$store.filterData"
       />
+      <Filter :data="$store.filterData"></Filter>
     </div>
     <div class="table">
       <MainTable
@@ -25,12 +27,17 @@ import TableHead from '@/components/table/head/TableHead.vue'
 import MainTable from '@/components/MainTable.vue'
 import { rightsManageStore } from '@/stores/rightsManage'
 import { addRights, deleteRights } from '@/apis/sysManage/rightsManage'
-import { getCurrentInstance, onBeforeMount, onMounted } from 'vue'
+import { getCurrentInstance, onBeforeMount, onMounted, reactive } from 'vue'
 import { ElMessage } from 'element-plus'
+import Filter from '@/components/filter/Filter.vue'
+import Request from '@/apis/request'
+
 const $store = rightsManageStore()
+
 onBeforeMount(() => {
   $store.initTableData()
   $store.initDataItem()
+  $store.initFilterData()
 })
 
 //将新增的数据保存
@@ -68,6 +75,28 @@ const deleteData = (val) => {
       }
     )
   }
+}
+
+//过滤器
+// 全局事件总线
+const mitt = getCurrentInstance().appContext.config.globalProperties.$bus
+mitt.on('search', requestRes)
+// 根据过滤器结果，发送请求
+async function requestRes(res) {
+  // 调用请求接口
+  let data = await Request.requestForm(
+    Request.GET,
+    $store.baseUrl + '/query-like',
+    {
+      pageIndex: 1,
+      pageSize: 10,
+      query: res.name
+    },
+    null
+  )
+  $store.tableData = data.data.rows
+  // console.log(`output->data`, data)
+  // console.log(`output->res`, res)
 }
 </script>
 

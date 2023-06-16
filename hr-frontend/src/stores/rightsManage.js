@@ -1,10 +1,16 @@
 import Request from '@/apis/request'
 import { defineStore } from 'pinia'
+import { reactive } from 'vue'
 
 export const rightsManageStore = defineStore('rightsManage', {
   state: () => ({
     title: '权限管理',
-    options: [{ name: '搜索' }, { name: '新增' }, { name: '删除' }],
+    options: [
+      { name: '搜索' },
+      { name: '新增' },
+      { name: '删除' },
+      { name: '过滤' }
+    ],
     tableData: null,
     dataitem: null,
     baseUrl: import.meta.env.VITE_HR_J1_3 + '/sys-right',
@@ -18,7 +24,8 @@ export const rightsManageStore = defineStore('rightsManage', {
       { id: 7, name: '描述', prop: 'description' },
       { id: 8, name: '是否启用', prop: 'isEnable' },
       { id: 9, name: '操作', prop: 'operation' }
-    ]
+    ],
+    filterData: null
   }),
   actions: {
     async initTableData() {
@@ -82,6 +89,14 @@ export const rightsManageStore = defineStore('rightsManage', {
           type: Array
         }
       ]
+    },
+    initFilterData() {
+      this.filterData = {
+        name: {
+          name: '权限名称',
+          type: 'input'
+        }
+      }
     },
     addData(val) {
       this.tableData.push(val)

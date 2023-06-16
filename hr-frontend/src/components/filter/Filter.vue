@@ -1,79 +1,42 @@
 <template>
-  <div class="filter">
-    <el-row>
-      <el-col :span="20">
-        <div class="filter-form">
-          <el-form :model="res" label-width="120px">
-            <el-row v-for="row in ceilRows - 1" :key="row">
-              <el-col :span="6" v-for="curIdx in 4" :key="curIdx">
-                <el-form-item
-                  :label="
-                    Object.values(props.data)[(row - 1) * 4 + curIdx - 1].name
-                  "
-                >
-                  <el-input
-                    v-if="
-                      Object.values(props.data)[(row - 1) * 4 + curIdx - 1]
-                        .type === 'input'
-                    "
-                    v-model="
-                      res[Object.keys(props.data)[(row - 1) * 4 + curIdx - 1]]
-                    "
-                  />
-
-                  <el-select
-                    v-if="
-                      Object.values(props.data)[(row - 1) * 4 + curIdx - 1]
-                        .type === 'select'
-                    "
-                    v-model="
-                      res[Object.keys(props.data)[(row - 1) * 4 + curIdx - 1]]
-                    "
-                    placeholder="请选择..."
-                    style="width: 100%"
-                  >
-                    <el-option
-                      v-for="item in props.data[
-                        Object.keys(props.data)[(row - 1) * 4 + curIdx - 1]
-                      ].options"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value"
-                    ></el-option>
-                  </el-select>
-                </el-form-item>
-              </el-col>
-            </el-row>
-            <template v-if="ceilRows !== realRows">
-              <el-row>
-                <el-col :span="6" v-for="curIdx in lastAttr" :key="curIdx">
+  <div>
+    <el-button @click="isShowFilter = !isShowFilter">过滤</el-button>
+    <div class="filter" v-if="isShowFilter">
+      <el-row>
+        <el-col :span="20">
+          <div class="filter-form">
+            <el-form :model="res" label-width="120px">
+              <el-row v-for="row in ceilRows - 1" :key="row">
+                <el-col :span="6" v-for="curIdx in 4" :key="curIdx">
                   <el-form-item
-                    :label="Object.values(data)[realRows * 4 + curIdx - 1].name"
+                    :label="
+                      Object.values(props.data)[(row - 1) * 4 + curIdx - 1].name
+                    "
                   >
                     <el-input
                       v-if="
-                        Object.values(data)[realRows * 4 + curIdx - 1].type ===
-                        'input'
+                        Object.values(props.data)[(row - 1) * 4 + curIdx - 1]
+                          .type === 'input'
                       "
                       v-model="
-                        res[Object.keys(props.data)[realRows * 4 + curIdx - 1]]
+                        res[Object.keys(props.data)[(row - 1) * 4 + curIdx - 1]]
                       "
                     />
 
                     <el-select
                       v-if="
-                        Object.values(props.data)[realRows * 4 + curIdx - 1]
+                        Object.values(props.data)[(row - 1) * 4 + curIdx - 1]
                           .type === 'select'
                       "
                       v-model="
-                        res[Object.keys(props.data)[realRows * 4 + curIdx - 1]]
+                        res[Object.keys(props.data)[(row - 1) * 4 + curIdx - 1]]
                       "
                       placeholder="请选择..."
                       style="width: 100%"
                     >
                       <el-option
                         v-for="item in props.data[
-                          Object.keys(props.data)[realRows * 4 + curIdx - 1]
+                          Object.keys(props.data)[(row - 1) * 4 + curIdx - 1]
                         ].options"
                         :key="item.value"
                         :label="item.label"
@@ -83,21 +46,69 @@
                   </el-form-item>
                 </el-col>
               </el-row>
-            </template>
-          </el-form>
-        </div>
-      </el-col>
-      <el-col :span="4">
-        <div class="filter-btn">
-          <el-button type="primary" @click="search">搜索</el-button>
-          <el-button @click="clearForm">重置</el-button>
-        </div>
-      </el-col>
-    </el-row>
+              <template v-if="ceilRows !== realRows">
+                <el-row>
+                  <el-col :span="6" v-for="curIdx in lastAttr" :key="curIdx">
+                    <el-form-item
+                      :label="
+                        Object.values(data)[realRows * 4 + curIdx - 1].name
+                      "
+                    >
+                      <el-input
+                        v-if="
+                          Object.values(data)[realRows * 4 + curIdx - 1]
+                            .type === 'input'
+                        "
+                        v-model="
+                          res[
+                            Object.keys(props.data)[realRows * 4 + curIdx - 1]
+                          ]
+                        "
+                      />
+
+                      <el-select
+                        v-if="
+                          Object.values(props.data)[realRows * 4 + curIdx - 1]
+                            .type === 'select'
+                        "
+                        v-model="
+                          res[
+                            Object.keys(props.data)[realRows * 4 + curIdx - 1]
+                          ]
+                        "
+                        placeholder="请选择..."
+                        style="width: 100%"
+                      >
+                        <el-option
+                          v-for="item in props.data[
+                            Object.keys(props.data)[realRows * 4 + curIdx - 1]
+                          ].options"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value"
+                        ></el-option>
+                      </el-select>
+                    </el-form-item>
+                  </el-col>
+                </el-row>
+              </template>
+            </el-form>
+          </div>
+        </el-col>
+        <el-col :span="4">
+          <div class="filter-btn">
+            <el-button type="primary" @click="search">搜索</el-button>
+            <el-button @click="clearForm">重置</el-button>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
 <script setup>
+//是否展示Filter
+let isShowFilter = ref(false)
 const props = defineProps({
   data: {
     type: Object,
@@ -141,7 +152,6 @@ async function search() {
 function clearForm() {
   setAttrOfObj(props.data)
 }
-
 </script>
 
 <style lang="scss" scoped>

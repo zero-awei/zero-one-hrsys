@@ -26,6 +26,12 @@
                 <p class="hr-button__p">删除</p>
               </span>
             </el-button>
+            <div class="filter-bar">
+              <Filter
+                :data="filterData"
+                v-if="tableOperation.name === '过滤'"
+              ></Filter>
+            </div>
           </div>
         </div>
       </el-row>
@@ -36,17 +42,19 @@
 <script setup>
 import AddButton from './AddButton.vue'
 import SearchBox from '@/components/SearchBox.vue'
+import Filter from '@/components/filter/Filter.vue'
 import { getCurrentInstance, onMounted } from 'vue'
 const { $bus } = getCurrentInstance().appContext.config.globalProperties
 
 defineProps({
   tableTitle: String,
   addTitle: String,
-  tableOperations:Array,
+  tableOperations: Array,
   dataitem: Array,
   saveData: Function,
   deleteData: Function,
-  filter:{
+  filterData: Object,
+  filter: {
     type: Function,
     default: () => {}
   }
