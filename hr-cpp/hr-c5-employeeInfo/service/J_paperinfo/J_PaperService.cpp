@@ -1,7 +1,7 @@
 
 #include "stdafx.h"
 #include "J_PaperService.h"
-#include "../../dao/J_paperinfo/J_paperinfoDAO.h"
+#include "../../dao/J_paperinfo/J_PaperinfoDAO.h"
 
 
 

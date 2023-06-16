@@ -20,26 +20,19 @@
 #include "Router.h"
 #include "ApiHelper.h"
 
-
-#include "paperinfoController/PaperinfoController.h"
 #include "patentinfo/PatentinfoController.h"
 #include "J_patentinfo/J_PatentinfoController.h"
 #include "archives/ArchivesController.h"
-
-#include "archives/ArchivesController.h"
 #include "archivesCenter/ArchivesCenterController.h"
-
 
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
 #include "sample/SampleController.h"
 #include "uselib/ws/WSController.h"
 #endif
+
 #include"NotEmployeeInArchive/NotEmployeeInArchiveController.h"
 #include"UpdateArchiveInfo/UpdateArchiveInfoController.h"
-
-#include "archives/ArchivesController.h"
-
 #include "J_paperinfo/J_PaperController.h"
 
 // 如果定义了关闭Swagger文档宏
@@ -66,7 +59,7 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-	ROUTER_SIMPLE_BIND(PaperinfoController);
+	//ROUTER_SIMPLE_BIND(PaperinfoController);
 	ROUTER_SIMPLE_BIND(PatentinfoController);
 
 
