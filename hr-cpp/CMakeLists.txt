@@ -19,7 +19,7 @@ add_definitions(-D_CRT_SECURE_NO_WARNINGS -D_SILENCE_ALL_CXX17_DEPRECATION_WARNI
 add_definitions(-DCPP_JWT_USE_VENDORED_NLOHMANN_JSON)
 add_definitions(-DOATPP_DISABLE_ENV_OBJECT_COUNTERS)
 add_definitions(-DCHECK_TOKEN)
-add_definitions(-DSTOP_PWD="01star")
+add_definitions(-DSTOP_PWD="#Zxy141540")
 add_definitions(-DOATPP_SWAGGER_SERVICE_NAME="arch demo for linux")
 add_definitions(-DOATPP_SWAGGER_RES_PATH="res")
 add_definitions(-DBSONCXX_STATIC -DMONGOCXX_STATIC -DENABLE_AUTOMATIC_INIT_AND_CLEANUP=OFF)
