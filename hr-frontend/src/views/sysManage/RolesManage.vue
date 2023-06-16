@@ -23,12 +23,11 @@
 <script lang="ts" setup>
 import TableHead from '@/components/table/head/TableHead.vue'
 import MainTable from '@/components/MainTable.vue'
-import { addMenu, deleteMenus } from '@/apis/sysManage/menuManage'
+import { addRole, deleteRole } from '@/apis/sysManage/roleManage'
 import { getCurrentInstance, onBeforeMount, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import { roleManageStore } from '@/stores/roleManage'
 const $store = roleManageStore()
-
 
 onBeforeMount(() => {
   $store.initTableData()
@@ -37,7 +36,7 @@ onBeforeMount(() => {
 
 //将新增的数据保存
 const addData = (val) => {
-  addMenu(
+  addRole(
     val,
     () => {
       $store.initTableData()
@@ -57,7 +56,7 @@ const deleteData = (val) => {
   }
   // console.log(data)
   for (let i = 0; i < dataArr.length; i++) {
-    deleteMenus(
+    deleteRole(
       {
         id: dataArr[i]
       },
