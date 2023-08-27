@@ -48,7 +48,7 @@ int EmployeeInfoDAO::insertEmployee(const EmployeeInfoAddDTO::Wrapper& eadto, st
 	sql << "INSERT INTO `t_pimperson` (`PIMPERSONID`,`YGBH`,`PIMPERSONNAME`,`ZJLX`,";
 	sql << "`ZJHM`,`LXDH`,`YGZT`,`UPDATEDATE`,`CREATEDATE`,`CREATEMAN`,`UPDATEMAN`) VALUE(?,?,?,?,?,?,?,?,?,?,?)";//,
 	string sqlStr = sql.str();
-	return sqlSession->executeUpdate(sqlStr, "%s%s%s%s%s%s%s%s%s", pimid, eadto->empid.getValue({}),
+	return sqlSession->executeUpdate(sqlStr, "%s%s%s%s%s%s%s%s%s%s%s", pimid, eadto->empid.getValue({}),
 		eadto->name.getValue({}), eadto->idType.getValue({}), eadto->idNum.getValue({}),
 		eadto->phoneNum.getValue({}), eadto->state.getValue({}), dt, dt, pl, pl);
 }

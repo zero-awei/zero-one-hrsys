@@ -52,6 +52,7 @@ public:
 	*/
 	ENDPOINT_INFO(employeeQuery) {
 		info->summary = ZH_WORDS_GETTER("employee.get.summary");
+		API_DEF_ADD_AUTH();
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		API_DEF_ADD_QUERY_PARAMS(String, "pimpersonid", ZH_WORDS_GETTER("employee.field.pimpersonid"), "0002CC75-F8EB-45B3-A359-0310EC7F6D5B", true);
 		/*API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("employee.field.id"), "666", true);
@@ -76,7 +77,7 @@ public:
 		API_DEF_ADD_QUERY_PARAMS(String, "photo", ZH_WORDS_GETTER("employee.field.photo"), u8"[{\"name\":\"组织管理.png\",\"id\":\"4d3c48ea78cc1d4a04bdb2142f136d28\"}]", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "phone", ZH_WORDS_GETTER("employee.field.phone"), "6666", false);*/
 	}
-	API_HANDLER_ENDPOINT_QUERY(API_M_GET, "/c3-employee-info/employee-query", employeeQuery, EmployeeInfoQuery, execEmployeeQuery(query));
+	API_HANDLER_ENDPOINT_QUERY_AUTH(API_M_GET, "/c3-employee-info/employee-query", employeeQuery, EmployeeInfoQuery, execEmployeeQuery(query));
 	/* *
 	* 增加指定员工信息
 	* 执行人：Detachment
