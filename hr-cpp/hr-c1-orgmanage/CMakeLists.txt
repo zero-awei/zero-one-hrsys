@@ -2,6 +2,7 @@
 # 项目特定的逻辑。
 #
 cmake_minimum_required (VERSION 3.8)
+add_definitions(-std=c++11)
 
 # 设置文件名称
 set (appName hr-c1-orgmanage)

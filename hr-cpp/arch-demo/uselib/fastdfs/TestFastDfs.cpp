@@ -39,7 +39,7 @@ void TestFastDfs::testDfs(string fileName)
 #endif
 
 	//测试上传
-	std::string fieldName = client.uploadFile(fileName);
+	std::string fieldName = client.uploadFile(fileName);//学会引用架构函数即可
 	std::cout << "upload fieldname is : " << fieldName << std::endl;
 	//测试下载
 	if (!fieldName.empty())

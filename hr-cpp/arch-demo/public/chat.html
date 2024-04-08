@@ -30,7 +30,7 @@
     function init() {
         if (echo_websocket) return;
         let clientId = document.getElementById("clientId").value;
-        let wsUri = "ws://localhost:8090/chat?id=" + clientId;
+        let wsUri = "ws://localhost:8091/chat?id=" + clientId;
         writeToScreen("连接到" + wsUri);
         //1.创建WebSocket客户端对象
         echo_websocket = new WebSocket(wsUri);

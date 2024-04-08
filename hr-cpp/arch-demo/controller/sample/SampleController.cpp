@@ -19,17 +19,19 @@
 #include "stdafx.h"
 #include "SampleController.h"
 #include "../../service/sample/SampleService.h"
-
+//要对数据进行操作操作得使用 对象 dto
+//要对数据进行查询得使用 对象 query
 SamplePageJsonVO::Wrapper SampleController::execQuerySample(const SampleQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	// 定义一个Service
 	SampleService service;
 	// 查询数据
-	auto result = service.listAll(query);
+	auto result = service.listAll(query);//得到查询的结果--得下面层级响应的结果
 	// 响应结果
-	auto jvo = SamplePageJsonVO::createShared();
-	jvo->success(result);
+	auto jvo = SamplePageJsonVO::createShared();//
+	jvo->success(result);//将得到的结果进行再一次的封装 返回更上一层
 	return jvo;
+	//controller 层  向显示层返回的数据对象 jvo    
 }
 
 Uint64JsonVO::Wrapper SampleController::execAddSample(const SampleDTO::Wrapper& dto)

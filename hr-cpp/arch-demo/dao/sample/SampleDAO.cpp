@@ -38,7 +38,7 @@ if (query->age) { \
 	SQLPARAMS_PUSH(params, "i", int, query->age.getValue(0)); \
 }
 
-uint64_t SampleDAO::count(const SampleQuery::Wrapper & query)
+uint64_t SampleDAO::count(const SampleQuery::Wrapper & query)//封装入sql语句 将count 函数用C++封装
 {
 	stringstream sql;
 	sql << "SELECT COUNT(*) FROM sample";
@@ -47,7 +47,7 @@ uint64_t SampleDAO::count(const SampleQuery::Wrapper & query)
 	return sqlSession->executeQueryNumerical(sqlStr, params);
 }
 
-std::list<SampleDO> SampleDAO::selectWithPage(const SampleQuery::Wrapper& query)
+std::list<SampleDO> SampleDAO::selectWithPage(const SampleQuery::Wrapper& query)//封装分页查询语句
 {
 	stringstream sql;
 	sql << "SELECT * FROM sample";
@@ -58,7 +58,7 @@ std::list<SampleDO> SampleDAO::selectWithPage(const SampleQuery::Wrapper& query)
 	return sqlSession->executeQuery<SampleDO, SampleMapper>(sqlStr, mapper, params);
 }
 
-std::list<SampleDO> SampleDAO::selectByName(const string& name)
+std::list<SampleDO> SampleDAO::selectByName(const string& name)//封装 根据名字的mql查询语句
 {
 	string sql = "SELECT * FROM sample WHERE `name` LIKE CONCAT('%',?,'%')";
 	SampleMapper mapper;
@@ -71,13 +71,13 @@ uint64_t SampleDAO::insert(const SampleDO& iObj)
 	return sqlSession->executeInsert(sql, "%s%s%i", iObj.getName(), iObj.getSex(), iObj.getAge());
 }
 
-int SampleDAO::update(const SampleDO& uObj)
+int SampleDAO::update(const SampleDO& uObj)//更新数据库存储的数据
 {
 	string sql = "UPDATE `sample` SET `name`=?, `sex`=?, `age`=? WHERE `id`=?";
 	return sqlSession->executeUpdate(sql, "%s%s%i%ull", uObj.getName(), uObj.getSex(), uObj.getAge(), uObj.getId());
 }
 
-int SampleDAO::deleteById(uint64_t id)
+int SampleDAO::deleteById(uint64_t id)//根据id 号删除数据
 {
 	string sql = "DELETE FROM `sample` WHERE `id`=?";
 	return sqlSession->executeUpdate(sql, "%ull", id);

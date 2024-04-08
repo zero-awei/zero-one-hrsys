@@ -44,7 +44,7 @@ UserPageJsonVO::Wrapper UserController::executeQueryAll(const UserQuery::Wrapper
 	page->calcPages();
 
 	// 模拟计算分页数据
-	int64_t start = (page->pageIndex.getValue(1) - 1) * page->pageSize.getValue(1);
+	int64_t start = (page->pageIndex.getValue(1) - 1) * page->pageSize.getValue(1);//与sql 语句 select * from 表名 limit (页码数-1) * 记录数 有着 映射关系
 	int64_t end = start + page->pageSize.getValue(1);
 	// 边界值值处理
 	if (start >= page->total.getValue(0) || start < 0) {

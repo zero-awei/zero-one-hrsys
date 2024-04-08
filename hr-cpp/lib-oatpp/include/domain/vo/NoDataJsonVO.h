@@ -34,7 +34,7 @@ class NoDataJsonVO : public oatpp::DTO
 	DTO_INIT(NoDataJsonVO, DTO);
 
 	// ×´Ì¬Âë
-	DTO_FIELD_INFO(code) {
+	DTO_FIELD_INFO(code) {//schema ×Ö¶ÎÃèÊö
 #ifndef LINUX
 		info->description = u8"×´Ì¬Âë";
 #else

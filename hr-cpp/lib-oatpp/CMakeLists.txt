@@ -2,7 +2,7 @@
 # 项目特定的逻辑。
 #
 cmake_minimum_required (VERSION 3.8)
-
+add_definitions(-std=c++11)
 # 包含库目录
 include_directories ("./")
 include_directories ("include")

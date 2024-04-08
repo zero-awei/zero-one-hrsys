@@ -55,11 +55,12 @@ public:
 		// 定义分页参数描述
 		API_DEF_ADD_PAGE_PARAMS();
 		// 定义其他表单参数描述
-		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("sample.field.name");
-		info->queryParams["name"].addExample("default", String("li ming"));
-		info->queryParams["name"].required = false;
-		info->queryParams.add<String>("sex").description = ZH_WORDS_GETTER("sample.field.sex");
-		info->queryParams["sex"].addExample("default", String("N"));
+		info->queryParams.add<String>("name").description = ZH_WORDS_GETTER("sample.field.name");//description 方法是在内存中查找 “sample.field.name” 映射的出的中文
+		info->queryParams["name"].addExample("default", String("li ming"));//给name这个接口一个默认值
+		info->queryParams["name"].required = false;//设置的是参数属性-
+
+		info->queryParams.add<String>("sex").description = ZH_WORDS_GETTER("sample.field.sex");//查询字典---映射查询
+		info->queryParams["sex"].addExample("default", String("N"));//给接口一个默认参数
 		info->queryParams["sex"].required = false;
 	}
 	// 3.2 定义查询接口处理
@@ -81,6 +82,7 @@ public:
 		// 响应结果
 		API_HANDLER_RESP_VO(execAddSample(dto));
 	}
+	
 	// 3.1 定义修改接口描述
 	ENDPOINT_INFO(modifySample) {
 		// 定义接口标题
@@ -93,6 +95,7 @@ public:
 		// 响应结果
 		API_HANDLER_RESP_VO(execModifySample(dto));
 	}
+
 	// 3.1 定义删除接口描述
 	ENDPOINT_INFO(removeSample) {
 		// 定义接口标题

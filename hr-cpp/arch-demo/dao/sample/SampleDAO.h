@@ -26,7 +26,7 @@
 /**
  * 示例表数据库操作实现
  */
-class SampleDAO : public BaseDAO
+class SampleDAO : public BaseDAO//直接和数据交互的一层
 {
 public:
 	// 统计数据条数
